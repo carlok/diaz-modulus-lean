@@ -1,0 +1,22 @@
+# Everything that is not the formalization
+private/
+
+# Lean build artefacts
+.lake/
+*.olean
+*.ilean
+
+# LaTeX build artefacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# tooling scratch, from any agent
+.codegraph/
+.cursor/
+__pycache__/
+*.pyc
+
+.DS_Store
