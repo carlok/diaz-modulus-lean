@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Regenerate dependency-graph.dot, the README mermaid block and
-blueprint.tex from the formalization.
+"""Regenerate dependency-graph.dot and the README mermaid block from the
+formalization.
 
 Dependencies come from Lean's own printed proof terms, not from matching
 text in the sources -- an earlier text-matching version produced six
 false edges and missed ten real ones.  Run:
 
     lean scripts/dump_prints.lean > /tmp/prints.txt     # (with LEAN_PATH set)
-    python3 scripts/blueprint.py /tmp/prints.txt
+    python3 scripts/depgraph.py /tmp/prints.txt
 
 Nothing produced here is hand-maintained.  Edit the Lean, then rerun.
 """
@@ -100,45 +100,6 @@ def transitive_reduction(deps):
     return out
 
 
-TR = [("ℂ", "C"), ("ℚ", "Q"), ("ℝ", "R"), ("ℤ", "Z"), ("ℕ", "N"), ("ℒ", "L"),
-      ("↥", ""), ("≃ₐ", " ~=a "), ("→+*", " ->+* "), ("∉", " notin "),
-      ("∈", " in "), ("≠", " != "), ("↦", " |-> "), ("→", " -> "),
-      ("∀", "forall "), ("∃", "exists "), ("∧", " and "), ("∨", " or "),
-      ("¬", "not "), ("×", " x "), ("⁻¹", "^-1"), ("≤", " <= "), ("≥", " >= "),
-      ("√", "sqrt "), ("∑", "sum "), ("⟮", "("), ("⟯", ")"), ("₀", "0"),
-      ("ᵀ", "^T"), ("⊕", " (+) "), ("∘", " . "), ("∣", " | "), ("⟨", "<"),
-      ("⟩", ">"), ("‖", "||"), ("≅", " =~ "), ("∅", "empty"), ("⊆", " subset "),
-      ("ρ", "rho"), ("σ", "sigma"), ("Φ", "Phi"), ("α", "alpha"), ("β", "beta"),
-      ("μ", "mu"), ("ζ", "zeta"), ("π", "pi"), ("λ", "lam"), ("ω", "omega"),
-      ("τ", "tau"), ("φ", "phi"), ("ψ", "psi"), ("Δ", "Delta"), ("ε", "eps"),
-      ("—", "---"), ("–", "--"), ("’", "'"), ("‘", "'"), ("“", '"'), ("”", '"'),
-      ("…", "..."), ("·", "*"), ("×", "x"), ("→", "->"), ("≈", "~="),
-      ('̄', 'bar'),
-      ("𝒟", "D"),
-      ("↔", " <-> "),
-      ("⁴", "^4"),
-      ("é", "e"), ("è", "e"), ("ê", "e"), ("ü", "u"), ("ö", "o"), ("²", "^2")]
-
-
-def to_ascii(t, where):
-    for a, b in TR:
-        t = t.replace(a, b)
-    bad = sorted({c for c in t if ord(c) > 127})
-    if bad:
-        raise SystemExit(
-            f"unmapped non-ASCII in {where}: {bad!r}\n"
-            "Add it to TR. Never silently substitute -- an earlier version "
-            "turned the non-membership sign into '?', which reads as its "
-            "opposite.")
-    return re.sub(r' +', ' ', t)
-
-
-def tex_escape(t):
-    for a, b in [("\\", r"\textbackslash "), ("_", r"\_"), ("&", r"\&"),
-                 ("%", r"\%"), ("#", r"\#"), ("$", r"\$"), ("{", r"\{"),
-                 ("}", r"\}"), ("^", r"\^{}"), ("~", r"\~{}")]:
-        t = t.replace(a, b)
-    return t
 
 
 def write_dump(order):
@@ -216,64 +177,11 @@ def main(printfile):
     r = re.sub(r"```mermaid\n.*?\n```", "```mermaid\n" + mermaid + "\n```", r, flags=re.S)
     readme.write_text(r)
 
-    # ---- blueprint ----
-    out = [PREAMBLE.replace("NDECL", str(len(names))).replace("NGREEN", str(len(GREEN)))
-           .replace("NBLUE", str(len(ONAX))).replace("NAX", str(len(AX)))]
-    for f in FILES:
-        ns = sorted(n for n in names if info[n][0] == f)
-        if not ns: continue
-        out.append(f"\n\\section{{{TITLE[f]}}}\n\\noindent\\texttt{{Diaz/{f}.lean}}\n")
-        for n in ns:
-            _, kind, sig, doc = info[n]
-            tag = r"\tagax" if n in AX else (r"\tagon" if n in ONAX else r"\tagpr")
-            out.append(f"\n\\subsection*{{\\texttt{{{tex_escape(n)}}} \\hfill {tag}}}")
-            if doc:
-                out.append("\n" + tex_escape(to_ascii(doc, f"docstring of {n}")) + "\n")
-            out.append("\\begin{lstlisting}\n" + to_ascii(sig, f"signature of {n}") + "\n\\end{lstlisting}")
-            d = sorted(deps[n])
-            if d:
-                out.append("\\noindent\\footnotesize Uses: " +
-                           ", ".join(r"\texttt{" + tex_escape(x) + "}" for x in d) +
-                           "\\normalsize\n")
-    out.append("\n\\end{document}\n")
-    pathlib.Path("blueprint.tex").write_text("\n".join(out))
-    print(f"{len(names)} declarations: {len(GREEN)} proved, {len(ONAX)} on an import, {len(AX)} imported")
+    print(f"{len(names)} declarations: {len(GREEN)} proved, "
+          f"{len(ONAX)} on an import, {len(AX)} imported")
     print(f"edges: {sum(len(deps[n]) for n in names)}")
 
 
-PREAMBLE = r"""\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}\usepackage{lmodern}
-\usepackage{geometry}\usepackage{amsmath,amssymb}\usepackage{xcolor}
-\usepackage{listings}\usepackage{hyperref}\usepackage{microtype}
-\geometry{margin=1in}\hypersetup{hidelinks}
-\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true,columns=fullflexible,
-  frame=leftline,framesep=6pt,xleftmargin=8pt,aboveskip=5pt,belowskip=5pt}
-\definecolor{axc}{HTML}{B8860B}\definecolor{onaxc}{HTML}{3A6EA5}
-\definecolor{provedc}{HTML}{3C8A3C}
-\newcommand{\tagax}{\textcolor{axc}{\textbf{[imported]}}}
-\newcommand{\tagon}{\textcolor{onaxc}{\textbf{[rests on an import]}}}
-\newcommand{\tagpr}{\textcolor{provedc}{\textbf{[proved outright]}}}
-\title{Blueprint: what the Lean development proves}
-\author{Generated by \texttt{scripts/blueprint.py}}\date{\today}
-\begin{document}\maketitle
-
-\noindent
-Generated from the formalization, not written alongside it. Dependencies
-are read from Lean's own printed proof terms; the classification is
-propagated from the imported axioms and agrees with \verb|#print axioms|.
-Signatures are transliterated to ASCII, and the generator aborts on any
-character it has no mapping for rather than substituting a placeholder.
-
-\medskip\noindent
-\tagax\ assumed. Both are classical theorems, neither open nor near the
-frontier this development concerns.\\
-\tagon\ proved, but its proof reaches an imported axiom.\\
-\tagpr\ proved from nothing beyond Lean's own three axioms.
-
-\medskip\noindent
-Of NDECL declarations, NGREEN are proved outright, NBLUE rest on an
-import, and NAX are imported. No \verb|sorry| occurs anywhere.
-"""
 
 if __name__ == "__main__":
     main(sys.argv[1] if len(sys.argv) > 1 else "/tmp/prints.txt")

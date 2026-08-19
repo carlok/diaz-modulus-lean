@@ -49,7 +49,7 @@ carries all 57, grouped by file. Both are transitively reduced: an edge
 implied by a longer path is not drawn, so a declaration's full
 dependency set is its ancestors, not just its parents.
 
-Regenerate with `scripts/blueprint.py` after any change to the Lean;
+Regenerate with `scripts/depgraph.py` after any change to the Lean;
 nothing here is hand-maintained.
 
 ```mermaid
@@ -328,12 +328,4 @@ formalization and two adversarial audits of it. Every attribution was
 checked against primary sources, and several claims of novelty died that
 way. What survives is what survived that.
 
-## Blueprint
-
-`blueprint.tex` states every declaration with its signature, its
-docstring, what it uses, and whether it is proved outright, rests on an
-import, or is imported. Like the graph it is generated from the sources,
-so it cannot drift from them.
-
-Both artefacts are derived. If the formalization changes, regenerate them
-rather than editing them.
+Regenerate with `scripts/depgraph.py` after any change to the Lean.
