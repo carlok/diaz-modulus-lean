@@ -10,17 +10,13 @@ is what makes it true: an isomorphism carrying one configuration to the
 other, and the fact that such an isomorphism preserves each of the three
 kinds of data. Any assertion built from them therefore transfers.
 
-Two halves:
+`conj_comm` is the content: an isomorphism sending `u` to `t`
+automatically intertwines complex conjugation. Nothing has to be
+arranged, the relation `conj u = ρ / u` forcing it by the rigidity of
+`eqOn_hull`. This is where the note's original error lived.
 
-* `hulls_equiv` — the hulls of any two candidates over the same `K` are
-  isomorphic as `K`-algebras. This is Mathlib's rational function field
-  equivalence applied twice; both hulls are copies of `K(T)`.
-* `conj_comm` — an isomorphism sending `u` to `t` automatically
-  intertwines complex conjugation. Nothing has to be arranged: the
-  relation `conj u = ρ / u` forces it, by the rigidity of `eqOn_hull`.
-
-The second is the one with content, and it is where the note's original
-error lived.
+Existence of the isomorphism comes from the Steinitz axiom, in
+`exists_conj_intertwining` below.
 -/
 import Mathlib
 import Diaz.Model

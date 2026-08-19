@@ -56,6 +56,50 @@ theorem plane_norm (u : ℂ) (a b : ℚ) :
   simp only [map_add, map_mul, Complex.conj_conj, map_ratCast]
   ring
 
+/-! ## Three-term independence over the base
+
+`lem:stable` of the note has two clauses.  Conjugation-stability is
+`conj_mem_hull`; this is the other, and it is what makes `W_u`
+three-dimensional. -/
+
+/-- `1`, `u` and `conj u` are independent over the base. -/
+theorem indep_three (hT : Transcendental K u) (hρ : u * conj u ∈ K)
+    {a b c : ℂ} (ha : a ∈ K) (hb : b ∈ K) (hc : c ∈ K)
+    (h : a + b * u + c * conj u = 0) : a = 0 ∧ b = 0 ∧ c = 0 := by
+  have hu0 : u ≠ 0 := transcendental_ne_zero hT
+  have hρ0 : u * conj u ≠ 0 := by
+    simp only [ne_eq, mul_eq_zero, not_or]
+    exact ⟨hu0, by simpa using hu0⟩
+  -- substituting conj u = (u conj u)/u and clearing gives a quadratic over K
+  have hquad : b * u ^ 2 + a * u + c * (u * conj u) = 0 := by
+    have hcu : conj u = (u * conj u) / u := (conj_eq_rho_div hu0).symm
+    rw [hcu] at h
+    field_simp at h
+    linear_combination u * h
+  by_contra hne
+  refine hT ⟨Polynomial.C (⟨b, hb⟩ : K) * Polynomial.X ^ 2
+      + Polynomial.C (⟨a, ha⟩ : K) * Polynomial.X
+      + Polynomial.C (⟨c * (u * conj u), mul_mem hc hρ⟩ : K), ?_, ?_⟩
+  · -- the polynomial is non-zero: otherwise every coefficient is, and then so is (a,b,c)
+    intro hzero
+    apply hne
+    have hb0 : b = 0 := by
+      have := congrArg (fun q => Polynomial.coeff q 2) hzero
+      simpa using congrArg (Subtype.val) this
+    have ha0 : a = 0 := by
+      have := congrArg (fun q => Polynomial.coeff q 1) hzero
+      simpa using congrArg (Subtype.val) this
+    have hc0 : c = 0 := by
+      have := congrArg (fun q => Polynomial.coeff q 0) hzero
+      have h0 : c * (u * conj u) = 0 := by simpa using congrArg (Subtype.val) this
+      rcases mul_eq_zero.mp h0 with h' | h'
+      · exact h'
+      · exact absurd h' hρ0
+    exact ⟨ha0, hb0, hc0⟩
+  · simp only [map_add, map_mul, map_pow, Polynomial.aeval_X, Polynomial.aeval_C]
+    show b * u ^ 2 + a * u + c * (u * conj u) = 0
+    exact hquad
+
 /-! ## Four nodes -/
 
 /-- **The reflection circle meets the rational plane in four points.**
@@ -71,7 +115,7 @@ theorem four_nodes (hρ : u * conj u ∈ K) (hre : (u + conj u) ^ 2 ∉ K)
     (a = 1 ∧ b = 0) ∨ (a = -1 ∧ b = 0)
       ∨ (a = 0 ∧ b = 1) ∨ (a = 0 ∧ b = -1) := by
   rw [plane_norm] at h
-  have hQ : ∀ q : ℚ, (q : ℂ) ∈ K := fun q => by simpa using (K.ratCast_mem q)
+  have hQ : ∀ q : ℚ, (q : ℂ) ∈ K := fun q => by simp
   -- `u * conj u` is non-zero, else `u = 0` and the cross term lies in `K`
   have hρ0 : u * conj u ≠ 0 := by
     intro hc
@@ -81,7 +125,7 @@ theorem four_nodes (hρ : u * conj u ∈ K) (hre : (u + conj u) ^ 2 ∉ K)
       · exact h'
       · simpa using congrArg (starRingEnd ℂ) h'
     rw [hu0]
-    simpa using zero_mem K
+    simp
   -- the cross term must vanish, else `(u + conj u)²` would lie in `K`
   have hab : a * b = 0 := by
     by_contra hne
@@ -136,13 +180,29 @@ The hypothesis on `u + conj u` is exactly that it is a non-zero element
 of `ℒ`, since `ℒ` is a `ℚ`-space stable under conjugation; the axiom
 then makes it transcendental. -/
 theorem four_nodes_candidate {L : Subfield ℂ} [Algebra.IsAlgebraic ℚ (↥L)]
+    (hu0 : u ≠ 0) (hexp : IsAlgebraic ℚ (Complex.exp u))
     (hρ : u * conj u ∈ L)
-    (hsum0 : u + conj u ≠ 0) (hsumexp : IsAlgebraic ℚ (Complex.exp (u + conj u)))
     {a b : ℚ} (h : ((a : ℂ) * u + (b : ℂ) * conj u)
       * conj ((a : ℂ) * u + (b : ℂ) * conj u) = u * conj u) :
     (a = 1 ∧ b = 0) ∨ (a = -1 ∧ b = 0)
-      ∨ (a = 0 ∧ b = 1) ∨ (a = 0 ∧ b = -1) :=
-  four_nodes hρ
+      ∨ (a = 0 ∧ b = 1) ∨ (a = 0 ∧ b = -1) := by
+  have hT : Transcendental (↥L) u := transcendental_candidate_over_base hu0 hexp
+  -- `u + conj u ≠ 0` is the second half of the axis lemma, three declarations up
+  have hsum0 : u + conj u ≠ 0 := by
+    intro hz
+    exact (not_on_axes hT hρ).2 (by linear_combination hz)
+  -- and its exponential is algebraic, being `exp u` times its conjugate
+  have hsumexp : IsAlgebraic ℚ (Complex.exp (u + conj u)) := by
+    have : Complex.exp (u + conj u) = Complex.exp u * conj (Complex.exp u) := by
+      rw [← Complex.exp_conj, ← Complex.exp_add]
+    rw [this]
+    refine hexp.mul ?_
+    obtain ⟨q, hq0, hqa⟩ := hexp
+    refine ⟨q, hq0, ?_⟩
+    have := congrArg (starRingEnd ℂ) hqa
+    simpa [Polynomial.aeval_def, Polynomial.eval₂_eq_sum, map_sum,
+      Polynomial.sum] using this
+  exact four_nodes hρ
     (sq_notMem_of_transcendental
       (transcendental_candidate_over_base hsum0 hsumexp)) h
 

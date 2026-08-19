@@ -117,6 +117,7 @@ flowchart TD
   subgraph Nodes["Nodes.lean"]
     not_on_axes("not_on_axes")
     plane_norm("plane_norm")
+    indep_three("indep_three")
     four_nodes("four_nodes")
     sq_notMem_of_transcendental("sq_notMem_of_transcendental")
     four_nodes_candidate("four_nodes_candidate")
@@ -167,8 +168,11 @@ flowchart TD
   exists_conj_intertwining --> candidate_indistinguishable
   exists_transcendental_on_circle_sq --> candidate_indistinguishable
   transcendental_candidate_over_base --> candidate_indistinguishable
+  conj_eq_rho_div --> indep_three
+  transcendental_ne_zero --> indep_three
   plane_norm --> four_nodes
   four_nodes --> four_nodes_candidate
+  not_on_axes --> four_nodes_candidate
   sq_notMem_of_transcendental --> four_nodes_candidate
   transcendental_candidate_over_base --> four_nodes_candidate
   classDef ax fill:#f5c26b,stroke:#b8860b,color:#000
@@ -176,7 +180,7 @@ flowchart TD
   classDef proved fill:#c6e9c6,stroke:#3c8a3c,color:#000
   class hermite_lindemann,exists_ringHom_of_transcendental ax
   class transcendental_of_candidate,transcendental_candidate_over_base,transcendental_exp_I,exists_transcendental_on_circle,exists_transcendental_on_circle_sq,exists_conj_intertwining,candidate_no_vanishing_coeff,candidate_no_vanishing_coeff_Qbar,exists_transcendental_on_circle_Qbar,candidate_indistinguishable,four_nodes_candidate onax
-  class hull,transcendental_ne_zero,ne_zero_of_notMem,conj_eq_rho_div,conj_mem_hull,conj_not_linear,conj_not_linear_hull,eqOn_hull,transcendental_of_base,norm_form,sq_add_sq_notMem,norm_mem_iff,indep,conj_coords,isAlgebraic_two_rpow,Exp0,Exp0_add,Exp0_swap_conj,Exp0_isAlgebraic,Exp0_eq_one_iff,Exp0_pow_eq_one_iff,model_falsifies,conj_comm,coeff_transfer,Hmat_transfer,Hmat,det_Hmat,no_vanishing_coeff,coeff_eq_matrix,no_vanishing_coeff_matrix,Qbar,QbarIsAlgebraic,mem_Qbar_iff,conj_mem_Qbar,not_on_axes,plane_norm,four_nodes,sq_notMem_of_transcendental proved
+  class hull,transcendental_ne_zero,ne_zero_of_notMem,conj_eq_rho_div,conj_mem_hull,conj_not_linear,conj_not_linear_hull,eqOn_hull,transcendental_of_base,norm_form,sq_add_sq_notMem,norm_mem_iff,indep,conj_coords,isAlgebraic_two_rpow,Exp0,Exp0_add,Exp0_swap_conj,Exp0_isAlgebraic,Exp0_eq_one_iff,Exp0_pow_eq_one_iff,model_falsifies,conj_comm,coeff_transfer,Hmat_transfer,Hmat,det_Hmat,no_vanishing_coeff,coeff_eq_matrix,no_vanishing_coeff_matrix,Qbar,QbarIsAlgebraic,mem_Qbar_iff,conj_mem_Qbar,not_on_axes,plane_norm,indep_three,four_nodes,sq_notMem_of_transcendental proved
 ```
 
 The shape of it is the point. Almost everything is green: the closure
@@ -246,6 +250,17 @@ anything near the frontier this note is about.
   circle are carried onto one another by a conjugation-intertwining
   endomorphism fixing the base.
 
+`Nodes.lean`
+- `not_on_axes` — a candidate has `conj u ≠ u` and `conj u ≠ -u`, so it
+  lies on neither axis.
+- `indep_three` — `1`, `u`, `conj u` are independent over the base, which
+  is what makes `W_u` three-dimensional.
+- `plane_norm` — `(a u + b conj u)(a conj u + b u) = (a-b)²·u conj u
+  + ab·(u + conj u)²` for rational `a, b`.
+- `four_nodes`, `four_nodes_candidate` — inside the rational plane the
+  circle `z conj z = ρ` carries exactly `±u`, `±conj u`. The second takes
+  the arithmetic hypotheses and derives the rest.
+
 `Rigidity.lean`
 - `det_Hmat`, `coeff_factor`, `no_vanishing_coeff` — `H = [[u, r], [r, ū]]`
   has vanishing determinant, yet the coefficient is non-zero for all
@@ -291,11 +306,11 @@ should not have to.
   about derivations rather than a theorem. What is formalized is what
   makes it true: the transfer, and the existence of the comparison
   point.
-- The exponential-fibre bound, the axis lemma, quantisation, and the
-  third-logarithm statement are not formalized.
+- The exponential-fibre bound and the third-logarithm statement are not
+  formalized.
 - Rank and structural rank remain unformalized (see above); the note's
-  `prop:rigidity` (i), the axis lemma, quantisation and the
-  third-logarithm statement are not formalized either.
+  `prop:rigidity` (i), quantisation and the third-logarithm statement
+  are not formalized either.
 
 ### Caveat on `Exponential.lean`
 

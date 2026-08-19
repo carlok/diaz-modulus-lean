@@ -57,6 +57,7 @@ set_option pp.fullNames true
 #print Diaz.candidate_indistinguishable
 #print Diaz.not_on_axes
 #print Diaz.plane_norm
+#print Diaz.indep_three
 #print Diaz.four_nodes
 #print Diaz.sq_notMem_of_transcendental
 #print Diaz.four_nodes_candidate

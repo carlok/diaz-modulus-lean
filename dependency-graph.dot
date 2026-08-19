@@ -74,6 +74,7 @@ digraph Diaz {
   subgraph cluster_7 { label="Nodes.lean"; style=dotted; color=gray;
     "four_nodes" [fillcolor="#c6e9c6"];
     "four_nodes_candidate" [fillcolor="#bcd9f5"];
+    "indep_three" [fillcolor="#c6e9c6"];
     "not_on_axes" [fillcolor="#c6e9c6"];
     "plane_norm" [fillcolor="#c6e9c6"];
     "sq_notMem_of_transcendental" [fillcolor="#c6e9c6"];
@@ -121,11 +122,14 @@ digraph Diaz {
   "exists_transcendental_on_circle" -> "exists_transcendental_on_circle_sq";
   "plane_norm" -> "four_nodes";
   "four_nodes" -> "four_nodes_candidate";
+  "not_on_axes" -> "four_nodes_candidate";
   "sq_notMem_of_transcendental" -> "four_nodes_candidate";
   "transcendental_candidate_over_base" -> "four_nodes_candidate";
   "conj_eq_rho_div" -> "indep";
   "sq_add_sq_notMem" -> "indep";
   "transcendental_ne_zero" -> "indep";
+  "conj_eq_rho_div" -> "indep_three";
+  "transcendental_ne_zero" -> "indep_three";
   "Qbar" -> "mem_Qbar_iff";
   "hull" -> "mem_hull_of_mem_base";
   "Exp0_isAlgebraic" -> "model_falsifies";

@@ -21,9 +21,9 @@ TITLE = {"Axioms": "Imported results", "Closure": "The closure theorem",
          "Instantiation": "The intended base",
          "Nodes": "The reflection circle"}
 SKIP_IN_MERMAID = {"Exp0_pos", "Exp0_ne_zero", "mem_hull_of_mem_base",
-                   "self_mem_hull", "injective_of_hom", "conj_not_linear_of_I",
+                   "self_mem_hull", "conj_not_linear_of_I",
                    "Exp0_swap", "two_rpow_eq_one_iff", "mem_of_lin_rel",
-                   "hullsEquiv", "coeff_factor"}
+                   "coeff_factor"}
 
 HDR = re.compile(r'^(?:noncomputable\s+)?(theorem|lemma|def|abbrev|axiom|instance)\s+([A-Za-z_][A-Za-z0-9_\']*)', re.M)
 
