@@ -36,10 +36,8 @@ set_option pp.fullNames true
 #print Diaz.Exp0_eq_one_iff
 #print Diaz.Exp0_pow_eq_one_iff
 #print Diaz.model_falsifies
-#print Diaz.hullsEquiv
 #print Diaz.conj_comm
 #print Diaz.coeff_transfer
-#print Diaz.injective_of_hom
 #print Diaz.Hmat_transfer
 #print Diaz.exists_conj_intertwining
 #print Diaz.Hmat

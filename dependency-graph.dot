@@ -51,8 +51,6 @@ digraph Diaz {
     "coeff_transfer" [fillcolor="#c6e9c6"];
     "conj_comm" [fillcolor="#c6e9c6"];
     "exists_conj_intertwining" [fillcolor="#bcd9f5"];
-    "hullsEquiv" [fillcolor="#c6e9c6"];
-    "injective_of_hom" [fillcolor="#c6e9c6"];
   }
   subgraph cluster_5 { label="Rigidity.lean"; style=dotted; color=gray;
     "Hmat" [fillcolor="#c6e9c6"];

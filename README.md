@@ -213,8 +213,6 @@ anything near the frontier this note is about.
   algebraic formal exponential.
 
 `Transfer.lean`
-- `hullsEquiv` — the hulls of any two elements transcendental over `K`
-  are isomorphic as `K`-algebras.
 - `conj_comm` — an isomorphism matching the generators *automatically*
   intertwines conjugation. Nothing has to be arranged.
 - `exists_conj_intertwining` — the closure theorem with existence
@@ -274,13 +272,14 @@ show up as `sorryAx`.
 Stated plainly, because an adversarial audit found these and a reader
 should not have to.
 
-- **`hullsEquiv` is decorative.** It lives over `IntermediateField`
-  while everything else is stated for `ℂ →+* ℂ`, and `hull K u` and
-  `K⟮u⟯` are different Lean objects with no bridging lemma. The working
-  existence statement is `exists_conj_intertwining`, which routes through
-  the Steinitz axiom instead.
 - **Rank and structural rank are not formalized.** Only the
-  matrix-coefficient third of "every assertion transfers" is proved.
+  matrix-coefficient third of "every assertion transfers" is proved. The
+  accompanying note says so explicitly rather than claiming the whole
+  transfer.
+- **The no-contradiction corollary is not formalized**, being a statement
+  about derivations rather than a theorem. What is formalized is what
+  makes it true: the transfer, and the existence of the comparison
+  point.
 - The exponential-fibre bound, the axis lemma, quantisation, and the
   third-logarithm statement are not formalized.
 - Rank and structural rank remain unformalized (see above); the note's

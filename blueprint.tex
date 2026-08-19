@@ -28,7 +28,7 @@ frontier this development concerns.\\
 \tagpr\ proved from nothing beyond Lean's own three axioms.
 
 \medskip\noindent
-Of 57 declarations, 45 are proved outright, 10 rest on an
+Of 55 declarations, 43 are proved outright, 10 rest on an
 import, and 2 are imported. No \verb|sorry| occurs anywhere.
 
 
@@ -478,23 +478,6 @@ theorem exists_conj_intertwining (hKconj : forall a in K, conj a in K)
 \end{lstlisting}
 \noindent\footnotesize Uses: \texttt{conj\_comm}, \texttt{exists\_ringHom\_of\_transcendental}, \texttt{transcendental\_ne\_zero}\normalsize
 
-
-\subsection*{\texttt{hullsEquiv} \hfill \tagpr}
-
-The hulls of any two elements transcendental over `K` are isomorphic as `K`-algebras, both being rational function fields.
-
-\begin{lstlisting}
-noncomputable def hullsEquiv (hu : Transcendental (K) u) (ht : Transcendental (K) t) :
- (IntermediateField.adjoin (K) {u}) ~=a [K] (IntermediateField.adjoin (K) {t})
-\end{lstlisting}
-
-\subsection*{\texttt{injective\_of\_hom} \hfill \tagpr}
-
-A ring homomorphism of fields is injective. That injectivity is what *would* give preservation of `K`-linear independence, and hence of rank and structural rank; neither is formalized here, and this lemma states only the injectivity.
-
-\begin{lstlisting}
-theorem injective_of_hom (Phi : C ->+* C) : Function.Injective Phi
-\end{lstlisting}
 
 \section{The rank-one matrix}
 \noindent\texttt{Diaz/Rigidity.lean}

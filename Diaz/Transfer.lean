@@ -32,15 +32,6 @@ namespace Diaz
 
 variable {K : Subfield ℂ} {u t : ℂ}
 
-/-! ## Existence: both hulls are copies of `K(T)` -/
-
-/-- The hulls of any two elements transcendental over `K` are isomorphic
-as `K`-algebras, both being rational function fields. -/
-noncomputable def hullsEquiv (hu : Transcendental (↥K) u) (ht : Transcendental (↥K) t) :
-    ↥(IntermediateField.adjoin (↥K) {u}) ≃ₐ[↥K] ↥(IntermediateField.adjoin (↥K) {t}) :=
-  (RatFunc.algEquivOfTranscendental u hu).symm.trans
-    (RatFunc.algEquivOfTranscendental t ht)
-
 /-! ## The intertwining
 
 This is the part that is not automatic, and the part the note got wrong
@@ -90,14 +81,6 @@ theorem coeff_transfer (Φ : ℂ →+* ℂ) (hK : ∀ a ∈ K, Φ a = a)
   rw [map_sum]
   refine Finset.sum_congr rfl fun j _ => ?_
   rw [map_mul, map_mul, hK _ (hw i), hK _ (hv j)]
-
-/-- A ring homomorphism of fields is injective.
-
-That injectivity is what *would* give preservation of `K`-linear
-independence, and hence of rank and structural rank; neither is
-formalized here, and this lemma states only the injectivity. -/
-theorem injective_of_hom (Φ : ℂ →+* ℂ) : Function.Injective Φ :=
-  Φ.injective
 
 /-- The transported matrix of a candidate is the matrix of its image:
 `Φ` carries `H u r` to `H t r` when it fixes `r` and sends `u` to `t`. -/
