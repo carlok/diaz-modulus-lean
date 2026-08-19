@@ -14,11 +14,12 @@ Nothing produced here is hand-maintained.  Edit the Lean, then rerun.
 import re, sys, pathlib
 
 FILES = ["Axioms", "Closure", "Model", "Exponential", "Transfer", "Rigidity",
-         "Instantiation"]
+         "Instantiation", "Nodes"]
 TITLE = {"Axioms": "Imported results", "Closure": "The closure theorem",
          "Model": "The model", "Exponential": "The formal exponential",
          "Transfer": "Transfer", "Rigidity": "The rank-one matrix",
-         "Instantiation": "The intended base"}
+         "Instantiation": "The intended base",
+         "Nodes": "The reflection circle"}
 SKIP_IN_MERMAID = {"Exp0_pos", "Exp0_ne_zero", "mem_hull_of_mem_base",
                    "self_mem_hull", "injective_of_hom", "conj_not_linear_of_I",
                    "Exp0_swap", "two_rpow_eq_one_iff", "mem_of_lin_rel",

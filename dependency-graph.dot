@@ -71,6 +71,13 @@ digraph Diaz {
     "exists_transcendental_on_circle_Qbar" [fillcolor="#bcd9f5"];
     "mem_Qbar_iff" [fillcolor="#c6e9c6"];
   }
+  subgraph cluster_7 { label="Nodes.lean"; style=dotted; color=gray;
+    "four_nodes" [fillcolor="#c6e9c6"];
+    "four_nodes_candidate" [fillcolor="#bcd9f5"];
+    "not_on_axes" [fillcolor="#c6e9c6"];
+    "plane_norm" [fillcolor="#c6e9c6"];
+    "sq_notMem_of_transcendental" [fillcolor="#c6e9c6"];
+  }
   "Exp0" -> "Exp0_add";
   "Exp0" -> "Exp0_eq_one_iff";
   "two_rpow_eq_one_iff" -> "Exp0_eq_one_iff";
@@ -112,6 +119,10 @@ digraph Diaz {
   "conj_mem_Qbar" -> "exists_transcendental_on_circle_Qbar";
   "exists_transcendental_on_circle" -> "exists_transcendental_on_circle_Qbar";
   "exists_transcendental_on_circle" -> "exists_transcendental_on_circle_sq";
+  "plane_norm" -> "four_nodes";
+  "four_nodes" -> "four_nodes_candidate";
+  "sq_notMem_of_transcendental" -> "four_nodes_candidate";
+  "transcendental_candidate_over_base" -> "four_nodes_candidate";
   "conj_eq_rho_div" -> "indep";
   "sq_add_sq_notMem" -> "indep";
   "transcendental_ne_zero" -> "indep";

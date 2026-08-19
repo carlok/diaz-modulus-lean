@@ -114,6 +114,13 @@ flowchart TD
     exists_transcendental_on_circle_Qbar("exists_transcendental_on_circle_Qbar")
     candidate_indistinguishable("candidate_indistinguishable")
   end
+  subgraph Nodes["Nodes.lean"]
+    not_on_axes("not_on_axes")
+    plane_norm("plane_norm")
+    four_nodes("four_nodes")
+    sq_notMem_of_transcendental("sq_notMem_of_transcendental")
+    four_nodes_candidate("four_nodes_candidate")
+  end
   conj_eq_rho_div --> conj_mem_hull
   hull --> conj_not_linear_hull
   hull --> eqOn_hull
@@ -160,12 +167,16 @@ flowchart TD
   exists_conj_intertwining --> candidate_indistinguishable
   exists_transcendental_on_circle_sq --> candidate_indistinguishable
   transcendental_candidate_over_base --> candidate_indistinguishable
+  plane_norm --> four_nodes
+  four_nodes --> four_nodes_candidate
+  sq_notMem_of_transcendental --> four_nodes_candidate
+  transcendental_candidate_over_base --> four_nodes_candidate
   classDef ax fill:#f5c26b,stroke:#b8860b,color:#000
   classDef onax fill:#bcd9f5,stroke:#3a6ea5,color:#000
   classDef proved fill:#c6e9c6,stroke:#3c8a3c,color:#000
   class hermite_lindemann,exists_ringHom_of_transcendental ax
-  class transcendental_of_candidate,transcendental_candidate_over_base,transcendental_exp_I,exists_transcendental_on_circle,exists_transcendental_on_circle_sq,exists_conj_intertwining,candidate_no_vanishing_coeff,candidate_no_vanishing_coeff_Qbar,exists_transcendental_on_circle_Qbar,candidate_indistinguishable onax
-  class hull,transcendental_ne_zero,ne_zero_of_notMem,conj_eq_rho_div,conj_mem_hull,conj_not_linear,conj_not_linear_hull,eqOn_hull,transcendental_of_base,norm_form,sq_add_sq_notMem,norm_mem_iff,indep,conj_coords,isAlgebraic_two_rpow,Exp0,Exp0_add,Exp0_swap_conj,Exp0_isAlgebraic,Exp0_eq_one_iff,Exp0_pow_eq_one_iff,model_falsifies,conj_comm,coeff_transfer,Hmat_transfer,Hmat,det_Hmat,no_vanishing_coeff,coeff_eq_matrix,no_vanishing_coeff_matrix,Qbar,QbarIsAlgebraic,mem_Qbar_iff,conj_mem_Qbar proved
+  class transcendental_of_candidate,transcendental_candidate_over_base,transcendental_exp_I,exists_transcendental_on_circle,exists_transcendental_on_circle_sq,exists_conj_intertwining,candidate_no_vanishing_coeff,candidate_no_vanishing_coeff_Qbar,exists_transcendental_on_circle_Qbar,candidate_indistinguishable,four_nodes_candidate onax
+  class hull,transcendental_ne_zero,ne_zero_of_notMem,conj_eq_rho_div,conj_mem_hull,conj_not_linear,conj_not_linear_hull,eqOn_hull,transcendental_of_base,norm_form,sq_add_sq_notMem,norm_mem_iff,indep,conj_coords,isAlgebraic_two_rpow,Exp0,Exp0_add,Exp0_swap_conj,Exp0_isAlgebraic,Exp0_eq_one_iff,Exp0_pow_eq_one_iff,model_falsifies,conj_comm,coeff_transfer,Hmat_transfer,Hmat,det_Hmat,no_vanishing_coeff,coeff_eq_matrix,no_vanishing_coeff_matrix,Qbar,QbarIsAlgebraic,mem_Qbar_iff,conj_mem_Qbar,not_on_axes,plane_norm,four_nodes,sq_notMem_of_transcendental proved
 ```
 
 The shape of it is the point. Almost everything is green: the closure

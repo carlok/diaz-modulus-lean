@@ -2,6 +2,7 @@ import Diaz.Axioms
 import Diaz.Closure
 import Diaz.Exponential
 import Diaz.Model
+import Diaz.Nodes
 import Diaz.Rigidity
 import Diaz.Instantiation
 import Diaz.Transfer
