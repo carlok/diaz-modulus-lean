@@ -116,7 +116,7 @@ rather than merely being outside the base field, is what is assumed. -/
 attached rank-one matrix has no vanishing coefficient over that base. -/
 theorem candidate_no_vanishing_coeff {L : Subfield ℂ} [Algebra.IsAlgebraic ℚ (↥L)]
     {u r : ℂ} (hu0 : u ≠ 0) (hexp : IsAlgebraic ℚ (Complex.exp u))
-    (hr : r ∈ L) (hr0 : r ≠ 0) (h : u * conj u = r ^ 2)
+    (hr : r ∈ L) (h : u * conj u = r ^ 2)
     (w v : Fin 2 → ℂ) (hwK : ∀ i, w i ∈ L) (hvK : ∀ j, v j ∈ L)
     (hw : w ≠ 0) (hv : v ≠ 0) :
     ∑ i, ∑ j, w i * (Hmat u r) i j * v j ≠ 0 := by

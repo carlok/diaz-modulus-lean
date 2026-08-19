@@ -515,7 +515,7 @@ If `u` is a Diaz candidate over a base algebraic over `Q`, then the attached ran
 \begin{lstlisting}
 theorem candidate_no_vanishing_coeff {L : Subfield C} [Algebra.IsAlgebraic Q (L)]
  {u r : C} (hu0 : u != 0) (hexp : IsAlgebraic Q (Complex.exp u))
- (hr : r in L) (hr0 : r != 0) (h : u * conj u = r ^ 2)
+ (hr : r in L) (h : u * conj u = r ^ 2)
  (w v : Fin 2 -> C) (hwK : forall i, w i in L) (hvK : forall j, v j in L)
  (hw : w != 0) (hv : v != 0) :
  sum i, sum j, w i * (Hmat u r) i j * v j != 0
@@ -615,7 +615,7 @@ noncomputable instance QbarIsAlgebraic : Algebra.IsAlgebraic Q (Qbar)
 
 \subsection*{\texttt{candidate\_indistinguishable} \hfill \tagon}
 
-**A candidate is indistinguishable from an ordinary complex number.** If `u` is a Diaz candidate over `Qbar` with `u * conj u = r\^{}2`, `r` real and algebraic, then there is a `t` --- transcendental, on the same circle, carrying no algebraic exponential --- and a ring endomorphism of `C` fixing `Qbar`, sending `u` to `t`, and intertwining conjugation on the hull of `u`. This runs from the arithmetic hypotheses to the conclusion with no step left in prose.
+**A candidate is carried onto an ordinary complex number.** If `u` is a Diaz candidate over `Qbar` with `u * conj u = r\^{}2`, `r` real and algebraic, then there is a transcendental `t` and a ring endomorphism of `C` fixing `Qbar`, sending `u` to `t`, and intertwining conjugation on the hull of `u`. That `t` lies on the same circle is derivable from the statement, `Phi` fixing `Qbar` and the intertwining at `z = u`. The witness is `t = r * e\^{}i`, and it is *not* asserted that `exp t` is transcendental: were it algebraic, `t` would itself be a candidate, so that assertion is an instance of the conjecture rather than something proved here. This runs from the arithmetic hypotheses to the endomorphism with no step left in prose. It does not itself apply `coeff\_transfer` or `Hmat\_transfer`; those consume the endomorphism it produces.
 
 \begin{lstlisting}
 theorem candidate_indistinguishable
@@ -636,7 +636,7 @@ theorem candidate_indistinguishable
 \begin{lstlisting}
 theorem candidate_no_vanishing_coeff_Qbar
  {u r : C} (hu0 : u != 0) (hexp : IsAlgebraic Q (Complex.exp u))
- (hr : r in Qbar) (hr0 : r != 0) (h : u * conj u = r ^ 2)
+ (hr : r in Qbar) (h : u * conj u = r ^ 2)
  (w v : Fin 2 -> C) (hwK : forall i, w i in Qbar) (hvK : forall j, v j in Qbar)
  (hw : w != 0) (hv : v != 0) :
  sum i, sum j, w i * (Hmat u r) i j * v j != 0

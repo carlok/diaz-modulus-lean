@@ -59,11 +59,11 @@ and that the base is the one the note is about rather than an arbitrary
 subfield. -/
 theorem candidate_no_vanishing_coeff_Qbar
     {u r : ℂ} (hu0 : u ≠ 0) (hexp : IsAlgebraic ℚ (Complex.exp u))
-    (hr : r ∈ Qbar) (hr0 : r ≠ 0) (h : u * conj u = r ^ 2)
+    (hr : r ∈ Qbar) (h : u * conj u = r ^ 2)
     (w v : Fin 2 → ℂ) (hwK : ∀ i, w i ∈ Qbar) (hvK : ∀ j, v j ∈ Qbar)
     (hw : w ≠ 0) (hv : v ≠ 0) :
     ∑ i, ∑ j, w i * (Hmat u r) i j * v j ≠ 0 :=
-  candidate_no_vanishing_coeff hu0 hexp hr hr0 h w v hwK hvK hw hv
+  candidate_no_vanishing_coeff hu0 hexp hr h w v hwK hvK hw hv
 
 /-- And the circle carries a transcendental point over that base, so the
 model results are instantiated too. -/
@@ -74,16 +74,23 @@ theorem exists_transcendental_on_circle_Qbar {r : ℂ} (hr : r ∈ Qbar) (hr0 : 
 
 /-! ## The closure theorem, end to end -/
 
-/-- **A candidate is indistinguishable from an ordinary complex number.**
+/-- **A candidate is carried onto an ordinary complex number.**
 
 If `u` is a Diaz candidate over `Qbar` with `u · conj u = r²`, `r` real
-and algebraic, then there is a `t` — transcendental, on the same circle,
-carrying no algebraic exponential — and a ring endomorphism of `ℂ` fixing
-`Qbar`, sending `u` to `t`, and intertwining conjugation on the hull of
-`u`.
+and algebraic, then there is a transcendental `t` and a ring
+endomorphism of `ℂ` fixing `Qbar`, sending `u` to `t`, and intertwining
+conjugation on the hull of `u`.  That `t` lies on the same circle is
+derivable from the statement, `Φ` fixing `Qbar` and the intertwining at
+`z = u`.
 
-This runs from the arithmetic hypotheses to the conclusion with no step
-left in prose. -/
+The witness is `t = r · e^i`, and it is *not* asserted that `exp t` is
+transcendental: were it algebraic, `t` would itself be a candidate, so
+that assertion is an instance of the conjecture rather than something
+proved here.
+
+This runs from the arithmetic hypotheses to the endomorphism with no
+step left in prose.  It does not itself apply `coeff_transfer` or
+`Hmat_transfer`; those consume the endomorphism it produces. -/
 theorem candidate_indistinguishable
     {u r : ℂ} (hu0 : u ≠ 0) (hexp : IsAlgebraic ℚ (Complex.exp u))
     (hr : r ∈ Qbar) (hrr : conj r = r) (hr0 : r ≠ 0)

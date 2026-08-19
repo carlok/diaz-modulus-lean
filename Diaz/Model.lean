@@ -79,7 +79,7 @@ theorem norm_mem_iff (hT : Transcendental K t) (hρ : t * conj t ∈ K) (a b : �
     ((a : ℂ) * t + (b : ℂ) * conj t) * conj ((a : ℂ) * t + (b : ℂ) * conj t) ∈ K
       ↔ a = 0 ∨ b = 0 := by
   have hQ : ∀ q : ℚ, (q : ℂ) ∈ K := fun q => by
-    simpa using (K.ratCast_mem q)
+    simp
   constructor
   · intro hmem
     by_contra hab
@@ -131,8 +131,7 @@ theorem indep (hT : Transcendental K t) (hρ : t * conj t ∈ K)
       linear_combination h
     have hK2 : (t : ℂ) ^ 2 ∈ K := by
       rw [key]
-      exact mul_mem (neg_mem (div_mem (by simpa using K.ratCast_mem b)
-        (by simpa using K.ratCast_mem a))) hρ
+      exact mul_mem (neg_mem (div_mem (by simp) (by simp))) hρ
     have : (conj t) ^ 2 ∈ K := by
       have : (conj t) ^ 2 = (t * conj t) ^ 2 / t ^ 2 := by
         rw [hc]; field_simp
