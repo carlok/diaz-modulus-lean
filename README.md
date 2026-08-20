@@ -45,7 +45,7 @@ Lean 4.32.2, Mathlib v4.32.2.
 Generated from the sources, not drawn by hand; the axiom colouring was
 cross-checked against `#print axioms` and agrees. Amber is imported and
 assumed, blue rests on an import, green is proved outright. Helper lemmas are omitted here for legibility; `dependency-graph.dot`
-carries all 57, grouped by file. Both are transitively reduced: an edge
+carries all 61, grouped by file. Both are transitively reduced: an edge
 implied by a longer path is not drawn, so a declaration's full
 dependency set is its ancestors, not just its parents.
 
@@ -258,8 +258,10 @@ anything near the frontier this note is about.
 - `plane_norm` — `(a u + b conj u)(a conj u + b u) = (a-b)²·u conj u
   + ab·(u + conj u)²` for rational `a, b`.
 - `four_nodes`, `four_nodes_candidate` — inside the rational plane the
-  circle `z conj z = ρ` carries exactly `±u`, `±conj u`. The second takes
-  the arithmetic hypotheses and derives the rest.
+  points of the circle `z conj z = ρ` are determined: the four coordinate
+  pairs `(±1,0)`, `(0,±1)`, that is `±u` and `±conj u`. The second takes
+  the arithmetic hypotheses and derives the rest. Their distinctness, and
+  so the count *four*, is not part of the formal statement.
 
 `Rigidity.lean`
 - `det_Hmat`, `coeff_factor`, `no_vanishing_coeff` — `H = [[u, r], [r, ū]]`
@@ -306,11 +308,12 @@ should not have to.
   about derivations rather than a theorem. What is formalized is what
   makes it true: the transfer, and the existence of the comparison
   point.
-- The exponential-fibre bound and the third-logarithm statement are not
-  formalized.
-- Rank and structural rank remain unformalized (see above); the note's
-  `prop:rigidity` (i), quantisation and the third-logarithm statement
-  are not formalized either.
+- **The two analytic obstructions are not formalized**: that the
+  exponential system attached to a candidate admits no first-order
+  arithmetic differential operator, and that its interpolation matrix on
+  a Cartesian lattice factors as a Kronecker product. Both need real
+  analysis and interpolation determinants. The cost is high and the risk
+  in two short computations is low.
 
 ### Caveat on `Exponential.lean`
 
@@ -353,5 +356,3 @@ Parts of this work were done with an AI assistant, including the
 formalization and two adversarial audits of it. Every attribution was
 checked against primary sources, and several claims of novelty died that
 way. What survives is what survived that.
-
-Regenerate with `scripts/depgraph.py` after any change to the Lean.
