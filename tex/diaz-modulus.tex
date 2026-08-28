@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage[french,english]{babel}
 \usepackage{microtype}
 
 \hypersetup{colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
@@ -58,13 +59,22 @@ complex conjugation in transcendence arguments for the exponential function,
 asking in particular how the non-holomorphic maps $z\mapsto\bar z$ and
 $z\mapsto|z|$ could enter such a proof at all.
 
-\begin{remark}[to be completed]
-The precise statement and location of the modulus question --- that no non-zero
-element of $\mathcal{L}$ has algebraic modulus --- must be quoted from
-\cite{Diaz2004} with its section or page number before this note is circulated.
-Nothing below depends on the attribution: the results are proved for an
-arbitrary conjugation-stable $K$ and are stated that way.
-\end{remark}
+The question we take as our reference point is stated by Diaz \cite[\S5.1,
+p.~550]{Diaz2004} in the following form:
+
+\begin{quote}
+\og Soit $u\in\C\setminus\{0\}$ avec $|u|\in\Qbar$ ; alors $\mathrm{e}^{u}$ est
+transcendant. \fg
+\end{quote}
+
+Equivalently: no non-zero element of $\mathcal{L}$ has algebraic modulus. Diaz
+notes there that this follows from Schanuel's conjecture and from the strong
+four exponentials conjecture; it is stated, credited to \cite{Diaz1997}, at
+\cite[p.~399]{Waldschmidt2000}, and the associated companion condition
+$|\tau|^{2}\in\Q$ is \cite[assertion (4-1), p.~237]{Diaz1997}.
+
+Nothing below depends on this attribution. Every result is proved for an
+arbitrary conjugation-stable subfield $K\subseteq\C$ and is stated that way.
 
 Throughout, $K\subseteq\C$ is a subfield with $\bar a\in K$ for every $a\in K$.
 The case of interest is $K=\Qbar$.
@@ -196,16 +206,105 @@ that any candidate exists; establishing that a non-zero $u\in\mathcal{L}$ with
 $|u|$ algebraic is transcendental requires Hermite--Lindemann, which the
 compared surface of this note deliberately avoids.
 
-\section{Related work and search}
+\section{Related work, and what was searched}
 
-\begin{remark}[to be completed by the author]
-This section must record an explicit literature search: which databases and
-review services were consulted, with what queries and on what date; which
-adjacent results were examined; and what was concluded about whether the
-observations above are new. If the search does not settle novelty, this section
-must say that novelty is unknown rather than assert priority. Author's existing
-search notes and references are to be inserted here.
-\end{remark}
+\subsection*{Prior art, attributed}
+
+Two ingredients used above are not new and are not claimed.
+
+The matrix $H(u,r)$ of \S6 is the configuration $x_1=1$, $x_2=|\lambda|/\lambda$,
+$y_1=\lambda$, $y_2=|\lambda|$ recorded at \cite[p.~15]{Waldschmidt2000}. The
+question itself, and the companion condition $|\tau|^{2}\in\Q$, are Diaz's
+\cite[\S5.1, p.~550]{Diaz2004} and \cite[assertion (4-1), p.~237]{Diaz1997}
+respectively, the former also at \cite[p.~399]{Waldschmidt2000}. The divisor of
+labour is therefore: the configuration and the question are Diaz's and
+Waldschmidt's; what is offered here is the observation that
+Lemma~\ref{lem:rho} makes conjugation on $\hull_K(u)$ redundant data, and the
+three consequences drawn from it.
+
+\subsection*{The search}
+
+The following were examined for the observation of \S3 and its consequences ---
+that is, for any statement that conjugation on $\Qbar(u)$ is determined by the
+ring structure, for any use of a homomorphism of $\C$ fixing $\Qbar$ to transport
+a hypothetical counterexample, or for any indistinguishability conclusion argued
+by transport rather than by estimates. Searches were run in English and French,
+in two independent passes, in August 2026.
+
+\begin{itemize}
+\item \cite{Diaz2004} and \cite{Diaz1997}, both read in full. Neither contains
+      any statement of the kind. Both were also swept mechanically for the
+      vocabulary such an argument requires --- \emph{homomorphisme},
+      \emph{endomorphisme}, \emph{isomorphisme}, \emph{automorphisme},
+      \emph{plongement}, \emph{extension} --- and the count is zero in each
+      paper for every term. Neither paper constructs or uses a map of fields.
+\item \cite{Waldschmidt2000}, at pp.~15, 399 and 614, including
+      Exercise~15.16, together with the conjectures involving modulus and
+      conjugation to which \cite[p.~551]{Diaz2004} directs the reader.
+      Exercise~15.16 does not contain the observation.
+\item Mantova, \emph{Involutions on Zilber fields} \cite{Mantova2011}, which
+      concerns involutions on abstract exponential fields rather than
+      subfields of $\C$, and Dasgupta--Kakde \cite{DasguptaKakde2024},
+      Conjectures 1.2 and 2.3.
+\item arXiv full-text search, and general web search, on English and French
+      keyword families covering algebraic modulus of a logarithm, complex
+      conjugation in transcendence, rational function fields with involution,
+      and transfer or indistinguishability obstructions.
+\end{itemize}
+
+\subsection*{Outcome, and the nearest statement}
+
+The observation was not located in any source examined.
+
+The nearest thing found is a question rather than a statement. Having derived
+his conjecture from Schanuel's, Diaz turns to method
+\cite[p.~551]{Diaz2004}:
+
+\begin{quote}
+\og Comment utiliser l'hypoth\`ese $|u|\in\Qbar$ ? Comment faire appara\^itre
+$|u|$ ? Peut-on envisager d'utiliser des fonctions comme $z\mapsto\bar z$,
+$z\mapsto|z|$ ? \fg
+\end{quote}
+
+Lemma~\ref{lem:rho} is one answer: it makes the hypothesis bite by converting
+$u\bar u=\rho$ into a statement about the field $\Qbar(u)$. But Diaz asks the
+question and does not answer it, and nowhere observes that conjugation on
+$\Qbar(u)$ is determined by the ring operations, which is the whole content
+here.
+
+As far as the author knows, as far as the search recorded above reached, and as
+far as private enquiry with researchers in the field established, the
+observation of \S3 and the consequences in \S\S4--6 are not in the literature.
+Those replies are not reproduced here and the correspondents are not named.
+
+That is an assertion about a negative, made after looking. It is not a proof of
+priority, and a reader who knows of a prior appearance is asked to say so.
+
+\subsection*{Limits of this search}
+
+Stated so the previous paragraph is read at its true weight. The searches were
+conducted with substantial assistance from large language models, and one of the
+two passes misread a scanned source at a decisive point; the error was caught by
+checking the printed page and is corrected above. Text extracted from scanned
+journal PDFs loses overlines, so $\Q$ and $\Qbar$ are not reliably
+distinguishable in such sources without consulting page images. Review services
+behind paywalls were not searched systematically, and monograph literature,
+much of it French and predating 1995, is poorly covered by full-text search.
+The private enquiry mentioned above is part of the author's basis for the claim
+but is not evidence a reader can audit; the checkable part of the search is the
+list of public sources, each of which can be consulted at the page cited.
+
+\section{Use of AI assistance}
+
+The mathematics, the formalization and this note were developed with substantial
+assistance from large language models, directed and accepted by the author, who
+is responsible for the content. The Lean development was written with such
+assistance and is machine-checked at the pinned toolchain; the axiom closure of
+every statement in the table below was audited with \verb|#print axioms|. The
+literature search recorded above was likewise AI-assisted, with the limits
+stated there. No claim in this note rests on an assertion by a language model:
+every mathematical statement is checked by Lean, and every bibliographic claim
+is checked against the cited page.
 
 \section{Formalization}
 
@@ -245,6 +344,28 @@ G.~Diaz,
 de valeurs de la fonction exponentielle usuelle},
 J.~Th\'eor. Nombres Bordeaux \textbf{16} (2004), no.~3, 535--553,
 \href{https://doi.org/10.5802/jtnb.459}{doi:10.5802/jtnb.459}.
+
+\bibitem{Diaz1997}
+G.~Diaz,
+\emph{La conjecture des quatre exponentielles et les conjectures de D.~Bertrand
+sur la fonction modulaire},
+J.~Th\'eor. Nombres Bordeaux \textbf{9} (1997), no.~1, 229--245,
+\href{http://www.numdam.org/item/JTNB_1997__9_1_229_0/}{numdam}.
+
+\bibitem{Waldschmidt2000}
+M.~Waldschmidt,
+\emph{Diophantine Approximation on Linear Algebraic Groups},
+Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2000.
+
+\bibitem{Mantova2011}
+V.~Mantova,
+\emph{Involutions on Zilber fields},
+\href{https://arxiv.org/abs/1109.6155}{arXiv:1109.6155}.
+
+\bibitem{DasguptaKakde2024}
+S.~Dasgupta and M.~Kakde,
+\emph{On the Brumer--Stark conjecture and refinements},
+\href{https://arxiv.org/abs/2408.08178}{arXiv:2408.08178}.
 
 \bibitem{mathlib}
 The Mathlib Community,
