@@ -2,10 +2,14 @@
 Copyright (c) 2026 Carlo Perassi. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
-import Mathlib.Analysis.SpecialFunctions.Complex.Circle
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.RingTheory.Algebraic.Basic
+-- The full Mathlib import is deliberate. With a narrower import set the
+-- `Fintype (Fin 2)` instance behind `∑ i, ∑ j` resolves to `Fin.fintype 2`,
+-- whereas in `Solution` (which imports all of Mathlib through `Diaz`) it
+-- resolves to `SimplexCategory.instFintypeToTypeOrderHomFinHAddNatLenOfNat`.
+-- The two are definitionally equal but not syntactically equal, and Comparator
+-- compares statements as elaborated terms, so it rejects the pair. Importing
+-- the same closure in both modules makes the statements identical on the nose.
+import Mathlib
 
 /-!
 # Advertised statement: conjugation on a hull is not independent data
