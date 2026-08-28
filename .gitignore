@@ -20,3 +20,10 @@ __pycache__/
 *.pyc
 
 .DS_Store
+
+# TeX auxiliary output
+tex/*.aux
+tex/*.log
+tex/*.out
+tex/*.toc
+tex/*.synctex.gz
