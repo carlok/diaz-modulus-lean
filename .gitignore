@@ -27,3 +27,6 @@ tex/*.log
 tex/*.out
 tex/*.toc
 tex/*.synctex.gz
+
+# Palomar Comparator tool cache
+.cache/

@@ -356,3 +356,42 @@ Parts of this work were done with an AI assistant, including the
 formalization and two adversarial audits of it. Every attribution was
 checked against primary sources, and several claims of novelty died that
 way. What survives is what survived that.
+
+## Palomar submission surface
+
+This repository also carries the files the [Palomar
+registry](https://palomar-registry.org/) requires. The Lean project is at the
+repository root, so the project path is `.`.
+
+| File | Purpose |
+| --- | --- |
+| `Challenge.lean` | The advertised statement surface, one deliberate `sorry` per theorem |
+| `Solution.lean` | The proved counterparts, delegating to `Diaz` |
+| `comparator.json` | The declarations Comparator compares |
+| `formalization.yaml` | Project metadata to the mathlib-initiative standard |
+| `tex/diaz-modulus.tex` | The companion note: the informal account of exactly these statements |
+| `LICENSE` | Apache-2.0 |
+
+The compared surface is the **axiom-free core**: `conj_eq_rho_div`,
+`eqOn_hull`, `conj_comm`, `exists_algHom_of_transcendental`,
+`no_vanishing_coeff_matrix`, `coeff_indistinguishable`, with the definitions
+`hull` and `Hmat`. `#print axioms` on each lists only `propext`,
+`Classical.choice` and `Quot.sound`.
+
+Two differences from the development described above, both deliberate:
+
+- The existence theorem is proved on `K⟮u⟯`, **not** on all of `ℂ`. Mathlib's
+  `RatFunc.algEquivOfTranscendental` gives it without the Steinitz axiom, and
+  nothing in the compared surface evaluates the map outside the hull.
+- The imported axioms `hermite_lindemann` and `exists_ringHom_of_transcendental`
+  remain in `Diaz/Axioms.lean` and are used elsewhere in the development. **No
+  compared declaration depends on either.**
+
+Submissions to Palomar go to <https://submit.palomar-registry.org/> and are made
+by a responsible author or maintainer. Local verification:
+
+```bash
+lake build                                          # Diaz, Challenge, Solution
+ruby scripts/validate-formalization.rb formalization.yaml
+./scripts/verify-comparator.sh                      # Linux only: Landrun uses Landlock
+```

@@ -1,0 +1,166 @@
+name: CI
+
+on:
+  push:
+    branches: [master, palomar]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# The Lean project is at the repository root, so comparator.json,
+# formalization.yaml, the lakefile, lean-toolchain, lake-manifest.json and the
+# licence all sit alongside each other. scripts/verify-comparator.sh is the
+# upstream template script, unmodified, which assumes exactly this layout.
+
+jobs:
+  metadata:
+    name: Check metadata and Apache licence
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b
+        with:
+          ruby-version: "3.3.12"
+      - name: Reject retained template values
+        run: ruby scripts/validate-formalization.rb formalization.yaml
+      - name: Detect the repository licence
+        run: |
+          gem install licensee --no-document
+          licensee detect LICENSE --json --no-packages --no-readme > "$RUNNER_TEMP/license.json"
+          ruby -rjson -e '
+            report = JSON.parse(File.read(ARGV.fetch(0)))
+            identifiers = report.fetch("licenses").map { |item| item.fetch("spdx_id") }
+            abort "LICENSE is not detected exactly as Apache-2.0" unless identifiers == ["Apache-2.0"]
+          ' "$RUNNER_TEMP/license.json"
+
+  comparator-config:
+    name: Validate the Comparator configuration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Check comparator.json against the configuration policy
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+
+          path = pathlib.Path("comparator.json")
+          config = json.loads(path.read_text(encoding="utf-8"))
+          allowed = {
+              "challenge_module", "solution_module", "theorem_names",
+              "definition_names", "permitted_axioms", "enable_nanoda",
+          }
+          permitted = {"propext", "Quot.sound", "Classical.choice"}
+          failures = []
+          if not isinstance(config, dict):
+              failures.append("configuration is not a JSON object")
+          if set(config) - allowed:
+              failures.append(f"unexpected keys: {sorted(set(config) - allowed)}")
+          for key in ("challenge_module", "solution_module"):
+              if not isinstance(config.get(key), str) or not config.get(key):
+                  failures.append(f"{key} must be a nonempty string")
+          names = config.get("theorem_names")
+          if not (isinstance(names, list) and names
+                  and all(isinstance(n, str) and n for n in names)):
+              failures.append("theorem_names must be a nonempty array of nonempty strings")
+          if not set(config.get("permitted_axioms", [])) <= permitted:
+              failures.append("permitted_axioms may only contain the three standard axioms")
+          if config.get("enable_nanoda") is not True:
+              failures.append("enable_nanoda must be exactly true")
+          if path.stat().st_size > 1024 * 1024:
+              failures.append("configuration exceeds 1 MiB")
+          for failure in failures:
+              print(f"comparator.json: {failure}")
+          raise SystemExit(bool(failures))
+          PY
+
+  challenge-size:
+    name: Check the Challenge review surface
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Measure Challenge.lean against Palomar's limits
+        run: |
+          python3 - <<'PY'
+          import pathlib
+
+          path = pathlib.Path("Challenge.lean")
+          data = path.read_bytes()
+          lines = len(data.decode("utf-8").splitlines())
+          kib = len(data) / 1024
+          print(f"{path}: {lines} lines, {kib:.1f} KiB")
+          if lines > 1000 or len(data) > 100 * 1024:
+              raise SystemExit(f"{path}: over the hard limit of 1,000 lines and 100 KiB")
+          if lines > 300 or len(data) > 32 * 1024:
+              print(f"::warning file={path}::over the preferred 300-line / 32 KiB review surface")
+          PY
+
+  submission-link:
+    name: Check where the README sends a submitter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Check the submission form the README names
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+
+          form = "https://submit.palomar-registry.org/"
+          retired = re.compile(r"PalomarSubmission/issues/new")
+          failed = False
+          if form not in pathlib.Path("README.md").read_text():
+              print(f"README.md: does not send a submitter to {form}")
+              failed = True
+          for document in sorted(pathlib.Path(".").rglob("*.md")):
+              if ".lake" in document.parts:
+                  continue
+              for number, line in enumerate(document.read_text().splitlines(), 1):
+                  if retired.search(line):
+                      print(f"{document}:{number}: that submission form was deleted; submissions go to {form}")
+                      failed = True
+          raise SystemExit(failed)
+          PY
+
+  build:
+    name: Build with Lean
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          build: true
+
+  comparator:
+    name: Check statement against solution
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          build: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
+        with:
+          go-version: "1.24.0"
+          cache: false
+      - name: Run pinned Comparator toolchain
+        run: ./scripts/verify-comparator.sh
