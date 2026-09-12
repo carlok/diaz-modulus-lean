@@ -1,0 +1,91 @@
+/-
+# No algebraic generalized line
+
+Backup of `DiazModulus.no_algebraic_generalized_line`
+(`b6a32e93-665b-4932-8342-9b8bab854682`), Proved on Prove2Me.
+
+A logarithm of an algebraic number lying off both coordinate axes satisfies
+no relation `Bλ + conj B · conj λ + C = 0` with `B` algebraic non-zero. A
+candidate has conjugation degree one, so its canonical curve is a Hermitian
+`A|w|² + Bw + conj B · conj w + C = 0`: a circle when `A ≠ 0`, a line when
+`A = 0`. This excludes the line case, so the stratum where the question
+lives carries no linear degeneration.
+
+`BakerTwoLogs` is the hypothesis defined in `Diaz.Multipliers`. Note which
+side of the relation it acts on: here the form must be shown *non-zero*,
+which is Baker's job. In the central question the form vanishes by
+hypothesis and Baker has nothing to act on.
+-/
+import Mathlib
+import Diaz.Multipliers
+
+open Complex ComplexConjugate
+
+namespace Diaz
+
+/-- Off both axes, `λ` and `conj λ` are `ℚ`-linearly independent. -/
+theorem indep_of_off_axes {l : ℂ} (hre : l.re ≠ 0) (him : l.im ≠ 0) :
+    ∀ p q : ℚ, (p : ℂ) * l + (q : ℂ) * conj l = 0 → p = 0 ∧ q = 0 := by
+  intro p q h
+  have hr := congrArg Complex.re h
+  have hi := congrArg Complex.im h
+  simp only [Complex.add_re, Complex.add_im, Complex.mul_re, Complex.mul_im,
+    Complex.conj_re, Complex.conj_im, Complex.ratCast_re, Complex.ratCast_im,
+    Complex.zero_re, Complex.zero_im, zero_mul, mul_zero, sub_zero, add_zero,
+    zero_add, zero_sub] at hr hi
+  have hre' : ((p : ℝ) + (q : ℝ)) * l.re = 0 := by linarith [hr]
+  have him' : ((p : ℝ) - (q : ℝ)) * l.im = 0 := by linarith [hi]
+  have h1 : (p : ℝ) + (q : ℝ) = 0 := by
+    rcases mul_eq_zero.mp hre' with h | h
+    · exact h
+    · exact absurd h hre
+  have h2 : (p : ℝ) - (q : ℝ) = 0 := by
+    rcases mul_eq_zero.mp him' with h | h
+    · exact h
+    · exact absurd h him
+  have hp : (p : ℝ) = 0 := by linarith
+  have hq : (q : ℝ) = 0 := by linarith
+  exact ⟨by exact_mod_cast hp, by exact_mod_cast hq⟩
+
+/-- **No algebraic generalized line.** A logarithm of an algebraic number lying off both
+coordinate axes satisfies no Hermitian linear relation `Bλ + conj B · conj λ + C = 0` with
+`B` algebraic non-zero and `C` algebraic real. Hence, within the conjugation-degree-one
+stratum, its canonical curve is a genuine circle and never a line. -/
+theorem no_algebraic_line (hB : BakerTwoLogs)
+    {l : ℂ} (hlog : IsAlgebraic ℚ (Complex.exp l))
+    (hre : l.re ≠ 0) (him : l.im ≠ 0)
+    {B C : ℂ} (hBalg : IsAlgebraic ℚ B) (hB0 : B ≠ 0)
+    (hCalg : IsAlgebraic ℚ C) :
+    B * l + conj B * conj l + C ≠ 0 := by
+  intro hrel
+  -- `conj l` is also a logarithm of an algebraic number
+  have hlogc : IsAlgebraic ℚ (Complex.exp (conj l)) := by
+    rw [Complex.exp_conj]
+    obtain ⟨p, hp0, hp⟩ := hlog
+    refine ⟨p, hp0, ?_⟩
+    have hcj : ((Complex.conjAe : ℂ ≃ₐ[ℝ] ℂ).toAlgHom.restrictScalars ℚ) (Complex.exp l)
+        = conj (Complex.exp l) := rfl
+    have := Polynomial.aeval_algHom_apply
+      ((Complex.conjAe : ℂ ≃ₐ[ℝ] ℂ).toAlgHom.restrictScalars ℚ) (Complex.exp l) p
+    rw [hcj] at this
+    rw [this, hp, map_zero]
+  -- `conj B` is algebraic
+  have hBcalg : IsAlgebraic ℚ (conj B) := by
+    obtain ⟨p, hp0, hp⟩ := hBalg
+    refine ⟨p, hp0, ?_⟩
+    have hcj : ((Complex.conjAe : ℂ ≃ₐ[ℝ] ℂ).toAlgHom.restrictScalars ℚ) B = conj B := rfl
+    have := Polynomial.aeval_algHom_apply
+      ((Complex.conjAe : ℂ ≃ₐ[ℝ] ℂ).toAlgHom.restrictScalars ℚ) B p
+    rw [hcj] at this
+    rw [this, hp, map_zero]
+  -- Baker: the combination is transcendental
+  have htr : Transcendental ℚ (B * l + conj B * conj l) :=
+    hB l (conj l) B (conj B) hlog hlogc (indep_of_off_axes hre him) hBalg hBcalg
+      (fun h => hB0 h.1)
+  -- but the relation makes it equal to `-C`, which is algebraic
+  refine htr ?_
+  have : B * l + conj B * conj l = -C := by linear_combination hrel
+  rw [this]
+  exact (IsAlgebraic.neg hCalg)
+
+end Diaz

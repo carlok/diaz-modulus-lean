@@ -275,7 +275,50 @@ anything near the frontier this note is about.
   vanishing coefficient. This is the only place where the arithmetic
   hypothesis, rather than mere transcendence, is what is assumed.
 
-## Backup of two Prove2Me nodes
+## Backup of the Prove2Me nodes
+
+Prove2Me holds the proofs; this repository is where they are kept. Anything
+proved there and worth keeping is mirrored here, because a platform is not a
+place to store the only copy of a result.
+
+`Multipliers.lean`, `SFE.lean`, `Quantisation.lean`, `Line.lean` and
+`Pencil.lean` are that mirror. They are stated in the platform's vocabulary
+— `LogAlg`, `LogAlgTilde`, `IsCandidate`, mirroring its `DiazModulus`
+preamble — rather than in this repository's abstract-subfield style, so that
+the declarations read the same in both places.
+
+| Here | On the platform |
+| --- | --- |
+| `diaz_of_sfe`, `diaz_of_sfe_hl` | `DiazModulus.diaz_of_sfe` |
+| `candidate_multiplier_module` | `DiazModulus.candidate_multiplier_module` |
+| `candidate_one_log_saturation` | `DiazModulus.candidate_one_log_saturation` |
+| `no_algebraic_line` | `DiazModulus.no_algebraic_generalized_line` |
+| `real_quantisation` | `Diaz.real_quantisation` |
+| `quantisation_orbit_iff_re_ne_zero` | `Diaz.quantisation_orbit_iff_re_ne_zero` |
+| `leaf_iff_one` | `DiazModulus.leaf_iff_one` |
+| `exp_ratMul_isAlgebraic`, `exp_ratio_pow_eq_one_iff` | same names |
+| `det_pencil_eq_conic`, `roy_conic_implies_empty` | same names |
+
+Every one of them is `sorry`-free and depends on no axiom of this repository:
+`#print axioms` lists only `propext`, `Classical.choice`, `Quot.sound`. The
+exception is `diaz_of_sfe`, which discharges Hermite–Lindemann from
+`Axioms.lean` and says so in its axiom list; its conditional form
+`diaz_of_sfe_hl` carries the hypothesis explicitly and is axiom-free.
+
+The transcendence inputs stay explicit hypotheses of each statement rather
+than joining `Axioms.lean`: on the platform they are carried the same way,
+and the point of a mirror is that it reads identically.
+
+**Not yet mirrored**, and why: `DiazModulus.diaz_of_schanuel` needs
+`Algebra.trdeg` additivity in a tower whose instance this Mathlib revision
+does not synthesise, so it is real work rather than a transcription;
+`Diaz.fibre_at_most_two` (995 lines) and
+`DiazModulus.hermite_lindemann_holds` (917 lines, a port of an unmerged
+Mathlib pull request) are each a session of their own. Hermite–Lindemann is
+the axiom in `Axioms.lean`, so its absence costs one documented assumption
+rather than a gap.
+
+### The first two, in detail
 
 `Multipliers.lean` is not part of the note. It is a local copy of two
 results published on [Prove2Me](https://prove2.me) in September 2026, kept

@@ -8,4 +8,7 @@ import Diaz.Instantiation
 import Diaz.Transfer
 import Diaz.Multipliers
 import Diaz.SFE
+import Diaz.Quantisation
+import Diaz.Line
+import Diaz.Pencil
 import Diaz.Palomar
