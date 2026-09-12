@@ -281,8 +281,8 @@ Prove2Me holds the proofs; this repository is where they are kept. Anything
 proved there and worth keeping is mirrored here, because a platform is not a
 place to store the only copy of a result.
 
-`Multipliers.lean`, `SFE.lean`, `Quantisation.lean`, `Line.lean` and
-`Pencil.lean` are that mirror. They are stated in the platform's vocabulary
+`Multipliers.lean`, `SFE.lean`, `Quantisation.lean`, `Line.lean`,
+`Pencil.lean` and `Kernel.lean` are that mirror. They are stated in the platform's vocabulary
 — `LogAlg`, `LogAlgTilde`, `IsCandidate`, mirroring its `DiazModulus`
 preamble — rather than in this repository's abstract-subfield style, so that
 the declarations read the same in both places.
@@ -298,6 +298,7 @@ the declarations read the same in both places.
 | `leaf_iff_one` | `DiazModulus.leaf_iff_one` |
 | `exp_ratMul_isAlgebraic`, `exp_ratio_pow_eq_one_iff` | same names |
 | `det_pencil_eq_conic`, `roy_conic_implies_empty` | same names |
+| `candidate_re_transcendental`, `candidate_im_transcendental`, `candidate_vanishing_ideal` | `DiazModulus.candidate_re_transcendental`, `DiazModulus.candidate_im_transcendental`, `DiazModulus.candidate_vanishing_ideal` |
 | `sixExponentials_cannot_refute_candidate` | same name |
 | `fibre_at_most_two` | `Diaz.fibre_at_most_two` |
 | `hermite_lindemann_holds` | `DiazModulus.hermite_lindemann_holds` |

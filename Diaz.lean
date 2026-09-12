@@ -7,6 +7,7 @@ import Diaz.Rigidity
 import Diaz.Instantiation
 import Diaz.Transfer
 import Diaz.Multipliers
+import Diaz.Kernel
 import Diaz.HermiteLindemann
 import Diaz.SFE
 import Diaz.Quantisation
