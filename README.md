@@ -275,6 +275,37 @@ anything near the frontier this note is about.
   vanishing coefficient. This is the only place where the arithmetic
   hypothesis, rather than mere transcendence, is what is assumed.
 
+## Backup of two Prove2Me nodes
+
+`Multipliers.lean` is not part of the note. It is a local copy of two
+results published on [Prove2Me](https://prove2.me) in September 2026, kept
+here so that they survive independently of that platform. They are stated
+in the platform's own vocabulary — `LogAlg`, `LogAlgTilde`, `IsCandidate`,
+mirroring its `DiazModulus` preamble — rather than in this repository's
+abstract-subfield style, so that the declarations read the same in both
+places.
+
+- `candidate_multiplier_module` — under Roy's strong six exponentials
+  theorem and Hermite–Lindemann, the set of `z ∈ ℒ̃` with `u z ∈ ℒ̃` is
+  exactly `Q̄ + Q̄/u`. Consequently `u² ∉ ℒ̃`, and `1/(u − a) ∉ ℒ̃` for every
+  non-zero algebraic `a`, even though `1/u` itself is necessarily in `ℒ̃`.
+  Node `69387a9d-5e97-4b55-b6e6-64fa30ba558f`.
+- `candidate_one_log_saturation` — a candidate lying in `Q̄ + Q̄ℓ` for a
+  single `ℓ ∈ ℒ` lies in `Qℓ`; at `ℓ = iπ` this rules out candidates of the
+  form `a + bπ`. Node `cf5024d1-43b6-47ac-b3dd-5298beba22a4`.
+
+These two complement `Nodes.lean` and the dimension count behind it. That
+count bounds what the three-dimensional hull `span_Q̄{1, u, ū}` of a
+candidate can contain, and so says a six-exponentials template cannot be
+assembled inside it. The multiplier module says what an extension of the
+hull would have to be, and that no algebraic operation on `u` supplies one.
+
+The transcendence inputs stay explicit hypotheses of each statement rather
+than joining `Axioms.lean`: on the platform they are carried the same way,
+and the point of a backup is that it reads identically. Neither theorem
+depends on any axiom of this repository — `#print axioms` on both lists
+only `propext`, `Classical.choice`, `Quot.sound`.
+
 ## What is assumed
 
 Two imported results, in `Axioms.lean`, declared as `axiom` with
@@ -356,3 +387,42 @@ Parts of this work were done with an AI assistant, including the
 formalization and two adversarial audits of it. Every attribution was
 checked against primary sources, and several claims of novelty died that
 way. What survives is what survived that.
+
+## Palomar submission surface
+
+This repository also carries the files the [Palomar
+registry](https://palomar-registry.org/) requires. The Lean project is at the
+repository root, so the project path is `.`.
+
+| File | Purpose |
+| --- | --- |
+| `Challenge.lean` | The advertised statement surface, one deliberate `sorry` per theorem |
+| `Solution.lean` | The proved counterparts, delegating to `Diaz` |
+| `comparator.json` | The declarations Comparator compares |
+| `formalization.yaml` | Project metadata to the mathlib-initiative standard |
+| `tex/diaz-modulus.tex` | The companion note: the informal account of exactly these statements |
+| `LICENSE` | Apache-2.0 |
+
+The compared surface is the **axiom-free core**: `conj_eq_rho_div`,
+`eqOn_hull`, `conj_comm`, `exists_algHom_of_transcendental`,
+`no_vanishing_coeff_matrix`, `coeff_indistinguishable`, with the definitions
+`hull` and `Hmat`. `#print axioms` on each lists only `propext`,
+`Classical.choice` and `Quot.sound`.
+
+Two differences from the development described above, both deliberate:
+
+- The existence theorem is proved on `K⟮u⟯`, **not** on all of `ℂ`. Mathlib's
+  `RatFunc.algEquivOfTranscendental` gives it without the Steinitz axiom, and
+  nothing in the compared surface evaluates the map outside the hull.
+- The imported axioms `hermite_lindemann` and `exists_ringHom_of_transcendental`
+  remain in `Diaz/Axioms.lean` and are used elsewhere in the development. **No
+  compared declaration depends on either.**
+
+Submissions to Palomar go to <https://submit.palomar-registry.org/> and are made
+by a responsible author or maintainer. Local verification:
+
+```bash
+lake build                                          # Diaz, Challenge, Solution
+ruby scripts/validate-formalization.rb formalization.yaml
+./scripts/verify-comparator.sh                      # Linux only: Landrun uses Landlock
+```

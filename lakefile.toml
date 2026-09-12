@@ -1,6 +1,6 @@
 name = "Diaz"
 version = "0.1.0"
-defaultTargets = ["Diaz"]
+defaultTargets = ["Diaz", "Challenge", "Solution"]
 
 [leanOptions]
 pp.unicode.fun = true
@@ -9,7 +9,13 @@ relaxedAutoImplicit = false
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
-rev = "v4.32.2"
+rev = "v4.32.0"
 
 [[lean_lib]]
 name = "Diaz"
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"

@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "DiazRigidity.conj_eq_rho_div",
+    "DiazRigidity.eqOn_hull",
+    "DiazRigidity.conj_comm",
+    "DiazRigidity.exists_algHom_of_transcendental",
+    "DiazRigidity.no_vanishing_coeff_matrix",
+    "DiazRigidity.coeff_indistinguishable"
+  ],
+  "definition_names": [
+    "DiazRigidity.hull",
+    "DiazRigidity.Hmat"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": true
+}
