@@ -279,8 +279,9 @@ def mapDomainFixed : Subalgebra R R[K] where
 
 theorem mem_mapDomainFixed_iff {x : R[K]} :
     x ∈ mapDomainFixed F R K ↔ ∀ i j, i ∈ MulAction.orbit Gal(K/F) j → x.coeff i = x.coeff j := by
-  simp? [MulAction.mem_orbit_iff, mapDomainFixed] says
-    simp only [mapDomainFixed, MulAction.mem_orbit_iff, AlgEquiv.smul_def, forall_exists_index]
+  -- `simp?`/`says` is not used here: CI verifies the recorded `simp only` list, and this
+  -- Mathlib revision unfolds the structure differently from the one the list was recorded on.
+  simp [MulAction.mem_orbit_iff, mapDomainFixed]
   refine ⟨fun h i j f hi => ?_, fun h f => ?_⟩
   · simp [← hi, ← congr($(h f).coeff (f j))]
   · ext i
