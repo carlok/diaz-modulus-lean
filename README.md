@@ -317,10 +317,18 @@ The transcendence inputs stay explicit hypotheses of each statement rather
 than joining `Axioms.lean`: on the platform they are carried the same way,
 and the point of a mirror is that it reads identically.
 
-**Not yet mirrored:** `DiazModulus.diaz_of_schanuel`, which needs
-`Algebra.trdeg` additivity in a tower whose instance this Mathlib revision
-does not synthesise. That is real work rather than a transcription, and it is
-the only one of the substantive results that did not survive the version gap.
+**Not yet mirrored:** `DiazModulus.diaz_of_schanuel`, the only one of the
+substantive results that did not survive the version gap.
+
+The diagnosis, so a second attempt does not start from nothing. The proof
+computes the transcendence degree of `Q̄(u)` in the tower
+`Q̄ ⊆ Q̄[u] ⊆ Q̄(u)`, with `R = Algebra.adjoin Q̄ {u}` a subalgebra of `ℂ` and
+`F = IntermediateField.adjoin Q̄ {u}`. It then calls `trdeg_add_eq`, which
+needs `Algebra ↥R ↥F`. The upstream Mathlib revision synthesises that
+instance; this one does not. Supplying it by hand from `R ≤ F.toSubalgebra`
+is the obvious move, and it pulls in `IsScalarTower ↥Q̄ ↥R ↥F` and whatever
+`trdeg_eq_zero` wants to see `F` as the fraction field of `R`. Plumbing, but
+real plumbing, not a rename.
 
 `HermiteLindemann.lean` and `Fibre.lean` share the Lindemann–Weierstrass
 development ported from an unmerged Mathlib pull request. It is kept once, in
