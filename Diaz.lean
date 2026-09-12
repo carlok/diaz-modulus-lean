@@ -12,6 +12,7 @@ import Diaz.HermiteLindemann
 import Diaz.SFE
 import Diaz.Quantisation
 import Diaz.Line
+import Diaz.CheapLine
 import Diaz.Pencil
 import Diaz.NoGo
 import Diaz.P21P

@@ -512,8 +512,10 @@ For a candidate $u=x+iy$, no relation $Ax+By=C$ with $A,B,C\in\Alg\cap\R$ and $(
 holds, by Hermite--Lindemann alone. Such a line meets the circle $X^{2}+Y^{2}=\rho$ only in
 points with algebraic coordinates --- solve the linear equation for one coordinate and substitute,
 the resulting quadratic having non-zero leading coefficient because $A,B$ are real --- and $u$ is
-transcendental. No linear forms in logarithms are needed. This statement has no machine-checked
-counterpart; Theorem~\ref{thm:line}, which is stronger in dropping the hypothesis on $|u|$, does.
+transcendental. No linear forms in logarithms are needed. This statement is now machine-checked as
+\nolinkurl{DiazModulus.candidate_no_real_algebraic_line} (Prove2Me node
+\texttt{e561bb83-10d1-42d0-b2aa-1d5fb8d4a1d9}). Theorem~\ref{thm:line} remains the stronger
+version that drops the hypothesis on $|u|$ at the cost of Baker.
 \end{remark}
 
 \begin{corollary}\label{cor:distance}
@@ -732,7 +734,7 @@ A \textbf{Proved} row means the statement itself has a machine-checked proof. An
 row means the statement is recorded formally but not proved, and the reason differs by case: it
 may be an open conjecture, or a theorem of the literature that has never been formalised. The
 two are not the same and the table separates them. A \textbf{Not formalised} row means what it
-says: the statement is proved in this note and has no formal counterpart at all. There are three,
+says: the statement is proved in this note and has no formal counterpart at all. There are two,
 and each is flagged where it appears. Proposition~\ref{prop:loop} is one of them, and its row
 needs a word: the identifier given is the statement $(\mathrm{NT})$, which is recorded formally
 and is Open; the \emph{equivalence} proved in Proposition~\ref{prop:loop} is what has no formal
@@ -760,7 +762,7 @@ Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refut
 Prop.~\ref{prop:loop} & Not formalised & \nolinkurl{DiazModulus.norm_transcendental_of_generic_conj_pair} (Open) \\
 \S\ref{sec:map}, 1973--74 thm & Open (not formalised) & \nolinkurl{DiazModulus.four_exponentials_trdeg_one} \\
 Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line} \\
-Rem.~\ref{rem:line-cheap} & Not formalised & --- \\
+Rem.~\ref{rem:line-cheap} & Proved & \nolinkurl{DiazModulus.candidate_no_real_algebraic_line} \\
 Cor.~\ref{cor:distance} & Not formalised & --- \\
 Thm~\ref{thm:multiplier} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 Cor.~\ref{cor:square} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
