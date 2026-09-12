@@ -1,30 +1,28 @@
 # Mirror checklist — Diaz
 
-What this repository holds of the Diaz mission's proved results, and what is
-left to port. Regenerated from the live Prove2Me board, the platform archive and
-the library sources; do not edit rows by hand.
+What this repository holds of the Diaz mission's proved results, and what is left
+to port. **Generated** by `scripts/refresh_prove2me_archive.py` from the live
+Prove2Me board, the archive, the `Diaz/` library and `scripts/mirror_priorities.json`.
+Do not edit rows by hand: change the priorities file or port a result, then rerun.
 
 Two tiers.
 
 - **Archive** — `archive/prove2me/`: every accepted submission, verbatim from the
-  platform. Complete: 132 of 132 Proved nodes. Not built; see the
-  README there.
-- **Library** — `Diaz/`: results ported to compile against this repository's
-  pinned Mathlib, checked by CI. This checklist tracks it.
+  platform apart from redacted comments. Not built; see the README there.
+- **Library** — `Diaz/`: results ported to compile against this repository's pinned
+  Mathlib, checked by CI. This checklist tracks it.
 
-Status on 2026-09-12: **58** of 132 in the library.
-Of the rest, **27** marked high priority, **27**
-normal, **19** low (folklore, scaffolding, or an elementary
-case), **1** skipped as defective.
+As of the latest archived submission (2026-09-12): **58** of 132
+Proved nodes are in the library. Of the rest, **27** marked high
+priority, **27** normal, **19** low (folklore,
+scaffolding, or an elementary case), **1** skipped as defective.
 
 The priority column is a judgement, not a measurement. *High* means a result the
-companion note or its manuscript relies on, or a family of results that is the
-only formal record of an argument. *Low* means porting it adds little a reader
-would miss. Promote anything you disagree with.
+companion note or its manuscript relies on, or the only formal record of an
+argument. *Low* means porting it adds little a reader would miss.
 
-The unported *Open* nodes — reductions proved from their children, or
-statements deliberately left open — are not listed; they have no accepted proof
-to mirror.
+Open nodes are not listed: they have no accepted proof to mirror. Work that was
+never published on the platform lives under `archive/local/`.
 
 | Node | Archived | In library | Priority | Note |
 |---|---|---|---|---|
