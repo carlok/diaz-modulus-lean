@@ -16,7 +16,7 @@ development is an attempt to ask for less than this.
 Conventions as in `Diaz.Multipliers`.
 -/
 import Mathlib
-import Diaz.Multipliers
+import Diaz.HermiteLindemann
 
 open Complex ComplexConjugate
 
@@ -92,10 +92,10 @@ theorem diaz_of_sfe_hl (hS : StrongFourExponentials) (hHL : HermiteLindemannProp
     rw [this]; exact hconjT
 
 /-- **Strong four exponentials implies the modulus conjecture.**
-Hermite–Lindemann is discharged from `Diaz.hermite_lindemann`, the imported
-axiom; on the platform it is a proved node. -/
+Hermite–Lindemann is discharged from `Diaz.hermite_lindemann_holds`, which is
+proved in `Diaz.HermiteLindemann`, so this statement rests on no axiom of
+this development. -/
 theorem diaz_of_sfe (hS : StrongFourExponentials) : DiazModulusConjecture :=
-  diaz_of_sfe_hl hS (fun a ha halg hexp => hermite_lindemann (u := a) (by
-    simpa using ha) (by simpa using hexp) halg)
+  diaz_of_sfe_hl hS hermite_lindemann_holds
 
 end Diaz

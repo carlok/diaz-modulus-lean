@@ -299,25 +299,32 @@ the declarations read the same in both places.
 | `exp_ratMul_isAlgebraic`, `exp_ratio_pow_eq_one_iff` | same names |
 | `det_pencil_eq_conic`, `roy_conic_implies_empty` | same names |
 | `sixExponentials_cannot_refute_candidate` | same name |
+| `fibre_at_most_two` | `Diaz.fibre_at_most_two` |
+| `hermite_lindemann_holds` | `DiazModulus.hermite_lindemann_holds` |
+| `q_translate_unique`, `order_quantisation`, `torsion_dichotomy`, `period_plane_norm`, `indep_of_algebraic_product`, `no_holo_stab` | same names |
 
 Every one of them is `sorry`-free and depends on no axiom of this repository:
-`#print axioms` lists only `propext`, `Classical.choice`, `Quot.sound`. The
-exception is `diaz_of_sfe`, which discharges Hermite–Lindemann from
-`Axioms.lean` and says so in its axiom list; its conditional form
-`diaz_of_sfe_hl` carries the hypothesis explicitly and is axiom-free.
+`#print axioms` lists only `propext`, `Classical.choice`, `Quot.sound`.
+
+That now includes `diaz_of_sfe`. Hermite–Lindemann is no longer assumed for
+it: `HermiteLindemann.lean` proves `hermite_lindemann_holds`, and
+`diaz_of_sfe` discharges its hypothesis from that theorem rather than from
+`Axioms.lean`. The axiom is still declared there, because the older modules
+were written against it, but the strongest statement in this repository no
+longer rests on it.
 
 The transcendence inputs stay explicit hypotheses of each statement rather
 than joining `Axioms.lean`: on the platform they are carried the same way,
 and the point of a mirror is that it reads identically.
 
-**Not yet mirrored**, and why: `DiazModulus.diaz_of_schanuel` needs
+**Not yet mirrored:** `DiazModulus.diaz_of_schanuel`, which needs
 `Algebra.trdeg` additivity in a tower whose instance this Mathlib revision
-does not synthesise, so it is real work rather than a transcription;
-`Diaz.fibre_at_most_two` (995 lines) and
-`DiazModulus.hermite_lindemann_holds` (917 lines, a port of an unmerged
-Mathlib pull request) are each a session of their own. Hermite–Lindemann is
-the axiom in `Axioms.lean`, so its absence costs one documented assumption
-rather than a gap.
+does not synthesise. That is real work rather than a transcription, and it is
+the only one of the substantive results that did not survive the version gap.
+
+`HermiteLindemann.lean` and `Fibre.lean` share the Lindemann–Weierstrass
+development ported from an unmerged Mathlib pull request. It is kept once, in
+the former, and imported by the latter.
 
 ### The first two, in detail
 
