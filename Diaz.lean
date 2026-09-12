@@ -7,4 +7,5 @@ import Diaz.Rigidity
 import Diaz.Instantiation
 import Diaz.Transfer
 import Diaz.Multipliers
+import Diaz.SFE
 import Diaz.Palomar
