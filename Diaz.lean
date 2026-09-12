@@ -11,4 +11,5 @@ import Diaz.SFE
 import Diaz.Quantisation
 import Diaz.Line
 import Diaz.Pencil
+import Diaz.NoGo
 import Diaz.Palomar

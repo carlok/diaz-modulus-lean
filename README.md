@@ -298,6 +298,7 @@ the declarations read the same in both places.
 | `leaf_iff_one` | `DiazModulus.leaf_iff_one` |
 | `exp_ratMul_isAlgebraic`, `exp_ratio_pow_eq_one_iff` | same names |
 | `det_pencil_eq_conic`, `roy_conic_implies_empty` | same names |
+| `sixExponentials_cannot_refute_candidate` | same name |
 
 Every one of them is `sorry`-free and depends on no axiom of this repository:
 `#print axioms` lists only `propext`, `Classical.choice`, `Quot.sound`. The
