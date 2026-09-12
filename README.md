@@ -297,7 +297,7 @@ proved there and worth keeping is mirrored here, because a platform is not a
 place to store the only copy of a result.
 
 `Multipliers.lean`, `SFE.lean`, `Quantisation.lean`, `Line.lean`,
-`Pencil.lean`, `Kernel.lean` and `CheapLine.lean` are that mirror. They are stated in the platform's vocabulary
+`Pencil.lean`, `Kernel.lean`, `CheapLine.lean` and `Distance.lean` are that mirror. They are stated in the platform's vocabulary
 — `LogAlg`, `LogAlgTilde`, `IsCandidate`, mirroring its `DiazModulus`
 preamble — rather than in this repository's abstract-subfield style, so that
 the declarations read the same in both places.
@@ -309,6 +309,7 @@ the declarations read the same in both places.
 | `candidate_one_log_saturation` | `DiazModulus.candidate_one_log_saturation` |
 | `no_algebraic_line` | `DiazModulus.no_algebraic_generalized_line` |
 | `candidate_no_real_algebraic_line` | `DiazModulus.candidate_no_real_algebraic_line` |
+| `candidate_distance_transcendental` | `DiazModulus.candidate_distance_transcendental` |
 | `real_quantisation` | `Diaz.real_quantisation` |
 | `quantisation_orbit_iff_re_ne_zero` | `Diaz.quantisation_orbit_iff_re_ne_zero` |
 | `leaf_iff_one` | `DiazModulus.leaf_iff_one` |
