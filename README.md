@@ -275,6 +275,21 @@ anything near the frontier this note is about.
   vanishing coefficient. This is the only place where the arithmetic
   hypothesis, rather than mere transcendence, is what is assumed.
 
+## The companion note
+
+`tex/diaz_prove2me.tex` (and its PDF) is the mathematical account of what the
+mirrored nodes say: the ceiling, the quantisation of the imaginary part, the
+precise open boundary, two barriers and the branch that returns to its start,
+and the exclusions that come from leaving the candidate's three-dimensional
+hull. Every numbered statement in it carries a row in its Appendix A naming
+the formal identifier, so a reader can check any claim against this repository
+or against the platform rather than take it.
+
+It is a published copy: the working copy lives elsewhere and is copied here
+after a script re-checks each appendix row against the live board. The older
+`tex/diaz-modulus.tex` is a different and earlier note, about the model and the
+negative result, and is not superseded by it.
+
 ## Backup of the Prove2Me nodes
 
 Prove2Me holds the proofs; this repository is where they are kept. Anything

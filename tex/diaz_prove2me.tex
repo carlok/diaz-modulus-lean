@@ -1,0 +1,787 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{longtable}
+
+\setlist{leftmargin=2em,itemsep=0.25ex,topsep=0.5ex}
+\allowdisplaybreaks
+\hypersetup{hidelinks}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{problem*}{Open question}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Alg}{\overline{\mathbb{Q}}}
+\newcommand{\Logs}{\mathcal{L}}
+\newcommand{\aLogs}{\widetilde{\mathcal{L}}}
+\DeclareMathOperator{\trdeg}{trdeg}
+
+\title{The Diaz modulus conjecture: a machine-checked spine\\
+\large and the shape of its obstruction}
+\author{Carlo Perassi}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Diaz asked in 2004 whether a non-zero complex number can be a logarithm of an algebraic
+number and have algebraic modulus. We give a short formal development of the question. Most
+numbered statements below have been checked by machine, and the exceptions are flagged where
+they appear; Appendix~A records where each proof lives, so that any claim here can be
+verified rather than taken.
+
+The results divide in two. The first part is a spine: the strong four exponentials conjecture
+settles the question outright, by a single instantiation; a strictly weaker statement, which we
+call~$(S)$, settles the part of it that the elementary theory reduces to; and the value that a
+counterexample would exhibit cannot be a root of unity. The second part is negative, and is the
+reason for the paper. We show that one natural line of attack --- assembling the certified data
+of a hypothetical counterexample into a matrix of logarithms with vanishing determinant ---
+provably fails on one branch, that a second branch is circular in a precise sense, and that the
+remaining branch terminates in a theorem of 1973--74 that has never been formalised. What is
+left is one conjecture and one formalisation project, and we say exactly which.
+\end{abstract}
+
+\section{Setting}
+
+Write $\Alg$ for the algebraic numbers,
+\[
+  \Logs \;=\; \{\lambda\in\C : \e^{\lambda}\in\Alg\}
+\]
+for the logarithms of algebraic numbers, and $\aLogs$ for the $\Alg$-vector subspace of $\C$
+spanned by $1$ together with $\Logs$. Complex conjugation is written $\bar{\phantom{u}}$, and
+$\overline{\e^{u}}=\e^{\bar u}$, so $\Logs$ is stable under it.
+
+\begin{conjecture}[Diaz, 2004]\label{conj:diaz}
+For every $u\in\C$ with $u\neq0$ and $\lvert u\rvert\in\Alg$, the number $\e^{u}$ is
+transcendental.
+\end{conjecture}
+
+We call $u$ a \emph{candidate} when it violates this: $u\neq0$, $\lvert u\rvert\in\Alg$, and
+$\e^{u}\in\Alg$. A candidate carries exactly four pieces of certified data,
+\[
+  u\in\Logs,\qquad \bar u\in\Logs,\qquad 2\pi i\in\Logs,\qquad u\bar u=\lvert u\rvert^{2}\in\Alg ,
+\]
+and the last of these is a \emph{quadratic} relation between logarithms. That is the whole
+source of the difficulty: the linear theory of logarithms --- Baker's theorem and its relatives
+--- says nothing about products, and the theory that does speak about products of two
+logarithms is the four exponentials circle. Section~\ref{sec:ceiling} makes this precise, and
+everything after it is an attempt to ask for less.
+
+Two classical inputs are used without proof. \emph{Hermite--Lindemann}: for algebraic
+$a\neq0$, $\e^{a}$ is transcendental. \emph{Transcendence of $\pi$}, and hence of $\pi^{2}$.
+
+\begin{conjecture}[Strong four exponentials]\label{conj:sfe}
+Let $x_{1},x_{2}$ be linearly independent over $\Alg$ and let $y_{1},y_{2}$ be linearly
+independent over $\Alg$. Then at least one of the four products $x_{i}y_{j}$ lies outside
+$\aLogs$.
+\end{conjecture}
+
+This is Waldschmidt's strengthening of the four exponentials conjecture, in which linear
+independence is taken over $\Alg$ rather than over $\Q$. Both are open.
+
+\section{The ceiling}\label{sec:ceiling}
+
+\begin{theorem}\label{thm:sfe-implies-diaz}
+Conjecture~\ref{conj:sfe} implies Conjecture~\ref{conj:diaz}.
+\end{theorem}
+
+\begin{proof}
+Let $u\neq0$ with $\lvert u\rvert\in\Alg$, and suppose $\e^{u}\in\Alg$.
+
+If $u$ is algebraic, Hermite--Lindemann gives that $\e^{u}$ is transcendental, a
+contradiction. So $u$ is transcendental, and so is $\bar u$, since the conjugate of an
+algebraic number is algebraic. Consequently $(1,u)$ and $(1,\bar u)$ are each linearly
+independent over $\Alg$: a relation $a+bu=0$ with $a,b\in\Alg$ not both zero would force
+either $b\neq0$ and $u=-a/b\in\Alg$, or $b=0$ and $a=0$.
+
+Apply Conjecture~\ref{conj:sfe} to $x=(1,u)$ and $y=(1,\bar u)$. The four products are
+\[
+  1,\qquad \bar u,\qquad u,\qquad u\bar u=\lvert u\rvert^{2},
+\]
+and all four lie in $\aLogs$: the first by definition of $\aLogs$; the second and third because
+$\e^{\bar u}=\overline{\e^{u}}$ and $\e^{u}$ are algebraic, so $u,\bar u\in\Logs$; and the
+fourth because $\lvert u\rvert^{2}$ is algebraic and $\Alg\cdot1\subseteq\aLogs$. This
+contradicts Conjecture~\ref{conj:sfe}.
+\end{proof}
+
+\begin{remark}\label{rem:schanuel}
+Schanuel's conjecture also suffices, by a different route. If $u$ and $\bar u$ are linearly
+independent over $\Q$, Schanuel at $n=2$ gives
+$\trdeg_{\Q}\Q(u,\bar u,\e^{u},\e^{\bar u})\geq2$, hence $\trdeg_{\Q}\Q(u,\bar u)\geq2$ once
+the two exponentials are algebraic; but $u\bar u\in\Alg$ is a non-trivial algebraic relation, so
+that degree is at most $1$. If instead $u=q\bar u$ with $q\in\Q$, then $\lvert q\rvert=1$, so
+$q=\pm1$ and $u^{2}=\pm\lvert u\rvert^{2}\in\Alg$, making $u$ algebraic; Hermite--Lindemann
+finishes. Schanuel at $n=1$ is itself Hermite--Lindemann, so no separate input is needed.
+\end{remark}
+
+Theorem~\ref{thm:sfe-implies-diaz} fixes the ceiling of the whole subject. Any decomposition of
+Conjecture~\ref{conj:diaz} into cases produces statements that are consequences of
+Conjecture~\ref{conj:sfe}, and the useful question is not whether a case follows from it --- all
+of them do --- but whether a case follows from something \emph{weaker}. The next section
+exhibits one such statement.
+
+
+\section{Quantisation and the period lattice}\label{sec:quant}
+
+This section is self-contained: apart from the transcendence of $\pi$ and of $\pi^{2}$ it uses
+no arithmetic input at all. It ends by collapsing an entire branch of the problem to a single
+sentence about a single real variable.
+
+Throughout, $u$ is off both coordinate axes, meaning $\operatorname{Re}u\neq0$ and
+$\operatorname{Im}u\neq0$.
+
+\begin{theorem}[Quantisation]\label{thm:quant}
+Let $u$ be off both axes with $\e^{u}$ real. Then $\operatorname{Im}u\in\pi\Z\setminus\{0\}$,
+and $\lvert u\rvert^{2}>\pi^{2}$.
+\end{theorem}
+
+\begin{proof}
+Write $u=t+i\theta$. Then $\e^{u}=\e^{t}(\cos\theta+i\sin\theta)$, so $\e^{u}$ real forces
+$\e^{t}\sin\theta=0$, and $\e^{t}\neq0$ gives $\sin\theta=0$, that is $\theta=k\pi$ for some
+$k\in\Z$. Since $\operatorname{Im}u\neq0$ we have $k\neq0$. Then
+$\lvert u\rvert^{2}=t^{2}+k^{2}\pi^{2}\geq t^{2}+\pi^{2}>\pi^{2}$, using $t\neq0$.
+\end{proof}
+
+The lower bound is the only effective statement in this development, and it sharpens: if the
+ratio $\e^{u}/\overline{\e^{u}}$ has finite order $m$, the same argument applied to $u/m$ gives
+$\lvert u\rvert^{2}>\pi^{2}/m^{2}$. What that sharpening is worth is settled by the next
+statement, which says the whole family carries exactly one bit of information.
+
+\begin{proposition}\label{prop:quant-orbit}
+For $u$ off the axes, the quantisation conclusion holds across the entire orbit
+$\{qu: q\in\Q^{\times}\}$ if and only if $\operatorname{Re}u\neq0$.
+\end{proposition}
+
+No algebraicity is used. The point is negative: a predicate that looks like a family of
+increasingly precise constraints is equivalent to the hypothesis one already has, so no split of
+the problem along $m$ can be honest.
+
+\begin{theorem}[Fibres]\label{thm:fibre}
+Let $\alpha\in\Alg^{\times}$. At most two of the logarithms of $\alpha$ have algebraic modulus.
+\end{theorem}
+
+\begin{proof}
+The logarithms of $\alpha$ are $u+2\pi i n$, $n\in\Z$, for any one of them $u$. Writing
+$\theta=\operatorname{Im}u$,
+\[
+  \lvert u+2\pi i n\rvert^{2}
+  \;=\;\lvert u\rvert^{2}+4\pi n\theta+4\pi^{2}n^{2}.
+\]
+Suppose $n_{1},n_{2},n_{3}$ are distinct and all three give an algebraic modulus, hence an
+algebraic squared modulus. Subtracting the $n_{2}$ equation from the $n_{1}$ one and dividing by
+$4(n_{1}-n_{2})\neq0$ gives $\pi\theta+\pi^{2}(n_{1}+n_{2})\in\Alg$, and likewise
+$\pi\theta+\pi^{2}(n_{1}+n_{3})\in\Alg$. Subtracting these,
+$\pi^{2}(n_{2}-n_{3})\in\Alg$ with $n_{2}\neq n_{3}$, so $\pi^{2}\in\Alg$ --- false.
+\end{proof}
+
+\begin{corollary}\label{cor:translate}
+If two distinct logarithms of $\alpha$ have algebraic modulus, say $u$ and $u+2\pi i n$ with
+$n\neq0$, then $\pi\bigl(\operatorname{Im}u+n\pi\bigr)\in\Alg$.
+\end{corollary}
+
+\begin{proof}
+Immediate from the displayed identity: the difference of the two squared moduli is
+$4\pi n\theta+4\pi^{2}n^{2}$, algebraic, and dividing by $4n$ gives
+$\pi\theta+\pi^{2}n=\pi(\theta+n\pi)\in\Alg$.
+\end{proof}
+
+Corollary~\ref{cor:translate} is worth reading twice. The condition it produces was introduced
+elsewhere in this subject as a technical case distinction; what it says is that the fibre over
+$\e^{u}$ contains a \emph{second} point of algebraic modulus. Theorem~\ref{thm:fibre} bounds how
+often that can happen, and eliminating $\operatorname{Im}u$ between the two displayed relations
+returns a quartic relation in $\pi$ --- which is the reason the class it cuts out has
+transcendence degree one over $\Q$. The period lattice contributes one bit and no more.
+
+\subsection*{One sentence}
+
+\begin{theorem}\label{thm:one-relation}
+The following are equivalent.
+\begin{enumerate}[label=\textup{(\roman*)}]
+  \item For every $u\neq0$ off both axes with $\lvert u\rvert\in\Alg$ and $\e^{u}$ real,
+        $\e^{u}$ is transcendental.
+  \item For every real $t\neq0$ with $\e^{t}\in\Alg$, the number $t^{2}+\pi^{2}$ is
+        transcendental.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assume (ii) and let $u$ be as in (i) with $\e^{u}\in\Alg$. By Theorem~\ref{thm:quant},
+$u=t+ik\pi$ with $t=\operatorname{Re}u\neq0$ and $k\in\Z\setminus\{0\}$. Put $v=u/k$. Then
+$\e^{v}$ is a $k$-th root of $\e^{u}$, hence algebraic; $\operatorname{Im}v=\pi$;
+$\operatorname{Re}v=t/k\neq0$; and
+$\lvert v\rvert^{2}=(t/k)^{2}+\pi^{2}$, which is algebraic because $\lvert u\rvert^{2}$ is and
+$k$ is rational. Also $\e^{v}$ is real up to sign, so $\e^{t/k}=\pm\e^{v}$ is algebraic.
+Applying (ii) at $t/k$ makes $(t/k)^{2}+\pi^{2}$ transcendental, contradicting the previous
+sentence.
+
+Conversely assume (i) and let $t\neq0$ be real with $\e^{t}\in\Alg$ and suppose
+$t^{2}+\pi^{2}\in\Alg$. Set $u=t+i\pi$. Then $\e^{u}=-\e^{t}$ is real and algebraic,
+$\lvert u\rvert^{2}=t^{2}+\pi^{2}$ is algebraic, and $u$ is off both axes. This contradicts~(i).
+\end{proof}
+
+The $k$ in that proof carries no content, which is the substance of the theorem: an entire branch
+of the problem, quantified over two real parameters and an integer, is one assertion about one
+real variable. Its smallest instance is a question one can state without any of the preceding
+apparatus.
+
+\begin{problem*}
+Is $\sqrt{(\log 2)^{2}+\pi^{2}}$ algebraic?
+\end{problem*}
+
+Nothing in this development answers it. Section~\ref{sec:ceiling} shows the strong four
+exponentials conjecture does; Section~\ref{sec:boundary} explains why the available
+unconditional theory does not reach it.
+
+
+
+\section{The precise open boundary}\label{sec:boundary}
+
+Attach to a candidate $u$, with $\rho=u\bar u$ and $r=\sqrt{\rho}$, the matrix
+\[
+  H(u,r)\;=\;\begin{pmatrix} u & r\\ r & \bar u\end{pmatrix},
+  \qquad \det H(u,r)=u\bar u-r^{2}=0 .
+\]
+Its rows are dependent over $\C$. The next statement says they are dependent in no weaker
+sense, and it is the sharpest way to see where this problem sits.
+
+\begin{theorem}[No vanishing coefficient]\label{thm:novan}
+Let $K\subseteq\C$ be a subfield with $r\in K$, $r\neq0$, and let $u$ be transcendental over
+$K$ with $u\bar u=r^{2}$. Then for all non-zero $w,v\in K^{2}$,
+\[
+  w^{\mathsf T}H(u,r)\,v \;\neq\; 0 .
+\]
+\end{theorem}
+
+\begin{proof}
+Expanding, $w^{\mathsf T}Hv=w_{0}(uv_{0}+rv_{1})+w_{1}(rv_{0}+\bar u v_{1})$. Using
+$\bar u=r^{2}/u$ and clearing the denominator $u\neq0$, the vanishing of this expression is a
+quadratic relation for $u$ over $K$ with coefficients built from $w,v,r$; its leading coefficient
+is $w_{0}v_{0}$ and its constant term is $r^{2}w_{1}v_{1}$. A vanishing of the expression makes
+$u$ a root of a polynomial over $K$, so by transcendence that polynomial is identically zero:
+$w_{0}v_{0}=0$, $r^{2}w_{1}v_{1}=0$, and the middle coefficient $r(w_{0}v_{1}+w_{1}v_{0})=0$.
+With $r\neq0$ the first two give $w_{0}v_{0}=w_{1}v_{1}=0$, and combining with the third forces
+$w=0$ or $v=0$.
+\end{proof}
+
+At $K=\Alg$ the transcendence hypothesis is exactly what a candidate supplies: an algebraic $u$
+with $\e^{u}$ algebraic contradicts Hermite--Lindemann, so a candidate is transcendental.
+
+So $H(u,r)$ is singular over $\C$ while every coefficient extracted from it over $\Alg$ is
+non-zero. A candidate hides behind exactly this discrepancy: rank drops over $\C$ and nothing
+detects it over $\Alg$.
+
+One might hope this configuration is an artefact of a particular choice of matrix. It is not.
+
+\begin{theorem}[Uniqueness of the obstruction]\label{thm:pencil}
+Let $K\subseteq\C$ be a subfield, $u$ transcendental over $K$ with $u\neq0$ and $u\bar u\in K$,
+and let $A,B,C$ be $2\times2$ matrices over $K$ with $\det(A+uB+\bar uC)=0$. Then there is
+$c\in K$ with
+\[
+  \det(xA+yB+zC)\;=\;c\,\bigl(yz-(u\bar u)\,x^{2}\bigr)
+  \qquad\text{for all }x,y,z\in\C .
+\]
+\end{theorem}
+
+Every singular pencil over the candidate's hull is therefore the same object: its determinant is
+a $K$-multiple of the single quadratic form $yz-\rho x^{2}$. Concretely, $H(u,r)$ factors as
+\[
+  \begin{pmatrix}0&r\\ r&0\end{pmatrix}
+  \bigl(I+uB_{0}+\bar uC_{0}\bigr),\qquad
+  B_{0}^{2}=C_{0}^{2}=0,\qquad \operatorname{tr}(B_{0}C_{0})=\rho^{-1},
+\]
+so the whole family is a nilpotent pencil pinned by one trace. There is no second configuration
+to look for, and no gain in enlarging the search.
+
+\subsection*{Descent to a conic, and what is missing}
+
+Theorem~\ref{thm:pencil} sends the problem to the affine conic
+\[
+  X_{\rho}\;:\;XY=\rho ,
+\]
+on which a candidate is the point $(u,\bar u)\in\Logs^{2}$. This makes the boundary explicit,
+and it also makes a tempting route collapse.
+
+\begin{proposition}\label{prop:roy}
+Fix $\rho\neq0$ and let $L\subseteq\C$ be any set. Suppose every point of $X_{\rho}\cap L^{2}$
+lies in a $\Q$-rational vector subspace of $\C^{2}$ contained in $X_{\rho}$. Then
+$X_{\rho}\cap L^{2}=\varnothing$.
+\end{proposition}
+
+\begin{proof}
+A vector subspace contains the origin, and $0\cdot0=0\neq\rho$, so no vector subspace is
+contained in $X_{\rho}$. The hypothesis can only be satisfied vacuously.
+\end{proof}
+
+The statement is trivial and the reason to record it is what it exposes when read backwards.
+Roy's conjecture in the shape just used --- points of a variety with coordinates in $\Logs$ lie
+on rational subspaces contained in it --- is available for \emph{homogeneous} quadrics, where
+there are non-trivial subspaces to be placed on. The affine conic offers none, so the same
+hypothesis becomes an emptiness statement rather than a structural one, and the gap between the
+two is not a technicality but the location of the whole difficulty.
+
+Stated in the form that is actually available: Proposition~12.25 of Waldschmidt's book, for
+arbitrary $k\subseteq K$ and a $k$-subspace $\mathcal{E}$ of $K$, gives the conclusion for a
+quadric defined over $k$ provided every non-zero matrix $M$ over $\mathcal{E}$ satisfies
+\[
+  \operatorname{rank}(M)\;>\;\tfrac12\,r_{\mathrm{str}}(M),
+\]
+the structural rank taken over $k$. Two things separate that from Diaz's conjecture, and they are
+of different kinds.
+
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item \textbf{The rank inequality.} Over $(\Q,\C,\Logs)$ it is supplied at transcendence
+        degree one by Theorem~15.30 of the same book --- which is why the
+        transcendence-degree-one statements in this area are unconditional, and equally why they
+        are not new. Over $(\Alg,\C,\aLogs)$, the coefficient field this problem requires, only
+        the non-strict bound of Corollary~12.22 is known. This is being worked on; the
+        Structural Rank Conjecture of Dasgupta and Kakde asserts something stronger.
+  \item \textbf{Homogeneity.} Proposition~12.25 covers homogeneous quadrics; $X_{\rho}$ is
+        affine. Waldschmidt makes the point himself, observing that the inhomogeneous extension
+        would give the transcendence of $\e^{\lambda^{2}}$, and that $\e^{\pi^{2}}$ remains
+        open. This is not being worked on.
+\end{enumerate}
+
+The distinction is worth keeping. An expectation that the subject will drift towards Diaz's
+conjecture is reasonable for~(a) and unsupported for~(b), and it is~(b) that
+Theorem~\ref{thm:one-relation} runs into: $\sqrt{(\log 2)^{2}+\pi^{2}}$ asks about a
+\emph{sum}, and every available tool is homogeneous.
+
+
+
+\section{Two barriers, and one branch that returns}\label{sec:map}
+
+Section~\ref{sec:boundary} located the difficulty. This section records what is known about
+methods rather than about the problem: two results saying that whole classes of approach cannot
+work, and one observation about decomposition itself.
+
+\subsection*{The candidate is invisible to algebraic coefficients}
+
+\begin{theorem}[Indistinguishability]\label{thm:indist}
+Let $u\neq0$ with $\e^{u}$ algebraic, and let $r\in\Alg$ be real and non-zero with
+$u\bar u=r^{2}$. Then there exist a transcendental $t$ with $t\bar t=r^{2}$ and a ring
+homomorphism $\Phi:\C\to\C$ fixing $\Alg$ pointwise, carrying $u$ to $t$, commuting with
+conjugation on $\Alg(u)$, such that for every matrix $M$ over $\Alg(u)$ and all vectors $w,v$
+over $\Alg$,
+\[
+  w^{\mathsf T}Mv=0 \iff w^{\mathsf T}\Phi(M)v=0 .
+\]
+\end{theorem}
+
+The point $t$ is an ordinary point of the same circle --- $r\e^{i}$ will do --- with no
+arithmetic distinction whatever. So no vanishing statement with algebraic coefficients,
+formulated over the candidate's own hull, separates a hypothetical candidate from a point that
+is certainly not one. Any argument that would refute a candidate by exhibiting such a vanishing
+relation refutes nothing.
+
+That the intertwining with conjugation comes for free is worth a line: since $\bar u=\rho/u$,
+conjugation is a rational function of the generator on $\Alg(u)$, so any $\Phi$ matching
+generators commutes with it automatically. The symmetry is not arranged; it is forced.
+
+\subsection*{The threshold is a dimension}
+
+\begin{theorem}[Dimension count]\label{thm:dim}
+Let $u$ be a candidate. Then $1,u,\bar u$ all lie in $\aLogs$ and, granting
+Hermite--Lindemann, they span an $\Alg$-subspace of dimension exactly $3$. There exist
+$\Alg$-independent pairs $x=(x_{1},x_{2})$ and $y=(y_{1},y_{2})$ with all four products
+$x_{i}y_{j}$ in that span; and for no $\Alg$-independent $x$ of length $2$ and $y$ of length $3$
+do all six products $x_{i}y_{j}$ lie in it.
+\end{theorem}
+
+The certificate a candidate offers is three-dimensional. A $2\times2$ configuration needs four
+products and fits; a $2\times3$ configuration needs six and cannot. That is the whole reason the
+strong four exponentials conjecture reaches this problem while the six exponentials
+\emph{theorem} --- which is proved, and which would otherwise be the natural instrument --- does
+not. The obstruction is not depth but dimension, and no sharpening of six exponentials that
+stays inside a three-dimensional certificate space can help.
+
+\subsection*{A decomposition that returns to its start}
+
+Splitting the conjecture into cases produces statements that are formally weaker, and it is
+tempting to read a long chain of such splits as progress. It need not be.
+
+\begin{proposition}\label{prop:loop}
+Let $(\mathrm{NT})$ be the assertion: for every $u$ with $\e^{u}$ and $\e^{\bar u}$ algebraic,
+$\operatorname{Re}u\neq0$, $\operatorname{Im}u\neq0$, and $\operatorname{Re}u$,
+$\operatorname{Im}u$, $\operatorname{Re}u/\operatorname{Im}u$ all transcendental, the modulus
+$\lvert u\rvert$ is transcendental. Then, granting Hermite--Lindemann, $(\mathrm{NT})$ is
+equivalent to Conjecture~\ref{conj:diaz}.
+\end{proposition}
+
+\begin{proof}
+Assume $(\mathrm{NT})$ and let $u\neq0$ have $\lvert u\rvert\in\Alg$ and $\e^{u}\in\Alg$. Then
+$\e^{\bar u}=\overline{\e^{u}}$ is algebraic. If any of $\operatorname{Re}u$,
+$\operatorname{Im}u$, $\operatorname{Re}u/\operatorname{Im}u$ is algebraic, or if either of
+$\operatorname{Re}u$, $\operatorname{Im}u$ vanishes, then $\lvert u\rvert^{2}\in\Alg$ forces $u$
+itself algebraic --- in each case one coordinate is algebraic and the identity
+$\lvert u\rvert^{2}=(\operatorname{Re}u)^{2}+(\operatorname{Im}u)^{2}$ supplies the other ---
+and Hermite--Lindemann applies. Otherwise $(\mathrm{NT})$ makes $\lvert u\rvert$ transcendental,
+contradicting the hypothesis. The converse is immediate: a $u$ witnessing the failure of
+$(\mathrm{NT})$ has algebraic modulus and algebraic $\e^{u}$.
+\end{proof}
+
+$(\mathrm{NT})$ is recorded formally and is open; the equivalence just proved is not itself
+formalised, and Appendix~\ref{app:certs} marks it so.
+
+$(\mathrm{NT})$ is a natural-looking restriction of the conjecture, reached by imposing
+genericity on a conjugate pair, and it sits several case splits below the original statement. It
+is nonetheless the original statement. A decomposition can descend a long way and arrive back
+where it began, and only closing the cycle detects this; reading the chain forwards never does.
+
+\subsection*{What is not available}
+
+Two standard instruments are inapplicable here for reasons that are structural rather than
+quantitative, and it is worth recording which.
+
+\emph{Gel'fond--Schneider} produces transcendence of $\alpha^{\beta}$ from an algebraic
+$\alpha\neq0,1$ and an algebraic irrational $\beta$. Applied to the configuration above it
+manufactures transcendence at a point unrelated to the one in question; the number whose
+transcendence is wanted is not of that shape.
+
+\emph{Baker's theorem} bounds non-vanishing linear forms in logarithms from below. The relevant
+form here vanishes identically by hypothesis --- that is what being a candidate means --- so the
+bound has nothing to act on. Using it would require knowing in advance that the form is
+non-zero, which is the conclusion sought.
+
+Finally, the transcendence-degree-one case of four exponentials, which does apply on part of the
+locus, is a theorem of 1973--74 (Brownawell; Waldschmidt), recorded as Theorem~1 of
+Roy--Waldschmidt~\cite{roy-waldschmidt-1995}. It is available for citation and not, at present,
+for anything else: no formal development of it exists, and the obstacle to producing one is
+Philippon's zero estimate together with the surrounding apparatus, none of which has been
+formalised.
+
+\section{Exclusions outside the hull}\label{sec:outside}
+
+Section~\ref{sec:map} showed that nothing inside $W_{u}=\Alg+\Alg u+\Alg\bar u$ decides the
+question: the hull a candidate certifies out of itself is three-dimensional, and the templates
+that would refute it need four dimensions. The way past that is to leave the hull --- to adjoin
+one further number and ask what it would have to be. This section collects what that yields.
+Everything here is a necessary condition on a hypothetical counterexample; none of it is an
+emptiness proof, and the final subsection says where the method stops.
+
+Throughout, $u$ is a candidate, $\rho=|u|^{2}\in\Alg^{\times}$, and $\bar u=\rho/u$, so that
+$u^{-1}=\bar u/\rho$ lies in $\aLogs$ along with $u$ and $1$.
+
+\subsection*{Algebraic lines, and distance to an algebraic point}
+
+\begin{theorem}\label{thm:line}
+Let $\lambda\in\Logs$ with $\operatorname{Re}\lambda\neq0$ and $\operatorname{Im}\lambda\neq0$.
+There are no $B\in\Alg^{\times}$ and $C\in\Alg$ with
+\[
+  B\lambda+\bar B\,\bar\lambda+C=0 .
+\]
+\end{theorem}
+
+\begin{proof}
+Off both axes, $\lambda$ and $\bar\lambda$ are $\Q$-linearly independent: taking real and
+imaginary parts of $p\lambda+q\bar\lambda=0$ with $p,q\in\Q$ gives
+$(p+q)\operatorname{Re}\lambda=0$ and $(p-q)\operatorname{Im}\lambda=0$, whence $p=q=0$. Both lie
+in $\Logs$, since $\e^{\bar\lambda}=\overline{\e^{\lambda}}$ is algebraic. Baker's theorem in its
+inhomogeneous form then makes the non-zero $\Alg$-combination $B\lambda+\bar B\bar\lambda$
+transcendental, so it cannot equal the algebraic number $-C$.
+\end{proof}
+
+The condition has a geometric reading. Writing $B=B_{1}+iB_{2}$ and $\lambda=x+iy$, the relation
+is $2(B_{1}x-B_{2}y)+C=0$: an affine line with real algebraic coefficients, not both zero. So
+Theorem~\ref{thm:line} says a logarithm off the axes lies on no such line. For a candidate the
+same conclusion is available with less input, and it is worth recording which:
+
+\begin{remark}\label{rem:line-cheap}
+For a candidate $u=x+iy$, no relation $Ax+By=C$ with $A,B,C\in\Alg\cap\R$ and $(A,B)\neq(0,0)$
+holds, by Hermite--Lindemann alone. Such a line meets the circle $X^{2}+Y^{2}=\rho$ only in
+points with algebraic coordinates --- solve the linear equation for one coordinate and substitute,
+the resulting quadratic having non-zero leading coefficient because $A,B$ are real --- and $u$ is
+transcendental. No linear forms in logarithms are needed. This statement has no machine-checked
+counterpart; Theorem~\ref{thm:line}, which is stronger in dropping the hypothesis on $|u|$, does.
+\end{remark}
+
+\begin{corollary}\label{cor:distance}
+For every $a\in\Alg^{\times}$, $\ |u-a|\notin\Alg$. Equivalently, a candidate lies on no circle
+of algebraic radius about a non-zero algebraic centre.
+\end{corollary}
+
+\begin{proof}
+If $|u-a|$ were algebraic then so would be
+$2\operatorname{Re}(\bar a u)=|u|^{2}+|a|^{2}-|u-a|^{2}$, which is a forbidden line by
+Remark~\ref{rem:line-cheap}. The exclusion of $a=0$ is not cosmetic: $|u|$ is algebraic by
+hypothesis.
+\end{proof}
+
+\subsection*{The multiplier module}
+
+The next statement determines, completely, which numbers can multiply a candidate back into
+$\aLogs$. Its input is Roy's strong six exponentials theorem: for $\Alg$-linearly independent
+$x_{1},x_{2}$ and $\Alg$-linearly independent $y_{1},y_{2},y_{3}$, at least one of the six
+products $x_{i}y_{j}$ lies outside $\aLogs$.
+
+\begin{theorem}\label{thm:multiplier}
+Assume the strong six exponentials theorem. For every candidate $u$,
+\[
+  \{z\in\aLogs:\ uz\in\aLogs\}=\Alg+\Alg\,u^{-1}. \tag{M}
+\]
+\end{theorem}
+
+\begin{proof}
+For the inclusion $\supseteq$: $1$ and $u^{-1}$ lie in $\aLogs$, and for $z=a+bu^{-1}$ with
+$a,b\in\Alg$ one has $uz=au+b\in\aLogs$.
+
+For $\subseteq$, suppose $z\in\aLogs$, $uz\in\aLogs$ and $z\notin\Alg+\Alg u^{-1}$. Since $u$ is
+transcendental, $1,u$ are $\Alg$-linearly independent, and so are $1,u^{-1}$; the assumption on
+$z$ extends the second pair to an $\Alg$-linearly independent triple $z,1,u^{-1}$. The six
+products of $(1,u)$ with $(z,1,u^{-1})$ are
+\[
+  z,\qquad 1,\qquad u^{-1},\qquad uz,\qquad u,\qquad u\cdot u^{-1}=1,
+\]
+all of them in $\aLogs$. This contradicts the strong six exponentials theorem.
+\end{proof}
+
+The force of (M) is that the right-hand side is closed under nothing useful. Two instances:
+
+\begin{corollary}\label{cor:square}
+Assume the strong six exponentials theorem. For every candidate $u$ and all $a\in\Alg^{\times}$,
+$b,c\in\Alg$,
+\[
+  u^{2}\notin\aLogs, \qquad\text{hence}\qquad au^{2}+bu+c\notin\aLogs .
+\]
+In particular $\e^{au^{2}+bu+c}$ is transcendental.
+\end{corollary}
+
+\begin{proof}
+Take $z=u$ in (M). If $u^{2}\in\aLogs$ then $u=a'+b'u^{-1}$ for some $a',b'\in\Alg$, so
+$u^{2}-a'u-b'=0$ and $u$ is algebraic. The second form follows because $\aLogs$ contains $u$ and
+$\Alg$ and is an $\Alg$-subspace.
+\end{proof}
+
+\begin{corollary}\label{cor:recip}
+Assume the strong six exponentials theorem. For every candidate $u$ and every $a\in\Alg^{\times}$,
+\[
+  \frac{1}{u-a}\notin\aLogs .
+\]
+\end{corollary}
+
+\begin{proof}
+Put $z=(u-a)^{-1}$, a legitimate test element because $uz=1+az$, so $uz\in\aLogs$ as soon as
+$z$ does. Then (M) gives $z=c+du^{-1}$ with $c,d\in\Alg$, and clearing denominators,
+\[
+  c\,u^{2}+(d-ca-1)\,u-da=0 .
+\]
+The coefficients are algebraic and not all zero: $c=0$ forces $d=1$, and then the constant term
+is $-a\neq0$. So $u$ is algebraic, a contradiction.
+\end{proof}
+
+The contrast is the point. A candidate's reciprocal $1/u$ necessarily lies in $\aLogs$, while no
+algebraically shifted reciprocal does.
+
+\subsection*{Saturation at one logarithm}
+
+\begin{theorem}\label{thm:saturation}
+Let $u$ be a candidate and $\ell\in\Logs$. If $u\in\Alg+\Alg\ell$ then $u\in\Q\ell$.
+\end{theorem}
+
+\begin{proof}
+Write $u=a+b\ell$ with $a,b\in\Alg$. If $u$ and $\ell$ are $\Q$-linearly independent, Baker's
+inhomogeneous theorem makes $u-b\ell$ transcendental, and it equals $a$. So they are
+$\Q$-dependent: $pu+q\ell=0$ with $p,q\in\Q$ not both zero. Here $p\neq0$, since $p=0$ would give
+$q\ell=0$ and hence $\ell=0$, making $u=a$ algebraic against Hermite--Lindemann. Thus
+$u=(-q/p)\ell$.
+\end{proof}
+
+So inside an algebraic line spanned by one logarithm, the elements of $\Logs$ are exactly the
+\emph{rational} multiples of that logarithm: the algebraic span collapses to the rational one. The
+instance $\ell=i\pi$ closes off a plane one might have expected to have to examine.
+
+\begin{corollary}\label{cor:api}
+No candidate has the form $a+b\pi$ with $a,b\in\Alg$.
+\end{corollary}
+
+\begin{proof}
+$i\pi\in\Logs$, and $a+b\pi=a+(-ib)(i\pi)$ with $-ib$ algebraic. By
+Theorem~\ref{thm:saturation}, $u=r\,i\pi$ for some $r\in\Q$, necessarily non-zero; then
+$|u|=|r|\pi$ is transcendental, contradicting the candidate's algebraic modulus.
+\end{proof}
+
+The boundary of this argument should be stated explicitly, because it is easy to over-read.
+Theorem~\ref{thm:saturation} handles one logarithm at a time, with the candidate itself as the
+second. It says nothing about a combination of two independent logarithms, and in particular it
+does not touch $\log2+i\pi$, a logarithm of $-2$ and the smallest open test case of
+\S\ref{sec:quant}. The distance between the two situations is the whole difficulty.
+
+\subsection*{Generic on its own circle}
+
+One further exclusion belongs with these, and it is the strongest of them. It was the last
+statement in this note to acquire a machine-checked proof, and the route the formalisation took
+is not the one given below.
+
+\begin{proposition}\label{prop:kernel}
+Let $u=x+iy$ be a candidate and $\rho=|u|^{2}$. For every $P\in\Alg[X,Y]$,
+\[
+  P(x,y)=0 \quad\Longleftrightarrow\quad X^{2}+Y^{2}-\rho \ \text{ divides } \ P .
+\]
+\end{proposition}
+
+\begin{proof}
+The implication $\Leftarrow$ is immediate from $x^{2}+y^{2}=\rho$. For $\Rightarrow$, make the
+invertible linear change of variables $U=X+iY$, $V=X-iY$ over $\Alg$, under which $X^{2}+Y^{2}$
+becomes $UV$; let $Q\in\Alg[U,V]$ be the image of $P$, so that $Q(u,\bar u)=P(x,y)=0$ and
+$\bar u=\rho/u$. Modulo $UV-\rho$ the ring $\Alg[U,V]$ becomes $\Alg[U,U^{-1}]$, and the residue
+of $Q$ is a Laurent polynomial vanishing at $u$. Since $u$ is transcendental, a non-zero Laurent
+polynomial over $\Alg$ cannot vanish at $u$: clearing denominators would give an algebraic
+relation for $u$. Hence the residue is zero, $Q\in(UV-\rho)$, and $P\in(X^{2}+Y^{2}-\rho)$.
+\end{proof}
+
+A candidate is therefore algebraically generic on its own circle: it lies on no algebraic plane
+curve that does not contain that entire circle. It lies on no parabola, and on no ellipse or
+hyperbola other than through the circle appearing as a component. What the proposition does not
+do is eliminate the circle itself, which is precisely where the difficulty has been all along ---
+so the statement is sharp in form and empty in consequence for the main question.
+
+The formal proof takes a different route from the one above, and the difference is instructive.
+Rather than passing to the coordinate ring of the conic, it reads $P$ in $\Alg[X][Y]$ and divides
+by the monic quadratic $Y^{2}+(X^{2}-\rho)$, leaving a remainder $A(X)Y+B(X)$ which must vanish at
+$(x,y)$. Two facts finish it: $x$ and $y$ are each transcendental --- if either were algebraic,
+$x^{2}+y^{2}=\rho$ would make the other algebraic and hence $u$ algebraic --- and $y\notin\Alg(x)$,
+because $\rho-X^{2}$ is squarefree of degree two and so not a square in $\Alg(X)$. The change of
+variables is the shorter argument on paper; the division is the one a proof assistant prefers,
+because it needs no quotient ring.
+
+\section{What would have to be proved}
+
+Three statements, in increasing strength, each of which settles Conjecture~\ref{conj:diaz}.
+
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item The single relation of Theorem~\ref{thm:one-relation}, for the branch it governs: for
+        real $t\neq0$ with $\e^{t}$ algebraic, $t^{2}+\pi^{2}$ is transcendental. Smallest open
+        instance: is $\sqrt{(\log2)^{2}+\pi^{2}}$ algebraic?
+  \item The rank inequality of \S\ref{sec:boundary}(a) over $(\Alg,\C,\aLogs)$, together with an
+        inhomogeneous extension of Proposition~12.25. The first component is under active study;
+        the second is not.
+  \item The strong four exponentials conjecture, which settles the whole question at once by
+        Theorem~\ref{thm:sfe-implies-diaz}.
+\end{enumerate}
+
+Nothing here brings any of the three closer. What the development does establish is where the
+question is not: not in a better matrix, by Theorem~\ref{thm:pencil}; not in an algebraic
+invariant of the candidate's hull, by Theorem~\ref{thm:indist}; not in the six exponentials
+theorem, by Theorem~\ref{thm:dim}; and not, on one whole branch, in further case analysis, by
+Proposition~\ref{prop:loop}.
+
+\begin{thebibliography}{9}
+\bibitem{diaz-2007} G.~Diaz, \emph{Utilisation de la conjugaison complexe dans l'étude de la
+transcendance de valeurs de la fonction exponentielle usuelle}, J. Théor. Nombres Bordeaux
+\textbf{19} (2007), 373--391.
+\bibitem{roy-waldschmidt-1995} D.~Roy and M.~Waldschmidt, \emph{Quadratic relations between
+logarithms of algebraic numbers}, Proc. Japan Acad. Ser. A \textbf{71} (1995), 151--153.
+\bibitem{brownawell-1974} W.~D.~Brownawell, \emph{The algebraic independence of certain numbers
+related to the exponential function}, J. Number Theory \textbf{6} (1974), 22--31.
+\bibitem{waldschmidt-1973} M.~Waldschmidt, \emph{Solution du huitième problème de Schneider},
+J. Number Theory \textbf{5} (1973), 191--202.
+\bibitem{waldschmidt-book} M.~Waldschmidt, \emph{Diophantine Approximation on Linear Algebraic
+Groups}, Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2000.
+\bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{On ranks of matrices of logarithms},
+preprint.
+\end{thebibliography}
+
+
+
+\appendix
+\section{Machine-checked certificates}\label{app:certs}
+
+Almost every numbered statement above has been checked in a formal development, in Lean~4
+against a pinned revision of its mathematical library. The table records where each one lives, so
+that any claim in this note can be verified rather than taken on trust. The environment is stated
+here once and nowhere else.
+
+The proofs exist in two places, and the difference matters to a reader who wants to check them.
+Each identifier below names a node on a collaborative proving platform, where the statement, the
+submitted proof and its verdict are public. All but one of the proved statements are also mirrored
+in a self-contained Lean project at
+\begin{center}\nolinkurl{https://github.com/carlok/diaz-modulus-lean}\end{center}
+which builds from source in one command and depends on no platform. The exception is
+Remark~\ref{rem:schanuel}, whose proof uses a transcendence-degree instance that the revision
+pinned in that project does not supply. Where the two differ in naming, the project keeps the
+platform's spelling.
+
+Two further statements, not numbered above because the note does not use them directly, are
+proved alongside Proposition~\ref{prop:kernel} and belong to its argument: the real and imaginary
+parts of a candidate are each transcendental
+(\nolinkurl{DiazModulus.candidate_re_transcendental},
+\nolinkurl{DiazModulus.candidate_im_transcendental}).
+
+A \textbf{Proved} row means the statement itself has a machine-checked proof. An \textbf{Open}
+row means the statement is recorded formally but not proved, and the reason differs by case: it
+may be an open conjecture, or a theorem of the literature that has never been formalised. The
+two are not the same and the table separates them. A \textbf{Not formalised} row means what it
+says: the statement is proved in this note and has no formal counterpart at all. There are three,
+and each is flagged where it appears. Proposition~\ref{prop:loop} is one of them, and its row
+needs a word: the identifier given is the statement $(\mathrm{NT})$, which is recorded formally
+and is Open; the \emph{equivalence} proved in Proposition~\ref{prop:loop} is what has no formal
+counterpart.
+
+\begin{center}
+\footnotesize
+\begin{longtable}{@{}llp{6.2cm}@{}}
+\textbf{Result} & \textbf{Status} & \textbf{Identifier} \\
+\hline
+\endhead
+Conj.~\ref{conj:diaz} & Open (conjecture) & \nolinkurl{DiazModulus.diaz_modulus_conjecture} \\
+Thm~\ref{thm:sfe-implies-diaz} & Proved & \nolinkurl{DiazModulus.diaz_of_sfe} \\
+Rem.~\ref{rem:schanuel} & Proved & \nolinkurl{DiazModulus.diaz_of_schanuel} \\
+Thm~\ref{thm:quant} & Proved & \nolinkurl{Diaz.real_quantisation} \\
+Prop.~\ref{prop:quant-orbit} & Proved & \nolinkurl{Diaz.quantisation_orbit_iff_re_ne_zero} \\
+Thm~\ref{thm:fibre} & Proved & \nolinkurl{Diaz.fibre_at_most_two} \\
+Cor.~\ref{cor:translate} & Proved & \nolinkurl{Diaz.q_translate_unique} \\
+Thm~\ref{thm:one-relation} & Proved & \nolinkurl{DiazModulus.leaf_iff_one} \\
+Thm~\ref{thm:novan} & Proved & \nolinkurl{Diaz.no_vanishing_coeff} \\
+Thm~\ref{thm:pencil} & Proved & \nolinkurl{Diaz.det_pencil_eq_conic} \\
+Prop.~\ref{prop:roy} & Proved & \nolinkurl{Diaz.roy_conic_implies_empty} \\
+Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_coeff} \\
+Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refute_candidate} \\
+Prop.~\ref{prop:loop} & Not formalised & \nolinkurl{DiazModulus.norm_transcendental_of_generic_conj_pair} (Open) \\
+\S\ref{sec:map}, 1973--74 thm & Open (not formalised) & \nolinkurl{DiazModulus.four_exponentials_trdeg_one} \\
+Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line} \\
+Rem.~\ref{rem:line-cheap} & Not formalised & --- \\
+Cor.~\ref{cor:distance} & Not formalised & --- \\
+Thm~\ref{thm:multiplier} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
+Cor.~\ref{cor:square} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
+Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
+Thm~\ref{thm:saturation} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
+Cor.~\ref{cor:api} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
+Prop.~\ref{prop:kernel} & Proved & \nolinkurl{DiazModulus.candidate_vanishing_ideal} \\
+Hermite--Lindemann & Proved & \nolinkurl{DiazModulus.hermite_lindemann_holds} \\
+\end{longtable}
+\end{center}
+
+Two entries need a word. Hermite--Lindemann is used freely in the text as classical; it is listed
+because the library used does not contain it, so it had to be established rather than cited. And
+the statement $(\mathrm{NT})$ of Proposition~\ref{prop:loop} was contributed by another
+participant in the same development, independently of the work reported here; the equivalence
+with Conjecture~\ref{conj:diaz} is what is established above.
+
+Some results in the development are not represented here at all. Roughly a third of it consists
+of closure lemmas, coercions and bookkeeping with no content at this level of exposition, and a
+further group restates in one set of coordinates what another states in a different one. Neither
+belongs in a paper, and neither is listed.
+
+
+\end{document}
