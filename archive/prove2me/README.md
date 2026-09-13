@@ -6,6 +6,13 @@ Every accepted submission for every Proved node of the Diaz mission on
 `<theorem_name>__<submission id prefix>.lean`; `manifest.json` records the
 theorem and submission ids, who submitted, and when.
 
+Four files come from a different mission. `DiazModulus.six_exponentials` rests on
+`SX.six_exponentials_of_numberField`, which rests on `SX.exists_aux_expSum`,
+`SX.descent_step` and `SX.eq_zero_of_expSum_vanishes`; their accepted proofs are archived
+here too, marked `dependency_of` in the manifest, together with `Def_SX.lean`, the
+definitions they are stated in. All four are Proved, so the Diaz result they support is
+proved outright.
+
 These files are the platform's record, kept here so that no proof exists only
 on the platform. They are **not** part of the Lean library and are not built:
 they target the platform's Mathlib revision and import its per-node modules

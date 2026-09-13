@@ -141,10 +141,27 @@ def redact(text, pub_names, pub_labels):
 # ---------------------------------------------------------------- checklist
 
 def library_decls():
+    """Declarations in modules the library actually builds.
+
+    Only modules reachable by imports from `Diaz.lean` count. A file that sits under
+    `Diaz/` but is not imported — typically a port that does not compile yet — is not
+    in the library, and counting it would mark a broken result as done.
+    """
+    reachable, todo = set(), ["Diaz"]
+    while todo:
+        mod = todo.pop()
+        if mod in reachable:
+            continue
+        path = ROOT / (mod.replace(".", "/") + ".lean")
+        if not path.exists():
+            continue
+        reachable.add(mod)
+        todo += [m for m in re.findall(r"^import (Diaz(?:\.[\w']+)*)\s*$", path.read_text(), re.M)]
     decls = {}
-    for f in sorted((ROOT / "Diaz").glob("*.lean")):
+    for mod in sorted(reachable):
+        f = ROOT / (mod.replace(".", "/") + ".lean")
         for d in re.findall(r"^(?:private )?(?:theorem|lemma) ([\w.']+)", f.read_text(), re.M):
-            decls.setdefault(d, "Diaz/" + f.name)
+            decls.setdefault(d.split(".")[-1], str(f.relative_to(ROOT)))
     return decls
 
 

@@ -1,0 +1,42 @@
+/-
+Mirrored from Prove2Me: `Diaz.power_support_sumfree`.
+
+Ported mechanically from the accepted submission archived as
+`archive/prove2me/Diaz.power_support_sumfree__c519833e.lean`. Statement and proof are the platform's; only
+imports, namespaces and the theorem's name were rewritten.
+-/
+import Mathlib
+import Diaz.Closure
+import Diaz.Instantiation
+
+namespace Diaz
+
+open ComplexConjugate
+open Diaz
+
+theorem power_support_sumfree (S : Set ℤ)
+    (hsym : ∀ n : ℤ, n ∈ S → -n ∈ S)
+    (h0 : (0 : ℤ) ∈ S) (h1 : (1 : ℤ) ∈ S)
+    (hpair : ∀ d : ℤ, d ≠ 0 → ∀ n₁ n₂ n₃ : ℤ, n₁ ≠ n₂ → n₁ ≠ n₃ → n₂ ≠ n₃ →
+        n₁ ∈ S → n₁ + d ∈ S → n₂ ∈ S → n₂ + d ∈ S → n₃ ∈ S → n₃ + d ∈ S → False) :
+    (∀ m n : ℤ, m ≠ 0 → n ≠ 0 → m + n ≠ 0 → m ∈ S → n ∈ S → m + n ∉ S)
+      ∧ (2 : ℤ) ∉ S ∧ (-2 : ℤ) ∉ S ∧ (3 : ℤ) ∉ S ∧ (-3 : ℤ) ∉ S := by
+  have sumfree : ∀ m n : ℤ, m ≠ 0 → n ≠ 0 → m + n ≠ 0 → m ∈ S → n ∈ S → m + n ∉ S := by
+    intro m n hm hn hmn hmS hnS hsum
+    refine hpair m hm (-m) 0 n (by omega) (by omega) (by omega)
+      (hsym m hmS) (by simpa using h0) h0 (by simpa using hmS) hnS ?_
+    rw [show n + m = m + n by ring]; exact hsum
+  have h2 : (2 : ℤ) ∉ S := by
+    have := sumfree 1 1 (by norm_num) (by norm_num) (by norm_num) h1 h1
+    simpa using this
+  have h2' : (-2 : ℤ) ∉ S := fun hc => h2 (by simpa using hsym (-2) hc)
+  have h3 : (3 : ℤ) ∉ S := by
+    intro hc
+    have hm1 : (-1 : ℤ) ∈ S := by simpa using hsym 1 h1
+    have hm3 : (-3 : ℤ) ∈ S := by simpa using hsym 3 hc
+    exact hpair 2 (by norm_num) (-3) (-1) 1 (by norm_num) (by norm_num) (by norm_num)
+      hm3 (by norm_num; exact hm1) hm1 (by norm_num; exact h1) h1 (by norm_num; exact hc)
+  have h3' : (-3 : ℤ) ∉ S := fun hc => h3 (by simpa using hsym (-3) hc)
+  exact ⟨sumfree, h2, h2', h3, h3'⟩
+
+end Diaz

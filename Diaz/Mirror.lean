@@ -1,0 +1,96 @@
+/-
+# Every Prove2Me result mirrored into the library
+
+One module per Proved node of the Diaz mission, plus the four SX results that
+`six_exponentials` rests on. Each is the platform's accepted proof, ported
+mechanically: statements and proofs are the platform's; imports, namespaces,
+theorem names, a handful of lemma names that differ between Mathlib revisions, and
+colliding helper names were rewritten. `MIRROR_CHECKLIST.md` tracks coverage.
+
+Not yet here: `DiazModulus.diaz_of_schanuel`, which does not survive the change of
+Mathlib revision; see the README.
+-/
+import Diaz.Platform
+import Diaz.SXDefs
+import Diaz.Mirror.Gmat_projection
+import Diaz.Mirror.Hmat_pencil_normal_form
+import Diaz.Mirror.Hmat_real_congr
+import Diaz.Mirror.algebraic_of_axis
+import Diaz.Mirror.axis_triple_indep
+import Diaz.Mirror.balanced_jet_mem_iff
+import Diaz.Mirror.binary_form_eq_zero
+import Diaz.Mirror.candidate_exp_angularTriple_transcendental
+import Diaz.Mirror.candidate_indistinguishable_by_coeff
+import Diaz.Mirror.candidate_one_self_conj_linearIndependent
+import Diaz.Mirror.candidate_orbit_and_plane_rigidity
+import Diaz.Mirror.coeff_transfer_iff
+import Diaz.Mirror.conj_combination_off_rays
+import Diaz.Mirror.conj_eq_norm_sq_div
+import Diaz.Mirror.conj_planes_inter
+import Diaz.Mirror.conj_planes_mul
+import Diaz.Mirror.conj_stable_line_generator
+import Diaz.Mirror.descent_step
+import Diaz.Mirror.det_add_two
+import Diaz.Mirror.diaz_2007_cor2_P1
+import Diaz.Mirror.diaz_iff_no_candidate
+import Diaz.Mirror.diaz_locus_dictionary
+import Diaz.Mirror.diaz_of_exp_eq_one
+import Diaz.Mirror.diaz_of_exp_not_real_on_axes
+import Diaz.Mirror.diaz_of_exp_real_pure_imaginary
+import Diaz.Mirror.diaz_of_exp_real_self_real
+import Diaz.Mirror.diaz_of_strongFourExponentials_and_hermite_lindemann
+import Diaz.Mirror.diaz_on_axes_of_hermite_lindemann
+import Diaz.Mirror.elliptic_axis_alignment
+import Diaz.Mirror.elliptic_chords_norm_one
+import Diaz.Mirror.elliptic_plane_rigidity
+import Diaz.Mirror.elliptic_torsion_excluded
+import Diaz.Mirror.eq_zero_of_expSum_vanishes
+import Diaz.Mirror.equal_real_parts
+import Diaz.Mirror.exists_aux_expSum
+import Diaz.Mirror.exp_I_transcendental
+import Diaz.Mirror.failure_rational_multiple_rigid
+import Diaz.Mirror.fibre_second_point_is_conj
+import Diaz.Mirror.forced_plane_exhaustion
+import Diaz.Mirror.four_exp_trdeg_one
+import Diaz.Mirror.indep_of_not_axis
+import Diaz.Mirror.indep_quadruple
+import Diaz.Mirror.involution_alignment
+import Diaz.Mirror.locus_stable
+import Diaz.Mirror.logAlg_conj_stable
+import Diaz.Mirror.log_circles_alignment
+import Diaz.Mirror.log_modulus_forces_independence
+import Diaz.Mirror.no_algebraic_generalized_line
+import Diaz.Mirror.nonreal_two_point_fibre_pi_sq
+import Diaz.Mirror.normal_form
+import Diaz.Mirror.normalization_not_invariant
+import Diaz.Mirror.orbit_of_candidate
+import Diaz.Mirror.outer_multiplier_param
+import Diaz.Mirror.padic_conjugate_planes
+import Diaz.Mirror.pair_dichotomy_exclusive
+import Diaz.Mirror.period_plane_classification
+import Diaz.Mirror.pi_sq_transcendental
+import Diaz.Mirror.pi_sq_transcendental_of_real_gamma
+import Diaz.Mirror.pi_transcendental
+import Diaz.Mirror.plane_normSq_algebraic_iff
+import Diaz.Mirror.power_support_interval_bound
+import Diaz.Mirror.power_support_sumfree
+import Diaz.Mirror.quadratic_algebra_distance
+import Diaz.Mirror.quadric_trdeg_two
+import Diaz.Mirror.quot_isAlgebraic_of_algebraic_dist
+import Diaz.Mirror.rank_one_of_det_eq_zero
+import Diaz.Mirror.rank_one_six_exponentials
+import Diaz.Mirror.rational_singular_subspace_classification
+import Diaz.Mirror.rational_subspace_quadric_ratios
+import Diaz.Mirror.recip_pi_exp_value_not_root_of_unity
+import Diaz.Mirror.recip_pi_log_of_period_aligned
+import Diaz.Mirror.recip_pi_log_of_pi_im_algebraic
+import Diaz.Mirror.recip_pi_not_log_of_sfe
+import Diaz.Mirror.ringHom_preserves_linearIndependent
+import Diaz.Mirror.salem_quartic_relations
+import Diaz.Mirror.second_difference_mem
+import Diaz.Mirror.six_exponentials
+import Diaz.Mirror.six_exponentials_of_numberField
+import Diaz.Mirror.sq_eq_zero_of_trace_eq_zero
+import Diaz.Mirror.trace_norm_quadratic_algebra
+import Diaz.Mirror.two_failures_give_algebraic_log_product
+import Diaz.Mirror.zpow_mem_iff

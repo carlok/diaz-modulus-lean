@@ -2002,5 +2002,57 @@
   "bytes": 447,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "SX.six_exponentials_of_numberField",
+  "theorem_id": "8e1e71c6-a4e1-49e6-83e3-41cc6024100d",
+  "submission_id": "e54a15db-1498-4685-945a-a58efa0239bb",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-07T11:15:29.196718+00:00",
+  "file": "SX.six_exponentials_of_numberField__e54a15db.lean",
+  "bytes": 1515,
+  "imports_children": true,
+  "redacted_comments": false,
+  "dependency_of": "DiazModulus.six_exponentials"
+ },
+ {
+  "theorem_name": "SX.eq_zero_of_expSum_vanishes",
+  "theorem_id": "fd939533-ac90-4615-9614-02acc8274f65",
+  "submission_id": "b95d3c48-95b1-498e-90be-edc6e1043603",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-07T12:30:43.764241+00:00",
+  "file": "SX.eq_zero_of_expSum_vanishes__b95d3c48.lean",
+  "bytes": 5903,
+  "imports_children": false,
+  "redacted_comments": false,
+  "dependency_of": "DiazModulus.six_exponentials"
+ },
+ {
+  "theorem_name": "SX.descent_step",
+  "theorem_id": "d2ebac57-a209-470b-a366-8430f6fe9ff3",
+  "submission_id": "f7c8160b-f861-4a05-8b94-1fe4a6342f2a",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-07T14:58:02.276718+00:00",
+  "file": "SX.descent_step__f7c8160b.lean",
+  "bytes": 29665,
+  "imports_children": false,
+  "redacted_comments": false,
+  "dependency_of": "DiazModulus.six_exponentials"
+ },
+ {
+  "theorem_name": "SX.exists_aux_expSum",
+  "theorem_id": "f0a028dd-7409-4134-b87b-24b2921be5ae",
+  "submission_id": "b09434ad-f78b-47d4-8eb8-16f7843e66e4",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-07T14:56:25.07371+00:00",
+  "file": "SX.exists_aux_expSum__b09434ad.lean",
+  "bytes": 20647,
+  "imports_children": false,
+  "redacted_comments": false,
+  "dependency_of": "DiazModulus.six_exponentials"
  }
 ]
