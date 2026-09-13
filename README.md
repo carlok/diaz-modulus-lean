@@ -275,6 +275,15 @@ anything near the frontier this note is about.
   vanishing coefficient. This is the only place where the arithmetic
   hypothesis, rather than mere transcendence, is what is assumed.
 
+## Where everything is
+
+- `Diaz/` — the Lean library. Everything here builds in CI.
+- `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
+- `archive/local/` — proofs written for the mission and never published on the platform, not built.
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them.
+- `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
+- `tex/` — the companion notes. The note selects from the library; the library does not select.
+
 ## The companion note
 
 `tex/diaz_prove2me.tex` (and its PDF) is the mathematical account of what the

@@ -17,9 +17,11 @@ Proved nodes are in the library. Of the rest, **27** marked high
 priority, **27** normal, **19** low (folklore,
 scaffolding, or an elementary case), **1** skipped as defective.
 
-The priority column is a judgement, not a measurement. *High* means a result the
-companion note or its manuscript relies on, or the only formal record of an
-argument. *Low* means porting it adds little a reader would miss.
+**Every Proved node is to be ported, trivial or not.** The companion note selects
+what it presents; the library does not select. The priority column only sets the
+order: *high* first — results the note or its manuscript relies on, or the only
+formal record of an argument — then *normal*, then *low*. It is a judgement, not a
+measurement.
 
 Open nodes are not listed: they have no accepted proof to mirror. Work that was
 never published on the platform lives under `archive/local/`.

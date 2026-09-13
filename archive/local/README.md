@@ -6,9 +6,10 @@ are not built by this repository, and have not been through the platform's check
 
 ## Status of each file
 
-All seven were built on 2026-09-12 in the Prove2Me workspace — Lean v4.33.1,
-Mathlib `0df444a360eaa60ab8c11dca51a86af692955474` — with no errors. None contains
-`sorry`.
+Every file here was built on 2026-09-12 or 2026-09-13 in the Prove2Me workspace — Lean
+v4.33.1, Mathlib `0df444a360eaa60ab8c11dca51a86af692955474` — with no errors. None contains
+`sorry` of its own; where a build reports one, it comes from an Open node the file imports,
+and the table says so.
 
 | File | What it proves | Depends on |
 |---|---|---|
@@ -19,6 +20,16 @@ Mathlib `0df444a360eaa60ab8c11dca51a86af692955474` — with no errors. None cont
 | `DZ_FREE_core.lean` | On the period-aligned norm-free half, no admissible matrix exists, so the four-exponentials route is unavailable there (`no_admissible_matrix`, `fourExp_hypotheses_unsatisfiable`). | `DZ_LEAFSPLIT_core`, `DZ_ALIGNED_core` |
 | `DZ_TRDEG_core.lean` | The transcendence-degree-one certificate for the period-aligned `norm_rat_mult` half. | `DZ_LEAFSPLIT_core`, `DZ_ALIGNED_core` |
 | `DZ_TRDEG_solution.lean` | The period-aligned `norm_rat_mult` half, **from** four exponentials in transcendence degree one. | the Open node `DiazModulus.four_exponentials_trdeg_one` |
+| `DZ_SPLITS_core.lean` | Splits (S) — no non-zero algebraic `γ` has `γ/(iπ)` a logarithm of an algebraic number — along the two coordinate axes of `γ`. | the mission definitions |
+| `DZ_SPLITS_sub.lean` | The same split as a reduction: `recip_pi_not_log` from its real and imaginary halves. | the Open nodes `recip_pi_not_log_real_gamma`, `recip_pi_not_log_imag_gamma` |
+| `DZ_Sol_offaxes_split.lean` | The off-axes leaf split on whether `Im u / π` is rational. | the mission definitions |
+| `DZ_Sub_irrpi_reduction.lean` | The same split as a reduction to its two children. | the Open nodes `diaz_of_exp_real_generic`, `diaz_of_exp_not_real_irrational_angle` |
+| `DZ_PIT_core.lean` | The residual leaf `…_period_free_pi_im_transcendental` is subsumed by the conjugate-pair crux. | `DZ_LEAFSPLIT_core` |
+| `DZ_Sol_struct.lean` | The one genuine case split of the conjecture — whether `exp u` is real — and a reduction through reciprocals. | the mission definitions |
+| `DZ_Sol_realgeneric.lean` | The real-generic leaf in arithmetic normal form. | the mission definitions |
+| `DZ_LEAF2_normalform.lean` | A second, independently derived normal form of the same leaf. | `DZ_Sol_realgeneric`, `DZH_Sol_hermite_lindemann_holds` |
+| `DZ_XCHECK_normalforms.lean` | Cross-check that the two normal forms agree. Evidence, not a result. | `DZ_LEAFSPLIT_core`, `DZ_LEAF2_normalform` |
+| `DZH_Sol_hermite_lindemann_holds.lean` | The local copy of the Hermite–Lindemann proof, archived because `DZ_LEAF2_normalform` imports it. The library has its own port in `Diaz/HermiteLindemann.lean`. | the mission definitions |
 
 Two of these need a word.
 
@@ -28,9 +39,17 @@ Two of these need a word.
 its own. It proves that half *given* that theorem — a theorem of the literature,
 due to Brownawell and Waldschmidt, that has never been formalised.
 
-**`DZ_FREE_core.lean` may prove a node held open on purpose.** Compare it against
-`DiazModulus.aligned_norm_free_no_rational_log_matrix` before publishing. If the
-statements match, keeping that node open is a decision to revisit, not a gap.
+**`DZ_FREE_core.lean` proves a node held open on purpose.** A wrapper stating
+`DiazModulus.aligned_norm_free_no_rational_log_matrix` verbatim and applying
+`DiazFree.no_admissible_matrix` compiled on 2026-09-13 with axioms `propext`,
+`Classical.choice`, `Quot.sound`. The two statements differ only in packaging: four
+matrix entries against a `Fin 2 → Fin 2 → ℂ` matrix, and a named predicate `MemL3`
+against its unfolding. Whether to submit it, and so close the node, is a decision that
+has not been taken.
+
+**`DZ_SPLITS_sub.lean` and `DZ_Sub_irrpi_reduction.lean` are reductions.** They prove a
+parent from its children, and the children are Open; that is where their `sorryAx` comes
+from. They close nothing until the children are proved.
 
 ## Building them
 
