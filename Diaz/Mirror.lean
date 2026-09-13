@@ -6,9 +6,6 @@ One module per Proved node of the Diaz mission, plus the four SX results that
 mechanically: statements and proofs are the platform's; imports, namespaces,
 theorem names, a handful of lemma names that differ between Mathlib revisions, and
 colliding helper names were rewritten. `MIRROR_CHECKLIST.md` tracks coverage.
-
-Not yet here: `DiazModulus.diaz_of_schanuel`, which does not survive the change of
-Mathlib revision; see the README.
 -/
 import Diaz.Platform
 import Diaz.SXDefs
@@ -39,6 +36,7 @@ import Diaz.Mirror.diaz_of_exp_eq_one
 import Diaz.Mirror.diaz_of_exp_not_real_on_axes
 import Diaz.Mirror.diaz_of_exp_real_pure_imaginary
 import Diaz.Mirror.diaz_of_exp_real_self_real
+import Diaz.Mirror.diaz_of_schanuel
 import Diaz.Mirror.diaz_of_strongFourExponentials_and_hermite_lindemann
 import Diaz.Mirror.diaz_on_axes_of_hermite_lindemann
 import Diaz.Mirror.elliptic_axis_alignment

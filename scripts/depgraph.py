@@ -138,7 +138,7 @@ def main(printfile):
     dot = ["digraph Diaz {", "  rankdir=TB;",
            '  node [shape=box, style=filled, fontname="Helvetica", fontsize=10];',
            '  graph [fontname="Helvetica", labelloc="t", '
-           'label="amber: imported axiom   blue: rests on one   green: proved outright"];']
+           'label="amber: imported axiom   blue: rests on one   green: proved outright (there are no axioms left)"];']
     for i, f in enumerate(FILES):
         ns = sorted(n for n in names if info[n][0] == f)
         dot.append(f'  subgraph cluster_{i} {{ label="{f}.lean"; style=dotted; color=gray;')

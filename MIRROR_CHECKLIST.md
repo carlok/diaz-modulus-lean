@@ -12,8 +12,8 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-13): **132** of 133
-Proved nodes are in the library. Of the rest, **1** marked high
+As of the latest archived submission (2026-09-13): **133** of 133
+Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
 
@@ -142,7 +142,7 @@ never published on the platform lives under `archive/local/`.
 | `DiazModulus.diaz_of_exp_not_real_on_axes` | yes | `Diaz/Mirror/diaz_of_exp_not_real_on_axes.lean` | done |  |
 | `DiazModulus.diaz_of_exp_real_pure_imaginary` | yes | `Diaz/Mirror/diaz_of_exp_real_pure_imaginary.lean` | done |  |
 | `DiazModulus.diaz_of_exp_real_self_real` | yes | `Diaz/Mirror/diaz_of_exp_real_self_real.lean` | done |  |
-| `DiazModulus.diaz_of_schanuel` | yes | — | high |  |
+| `DiazModulus.diaz_of_schanuel` | yes | `Diaz/Mirror/diaz_of_schanuel.lean` | done |  |
 | `DiazModulus.diaz_of_sfe` | yes | `Diaz/SFE.lean` | done |  |
 | `DiazModulus.diaz_of_strongFourExponentials_and_hermite_lindemann` | yes | `Diaz/Mirror/diaz_of_strongFourExponentials_and_hermite_lindemann.lean` | done |  |
 | `DiazModulus.diaz_on_axes_of_hermite_lindemann` | yes | `Diaz/Mirror/diaz_on_axes_of_hermite_lindemann.lean` | done |  |

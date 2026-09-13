@@ -42,9 +42,11 @@ Lean 4.32.2, Mathlib v4.32.2.
 
 ## Dependency graph
 
-Generated from the sources, not drawn by hand; the axiom colouring was
-cross-checked against `#print axioms` and agrees. Amber is imported and
-assumed, blue rests on an import, green is proved outright. Helper lemmas are omitted here for legibility; `dependency-graph.dot`
+Generated from the sources, not drawn by hand; the colouring is cross-checked
+against `#print axioms` and agrees. Amber would mark a declaration imported as an
+axiom and blue one resting on such an import; there are none left, so every node
+is green, proved outright. The graph covers the original development only, not
+the mirrored Prove2Me results under `Diaz/Mirror/`. Helper lemmas are omitted here for legibility; `dependency-graph.dot`
 carries all 61, grouped by file. Both are transitively reduced: an edge
 implied by a longer path is not drawn, so a declaration's full
 dependency set is its ancestors, not just its parents.
@@ -55,8 +57,8 @@ nothing here is hand-maintained.
 ```mermaid
 flowchart TD
   subgraph Axioms["Axioms.lean"]
-    hermite_lindemann[["hermite_lindemann"]]
-    exists_ringHom_of_transcendental[["exists_ringHom_of_transcendental"]]
+    hermite_lindemann("hermite_lindemann")
+    exists_ringHom_of_transcendental("exists_ringHom_of_transcendental")
   end
   subgraph Closure["Closure.lean"]
     hull("hull")
@@ -178,16 +180,14 @@ flowchart TD
   classDef ax fill:#f5c26b,stroke:#b8860b,color:#000
   classDef onax fill:#bcd9f5,stroke:#3a6ea5,color:#000
   classDef proved fill:#c6e9c6,stroke:#3c8a3c,color:#000
-  class hermite_lindemann,exists_ringHom_of_transcendental ax
-  class transcendental_of_candidate,transcendental_candidate_over_base,transcendental_exp_I,exists_transcendental_on_circle,exists_transcendental_on_circle_sq,exists_conj_intertwining,candidate_no_vanishing_coeff,candidate_no_vanishing_coeff_Qbar,exists_transcendental_on_circle_Qbar,candidate_indistinguishable,four_nodes_candidate onax
-  class hull,transcendental_ne_zero,ne_zero_of_notMem,conj_eq_rho_div,conj_mem_hull,conj_not_linear,conj_not_linear_hull,eqOn_hull,transcendental_of_base,norm_form,sq_add_sq_notMem,norm_mem_iff,indep,conj_coords,isAlgebraic_two_rpow,Exp0,Exp0_add,Exp0_swap_conj,Exp0_isAlgebraic,Exp0_eq_one_iff,Exp0_pow_eq_one_iff,model_falsifies,conj_comm,coeff_transfer,Hmat_transfer,Hmat,det_Hmat,no_vanishing_coeff,coeff_eq_matrix,no_vanishing_coeff_matrix,Qbar,QbarIsAlgebraic,mem_Qbar_iff,conj_mem_Qbar,not_on_axes,plane_norm,indep_three,four_nodes,sq_notMem_of_transcendental proved
+  class hermite_lindemann,exists_ringHom_of_transcendental,hull,transcendental_ne_zero,ne_zero_of_notMem,conj_eq_rho_div,conj_mem_hull,conj_not_linear,conj_not_linear_hull,eqOn_hull,transcendental_of_candidate,transcendental_of_base,transcendental_candidate_over_base,norm_form,sq_add_sq_notMem,norm_mem_iff,indep,conj_coords,transcendental_exp_I,exists_transcendental_on_circle,exists_transcendental_on_circle_sq,isAlgebraic_two_rpow,Exp0,Exp0_add,Exp0_swap_conj,Exp0_isAlgebraic,Exp0_eq_one_iff,Exp0_pow_eq_one_iff,model_falsifies,conj_comm,coeff_transfer,Hmat_transfer,exists_conj_intertwining,Hmat,det_Hmat,no_vanishing_coeff,coeff_eq_matrix,no_vanishing_coeff_matrix,candidate_no_vanishing_coeff,Qbar,QbarIsAlgebraic,mem_Qbar_iff,conj_mem_Qbar,candidate_no_vanishing_coeff_Qbar,exists_transcendental_on_circle_Qbar,candidate_indistinguishable,not_on_axes,plane_norm,indep_three,four_nodes,sq_notMem_of_transcendental,four_nodes_candidate proved
 ```
 
-The shape of it is the point. Almost everything is green: the closure
-argument, the model, the matrix. The blue is confined to two thin chains
-— transcendence of a candidate, and the existence of the isomorphism —
-and each ends at an amber node that is a named classical theorem, not
-anything near the frontier this note is about.
+The shape of it was the point, and it has changed. Everything is green. Two thin
+chains used to be blue — transcendence of a candidate, and the existence of the
+isomorphism — each ending at an amber node, Hermite–Lindemann and the Steinitz
+extension. Both of those are now proved in `Axioms.lean`, so the chains rest on
+nothing but Lean's own axioms.
 
 ## What is proved
 
@@ -342,18 +342,11 @@ The transcendence inputs stay explicit hypotheses of each statement rather
 than joining `Axioms.lean`: on the platform they are carried the same way,
 and the point of a mirror is that it reads identically.
 
-**Not yet mirrored:** `DiazModulus.diaz_of_schanuel`, the only one of the
-substantive results that did not survive the version gap.
-
-The diagnosis, so a second attempt does not start from nothing. The proof
-computes the transcendence degree of `Q̄(u)` in the tower
-`Q̄ ⊆ Q̄[u] ⊆ Q̄(u)`, with `R = Algebra.adjoin Q̄ {u}` a subalgebra of `ℂ` and
-`F = IntermediateField.adjoin Q̄ {u}`. It then calls `trdeg_add_eq`, which
-needs `Algebra ↥R ↥F`. The upstream Mathlib revision synthesises that
-instance; this one does not. Supplying it by hand from `R ≤ F.toSubalgebra`
-is the obvious move, and it pulls in `IsScalarTower ↥Q̄ ↥R ↥F` and whatever
-`trdeg_eq_zero` wants to see `F` as the fraction field of `R`. Plumbing, but
-real plumbing, not a rename.
+`DiazModulus.diaz_of_schanuel`, the last to arrive, is mirrored too. An earlier
+note here blamed a missing `Algebra ↥R ↥F` instance on the older Mathlib; that was
+wrong. A hand port had dropped `open IntermediateField.algebraAdjoinAdjoin`, and the
+mechanical port only needed the submission's open `noncomputable section` closed
+before the namespace ends.
 
 `HermiteLindemann.lean` and `Fibre.lean` share the Lindemann–Weierstrass
 development ported from an unmerged Mathlib pull request. It is kept once, in
