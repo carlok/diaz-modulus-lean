@@ -15,7 +15,8 @@ automatically intertwines complex conjugation. Nothing has to be
 arranged, the relation `conj u = ρ / u` forcing it by the rigidity of
 `eqOn_hull`. This is where the note's original error lived.
 
-Existence of the isomorphism comes from the Steinitz axiom, in
+Existence of the isomorphism comes from the Steinitz extension theorem,
+`exists_ringHom_of_transcendental` in `Diaz.Axioms`, used in
 `exists_conj_intertwining` below.
 -/
 import Mathlib

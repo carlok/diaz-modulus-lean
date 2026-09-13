@@ -4,9 +4,9 @@
 Two additions, both proved from Mathlib alone.
 
 `exists_algHom_of_transcendental` discharges the existence half of the
-closure theorem *on the hull*, without the Steinitz axiom.  The axiom in
-`Diaz.Axioms` asks for a ring endomorphism of all of `ℂ`; extending that
-far needs a transcendence-basis argument.  Nothing downstream uses more
+closure theorem *on the hull*, without the Steinitz extension theorem.  That
+theorem, now proved in `Diaz.Axioms`, gives a ring endomorphism of all of `ℂ`;
+extending that far needs a transcendence-basis argument.  Nothing downstream uses more
 than the hull, and on the hull Mathlib already has the isomorphism:
 `RatFunc.algEquivOfTranscendental` identifies `K⟮f⟯` with the rational
 function field for any transcendental `f`, so `K⟮u⟯ ≅ K⟮t⟯` over `K`
@@ -17,7 +17,8 @@ no vanishing-coefficient statement over `K` tells two points on the same
 circle apart.
 
 Neither depends on `Diaz.hermite_lindemann` or
-`Diaz.exists_ringHom_of_transcendental`.
+`Diaz.exists_ringHom_of_transcendental`, which are proved elsewhere in the
+library and are not needed here.
 -/
 import Mathlib
 import Diaz.Rigidity
@@ -28,7 +29,7 @@ namespace Diaz
 
 variable {K : Subfield ℂ} {u t r : ℂ}
 
-/-! ## Existence on the hull, without the Steinitz axiom -/
+/-! ## Existence on the hull, without the Steinitz extension theorem -/
 
 /-- **The existence half, hull-local.**  If `u` and `t` are both
 transcendental over `K`, some `K`-algebra map from `K⟮u⟯` into `ℂ`

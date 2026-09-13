@@ -1,17 +1,28 @@
 /-
-# Imported transcendence results
+# The two transcendence results the development consumes
 
-Nothing in this file is proved here.  Each statement is quoted from the
-literature and declared as an `axiom` rather than left as a `sorry`, so
-that the assumed surface of the development is visible in one place.
+Both used to be declared here as `axiom`, quoted from the literature, so that
+the assumed surface of the development sat visibly in one place. Both are now
+proved, under the same names and with the same statements, so nothing that
+uses them had to change.
 
-The difference matters when reading the development: a `sorry` says "I
-owe you this proof", an `axiom` says "this is deliberately imported".
-Running `#print axioms` on any theorem in `Diaz.Closure` lists exactly
-which of these it leans on, so the boundary between what is proved and
-what is assumed is machine-checkable rather than a matter of trust.
+`#print axioms` on any theorem in the library now lists only `propext`,
+`Classical.choice` and `Quot.sound`. The file keeps its name so the import graph
+and older references stay stable.
 -/
 import Mathlib
+import Diaz.LindemannWeierstrass
+
+open Complex ComplexConjugate
+open Finset
+open scoped Polynomial
+open MvPolynomial.symmetricSubalgebra
+open scoped AddMonoidAlgebra
+open Complex
+open Polynomial
+open scoped Nat
+open Complex Finset Polynomial
+open scoped Cardinal
 
 namespace Diaz
 
@@ -23,20 +34,24 @@ algebraic number has transcendental exponential.  See A. Baker,
 *Transcendental Number Theory*, Cambridge University Press 1975,
 Theorem 1.4.
 
-**This will become dischargeable.**  Mathlib master carries only the
-analytic half (`NumberTheory/Transcendental/Lindemann/AnalyticalPart`),
-but the theorem itself is formalized in the open PR
-`leanprover-community/mathlib4#28013`, as
+**Proved here.** The Lindemann–Weierstrass development of mathlib PR
+`leanprover-community/mathlib4#28013` is ported in `Diaz.LindemannWeierstrass`,
+which depends on Mathlib alone; this theorem applies its `linearIndependent_exp'`
+to the pair `u, 0`. -/
 
-    theorem transcendental_exp {a : ℂ} (a0 : a ≠ 0) (ha : IsAlgebraic ℤ a) :
-        Transcendental ℤ (exp a)
-
-which is the contrapositive of this axiom, over `ℤ` rather than `ℚ` --
-the same condition in characteristic zero.  When that PR merges, delete
-this axiom and derive it; the statement below is shaped to make that a
-local change. -/
-axiom hermite_lindemann {u : ℂ} (hu : u ≠ 0)
-    (hexp : IsAlgebraic ℚ (Complex.exp u)) : Transcendental ℚ u
+theorem hermite_lindemann {u : ℂ} (hu : u ≠ 0)
+    (hexp : IsAlgebraic ℚ (Complex.exp u)) : Transcendental ℚ u := by
+  intro ha
+  have h1 : IsIntegral ℚ u := isAlgebraic_iff_isIntegral.mp ha
+  have h2 : IsIntegral ℚ (Complex.exp u) := isAlgebraic_iff_isIntegral.mp hexp
+  refine by
+    simpa [Fin.forall_fin_succ] using
+      linearIndependent_exp' ![u, 0] ?_ ?_ ![1, -Complex.exp u] ?_ ?_
+  · intro i; fin_cases i
+    exacts [h1, isIntegral_zero]
+  · intro i j; fin_cases i, j <;> simp [hu.symm, *]
+  · intro i; fin_cases i; exacts [isIntegral_one, h2.neg]
+  · simp
 
 /-- **Steinitz extension.**  If `u` and `t` are both transcendental over
 a subfield `K` of `ℂ`, some ring endomorphism of `ℂ` fixes `K` pointwise
@@ -56,8 +71,62 @@ necessary — for `u` algebraic over `K` and `t` not, no such map exists.
 
 Mathlib has the ingredients (`IsAlgClosed.equivOfTranscendenceBasis`,
 `IsAlgClosed.lift`) but not the assembled statement. -/
-axiom exists_ringHom_of_transcendental {K : Subfield ℂ} {u t : ℂ}
+
+theorem exists_ringHom_of_transcendental {K : Subfield ℂ} {u t : ℂ}
     (hu : Transcendental (↥K) u) (ht : Transcendental (↥K) t) :
-    ∃ Φ : ℂ →+* ℂ, (∀ a ∈ K, Φ a = a) ∧ Φ u = t
+    ∃ Φ : ℂ →+* ℂ, (∀ a ∈ K, Φ a = a) ∧ Φ u = t := by
+  -- Step 1: extend `{u}` and `{t}` to transcendence bases of `ℂ` over `K`.
+  have hu' : AlgebraicIndepOn (↥K) id ({u} : Set ℂ) := by
+    exact (algebraicIndependent_singleton_iff (R := ↥K)
+      (x := fun x : ({u} : Set ℂ) => id (x : ℂ)) ⟨u, rfl⟩).2 hu
+  have ht' : AlgebraicIndepOn (↥K) id ({t} : Set ℂ) := by
+    exact (algebraicIndependent_singleton_iff (R := ↥K)
+      (x := fun x : ({t} : Set ℂ) => id (x : ℂ)) ⟨t, rfl⟩).2 ht
+  obtain ⟨B, huB, hB⟩ := exists_isTranscendenceBasis_superset hu'
+  obtain ⟨C, htC, hC⟩ := exists_isTranscendenceBasis_superset ht'
+  -- Step 2: the two bases are equipotent, and can be matched sending `u` to `t`.
+  have hcard : #(↥B) = #(↥C) := hB.cardinalMk_eq hC
+  obtain ⟨f⟩ := Cardinal.eq.mp hcard
+  set iu : ↥B := ⟨u, huB rfl⟩ with hiu
+  set it : ↥C := ⟨t, htC rfl⟩ with hit
+  set e : ↥B ≃ ↥C := f.trans (Equiv.swap (f iu) it) with he
+  have hei : e iu = it := by simp [he]
+  -- Step 3: transport the polynomial presentations of the two bases into each other.
+  set v : ↥B → ℂ := ((↑) : ↥B → ℂ) with hvdef
+  set w : ↥C → ℂ := ((↑) : ↥C → ℂ) with hwdef
+  have i1 : IsAlgClosure (Algebra.adjoin (↥K) (Set.range v)) ℂ :=
+    IsAlgClosed.isAlgClosure_of_transcendence_basis v hB
+  have i2 : IsAlgClosure (Algebra.adjoin (↥K) (Set.range w)) ℂ :=
+    IsAlgClosed.isAlgClosure_of_transcendence_basis w hC
+  set ε : Algebra.adjoin (↥K) (Set.range v) ≃ₐ[↥K] Algebra.adjoin (↥K) (Set.range w) :=
+    hB.1.aevalEquiv.symm.trans ((MvPolynomial.renameEquiv (↥K) e).trans hC.1.aevalEquiv) with hε
+  set Phi : ℂ ≃+* ℂ := IsAlgClosure.equivOfEquiv ℂ ℂ ε.toRingEquiv with hPhi
+  refine ⟨Phi.toRingHom, ?_, ?_⟩
+  · intro a ha
+    have h1 : (a : ℂ) = algebraMap (Algebra.adjoin (↥K) (Set.range v)) ℂ
+        (algebraMap (↥K) (Algebra.adjoin (↥K) (Set.range v)) ⟨a, ha⟩) := by
+      rw [← IsScalarTower.algebraMap_apply]
+      rfl
+    rw [RingEquiv.toRingHom_eq_coe, RingHom.coe_coe]
+    conv_lhs => rw [h1]
+    rw [hPhi, IsAlgClosure.equivOfEquiv_algebraMap]
+    show algebraMap (Algebra.adjoin (↥K) (Set.range w)) ℂ
+      (ε (algebraMap (↥K) (Algebra.adjoin (↥K) (Set.range v)) ⟨a, ha⟩)) = a
+    rw [AlgEquiv.commutes, ← IsScalarTower.algebraMap_apply]
+    rfl
+  · have h2 : u = algebraMap (Algebra.adjoin (↥K) (Set.range v)) ℂ
+        (hB.1.aevalEquiv (MvPolynomial.X iu)) := by
+      rw [AlgebraicIndependent.algebraMap_aevalEquiv]
+      simp [hvdef, hiu]
+    rw [RingEquiv.toRingHom_eq_coe, RingHom.coe_coe]
+    conv_lhs => rw [h2]
+    rw [hPhi, IsAlgClosure.equivOfEquiv_algebraMap]
+    show algebraMap (Algebra.adjoin (↥K) (Set.range w)) ℂ
+      (ε (hB.1.aevalEquiv (MvPolynomial.X iu))) = t
+    rw [hε]
+    simp only [AlgEquiv.trans_apply, AlgEquiv.symm_apply_apply,
+      MvPolynomial.renameEquiv_apply, MvPolynomial.rename_X, hei]
+    rw [AlgebraicIndependent.algebraMap_aevalEquiv]
+    simp [hwdef, hit]
 
 end Diaz

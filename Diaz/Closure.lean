@@ -151,7 +151,7 @@ theorem transcendental_of_candidate (hu : u ≠ 0)
 algebraic over `ℚ` — in particular over the algebraic numbers, which is
 the intended base.
 
-Without this the imported axiom is a dead leaf: the results above take
+Without this, Hermite–Lindemann would be a dead leaf: the results above take
 transcendence over the base as a hypothesis, while Hermite–Lindemann
 supplies it only over `ℚ`. The algebraicity hypothesis is necessary
 rather than decorative: for a base containing `u` the conclusion is

@@ -177,7 +177,7 @@ theorem sq_notMem_of_transcendental {L : Subfield ℂ}
 /-- **Four nodes, for a candidate over the intended base.**
 
 The hypothesis on `u + conj u` is exactly that it is a non-zero element
-of `ℒ`, since `ℒ` is a `ℚ`-space stable under conjugation; the axiom
+of `ℒ`, since `ℒ` is a `ℚ`-space stable under conjugation; Hermite–Lindemann
 then makes it transcendental. -/
 theorem four_nodes_candidate {L : Subfield ℂ} [Algebra.IsAlgebraic ℚ (↥L)]
     (hu0 : u ≠ 0) (hexp : IsAlgebraic ℚ (Complex.exp u))

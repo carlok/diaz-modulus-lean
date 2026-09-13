@@ -17,10 +17,10 @@ custom axiom, or an unnamed missing definition.
 and to those in `Diaz.Closure` / `Diaz.Rigidity`, so the proofs below delegate by
 definitional equality.
 
-The wider development in `Diaz/` also imports two transcendence results as
-axioms, `Diaz.hermite_lindemann` and `Diaz.exists_ringHom_of_transcendental`.
-Nothing in this module depends on either; the `#print axioms` audit at the foot
-of the file is the check.
+The wider development in `Diaz/` also proves two transcendence results,
+`Diaz.hermite_lindemann` and `Diaz.exists_ringHom_of_transcendental`, which it
+once imported as axioms. Nothing in this module depends on either; the
+`#print axioms` audit at the foot of the file is the check.
 -/
 
 open ComplexConjugate
@@ -56,7 +56,7 @@ theorem conj_comm {K : Subfield ℂ} {u t : ℂ} (Φ : ℂ →+* ℂ)
     ∀ z ∈ hull K u, Φ (conj z) = conj (Φ z) :=
   Diaz.conj_comm Φ hK hKconj hu0 ht0 hΦu hρ hρt
 
-/-- **Existence, on the hull**, without the Steinitz axiom. -/
+/-- **Existence, on the hull**, without the Steinitz extension theorem. -/
 theorem exists_algHom_of_transcendental {K : Subfield ℂ} {u t : ℂ}
     (hu : Transcendental (↥K) u) (ht : Transcendental (↥K) t) :
     ∃ Φ : ↥(IntermediateField.adjoin (↥K) {u}) →ₐ[↥K] ℂ,
@@ -86,8 +86,8 @@ end DiazRigidity
 /-! ## Axiom audit
 
 Every compared declaration must depend only on `propext`, `Classical.choice`
-and `Quot.sound`.  In particular none may depend on `Diaz.hermite_lindemann` or
-`Diaz.exists_ringHom_of_transcendental`. -/
+and `Quot.sound`. This module does not import `Diaz.hermite_lindemann` or
+`Diaz.exists_ringHom_of_transcendental` at all, although both are now proved. -/
 
 #print axioms DiazRigidity.hull
 #print axioms DiazRigidity.Hmat

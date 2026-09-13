@@ -16,6 +16,7 @@ import Diaz.Mirror.Gmat_projection
 import Diaz.Mirror.Hmat_pencil_normal_form
 import Diaz.Mirror.Hmat_real_congr
 import Diaz.Mirror.algebraic_of_axis
+import Diaz.Mirror.aligned_norm_free_no_rational_log_matrix
 import Diaz.Mirror.axis_triple_indep
 import Diaz.Mirror.balanced_jet_mem_iff
 import Diaz.Mirror.binary_form_eq_zero

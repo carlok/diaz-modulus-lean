@@ -9,11 +9,9 @@ Backup of two nodes published on Prove2Me on 12 September 2026:
   (`cf5024d1-43b6-47ac-b3dd-5298beba22a4`)
 
 Both are kept in the shape the platform carries them: the transcendence
-inputs stay *explicit hypotheses* rather than becoming `axiom`s of
-`Diaz.Axioms`, so that each statement says on its face what it assumes.
-That is a deliberate departure from the rest of this development, and the
-reason is fidelity: these two declarations should read the same here as
-they read on the platform.
+inputs stay *explicit hypotheses* of each statement, so that each says on its
+face what it assumes. The reason is fidelity: these declarations should read
+the same here as they read on the platform.
 
 The definitions below (`LogAlg`, `LogAlgTilde`, `IsCandidate`) mirror the
 platform's `DiazModulus` preamble. `Qbar` and `mem_Qbar_iff` are the ones
@@ -54,8 +52,8 @@ conjecture. -/
 def IsCandidate (u : ℂ) : Prop :=
   u ≠ 0 ∧ IsAlgebraic ℚ ((‖u‖ : ℝ) : ℂ) ∧ IsAlgebraic ℚ (Complex.exp u)
 
-/-- **Hermite–Lindemann**, as a `Prop` rather than as the axiom of
-`Diaz.Axioms`, so that the theorems below carry it visibly. -/
+/-- **Hermite–Lindemann**, as a `Prop`, so that the theorems below carry it as
+a visible hypothesis. It is proved as `hermite_lindemann_holds`. -/
 def HermiteLindemannProp : Prop :=
   ∀ a : ℂ, a ≠ 0 → IsAlgebraic ℚ a → Transcendental ℚ (Complex.exp a)
 

@@ -20,7 +20,7 @@ Hermite–Lindemann — and are kept as named theorems because they were
 published as their own nodes.
 
 Hermite–Lindemann is an explicit hypothesis (`HermiteLindemannProp` from
-`Diaz.Multipliers`), not the axiom in `Axioms.lean`.
+`Diaz.Multipliers`), as on the platform.
 -/
 import Mathlib
 import Diaz.Multipliers

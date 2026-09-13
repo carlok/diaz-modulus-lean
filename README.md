@@ -336,9 +336,7 @@ Every one of them is `sorry`-free and depends on no axiom of this repository:
 That now includes `diaz_of_sfe`. Hermite–Lindemann is no longer assumed for
 it: `HermiteLindemann.lean` proves `hermite_lindemann_holds`, and
 `diaz_of_sfe` discharges its hypothesis from that theorem rather than from
-`Axioms.lean`. The axiom is still declared there, because the older modules
-were written against it, but the strongest statement in this repository no
-longer rests on it.
+`Axioms.lean`, where it is now proved as well.
 
 The transcendence inputs stay explicit hypotheses of each statement rather
 than joining `Axioms.lean`: on the platform they are carried the same way,
@@ -394,23 +392,28 @@ only `propext`, `Classical.choice`, `Quot.sound`.
 
 ## What is assumed
 
-Two imported results, in `Axioms.lean`, declared as `axiom` with
-citations rather than left as `sorry`, so that `#print axioms` makes the
-boundary machine-checkable. Both are standard and long known; neither is
-anywhere near the frontier this note is about.
+Nothing beyond Lean's own three axioms: `propext`, `Classical.choice`,
+`Quot.sound`. Every theorem in the library depends on those alone, and no
+`sorry` appears anywhere; one would show up as `sorryAx`.
 
-- `hermite_lindemann` — a non-zero algebraic number has transcendental
-  exponential. Formalized in mathlib PR #28013 as `transcendental_exp`
-  and approaching merge; when it lands this axiom becomes a one-line
-  derivation rather than an import.
-- `exists_ringHom_of_transcendental` — Steinitz: an isomorphism between
-  subfields of `ℂ` extends to an endomorphism of `ℂ`. Stated in the weak
-  form actually consumed (endomorphism, not automorphism). Mathlib has
-  the ingredients but not the assembled statement.
+It used to be two more. `Axioms.lean` imported two classical transcendence
+results as `axiom`, with citations, so that `#print axioms` made the boundary
+between proved and assumed machine-checkable. Both are now proved, under the
+same names and with the same statements, so nothing that used them changed.
 
-Every other theorem depends only on Lean's own three axioms (`propext`,
-`Classical.choice`, `Quot.sound`). No `sorry` appears anywhere; one would
-show up as `sorryAx`.
+- `hermite_lindemann` — if `u ≠ 0` and `exp u` is algebraic, then `u` is
+  transcendental: the contrapositive of the usual statement. Proved from the
+  Lindemann–Weierstrass development in `LindemannWeierstrass.lean`, which comes
+  from mathlib PR #28013 by way of a Prove2Me submission. That module depends
+  on Mathlib alone, which is what lets `Axioms.lean` import it without an
+  import cycle through the rest of the library.
+- `exists_ringHom_of_transcendental` — Steinitz: if `u` and `t` are both
+  transcendental over a subfield `K` of `ℂ`, some ring endomorphism of `ℂ`
+  fixes `K` pointwise and sends `u` to `t`. Proved from Mathlib's transcendence
+  bases; the proof was accepted on Prove2Me before it was brought here.
+
+The file keeps its name so the import graph and older references stay stable.
+It no longer declares anything as an axiom.
 
 ## What is *not* proved
 
@@ -500,8 +503,8 @@ Two differences from the development described above, both deliberate:
 - The existence theorem is proved on `K⟮u⟯`, **not** on all of `ℂ`. Mathlib's
   `RatFunc.algEquivOfTranscendental` gives it without the Steinitz axiom, and
   nothing in the compared surface evaluates the map outside the hull.
-- The imported axioms `hermite_lindemann` and `exists_ringHom_of_transcendental`
-  remain in `Diaz/Axioms.lean` and are used elsewhere in the development. **No
+- `hermite_lindemann` and `exists_ringHom_of_transcendental`, once imported as
+  axioms, are now proved in `Diaz/Axioms.lean` and used elsewhere in the development. **No
   compared declaration depends on either.**
 
 Submissions to Palomar go to <https://submit.palomar-registry.org/> and are made
