@@ -2282,5 +2282,65 @@
   "bytes": 68068,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.period_free_split_nondegenerate",
+  "theorem_id": "ecd1fff7-7029-4345-8318-1510b0fdb4f2",
+  "submission_id": "f0bd0fab-28a2-4850-84dd-e34319d289bc",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-13T10:46:08.633659+00:00",
+  "file": "DiazModulus.period_free_split_nondegenerate__f0bd0fab.lean",
+  "bytes": 38833,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.recip_pi_exp_axis_shape",
+  "theorem_id": "2149ee8c-86ea-4a64-b101-0277b79b6ae7",
+  "submission_id": "ae7cc80b-c53a-4a35-ac05-b9fc031d1b37",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-13T10:45:56.833383+00:00",
+  "file": "DiazModulus.recip_pi_exp_axis_shape__ae7cc80b.lean",
+  "bytes": 5645,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.transfer_breaks_exactly",
+  "theorem_id": "510e5580-0397-4ddf-8db6-c52efd89a7e5",
+  "submission_id": "af3f42a3-bff2-400c-aa51-3cb1c201004c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-13T10:45:55.693704+00:00",
+  "file": "DiazModulus.transfer_breaks_exactly__af3f42a3.lean",
+  "bytes": 18334,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.recip_pi_not_log",
+  "theorem_id": "b5a16bec-19d1-48b7-bd3b-09e62db3e432",
+  "submission_id": "d0d9f756-9322-45b7-afab-a58093e7c16e",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-13T10:45:37.631491+00:00",
+  "file": "DiazModulus.recip_pi_not_log__d0d9f756.lean",
+  "bytes": 4462,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.diaz_of_exp_not_real",
+  "theorem_id": "a8b88767-c52e-4166-8a4c-d00348616caa",
+  "submission_id": "e06fca14-7953-4932-962e-d1669dc1b8a0",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-13T10:45:22.563416+00:00",
+  "file": "DiazModulus.diaz_of_exp_not_real__e06fca14.lean",
+  "bytes": 2201,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

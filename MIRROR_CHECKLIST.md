@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-13): **133** of 133
+As of the latest archived submission (2026-09-13): **136** of 136
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -151,9 +151,11 @@ never published on the platform lives under `archive/local/`.
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
 | `DiazModulus.logAlg_conj_stable` | yes | `Diaz/Mirror/logAlg_conj_stable.lean` | done |  |
 | `DiazModulus.no_algebraic_generalized_line` | yes | `Diaz/Mirror/no_algebraic_generalized_line.lean` | done |  |
+| `DiazModulus.period_free_split_nondegenerate` | yes | `Diaz/Mirror/period_free_split_nondegenerate.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental` | yes | `Diaz/Mirror/pi_sq_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental_of_real_gamma` | yes | `Diaz/Mirror/pi_sq_transcendental_of_real_gamma.lean` | done | vacuous: its conclusion is proved unconditionally by pi_sq_transcendental |
 | `DiazModulus.pi_transcendental` | yes | `Diaz/Mirror/pi_transcendental.lean` | done |  |
+| `DiazModulus.recip_pi_exp_axis_shape` | yes | `Diaz/Mirror/recip_pi_exp_axis_shape.lean` | done |  |
 | `DiazModulus.recip_pi_exp_value_not_root_of_unity` | yes | `Diaz/Mirror/recip_pi_exp_value_not_root_of_unity.lean` | done |  |
 | `DiazModulus.recip_pi_log_of_period_aligned` | yes | `Diaz/Mirror/recip_pi_log_of_period_aligned.lean` | done |  |
 | `DiazModulus.recip_pi_log_of_pi_im_algebraic` | yes | `Diaz/Mirror/recip_pi_log_of_pi_im_algebraic.lean` | done |  |
@@ -161,3 +163,4 @@ never published on the platform lives under `archive/local/`.
 | `DiazModulus.ringHom_preserves_linearIndependent` | yes | `Diaz/Mirror/ringHom_preserves_linearIndependent.lean` | done |  |
 | `DiazModulus.sixExponentials_cannot_refute_candidate` | yes | `Diaz/NoGo.lean` | done |  |
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
+| `DiazModulus.transfer_breaks_exactly` | yes | `Diaz/Mirror/transfer_breaks_exactly.lean` | done |  |

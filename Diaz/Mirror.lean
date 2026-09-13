@@ -93,3 +93,6 @@ import Diaz.Mirror.sq_eq_zero_of_trace_eq_zero
 import Diaz.Mirror.trace_norm_quadratic_algebra
 import Diaz.Mirror.two_failures_give_algebraic_log_product
 import Diaz.Mirror.zpow_mem_iff
+import Diaz.Mirror.transfer_breaks_exactly
+import Diaz.Mirror.recip_pi_exp_axis_shape
+import Diaz.Mirror.period_free_split_nondegenerate
