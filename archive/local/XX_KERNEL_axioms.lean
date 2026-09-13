@@ -1,0 +1,8 @@
+import Mathlib
+import Definitions.Def_DiazModulus
+import Solutions.XX_KERNEL_core
+
+#print axioms DiazKernel.candidate_re_transcendental
+#print axioms DiazKernel.candidate_im_transcendental
+#print axioms DiazKernel.candidate_vanishing_ideal_of_dvd
+#print axioms DiazKernel.candidate_vanishing_ideal

@@ -7,8 +7,10 @@
 What it does, in order:
 
 1. Lists every node of the Diaz mission (names starting `Diaz.` or `DiazModulus.`).
-2. For each Proved node, pages through its ACCEPTED and SKETCH_ACCEPTED submissions
-   and downloads any not yet in the archive via GET /submissions/:id/solution.
+2. For each Proved or Open node, pages through its ACCEPTED and SKETCH_ACCEPTED
+   submissions and downloads any not yet in the archive via GET /submissions/:id/solution.
+   Open nodes matter too: an accepted sketch reduces a node to its children and exists
+   nowhere else.
 3. Redacts **comments only** in newly downloaded files: private file names, document
    labels that do not exist in this repository's public notes under tex/, and platform
    uuids. It refuses to write a file whose code changed, and never touches files that
@@ -117,17 +119,33 @@ def public_notes():
 
 
 def redact(text, pub_names, pub_labels):
+    """Redact comments only, and only what a public reader cannot resolve.
+
+    Private file names, labels that do not exist in the public notes under tex/, and local
+    paths. Platform uuids are kept: they name public nodes. No whitespace is normalised:
+    this is an archive, and every change should be one somebody would notice and want.
+    """
+    LABEL = r"(?:thm|prop|cor|lem|sec|rem|eq|def):[a-z][a-z-]*"
+
     def fix(c):
+        c = re.sub(r"([A-Z][\w.-]*(?: [A-Z][\w.-]*)*)'s note `?([\w-]+\.tex)`?",
+                   lambda m: m.group(0) if m.group(2) in pub_names
+                   else f"an earlier unpublished note by {m.group(1)}", c)
         c = re.sub(r"`?\b([\w-]+\.tex)\b`?",
                    lambda m: m.group(0) if m.group(1) in pub_names else "an earlier unpublished note", c)
-        c = re.sub(r"`?\b((?:thm|prop|cor|lem|sec|rem|eq|def):[a-z][a-z-]*)\b`?",
-                   lambda m: m.group(0) if m.group(1) in pub_labels else "", c)
-        c = re.sub(r",?\s*uuid\s*`?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`?", "", c)
-        c = re.sub(r"`?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`?", "", c)
-        c = re.sub(r"\(\s*\)", "", c)
-        c = re.sub(r"[ \t]{2,}", " ", c)
-        c = re.sub(r" +([,.;:)])", r"\1", c)
+        c = re.sub(r"`?\b[A-Z][A-Z0-9_]{3,}\.md\b`?", "an unpublished working note", c)
+        c = re.sub(r"`?(?:/Users|/home|/private/tmp)/[^\s`]*`?", "a local path", c)
+        keep = lambda m, label: m.group(0) if label in pub_labels else None
+        # "(`cor:x`, *Title*)" -> "(*Title*)"
+        c = re.sub(r"\(`?(" + LABEL + r")`?,\s*", lambda m: m.group(0) if m.group(1) in pub_labels else "(", c)
+        # " (`cor:x`)" -> ""
+        c = re.sub(r" ?\(`?(" + LABEL + r")`?\)", lambda m: m.group(0) if m.group(1) in pub_labels else "", c)
+        # a bare label between two words keeps exactly one space
+        c = re.sub(r"( ?)`?(" + LABEL + r")`?( ?)",
+                   lambda m: m.group(0) if m.group(2) in pub_labels
+                   else (" " if m.group(1) and m.group(3) else ""), c)
         return c
+
     parts, last = [], 0
     for a, b in comment_spans(text):
         parts.append(text[last:a]); parts.append(fix(text[a:b])); last = b
@@ -238,12 +256,14 @@ def main():
     pub_names, pub_labels = public_notes()
     new, redacted, no_proof = [], [], []
 
-    for r in proved:
+    # Every accepted submission is archived, including sketches accepted for nodes that are
+    # still Open: those reductions exist nowhere else.
+    for r in [x for x in nodes if x["status"] in ("Proved", "Open")]:
         subs = []
         for st in ("ACCEPTED", "SKETCH_ACCEPTED"):
             subs += [s for s in api.paged(f"/theorems/{r['theorem_id']}/submissions?status={st}", "submissions", 50)
                      if s["status"] == st]
-        if not subs:
+        if not subs and r["status"] == "Proved":
             no_proof.append(r["theorem_name"])
         for s in subs:
             if s["id"] in have:

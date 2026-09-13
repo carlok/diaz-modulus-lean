@@ -79,3 +79,13 @@ unchanged; that was checked mechanically before the file was written.
 Each should end in one of three states: published on Prove2Me and then mirrored into
 the library, ported into the library directly, or removed as having no value. They
 are here so that the decision can be made later without anything being lost first.
+
+## Everything else from the working folder
+
+Added 2026-09-13 so that nothing from the mission exists only on one machine: every
+remaining Lean file from the working folder, 177 of them, unsorted. They include
+submission wrappers for results already on the platform, reductions proving Open nodes from
+their children, statement stubs with `sorry` placeholders, axiom-audit files, and a few
+probes. None of them is built here, and nothing in this section has been reviewed file by
+file. Where a comment named a private working document or path it was redacted; code was
+checked unchanged. Sorting these into keep, port and remove is future cleanup.

@@ -12,9 +12,9 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-12): **131** of 132
+As of the latest archived submission (2026-09-13): **131** of 133
 Proved nodes are in the library. Of the rest, **1** marked high
-priority, **0** normal, **0** low (folklore,
+priority, **1** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
 
 **Every Proved node is to be ported, trivial or not.** The companion note selects
@@ -65,7 +65,7 @@ never published on the platform lives under `archive/local/`.
 | `Diaz.eqOn_hull` | yes | `Diaz/Closure.lean` | done |  |
 | `Diaz.equal_real_parts` | yes | `Diaz/Mirror/equal_real_parts.lean` | done |  |
 | `Diaz.exists_conj_intertwining` | yes | `Diaz/Transfer.lean` | done |  |
-| `Diaz.exists_ringHom_of_transcendental` | yes | `Diaz/Palomar.lean` | done |  |
+| `Diaz.exists_ringHom_of_transcendental` | yes | `Diaz/Axioms.lean` | done |  |
 | `Diaz.exists_transcendental_on_circle` | yes | `Diaz/Model.lean` | done |  |
 | `Diaz.exists_transcendental_on_circle_Qbar` | yes | `Diaz/Instantiation.lean` | done |  |
 | `Diaz.exp_ratMul_isAlgebraic` | yes | `Diaz/Quantisation.lean` | done |  |
@@ -124,6 +124,7 @@ never published on the platform lives under `archive/local/`.
 | `Diaz.transcendental_of_candidate` | yes | `Diaz/Closure.lean` | done |  |
 | `Diaz.two_failures_give_algebraic_log_product` | yes | `Diaz/Mirror/two_failures_give_algebraic_log_product.lean` | done |  |
 | `Diaz.zpow_mem_iff` | yes | `Diaz/Mirror/zpow_mem_iff.lean` | done |  |
+| `DiazModulus.aligned_norm_free_no_rational_log_matrix` | yes | — | normal |  |
 | `DiazModulus.candidate_distance_transcendental` | yes | `Diaz/Distance.lean` | done |  |
 | `DiazModulus.candidate_exp_angularTriple_transcendental` | yes | `Diaz/Mirror/candidate_exp_angularTriple_transcendental.lean` | done |  |
 | `DiazModulus.candidate_im_transcendental` | yes | `Diaz/Kernel.lean` | done |  |
