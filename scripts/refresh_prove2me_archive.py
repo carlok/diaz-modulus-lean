@@ -6,7 +6,7 @@
 
 What it does, in order:
 
-1. Lists every node of the Diaz mission (names starting `Diaz.` or `DiazModulus.`).
+1. Lists every node of the Diaz mission (names starting `Diaz.`, `DiazModulus.` or `FourExp.`).
 2. For each Proved or Open node, pages through its ACCEPTED and SKETCH_ACCEPTED
    submissions and downloads any not yet in the archive via GET /submissions/:id/solution.
    Open nodes matter too: an accepted sketch reduces a node to its children and exists
@@ -29,7 +29,7 @@ ARCHIVE = ROOT / "archive" / "prove2me"
 MANIFEST = ARCHIVE / "manifest.json"
 CHECKLIST = ROOT / "MIRROR_CHECKLIST.md"
 PRIORITIES = ROOT / "scripts" / "mirror_priorities.json"
-PREFIXES = ("Diaz.", "DiazModulus.")
+PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.")
 
 
 # ---------------------------------------------------------------- API
