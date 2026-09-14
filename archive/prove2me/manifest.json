@@ -2354,5 +2354,17 @@
   "bytes": 1734,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.small_polynomials_of_counterexample",
+  "theorem_id": "81f3c358-88a8-46e9-a5af-5c2c359b63f6",
+  "submission_id": "25405a3b-19d3-4551-bb17-7db686828ef4",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-14T19:24:59.986194+00:00",
+  "file": "FourExp.small_polynomials_of_counterexample__25405a3b.lean",
+  "bytes": 2721,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
