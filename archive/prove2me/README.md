@@ -25,3 +25,8 @@ here; `MIRROR_CHECKLIST.md` at the repository root tracks which have been.
 internal document label was removed. The Lean code itself is byte-identical to
 the platform's copy once comments are stripped; that was checked mechanically
 before these files were written.
+
+**Open statements.** `open/` holds the formal statement and write-up of each Open node in the
+four exponentials subtree (`FourExp.*`). Accepted reductions in this folder import those
+statements, so without them they would point at text that exists only on the platform. The
+refresh script regenerates `open/` from the board and removes a file once its node is proved.

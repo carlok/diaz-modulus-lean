@@ -23,8 +23,10 @@ order: *high* first — results the note or its manuscript relies on, or the onl
 formal record of an argument — then *normal*, then *low*. It is a judgement, not a
 measurement.
 
-Open nodes are not listed: they have no accepted proof to mirror. Work that was
-never published on the platform lives under `archive/local/`.
+Open nodes are not listed: they have no accepted proof to mirror. The statements and
+write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are kept under
+`archive/prove2me/open/`. Work that was never published on the platform lives under
+`archive/local/`.
 
 | Node | Archived | In library | Priority | Note |
 |---|---|---|---|---|

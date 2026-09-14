@@ -15,7 +15,12 @@ What it does, in order:
    labels that do not exist in this repository's public notes under tex/, and platform
    uuids. It refuses to write a file whose code changed, and never touches files that
    are already archived, so hand-polished redactions survive a refresh.
-4. Regenerates MIRROR_CHECKLIST.md from the board, the archive, the Diaz/ library and
+4. Mirrors every **Open** node under the prefixes in OPEN_PREFIXES into
+   archive/prove2me/open/: `<name>.lean` holds the preamble and formal statement, `<name>.md`
+   the title, source and write-up. These files are regenerated whenever the board changes, and
+   removed once a node is no longer Open. An Open statement that a reduction imports would
+   otherwise exist only on the platform.
+5. Regenerates MIRROR_CHECKLIST.md from the board, the archive, the Diaz/ library and
    scripts/mirror_priorities.json.
 
 Standard library only; no curl, no shell. The key is read from the environment and
@@ -30,6 +35,34 @@ MANIFEST = ARCHIVE / "manifest.json"
 CHECKLIST = ROOT / "MIRROR_CHECKLIST.md"
 PRIORITIES = ROOT / "scripts" / "mirror_priorities.json"
 PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.")
+OPEN = ARCHIVE / "open"
+OPEN_PREFIXES = ("FourExp.",)
+OPEN_README = """# Open statements
+
+Formal statements and write-ups of the **Open** nodes of the four exponentials subtree
+(`FourExp.*`) of the Diaz mission. They are copied from the Prove2Me board by
+`scripts/refresh_prove2me_archive.py` and regenerated on every refresh. A file disappears once
+its node is proved, when the accepted proof lands in `archive/prove2me/`.
+
+These are statements, not proofs: each `.lean` file ends in `sorry`. They are kept because
+accepted reductions elsewhere in the archive import them (`import Theorems.Thm_<name>`), and
+without them those reductions would point at text that exists only on the platform.
+
+Not built by this repository.
+"""
+
+
+def render_open(r):
+    """The two files that mirror one Open node: statement (.lean) and write-up (.md)."""
+    name = r["theorem_name"]
+    lean = (f"-- Open on Prove2Me: statement only, not a proof. Node `{name}`, theorem id {r['theorem_id']}.\n"
+            f"-- Mirrored by scripts/refresh_prove2me_archive.py; do not edit by hand.\n\n"
+            f"{(r.get('preamble') or '').strip()}\n\n{(r.get('formal_statement') or '').strip()}\n")
+    md = (f"# {(r.get('theorem_title') or name).strip()}\n\n"
+          f"- **Node:** `{name}`\n- **Status:** Open\n- **Theorem id:** `{r['theorem_id']}`\n"
+          f"- **Source:** {(r.get('source') or '—').strip()}\n\n"
+          f"{(r.get('natural_language_statement') or '').strip()}\n")
+    return {f"{name}.lean": lean, f"{name}.md": md}
 
 
 # ---------------------------------------------------------------- API
@@ -227,8 +260,10 @@ order: *high* first — results the note or its manuscript relies on, or the onl
 formal record of an argument — then *normal*, then *low*. It is a judgement, not a
 measurement.
 
-Open nodes are not listed: they have no accepted proof to mirror. Work that was
-never published on the platform lives under `archive/local/`.
+Open nodes are not listed: they have no accepted proof to mirror. The statements and
+write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are kept under
+`archive/prove2me/open/`. Work that was never published on the platform lives under
+`archive/local/`.
 
 | Node | Archived | In library | Priority | Note |
 |---|---|---|---|---|
@@ -287,15 +322,26 @@ def main():
             if clean != content:
                 redacted.append(fname)
 
+    # Open statements of the mirrored subtrees: regenerate, and drop nodes no longer Open.
+    open_want = {"README.md": OPEN_README}
+    for r in nodes:
+        if r["status"] == "Open" and r["theorem_name"].startswith(OPEN_PREFIXES):
+            open_want.update(render_open(api.get(f"/theorems/{r['theorem_id']}")))
+    open_have = {f.name: f.read_text() for f in OPEN.glob("*")} if OPEN.exists() else {}
+    open_write = {k: v for k, v in open_want.items() if open_have.get(k) != v}
+    open_drop = sorted(set(open_have) - set(open_want))
+
     manifest_after = manifest + [e for _, _, e in new]
     text, counts = render_checklist(proved, manifest_after, json.loads(PRIORITIES.read_text()))
-    stale = bool(new) or not CHECKLIST.exists() or CHECKLIST.read_text() != text
+    stale = (bool(new) or bool(open_write) or bool(open_drop)
+             or not CHECKLIST.exists() or CHECKLIST.read_text() != text)
 
     print(f"nodes {len(nodes)} | proved {len(proved)} | new submissions {len(new)} | redacted {len(redacted)}")
     for f in redacted:
         print(f"  redacted comments in {f} — read it before committing")
     for n in no_proof:
         print(f"  no accepted proof found for {n}")
+    print(f"open statements: {(len(open_want) - 1) // 2} | rewritten {len(open_write)} | removed {len(open_drop)}")
     print(f"checklist: {counts}")
 
     if args.check:
@@ -303,6 +349,11 @@ def main():
         return 1 if stale else 0
     for fname, clean, _ in new:
         (ARCHIVE / fname).write_text(clean)
+    OPEN.mkdir(parents=True, exist_ok=True)
+    for fname, body in open_write.items():
+        (OPEN / fname).write_text(body)
+    for fname in open_drop:
+        (OPEN / fname).unlink()
     MANIFEST.write_text(json.dumps(manifest_after, indent=1) + "\n")
     CHECKLIST.write_text(text)
     return 0
