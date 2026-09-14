@@ -96,3 +96,4 @@ import Diaz.Mirror.zpow_mem_iff
 import Diaz.Mirror.transfer_breaks_exactly
 import Diaz.Mirror.recip_pi_exp_axis_shape
 import Diaz.Mirror.period_free_split_nondegenerate
+import Diaz.Mirror.expPoly_ne_zero

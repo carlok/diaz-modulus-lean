@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-14): **136** of 136
+As of the latest archived submission (2026-09-14): **137** of 137
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -166,3 +166,4 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.sixExponentials_cannot_refute_candidate` | yes | `Diaz/NoGo.lean` | done |  |
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
 | `DiazModulus.transfer_breaks_exactly` | yes | `Diaz/Mirror/transfer_breaks_exactly.lean` | done |  |
+| `FourExp.expPoly_ne_zero` | yes | `Diaz/Mirror/expPoly_ne_zero.lean` | done |  |
