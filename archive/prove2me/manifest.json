@@ -2366,5 +2366,17 @@
   "bytes": 2721,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.nonvanishing_derivative",
+  "theorem_id": "6b3e7ded-6c39-4625-b4ac-f87189de2224",
+  "submission_id": "4215fb5b-ac2b-49d1-857d-043b255cc1a7",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-14T19:31:33.743203+00:00",
+  "file": "FourExp.nonvanishing_derivative__4215fb5b.lean",
+  "bytes": 7363,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

@@ -246,8 +246,13 @@ def main():
         sys.exit("set PROVE2ME_API_KEY")
     api = Api(key)
 
-    nodes = [r for r in api.paged("/theorems?q=Diaz", "theorems", 200)
-             if (r.get("theorem_name") or "").startswith(PREFIXES)]
+    # `q=` is a text search, so a FourExp node is returned for `q=Diaz` only if its description
+    # happens to mention Diaz. Search each namespace and merge.
+    seen, nodes = set(), []
+    for term in ("Diaz", "FourExp"):
+        for r in api.paged(f"/theorems?q={term}", "theorems", 200):
+            if (r.get("theorem_name") or "").startswith(PREFIXES) and r["theorem_id"] not in seen:
+                seen.add(r["theorem_id"]); nodes.append(r)
     proved = [r for r in nodes if r["status"] == "Proved"]
 
     ARCHIVE.mkdir(parents=True, exist_ok=True)
