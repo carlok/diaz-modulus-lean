@@ -2342,5 +2342,17 @@
   "bytes": 2201,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.four_exponentials_trdeg_one",
+  "theorem_id": "2c0f35ea-b824-4ce3-a701-01b48dc27a97",
+  "submission_id": "cebab953-3cd1-4467-b8da-6b6a3975b6e6",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-14T19:13:23.345826+00:00",
+  "file": "DiazModulus.four_exponentials_trdeg_one__cebab953.lean",
+  "bytes": 1734,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
