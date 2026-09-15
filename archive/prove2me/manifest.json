@@ -2546,5 +2546,17 @@
   "bytes": 15547,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.small_irreducible_factor",
+  "theorem_id": "0d10482b-a0ff-46c6-a565-57809008dcf0",
+  "submission_id": "6b6f512b-dbcc-4ced-8a3b-154e6c2a47fe",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T09:51:23.534343+00:00",
+  "file": "FourExp.small_irreducible_factor__6b6f512b.lean",
+  "bytes": 27894,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]

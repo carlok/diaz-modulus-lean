@@ -107,3 +107,6 @@ import Diaz.Mirror.expPoly_value_le_derivs
 import Diaz.Mirror.expPoly_zero_count_scaled
 import Diaz.Mirror.expPoly_zero_count
 import Diaz.Mirror.nonvanishing_derivative
+import Diaz.Mirror.small_irreducible_factor
+import Diaz.Mirror.transcendence_criterion_continuous
+import Diaz.Mirror.transcendence_criterion
