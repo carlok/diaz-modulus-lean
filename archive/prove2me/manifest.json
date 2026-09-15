@@ -2438,5 +2438,29 @@
   "bytes": 8845,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.transcendence_criterion",
+  "theorem_id": "65f053a5-33bf-46c5-95a8-ac81974255c5",
+  "submission_id": "194bf0ce-5193-4d00-99d4-aedfaaf90b53",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T04:28:56.808677+00:00",
+  "file": "FourExp.transcendence_criterion__194bf0ce.lean",
+  "bytes": 6628,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.transcendence_criterion_continuous",
+  "theorem_id": "edd2f289-6d1c-476d-ad9a-5b7015839de3",
+  "submission_id": "9e7becbe-0e68-44a9-a06c-22276e8017fe",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T04:58:01.081655+00:00",
+  "file": "FourExp.transcendence_criterion_continuous__9e7becbe.lean",
+  "bytes": 24518,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
