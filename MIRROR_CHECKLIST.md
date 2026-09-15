@@ -12,9 +12,9 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-15): **143** of 143
+As of the latest archived submission (2026-09-15): **144** of 147
 Proved nodes are in the library. Of the rest, **0** marked high
-priority, **0** normal, **0** low (folklore,
+priority, **3** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
 
 **Every Proved node is to be ported, trivial or not.** The companion note selects
@@ -169,7 +169,11 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.cauchy_estimate_with_zeros` | yes | `Diaz/Mirror/cauchy_estimate_with_zeros.lean` | done |  |
 | `FourExp.dvd_of_small_values` | yes | `Diaz/Mirror/dvd_of_small_values.lean` | done |  |
 | `FourExp.expPoly_ne_zero` | yes | `Diaz/Mirror/expPoly_ne_zero.lean` | done |  |
+| `FourExp.expPoly_value_le_derivs` | yes | `Diaz/Mirror/expPoly_value_le_derivs.lean` | done |  |
+| `FourExp.expPoly_zero_count` | yes | — | normal |  |
+| `FourExp.expPoly_zero_count_scaled` | yes | — | normal |  |
 | `FourExp.height_dvd_le` | yes | `Diaz/Mirror/height_dvd_le.lean` | done |  |
+| `FourExp.nonvanishing_derivative` | yes | — | normal |  |
 | `FourExp.zero_count_arith` | yes | `Diaz/Mirror/zero_count_arith.lean` | done |  |
 | `FourExp.zero_count_arith_poly` | yes | `Diaz/Mirror/zero_count_arith_poly.lean` | done |  |
 | `FourExp.zero_count_degenerate` | yes | `Diaz/Mirror/zero_count_degenerate.lean` | done |  |

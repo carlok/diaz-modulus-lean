@@ -2534,5 +2534,17 @@
   "bytes": 6500,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.expPoly_value_le_derivs",
+  "theorem_id": "aec4da14-b097-4fda-999a-687c2dbecdd4",
+  "submission_id": "0a598397-2278-47b9-9478-a0794a098725",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T09:05:05.672265+00:00",
+  "file": "FourExp.expPoly_value_le_derivs__0a598397.lean",
+  "bytes": 15547,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]
