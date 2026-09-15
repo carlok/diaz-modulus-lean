@@ -2390,5 +2390,17 @@
   "bytes": 6224,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.expPoly_zero_count",
+  "theorem_id": "4d055466-a546-41a8-a433-78e09b040998",
+  "submission_id": "236257b1-311d-4932-b254-754b2381a88d",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T03:45:47.895981+00:00",
+  "file": "FourExp.expPoly_zero_count__236257b1.lean",
+  "bytes": 1781,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
