@@ -2474,5 +2474,17 @@
   "bytes": 3139,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.height_dvd_le",
+  "theorem_id": "5b99493b-fb4c-49c3-8afe-4ed79a8f2bed",
+  "submission_id": "979da6ca-021a-4ad6-a8bc-0586d62a8aef",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T06:44:50.352713+00:00",
+  "file": "FourExp.height_dvd_le__979da6ca.lean",
+  "bytes": 5071,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]
