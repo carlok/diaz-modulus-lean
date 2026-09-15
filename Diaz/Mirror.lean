@@ -102,3 +102,4 @@ import Diaz.Mirror.zero_count_degenerate
 import Diaz.Mirror.height_dvd_le
 import Diaz.Mirror.dvd_of_small_values
 import Diaz.Mirror.cauchy_estimate_with_zeros
+import Diaz.Mirror.zero_count_arith

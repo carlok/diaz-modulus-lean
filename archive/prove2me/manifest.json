@@ -2522,5 +2522,17 @@
   "bytes": 6858,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.zero_count_arith",
+  "theorem_id": "52059e8b-dd9e-404c-ab6e-cd03a25e3a57",
+  "submission_id": "5f5f312e-07b8-4f35-a6a9-d287952ca0ff",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T08:40:12.011328+00:00",
+  "file": "FourExp.zero_count_arith__5f5f312e.lean",
+  "bytes": 6500,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]
