@@ -2498,5 +2498,29 @@
   "bytes": 12299,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.cauchy_estimate_with_zeros",
+  "theorem_id": "840a447e-cb2b-4bc8-9bc7-4496079c88d7",
+  "submission_id": "7a634f72-d32d-4559-9412-df1cf10a0812",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T08:17:11.176631+00:00",
+  "file": "FourExp.cauchy_estimate_with_zeros__7a634f72.lean",
+  "bytes": 6601,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.cauchy_estimate_with_zeros",
+  "theorem_id": "840a447e-cb2b-4bc8-9bc7-4496079c88d7",
+  "submission_id": "b133f53b-8e35-4d26-978f-f1d1286f6df8",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T08:24:11.685754+00:00",
+  "file": "FourExp.cauchy_estimate_with_zeros__b133f53b.lean",
+  "bytes": 6858,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]
