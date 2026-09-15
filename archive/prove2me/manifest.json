@@ -2486,5 +2486,17 @@
   "bytes": 5071,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.dvd_of_small_values",
+  "theorem_id": "94ad0017-5959-42e3-8dbb-5279735f4026",
+  "submission_id": "34c4fce2-9043-4c82-ae43-7a4168acf7ea",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-15T07:05:49.508596+00:00",
+  "file": "FourExp.dvd_of_small_values__34c4fce2.lean",
+  "bytes": 12299,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]

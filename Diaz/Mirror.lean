@@ -100,3 +100,4 @@ import Diaz.Mirror.expPoly_ne_zero
 import Diaz.Mirror.zero_count_arith_poly
 import Diaz.Mirror.zero_count_degenerate
 import Diaz.Mirror.height_dvd_le
+import Diaz.Mirror.dvd_of_small_values
