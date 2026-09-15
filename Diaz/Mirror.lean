@@ -104,3 +104,6 @@ import Diaz.Mirror.dvd_of_small_values
 import Diaz.Mirror.cauchy_estimate_with_zeros
 import Diaz.Mirror.zero_count_arith
 import Diaz.Mirror.expPoly_value_le_derivs
+import Diaz.Mirror.expPoly_zero_count_scaled
+import Diaz.Mirror.expPoly_zero_count
+import Diaz.Mirror.nonvanishing_derivative
