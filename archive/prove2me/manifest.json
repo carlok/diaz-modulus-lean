@@ -2558,5 +2558,29 @@
   "bytes": 27894,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.construction_core_1973",
+  "theorem_id": "41291ef0-fcbe-4551-92c0-bddd04ee2f84",
+  "submission_id": "d2a23e9f-aa9e-4f36-97bb-676018f9c491",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-16T12:30:09.89799+00:00",
+  "file": "FourExp.construction_core_1973__d2a23e9f.lean",
+  "bytes": 2773,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.auxiliary_construction",
+  "theorem_id": "98a064ef-3a62-440c-94b0-56817780aca6",
+  "submission_id": "74a1621d-ffcf-4117-af30-b324f494df9c",
+  "status": "SKETCH_ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-16T12:30:04.841783+00:00",
+  "file": "FourExp.auxiliary_construction__74a1621d.lean",
+  "bytes": 3159,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
