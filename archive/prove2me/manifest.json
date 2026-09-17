@@ -2642,5 +2642,17 @@
   "bytes": 71653,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.extrapolation",
+  "theorem_id": "478273e3-7383-4cf2-98e8-dd6ab2db30f3",
+  "submission_id": "60352656-5967-4be9-9f9f-73104f05745e",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-17T14:36:23.978933+00:00",
+  "file": "FourExp.extrapolation__60352656.lean",
+  "bytes": 25527,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

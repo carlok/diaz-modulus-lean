@@ -114,3 +114,4 @@ import Diaz.Mirror.trdeg_one_presentation
 import Diaz.Mirror.siegel_aux
 import Diaz.Mirror.aux_linear_system
 import Diaz.Mirror.auxiliary_function_alg
+import Diaz.Mirror.extrapolation

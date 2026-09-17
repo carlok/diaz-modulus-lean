@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-17): **154** of 154
+As of the latest archived submission (2026-09-17): **155** of 155
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -174,6 +174,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.expPoly_value_le_derivs` | yes | `Diaz/Mirror/expPoly_value_le_derivs.lean` | done |  |
 | `FourExp.expPoly_zero_count` | yes | `Diaz/Mirror/expPoly_zero_count.lean` | done |  |
 | `FourExp.expPoly_zero_count_scaled` | yes | `Diaz/Mirror/expPoly_zero_count_scaled.lean` | done |  |
+| `FourExp.extrapolation` | yes | `Diaz/Mirror/extrapolation.lean` | done |  |
 | `FourExp.height_dvd_le` | yes | `Diaz/Mirror/height_dvd_le.lean` | done |  |
 | `FourExp.nonvanishing_derivative` | yes | `Diaz/Mirror/nonvanishing_derivative.lean` | done |  |
 | `FourExp.siegel_aux` | yes | `Diaz/Mirror/siegel_aux.lean` | done |  |
