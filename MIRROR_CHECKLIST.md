@@ -12,9 +12,9 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-17): **152** of 152
+As of the latest archived submission (2026-09-17): **152** of 154
 Proved nodes are in the library. Of the rest, **0** marked high
-priority, **0** normal, **0** low (folklore,
+priority, **2** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
 
 **Every Proved node is to be ported, trivial or not.** The companion note selects
@@ -166,6 +166,8 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.sixExponentials_cannot_refute_candidate` | yes | `Diaz/NoGo.lean` | done |  |
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
 | `DiazModulus.transfer_breaks_exactly` | yes | `Diaz/Mirror/transfer_breaks_exactly.lean` | done |  |
+| `FourExp.aux_linear_system` | yes | — | normal |  |
+| `FourExp.auxiliary_function_alg` | yes | — | normal |  |
 | `FourExp.cauchy_estimate_with_zeros` | yes | `Diaz/Mirror/cauchy_estimate_with_zeros.lean` | done |  |
 | `FourExp.dvd_of_small_values` | yes | `Diaz/Mirror/dvd_of_small_values.lean` | done |  |
 | `FourExp.expPoly_ne_zero` | yes | `Diaz/Mirror/expPoly_ne_zero.lean` | done |  |

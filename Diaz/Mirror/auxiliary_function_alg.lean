@@ -1,9 +1,15 @@
--- Open on Prove2Me: statement only, not a proof. Node `FourExp.auxiliary_function_alg`, theorem id 88de0071-cb97-40ae-90e2-33e7eb593322.
--- Mirrored by scripts/refresh_prove2me_archive.py; do not edit by hand.
+/-
+Mirrored from Prove2Me: `FourExp.auxiliary_function_alg`.
 
+Ported mechanically from the accepted submission archived as
+`archive/prove2me/FourExp.auxiliary_function_alg__c7acbecd.lean`. Statement and proof are the platform's; only
+imports, namespaces and the theorem's name were rewritten.
+-/
 import Mathlib
+import Diaz.Mirror.aux_linear_system
+import Diaz.Mirror.siegel_aux
 
-namespace FourExp
+namespace Diaz
 
 theorem auxiliary_function_alg
     (x₁ x₂ y₁ y₂ : ℂ)
@@ -23,6 +29,13 @@ theorem auxiliary_function_alg
         (∀ a b m : ℕ, a < ⌊(N : ℝ) / Real.sqrt (Real.log (N : ℝ))⌋₊ → b < ⌊(N : ℝ) * Real.sqrt (Real.log (N : ℝ))⌋₊ → m < ⌊(N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ))⌋₊ →
           iteratedDeriv m (fun z : ℂ => ∑ i : Fin ⌊(N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ))⌋₊, ∑ j : Fin (2 * N), ∑ k' : Fin (2 * N),
               (fun i j k' => ∑ μ : Fin M, ∑ ν : Fin Q.natDegree, ((q i j k' μ ν : ℤ) : ℂ) * ω ^ (μ : ℕ) * ω₁ ^ (ν : ℕ)) i j k' * z ^ (i : ℕ) * Complex.exp ((((j : ℕ) : ℂ) * x₁ + ((k' : ℕ) : ℂ) * x₂) * z)) ((a : ℂ) * y₁ + (b : ℂ) * y₂) = 0) := by
-  sorry
+  obtain ⟨κ₁, hκ₁, N₁, hsys⟩ := aux_linear_system x₁ x₂ y₁ y₂ hexp ω ω₁ hω Q hQm hQd hQroot hQmin
+    D E G H hD hE hG hH
+  obtain ⟨κ, hκle, N₂, hsieg⟩ := siegel_aux ω ω₁ Q hQd hQmin κ₁ hκ₁
+  refine ⟨κ, lt_of_lt_of_le hκ₁ hκle, max N₁ N₂, fun N hN => ?_⟩
+  obtain ⟨M, hM0, hMle, R, hR, B, hBb, hvan⟩ := hsys N (lt_of_le_of_lt (le_max_left _ _) hN)
+  obtain ⟨q, hBq, hqb, hc0, hcb⟩ := hsieg N (lt_of_le_of_lt (le_max_right _ _) hN) M hM0 hMle R hR B hBb
+  exact ⟨M, hMle.trans (mul_le_mul_of_nonneg_right hκle (Nat.cast_nonneg _)), q, hqb, hc0, hcb,
+    hvan q hBq⟩
 
-end FourExp
+end Diaz

@@ -2630,5 +2630,17 @@
   "bytes": 15472,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.aux_linear_system",
+  "theorem_id": "278448f6-4953-4e99-acc6-da2040046df5",
+  "submission_id": "643f00f4-df4b-4ec3-8502-85ff0e6e33cf",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-17T12:53:02.824314+00:00",
+  "file": "FourExp.aux_linear_system__643f00f4.lean",
+  "bytes": 71653,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]
