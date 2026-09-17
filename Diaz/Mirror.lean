@@ -111,3 +111,4 @@ import Diaz.Mirror.small_irreducible_factor
 import Diaz.Mirror.transcendence_criterion_continuous
 import Diaz.Mirror.transcendence_criterion
 import Diaz.Mirror.trdeg_one_presentation
+import Diaz.Mirror.siegel_aux

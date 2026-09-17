@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-17): **151** of 151
+As of the latest archived submission (2026-09-17): **152** of 152
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -174,6 +174,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.expPoly_zero_count_scaled` | yes | `Diaz/Mirror/expPoly_zero_count_scaled.lean` | done |  |
 | `FourExp.height_dvd_le` | yes | `Diaz/Mirror/height_dvd_le.lean` | done |  |
 | `FourExp.nonvanishing_derivative` | yes | `Diaz/Mirror/nonvanishing_derivative.lean` | done |  |
+| `FourExp.siegel_aux` | yes | `Diaz/Mirror/siegel_aux.lean` | done |  |
 | `FourExp.small_irreducible_factor` | yes | `Diaz/Mirror/small_irreducible_factor.lean` | done |  |
 | `FourExp.transcendence_criterion` | yes | `Diaz/Mirror/transcendence_criterion.lean` | done |  |
 | `FourExp.transcendence_criterion_continuous` | yes | `Diaz/Mirror/transcendence_criterion_continuous.lean` | done |  |
