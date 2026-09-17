@@ -2582,5 +2582,17 @@
   "bytes": 3159,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.trdeg_one_presentation",
+  "theorem_id": "f300d712-2c41-46f4-99a9-5475f13944ac",
+  "submission_id": "5270056a-4570-4b96-8f47-d91cdfdc74a1",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-17T06:32:53.887529+00:00",
+  "file": "FourExp.trdeg_one_presentation__5270056a.lean",
+  "bytes": 19667,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
