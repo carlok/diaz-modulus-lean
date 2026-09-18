@@ -2654,5 +2654,17 @@
   "bytes": 25527,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.norm_to_polynomial_alg",
+  "theorem_id": "7f85aec3-0e4c-43b2-9ddb-b8c54d207c1d",
+  "submission_id": "7e5bc291-7d8f-41a4-ad91-cd8dbf87b1f8",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-18T13:31:38.430934+00:00",
+  "file": "FourExp.norm_to_polynomial_alg__7e5bc291.lean",
+  "bytes": 137110,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]

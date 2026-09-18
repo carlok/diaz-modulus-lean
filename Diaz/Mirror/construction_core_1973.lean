@@ -1,9 +1,17 @@
--- Open on Prove2Me: statement only, not a proof. Node `FourExp.construction_core_1973`, theorem id 41291ef0-fcbe-4551-92c0-bddd04ee2f84.
--- Mirrored by scripts/refresh_prove2me_archive.py; do not edit by hand.
+/-
+Mirrored from Prove2Me: `FourExp.construction_core_1973`.
 
+Ported mechanically from the accepted submission archived as
+`archive/prove2me/FourExp.construction_core_1973__fb3c0f91.lean`. Statement and proof are the platform's; only
+imports, namespaces and the theorem's name were rewritten.
+-/
 import Mathlib
+import Diaz.Mirror.trdeg_one_presentation
+import Diaz.Mirror.auxiliary_function_alg
+import Diaz.Mirror.extrapolation
+import Diaz.Mirror.norm_to_polynomial_alg
 
-namespace FourExp
+namespace Diaz
 
 theorem construction_core_1973
     (x₁ x₂ y₁ y₂ : ℂ) (hx : LinearIndependent ℚ ![x₁, x₂]) (hy : LinearIndependent ℚ ![y₁, y₂])
@@ -20,6 +28,20 @@ theorem construction_core_1973
               (∀ i : ℕ, |(P.coeff i : ℝ)| ≤ Real.exp (k * (if (N : ℝ) ≤ 3 then (N : ℝ) - 3 + 9 * Real.sqrt (Real.log 3) else (N : ℝ) ^ 2 * Real.sqrt (Real.log (N : ℝ))))) ∧
               (P.natDegree : ℝ) ≤ k * (if (N : ℝ) ≤ 3 then (N : ℝ) - 3 + 9 / Real.sqrt (Real.log 3) else (N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ))) ∧
               ‖Polynomial.aeval ω P‖ < Real.exp (-(C * (k * (if (N : ℝ) ≤ 3 then (N : ℝ) - 3 + 9 * Real.sqrt (Real.log 3) else (N : ℝ) ^ 2 * Real.sqrt (Real.log (N : ℝ)))) * (k * (if (N : ℝ) ≤ 3 then (N : ℝ) - 3 + 9 / Real.sqrt (Real.log 3) else (N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ)))))) := by
-  sorry
+  obtain ⟨ω, ω₁, hω, Q, hQm, hQd, hQroot, hQmin, D, E, G, H, hD, hE, hG, hH⟩ :=
+    trdeg_one_presentation x₁ x₂ y₁ y₂ hx hy hexp htr
+  obtain ⟨κ, hκ, N₃, h3⟩ := auxiliary_function_alg x₁ x₂ y₁ y₂ hexp ω ω₁ hω Q hQm hQd hQroot hQmin
+    D E G H hD hE hG hH
+  obtain ⟨κ', hκ', N₄, h4⟩ := extrapolation x₁ x₂ y₁ y₂ hy κ hκ
+  obtain ⟨k, hk, h5⟩ := norm_to_polynomial_alg x₁ x₂ y₁ y₂ hexp ω ω₁ hω Q hQm hQd hQroot hQmin
+    D E G H hD hE hG hH κ κ' hκ hκ'
+  refine ⟨ω, hω, k, hk, fun C => ?_⟩
+  obtain ⟨N₅, h5C⟩ := h5 C
+  refine ⟨max N₃ (max N₄ N₅), fun N hN => ?_⟩
+  obtain ⟨M, hM, q, hq, hc0, hcb, hvan⟩ := h3 N (lt_of_le_of_lt (le_max_left _ _) hN)
+  refine ⟨_, hc0, fun a b s ha hb hs hne => ?_⟩
+  exact h5C N (lt_of_le_of_lt (le_trans (le_max_right _ _) (le_max_right _ _)) hN) M hM q hq
+    a b s ha hb hs hne
+    (h4 N (lt_of_le_of_lt (le_trans (le_max_left _ _) (le_max_right _ _)) hN) _ hcb hvan s hs a b ha hb)
 
-end FourExp
+end Diaz
