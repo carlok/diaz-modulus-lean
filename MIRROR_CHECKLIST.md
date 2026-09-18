@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-18): **157** of 157
+As of the latest archived submission (2026-09-18): **164** of 164
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -141,6 +141,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.diaz_iff_no_candidate` | yes | `Diaz/Mirror/diaz_iff_no_candidate.lean` | done |  |
 | `DiazModulus.diaz_locus_dictionary` | yes | `Diaz/Mirror/diaz_locus_dictionary.lean` | done |  |
 | `DiazModulus.diaz_of_exp_eq_one` | yes | `Diaz/Mirror/diaz_of_exp_eq_one.lean` | done |  |
+| `DiazModulus.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult` | yes | `Diaz/Mirror/diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult.lean` | done |  |
 | `DiazModulus.diaz_of_exp_not_real_on_axes` | yes | `Diaz/Mirror/diaz_of_exp_not_real_on_axes.lean` | done |  |
 | `DiazModulus.diaz_of_exp_real_pure_imaginary` | yes | `Diaz/Mirror/diaz_of_exp_real_pure_imaginary.lean` | done |  |
 | `DiazModulus.diaz_of_exp_real_self_real` | yes | `Diaz/Mirror/diaz_of_exp_real_self_real.lean` | done |  |
@@ -149,6 +150,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.diaz_of_strongFourExponentials_and_hermite_lindemann` | yes | `Diaz/Mirror/diaz_of_strongFourExponentials_and_hermite_lindemann.lean` | done |  |
 | `DiazModulus.diaz_on_axes_of_hermite_lindemann` | yes | `Diaz/Mirror/diaz_on_axes_of_hermite_lindemann.lean` | done |  |
 | `DiazModulus.exp_I_transcendental` | yes | `Diaz/Mirror/exp_I_transcendental.lean` | done |  |
+| `DiazModulus.four_exponentials_trdeg_one` | yes | `Diaz/Mirror/four_exponentials_trdeg_one.lean` | done |  |
 | `DiazModulus.hermite_lindemann_holds` | yes | `Diaz/HermiteLindemann.lean` | done |  |
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
 | `DiazModulus.logAlg_conj_stable` | yes | `Diaz/Mirror/logAlg_conj_stable.lean` | done |  |
@@ -167,9 +169,12 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
 | `DiazModulus.transfer_breaks_exactly` | yes | `Diaz/Mirror/transfer_breaks_exactly.lean` | done |  |
 | `FourExp.aux_linear_system` | yes | `Diaz/Mirror/aux_linear_system.lean` | done |  |
+| `FourExp.auxiliary_construction` | yes | `Diaz/Mirror/auxiliary_construction.lean` | done |  |
 | `FourExp.auxiliary_function_alg` | yes | `Diaz/Mirror/auxiliary_function_alg.lean` | done |  |
 | `FourExp.cauchy_estimate_with_zeros` | yes | `Diaz/Mirror/cauchy_estimate_with_zeros.lean` | done |  |
 | `FourExp.construction_core_1973` | yes | `Diaz/Mirror/construction_core_1973.lean` | done |  |
+| `FourExp.construction_count_1973` | yes | `Diaz/Mirror/construction_count_1973.lean` | done |  |
+| `FourExp.construction_growth` | yes | `Diaz/Mirror/construction_growth.lean` | done |  |
 | `FourExp.dvd_of_small_values` | yes | `Diaz/Mirror/dvd_of_small_values.lean` | done |  |
 | `FourExp.expPoly_ne_zero` | yes | `Diaz/Mirror/expPoly_ne_zero.lean` | done |  |
 | `FourExp.expPoly_value_le_derivs` | yes | `Diaz/Mirror/expPoly_value_le_derivs.lean` | done |  |
@@ -179,8 +184,10 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.height_dvd_le` | yes | `Diaz/Mirror/height_dvd_le.lean` | done |  |
 | `FourExp.nonvanishing_derivative` | yes | `Diaz/Mirror/nonvanishing_derivative.lean` | done |  |
 | `FourExp.norm_to_polynomial_alg` | yes | `Diaz/Mirror/norm_to_polynomial_alg.lean` | done |  |
+| `FourExp.rank_one_parametrization` | yes | `Diaz/Mirror/rank_one_parametrization.lean` | done |  |
 | `FourExp.siegel_aux` | yes | `Diaz/Mirror/siegel_aux.lean` | done |  |
 | `FourExp.small_irreducible_factor` | yes | `Diaz/Mirror/small_irreducible_factor.lean` | done |  |
+| `FourExp.small_polynomials_of_counterexample` | yes | `Diaz/Mirror/small_polynomials_of_counterexample.lean` | done |  |
 | `FourExp.transcendence_criterion` | yes | `Diaz/Mirror/transcendence_criterion.lean` | done |  |
 | `FourExp.transcendence_criterion_continuous` | yes | `Diaz/Mirror/transcendence_criterion_continuous.lean` | done |  |
 | `FourExp.trdeg_one_presentation` | yes | `Diaz/Mirror/trdeg_one_presentation.lean` | done |  |

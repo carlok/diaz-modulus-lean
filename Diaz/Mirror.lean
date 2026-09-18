@@ -117,3 +117,10 @@ import Diaz.Mirror.auxiliary_function_alg
 import Diaz.Mirror.extrapolation
 import Diaz.Mirror.norm_to_polynomial_alg
 import Diaz.Mirror.construction_core_1973
+import Diaz.Mirror.rank_one_parametrization
+import Diaz.Mirror.construction_growth
+import Diaz.Mirror.construction_count_1973
+import Diaz.Mirror.auxiliary_construction
+import Diaz.Mirror.small_polynomials_of_counterexample
+import Diaz.Mirror.four_exponentials_trdeg_one
+import Diaz.Mirror.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult

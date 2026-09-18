@@ -2666,5 +2666,41 @@
   "bytes": 137110,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.construction_count_1973",
+  "theorem_id": "fede9f8c-c982-4629-9b09-f945e6eb22f6",
+  "submission_id": "90439cea-596f-4943-941f-692136698642",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-18T19:40:54.727755+00:00",
+  "file": "FourExp.construction_count_1973__90439cea.lean",
+  "bytes": 16897,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.rank_one_parametrization",
+  "theorem_id": "30f831f0-d392-4e30-aa69-dee7d4b3ba65",
+  "submission_id": "8517773b-0f7f-46cb-bf1a-c7093578eaf4",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-18T20:07:50.955822+00:00",
+  "file": "FourExp.rank_one_parametrization__8517773b.lean",
+  "bytes": 4859,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.construction_growth",
+  "theorem_id": "756ef0b1-6367-48de-9b97-b031f9277369",
+  "submission_id": "c2ad50d4-e3a8-4aac-aa82-e93ff0566a11",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-18T19:24:24.686461+00:00",
+  "file": "FourExp.construction_growth__c2ad50d4.lean",
+  "bytes": 15176,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]

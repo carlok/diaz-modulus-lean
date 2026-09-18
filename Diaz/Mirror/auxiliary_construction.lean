@@ -1,11 +1,19 @@
--- Open on Prove2Me: statement only, not a proof. Node `FourExp.auxiliary_construction`, theorem id 98a064ef-3a62-440c-94b0-56817780aca6.
--- Mirrored by scripts/refresh_prove2me_archive.py; do not edit by hand.
+/-
+Mirrored from Prove2Me: `FourExp.auxiliary_construction`.
 
+Ported mechanically from the accepted submission archived as
+`archive/prove2me/FourExp.auxiliary_construction__74a1621d.lean`. Statement and proof are the platform's; only
+imports, namespaces and the theorem's name were rewritten.
+-/
 import Mathlib
+import Diaz.Mirror.rank_one_parametrization
+import Diaz.Mirror.construction_growth
+import Diaz.Mirror.construction_count_1973
+import Diaz.Mirror.construction_core_1973
+
+namespace Diaz
 
 open Filter Topology
-
-namespace FourExp
 
 theorem auxiliary_construction :
     ∀ l₁₁ l₁₂ l₂₁ l₂₂ : ℂ,
@@ -40,6 +48,20 @@ theorem auxiliary_construction :
                   (∀ i : ℕ, |(P.coeff i : ℝ)| ≤ Real.exp (σ₁ N)) ∧
                   (P.natDegree : ℝ) ≤ σ₂ N ∧
                   ‖Polynomial.aeval ω P‖ < Real.exp (-(C * σ₁ N * σ₂ N)) := by
-  sorry
+  intro l₁₁ l₁₂ l₂₁ l₂₂ e₁₁ e₁₂ e₂₁ e₂₂ n₁₁ n₁₂ n₂₁ n₂₂ hdet htr hrows hcols
+  obtain ⟨x₁, x₂, y₁, y₂, hx, hy, hexp, htr'⟩ :=
+    rank_one_parametrization l₁₁ l₁₂ l₂₁ l₂₂ e₁₁ e₁₂ e₂₁ e₂₂ n₁₁ n₁₂ n₂₁ n₂₂ hdet htr
+      hrows hcols
+  obtain ⟨ω, hω, k, hk, hcore⟩ := construction_core_1973 x₁ x₂ y₁ y₂ hx hy hexp htr'
+  obtain ⟨hm₁, hm₂, ht₁, ht₂, h21, hg₁, hg₂⟩ := construction_growth k hk
+  refine ⟨ω, hω, _, _, hm₁, hm₂, ht₁, ht₂, 3, 3, by norm_num, by norm_num, h21, hg₁, hg₂,
+    x₁, x₂, y₁, y₂, hx, hy, fun C => ?_⟩
+  obtain ⟨N₁, hN₁⟩ := hcore C
+  obtain ⟨N₂, hN₂⟩ := construction_count_1973 (‖x₁‖ + ‖x₂‖) ‖y₁‖ ‖y₂‖ (by positivity)
+    (norm_nonneg _) (norm_nonneg _)
+  refine ⟨max N₁ N₂, fun N hN => ?_⟩
+  obtain ⟨c, hc, himp⟩ := hN₁ N (lt_of_le_of_lt (le_max_left _ _) hN)
+  exact ⟨_, _, _, _, _, c, hc, ⟨1 / 20, by norm_num, hN₂ N (lt_of_le_of_lt (le_max_right _ _) hN)⟩,
+    himp⟩
 
-end FourExp
+end Diaz
