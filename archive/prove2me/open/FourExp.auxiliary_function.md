@@ -3,7 +3,7 @@
 - **Node:** `FourExp.auxiliary_function`
 - **Status:** Open
 - **Theorem id:** `cf30f7a1-b576-4a5d-b179-f5e90c1f29c3`
-- **Source:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, Lemma 4; C. L. Siegel's lemma as in S. Lang, Introduction to Transcendental Numbers, ch. I §2.
+- **Source:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, Lemma 4; C. L. Siegel's lemma as in S. Lang, Introduction to Transcendental Numbers, ch. I §2. Superseded: the statement omits the hypothesis that the four exponentials exp(x_i y_j) are algebraic. Without it the omega-degree of their powers is unbounded, and the height bound cannot hold as stated. Replaced by FourExp.auxiliary_function_alg, which carries that hypothesis and is Proved.
 
 **The auxiliary function.** Let $x_1, x_2, y_1, y_2 \in \mathbb{C}$ and suppose $\omega$ is transcendental; $\omega_1$ is a root of $Q \in \mathbb{Z}[X][Y]$, monic in $Y$ of degree $d \ge 1$ and minimal, in the sense that no non-zero $A \in \mathbb{Z}[X][Y]$ with $\deg_Y A < d$ vanishes at $(\omega, \omega_1)$; and $D, E_i, G_j, H_{ij} \in \mathbb{Z}[X][Y]$ with $D(\omega,\omega_1) \ne 0$, $x_i D = E_i$, $y_j D = G_j$ and $e^{x_iy_j} D = H_{ij}$ at $(\omega, \omega_1)$. Then there is $\kappa > 0$ such that for every large $N$, with $S, t_1, t_2$ as below, there are $M \le \kappa S$ and integers $q(i,j,k',\mu,\nu)$, for $i<S$, $j,k'<2N$, $\mu<M$, $\nu<d$, with the following properties.
 $$S = \lfloor N^2/\sqrt{\log N}\rfloor,\quad T = 2N,\quad t_1 = \lfloor N/\sqrt{\log N}\rfloor,\quad t_2 = \lfloor N\sqrt{\log N}\rfloor,\quad R_1 = 14t_1,\quad R_2 = 14t_2,\quad S' = \lfloor S/2\rfloor.$$

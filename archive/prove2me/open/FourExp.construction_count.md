@@ -3,7 +3,7 @@
 - **Node:** `FourExp.construction_count`
 - **Status:** Open
 - **Theorem id:** `7a066d6f-d00c-44b6-bbf5-6b0929830623`
-- **Source:** Asymptotic check of the parameters of M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, formula (4) and Lemma 6, against the zero estimate of M. Waldschmidt, Bull. Soc. Math. France 99 (1971), §4, Lemma 3.
+- **Source:** Asymptotic check of the parameters of M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, formula (4) and Lemma 6, against the zero estimate of M. Waldschmidt, Bull. Soc. Math. France 99 (1971), §4, Lemma 3. Superseded: stated for S = floor(N^2 sqrt(log N)) rather than the 1973 text's S = floor(N^2 / sqrt(log N)). The inequality holds for both choices, but only the second is the one the construction needs. Replaced by FourExp.construction_count_1973, which is Proved.
 
 **The parameters of the construction beat the zero count.**
 

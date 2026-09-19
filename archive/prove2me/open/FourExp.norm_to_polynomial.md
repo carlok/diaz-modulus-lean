@@ -3,7 +3,7 @@
 - **Node:** `FourExp.norm_to_polynomial`
 - **Status:** Open
 - **Theorem id:** `320d5b05-3f3c-40b7-be79-53fc549d2d55`
-- **Source:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, Lemma 7.
+- **Source:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, Lemma 7. Superseded: the same defect as FourExp.auxiliary_function, namely the missing hypothesis that the four exponentials are algebraic. Replaced by FourExp.norm_to_polynomial_alg, which is Proved.
 
 **From a small value to a small polynomial.** Let $x_1, x_2, y_1, y_2 \in \mathbb{C}$ and suppose $\omega$ is transcendental; $\omega_1$ is a root of $Q \in \mathbb{Z}[X][Y]$, monic in $Y$ of degree $d \ge 1$ and minimal, in the sense that no non-zero $A \in \mathbb{Z}[X][Y]$ with $\deg_Y A < d$ vanishes at $(\omega, \omega_1)$; and $D, E_i, G_j, H_{ij} \in \mathbb{Z}[X][Y]$ with $D(\omega,\omega_1) \ne 0$, $x_i D = E_i$, $y_j D = G_j$ and $e^{x_iy_j} D = H_{ij}$ at $(\omega, \omega_1)$. For every $\kappa, \kappa' > 0$ there is $k > 0$ such that for every $C$ there is $N_0$ with the following property, with the parameters below.
 $$S = \lfloor N^2/\sqrt{\log N}\rfloor,\quad T = 2N,\quad t_1 = \lfloor N/\sqrt{\log N}\rfloor,\quad t_2 = \lfloor N\sqrt{\log N}\rfloor,\quad R_1 = 14t_1,\quad R_2 = 14t_2,\quad S' = \lfloor S/2\rfloor.$$

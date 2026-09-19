@@ -10,3 +10,20 @@ accepted reductions elsewhere in the archive import them (`import Theorems.Thm_<
 without them those reductions would point at text that exists only on the platform.
 
 Not built by this repository.
+
+## These four will not close
+
+All four statements still here are a documented dead branch, kept because accepted reductions
+elsewhere in the archive import them. Each was replaced by a corrected node that is Proved, and
+each one's `Source` line now says so on the platform:
+
+| Here | Replaced by | Why |
+| --- | --- | --- |
+| `FourExp.construction_core` | `FourExp.construction_core_1973` | fixes `S = ⌊N²√log N⌋`, where the 1973 text has `S = ⌊N²/√log N⌋`; with the published `S` the degree and height ratios are unbounded, so the statement is true only vacuously |
+| `FourExp.construction_count` | `FourExp.construction_count_1973` | same wrong `S`; the inequality holds either way, but only the corrected one is what the construction needs |
+| `FourExp.auxiliary_function` | `FourExp.auxiliary_function_alg` | omits the hypothesis that the four `exp (xᵢyⱼ)` are algebraic, without which the `ω`-degree of their powers is unbounded |
+| `FourExp.norm_to_polynomial` | `FourExp.norm_to_polynomial_alg` | the same missing hypothesis |
+
+The corrected four are all in `archive/prove2me/` and in `Diaz/Mirror/`. Nothing depends on the
+four here except the two superseded reductions that were accepted before the defects were found.
+

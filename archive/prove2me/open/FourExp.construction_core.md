@@ -3,7 +3,7 @@
 - **Node:** `FourExp.construction_core`
 - **Status:** Open
 - **Theorem id:** `671c8b91-074e-431a-b4a7-fd3adb8bc8ce`
-- **Source:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, §III, formula (4) and Lemmas 4, 5 and 7.
+- **Source:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, §III, formula (4) and Lemmas 4, 5 and 7. Superseded: this node fixes S = floor(N^2 sqrt(log N)), where the 1973 text has S = floor(N^2 / sqrt(log N)); the sign of the exponent was misread when the construction was decomposed. With the S stated here the degree and height ratios against sigma_2 and sigma_1 are unbounded, so the statement is true only vacuously and cannot be reached by the 1973 construction. It is replaced by FourExp.construction_core_1973, which is Proved.
 
 **The analytic-arithmetic core of the proof.**
 
