@@ -59,8 +59,10 @@ counterexample would exhibit cannot be a root of unity. The second part is negat
 reason for the paper. We show that one natural line of attack --- assembling the certified data
 of a hypothetical counterexample into a matrix of logarithms with vanishing determinant ---
 provably fails on one branch, that a second branch is circular in a precise sense, and that the
-remaining branch terminates in a theorem of 1973--74 that has never been formalised. What is
-left is one conjecture and one formalisation project, and we say exactly which.
+remaining branch terminates in a theorem of 1973--74. When this note was first written that
+theorem had never been formalised; it has been since, in the form the branch needs, and the case
+it governs is proved with it. What is left is open mathematics rather than formalisation, and we say
+exactly which.
 \end{abstract}
 
 \section{Setting}
@@ -466,10 +468,17 @@ non-zero, which is the conclusion sought.
 
 Finally, the transcendence-degree-one case of four exponentials, which does apply on part of the
 locus, is a theorem of 1973--74 (Brownawell; Waldschmidt), recorded as Theorem~1 of
-Roy--Waldschmidt~\cite{roy-waldschmidt-1995}. It is available for citation and not, at present,
-for anything else: no formal development of it exists, and the obstacle to producing one is
-Philippon's zero estimate together with the surrounding apparatus, none of which has been
-formalised.
+Roy--Waldschmidt~\cite{roy-waldschmidt-1995}. When this note was first written it was available
+for citation and for nothing else, and the obstacle to a formal development looked like
+Philippon's zero estimate together with the apparatus around it. That reading was wrong about
+the route. Waldschmidt's own proof~\cite{waldschmidt-1973}, with the toolbox of his 1971
+paper~\cite{waldschmidt-1971}, uses none of it: Siegel's lemma, a Gel'fond-type transcendence
+criterion, the maximum principle, and a zero count for exponential polynomials that needs no
+separation hypothesis --- the last being what removes Baker's theorem from the 1973 argument.
+Along that route the theorem is now formalised, and the case of the branch that it governs is
+proved with it; see Appendix~\ref{app:certs}. What remains on that branch is not the 1973--74
+theorem but two statements about $1/\pi$, both open. The formal statement takes all four exponentials to be algebraic,
+which is more than the 1973 theorem assumes and exactly what this setting supplies.
 
 \section{Exclusions outside the hull}\label{sec:outside}
 
@@ -699,6 +708,8 @@ logarithms of algebraic numbers}, Proc. Japan Acad. Ser. A \textbf{71} (1995), 1
 related to the exponential function}, J. Number Theory \textbf{6} (1974), 22--31.
 \bibitem{waldschmidt-1973} M.~Waldschmidt, \emph{Solution du huitième problème de Schneider},
 J. Number Theory \textbf{5} (1973), 191--202.
+\bibitem{waldschmidt-1971} M.~Waldschmidt, \emph{Indépendance algébrique des valeurs de la
+fonction exponentielle}, Bull. Soc. Math. France \textbf{99} (1971), 285--304.
 \bibitem{waldschmidt-book} M.~Waldschmidt, \emph{Diophantine Approximation on Linear Algebraic
 Groups}, Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2000.
 \bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{On ranks of matrices of logarithms},
@@ -725,6 +736,12 @@ Remark~\ref{rem:schanuel}, whose proof uses a transcendence-degree instance that
 pinned in that project does not supply. Where the two differ in naming, the project keeps the
 platform's spelling.
 
+The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
+Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
+auxiliary function, extrapolation and norm step, and the assembly above them. They are separate
+nodes under the \nolinkurl{FourExp} namespace on the platform, and separate modules in the
+project.
+
 Two further statements, not numbered above because the note does not use them directly, are
 proved alongside Proposition~\ref{prop:kernel} and belong to its argument: the real and imaginary
 parts of a candidate are each transcendental
@@ -732,10 +749,8 @@ parts of a candidate are each transcendental
 \nolinkurl{DiazModulus.candidate_im_transcendental}).
 
 A \textbf{Proved} row means the statement itself has a machine-checked proof. An \textbf{Open}
-row means the statement is recorded formally but not proved, and the reason differs by case: it
-may be an open conjecture, or a theorem of the literature that has never been formalised. The
-two are not the same and the table separates them. A \textbf{Not formalised} row means what it
-says: the statement is proved in this note and has no formal counterpart at all.
+row means the statement is recorded formally but not proved; both such rows here are open
+conjectures. A \textbf{Not formalised} row means what it says: the statement is proved in this note and has no formal counterpart at all.
 Proposition~\ref{prop:loop} is flagged that way, and its row needs a word: the identifier given
 is the statement $(\mathrm{NT})$, which is recorded formally and is Open; the \emph{equivalence}
 proved in Proposition~\ref{prop:loop} is what has no formal counterpart.
@@ -760,7 +775,7 @@ Prop.~\ref{prop:roy} & Proved & \nolinkurl{Diaz.roy_conic_implies_empty} \\
 Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_coeff} \\
 Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refute_candidate} \\
 Prop.~\ref{prop:loop} & Not formalised & \nolinkurl{DiazModulus.norm_transcendental_of_generic_conj_pair} (Open) \\
-\S\ref{sec:map}, 1973--74 thm & Open (not formalised) & \nolinkurl{DiazModulus.four_exponentials_trdeg_one} \\
+\S\ref{sec:map}, 1973--74 thm & Proved & \nolinkurl{DiazModulus.four_exponentials_trdeg_one} \\
 Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line} \\
 Rem.~\ref{rem:line-cheap} & Proved & \nolinkurl{DiazModulus.candidate_no_real_algebraic_line} \\
 Cor.~\ref{cor:distance} & Proved & \nolinkurl{DiazModulus.candidate_distance_transcendental} \\

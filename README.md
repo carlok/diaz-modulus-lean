@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them.
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-18 it is met: 164 of 164.
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
 - `tex/` — the companion notes. The note selects from the library; the library does not select.
 
@@ -382,6 +382,50 @@ than joining `Axioms.lean`: on the platform they are carried the same way,
 and the point of a backup is that it reads identically. Neither theorem
 depends on any axiom of this repository — `#print axioms` on both lists
 only `propext`, `Classical.choice`, `Quot.sound`.
+
+## Four exponentials in transcendence degree one
+
+The largest thing in the mirror is not a negative result. `Diaz/Mirror/` now
+carries a complete proof of the four exponentials theorem in transcendence
+degree one, as `DiazModulus.four_exponentials_trdeg_one`. In the form the node
+states it: take a 2×2 matrix of non-zero logarithms of algebraic numbers with
+`l₁₁l₂₂ = l₁₂l₂₁`, and suppose the field they generate has transcendence degree
+at most one; then its rows or its columns are `ℚ`-dependent. Equivalently, two
+`ℚ`-independent pairs `x₁, x₂` and `y₁, y₂` whose four products `xᵢyⱼ` are all
+logarithms of algebraic numbers generate a field of transcendence degree at
+least two. The theorem is classical, proved independently by Brownawell (1974)
+and Waldschmidt (1973); no new mathematics is claimed for it.
+
+The route is Waldschmidt's 1973 proof together with the toolbox of his 1971
+paper, so it needs neither Baker's theorem nor a zero estimate:
+
+- `transcendence_criterion` — Gel'fond's criterion in the 1971 form: a number
+  approximated well enough by integer polynomials of controlled degree and
+  height is algebraic. Under it, `small_irreducible_factor`, `height_dvd_le` and
+  the resultant bound.
+- `expPoly_zero_count` and its scaled form — Tijdeman's count of the zeros of an
+  exponential polynomial in a disc, with no separation hypothesis on the
+  frequencies. This is what replaces Baker.
+- `cauchy_estimate_with_zeros` and `extrapolation` — the Schwarz step: high-order
+  vanishing on a small grid makes the derivatives tiny on a grid fourteen times
+  larger.
+- `trdeg_one_presentation`, `aux_linear_system`, `siegel_aux` — the arithmetic of
+  the auxiliary function: write everything over `ℤ[ω, ω₁]`, turn the vanishing
+  conditions into an integer linear system, and solve it by Siegel's lemma.
+- `norm_to_polynomial_alg` — the value becomes an integer polynomial in one
+  variable, small at `ω`. Instead of taking a norm, it takes the determinant of
+  multiplication modulo the minimal relation, which avoids building the field
+  extension at all.
+- `construction_core_1973`, `auxiliary_construction`,
+  `small_polynomials_of_counterexample`, `rank_one_parametrization`,
+  `construction_growth`, `construction_count_1973` — the assembly and its
+  bookkeeping.
+
+The theorem settles one case of the conjecture's branch structure
+(`DiazModulus.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult`).
+What still blocks that branch is two statements about `1/π`, both open: that
+`1/π` is not an algebraic multiple of a real logarithm of an algebraic number,
+and the same with a purely imaginary one.
 
 ## What is assumed
 

@@ -27,6 +27,8 @@ tex/*.log
 tex/*.out
 tex/*.toc
 tex/*.synctex.gz
+tex/*.fls
+tex/*.fdb_latexmk
 
 # Palomar Comparator tool cache
 .cache/

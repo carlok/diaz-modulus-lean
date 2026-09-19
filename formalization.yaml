@@ -138,14 +138,13 @@ status:
     K-algebra map on K⟮u⟯, NOT a ring endomorphism of all of ℂ. Extending that
     far requires a transcendence-basis argument which is not carried out here;
     every compared use evaluates the map only on the hull. The wider development
-    in Diaz/ additionally proves results that do reach an endomorphism of ℂ, and
-    those depend on the imported axioms listed below. None of them is in the
-    compared surface.
+    in Diaz/ additionally proves results that do reach an endomorphism of ℂ. Those
+    once rested on two transcendence results imported as axioms; both are now
+    proved in Diaz/Axioms.lean, so the project assumes nothing beyond Lean's own
+    three axioms. None of those results is in the compared surface.
   sorry_count: 0
   sorry_in_definitions: 0
-  axioms:
-    - "Diaz.hermite_lindemann"
-    - "Diaz.exists_ringHom_of_transcendental"
+  axioms: []
 
 automation:
   methods:
@@ -189,14 +188,17 @@ fidelity:
 
     (2) The existence theorem is proved on K⟮u⟯, not on all of ℂ. The
     repository's README and the wider development describe a stronger closure
-    theorem producing a ring endomorphism of ℂ; that version rests on the
-    imported axiom Diaz.exists_ringHom_of_transcendental and is deliberately
-    outside the compared surface. A reader comparing the README against the
+    theorem producing a ring endomorphism of ℂ; that version rests on
+    Diaz.exists_ringHom_of_transcendental, once imported as an axiom and now
+    proved in Diaz/Axioms.lean, and is deliberately outside the compared
+    surface. A reader comparing the README against the
     Challenge will see the weaker existence statement, and this is intentional.
 
-    (3) The development imports two transcendence results as axioms, declared
-    above. They are used for results about actual counterexamples to Diaz's
-    question — that a candidate is transcendental, that the circle carries a
+    (3) The development uses two transcendence results, Hermite-Lindemann and
+    the existence of a ring endomorphism of ℂ moving a transcendental. Both were
+    imported as axioms when this surface was first submitted and are now proved
+    in Diaz/Axioms.lean. They are used for results about actual counterexamples
+    to Diaz's question — that a candidate is transcendental, that the circle carries a
     transcendental point, and hence candidate_indistinguishable. No compared
     declaration depends on either; #print axioms on all eight lists only
     propext, Classical.choice and Quot.sound.
@@ -216,7 +218,7 @@ review:
     Machine verification: the project builds under leanprover/lean4:v4.32.0 with
     Mathlib pinned to v4.32.0. #print axioms was run on every compared
     declaration; each depends only on propext, Classical.choice and Quot.sound,
-    and in particular on neither imported axiom. There are no sorry holes
+    and so does every other declaration in the project. There are no sorry holes
     outside the deliberate ones in Challenge.lean. Statement audit: the
     Challenge surface is 102 lines and 4.8 KiB, inside Palomar's preferred
     300-line/32 KiB review surface, and the pretty-printed types and definition
