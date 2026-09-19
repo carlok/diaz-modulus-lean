@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-18): **164** of 164
+As of the latest archived submission (2026-09-19): **166** of 166
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -152,9 +152,11 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.exp_I_transcendental` | yes | `Diaz/Mirror/exp_I_transcendental.lean` | done |  |
 | `DiazModulus.four_exponentials_trdeg_one` | yes | `Diaz/Mirror/four_exponentials_trdeg_one.lean` | done |  |
 | `DiazModulus.hermite_lindemann_holds` | yes | `Diaz/HermiteLindemann.lean` | done |  |
+| `DiazModulus.kronecker_factorisation` | yes | `Diaz/Mirror/kronecker_factorisation.lean` | done |  |
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
 | `DiazModulus.logAlg_conj_stable` | yes | `Diaz/Mirror/logAlg_conj_stable.lean` | done |  |
 | `DiazModulus.no_algebraic_generalized_line` | yes | `Diaz/Mirror/no_algebraic_generalized_line.lean` | done |  |
+| `DiazModulus.no_first_order_arithmetic_operator` | yes | `Diaz/Mirror/no_first_order_arithmetic_operator.lean` | done |  |
 | `DiazModulus.period_free_split_nondegenerate` | yes | `Diaz/Mirror/period_free_split_nondegenerate.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental` | yes | `Diaz/Mirror/pi_sq_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental_of_real_gamma` | yes | `Diaz/Mirror/pi_sq_transcendental_of_real_gamma.lean` | done | vacuous: its conclusion is proved unconditionally by pi_sq_transcendental |

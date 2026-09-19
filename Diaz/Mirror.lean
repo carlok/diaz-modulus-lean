@@ -124,3 +124,5 @@ import Diaz.Mirror.auxiliary_construction
 import Diaz.Mirror.small_polynomials_of_counterexample
 import Diaz.Mirror.four_exponentials_trdeg_one
 import Diaz.Mirror.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult
+import Diaz.Mirror.kronecker_factorisation
+import Diaz.Mirror.no_first_order_arithmetic_operator

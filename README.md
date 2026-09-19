@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-18 it is met: 164 of 164.
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-19 it is met: 166 of 166.
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
 - `tex/` — the companion notes. The note selects from the library; the library does not select.
 
@@ -465,12 +465,18 @@ should not have to.
   about derivations rather than a theorem. What is formalized is what
   makes it true: the transfer, and the existence of the comparison
   point.
-- **The two analytic obstructions are not formalized**: that the
-  exponential system attached to a candidate admits no first-order
-  arithmetic differential operator, and that its interpolation matrix on
-  a Cartesian lattice factors as a Kronecker product. Both need real
-  analysis and interpolation determinants. The cost is high and the risk
-  in two short computations is low.
+- The two analytic obstructions **are now formalized**, as
+  `DiazModulus.no_first_order_arithmetic_operator` and
+  `DiazModulus.kronecker_factorisation` in `Diaz/Mirror/`: the exponential
+  system attached to a candidate admits no first-order arithmetic
+  differential operator, and its interpolation matrix on a Cartesian
+  lattice factors as a Kronecker product with non-zero determinant.
+  Neither needed real analysis in the end. The first is Baker's theorem,
+  carried as an explicit hypothesis, plus the fact that a polynomial
+  vanishing on `ℤ²` is zero; the second is `Matrix.det_kronecker` and a
+  Vandermonde determinant. The first is stated for polynomial
+  coefficients, where the note states it for rational functions regular
+  on `ℤ²`; clearing denominators is not formalized.
 
 ### Caveat on `Exponential.lean`
 
