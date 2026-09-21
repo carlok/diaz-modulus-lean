@@ -295,7 +295,12 @@ the formal identifier, so a reader can check any claim against this repository
 or against the platform rather than take it.
 
 It is a published copy: the working copy lives elsewhere and is copied here
-after a script re-checks each appendix row against the live board. The older
+after a script re-checks each appendix row against the live board.
+
+**Stable version 1.0** (2026-09-21) is tagged `note-v1.0`, with the PDF attached to
+the matching GitHub release. It records the end of the case analysis: every branch
+of the conjecture is closed or reduced to one of three open statements, named in its
+last section. The older
 `tex/diaz-modulus.tex` is a different and earlier note, about the model and the
 negative result, and is not superseded by it.
 

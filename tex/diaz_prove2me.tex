@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026}
+\date{September 2026\\[2pt]\small Stable version 1.0, 21 September 2026}
 
 \begin{document}
 \maketitle
@@ -53,16 +53,18 @@ where it appears; Appendix~A records where each proof lives, so that any claim h
 verified rather than taken.
 
 The results divide in two. The first part is a spine: the strong four exponentials conjecture
-settles the question outright, by a single instantiation; a strictly weaker statement, which we
+settles the question outright, by a single instantiation; a statement it implies, which we
 call~$(S)$, settles the part of it that the elementary theory reduces to; and the value that a
-counterexample would exhibit cannot be a root of unity. The second part is negative, and is the
+counterexample to $(S)$ would exhibit cannot be a root of unity. The second part is negative, and is the
 reason for the paper. We show that one natural line of attack --- assembling the certified data
 of a hypothetical counterexample into a matrix of logarithms with vanishing determinant ---
 provably fails on one branch, that a second branch is circular in a precise sense, and that the
 remaining branch terminates in a theorem of 1973--74. When this note was first written that
 theorem had never been formalised; it has been since, in the form the branch needs, and the case
-it governs is proved with it. What is left is open mathematics rather than formalisation, and we say
-exactly which.
+it governs is proved with it. The natural interpolation route is blocked as well: no first-order
+operator with algebraic coefficients has algebraic values there, and the interpolation determinant
+does not see the candidate's arithmetic at all. What is left is three statements, all open
+mathematics rather than formalisation, and we say exactly which.
 \end{abstract}
 
 \section{Setting}
@@ -255,6 +257,71 @@ Is $\sqrt{(\log 2)^{2}+\pi^{2}}$ algebraic?
 Nothing in this development answers it. Section~\ref{sec:ceiling} shows the strong four
 exponentials conjecture does; Section~\ref{sec:boundary} explains why the available
 unconditional theory does not reach it.
+
+\subsection*{A second point in the fibre, and the statement \texorpdfstring{$(S)$}{(S)}}
+
+Corollary~\ref{cor:translate} says what it takes for the fibre over $\e^{u}$ to contain a second
+point of algebraic modulus. On the branch where the angle is irrational, $\operatorname{Im}u\notin\pi\Q$,
+that condition does more than constrain $u$: it manufactures a new logarithm.
+
+\begin{proposition}\label{prop:period-aligned}
+Let $u\in\Logs$ with $\operatorname{Im}u\notin\pi\Q$, and suppose
+$\pi\bigl(\operatorname{Im}u+r\pi\bigr)\in\Alg$ for some rational $r\neq0$. Then there is a
+non-zero algebraic $\gamma$ with $\e^{\gamma/(i\pi)}$ algebraic.
+\end{proposition}
+
+\begin{proof}
+$\Logs$ is a $\Q$-vector space --- $\e^{(a/b)\lambda}$ is a root of $X^{b}-(\e^{\lambda})^{a}$ ---
+and it contains $u$, $\bar u$ and $2\pi i$. So it contains
+$\lambda=\tfrac12(u-\bar u)+\tfrac r2(2\pi i)=i\bigl(\operatorname{Im}u+r\pi\bigr)$. Put
+$\gamma=i\pi\lambda=-\pi\bigl(\operatorname{Im}u+r\pi\bigr)$. It is algebraic by hypothesis, and
+non-zero because $\operatorname{Im}u=-r\pi$ is excluded; and $\gamma/(i\pi)=\lambda\in\Logs$.
+\end{proof}
+
+So on this branch a candidate would exhibit a non-zero algebraic multiple of $1/(i\pi)$ inside
+$\Logs$. That is the statement the branch reduces to.
+
+\begin{conjecture}[$(S)$]\label{conj:S}
+For every non-zero algebraic $\gamma$, the number $\e^{\gamma/(i\pi)}$ is transcendental.
+Equivalently, no non-zero algebraic multiple of $1/(i\pi)$ lies in $\Logs$.
+\end{conjecture}
+
+\begin{theorem}\label{thm:S-of-sfe}
+Conjecture~\ref{conj:sfe} implies Conjecture~\ref{conj:S}.
+\end{theorem}
+
+\begin{proof}
+Suppose $\gamma\neq0$ is algebraic and $\lambda=\gamma/(i\pi)\in\Logs$. Apply
+Conjecture~\ref{conj:sfe} to $x=(1,\lambda)$ and $y=(1,i\pi)$. The four products are
+$1$, $i\pi$, $\lambda$ and $\gamma$, all in $\aLogs$. Both pairs are $\Alg$-linearly independent,
+since $i\pi$ is transcendental and so is $\lambda$, whose algebraicity would make
+$i\pi=\gamma/\lambda$ algebraic. This contradicts Conjecture~\ref{conj:sfe}.
+\end{proof}
+
+Whether $(S)$ is strictly weaker than Conjecture~\ref{conj:sfe} is not known; what is known is that
+it asks for much less, one number against a whole configuration. Its hypothetical counterexamples
+are also more constrained than the value $\e^{\gamma/(i\pi)}$ suggests.
+
+\begin{proposition}\label{prop:root-of-unity}
+For every non-zero algebraic $\gamma$, the number $\e^{\gamma/(i\pi)}$ is not a root of unity.
+\end{proposition}
+
+\begin{proof}
+If $\e^{\gamma/(i\pi)}=\e^{2\pi ik/n}$, then $\gamma/(i\pi)=2\pi i\,(k/n+m)$ for some $m\in\Z$, so
+$\gamma=-2\pi^{2}(k/n+m)$. As $\gamma\neq0$, the rational $k/n+m$ is non-zero and $\pi^{2}$ is
+algebraic --- false.
+\end{proof}
+
+The statement also splits, and not by a case distinction. The set
+$S_{0}=\{\gamma\in\Alg:\gamma/(i\pi)\in\Logs\}$ is a $\Q$-vector space, and it is stable under
+conjugation because $\overline{i\pi}=-i\pi$ gives $\bar\gamma/(i\pi)=-\overline{\gamma/(i\pi)}$. So
+with $\gamma$ it contains $\operatorname{Re}\gamma$ and $i\operatorname{Im}\gamma$, and $(S)$ is
+equivalent to its two axis halves: for real $\gamma\neq0$, the number $\e^{-i\gamma/\pi}$, which
+lies on the unit circle and is not a root of unity, is transcendental; and for $\gamma=i\beta$ with
+$\beta$ real, $\e^{\beta/\pi}$ is transcendental --- that is, $\pi\neq\beta/\log\alpha$ for real
+algebraic $\beta\neq0$ and algebraic $\alpha>0$, $\alpha\neq1$. The reduction is machine-checked;
+both halves are open, and they are two of the three statements at which the formal development
+stops (Section~\ref{sec:what}).
 
 
 
@@ -480,6 +547,61 @@ proved with it; see Appendix~\ref{app:certs}. What remains on that branch is not
 theorem but two statements about $1/\pi$, both open. The formal statement takes all four exponentials to be algebraic,
 which is more than the 1973 theorem assumes and exactly what this setting supplies.
 
+\subsection*{Interpolation on the lattice sees nothing}
+
+The classical way to attack $\e^{u}$ and $\e^{\bar u}$ together is to run the two-variable
+exponential system
+\[
+  F(z,w)=\exp(uz+\bar u\,w)
+\]
+on the lattice $\Z^{2}$, where its values $F(m,n)=\e^{mu}\e^{n\bar u}$ are algebraic, and to feed
+an auxiliary function built from it to an interpolation or Schneider--Lang argument. Two
+elementary facts stand in the way.
+
+\begin{proposition}[No first-order arithmetic operator]\label{prop:no-deriv}
+Let $u$ be a candidate and $X=a\,\partial_{z}+b\,\partial_{w}$ with $a,b$ polynomials with
+algebraic coefficients. If $(XF)(m,n)$ is algebraic for every $(m,n)\in\Z^{2}$, then $a=b=0$.
+\end{proposition}
+
+\begin{proof}
+$(XF)(m,n)=\bigl(a(m,n)u+b(m,n)\bar u\bigr)F(m,n)$, and $F(m,n)$ is a non-zero algebraic
+number, so $a(m,n)u+b(m,n)\bar u$ is algebraic. A candidate lies on neither axis --- on an axis,
+$|u|\in\Alg$ would make $u$ algebraic, against Hermite--Lindemann --- so $u$ and $\bar u$ are
+$\Q$-linearly independent, as in the proof of Theorem~\ref{thm:line}, and Baker's theorem in its
+inhomogeneous form gives $a(m,n)=b(m,n)=0$. A polynomial in two variables vanishing on $\Z^{2}$
+is zero.
+\end{proof}
+
+The same holds for $a,b$ rational functions with algebraic coefficients regular on $\Z^{2}$, by
+clearing denominators; the formal statement is the polynomial one. The consequence is that the
+criterion of Schneider--Lang~\cite[Theorem~4.1]{waldschmidt-book}, which asks the derivatives of
+the functions to stay in a ring generated over a number field, has no input here. No operator of
+order one has algebraic values on the lattice. The operator that does, $\partial_{z}\partial_{w}$,
+with $\partial_{z}\partial_{w}F=u\bar u\,F=\rho F$, is exactly where the candidate's relation
+enters, and it is not a derivation.
+
+\begin{proposition}[Kronecker factorisation]\label{prop:kronecker}
+Let $u$ be a candidate and $\alpha=\e^{u}$. For $0\le a,b,m,n\le N$ the matrix
+$M=\bigl(\exp(aum+b\bar u n)\bigr)$, with rows indexed by $(a,b)$ and columns by $(m,n)$, is the
+Kronecker product $A\otimes B$ of $A=(\alpha^{am})$ and $B=(\bar\alpha^{\,bn})$. Hence
+\[
+  \det M=(\det A)^{N+1}(\det B)^{N+1}\neq0 .
+\]
+\end{proposition}
+
+\begin{proof}
+$\exp(aum+b\bar un)=\alpha^{am}\bar\alpha^{\,bn}=A_{a,m}B_{b,n}$, which is the Kronecker product,
+and $\det(A\otimes B)=(\det A)^{N+1}(\det B)^{N+1}$. Each factor is a Vandermonde determinant, in
+the nodes $\alpha^{a}$ and $\bar\alpha^{\,b}$ respectively, and the nodes are pairwise distinct
+because $|\alpha|=\e^{\operatorname{Re}u}\neq1$, a candidate having $\operatorname{Re}u\neq0$.
+\end{proof}
+
+So the interpolation determinant of the natural system splits into two independent one-variable
+determinants, and neither $\rho$ nor the relation $u\bar u=\rho$ appears in it. Schwarz' lemma for
+Cartesian products~\cite[Proposition~4.7]{waldschmidt-book} asks for vanishing on a full simplex
+of derivatives, which throws the method back on the values; and the values, by
+Proposition~\ref{prop:kronecker}, see nothing of the candidate's arithmetic.
+
 \section{Exclusions outside the hull}\label{sec:outside}
 
 Section~\ref{sec:map} showed that nothing inside $W_{u}=\Alg+\Alg u+\Alg\bar u$ decides the
@@ -677,7 +799,7 @@ because $\rho-X^{2}$ is squarefree of degree two and so not a square in $\Alg(X)
 variables is the shorter argument on paper; the division is the one a proof assistant prefers,
 because it needs no quotient ring.
 
-\section{What would have to be proved}
+\section{What would have to be proved}\label{sec:what}
 
 Three statements, in increasing strength, each of which settles Conjecture~\ref{conj:diaz}.
 
@@ -697,6 +819,35 @@ question is not: not in a better matrix, by Theorem~\ref{thm:pencil}; not in an 
 invariant of the candidate's hull, by Theorem~\ref{thm:indist}; not in the six exponentials
 theorem, by Theorem~\ref{thm:dim}; and not, on one whole branch, in further case analysis, by
 Proposition~\ref{prop:loop}.
+
+\subsection*{Where the formal development stops}
+
+The case analysis behind this note has been carried to its end. Every branch of
+Conjecture~\ref{conj:diaz} is either closed by a machine-checked proof or reduced, by a
+machine-checked reduction, to one of exactly three statements, and nothing else in it is open:
+\begin{enumerate}[label=\textup{(\roman*)}]
+  \item the real half of $(S)$: for real algebraic $\gamma\neq0$, $\e^{-i\gamma/\pi}$ is
+        transcendental;
+  \item the imaginary half of $(S)$: for real algebraic $\beta\neq0$, $\e^{\beta/\pi}$ is
+        transcendental;
+  \item the statement $(\mathrm{NT})$ of Proposition~\ref{prop:loop}, which is equivalent to the
+        conjecture itself.
+\end{enumerate}
+All three follow from Conjecture~\ref{conj:sfe}. None of them is a formalisation problem.
+
+It is worth saying why the four exponentials theorem in transcendence degree one, now proved, does
+not reach them, since each lives in transcendence degree one: under a counterexample to $(S)$ the
+numbers $\lambda$ and $i\pi$ are algebraically dependent, $\lambda=\gamma/(i\pi)$, and a
+candidate's $u$ and $\bar u$ are algebraically dependent because $\bar u=\rho/u$. The obstruction is the input,
+not the degree. The configurations that
+Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} use have products
+$1,\ \bar u,\ u,\ \rho$ and $1,\ i\pi,\ \lambda,\ \gamma$, and in each two of the four are non-zero
+algebraic numbers. A non-zero algebraic number is never in $\Logs$, by Hermite--Lindemann. The
+four exponentials theorem, and the four exponentials conjecture above it, ask for their products
+to be logarithms of algebraic numbers; only the strong form, whose products are allowed to range
+over $\aLogs$, accepts these.
+That distinction, $\Logs$ against $\aLogs$, is the whole distance between what is proved and what
+is needed.
 
 \begin{thebibliography}{9}
 \bibitem{diaz-2007} G.~Diaz, \emph{Utilisation de la conjugaison complexe dans l'étude de la
@@ -728,13 +879,15 @@ here once and nowhere else.
 
 The proofs exist in two places, and the difference matters to a reader who wants to check them.
 Each identifier below names a node on a collaborative proving platform, where the statement, the
-submitted proof and its verdict are public. All but one of the proved statements are also mirrored
-in a self-contained Lean project at
+submitted proof and its verdict are public. Every proved statement is also mirrored in a
+self-contained Lean project at
 \begin{center}\nolinkurl{https://github.com/carlok/diaz-modulus-lean}\end{center}
-which builds from source in one command and depends on no platform. The exception is
-Remark~\ref{rem:schanuel}, whose proof uses a transcendence-degree instance that the revision
-pinned in that project does not supply. Where the two differ in naming, the project keeps the
-platform's spelling.
+which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
+own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
+
+This is the stable version of the note. Every row of the table below was checked against the
+platform by script on 21 September 2026, and the mirrored project held all 166 proved results of
+the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -749,8 +902,8 @@ parts of a candidate are each transcendental
 \nolinkurl{DiazModulus.candidate_im_transcendental}).
 
 A \textbf{Proved} row means the statement itself has a machine-checked proof. An \textbf{Open}
-row means the statement is recorded formally but not proved; both such rows here are open
-conjectures. A \textbf{Not formalised} row means what it says: the statement is proved in this note and has no formal counterpart at all.
+row means the statement is recorded formally but not proved; every such row here is an open
+conjecture. A \textbf{Not formalised} row means what it says: the statement is proved in this note and has no formal counterpart at all.
 Proposition~\ref{prop:loop} is flagged that way, and its row needs a word: the identifier given
 is the statement $(\mathrm{NT})$, which is recorded formally and is Open; the \emph{equivalence}
 proved in Proposition~\ref{prop:loop} is what has no formal counterpart.
@@ -776,6 +929,14 @@ Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_c
 Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refute_candidate} \\
 Prop.~\ref{prop:loop} & Not formalised & \nolinkurl{DiazModulus.norm_transcendental_of_generic_conj_pair} (Open) \\
 \S\ref{sec:map}, 1973--74 thm & Proved & \nolinkurl{DiazModulus.four_exponentials_trdeg_one} \\
+Prop.~\ref{prop:period-aligned} & Proved & \nolinkurl{DiazModulus.recip_pi_log_of_period_aligned} \\
+Conj.~\ref{conj:S} & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log} \\
+Thm~\ref{thm:S-of-sfe} & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_of_sfe} \\
+Prop.~\ref{prop:root-of-unity} & Proved & \nolinkurl{DiazModulus.recip_pi_exp_value_not_root_of_unity} \\
+\S\ref{sec:quant}, real half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_real_gamma} \\
+\S\ref{sec:quant}, imaginary half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_imag_gamma} \\
+Prop.~\ref{prop:no-deriv} & Proved & \nolinkurl{DiazModulus.no_first_order_arithmetic_operator} \\
+Prop.~\ref{prop:kronecker} & Proved & \nolinkurl{DiazModulus.kronecker_factorisation} \\
 Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line} \\
 Rem.~\ref{rem:line-cheap} & Proved & \nolinkurl{DiazModulus.candidate_no_real_algebraic_line} \\
 Cor.~\ref{cor:distance} & Proved & \nolinkurl{DiazModulus.candidate_distance_transcendental} \\
