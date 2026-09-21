@@ -2,8 +2,9 @@
 set -euo pipefail
 
 # Landrun's current CLI needs an explicit outer `--` before the sandboxed
-# command. Comparator constructs Landrun's options itself but does not add that
-# delimiter. Without it, Landrun consumes lean4export's own `--` separator.
+# command. Older Comparator revisions did not add that delimiter; newer ones
+# do. Either way exactly one `--` reaches Landrun, so lean4export's own `--`
+# separator is never consumed.
 landrun_binary=${PALOMAR_LANDRUN_BIN:?PALOMAR_LANDRUN_BIN must name the pinned Landrun binary}
 landrun_options=()
 
@@ -31,6 +32,11 @@ while [ "$#" -gt 0 ]; do
       fi
       landrun_options+=("$1" "$2")
       shift 2
+      ;;
+    --)
+      # Comparator d03acab and later add the delimiter themselves.
+      shift
+      break
       ;;
     -*)
       echo "error: unrecognized Landrun option $1; update scripts/landrun-wrapper.sh" >&2
