@@ -104,7 +104,7 @@ theorem eq_zero_of_expSum_vanishes
       have hsum : ∑ j, g j • y j = (0 : ℂ) := by
         rw [← Finset.sum_subset (Finset.subset_univ ({i0, i1} : Finset (Fin l)))]
         · rw [Finset.sum_pair hne]
-          simp only [hgdef, if_pos rfl, if_neg hne, if_neg (Ne.symm hne)]
+          simp only [hgdef, ite_eq_left rfl, ite_eq_right hne, ite_eq_right (Ne.symm hne)]
           rw [Rat.smul_def, Rat.smul_def]
           push_cast
           linear_combination hcomb
@@ -114,7 +114,7 @@ theorem eq_zero_of_expSum_vanishes
       have hg := (Fintype.linearIndependent_iff.mp hy) g hsum
       have hn0z : n0 = 0 := by
         have := hg i1
-        simp only [hgdef, if_neg (Ne.symm hne), if_pos rfl] at this
+        simp only [hgdef, ite_eq_right (Ne.symm hne), ite_eq_left rfl] at this
         exact_mod_cast neg_eq_zero.mp this
       have hy0 : y i0 = 0 := by
         have : (SX.expExponent x lam - SX.expExponent x mu) * y i0 = 0 := by

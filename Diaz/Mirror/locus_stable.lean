@@ -54,7 +54,7 @@ theorem locus_stable {u : ℂ} (hu : u ≠ 0)
         rw [map_mul, hcq]; ring
       rw [e]
       exact p21_mem_Qbar_iff.mp
-        (Qbar.mul_mem (Qbar.pow_mem (p21_mem_Qbar_iff.mpr (isAlgebraic_rat (A := ℂ) ℚ q)) 2)
+        (Qbar.mul_mem (Qbar.pow_mem (p21_mem_Qbar_iff.mpr (isAlgebraic_ratCast (A := ℂ) ℚ q)) 2)
           (p21_mem_Qbar_iff.mpr hmod))
 
 end Diaz

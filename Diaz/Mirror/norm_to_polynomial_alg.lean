@@ -48,10 +48,10 @@ lemma norm_to_polynomial_alg_shift_sum (S : ℕ) (f : ℕ → ℂ) (w : ℕ → 
   rcases S with _ | n
   · simp
   · rw [Finset.sum_range_succ', Finset.sum_range_succ]
-    simp only [Nat.cast_zero, zero_mul, mul_zero, add_zero, lt_self_iff_false, if_false, zero_mul]
+    simp only [Nat.cast_zero, zero_mul, mul_zero, add_zero, lt_self_iff_false, ite_false, zero_mul]
     refine Finset.sum_congr rfl fun i hi => ?_
     have hi' : i + 1 < n + 1 := by simpa using hi
-    rw [if_pos hi']
+    rw [ite_eq_left hi']
     simp only [Nat.add_sub_cancel]
     push_cast
     ring
@@ -691,7 +691,7 @@ lemma norm_to_polynomial_alg_sz_redP {Q : ℤ[X][X]} (hQm : Q.Monic) (hd : 0 < Q
     (b := b * (1 + qb) ^ dy) (dx := dx + dy * DQ) (dy := Q.natDegree - 1) (fun n hn => by
       have hn' : n ≤ dy := by rw [Finset.mem_range] at hn; omega
       refine norm_to_polynomial_alg_sz_mono (norm_to_polynomial_alg_sz_mul (norm_to_polynomial_alg_sz_C_coeff hP n) (norm_to_polynomial_alg_sz_redY hQm hd hQ n)) ?_ ?_ (by simp)
-      · gcongr; omega
+      · gcongr
       · gcongr)
   refine norm_to_polynomial_alg_sz_mono h ?_ le_rfl le_rfl
   rw [Finset.card_range]; gcongr
@@ -899,7 +899,7 @@ lemma norm_to_polynomial_alg_coeff_sum_unknowns {S T M d : ℕ} (φ : ℤ[X][X] 
   simp only [Fintype.sum_prod_type]
   rw [Finset.sum_eq_single i, Finset.sum_eq_single j, Finset.sum_eq_single k]
   · refine Finset.sum_congr rfl fun μ _ => Finset.sum_congr rfl fun ν _ => ?_
-    simp only [norm_to_polynomial_alg_pu, true_and, if_true, norm_to_polynomial_alg_phi_mono φ h0 h1]; ring
+    simp only [norm_to_polynomial_alg_pu, true_and, ite_true, norm_to_polynomial_alg_phi_mono φ h0 h1]; ring
   · intro k' _ hk; refine Finset.sum_eq_zero fun μ _ => Finset.sum_eq_zero fun ν _ => ?_
     simp [norm_to_polynomial_alg_pu, Ne.symm hk]
   · simp
@@ -1390,7 +1390,7 @@ lemma norm_det_le {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ) (t : ℝ) (ht : 0 �
     intro σ
     rw [norm_prod]
     calc ∏ i, ‖A (σ i) i‖ ≤ ∏ _i : Fin n, t :=
-          Finset.prod_le_prod (fun _ _ => norm_nonneg _) (fun i _ => hA _ _)
+          Finset.prod_le_prod₀ (fun _ _ => norm_nonneg _) (fun i _ => hA _ _)
       _ = t ^ n := by simp
   refine (Finset.sum_le_sum (g := fun _ : Equiv.Perm (Fin n) => t ^ n) (fun σ _ => ?_)).trans ?_
   · have he : ‖Equiv.Perm.sign σ • (∏ i, A (σ i) i)‖ = ‖∏ i, A (σ i) i‖ := by
@@ -1476,10 +1476,10 @@ lemma multMat_det_ne_zero (Q Pol : ℤ[X][X]) (hQm : Q.Monic) (hd : 0 < Q.natDeg
   refine hu (funext fun k => ?_)
   have hcoef : (∑ k' : Fin Q.natDegree, C (u k') * X ^ (k' : ℕ)).coeff (k : ℕ) = u k := by
     rw [finsetSum_coeff, Finset.sum_eq_single k]
-    · rw [coeff_C_mul, coeff_X_pow, if_pos rfl, mul_one]
+    · rw [coeff_C_mul, coeff_X_pow, ite_eq_left rfl, mul_one]
     · intro k' _ hk'
       have hne : (k : ℕ) ≠ (k' : ℕ) := fun h => hk' (Fin.ext h.symm)
-      rw [coeff_C_mul, coeff_X_pow, if_neg hne, mul_zero]
+      rw [coeff_C_mul, coeff_X_pow, ite_eq_right hne, mul_zero]
     · intro hk
       exact absurd (Finset.mem_univ k) hk
   rw [hU0, coeff_zero] at hcoef
@@ -2540,7 +2540,7 @@ theorem norm_to_polynomial_alg
     refine (FourExpAux.dx_bound c K M _ Q.natDegree _ κ hκ hB1 hSu hMB).trans ?_
     exact mul_le_mul_of_nonneg_left hBA hkdeg0
   refine ⟨P, hPne, ?_, ?_, ?_⟩
-  · rw [if_neg hNgt3]
+  · rw [ite_eq_right hNgt3]
     intro i
     have hcoef := FourExpAux.sz1_natAbs hPsz i
     have hc1 : |((P.coeff i : ℤ) : ℝ)| = (((P.coeff i).natAbs : ℕ) : ℝ) := by
@@ -2552,14 +2552,14 @@ theorem norm_to_polynomial_alg
             (1 + c) ^ (2 * Q.natDegree))) ^ Q.natDegree : ℕ) : ℝ) := by exact_mod_cast hcoef
     refine h2.trans ((FourExpAux.height_final c Q.natDegree _ hA1 hβ0 hbeta).trans ?_)
     exact Real.exp_le_exp.2 (mul_le_mul_of_nonneg_right hkhle (by linarith))
-  · rw [if_neg hNgt3]
+  · rw [ite_eq_right hNgt3]
     have hdeg := FourExpAux.sz1_natDegree hPsz
     have h1 : ((P.natDegree : ℕ) : ℝ) ≤ ((Q.natDegree *
         (FourExpAux.dxC5 c K M ⌊(N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ))⌋₊ Q.natDegree
           + 2 * Q.natDegree * c) : ℕ) : ℝ) := by exact_mod_cast hdeg
     refine h1.trans ((FourExpAux.degree_final c K Q.natDegree M _ hκ hB1 hSu hMB).trans ?_)
     exact mul_le_mul_of_nonneg_right hkdegle (by linarith)
-  · rw [if_neg hNgt3, if_neg hNgt3]
+  · rw [ite_eq_right hNgt3, ite_eq_right hNgt3]
     have hbigN : 2 * κ' * ((|C| + 1) * kk ^ 2 + kv + 1) ≤ Real.sqrt (Real.log (N : ℝ)) := by
       have h1 : Real.exp ((2 * κ' * ((|C| + 1) * kk ^ 2 + kv + 1)) ^ 2) ≤ (N : ℝ) := by
         have h2 := Nat.le_ceil (Real.exp ((2 * κ' * ((|C| + 1) * kk ^ 2 + kv + 1)) ^ 2))

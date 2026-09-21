@@ -32,7 +32,7 @@ lemma abs_det_le {N : ℕ} (A : Matrix (Fin N) (Fin N) ℤ) (c : Fin N → ℝ)
         have hs : |((Equiv.Perm.sign σ : ℤ) : ℝ)| = 1 := by
           rcases Int.units_eq_one_or (Equiv.Perm.sign σ) with h | h <;> simp [h]
         rw [hs, one_mul]
-        exact Finset.prod_le_prod (fun i _ => abs_nonneg _) (fun i _ => hc (σ i) i)
+        exact Finset.prod_le_prod₀ (fun i _ => abs_nonneg _) (fun i _ => hc (σ i) i)
     _ = (N.factorial : ℝ) * ∏ j, c j := by
         rw [Finset.sum_const, Finset.card_univ, Fintype.card_perm, Fintype.card_fin, nsmul_eq_mul]
 

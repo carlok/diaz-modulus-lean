@@ -98,8 +98,8 @@ theorem shape_not_root_of_unity_of_real_gamma {γ : ℂ}
         linear_combination key
       rw [heq]
       exact shape_alg_div
-        (shape_alg_neg (shape_alg_mul (isAlgebraic_nat n) hγ))
-        (shape_alg_mul (isAlgebraic_nat 2) (isAlgebraic_int k))
+        (shape_alg_neg (shape_alg_mul (isAlgebraic_natCast n) hγ))
+        (shape_alg_mul (isAlgebraic_natCast 2) (isAlgebraic_intCast k))
     exact hpi (IsAlgebraic.of_pow two_pos hpi2)
 
 /-- For purely imaginary `γ ≠ 0`, `γ/(πI)` is a nonzero real. -/

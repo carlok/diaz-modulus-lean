@@ -33,13 +33,13 @@ theorem power_support_interval_bound {a b : ℤ} (hab : a ≤ b) (T : Finset ℤ
     have hd0 : d ≠ 0 := (Finset.mem_erase.mp hd).1
     refine le_trans (Finset.card_le_card_of_injOn (fun p => p.1) ?_ ?_) (h2 d hd0)
     · intro p hp
-      simp only [Finset.coe_filter, Set.mem_setOf_eq, Finset.mem_offDiag] at hp
-      simp only [Finset.coe_filter, Set.mem_setOf_eq, Finset.mem_coe, Finset.mem_filter]
+      simp only [Finset.coe_filter, Set.mem_ofPred_eq, Finset.mem_offDiag] at hp
+      simp only [Finset.coe_filter, Set.mem_ofPred_eq, Finset.mem_coe, Finset.mem_filter]
       refine ⟨hp.1.1, ?_⟩
       have : p.1 + d = p.2 := by omega
       rw [this]; exact hp.1.2.1
     · intro p hp q hq hpq
-      simp only [Finset.coe_filter, Set.mem_setOf_eq] at hp hq
+      simp only [Finset.coe_filter, Set.mem_ofPred_eq] at hp hq
       have h1 : p.1 = q.1 := hpq
       have h2' : p.2 = q.2 := by
         have := hp.2; have := hq.2; omega

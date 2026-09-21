@@ -237,7 +237,7 @@ theorem arith_bound {d l : ℕ} (x : Fin d → ℂ) (y : Fin l → ℂ)
       1 ≤ ‖SX.expSum x L p (SX.latticeSum y m)‖ *
             (((L : ℝ) ^ d * Bp) ^ (Module.finrank ℚ K)) * Real.exp (C * ((L : ℝ) * N)) := by
   classical
-  haveI : NumberField K := {}
+  have : NumberField K := {}
   set rk := Module.finrank ℚ K with hrkdef
   have hrk1 : 1 ≤ rk := Module.finrank_pos
   clear_value rk
@@ -331,7 +331,7 @@ theorem arith_bound {d l : ℕ} (x : Fin d → ℂ) (y : Fin l → ℂ)
         rw [house_intCast]
         simpa using hp lam
       have hA : house (b ^ (E - S lam)) ≤ Hb ^ (E - S lam) :=
-        (house_pow_le b _).trans (pow_le_pow_left₀ (house_nonneg b) hHbhouse _)
+        (house_pow b _).le.trans (pow_le_pow_left₀ (house_nonneg b) hHbhouse _)
       have hB : house (∏ i, ∏ j, (b * α i j) ^ (lam i * m j)) ≤ Hα ^ S lam := by
         refine (descent_step_house_prod_le' _ _).trans ?_
         have hin : ∀ i : Fin d, house (∏ j, (b * α i j) ^ (lam i * m j))
@@ -340,13 +340,13 @@ theorem arith_bound {d l : ℕ} (x : Fin d → ℂ) (y : Fin l → ℂ)
           refine (descent_step_house_prod_le' _ _).trans ?_
           calc ∏ j, house ((b * α i j) ^ (lam i * m j))
               ≤ ∏ j, Hα ^ (lam i * m j) := by
-                refine Finset.prod_le_prod (fun j _ => house_nonneg _) (fun j _ => ?_)
-                exact (house_pow_le _ _).trans
+                refine Finset.prod_le_prod₀ (fun j _ => house_nonneg _) (fun j _ => ?_)
+                exact (house_pow _ _).le.trans
                   (pow_le_pow_left₀ (house_nonneg _) (hHouseα i j) _)
             _ = Hα ^ (∑ j, lam i * m j) := Finset.prod_pow_eq_pow_sum _ _ _
         calc ∏ i, house (∏ j, (b * α i j) ^ (lam i * m j))
             ≤ ∏ i, Hα ^ (∑ j, lam i * m j) :=
-              Finset.prod_le_prod (fun _ _ => house_nonneg _) (fun i _ => hin i)
+              Finset.prod_le_prod₀ (fun _ _ => house_nonneg _) (fun i _ => hin i)
           _ = Hα ^ S lam := Finset.prod_pow_eq_pow_sum _ _ _
       have h2 : house (b ^ (E - S lam) * ∏ i, ∏ j, (b * α i j) ^ (lam i * m j)) ≤ G ^ E := by
         refine le_trans (house_mul_le _ _) ?_

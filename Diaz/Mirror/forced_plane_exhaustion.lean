@@ -31,7 +31,7 @@ theorem forced_plane_exhaustion_aux_powers_indep {K : Subfield ℂ} {u : ℂ} (h
   rw [hPdef] at hc
   simp only [Polynomial.finsetSum_coeff, Polynomial.coeff_C_mul, Polynomial.coeff_X_pow,
     mul_ite, mul_one, mul_zero] at hc
-  rw [Finset.sum_ite_eq, if_pos hi] at hc
+  rw [Finset.sum_ite_eq, ite_eq_left hi] at hc
   simpa using congrArg (fun z : K => (z : ℂ)) hc
 
 theorem aux_binary_form {K : Subfield ℂ} {x y : ℂ} (hy : y ≠ 0)

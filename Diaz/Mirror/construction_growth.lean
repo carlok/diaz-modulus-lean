@@ -149,53 +149,53 @@ lemma strictMono_A : StrictMono A := by
   intro x y hxy
   by_cases hx : x ≤ 3
   · by_cases hy : y ≤ 3
-    · simp only [A, if_pos hx, if_pos hy]; linarith
+    · simp only [A, ite_eq_left hx, ite_eq_left hy]; linarith
     · push_neg at hy
       have h1 : A x ≤ 9 * Real.sqrt (Real.log 3) := by
-        simp only [A, if_pos hx]; linarith
+        simp only [A, ite_eq_left hx]; linarith
       have h2 : (3:ℝ) ^ 2 * Real.sqrt (Real.log 3) < y ^ 2 * Real.sqrt (Real.log y) :=
         strictMonoOn_A_right (Set.mem_Ici.2 le_rfl) (Set.mem_Ici.2 hy.le) hy
-      simp only [A, if_pos hx, if_neg (not_le.2 hy)]
+      simp only [A, ite_eq_left hx, ite_eq_right (not_le.2 hy)]
       norm_num at h2
       linarith
   · push_neg at hx
     have hy : ¬ y ≤ 3 := by push_neg; linarith
-    simp only [A, if_neg (not_le.2 hx), if_neg hy]
+    simp only [A, ite_eq_right (not_le.2 hx), ite_eq_right hy]
     exact strictMonoOn_A_right (Set.mem_Ici.2 hx.le) (Set.mem_Ici.2 (by linarith)) hxy
 
 lemma strictMono_B : StrictMono B := by
   intro x y hxy
   by_cases hx : x ≤ 3
   · by_cases hy : y ≤ 3
-    · simp only [B, if_pos hx, if_pos hy]; linarith
+    · simp only [B, ite_eq_left hx, ite_eq_left hy]; linarith
     · push_neg at hy
       have h1 : B x ≤ 9 / Real.sqrt (Real.log 3) := by
-        simp only [B, if_pos hx]; linarith
+        simp only [B, ite_eq_left hx]; linarith
       have h2 : (3:ℝ) ^ 2 / Real.sqrt (Real.log 3) < y ^ 2 / Real.sqrt (Real.log y) :=
         strictMonoOn_B_right (Set.mem_Ici.2 le_rfl) (Set.mem_Ici.2 hy.le) hy
-      simp only [B, if_pos hx, if_neg (not_le.2 hy)]
+      simp only [B, ite_eq_left hx, ite_eq_right (not_le.2 hy)]
       norm_num at h2
       linarith
   · push_neg at hx
     have hy : ¬ y ≤ 3 := by push_neg; linarith
-    simp only [B, if_neg (not_le.2 hx), if_neg hy]
+    simp only [B, ite_eq_right (not_le.2 hx), ite_eq_right hy]
     exact strictMonoOn_B_right (Set.mem_Ici.2 hx.le) (Set.mem_Ici.2 (by linarith)) hxy
 
 lemma le_A {x : ℝ} (hx : 3 ≤ x) : x ≤ A x := by
   have h3 := one_le_sqrt_log_three
   by_cases hle : x ≤ 3
-  · simp only [A, if_pos hle]; nlinarith
+  · simp only [A, ite_eq_left hle]; nlinarith
   · push_neg at hle
-    simp only [A, if_neg (not_le.2 hle)]
+    simp only [A, ite_eq_right (not_le.2 hle)]
     have h1 : 1 ≤ Real.sqrt (Real.log x) := one_le_sqrt_log hx
     nlinarith
 
 lemma le_B {x : ℝ} (hx : 3 ≤ x) : x ≤ B x := by
   obtain ⟨hc6, -⟩ := nine_div_bounds
   by_cases hle : x ≤ 3
-  · simp only [B, if_pos hle]; linarith
+  · simp only [B, ite_eq_left hle]; linarith
   · push_neg at hle
-    simp only [B, if_neg (not_le.2 hle)]
+    simp only [B, ite_eq_right (not_le.2 hle)]
     have hlx : 1 < Real.log x := by
       have := one_lt_log_three
       have := Real.log_lt_log (by norm_num : (0:ℝ) < 3) hle
@@ -218,12 +218,12 @@ lemma tendsto_B : Tendsto B atTop atTop := by
 
 lemma B_le_A (x : ℝ) : B x ≤ A x := by
   by_cases hx : x ≤ 3
-  · simp only [A, B, if_pos hx]
+  · simp only [A, B, ite_eq_left hx]
     obtain ⟨-, hc9⟩ := nine_div_bounds
     have h1 := one_le_sqrt_log_three
     nlinarith
   · push_neg at hx
-    simp only [A, B, if_neg (not_le.2 hx)]
+    simp only [A, B, ite_eq_right (not_le.2 hx)]
     have h1 : 1 ≤ Real.sqrt (Real.log x) := one_le_sqrt_log hx.le
     have hsq : Real.sqrt (Real.log x) * Real.sqrt (Real.log x) = Real.log x :=
       Real.mul_self_sqrt (by
@@ -238,13 +238,13 @@ lemma A_step (x : ℝ) (hx : 0 < x) : A (x + 1) ≤ 3 * A x := by
   have h3 := one_le_sqrt_log_three
   by_cases h1 : x + 1 ≤ 3
   · have hx3 : x ≤ 3 := by linarith
-    simp only [A, if_pos h1, if_pos hx3]
+    simp only [A, ite_eq_left h1, ite_eq_left hx3]
     linarith
   · push_neg at h1
     by_cases hx3 : x ≤ 3
     · -- `2 < x ≤ 3`, so `3 < x + 1 ≤ 4`
       have hx2 : 2 < x := by linarith
-      simp only [A, if_neg (not_le.2 h1), if_pos hx3]
+      simp only [A, ite_eq_right (not_le.2 h1), ite_eq_left hx3]
       have hsq : (x + 1) ^ 2 ≤ 16 := by nlinarith
       have hlog : Real.sqrt (Real.log (x + 1)) ≤ Real.sqrt (Real.log 4) :=
         Real.sqrt_le_sqrt (Real.log_le_log (by linarith) (by linarith))
@@ -253,7 +253,7 @@ lemma A_step (x : ℝ) (hx : 0 < x) : A (x + 1) ≤ 3 * A x := by
       nlinarith
     · push_neg at hx3
       have hxx : ¬ x ≤ 3 := not_le.2 hx3
-      simp only [A, if_neg (not_le.2 h1), if_neg hxx]
+      simp only [A, ite_eq_right (not_le.2 h1), ite_eq_right hxx]
       have hsq : (x + 1) ^ 2 ≤ 16 / 9 * x ^ 2 := by nlinarith
       have hlog : Real.sqrt (Real.log (x + 1)) ≤ Real.sqrt 2 * Real.sqrt (Real.log x) := by
         rw [← Real.sqrt_mul (by norm_num)]
@@ -286,12 +286,12 @@ lemma B_step (x : ℝ) (hx : 0 < x) : B (x + 1) ≤ 3 * B x := by
   have hs3 : (0:ℝ) < Real.sqrt (Real.log 3) := by linarith
   by_cases h1 : x + 1 ≤ 3
   · have hx3 : x ≤ 3 := by linarith
-    simp only [B, if_pos h1, if_pos hx3]
+    simp only [B, ite_eq_left h1, ite_eq_left hx3]
     linarith
   · push_neg at h1
     by_cases hx3 : x ≤ 3
     · have hx2 : 2 < x := by linarith
-      simp only [B, if_neg (not_le.2 h1), if_pos hx3]
+      simp only [B, ite_eq_right (not_le.2 h1), ite_eq_left hx3]
       have hs1 : 0 < Real.sqrt (Real.log (x + 1)) := sqrt_log_pos (by linarith)
       have hlog : Real.sqrt (Real.log 3) ≤ Real.sqrt (Real.log (x + 1)) :=
         Real.sqrt_le_sqrt (Real.log_le_log (by norm_num) (by linarith))
@@ -304,7 +304,7 @@ lemma B_step (x : ℝ) (hx : 0 < x) : B (x + 1) ≤ 3 * B x := by
       linarith
     · push_neg at hx3
       have hxx : ¬ x ≤ 3 := not_le.2 hx3
-      simp only [B, if_neg (not_le.2 h1), if_neg hxx]
+      simp only [B, ite_eq_right (not_le.2 h1), ite_eq_right hxx]
       have hsx : 0 < Real.sqrt (Real.log x) := sqrt_log_pos hx3.le
       have hs1 : 0 < Real.sqrt (Real.log (x + 1)) := sqrt_log_pos (by linarith)
       have hlog : Real.sqrt (Real.log x) ≤ Real.sqrt (Real.log (x + 1)) :=

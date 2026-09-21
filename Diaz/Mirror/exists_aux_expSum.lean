@@ -33,11 +33,11 @@ set_option backward.isDefEq.respectTransparency false in
 lemma repr_abs_le (α : 𝓞 K) (r : K →+* ℂ) :
     |((bas K).repr α r : ℝ)| ≤ cc K * house (algebraMap (𝓞 K) K α) := by
   have h := NumberField.house.basis_repr_norm_le_const_mul_house K α r
-  simp only [Basis.repr_reindex, Finsupp.mapDomain_equiv_apply,
-    NumberField.integralBasis_repr_apply, eq_intCast, Rat.cast_intCast,
+  simp only [Basis.repr_reindex, Finsupp.equivMapDomain_apply, Equiv.symm_symm,
+    NumberField.integralBasis_repr_apply, algebraMap_int_eq, eq_intCast, Rat.cast_intCast,
     Complex.norm_intCast] at h
   rw [bas]
-  simp only [Basis.repr_reindex, Finsupp.mapDomain_equiv_apply]
+  simp only [Basis.repr_reindex, Finsupp.equivMapDomain_apply]
   exact_mod_cast h
 
 
@@ -155,7 +155,7 @@ theorem exists_aux_expSum
           (∀ lam, |(p lam : ℝ)| ≤ Real.exp (c * L * M)) ∧
           (∀ m : Fin l → ℕ, (∀ j, m j < M) → SX.expSum x L p (SX.latticeSum y m) = 0) := by
   classical
-  haveI : NumberField K := ⟨⟩
+  have : NumberField K := ⟨⟩
   have hd2 : 2 ≤ d := by by_contra h; push_neg at h; interval_cases d <;> omega
   have hl2 : 2 ≤ l := by by_contra h; push_neg at h; interval_cases l <;> omega
   set n : ℕ := Module.finrank ℚ K with hndef
@@ -287,14 +287,14 @@ theorem exists_aux_expSum
     have hE := hEle m lam
     have s1 : house (bK ^ (T - ∑ i, ∑ j, lam.1 i * (m j : ℕ)))
         ≤ H ^ (T - ∑ i, ∑ j, lam.1 i * (m j : ℕ)) :=
-      le_trans (house_pow_le _ _) (pow_le_pow_left₀ (house_nonneg _) hHb _)
+      le_trans (house_pow _ _).le (pow_le_pow_left₀ (house_nonneg _) hHb _)
     have s2 : house (∏ i, ∏ j, (bK * θ i j) ^ (lam.1 i * (m j : ℕ)))
         ≤ ∏ i : Fin d, ∏ j : Fin l, H ^ (lam.1 i * (m j : ℕ)) := by
       refine le_trans (AuxSiegel.house_prod_le' _ _) ?_
-      refine Finset.prod_le_prod (fun i _ => house_nonneg _) (fun i _ => ?_)
+      refine Finset.prod_le_prod₀ (fun i _ => house_nonneg _) (fun i _ => ?_)
       refine le_trans (AuxSiegel.house_prod_le' _ _) ?_
-      refine Finset.prod_le_prod (fun j _ => house_nonneg _) (fun j _ => ?_)
-      exact le_trans (house_pow_le _ _) (pow_le_pow_left₀ (house_nonneg _) (hHQ i j) _)
+      refine Finset.prod_le_prod₀ (fun j _ => house_nonneg _) (fun j _ => ?_)
+      exact le_trans (house_pow _ _).le (pow_le_pow_left₀ (house_nonneg _) (hHQ i j) _)
     have s3 : (∏ i : Fin d, ∏ j : Fin l, H ^ (lam.1 i * (m j : ℕ)))
         = H ^ (∑ i, ∑ j, lam.1 i * (m j : ℕ)) := by
       simp only [Finset.prod_pow_eq_pow_sum]
@@ -397,8 +397,8 @@ theorem exists_aux_expSum
   set pp : (Fin d → ℕ) → ℤ :=
     fun lam => if h : lam ∈ SX.box d L then t ⟨lam, h⟩ else 0 with hppdef
   have hp : ∀ lam : {lam : Fin d → ℕ // lam ∈ SX.box d L}, pp lam.1 = t lam :=
-    fun lam => dif_pos lam.2
-  have hp0 : ∀ lam, lam ∉ SX.box d L → pp lam = 0 := fun lam h => dif_neg h
+    fun lam => dite_eq_left lam.2
+  have hp0 : ∀ lam, lam ∉ SX.box d L → pp lam = 0 := fun lam h => dite_eq_right h
   refine ⟨L, hL0, hLc, pp, ?_, ?_, ?_⟩
   · obtain ⟨lam, hlam⟩ := Function.ne_iff.mp ht0
     refine ⟨lam.1, lam.2, ?_⟩

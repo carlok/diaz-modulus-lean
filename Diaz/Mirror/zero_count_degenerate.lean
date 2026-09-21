@@ -91,8 +91,8 @@ theorem zero_count_degenerate
     intro h0
     have hc := congrArg (fun p => p.coeff (i₀ : ℕ)) h0
     simp only [P, finset_sum_coeff, coeff_C_mul_X_pow, coeff_zero] at hc
-    rw [Finset.sum_eq_single i₀ (fun k _ hk => if_neg (fun h => hk (Fin.ext h).symm)) (by simp)] at hc
-    simp only [if_true] at hc
+    rw [Finset.sum_eq_single i₀ (fun k _ hk => ite_eq_right (fun h => hk (Fin.ext h).symm)) (by simp)] at hc
+    simp only [ite_true] at hc
     exact hb₀ hc
   have hdegP : P.natDegree + 1 ≤ q j₀ := by
     have : P.natDegree ≤ q j₀ - 1 := by

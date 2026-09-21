@@ -57,8 +57,8 @@ theorem XX_recip_pi_exp_value_not_root_of_unity (γ : ℂ)
         rw [eq_div_iff h2k]
         linear_combination key
       rw [hmem, div_eq_mul_inv]
-      exact IsAlgebraic.mul (IsAlgebraic.neg (IsAlgebraic.mul (isAlgebraic_nat n) hγ))
-        (IsAlgebraic.inv (IsAlgebraic.mul (isAlgebraic_nat 2) (isAlgebraic_int k)))
+      exact IsAlgebraic.mul (IsAlgebraic.neg (IsAlgebraic.mul (isAlgebraic_natCast n) hγ))
+        (IsAlgebraic.inv (IsAlgebraic.mul (isAlgebraic_natCast 2) (isAlgebraic_intCast k)))
     have hcast : ((Real.pi ^ 2 : ℝ) : ℂ) = P ^ 2 := by
       rw [hP, Complex.ofReal_pow]
     rw [← hcast] at hP2alg

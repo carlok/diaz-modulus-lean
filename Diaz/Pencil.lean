@@ -37,7 +37,7 @@ theorem aux_powers_indep {K : Subfield ℂ} {u : ℂ} (hT : Transcendental K u) 
   rw [hPdef] at hc
   simp only [Polynomial.finsetSum_coeff, Polynomial.coeff_C_mul, Polynomial.coeff_X_pow,
     mul_ite, mul_one, mul_zero] at hc
-  rw [Finset.sum_ite_eq, if_pos hi] at hc
+  rw [Finset.sum_ite_eq, ite_eq_left hi] at hc
   simpa using congrArg (fun z : K => (z : ℂ)) hc
 
 theorem det_pencil_eq_conic {K : Subfield ℂ} {u : ℂ} (hT : Transcendental K u) (hu0 : u ≠ 0)

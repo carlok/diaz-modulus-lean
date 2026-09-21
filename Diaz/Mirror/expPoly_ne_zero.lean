@@ -30,7 +30,7 @@ theorem meas_derivative_add_le (p : ℂ[X]) (c : ℂ) : meas (derivative p + C c
   by_cases hp : p = 0
   · simp [meas, hp]
   · unfold meas
-    rw [if_neg hp]
+    rw [ite_eq_right hp]
     split_ifs with hq
     · exact Nat.zero_le _
     · have h1 : (derivative p).natDegree ≤ p.natDegree :=
@@ -43,7 +43,7 @@ theorem meas_derivative_add_le (p : ℂ[X]) (c : ℂ) : meas (derivative p + C c
 /-- Differentiation strictly decreases the size of a non-zero polynomial. -/
 theorem meas_derivative_lt {p : ℂ[X]} (hp : p ≠ 0) : meas (derivative p) < meas p := by
   unfold meas
-  rw [if_neg hp]
+  rw [ite_eq_right hp]
   split_ifs with hq
   · exact Nat.succ_pos _
   · have hdeg : p.natDegree ≠ 0 := by
@@ -152,8 +152,8 @@ theorem expPoly_ne_zero
   have hP := FourExpE0.poly_form (Fin l) _ ω hω P rfl hvan j
   have hc := congrArg (fun p => p.coeff (i : ℕ)) hP
   simp only [P, finset_sum_coeff, coeff_C_mul_X_pow, coeff_zero] at hc
-  rw [Finset.sum_eq_single i (fun k _ hk => if_neg (fun h => hk (Fin.ext h).symm)) (by simp)] at hc
-  simp only [if_true] at hc
+  rw [Finset.sum_eq_single i (fun k _ hk => ite_eq_right (fun h => hk (Fin.ext h).symm)) (by simp)] at hc
+  simp only [ite_true] at hc
   exact hji hc
 
 end Diaz

@@ -56,7 +56,7 @@ theorem small_polynomials_of_counterexample :
     exact himp a b s ha hb hs hne
   classical
   refine ⟨N₀, fun N => if h : N₀ < N then Classical.choose (key N h) else 0, fun N hN' => ?_⟩
-  simp only [dif_pos hN']
+  simp only [dite_eq_left hN']
   exact Classical.choose_spec (key N hN')
 
 end Diaz

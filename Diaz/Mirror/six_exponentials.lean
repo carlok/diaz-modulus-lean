@@ -22,11 +22,11 @@ theorem six_exponentials (x : Fin 2 → ℂ) (y : Fin 3 → ℂ)
   simp only [Transcendental, not_exists, not_not] at hcon
   set S : Set ℂ := Set.range (fun q : Fin 2 × Fin 3 => Complex.exp (x q.1 * y q.2)) with hS
   have hSfin : S.Finite := Set.finite_range _
-  haveI : Finite S := hSfin.to_subtype
+  have : Finite S := hSfin.to_subtype
   have hint : ∀ z ∈ S, IsIntegral ℚ z := by
     rintro z ⟨q, rfl⟩
     exact (hcon q.1 q.2).isIntegral
-  haveI : FiniteDimensional ℚ (IntermediateField.adjoin ℚ S) :=
+  have : FiniteDimensional ℚ (IntermediateField.adjoin ℚ S) :=
     IntermediateField.finiteDimensional_adjoin hint
   obtain ⟨i, j, hij⟩ :=
     SX.six_exponentials_of_numberField (d := 2) (l := 3) (by omega) x y hx hy

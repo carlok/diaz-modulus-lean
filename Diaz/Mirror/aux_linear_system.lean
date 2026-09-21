@@ -48,10 +48,10 @@ lemma shift_sum (S : ℕ) (f : ℕ → ℂ) (w : ℕ → ℂ) :
   rcases S with _ | n
   · simp
   · rw [Finset.sum_range_succ', Finset.sum_range_succ]
-    simp only [Nat.cast_zero, zero_mul, mul_zero, add_zero, lt_self_iff_false, if_false, zero_mul]
+    simp only [Nat.cast_zero, zero_mul, mul_zero, add_zero, lt_self_iff_false, ite_false, zero_mul]
     refine Finset.sum_congr rfl fun i hi => ?_
     have hi' : i + 1 < n + 1 := by simpa using hi
-    rw [if_pos hi']
+    rw [ite_eq_left hi']
     simp only [Nat.add_sub_cancel]
     push_cast
     ring
@@ -691,7 +691,7 @@ lemma sz_redP {Q : ℤ[X][X]} (hQm : Q.Monic) (hd : 0 < Q.natDegree) {qb DQ dQ :
     (b := b * (1 + qb) ^ dy) (dx := dx + dy * DQ) (dy := Q.natDegree - 1) (fun n hn => by
       have hn' : n ≤ dy := by rw [Finset.mem_range] at hn; omega
       refine sz_mono (sz_mul (sz_C_coeff hP n) (sz_redY hQm hd hQ n)) ?_ ?_ (by simp)
-      · gcongr; omega
+      · gcongr
       · gcongr)
   refine sz_mono h ?_ le_rfl le_rfl
   rw [Finset.card_range]; gcongr
@@ -899,7 +899,7 @@ lemma coeff_sum_unknowns {S T M d : ℕ} (φ : ℤ[X][X] →+* ℂ) {ω ω₁ : 
   simp only [Fintype.sum_prod_type]
   rw [Finset.sum_eq_single i, Finset.sum_eq_single j, Finset.sum_eq_single k]
   · refine Finset.sum_congr rfl fun μ _ => Finset.sum_congr rfl fun ν _ => ?_
-    simp only [pu, true_and, if_true, phi_mono φ h0 h1]; ring
+    simp only [pu, true_and, ite_true, phi_mono φ h0 h1]; ring
   · intro k' _ hk; refine Finset.sum_eq_zero fun μ _ => Finset.sum_eq_zero fun ν _ => ?_
     simp [pu, Ne.symm hk]
   · simp

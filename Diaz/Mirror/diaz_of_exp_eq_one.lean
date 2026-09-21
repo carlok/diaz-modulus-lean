@@ -38,7 +38,7 @@ theorem diaz_of_exp_eq_one :
       push_cast [← Int.cast_abs]
       norm_num
     rw [hcast]
-    exact mem_Qbar_iff.mpr (isAlgebraic_int _)
+    exact mem_Qbar_iff.mpr (isAlgebraic_intCast _)
   exact mem_Qbar_iff.mp (div_mem hnum hden)
 
 end Diaz

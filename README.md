@@ -38,7 +38,7 @@ No new transcendence result is claimed. These are negative results.
 lake exe cache get && lake build Diaz
 ```
 
-Lean 4.32.2, Mathlib v4.32.2.
+Lean 4.34.0, Mathlib v4.34.0.
 
 ## Dependency graph
 

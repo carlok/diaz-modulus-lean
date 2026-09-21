@@ -17,7 +17,7 @@ theorem outer_multiplier_param {u : ℂ} (hu0 : u ≠ 0) (S : Set ℂ) :
         {a : ℂ | a ∈ S ∧ a * (conj u) ^ 2 / (u * conj u) ∈ S} := by
   have hcu : conj u ≠ 0 := by simpa using hu0
   ext x
-  simp only [Set.mem_setOf_eq, Set.mem_image]
+  simp only [Set.mem_ofPred_eq, Set.mem_image]
   constructor
   · rintro ⟨h1, h2⟩
     refine ⟨x * u, ⟨h1, ?_⟩, ?_⟩

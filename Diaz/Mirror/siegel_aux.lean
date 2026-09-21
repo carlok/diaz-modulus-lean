@@ -24,7 +24,7 @@ lemma siegel_entrywise {α β : Type*} [Fintype α] [Fintype β] [DecidableEq β
   have hn1 : (1 : ℝ) ≤ Fintype.card β := by exact_mod_cast hβ
   rcases Nat.eq_zero_or_pos (Fintype.card α) with h0 | hpos
   · obtain ⟨b0⟩ : Nonempty β := Fintype.card_pos_iff.1 hβ
-    haveI : IsEmpty α := Fintype.card_eq_zero_iff.1 h0
+    have : IsEmpty α := Fintype.card_eq_zero_iff.1 h0
     refine ⟨Pi.single b0 1, ?_, fun a => isEmptyElim a, fun b => ?_⟩
     · intro h
       have := congrFun h b0
@@ -85,7 +85,7 @@ lemma c_ne_zero {ω ω₁ : ℂ} {Q : Polynomial (Polynomial ℤ)} (hQd : 0 < Q.
   funext μ ν
   have hc := congrArg (fun p : Polynomial (Polynomial ℤ) => (p.coeff ν).coeff μ) hP0
   simp only [P, f, finset_sum_coeff, coeff_C_mul_X_pow, coeff_zero, Fin.val_inj, Finset.sum_ite_eq,
-    Finset.sum_ite_eq', Finset.mem_univ, if_true, coeff_monomial] at hc
+    Finset.sum_ite_eq', Finset.mem_univ, ite_true, coeff_monomial] at hc
   simpa using hc
 
 end FourExpSiegel

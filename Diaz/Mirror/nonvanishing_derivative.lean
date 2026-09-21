@@ -80,7 +80,7 @@ theorem nonvanishing_derivative
       (natCast_le_analyticOrderAt_iff_iteratedDeriv_eq_zero (hdiff.analyticAt _)).2
         (fun i hi => hcon a b' i ha hb' hi)
     have hne := hfin ((a : ℂ) * y₁ + (b' : ℂ) * y₂)
-    rw [← ENat.coe_toNat hne] at h1
+    rw [← ENat.natCast_toNat hne] at h1
     exact_mod_cast h1
   -- the grid has `R₁ * R₂` distinct points
   let grid : Finset ℂ :=

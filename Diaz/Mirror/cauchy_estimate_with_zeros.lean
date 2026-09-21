@@ -99,7 +99,7 @@ theorem cauchy_estimate_with_zeros
     intro z hz
     have hP : (R - ρ) ^ N ≤ ‖∏ a ∈ S, (z - a) ^ analyticOrderNatAt F a‖ := by
       rw [norm_prod, hN, ← prod_pow_eq_pow_sum]
-      refine prod_le_prod (fun _ _ => pow_nonneg hRρ.le _) (fun a ha => ?_)
+      refine prod_le_prod₀ (fun _ _ => pow_nonneg hRρ.le _) (fun a ha => ?_)
       rw [norm_pow]
       apply pow_le_pow_left₀ hRρ.le
       have h1 := norm_sub_norm_le (z - c) (a - c)
@@ -125,7 +125,7 @@ theorem cauchy_estimate_with_zeros
     rw [mem_sphere_iff_norm] at hz
     have hP : ‖∏ a ∈ S, (z - a) ^ analyticOrderNatAt F a‖ ≤ (ρ + 1) ^ N := by
       rw [norm_prod, hN, ← prod_pow_eq_pow_sum]
-      refine prod_le_prod (fun _ _ => norm_nonneg _) (fun a ha => ?_)
+      refine prod_le_prod₀ (fun _ _ => norm_nonneg _) (fun a ha => ?_)
       rw [norm_pow]
       apply pow_le_pow_left₀ (norm_nonneg _)
       have h1 := norm_sub_le (z - c) (a - c)

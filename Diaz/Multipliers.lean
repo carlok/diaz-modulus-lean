@@ -85,7 +85,7 @@ theorem isAlgebraic_conj {a : ℂ} (h : IsAlgebraic ℚ a) : IsAlgebraic ℚ (co
 /-- `ℒ` is conjugation-stable, since `exp (conj u) = conj (exp u)`. -/
 theorem logAlg_conj {u : ℂ} (h : u ∈ LogAlg) : conj u ∈ LogAlg := by
   have he : Complex.exp (conj u) = conj (Complex.exp u) := Complex.exp_conj u
-  rw [LogAlg, Set.mem_setOf_eq, he]
+  rw [LogAlg, Set.mem_ofPred_eq, he]
   exact isAlgebraic_conj h
 
 /-- `conj u = |u|² / u`. -/
@@ -331,7 +331,7 @@ theorem candidate_one_log_saturation (hB : BakerTwoLogs)
     have h2 : ((Real.pi : ℝ) : ℂ) = ((‖u‖ : ℝ) : ℂ) / ((|r| : ℚ) : ℂ) := by
       rw [hnormu]; field_simp
     rw [h2]
-    exact Subfield.div_mem _ h1 (mem_Qbar_iff.mpr (isAlgebraic_rat ℚ |r|))
+    exact Subfield.div_mem _ h1 (mem_Qbar_iff.mpr (isAlgebraic_ratCast ℚ |r|))
   exact hpi (mem_Qbar_iff.mp hpiQ)
 
 end Diaz
