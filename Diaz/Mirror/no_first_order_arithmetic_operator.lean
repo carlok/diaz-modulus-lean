@@ -18,7 +18,7 @@ namespace P7Deriv
 Proved through the subfield `Qbar`, which is closed under the finite sums and products that
 `MvPolynomial.eval` unfolds to. -/
 lemma eval_mem_Qbar {σ : Type*} (p : MvPolynomial σ ℂ) (x : σ → ℂ)
-    (hc : ∀ d, MvPolynomial.coeff d p ∈ Qbar) (hx : ∀ i, x i ∈ Qbar) :
+    (hc : ∀ d, p.coeff d ∈ Qbar) (hx : ∀ i, x i ∈ Qbar) :
     MvPolynomial.eval x p ∈ Qbar := by
   rw [MvPolynomial.eval_eq]
   refine Subfield.sum_mem _ fun d _ => mul_mem (hc d) ?_
@@ -53,8 +53,8 @@ theorem no_first_order_arithmetic_operator
     (hbaker : ∀ p q : ℂ, IsAlgebraic ℚ p → IsAlgebraic ℚ q →
         IsAlgebraic ℚ (p * u + q * conj u) → p = 0 ∧ q = 0)
     (a b : MvPolynomial (Fin 2) ℂ)
-    (ha : ∀ d, IsAlgebraic ℚ (MvPolynomial.coeff d a))
-    (hb : ∀ d, IsAlgebraic ℚ (MvPolynomial.coeff d b))
+    (ha : ∀ d, IsAlgebraic ℚ (a.coeff d))
+    (hb : ∀ d, IsAlgebraic ℚ (b.coeff d))
     (hvalues : ∀ m n : ℤ,
         IsAlgebraic ℚ
           ((MvPolynomial.eval (fun i : Fin 2 => if i = 0 then (m : ℂ) else (n : ℂ)) a * u
