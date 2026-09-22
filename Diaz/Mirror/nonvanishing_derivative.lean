@@ -5,7 +5,8 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.nonvanishing_derivative__4215fb5b.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match; the mathematics is unchanged.
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Mirror.expPoly_zero_count
@@ -128,7 +129,7 @@ theorem nonvanishing_derivative
     rw [this]
   rw [hsum, hn] at hB
   have hΩ : (⨆ m, ‖ω m‖) ≤ (T : ℝ) * (‖x₁‖ + ‖x₂‖) := by
-    haveI : Nonempty (Fin (T * T)) := ⟨⟨0, Nat.mul_pos hT hT⟩⟩
+    have : Nonempty (Fin (T * T)) := ⟨⟨0, Nat.mul_pos hT hT⟩⟩
     apply ciSup_le
     intro m
     have hj : (((e.symm m).1 : ℕ) : ℝ) ≤ T := by exact_mod_cast (e.symm m).1.is_lt.le

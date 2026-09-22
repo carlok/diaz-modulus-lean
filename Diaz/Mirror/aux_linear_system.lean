@@ -5,7 +5,8 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.aux_linear_system__643f00f4.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match; the mathematics is unchanged.
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -786,7 +787,6 @@ lemma zpow_eval (S a b : ℕ) (φ : ℤ[X][X] →+* ℂ) {G0 G1 Dp : ℤ[X][X]} 
     (h0 : φ G0 = y₁ * φ Dp) (h1 : φ G1 = y₂ * φ Dp) {i : ℕ} (hi : i ≤ S) :
     φ (zpow S a b G0 G1 Dp i) = φ Dp ^ S * ((a : ℂ) * y₁ + (b : ℂ) * y₂) ^ i := by
   simp only [zpow, map_mul, map_pow, map_add, h0, h1, eq_intCast, map_intCast, map_natCast]
-  push_cast
   have : φ Dp ^ S = φ Dp ^ i * φ Dp ^ (S - i) := by rw [← pow_add]; congr 1; omega
   rw [this, show (a : ℂ) * (y₁ * φ Dp) + b * (y₂ * φ Dp) = φ Dp * ((a : ℂ) * y₁ + b * y₂) by ring, mul_pow]
   ring

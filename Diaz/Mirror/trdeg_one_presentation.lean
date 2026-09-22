@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `FourExp.trdeg_one_presentation`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.trdeg_one_presentation__5270056a.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -173,7 +176,7 @@ lemma exists_primitive (F : IntermediateField ℚ ℂ) (S : Finset ℂ) (hS : �
     ∃ θ : ℂ, IsIntegral F θ ∧ ∀ z ∈ S, ∃ p : Polynomial F, aeval θ p = z := by
   classical
   set E := IntermediateField.adjoin F (S : Set ℂ) with hE
-  haveI : FiniteDimensional F E :=
+  have : FiniteDimensional F E :=
     IntermediateField.finiteDimensional_adjoin fun z hz => (hS z hz).isIntegral
   obtain ⟨α, hα⟩ := Field.exists_primitive_element F E
   have hαint : IsIntegral F α := .of_finite F α

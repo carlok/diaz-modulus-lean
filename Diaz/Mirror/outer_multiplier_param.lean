@@ -5,7 +5,8 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.outer_multiplier_param__c153d0e4.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match; the mathematics is unchanged.
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -23,15 +24,15 @@ theorem outer_multiplier_param {u : ℂ} (hu0 : u ≠ 0) (S : Set ℂ) :
   constructor
   · rintro ⟨h1, h2⟩
     refine ⟨x * u, ⟨h1, ?_⟩, ?_⟩
-    · have he : x * u * (conj u) ^ 2 / (u * conj u) = x * conj u := by field_simp <;> ring
+    · have he : x * u * (conj u) ^ 2 / (u * conj u) = x * conj u := by field_simp
       rw [he]; exact h2
     · field_simp
   · rintro ⟨a, ⟨ha1, ha2⟩, rfl⟩
     refine ⟨?_, ?_⟩
-    · have he : a * conj u / (u * conj u) * u = a := by field_simp <;> ring
+    · have he : a * conj u / (u * conj u) * u = a := by field_simp
       rw [he]; exact ha1
     · have he : a * conj u / (u * conj u) * conj u = a * (conj u) ^ 2 / (u * conj u) := by
-        field_simp <;> ring
+        field_simp
       rw [he]; exact ha2
 
 end Diaz

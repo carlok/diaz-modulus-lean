@@ -24,6 +24,8 @@ import Solution
 #print axioms Diaz.exists_ringHom_of_transcendental
 #print axioms Diaz.four_exponentials_trdeg_one
 #print axioms Diaz.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult
+#print axioms Diaz.no_first_order_arithmetic_operator
+#print axioms Diaz.kronecker_factorisation
 #print axioms DiazRigidity.conj_eq_rho_div
 #print axioms DiazRigidity.eqOn_hull
 #print axioms DiazRigidity.conj_comm

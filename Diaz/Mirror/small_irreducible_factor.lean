@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `FourExp.small_irreducible_factor`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.small_irreducible_factor__6b6f512b.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -362,7 +365,7 @@ lemma numeric (n lam H MQ MR vQ vR : ℝ) (d δ r e : ℕ) (he : 0 < e) (hδd : 
       pow_le_pow_left₀ (Real.exp_pos _).le hc e
     rw [← Real.exp_nat_mul] at h1
     have h2 : ((e : ℕ) : ℝ) * (L * (-((lam - 6) * n / e))) = -((lam - 6) * n) * L := by
-      field_simp <;> ring
+      field_simp
     rw [h2] at h1
     linarith
   · have hMQe : MQ ^ e ≤ Real.exp (d / 2 + L) :=

@@ -5,7 +5,8 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.norm_to_polynomial_alg__7e5bc291.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match; the mathematics is unchanged.
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -786,7 +787,6 @@ lemma norm_to_polynomial_alg_zpow_eval (S a b : ℕ) (φ : ℤ[X][X] →+* ℂ) 
     (h0 : φ G0 = y₁ * φ Dp) (h1 : φ G1 = y₂ * φ Dp) {i : ℕ} (hi : i ≤ S) :
     φ (norm_to_polynomial_alg_zpow S a b G0 G1 Dp i) = φ Dp ^ S * ((a : ℂ) * y₁ + (b : ℂ) * y₂) ^ i := by
   simp only [norm_to_polynomial_alg_zpow, map_mul, map_pow, map_add, h0, h1, eq_intCast, map_intCast, map_natCast]
-  push_cast
   have : φ Dp ^ S = φ Dp ^ i * φ Dp ^ (S - i) := by rw [← pow_add]; congr 1; omega
   rw [this, show (a : ℂ) * (y₁ * φ Dp) + b * (y₂ * φ Dp) = φ Dp * ((a : ℂ) * y₁ + b * y₂) by ring, mul_pow]
   ring
@@ -1903,7 +1903,7 @@ lemma card_bound (κ : ℝ) (hκ : 0 < κ) (N S M d : ℕ) (hN : 1 ≤ N) (hS : 
   rw [Real.exp_add, Real.exp_log hpos, ← h6]
   push_cast
   calc (S : ℝ) * (2 * N) * (2 * N) * M * d
-      ≤ (N : ℝ) ^ 2 * (2 * N) * (2 * N) * (κ * (N : ℝ) ^ 2) * d := by gcongr <;> positivity
+      ≤ (N : ℝ) ^ 2 * (2 * N) * (2 * N) * (κ * (N : ℝ) ^ 2) * d := by gcongr
     _ = (4 * κ * d) * (N : ℝ) ^ 6 := by ring
     _ ≤ (4 * κ * (d + 1) + 4) * (N : ℝ) ^ 6 := by nlinarith [pow_nonneg hN0 6]
 
@@ -2224,13 +2224,13 @@ lemma vfac_final (d DX b2 : ℕ) {Wω Wω₁ A kdeg kb2 : ℝ} (hW : 1 ≤ Wω) 
     have := pow_exp_le (le_trans zero_le_one (le_max_left _ _)) hmax d
     exact this
   have hd : (d : ℝ) ≤ Real.exp (Real.log ((d : ℝ) + 1)) := by
-    have := nat_le_exp_log d; push_cast at this; exact this
+    have := nat_le_exp_log d; exact this
   have hW1pow : Wω₁ ^ d ≤ Real.exp ((d : ℝ) * Real.log Wω₁) := by
     have e : Wω₁ ^ d = Real.exp ((d : ℝ) * Real.log Wω₁) := by
       rw [Real.exp_nat_mul, Real.exp_log (by linarith)]
     exact le_of_eq e
   have hfact : (d.factorial : ℝ) ≤ Real.exp (Real.log ((d.factorial : ℝ) + 1)) := by
-    have := nat_le_exp_log d.factorial; push_cast at this; exact this
+    have := nat_le_exp_log d.factorial; exact this
   have hall := mul_exp_le (by positivity)
     (mul_exp_le (by positivity) hd hW1pow)
     (mul_exp_le (by positivity) hfact hpowmax)

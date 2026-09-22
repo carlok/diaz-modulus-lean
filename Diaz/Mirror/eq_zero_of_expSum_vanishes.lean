@@ -5,7 +5,8 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/SX.eq_zero_of_expSum_vanishes__b95d3c48.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match; the mathematics is unchanged.
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.SXDefs

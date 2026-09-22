@@ -5,7 +5,8 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.forced_plane_exhaustion__98def6d7.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match; the mathematics is unchanged.
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -64,7 +65,7 @@ theorem aux_ratio_transcendental {K : Subfield ℂ} {u : ℂ} (hT : Transcendent
     · rw [Polynomial.aeval_sub, Polynomial.aeval_X, Polynomial.aeval_C,
         forced_plane_exhaustion_aux_algebraMap_mk, sub_self]
   have h3 : u ^ 2 ∈ algebraicClosure (↥K) ℂ := by
-    have he : u ^ 2 = (u / conj u) * (u * conj u) := by field_simp <;> ring
+    have he : u ^ 2 = (u / conj u) * (u * conj u) := by field_simp
     rw [he]; exact mul_mem h1 h2
   exact hT (IsAlgebraic.of_pow (by norm_num) (mem_algebraicClosure_iff.1 h3))
 

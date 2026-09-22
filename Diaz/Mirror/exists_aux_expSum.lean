@@ -5,7 +5,8 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/SX.exists_aux_expSum__b09434ad.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match; the mathematics is unchanged.
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.SXDefs
@@ -108,7 +109,6 @@ theorem exists_int_kernel {K : Type*} [Field K] [NumberField K] [DecidableEq (K 
     calc |(t lam : ℝ)| ≤ ‖t‖ := by
           have h := norm_le_pi_norm t lam
           rw [Int.norm_eq_abs] at h
-          push_cast at h
           exact h
       _ ≤ ((Fintype.card κ : ℝ) * max 1 ‖C‖) ^
             ((Fintype.card (ρ × (K →+* ℂ)) : ℝ) /
