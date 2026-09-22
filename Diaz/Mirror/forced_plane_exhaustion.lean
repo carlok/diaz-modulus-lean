@@ -4,6 +4,8 @@ Mirrored from Prove2Me: `Diaz.forced_plane_exhaustion`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.forced_plane_exhaustion__98def6d7.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match; the mathematics is unchanged.
 -/
 import Mathlib
 

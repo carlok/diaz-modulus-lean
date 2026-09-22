@@ -4,6 +4,8 @@ Mirrored from Prove2Me: `FourExp.dvd_of_small_values`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.dvd_of_small_values__34c4fce2.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match; the mathematics is unchanged.
 -/
 import Mathlib
 
