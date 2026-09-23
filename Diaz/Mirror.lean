@@ -130,3 +130,5 @@ import Diaz.Mirror.kronecker_factorisation
 import Diaz.Mirror.no_first_order_arithmetic_operator
 import Diaz.Mirror.gelfond_schneider
 import Diaz.Mirror.construction_count
+import Diaz.Mirror.salem_quartic_relations_of_logs
+import Diaz.Mirror.construction_core

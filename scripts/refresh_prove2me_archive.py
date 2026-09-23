@@ -62,13 +62,17 @@ Proved, and each one's `Source` line says so on the platform:
 
 | Here | Replaced by | Why |
 | --- | --- | --- |
-| `FourExp.construction_core` | `FourExp.construction_core_1973` | fixes `S = ⌊N²√log N⌋`, where the 1973 text has `S = ⌊N²/√log N⌋`, so it is not what the construction yields. Its hypotheses are contradictory, since they are those of the four exponentials theorem in transcendence degree one, which is Proved, so it can be closed by citing that theorem |
 | `FourExp.auxiliary_function` | `FourExp.auxiliary_function_alg` | omits the hypothesis that the four `exp (xᵢyⱼ)` are algebraic, without which the `ω`-degree of their powers is unbounded |
 | `FourExp.norm_to_polynomial` | `FourExp.norm_to_polynomial_alg` | the same missing hypothesis |
 
-A fourth, `FourExp.construction_count`, had the same wrong `S`, but its inequality holds either
-way, and another contributor proved it on 2026-09-23. It is mirrored as `Diaz.construction_count`.
-Its corrected version is `FourExp.construction_count_1973`.
+Two more nodes of the branch are closed, both on 2026-09-23, and both are mirrored:
+
+- `FourExp.construction_core` fixes `S = ⌊N²√log N⌋` where the 1973 text has `S = ⌊N²/√log N⌋`.
+  Its hypotheses are those of the four exponentials theorem in transcendence degree one, so they
+  are contradictory, and it is proved by citing that theorem. The corrected version is
+  `FourExp.construction_core_1973`.
+- `FourExp.construction_count` had the same wrong `S`, but its inequality holds either way.
+  Another contributor proved it. The corrected version is `FourExp.construction_count_1973`.
 
 The corrected nodes are in `archive/prove2me/` and in `Diaz/Mirror/`. Nothing depends on the
 statements here except two reductions accepted before the defects were found, the first sketches

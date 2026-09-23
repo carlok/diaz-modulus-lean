@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-23): **171** of 171
+As of the latest archived submission (2026-09-23): **173** of 173
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -119,6 +119,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Diaz.real_quantisation` | yes | `Diaz/Quantisation.lean` | done |  |
 | `Diaz.roy_conic_implies_empty` | yes | `Diaz/Pencil.lean` | done |  |
 | `Diaz.salem_quartic_relations` | yes | `Diaz/Mirror/salem_quartic_relations.lean` | done |  |
+| `Diaz.salem_quartic_relations_of_logs` | yes | `Diaz/Mirror/salem_quartic_relations_of_logs.lean` | done |  |
 | `Diaz.second_difference_mem` | yes | `Diaz/Mirror/second_difference_mem.lean` | done |  |
 | `Diaz.sq_eq_zero_of_trace_eq_zero` | yes | `Diaz/Mirror/sq_eq_zero_of_trace_eq_zero.lean` | done |  |
 | `Diaz.torsion_dichotomy` | yes | `Diaz/P21P.lean` | done |  |
@@ -174,6 +175,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.auxiliary_construction` | yes | `Diaz/Mirror/auxiliary_construction.lean` | done |  |
 | `FourExp.auxiliary_function_alg` | yes | `Diaz/Mirror/auxiliary_function_alg.lean` | done |  |
 | `FourExp.cauchy_estimate_with_zeros` | yes | `Diaz/Mirror/cauchy_estimate_with_zeros.lean` | done |  |
+| `FourExp.construction_core` | yes | `Diaz/Mirror/construction_core.lean` | done |  |
 | `FourExp.construction_core_1973` | yes | `Diaz/Mirror/construction_core_1973.lean` | done |  |
 | `FourExp.construction_count` | yes | `Diaz/Mirror/construction_count.lean` | done |  |
 | `FourExp.construction_count_1973` | yes | `Diaz/Mirror/construction_count_1973.lean` | done |  |

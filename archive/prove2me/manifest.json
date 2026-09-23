@@ -2882,5 +2882,29 @@
   "bytes": 227737,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "Diaz.salem_quartic_relations_of_logs",
+  "theorem_id": "e43899ea-bd36-452e-85ae-3bd7c5db5c62",
+  "submission_id": "6ec0a19a-672e-472e-9fc4-0577e3029a65",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-23T14:39:11.120965+00:00",
+  "file": "Diaz.salem_quartic_relations_of_logs__6ec0a19a.lean",
+  "bytes": 902,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.construction_core",
+  "theorem_id": "671c8b91-074e-431a-b4a7-fd3adb8bc8ce",
+  "submission_id": "875b50c3-a006-4d4b-a36f-7b4057c89454",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-23T14:39:21.48517+00:00",
+  "file": "FourExp.construction_core__875b50c3.lean",
+  "bytes": 3810,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
