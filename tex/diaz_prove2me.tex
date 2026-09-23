@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Stable version 1.0, 21 September 2026}
+\date{September 2026\\[2pt]\small Version 1.1, 23 September 2026}
 
 \begin{document}
 \maketitle
@@ -63,8 +63,12 @@ remaining branch terminates in a theorem of 1973--74. When this note was first w
 theorem had never been formalised; it has been since, in the form the branch needs, and the case
 it governs is proved with it. The natural interpolation route is blocked as well: no first-order
 operator with algebraic coefficients has algebraic values there, and the interpolation determinant
-does not see the candidate's arithmetic at all. What is left is three statements, all open
-mathematics rather than formalisation, and we say exactly which.
+does not see the candidate's arithmetic at all. What is left is two statements, both open
+mathematics rather than formalisation, and we say exactly which. A third, which the development had
+carried until now, turns out not to be needed, and it and the statement it pairs with cannot both
+be false. Along the way the transcendence theorems now available formally yield a few
+unconditional results about classical constants, among them that at least one of
+$\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental.
 \end{abstract}
 
 \section{Setting}
@@ -77,7 +81,7 @@ for the logarithms of algebraic numbers, and $\aLogs$ for the $\Alg$-vector subs
 spanned by $1$ together with $\Logs$. Complex conjugation is written $\bar{\phantom{u}}$, and
 $\overline{\e^{u}}=\e^{\bar u}$, so $\Logs$ is stable under it.
 
-\begin{conjecture}[Diaz, 2004]\label{conj:diaz}
+\begin{conjecture}[Diaz, 2004~\cite{diaz-2004}]\label{conj:diaz}
 For every $u\in\C$ with $u\neq0$ and $\lvert u\rvert\in\Alg$, the number $\e^{u}$ is
 transcendental.
 \end{conjecture}
@@ -95,6 +99,10 @@ everything after it is an attempt to ask for less.
 
 Two classical inputs are used without proof. \emph{Hermite--Lindemann}: for algebraic
 $a\neq0$, $\e^{a}$ is transcendental. \emph{Transcendence of $\pi$}, and hence of $\pi^{2}$.
+Three further classical theorems enter in the results added in version 1.1, and all three are
+machine-checked: the Gel'fond--Schneider theorem, in the formalisation of Karatarakis and
+Wiedijk~\cite{karatarakis-wiedijk}; the six exponentials theorem; and the four exponentials
+theorem in transcendence degree one (Section~\ref{sec:map}).
 
 \begin{conjecture}[Strong four exponentials]\label{conj:sfe}
 Let $x_{1},x_{2}$ be linearly independent over $\Alg$ and let $y_{1},y_{2}$ be linearly
@@ -319,9 +327,38 @@ with $\gamma$ it contains $\operatorname{Re}\gamma$ and $i\operatorname{Im}\gamm
 equivalent to its two axis halves: for real $\gamma\neq0$, the number $\e^{-i\gamma/\pi}$, which
 lies on the unit circle and is not a root of unity, is transcendental; and for $\gamma=i\beta$ with
 $\beta$ real, $\e^{\beta/\pi}$ is transcendental --- that is, $\pi\neq\beta/\log\alpha$ for real
-algebraic $\beta\neq0$ and algebraic $\alpha>0$, $\alpha\neq1$. The reduction is machine-checked;
-both halves are open, and they are two of the three statements at which the formal development
-stops (Section~\ref{sec:what}).
+algebraic $\beta\neq0$ and algebraic $\alpha>0$, $\alpha\neq1$. The reduction is machine-checked,
+and both halves are open. They cannot both fail.
+
+\begin{theorem}\label{thm:S0}
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item If $\gamma_{1},\gamma_{2}\in S_{0}$ and $\gamma_{2}\neq0$, then $\gamma_{1}/\gamma_{2}\in\Q$.
+  \item Every element of $S_{0}$ is real or purely imaginary.
+  \item At least one of the two halves of $(S)$ holds.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) The numbers $\lambda_{j}=\gamma_{j}/(i\pi)$ lie in $\Logs$, $\lambda_{2}\neq0$, and their ratio
+$\gamma_{1}/\gamma_{2}$ is algebraic. If it were irrational, Gel'fond--Schneider would make
+$\e^{\lambda_{1}}=\e^{(\gamma_{1}/\gamma_{2})\lambda_{2}}$ transcendental. (b) By the conjugation
+stability of $S_{0}$ and (a), $\bar\gamma=q\gamma$ with $q\in\Q$; comparing real and imaginary
+parts, either $\operatorname{Re}\gamma=0$, or $q=1$ and $\operatorname{Im}\gamma=0$. (c) A non-zero
+real element and a non-zero purely imaginary one would be rationally proportional by (a).
+\end{proof}
+
+So $S_{0}$ is either $\{0\}$ or a single rational line on one axis, and $(S)$ can fail, if at all,
+in one direction only. The imaginary half has a concrete reading: its exceptions are the
+$\beta=\pi\log\alpha$ that happen to be algebraic, and by (a) all such $\log\alpha$ are rationally
+proportional. For instance, at least one of $\pi\log2$ and $\pi\log3$ is transcendental, although
+neither is known to be.
+
+Which direction matters for Conjecture~\ref{conj:diaz} is settled by looking at what the branch
+produces. In Proposition~\ref{prop:period-aligned} the number $\gamma=-\pi(\operatorname{Im}u+r\pi)$
+is real. The formal decomposition reaches $(S)$ along one other branch, where $\pi\operatorname{Im}u$
+itself is algebraic, and there $\gamma=-\pi\operatorname{Im}u$ is real as well. Both branches have
+been reduced, by machine-checked reductions, to the real half alone. The imaginary half is
+therefore not needed anywhere in the development (Section~\ref{sec:what}).
 
 
 
@@ -437,6 +474,31 @@ conjecture is reasonable for~(a) and unsupported for~(b), and it is~(b) that
 Theorem~\ref{thm:one-relation} runs into: $\sqrt{(\log 2)^{2}+\pi^{2}}$ asks about a
 \emph{sum}, and every available tool is homogeneous.
 
+What the homogeneous theory does give at $\e^{\pi^{2}}$ is worth recording, because it is
+unconditional and machine-checked. The four exponentials theorem in transcendence degree one
+(Section~\ref{sec:map}) applies to the simplest singular matrix whose entries are tied by one ratio.
+
+\begin{proposition}\label{prop:geometric}
+Let $w\neq0$ and $z\notin\Q$ with $\trdeg_{\Q}\Q(w,z)\le1$. Then $w$, $wz$ and $wz^{2}$ are not
+all in $\Logs$.
+\end{proposition}
+
+\begin{proof}
+Otherwise the matrix $\begin{pmatrix}w&wz\\ wz&wz^{2}\end{pmatrix}$ has vanishing determinant and
+entries in $\Logs$ generating transcendence degree at most one, so its rows or columns satisfy a
+non-trivial rational relation $p\,w+q\,wz=0$; this forces $z=-p/q\in\Q$.
+\end{proof}
+
+\begin{corollary}\label{cor:epi2}
+At least one of $\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental.
+\end{corollary}
+
+\begin{proof}
+Take $w=i\pi$ and $z=-i\pi$: then $\e^{w}=-1$, $wz=\pi^{2}$ and $wz^{2}=-i\pi^{3}$.
+\end{proof}
+
+This is as close to $\e^{\pi^{2}}$ as the homogeneous theory comes.
+
 
 
 \section{Two barriers, and one branch that returns}\label{sec:map}
@@ -483,7 +545,9 @@ products and fits; a $2\times3$ configuration needs six and cannot. That is the 
 strong four exponentials conjecture reaches this problem while the six exponentials
 \emph{theorem} --- which is proved, and which would otherwise be the natural instrument --- does
 not. The obstruction is not depth but dimension, and no sharpening of six exponentials that
-stays inside a three-dimensional certificate space can help.
+stays inside a three-dimensional certificate space can help. Where there is room the theorem
+works as expected: with $x=(1,\pi)$ and $y=(\log2,\log3,\log5)$ it shows that at least one of
+$2^{\pi}$, $3^{\pi}$, $5^{\pi}$ is transcendental.
 
 \subsection*{A decomposition that returns to its start}
 
@@ -526,7 +590,8 @@ quantitative, and it is worth recording which.
 \emph{Gel'fond--Schneider} produces transcendence of $\alpha^{\beta}$ from an algebraic
 $\alpha\neq0,1$ and an algebraic irrational $\beta$. Applied to the configuration above it
 manufactures transcendence at a point unrelated to the one in question; the number whose
-transcendence is wanted is not of that shape.
+transcendence is wanted is not of that shape. It is not idle elsewhere: it is what confines the
+exceptions to $(S)$ to one rational line (Theorem~\ref{thm:S0}).
 
 \emph{Baker's theorem} bounds non-vanishing linear forms in logarithms from below. The relevant
 form here vanishes identically by hypothesis --- that is what being a candidate means --- so the
@@ -727,6 +792,41 @@ is $-a\neq0$. So $u$ is algebraic, a contradiction.
 The contrast is the point. A candidate's reciprocal $1/u$ necessarily lies in $\aLogs$, while no
 algebraically shifted reciprocal does.
 
+\subsection*{Commensurable pairs, unconditionally}
+
+Corollary~\ref{cor:square} rests on Roy's theorem, which has no formal proof. Part of it survives
+on the four exponentials theorem in transcendence degree one alone, through a statement about
+pairs of logarithms.
+
+\begin{theorem}\label{thm:pair}
+Let $u,v\in\Logs\setminus\{0\}$ with $|u|^{2}/|v|^{2}\in\Q$, and suppose
+$\trdeg_{\Q}\Q(u,\bar u,v,\bar v)\le1$. Then $v\in\Q u$ or $v\in\Q\bar u$.
+\end{theorem}
+
+\begin{proof}
+With $c=|u|^{2}/|v|^{2}$, the matrix $\begin{pmatrix}u&v\\ c\bar v&\bar u\end{pmatrix}$ has
+determinant $|u|^{2}-c|v|^{2}=0$ and non-zero entries in $\Logs$. A column relation gives
+$v\in\Q u$, a row relation $v\in\Q\bar u$.
+\end{proof}
+
+The hypotheses are satisfiable, by $u=\log2$ and $v=\log4$, and both alternatives occur. For a
+candidate, $\bar u=\rho/u$, so the transcendence-degree hypothesis holds for every $v$ algebraic
+over $\Q(u)$.
+
+\begin{corollary}\label{cor:monomial}
+Let $u$ be a candidate, $k\ge2$, and $c\in\Alg^{\times}$ with $|c|^{2}\rho^{k-1}\in\Q$. Then
+$\e^{cu^{k}}$ is transcendental; in particular $\e^{u^{k}/|u|^{k-1}}$ is, for every $k\ge2$.
+\end{corollary}
+
+\begin{proof}
+If $v=cu^{k}\in\Logs$, then $|v|^{2}=(|c|^{2}\rho^{k-1})\rho$, and Theorem~\ref{thm:pair} gives
+$cu^{k}=qu$ or $cu^{k}=q\rho/u$ with $q\in\Q$. Either way a positive power of $u$ is algebraic, so
+$u$ is algebraic, against Hermite--Lindemann.
+\end{proof}
+
+Negative exponents follow by applying the corollary to $\bar u$, since
+$cu^{-k}=(c/\rho^{k})\,\bar u^{k}$.
+
 \subsection*{Saturation at one logarithm}
 
 \begin{theorem}\label{thm:saturation}
@@ -824,16 +924,18 @@ Proposition~\ref{prop:loop}.
 
 The case analysis behind this note has been carried to its end. Every branch of
 Conjecture~\ref{conj:diaz} is either closed by a machine-checked proof or reduced, by a
-machine-checked reduction, to one of exactly three statements, and nothing else in it is open:
+machine-checked reduction, to one of exactly two statements, and nothing else in it is open:
 \begin{enumerate}[label=\textup{(\roman*)}]
   \item the real half of $(S)$: for real algebraic $\gamma\neq0$, $\e^{-i\gamma/\pi}$ is
-        transcendental;
-  \item the imaginary half of $(S)$: for real algebraic $\beta\neq0$, $\e^{\beta/\pi}$ is
         transcendental;
   \item the statement $(\mathrm{NT})$ of Proposition~\ref{prop:loop}, which is equivalent to the
         conjecture itself.
 \end{enumerate}
-All three follow from Conjecture~\ref{conj:sfe}. None of them is a formalisation problem.
+Both follow from Conjecture~\ref{conj:sfe}. Neither is a formalisation problem. Version 1.0 of
+this note listed a third, the imaginary half of $(S)$: for real algebraic $\beta\neq0$,
+$\e^{\beta/\pi}$ is transcendental. It remains open, but the development no longer depends on it,
+since both branches that reach $(S)$ produce a real $\gamma$. By Theorem~\ref{thm:S0}, it and the
+real half cannot both fail.
 
 It is worth saying why the four exponentials theorem in transcendence degree one, now proved, does
 not reach them, since each lives in transcendence degree one: under a counterexample to $(S)$ the
@@ -849,10 +951,17 @@ over $\aLogs$, accepts these.
 That distinction, $\Logs$ against $\aLogs$, is the whole distance between what is proved and what
 is needed.
 
-\begin{thebibliography}{9}
-\bibitem{diaz-2007} G.~Diaz, \emph{Utilisation de la conjugaison complexe dans l'étude de la
+\begin{thebibliography}{10}
+\bibitem{diaz-2004} G.~Diaz, \emph{Utilisation de la conjugaison complexe dans l'étude de la
 transcendance de valeurs de la fonction exponentielle usuelle}, J. Théor. Nombres Bordeaux
-\textbf{19} (2007), 373--391.
+\textbf{16} (2004), 535--553.
+\bibitem{diaz-2007} G.~Diaz, \emph{Produits et quotients de combinaisons linéaires de logarithmes
+de nombres algébriques : conjectures et résultats partiels}, J. Théor. Nombres Bordeaux
+\textbf{19} (2007), 373--391. It combines Roy's strong six exponentials theorem with complex
+conjugation to obtain cases of the strong four exponentials conjecture; Roy's theorem is not
+formalised, so those results are not used here.
+\bibitem{karatarakis-wiedijk} M.~Karatarakis and F.~Wiedijk, \emph{A formalization of the
+Gelfond-Schneider theorem}, arXiv:2603.24823 (2026).
 \bibitem{roy-waldschmidt-1995} D.~Roy and M.~Waldschmidt, \emph{Quadratic relations between
 logarithms of algebraic numbers}, Proc. Japan Acad. Ser. A \textbf{71} (1995), 151--153.
 \bibitem{brownawell-1974} W.~D.~Brownawell, \emph{The algebraic independence of certain numbers
@@ -885,9 +994,9 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is the stable version of the note. Every row of the table below was checked against the
-platform by script on 21 September 2026, and the mirrored project held all 166 proved results of
-the development at that date.
+This is version 1.1 of the note; version 1.0 of 21 September 2026 is the first stable release.
+Every row of the table below was checked against the platform by script on 23 September 2026, and
+the mirrored project held all 182 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -933,16 +1042,25 @@ Prop.~\ref{prop:period-aligned} & Proved & \nolinkurl{DiazModulus.recip_pi_log_o
 Conj.~\ref{conj:S} & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log} \\
 Thm~\ref{thm:S-of-sfe} & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_of_sfe} \\
 Prop.~\ref{prop:root-of-unity} & Proved & \nolinkurl{DiazModulus.recip_pi_exp_value_not_root_of_unity} \\
+Thm~\ref{thm:S0}(a) & Proved & \nolinkurl{DiazModulus.recip_pi_log_rational_line} \\
+Thm~\ref{thm:S0}(b) & Proved & \nolinkurl{DiazModulus.recip_pi_log_on_axis} \\
+Thm~\ref{thm:S0}(c) & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_real_or_imag} \\
+\S\ref{sec:quant}, $\pi\log2$ or $\pi\log3$ & Proved & \nolinkurl{DiazModulus.pi_log_two_or_pi_log_three_transcendental} \\
 \S\ref{sec:quant}, real half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_real_gamma} \\
 \S\ref{sec:quant}, imaginary half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_imag_gamma} \\
 Prop.~\ref{prop:no-deriv} & Proved & \nolinkurl{DiazModulus.no_first_order_arithmetic_operator} \\
 Prop.~\ref{prop:kronecker} & Proved & \nolinkurl{DiazModulus.kronecker_factorisation} \\
+Prop.~\ref{prop:geometric} & Proved & \nolinkurl{DiazModulus.geometric_triple_not_logs} \\
+Cor.~\ref{cor:epi2} & Proved & \nolinkurl{DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental} \\
+\S\ref{sec:map}, $2^{\pi}$, $3^{\pi}$ or $5^{\pi}$ & Proved & \nolinkurl{DiazModulus.two_three_five_pow_pi_transcendental} \\
 Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line} \\
 Rem.~\ref{rem:line-cheap} & Proved & \nolinkurl{DiazModulus.candidate_no_real_algebraic_line} \\
 Cor.~\ref{cor:distance} & Proved & \nolinkurl{DiazModulus.candidate_distance_transcendental} \\
 Thm~\ref{thm:multiplier} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 Cor.~\ref{cor:square} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
+Thm~\ref{thm:pair} & Proved & \nolinkurl{DiazModulus.log_pair_rigid_of_trdeg_one} \\
+Cor.~\ref{cor:monomial} & Proved & \nolinkurl{DiazModulus.candidate_monomial_not_log} \\
 Thm~\ref{thm:saturation} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
 Cor.~\ref{cor:api} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
 Prop.~\ref{prop:kernel} & Proved & \nolinkurl{DiazModulus.candidate_vanishing_ideal} \\
@@ -951,7 +1069,9 @@ Hermite--Lindemann & Proved & \nolinkurl{DiazModulus.hermite_lindemann_holds} \\
 \end{center}
 
 Two entries need a word. Hermite--Lindemann is used freely in the text as classical; it is listed
-because the library used does not contain it, so it had to be established rather than cited. And
+because the library used does not contain it, so it had to be established rather than cited. The
+same holds for Gel'fond--Schneider, which is proved on the platform in another mission, from the
+formalisation of Karatarakis and Wiedijk, and is mirrored in the project. And
 the statement $(\mathrm{NT})$ of Proposition~\ref{prop:loop} was contributed by another
 participant in the same development, independently of the work reported here; the equivalence
 with Conjecture~\ref{conj:diaz} is what is established above.
