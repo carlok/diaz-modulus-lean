@@ -2,7 +2,9 @@
 # Every Prove2Me result mirrored into the library
 
 One module per Proved node of the Diaz mission, plus the four SX results that
-`six_exponentials` rests on. Each is the platform's accepted proof, ported
+`six_exponentials` rests on, and `Schanuel.gelfond_schneider`, whose accepted proof
+vendors the Gelfond–Schneider formalization of M. Karatarakis and F. Wiedijk
+(arXiv:2603.24823, Apache 2.0) under the namespace `GelfondSchneider`. Each is the platform's accepted proof, ported
 mechanically: statements and proofs are the platform's; imports, namespaces,
 theorem names, a handful of lemma names that differ between Mathlib revisions, and
 colliding helper names were rewritten. `MIRROR_CHECKLIST.md` tracks coverage.
@@ -126,3 +128,5 @@ import Diaz.Mirror.four_exponentials_trdeg_one
 import Diaz.Mirror.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult
 import Diaz.Mirror.kronecker_factorisation
 import Diaz.Mirror.no_first_order_arithmetic_operator
+import Diaz.Mirror.gelfond_schneider
+import Diaz.Mirror.construction_count

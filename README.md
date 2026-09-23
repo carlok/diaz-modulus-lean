@@ -280,7 +280,9 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-19 it is met: 166 of 166.
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-23 it is met: 171 of 171, counting the four `Schanuel.*` results
+  proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
+  Gelfond–Schneider).
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
 - `tex/` — the companion notes. The note selects from the library; the library does not select.
 
@@ -456,6 +458,14 @@ same names and with the same statements, so nothing that used them changed.
 
 The file keeps its name so the import graph and older references stay stable.
 It no longer declares anything as an axiom.
+
+Gelfond–Schneider is proved too, although no statement here assumed it yet:
+`GelfondSchneider.gelfond_schneider` in `Diaz/Mirror/gelfond_schneider.lean`. For a non-zero
+logarithm `l` of an algebraic number and an algebraic irrational `b`, `exp (b * l)` is
+transcendental. The proof is the formalization of M. Karatarakis and F. Wiedijk
+(arXiv:2603.24823; Apache 2.0), with a bridge from their `α ^ β` form to an arbitrary logarithm.
+`scripts/gelfond_schneider_port/` rebuilds the accepted submission from their sources and lists
+every change.
 
 ## What is *not* proved
 
