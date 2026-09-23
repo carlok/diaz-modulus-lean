@@ -6,7 +6,8 @@
 
 What it does, in order:
 
-1. Lists every node of the Diaz mission (names starting `Diaz.`, `DiazModulus.` or `FourExp.`).
+1. Lists every node of the Diaz mission (names starting `Diaz.`, `DiazModulus.` or `FourExp.`),
+   plus the nodes of other missions in EXTRA_NODES that this project proved.
 2. For each Proved or Open node, pages through its ACCEPTED and SKETCH_ACCEPTED
    submissions and downloads any not yet in the archive via GET /submissions/:id/solution.
    Open nodes matter too: an accepted sketch reduces a node to its children and exists
@@ -35,6 +36,10 @@ MANIFEST = ARCHIVE / "manifest.json"
 CHECKLIST = ROOT / "MIRROR_CHECKLIST.md"
 PRIORITIES = ROOT / "scripts" / "mirror_priorities.json"
 PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.")
+# Nodes of other missions that this project proved, from results in this library. Only this
+# account's submissions are archived for them: the other mission's reductions are not ours to keep.
+EXTRA_NODES = ("Schanuel.six_exponentials", "Schanuel.hermite_lindemann",
+               "Schanuel.lindemann_weierstrass", "Schanuel.gelfond_schneider")
 OPEN = ARCHIVE / "open"
 OPEN_PREFIXES = ("FourExp.",)
 OPEN_README = """# Open statements
@@ -305,6 +310,11 @@ def main():
         for r in api.paged(f"/theorems?q={term}", "theorems", 200):
             if (r.get("theorem_name") or "").startswith(PREFIXES) and r["theorem_id"] not in seen:
                 seen.add(r["theorem_id"]); nodes.append(r)
+    for name in EXTRA_NODES:
+        for r in api.paged(f"/theorems?q={name.split('.', 1)[1]}", "theorems", 200):
+            if r.get("theorem_name") == name and r["theorem_id"] not in seen:
+                seen.add(r["theorem_id"]); nodes.append(r)
+    me = api.get("/me").get("user_id")
     proved = [r for r in nodes if r["status"] == "Proved"]
 
     ARCHIVE.mkdir(parents=True, exist_ok=True)
@@ -320,6 +330,8 @@ def main():
         for st in ("ACCEPTED", "SKETCH_ACCEPTED"):
             subs += [s for s in api.paged(f"/theorems/{r['theorem_id']}/submissions?status={st}", "submissions", 50)
                      if s["status"] == st]
+        if r["theorem_name"] in EXTRA_NODES:
+            subs = [s for s in subs if s.get("user_id") == me]
         if not subs and r["status"] == "Proved":
             no_proof.append(r["theorem_name"])
         for s in subs:

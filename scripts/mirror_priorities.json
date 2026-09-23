@@ -6,7 +6,8 @@
     "logAlg_conj_stable": "logAlg_conj",
     "conj_eq_norm_sq_div": "conj_eq_normSq_div",
     "candidate_indistinguishable_by_coeff": "candidate_indistinguishable",
-    "exists_ringHom_of_transcendental": "exists_algHom_of_transcendental"
+    "exists_ringHom_of_transcendental": "exists_algHom_of_transcendental",
+    "lindemann_weierstrass": "linearIndependent_exp'"
   },
   "defective": {
     "pi_sq_transcendental_of_real_gamma": "vacuous: its conclusion is proved unconditionally by pi_sq_transcendental"
