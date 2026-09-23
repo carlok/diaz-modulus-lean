@@ -132,3 +132,12 @@ import Diaz.Mirror.gelfond_schneider
 import Diaz.Mirror.construction_count
 import Diaz.Mirror.salem_quartic_relations_of_logs
 import Diaz.Mirror.construction_core
+import Diaz.Mirror.log_pair_rigid_of_trdeg_one
+import Diaz.Mirror.candidate_monomial_not_log
+import Diaz.Mirror.recip_pi_log_rational_line
+import Diaz.Mirror.recip_pi_log_on_axis
+import Diaz.Mirror.recip_pi_not_log_real_or_imag
+import Diaz.Mirror.geometric_triple_not_logs
+import Diaz.Mirror.pi_log_two_or_pi_log_three_transcendental
+import Diaz.Mirror.exp_pi_sq_or_exp_i_pi_cube_transcendental
+import Diaz.Mirror.two_three_five_pow_pi_transcendental

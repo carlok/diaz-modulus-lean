@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-23 it is met: 173 of 173, counting the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-23 it is met: 182 of 182, counting the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider).
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
@@ -430,9 +430,27 @@ paper, so it needs neither Baker's theorem nor a zero estimate:
 
 The theorem settles one case of the conjecture's branch structure
 (`DiazModulus.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult`).
-What still blocks that branch is two statements about `1/π`, both open: that
-`1/π` is not an algebraic multiple of a real logarithm of an algebraic number,
-and the same with a purely imaginary one.
+What still blocks that branch is one statement about `1/π`: the real half of
+(S), that `e^{-iγ/π}` is transcendental for real algebraic `γ ≠ 0`. Until
+2026-09-23 the imaginary half was carried too. Both branches that reach (S)
+produce a real `γ`, and two new reductions record this, so the imaginary half
+is no longer needed. By `DiazModulus.recip_pi_not_log_real_or_imag`, the two
+halves cannot both fail.
+
+The theorem has consequences beyond that case, all in `Diaz/Mirror/`:
+
+- `log_pair_rigid_of_trdeg_one` — two non-zero logarithms `u, v` with
+  `|u|²/|v|²` rational, and `u, ū, v, v̄` of transcendence degree at most one,
+  satisfy `v ∈ ℚu ∪ ℚū`. For `K = Q̄` this is an unconditional and stronger form
+  of the conditional `quadric_trdeg_two`.
+- `candidate_monomial_not_log` — for a candidate `u`, `e^{c u^k}` is
+  transcendental when `k ≥ 2` and `|c|²|u|^{2(k−1)}` is rational. One example
+  is `e^{u²/|u|}`. It is the unconditional part of the exclusion
+  `u² ∉ ℒ̃`, which needs Roy's strong six exponentials theorem.
+- `geometric_triple_not_logs` — `w`, `wz`, `wz²` are not all logarithms of
+  algebraic numbers when `z ∉ ℚ` and `trdeg ℚ(w, z) ≤ 1`. Hence
+  `exp_pi_sq_or_exp_i_pi_cube_transcendental`: at least one of `e^{π²}` and
+  `e^{iπ³}` is transcendental.
 
 ## What is assumed
 
@@ -468,7 +486,11 @@ transcendental. The proof is the formalization of M. Karatarakis and F. Wiedijk
 every change.
 Its first consumer is `salem_quartic_relations_of_logs`, the unconditional form of
 `salem_quartic_relations` for a real and a purely imaginary logarithm of algebraic numbers. The
-older statement keeps Gelfond–Schneider as its explicit hypothesis `hGS`.
+older statement keeps Gelfond–Schneider as its explicit hypothesis `hGS`. The others:
+`recip_pi_log_rational_line` and `recip_pi_log_on_axis` (the exceptions to (S) form at most one
+rational line, lying on an axis), `recip_pi_not_log_real_or_imag` (the two halves of (S) cannot both
+fail), and `pi_log_two_or_pi_log_three_transcendental`. The six exponentials theorem gives
+`two_three_five_pow_pi_transcendental`: at least one of `2^π`, `3^π`, `5^π` is transcendental.
 
 ## What is *not* proved
 
