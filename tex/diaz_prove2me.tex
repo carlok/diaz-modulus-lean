@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.1, 23 September 2026}
+\date{September 2026\\[2pt]\small Version 1.2, 23 September 2026}
 
 \begin{document}
 \maketitle
@@ -68,7 +68,9 @@ mathematics rather than formalisation, and we say exactly which. A third, which 
 carried until now, turns out not to be needed, and it and the statement it pairs with cannot both
 be false. Along the way the transcendence theorems now available formally yield a few
 unconditional results about classical constants, among them that at least one of
-$\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental.
+$\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental. The smallest open instance of the conjecture,
+$\sqrt{(\log2)^{2}+\pi^{2}}$, is paired with $2^{i\log2/\pi}$: at least one of the two is
+transcendental.
 \end{abstract}
 
 \section{Setting}
@@ -264,7 +266,32 @@ Is $\sqrt{(\log 2)^{2}+\pi^{2}}$ algebraic?
 
 Nothing in this development answers it. Section~\ref{sec:ceiling} shows the strong four
 exponentials conjecture does; Section~\ref{sec:boundary} explains why the available
-unconditional theory does not reach it.
+unconditional theory does not reach it. What that theory does give is a partner that must be
+transcendental if the answer is yes.
+
+\begin{theorem}\label{thm:diaz-number}
+Let $t\neq0$ be real with $\e^{t}\in\Alg$, and suppose $\rho=t^{2}+\pi^{2}$ is algebraic. Then
+$\e^{it^{2}/\pi}$, $\e^{\pi^{2}/t}$ and $\e^{\rho/(i\pi)}$ are transcendental.
+\end{theorem}
+
+\begin{proof}
+The hypothesis makes $t$ algebraic over $\Q(\pi)$, since $t^{2}=\rho-\pi^{2}$; this is its only
+use. With transcendence degree one available, Proposition~\ref{prop:geometric} applies to
+$(w,z)=(i\pi,\,t/(i\pi))$, where $\e^{w}=-1$ and $wz=t$, so $wz^{2}=-it^{2}/\pi\notin\Logs$; and to
+$(w,z)=(t,\,i\pi/t)$, where $wz=i\pi$, so $wz^{2}=-\pi^{2}/t\notin\Logs$. Finally
+$\rho/(i\pi)=-it^{2}/\pi-i\pi$, so $\e^{\rho/(i\pi)}=-\e^{-it^{2}/\pi}$.
+\end{proof}
+
+\begin{corollary}\label{cor:log2}
+At least one of $\sqrt{(\log 2)^{2}+\pi^{2}}$ and $2^{i\log2/\pi}=\e^{i(\log2)^{2}/\pi}$ is
+transcendental.
+\end{corollary}
+
+The third number in Theorem~\ref{thm:diaz-number} couples two open statements. The real half of
+$(S)$, below, asks that $\e^{\gamma/(i\pi)}$ be transcendental for real algebraic $\gamma\neq0$;
+the theorem proves it at every $\gamma=t^{2}+\pi^{2}$ that the present question would make
+algebraic. The two remaining open statements of Section~\ref{sec:what} cannot fail at the same
+number.
 
 \subsection*{A second point in the fibre, and the statement \texorpdfstring{$(S)$}{(S)}}
 
@@ -352,6 +379,12 @@ in one direction only. The imaginary half has a concrete reading: its exceptions
 $\beta=\pi\log\alpha$ that happen to be algebraic, and by (a) all such $\log\alpha$ are rationally
 proportional. For instance, at least one of $\pi\log2$ and $\pi\log3$ is transcendental, although
 neither is known to be.
+
+Each single instance of $(S)$ also has a partner. For every algebraic $\gamma\neq0$, at least one
+of $\e^{i\gamma/\pi}$ and $\e^{i\pi^{3}/\gamma}$ is transcendental, and at least one of
+$\e^{i\gamma/\pi}$ and $\e^{i\gamma^{2}/\pi^{3}}$ is (Proposition~\ref{prop:geometric} with
+$(w,z)=(\gamma/(i\pi),-\pi^{2}/\gamma)$ and $(i\pi,-\gamma/\pi^{2})$). At $\gamma=1$: at least one of
+$\e^{i/\pi}$ and $\e^{i\pi^{3}}$ is transcendental.
 
 Which direction matters for Conjecture~\ref{conj:diaz} is settled by looking at what the branch
 produces. In Proposition~\ref{prop:period-aligned} the number $\gamma=-\pi(\operatorname{Im}u+r\pi)$
@@ -547,7 +580,11 @@ strong four exponentials conjecture reaches this problem while the six exponenti
 not. The obstruction is not depth but dimension, and no sharpening of six exponentials that
 stays inside a three-dimensional certificate space can help. Where there is room the theorem
 works as expected: with $x=(1,\pi)$ and $y=(\log2,\log3,\log5)$ it shows that at least one of
-$2^{\pi}$, $3^{\pi}$, $5^{\pi}$ is transcendental.
+$2^{\pi}$, $3^{\pi}$, $5^{\pi}$ is transcendental; and for $\Q$-independent
+$\lambda,\mu\in\Logs$, at least one of $\e^{\lambda^{2}/\mu}$ and $\e^{\mu^{2}/\lambda}$ is, so that
+one of $2^{\log_{3}2}$ and $3^{\log_{2}3}$ is. The room can also come from a second candidate:
+Section~\ref{sec:outside} shows that two candidates of commensurable moduli give the theorem the
+fourth dimension a single one lacks.
 
 \subsection*{A decomposition that returns to its start}
 
@@ -825,7 +862,74 @@ $u$ is algebraic, against Hermite--Lindemann.
 \end{proof}
 
 Negative exponents follow by applying the corollary to $\bar u$, since
-$cu^{-k}=(c/\rho^{k})\,\bar u^{k}$.
+$cu^{-k}=(c/\rho^{k})\,\bar u^{k}$. The same matrix argument, with $\begin{pmatrix}u&m\\ l&\bar u\end{pmatrix}$
+for $l=pu+q\bar u$ and $m=\rho/l$, shows that $\e^{\rho/(pu+q\bar u)}$ is transcendental for all
+non-zero rationals $p,q$. In particular the harmonic mean $\rho/\operatorname{Re}u$ of $u$ and
+$\bar u$ is not in $\Logs$.
+
+\subsection*{Two candidates, and the six exponentials theorem}
+
+Theorem~\ref{thm:dim} says the six exponentials theorem cannot refute one candidate: its
+certificate is three-dimensional. Two candidates whose squared moduli have rational ratio supply
+the missing dimension.
+
+\begin{theorem}\label{thm:multipliers}
+Let $u,v\in\Logs\setminus\{0\}$ with $|u|^{2}/|v|^{2}=c\in\Q$ and $v\notin\Q u\cup\Q\bar u$. If
+$w\in\Logs$ and $uw/v\in\Logs$, then $w\in\Q v+\Q\bar u$.
+\end{theorem}
+
+\begin{proof}
+Put $m=u/v\notin\Q$. Then $mv=u$ and $m\bar u=c\,\bar v$ lie in $\Logs$. If
+$w\notin\Q v+\Q\bar u$, the six products of $x=(1,m)$ and $y=(v,\bar u,w)$ all lie in $\Logs$, with
+$x$ and $y$ both $\Q$-independent, against the six exponentials theorem.
+\end{proof}
+
+Two lemmas turn this into a statement about candidates. If $p,q$ are candidates and
+$\operatorname{Re}(pq)\in\Alg$, then $q\in\Q\bar p$: indeed $pq$ is then algebraic, since
+$|pq|^{2}$ is, and Gel'fond--Schneider applied to $q=(q/\bar p)\bar p$ forces $q/\bar p\in\Q$. And if
+$u\in\Logs$ lies off both axes and $w,\,uw/\bar u\in\Logs$, then
+$a|u|^{2}+b\,uw+c\,\overline{uw}=0$ for rationals $a,b,c$ not all zero. That lemma is six
+exponentials with $x=(1,u/\bar u)$ and $y=(\bar u,w,\overline{(u/\bar u)w})$.
+
+\begin{theorem}\label{thm:quotient}
+Let $u,v,w$ be candidates with $|u|^{2}/|v|^{2}\in\Q$. If $\e^{uw/v}\in\Alg$, then $v\in\Q u$,
+$w\in\Q v$ or $w\in\Q\bar u$.
+\end{theorem}
+
+\begin{proof}
+If $v\in\Q\bar u$, the second lemma makes $\operatorname{Re}(uw)$ algebraic, and the first gives
+$w\in\Q\bar u$. Otherwise, if $v\notin\Q u$, Theorem~\ref{thm:multipliers} gives
+$w=av+b\bar u$, and $|w|^{2}=a^{2}|v|^{2}+b^{2}|u|^{2}+2ab\operatorname{Re}(uv)$. If $ab\neq0$ this
+makes $\operatorname{Re}(uv)$ algebraic, and the first lemma puts $v\in\Q\bar u$.
+\end{proof}
+
+\begin{corollary}\label{cor:sidon}
+For real algebraic $r>0$ let $\Phi_{r}\subset\R/\pi\Z$ be the set of arguments of the candidates
+of modulus $r$. If $\varphi_{1}+\varphi_{2}=\varphi_{3}+\varphi_{4}\neq0$ with all
+$\varphi_{j}\in\Phi_{r}$, then $\{\varphi_{1},\varphi_{2}\}=\{\varphi_{3},\varphi_{4}\}$. In
+particular $\Phi_{r}$ contains no three-term arithmetic progression.
+\end{corollary}
+
+\begin{proof}
+The relation gives $u_{1}u_{2}=\pm u_{3}u_{4}$ for candidates $u_{j}$ of modulus $r$, so
+$\e^{u_{1}u_{2}/u_{3}}\in\Alg$, and Theorem~\ref{thm:quotient} applies. The third alternative,
+$u_{2}\in\Q\bar u_{1}$, means $\varphi_{1}+\varphi_{2}=0$.
+\end{proof}
+
+So the arguments of candidates on a circle form a Sidon set, up to conjugation. Two candidates
+of commensurable moduli that are not trivially related generate transcendence degree two
+(Theorem~\ref{thm:pair}), where the four exponentials theorem in degree one is silent; this is
+the first constraint of any kind on such families.
+
+The same two tools reach an exponent that Gel'fond--Schneider cannot. For every candidate $u$,
+\[
+  (-1)^{u/\bar u}:=\e^{i\pi u/\bar u}\ \text{is transcendental.}
+\]
+If it were algebraic, the second lemma with $w=i\pi$ would give $\pi\operatorname{Im}u\in\Q\rho$,
+making $u$ algebraic over $\Q(\pi)$; and then the four exponentials theorem in transcendence
+degree one, applied to $\begin{pmatrix}i\pi u/\bar u&i\pi\\ u&\bar u\end{pmatrix}$, gives a
+contradiction, since neither $i\pi\in\Q\bar u$ nor a rational relation between $u$ and $\bar u$ is
+possible.
 
 \subsection*{Saturation at one logarithm}
 
@@ -994,9 +1098,9 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.1 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.2 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Every row of the table below was checked against the platform by script on 23 September 2026, and
-the mirrored project held all 182 proved results of the development at that date.
+the mirrored project held all 195 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1031,6 +1135,8 @@ Prop.~\ref{prop:quant-orbit} & Proved & \nolinkurl{Diaz.quantisation_orbit_iff_r
 Thm~\ref{thm:fibre} & Proved & \nolinkurl{Diaz.fibre_at_most_two} \\
 Cor.~\ref{cor:translate} & Proved & \nolinkurl{Diaz.q_translate_unique} \\
 Thm~\ref{thm:one-relation} & Proved & \nolinkurl{DiazModulus.leaf_iff_one} \\
+Thm~\ref{thm:diaz-number} & Proved & \nolinkurl{DiazModulus.diaz_number_forces_transcendence} \\
+Cor.~\ref{cor:log2} & Proved & \nolinkurl{DiazModulus.log_two_diaz_or_transcendental} \\
 Thm~\ref{thm:novan} & Proved & \nolinkurl{Diaz.no_vanishing_coeff} \\
 Thm~\ref{thm:pencil} & Proved & \nolinkurl{Diaz.det_pencil_eq_conic} \\
 Prop.~\ref{prop:roy} & Proved & \nolinkurl{Diaz.roy_conic_implies_empty} \\
@@ -1046,6 +1152,8 @@ Thm~\ref{thm:S0}(a) & Proved & \nolinkurl{DiazModulus.recip_pi_log_rational_line
 Thm~\ref{thm:S0}(b) & Proved & \nolinkurl{DiazModulus.recip_pi_log_on_axis} \\
 Thm~\ref{thm:S0}(c) & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_real_or_imag} \\
 \S\ref{sec:quant}, $\pi\log2$ or $\pi\log3$ & Proved & \nolinkurl{DiazModulus.pi_log_two_or_pi_log_three_transcendental} \\
+\S\ref{sec:quant}, partners of $\e^{i\gamma/\pi}$ & Proved & \nolinkurl{DiazModulus.recip_pi_or_pi_cube} \\
+\S\ref{sec:quant}, $\e^{i/\pi}$ or $\e^{i\pi^{3}}$ & Proved & \nolinkurl{DiazModulus.exp_i_div_pi_or_exp_i_pi_cube_transcendental} \\
 \S\ref{sec:quant}, real half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_real_gamma} \\
 \S\ref{sec:quant}, imaginary half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_imag_gamma} \\
 Prop.~\ref{prop:no-deriv} & Proved & \nolinkurl{DiazModulus.no_first_order_arithmetic_operator} \\
@@ -1053,6 +1161,8 @@ Prop.~\ref{prop:kronecker} & Proved & \nolinkurl{DiazModulus.kronecker_factorisa
 Prop.~\ref{prop:geometric} & Proved & \nolinkurl{DiazModulus.geometric_triple_not_logs} \\
 Cor.~\ref{cor:epi2} & Proved & \nolinkurl{DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental} \\
 \S\ref{sec:map}, $2^{\pi}$, $3^{\pi}$ or $5^{\pi}$ & Proved & \nolinkurl{DiazModulus.two_three_five_pow_pi_transcendental} \\
+\S\ref{sec:map}, $\e^{\lambda^{2}/\mu}$ or $\e^{\mu^{2}/\lambda}$ & Proved & \nolinkurl{DiazModulus.log_square_duality} \\
+\S\ref{sec:map}, $2^{\log_{3}2}$ or $3^{\log_{2}3}$ & Proved & \nolinkurl{DiazModulus.two_pow_log_three_or_three_pow_log_two} \\
 Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line} \\
 Rem.~\ref{rem:line-cheap} & Proved & \nolinkurl{DiazModulus.candidate_no_real_algebraic_line} \\
 Cor.~\ref{cor:distance} & Proved & \nolinkurl{DiazModulus.candidate_distance_transcendental} \\
@@ -1061,6 +1171,12 @@ Cor.~\ref{cor:square} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_mod
 Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 Thm~\ref{thm:pair} & Proved & \nolinkurl{DiazModulus.log_pair_rigid_of_trdeg_one} \\
 Cor.~\ref{cor:monomial} & Proved & \nolinkurl{DiazModulus.candidate_monomial_not_log} \\
+\S\ref{sec:outside}, harmonic mean & Proved & \nolinkurl{DiazModulus.candidate_harmonic_not_log} \\
+Thm~\ref{thm:multipliers} & Proved & \nolinkurl{DiazModulus.log_ratio_multipliers} \\
+\S\ref{sec:outside}, the two lemmas & Proved & \nolinkurl{DiazModulus.candidate_conj_product_rational}, \nolinkurl{DiazModulus.conj_ratio_multiplier_relation} \\
+Thm~\ref{thm:quotient} & Proved & \nolinkurl{DiazModulus.candidate_quotient_rigid} \\
+Cor.~\ref{cor:sidon} & Proved & \nolinkurl{DiazModulus.candidate_product_relation_trivial} \\
+\S\ref{sec:outside}, $(-1)^{u/\bar u}$ & Proved & \nolinkurl{DiazModulus.candidate_neg_one_pow_ratio} \\
 Thm~\ref{thm:saturation} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
 Cor.~\ref{cor:api} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
 Prop.~\ref{prop:kernel} & Proved & \nolinkurl{DiazModulus.candidate_vanishing_ideal} \\
