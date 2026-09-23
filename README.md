@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-23 it is met: 182 of 182, counting the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-23 it is met: 195 of 195, counting the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider).
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
@@ -451,6 +451,29 @@ The theorem has consequences beyond that case, all in `Diaz/Mirror/`:
   algebraic numbers when `z ∉ ℚ` and `trdeg ℚ(w, z) ≤ 1`. Hence
   `exp_pi_sq_or_exp_i_pi_cube_transcendental`: at least one of `e^{π²}` and
   `e^{iπ³}` is transcendental.
+- `diaz_number_forces_transcendence` — if `t² + π²` is algebraic for a real
+  logarithm `t`, then `e^{it²/π}`, `e^{π²/t}` and `e^{(t²+π²)/(iπ)}` are
+  transcendental. Hence `log_two_diaz_or_transcendental`: **at least one of
+  `√((log 2)² + π²)` and `2^{i log 2/π}` is transcendental.** The first number is
+  the smallest open instance of Diaz's conjecture. The third conclusion says that
+  the two remaining open boundary statements cannot fail at the same number.
+- `recip_pi_or_pi_cube`, `exp_i_div_pi_or_exp_i_pi_cube_transcendental` — each
+  instance of (S) has a partner; at least one of `e^{i/π}` and `e^{iπ³}` is
+  transcendental.
+- `candidate_harmonic_not_log` — for a candidate, `|u|²/(pu + qū)` is not a
+  logarithm of an algebraic number; in particular neither is the harmonic mean
+  of `u` and `ū`.
+
+With the six exponentials theorem, two candidates of commensurable moduli supply
+the dimension that one candidate lacks. `log_ratio_multipliers` identifies what
+`u/v` multiplies back into ℒ. `candidate_quotient_rigid` and
+`candidate_product_relation_trivial` prove that the arguments of the candidates
+on a circle of algebraic radius form a Sidon set up to conjugation, which is the
+first constraint on algebraically independent families of candidates.
+`candidate_neg_one_pow_ratio` makes `(−1)^{u/ū} = e^{iπu/ū}` transcendental for
+every candidate. The duality `log_square_duality` gives
+`two_pow_log_three_or_three_pow_log_two`: at least one of `2^{log₃2}` and
+`3^{log₂3}` is transcendental.
 
 ## What is assumed
 

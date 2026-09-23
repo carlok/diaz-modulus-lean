@@ -141,3 +141,16 @@ import Diaz.Mirror.geometric_triple_not_logs
 import Diaz.Mirror.pi_log_two_or_pi_log_three_transcendental
 import Diaz.Mirror.exp_pi_sq_or_exp_i_pi_cube_transcendental
 import Diaz.Mirror.two_three_five_pow_pi_transcendental
+import Diaz.Mirror.log_ratio_multipliers
+import Diaz.Mirror.candidate_harmonic_not_log
+import Diaz.Mirror.log_square_duality
+import Diaz.Mirror.two_pow_log_three_or_three_pow_log_two
+import Diaz.Mirror.diaz_number_forces_transcendence
+import Diaz.Mirror.recip_pi_or_pi_cube
+import Diaz.Mirror.candidate_conj_product_rational
+import Diaz.Mirror.conj_ratio_multiplier_relation
+import Diaz.Mirror.log_two_diaz_or_transcendental
+import Diaz.Mirror.exp_i_div_pi_or_exp_i_pi_cube_transcendental
+import Diaz.Mirror.candidate_quotient_rigid
+import Diaz.Mirror.candidate_neg_one_pow_ratio
+import Diaz.Mirror.candidate_product_relation_trivial
