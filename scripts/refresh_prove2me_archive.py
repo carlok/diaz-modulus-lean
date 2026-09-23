@@ -55,22 +55,25 @@ without them those reductions would point at text that exists only on the platfo
 
 Not built by this repository.
 
-## These four will not close
+## A superseded branch
 
-All four statements here are a documented dead branch. Each was replaced by a corrected node that
-is Proved, and each one's `Source` line says so on the platform:
+The statements here are a documented dead branch. Each was replaced by a corrected node that is
+Proved, and each one's `Source` line says so on the platform:
 
 | Here | Replaced by | Why |
 | --- | --- | --- |
-| `FourExp.construction_core` | `FourExp.construction_core_1973` | fixes `S = ⌊N²√log N⌋`, where the 1973 text has `S = ⌊N²/√log N⌋`; with the published `S` the degree and height ratios are unbounded, so the statement is true only vacuously |
-| `FourExp.construction_count` | `FourExp.construction_count_1973` | the same wrong `S`; the inequality holds either way, but only the corrected one is what the construction needs |
+| `FourExp.construction_core` | `FourExp.construction_core_1973` | fixes `S = ⌊N²√log N⌋`, where the 1973 text has `S = ⌊N²/√log N⌋`, so it is not what the construction yields. Its hypotheses are contradictory, since they are those of the four exponentials theorem in transcendence degree one, which is Proved, so it can be closed by citing that theorem |
 | `FourExp.auxiliary_function` | `FourExp.auxiliary_function_alg` | omits the hypothesis that the four `exp (xᵢyⱼ)` are algebraic, without which the `ω`-degree of their powers is unbounded |
 | `FourExp.norm_to_polynomial` | `FourExp.norm_to_polynomial_alg` | the same missing hypothesis |
 
-The corrected four are in `archive/prove2me/` and in `Diaz/Mirror/`. Nothing depends on the four
-here except two reductions accepted before the defects were found, the first sketches of
-`auxiliary_construction` and `construction_core_1973`; both nodes are Proved through their second
-sketches.
+A fourth, `FourExp.construction_count`, had the same wrong `S`, but its inequality holds either
+way, and another contributor proved it on 2026-09-23. It is mirrored as `Diaz.construction_count`.
+Its corrected version is `FourExp.construction_count_1973`.
+
+The corrected nodes are in `archive/prove2me/` and in `Diaz/Mirror/`. Nothing depends on the
+statements here except two reductions accepted before the defects were found, the first sketches
+of `auxiliary_construction` and `construction_core_1973`; both nodes are Proved through their
+second sketches.
 """
 
 
