@@ -169,3 +169,5 @@ import Diaz.Mirror.anisotropic_relation_four_exp_barrier
 import Diaz.Mirror.anisotropic_relation_on_circle
 import Diaz.Mirror.generic_period_never_enters
 import Diaz.Mirror.generic_indistinguishable_over_pi
+import Diaz.Mirror.generic_no_strong_six_exp_configuration
+import Diaz.Mirror.generic_qbar_homogeneous_four_exp_barrier

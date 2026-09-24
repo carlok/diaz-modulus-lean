@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 210 of 210, counting the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 212 of 212, counting the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider).
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
@@ -503,8 +503,17 @@ term, as in `diaz_of_sfe`. For a generic candidate the constant is all it can ad
   `Q̄ + Q̄u + Q̄ū + Q̄iπ` with Q̄-independent rows and columns, the coefficient of `iπ`
   in every entry is zero. `det_zero_linear_forms_rank_one_field` is the
   linear-algebra step, over any field of characteristic zero.
+- `generic_qbar_homogeneous_four_exp_barrier` — with algebraic coefficients but no
+  constant there is still no 2×2 configuration over `Q̄u + Q̄ū + Q̄iπ`.
+- `generic_no_strong_six_exp_configuration` — no 2×3 configuration even over
+  `Q̄ + Q̄u + Q̄ū + Q̄iπ`: the proved strong six exponentials theorem gives nothing
+  against a generic candidate, even with `iπ` added.
 
-Non-generic candidates can carry homogeneous relations, and they are harmless:
+Points of a circle can carry homogeneous relations; candidates cannot. For a
+candidate algebraic over ℚ(π) with `Im u ∉ ℚπ`, Théorème 0.2 of Roy–Waldschmidt
+(Ann. Sci. École Norm. Sup. 30, 1997) excludes every rational quadratic relation
+among `u, ū, iπ`. That theorem is not formalised here. What the nodes below add is
+that no 2×2 configuration sees an anisotropic relation:
 
 - `conj_pair_quadratic_relation_iff` — for `u` off the axes with `Im u ∉ ℚπ`, the
   rational quadratic relations among `u, ū, iπ` are exactly the identities
@@ -513,8 +522,9 @@ Non-generic candidates can carry homogeneous relations, and they are harmless:
   zero never yields a configuration, because every 2×2 determinant of rational
   linear forms has one (`det_linear_forms_isotropic`). It uses the transcendence
   of π, not `e^u`.
-- `anisotropic_relation_on_circle` — such relations occur: `Re(u²) = π²` on every
-  circle of algebraic radius greater than π.
+- `anisotropic_relation_on_circle` — such relations occur: `Re(u²) = π²` at points
+  of every circle of algebraic radius greater than π. By Roy–Waldschmidt, `e^u` is
+  transcendental at those points, so none of them is a candidate.
 
 Indistinguishability also holds with π fixed:
 
@@ -527,7 +537,7 @@ Indistinguishability also holds with π fixed:
   candidate algebraically independent of π cannot be told from a non-candidate
   point of its circle by any vanishing statement with coefficients in `K`.
 
-The companion note, version 1.4, states all of this precisely.
+The companion note, version 1.5, states all of this precisely.
 
 ## What is assumed
 

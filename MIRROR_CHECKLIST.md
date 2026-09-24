@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-24): **210** of 210
+As of the latest archived submission (2026-09-24): **212** of 212
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -174,7 +174,9 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.generic_conj_pair_four_exp_barrier` | yes | `Diaz/Mirror/generic_conj_pair_four_exp_barrier.lean` | done |  |
 | `DiazModulus.generic_conj_pair_no_quadratic_relation` | yes | `Diaz/Mirror/generic_conj_pair_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.generic_indistinguishable_over_pi` | yes | `Diaz/Mirror/generic_indistinguishable_over_pi.lean` | done |  |
+| `DiazModulus.generic_no_strong_six_exp_configuration` | yes | `Diaz/Mirror/generic_no_strong_six_exp_configuration.lean` | done |  |
 | `DiazModulus.generic_period_never_enters` | yes | `Diaz/Mirror/generic_period_never_enters.lean` | done |  |
+| `DiazModulus.generic_qbar_homogeneous_four_exp_barrier` | yes | `Diaz/Mirror/generic_qbar_homogeneous_four_exp_barrier.lean` | done |  |
 | `DiazModulus.generic_quadratic_relation_is_norm` | yes | `Diaz/Mirror/generic_quadratic_relation_is_norm.lean` | done |  |
 | `DiazModulus.geometric_triple_not_logs` | yes | `Diaz/Mirror/geometric_triple_not_logs.lean` | done |  |
 | `DiazModulus.hermite_lindemann_holds` | yes | `Diaz/HermiteLindemann.lean` | done |  |
