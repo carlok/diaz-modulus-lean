@@ -373,7 +373,9 @@ places.
   theorem and Hermite–Lindemann, the set of `z ∈ ℒ̃` with `u z ∈ ℒ̃` is
   exactly `Q̄ + Q̄/u`. Consequently `u² ∉ ℒ̃`, and `1/(u − a) ∉ ℒ̃` for every
   non-zero algebraic `a`, even though `1/u` itself is necessarily in `ℒ̃`.
-  Node `69387a9d-5e97-4b55-b6e6-64fa30ba558f`.
+  These are cases of Diaz (J. Théor. Nombres Bordeaux 19, 2007, Théorème 4(1)
+  and Corollaire 5) and of Waldschmidt's *Variations on the six exponentials
+  theorem* (2005), Corollary 2.2. Node `69387a9d-5e97-4b55-b6e6-64fa30ba558f`.
 - `candidate_one_log_saturation` — a candidate lying in `Q̄ + Q̄ℓ` for a
   single `ℓ ∈ ℒ` lies in `Qℓ`; at `ℓ = iπ` this rules out candidates of the
   form `a + bπ`. Node `cf5024d1-43b6-47ac-b3dd-5298beba22a4`.
@@ -404,7 +406,10 @@ least two. The theorem is classical, proved independently by Brownawell (1974)
 and Waldschmidt (1973); no new mathematics is claimed for it.
 
 The route is Waldschmidt's 1973 proof together with the toolbox of his 1971
-paper, so it needs neither Baker's theorem nor a zero estimate:
+paper, so it needs neither a lower bound for linear forms in logarithms nor
+Philippon's zero estimate. The printed 1973 proof meets one hypothesis of its
+Lemme 2 with Gel'fond's two-logarithm bound, which Baker generalised; the
+separation-free zero count of 1971 makes that hypothesis unnecessary:
 
 - `transcendence_criterion` — Gel'fond's criterion in the 1971 form: a number
   approximated well enough by integer polynomials of controlled degree and
@@ -450,16 +455,21 @@ The theorem has consequences beyond that case, all in `Diaz/Mirror/`:
 - `geometric_triple_not_logs` — `w`, `wz`, `wz²` are not all logarithms of
   algebraic numbers when `z ∉ ℚ` and `trdeg ℚ(w, z) ≤ 1`. Hence
   `exp_pi_sq_or_exp_i_pi_cube_transcendental`: at least one of `e^{π²}` and
-  `e^{iπ³}` is transcendental.
+  `e^{iπ³}` is transcendental. Both are classical: Waldschmidt, *Nombres
+  transcendants* (LN 402, 1974), Cor. 7.4.3, and Waldschmidt, J. Number Theory 5
+  (1973), Cor. 2, found independently by Brownawell (1974).
 - `diaz_number_forces_transcendence` — if `t² + π²` is algebraic for a real
   logarithm `t`, then `e^{it²/π}`, `e^{π²/t}` and `e^{(t²+π²)/(iπ)}` are
   transcendental. Hence `log_two_diaz_or_transcendental`: **at least one of
   `√((log 2)² + π²)` and `2^{i log 2/π}` is transcendental.** The first number is
   the smallest open instance of Diaz's conjecture. The third conclusion says that
   the two remaining open boundary statements cannot fail at the same number.
+  Stronger forms of the first two conclusions are classical: they need only `t`
+  algebraic over `ℚ(π)` (LN 402, p. 202), so `2^{i log 2/π}` is transcendental
+  as soon as `log 2` and `π` are algebraically dependent.
 - `recip_pi_or_pi_cube`, `exp_i_div_pi_or_exp_i_pi_cube_transcendental` — each
   instance of (S) has a partner; at least one of `e^{i/π}` and `e^{iπ³}` is
-  transcendental.
+  transcendental. Classical: Waldschmidt 1973, Cor. 4 and the remark after it.
 - `candidate_harmonic_not_log` — for a candidate, `|u|²/(pu + qū)` is not a
   logarithm of an algebraic number; in particular neither is the harmonic mean
   of `u` and `ū`.
@@ -471,9 +481,9 @@ the dimension that one candidate lacks. `log_ratio_multipliers` identifies what
 on a circle of algebraic radius form a Sidon set up to conjugation, which is the
 first constraint on algebraically independent families of candidates.
 `candidate_neg_one_pow_ratio` makes `(−1)^{u/ū} = e^{iπu/ū}` transcendental for
-every candidate. The duality `log_square_duality` gives
-`two_pow_log_three_or_three_pow_log_two`: at least one of `2^{log₃2}` and
-`3^{log₂3}` is transcendental.
+every candidate. The duality `log_square_duality`, the `ℚ`-linear form of
+Diaz 2007, Corollaire 4(3), gives `two_pow_log_three_or_three_pow_log_two`: at
+least one of `2^{log₃2}` and `3^{log₂3}` is transcendental.
 
 ### A barrier: the four exponentials conjecture sees nothing homogeneous
 
@@ -576,8 +586,11 @@ Its first consumer is `salem_quartic_relations_of_logs`, the unconditional form 
 older statement keeps Gelfond–Schneider as its explicit hypothesis `hGS`. The others:
 `recip_pi_log_rational_line` and `recip_pi_log_on_axis` (the exceptions to (S) form at most one
 rational line, lying on an axis), `recip_pi_not_log_real_or_imag` (the two halves of (S) cannot both
-fail), and `pi_log_two_or_pi_log_three_transcendental`. The six exponentials theorem gives
+fail), and `pi_log_two_or_pi_log_three_transcendental`. The first three are Diaz's Théorèmes 4
+and 5 (J. Théor. Nombres Bordeaux 16, 2004) at `v = −1/π`. The six exponentials theorem gives
 `two_three_five_pow_pi_transcendental`: at least one of `2^π`, `3^π`, `5^π` is transcendental.
+The five exponentials theorem, not formalised, already gives one of `2^π`, `3^π` (Waldschmidt,
+*New Advances in Transcendence Theory*, 1988, (2.2.3)).
 
 ## What is *not* proved
 
@@ -645,7 +658,10 @@ sidesteps a real awkwardness — `σ` is semilinear, so Mathlib's
 Parts of this work were done with an AI assistant, including the
 formalization and two adversarial audits of it. Every attribution was
 checked against primary sources, and several claims of novelty died that
-way. What survives is what survived that.
+way. What survives is what survived that. A reading of the published work of
+Diaz, Roy, Waldschmidt and Dasgupta–Kakde on 24 September 2026 moved several
+more results from "possibly known" to known; version 1.6 of the note and the
+node texts on the platform attribute each one.
 
 ## Palomar submission surface
 

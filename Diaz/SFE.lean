@@ -9,6 +9,7 @@ single instantiation. Take `x = (u, |u|)` and `y = (1, |u|/u)`; the four
 products are `u`, `|u|`, `|u|` and `conj u`, all four of them in `ℒ̃`, and
 the two pairs are `Q̄`-independent because `u` is transcendental. So the
 strong four exponentials conjecture is violated unless no candidate exists.
+The observation is Diaz's; Waldschmidt's book (2000, p. 399) credits it to him.
 
 This is the ceiling of the whole problem: everything else in the
 development is an attempt to ask for less than this.
@@ -27,7 +28,8 @@ every non-zero `u` with algebraic modulus, `exp u` is transcendental. -/
 def DiazModulusConjecture : Prop :=
   ∀ u : ℂ, u ≠ 0 → IsAlgebraic ℚ ((‖u‖ : ℝ) : ℂ) → Transcendental ℚ (Complex.exp u)
 
-/-- **The strong four exponentials conjecture** (Waldschmidt). For
+/-- **The strong four exponentials conjecture**, proposed by Roy (J. Number
+Theory 41, 1992); Conjecture 11.17 of Waldschmidt's book (2000). For
 `Q̄`-linearly independent pairs `x₁,x₂` and `y₁,y₂`, at least one of the
 four products `xᵢyⱼ` falls outside `ℒ̃`. -/
 def StrongFourExponentials : Prop :=

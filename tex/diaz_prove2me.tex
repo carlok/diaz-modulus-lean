@@ -40,20 +40,20 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.5, 24 September 2026}
+\date{September 2026\\[2pt]\small Version 1.6, 24 September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Diaz asked in 2004 whether a non-zero complex number can be a logarithm of an algebraic
+Diaz asked whether a non-zero complex number can be a logarithm of an algebraic
 number and have algebraic modulus. We give a short formal development of the question. All but
 one of the numbered statements below have been checked by machine, and the exception is flagged
 where it appears; Appendix~A records where each proof lives, so that any claim here can be
 verified rather than taken.
 
 The results divide in two. The first part is a spine: the strong four exponentials conjecture
-settles the question outright, by a single instantiation; a statement it implies, which we
+settles the question outright, by a single instantiation due to Diaz; a statement it implies, which we
 call~$(S)$, settles the part of it that the elementary theory reduces to; and the value that a
 counterexample to $(S)$ would exhibit cannot be a root of unity. The second part is negative, and is the
 reason for the paper. We show that one natural line of attack --- assembling the certified data
@@ -68,11 +68,12 @@ on the logarithms a counterexample certifies: only a configuration with a consta
 one, and for a generic counterexample the period $i\pi$ cannot enter it. What is left is two
 statements, both open mathematics rather than formalisation, and we say exactly which. A third, which the development had
 carried until now, turns out not to be needed, and it and the statement it pairs with cannot both
-be false. Along the way the transcendence theorems now available formally yield a few
-unconditional results about classical constants, among them that at least one of
-$\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental. The smallest open instance of the conjecture,
-$\sqrt{(\log2)^{2}+\pi^{2}}$, is paired with $2^{i\log2/\pi}$: at least one of the two is
-transcendental.
+be false. Along the way the transcendence theorems now available formally give machine-checked
+proofs of statements about classical constants, among them that at least one of
+$\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental, a result of Brownawell and Waldschmidt from
+1973--74. The smallest open instance of the conjecture, $\sqrt{(\log2)^{2}+\pi^{2}}$, is paired with
+$2^{i\log2/\pi}$: at least one of the two is transcendental. Several results below are classical,
+or special cases of results of Diaz, Roy and Waldschmidt; each is attributed where it appears.
 \end{abstract}
 
 \section{Setting}
@@ -85,10 +86,16 @@ for the logarithms of algebraic numbers, and $\aLogs$ for the $\Alg$-vector subs
 spanned by $1$ together with $\Logs$. Complex conjugation is written $\bar{\phantom{u}}$, and
 $\overline{\e^{u}}=\e^{\bar u}$, so $\Logs$ is stable under it.
 
-\begin{conjecture}[Diaz, 2004~\cite{diaz-2004}]\label{conj:diaz}
+\begin{conjecture}[Diaz~\cite{waldschmidt-book,diaz-2004}]\label{conj:diaz}
 For every $u\in\C$ with $u\neq0$ and $\lvert u\rvert\in\Alg$, the number $\e^{u}$ is
 transcendental.
 \end{conjecture}
+
+Waldschmidt's book records the question as open and derives it from the strong four exponentials
+conjecture below, crediting that observation to Diaz~\cite[p.~399]{waldschmidt-book}; Diaz states
+it as his Conjecture~$C(\lvert u\rvert)$ in~\cite[\S5.1]{diaz-2004}. His earlier
+paper~\cite{diaz-1997} treats the homogeneous analogue, in which $\lvert u\rvert^{2}$ is a rational
+multiple of $\pi^{2}$.
 
 We call $u$ a \emph{candidate} when it violates this: $u\neq0$, $\lvert u\rvert\in\Alg$, and
 $\e^{u}\in\Alg$. A candidate carries exactly four pieces of certified data,
@@ -114,8 +121,9 @@ independent over $\Alg$. Then at least one of the four products $x_{i}y_{j}$ lie
 $\aLogs$.
 \end{conjecture}
 
-This is Waldschmidt's strengthening of the four exponentials conjecture, in which linear
-independence is taken over $\Alg$ rather than over $\Q$. Both are open.
+This strengthening of the four exponentials conjecture, with linear independence over $\Alg$
+rather than over $\Q$ and the products allowed to lie in $\aLogs$, was proposed by
+Roy~\cite{roy-1992}; it is Conjecture~11.17 of~\cite{waldschmidt-book}. Both are open.
 
 \section{The ceiling}\label{sec:ceiling}
 
@@ -142,6 +150,9 @@ fourth because $\lvert u\rvert^{2}$ is algebraic and $\Alg\cdot1\subseteq\aLogs$
 contradicts Conjecture~\ref{conj:sfe}.
 \end{proof}
 
+The instantiation is the one Waldschmidt's book gives, crediting it to
+Diaz~\cite[p.~399]{waldschmidt-book}.
+
 \begin{remark}\label{rem:schanuel}
 Schanuel's conjecture also suffices, by a different route. If $u$ and $\bar u$ are linearly
 independent over $\Q$, Schanuel at $n=2$ gives
@@ -149,7 +160,8 @@ $\trdeg_{\Q}\Q(u,\bar u,\e^{u},\e^{\bar u})\geq2$, hence $\trdeg_{\Q}\Q(u,\bar u
 the two exponentials are algebraic; but $u\bar u\in\Alg$ is a non-trivial algebraic relation, so
 that degree is at most $1$. If instead $u=q\bar u$ with $q\in\Q$, then $\lvert q\rvert=1$, so
 $q=\pm1$ and $u^{2}=\pm\lvert u\rvert^{2}\in\Alg$, making $u$ algebraic; Hermite--Lindemann
-finishes. Schanuel at $n=1$ is itself Hermite--Lindemann, so no separate input is needed.
+finishes. Schanuel at $n=1$ is itself Hermite--Lindemann, so no separate input is needed. This is
+Diaz's Proposition~1~\cite[pp.~550--551]{diaz-2004}, with the same two cases.
 \end{remark}
 
 Theorem~\ref{thm:sfe-implies-diaz} fixes the ceiling of the whole subject. Any decomposition of
@@ -289,6 +301,13 @@ At least one of $\sqrt{(\log 2)^{2}+\pi^{2}}$ and $2^{i\log2/\pi}=\e^{i(\log2)^{
 transcendental.
 \end{corollary}
 
+Both statements are special cases of classical results. The proof uses the hypothesis only to make
+$t$ algebraic over $\Q(\pi)$, and under that weaker hypothesis the first two conclusions follow from
+a remark of Waldschmidt~\cite[p.~202]{waldschmidt-1974}: for $\Q$-linearly independent
+$\ell_{1},\ell_{2}\in\Logs$, either they are algebraically independent or $\exp(\ell_{1}^{2}/\ell_{2})$ is
+transcendental. So $2^{i\log2/\pi}$ is transcendental as soon as $\log2$ and $\pi$ are algebraically
+dependent. The second conclusion is also Proposition~1 of~\cite{diaz-1997}.
+
 The third number in Theorem~\ref{thm:diaz-number} couples two open statements. The real half of
 $(S)$, below, asks that $\e^{\gamma/(i\pi)}$ be transcendental for real algebraic $\gamma\neq0$;
 the theorem proves it at every $\gamma=t^{2}+\pi^{2}$ that the present question would make
@@ -335,6 +354,10 @@ since $i\pi$ is transcendental and so is $\lambda$, whose algebraicity would mak
 $i\pi=\gamma/\lambda$ algebraic. This contradicts Conjecture~\ref{conj:sfe}.
 \end{proof}
 
+Up to scaling a row, this is the configuration Waldschmidt uses for his Consequence~1.6
+in~\cite{waldschmidt-2005a}, at $\Lambda=i\pi$: under Conjecture~\ref{conj:sfe}, $1/\pi\notin\aLogs$,
+which is stronger than $(S)$.
+
 Whether $(S)$ is strictly weaker than Conjecture~\ref{conj:sfe} is not known; what is known is that
 it asks for much less, one number against a whole configuration. Its hypothetical counterexamples
 are also more constrained than the value $\e^{\gamma/(i\pi)}$ suggests.
@@ -359,7 +382,7 @@ $\beta$ real, $\e^{\beta/\pi}$ is transcendental --- that is, $\pi\neq\beta/\log
 algebraic $\beta\neq0$ and algebraic $\alpha>0$, $\alpha\neq1$. The reduction is machine-checked,
 and both halves are open. They cannot both fail.
 
-\begin{theorem}\label{thm:S0}
+\begin{theorem}[Diaz]\label{thm:S0}
 \begin{enumerate}[label=\textup{(\alph*)}]
   \item If $\gamma_{1},\gamma_{2}\in S_{0}$ and $\gamma_{2}\neq0$, then $\gamma_{1}/\gamma_{2}\in\Q$.
   \item Every element of $S_{0}$ is real or purely imaginary.
@@ -376,17 +399,24 @@ parts, either $\operatorname{Re}\gamma=0$, or $q=1$ and $\operatorname{Im}\gamma
 real element and a non-zero purely imaginary one would be rationally proportional by (a).
 \end{proof}
 
+This is Diaz's~\cite[Th\'eor\`emes~4 and~5]{diaz-2004} at $v=-1/\pi$. He shows that $\e^{v\alpha}$
+is transcendental for real $v\neq0$ and algebraic $\alpha$ off both axes, and that
+$\{\alpha\in\Alg^{\times}:\e^{\alpha}\in\Alg\}$ is empty or of the form $\Q^{\times}\alpha_{0}$ with
+$\alpha_{0}$ on an axis. The proof of the second applies verbatim to $\e^{v\alpha}$, and
+$\gamma\in S_{0}$ exactly when $\e^{v\alpha}\in\Alg$ for $\alpha=i\gamma$.
+
 So $S_{0}$ is either $\{0\}$ or a single rational line on one axis, and $(S)$ can fail, if at all,
 in one direction only. The imaginary half has a concrete reading: its exceptions are the
 $\beta=\pi\log\alpha$ that happen to be algebraic, and by (a) all such $\log\alpha$ are rationally
 proportional. For instance, at least one of $\pi\log2$ and $\pi\log3$ is transcendental, although
-neither is known to be.
+neither is known to be; this is the transcendence of $\log3/\log2$.
 
 Each single instance of $(S)$ also has a partner. For every algebraic $\gamma\neq0$, at least one
 of $\e^{i\gamma/\pi}$ and $\e^{i\pi^{3}/\gamma}$ is transcendental, and at least one of
 $\e^{i\gamma/\pi}$ and $\e^{i\gamma^{2}/\pi^{3}}$ is (Proposition~\ref{prop:geometric} with
 $(w,z)=(\gamma/(i\pi),-\pi^{2}/\gamma)$ and $(i\pi,-\gamma/\pi^{2})$). At $\gamma=1$: at least one of
-$\e^{i/\pi}$ and $\e^{i\pi^{3}}$ is transcendental.
+$\e^{i/\pi}$ and $\e^{i\pi^{3}}$ is transcendental. These are instances of Corollaire~4
+of~\cite{waldschmidt-1973}, and the case $\gamma=1$ is stated there, on p.~192.
 
 Which direction matters for Conjecture~\ref{conj:diaz} is settled by looking at what the branch
 produces. In Proposition~\ref{prop:period-aligned} the number $\gamma=-\pi(\operatorname{Im}u+r\pi)$
@@ -404,8 +434,10 @@ Attach to a candidate $u$, with $\rho=u\bar u$ and $r=\sqrt{\rho}$, the matrix
   H(u,r)\;=\;\begin{pmatrix} u & r\\ r & \bar u\end{pmatrix},
   \qquad \det H(u,r)=u\bar u-r^{2}=0 .
 \]
-Its rows are dependent over $\C$. The next statement says they are dependent in no weaker
-sense, and it is the sharpest way to see where this problem sits.
+The matrix is in Waldschmidt's book~\cite[p.~15]{waldschmidt-book}, where the ordinary four
+exponentials conjecture applied to it gives the transcendence of $\e^{\lvert\lambda\rvert}$ for
+non-real $\lambda\in\Logs$. Its rows are dependent over $\C$. The next statement says they are
+dependent in no weaker sense, and it is the sharpest way to see where this problem sits.
 
 \begin{theorem}[No vanishing coefficient]\label{thm:novan}
 Let $K\subseteq\C$ be a subfield with $r\in K$, $r\neq0$, and let $u$ be transcendental over
@@ -488,31 +520,50 @@ quadric defined over $k$ provided every non-zero matrix $M$ over $\mathcal{E}$ s
 \[
   \operatorname{rank}(M)\;>\;\tfrac12\,r_{\mathrm{str}}(M),
 \]
-the structural rank taken over $k$. Two things separate that from Diaz's conjecture, and they are
-of different kinds.
+the structural rank taken over $k$. Structural rank is Roy's notion. What separates this from
+Diaz's conjecture depends on the setting, and version~1.5 of this note got it wrong.
 
 \begin{enumerate}[label=\textup{(\alph*)}]
-  \item \textbf{The rank inequality.} Over $(\Q,\C,\Logs)$ it is supplied at transcendence
-        degree one by Theorem~15.30 of the same book --- which is why the
-        transcendence-degree-one statements in this area are unconditional, and equally why they
-        are not new. Over $(\Alg,\C,\aLogs)$, the coefficient field this problem requires, only
-        the non-strict bound of Corollary~12.22 is known. This is being worked on; the
-        Structural Rank Conjecture of Dasgupta and Kakde asserts something stronger.
-  \item \textbf{Homogeneity.} Proposition~12.25 covers homogeneous quadrics; $X_{\rho}$ is
-        affine. Waldschmidt makes the point himself, observing that the inhomogeneous extension
-        would give the transcendence of $\e^{\lambda^{2}}$, and that $\e^{\pi^{2}}$ remains
-        open. This is not being worked on.
+  \item \textbf{Over $(\Alg,\C,\aLogs)$}, the coefficient field this problem requires, the rank
+        inequality alone would settle it, and homogeneity is no obstacle. The constant $1$ lies
+        in $\aLogs$, so the affine conic is the homogeneous quadric $X_{1}X_{2}=\rho X_{0}^{2}$ at
+        the point $(1,u,\bar u)$, whose coordinates are linearly independent over $\Alg$. More
+        directly, a candidate violates the inequality on $H(u,r)$ itself, which has rank $1$ and
+        structural rank $2$: its structural matrix is
+        $\bigl(\begin{smallmatrix}X_{1}&rX_{0}\\ rX_{0}&X_{2}\end{smallmatrix}\bigr)$. Roy proved the
+        non-strict bound (Corollary~12.22 of the book). The strict one is open, and for
+        $2\times2$ matrices it contains Conjecture~\ref{conj:sfe}. Equality of rank and structural
+        rank is the Structural Rank Conjecture, equivalent by a theorem of Roy to a case of
+        Schanuel's conjecture~\cite{dasgupta-2023,dasgupta-kakde}.
+  \item \textbf{Over $(\Q,\C,\Logs)$} the rank inequality is supplied at transcendence degree one
+        by Theorem~15.30 of the same book --- which is why the transcendence-degree-one statements
+        in this area are unconditional, and equally why they are not new. There the obstacle is
+        homogeneity: Proposition~12.25 covers homogeneous quadrics, $X_{\rho}$ is affine, and
+        $\Logs$ has no constant to homogenise with. Roy and Waldschmidt make the point
+        themselves~\cite[p.~791]{roy-waldschmidt-1997}: removing the homogeneity hypothesis from
+        their Th\'eor\`eme~0.2 would give the transcendence of $\e^{\ell^{2}}$ for non-zero
+        $\ell\in\Logs$, and that of $\e^{\pi^{2}}$ is not known (see
+        also~\cite[p.~593]{waldschmidt-book}).
 \end{enumerate}
 
-The distinction is worth keeping. An expectation that the subject will drift towards Diaz's
-conjecture is reasonable for~(a) and unsupported for~(b), and it is~(b) that
-Theorem~\ref{thm:one-relation} runs into: $\sqrt{(\log 2)^{2}+\pi^{2}}$ asks about a
-\emph{sum}, and every available tool is homogeneous. The homogeneous companion of that question is
-settled at transcendence degree one: for non-real $\lambda\in\Logs$ with $\lambda$, $\bar\lambda$
-algebraically dependent, $\e^{|\lambda|}$ is transcendental (Roy--Waldschmidt~\cite[Cor.~7.4]{roy-waldschmidt-1997}).
-So if $\log2$ and $\pi$ were algebraically dependent, $\exp\sqrt{(\log2)^{2}+\pi^{2}}$ would be
-transcendental. Whether $\sqrt{(\log2)^{2}+\pi^{2}}$ is itself algebraic is the inhomogeneous
-question, and it is open.
+The inhomogeneous direction has been studied. Waldschmidt proved that for a $2\times3$ matrix over
+$\aLogs$ satisfying suitable independence conditions one of the three $2\times2$ minors lies outside
+$\aLogs$, and conjectured the same for $2\times2$
+matrices~\cite[Theorem~1.2 and Conjecture~1.6]{waldschmidt-2005b}. The matrix $H(u,r)$ meets the
+hypotheses of that conjecture and has determinant $0$, so the conjecture implies Diaz's. Roy
+extended the Waldschmidt--Masser rank bound to $\Q+\Logs$ and to $\aLogs$, and Dasgupta and Kakde
+expect their Matrix Coefficient Conjecture to extend to $\Q+\Logs$~\cite[\S2]{dasgupta-kakde}.
+None of this is known to reach a candidate.
+
+On the unconditional route it is~(b) that Theorem~\ref{thm:one-relation} runs into:
+$\sqrt{(\log 2)^{2}+\pi^{2}}$ asks about a \emph{sum}, and the transcendence-degree-one theory is
+homogeneous. The homogeneous companion of that question is settled at transcendence degree one: for
+non-real $\lambda\in\Logs$ with $\lambda$, $\bar\lambda$ algebraically dependent,
+$\e^{|\lambda|}$ is transcendental (Diaz~\cite[Proposition~2]{diaz-1997};
+Roy--Waldschmidt~\cite[Cor.~7.4]{roy-waldschmidt-1997}, who give this example). So if $\log2$ and
+$\pi$ were algebraically dependent, $\exp\sqrt{(\log2)^{2}+\pi^{2}}$ would be transcendental.
+Whether $\sqrt{(\log2)^{2}+\pi^{2}}$ is itself algebraic is the inhomogeneous question, and it is
+open.
 
 What the homogeneous theory does give at $\e^{\pi^{2}}$ is worth recording, because it is
 unconditional and machine-checked. The four exponentials theorem in transcendence degree one
@@ -529,7 +580,10 @@ entries in $\Logs$ generating transcendence degree at most one, so its rows or c
 non-trivial rational relation $p\,w+q\,wz=0$; this forces $z=-p/q\in\Q$.
 \end{proof}
 
-\begin{corollary}\label{cor:epi2}
+This is Corollaire~7.4.3 of~\cite{waldschmidt-1974}; an equivalent form is
+Exercise~15.16(b)(ii) of~\cite{waldschmidt-book}, and it is in~\cite[p.~241]{diaz-1997}.
+
+\begin{corollary}[Brownawell, Waldschmidt]\label{cor:epi2}
 At least one of $\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental.
 \end{corollary}
 
@@ -537,7 +591,12 @@ At least one of $\e^{\pi^{2}}$ and $\e^{i\pi^{3}}$ is transcendental.
 Take $w=i\pi$ and $z=-i\pi$: then $\e^{w}=-1$, $wz=\pi^{2}$ and $wz^{2}=-i\pi^{3}$.
 \end{proof}
 
-This is as close to $\e^{\pi^{2}}$ as the homogeneous theory comes.
+This is Corollaire~2 of~\cite{waldschmidt-1973} at $\alpha=-1$, $r=1$, found independently by
+Brownawell~\cite{brownawell-1974}; Diaz gives this proof~\cite[p.~386]{diaz-2007}. The homogeneous
+theory says more at the same point: if $\e^{\pi^{2}}$ is algebraic, then $\e$ and $\pi$ are
+algebraically independent~\cite[Corollaire~1]{waldschmidt-1973}, and so are $\pi$ and
+$\e^{i\pi^{3}}$~\cite[Exercise~15.15(c)]{waldschmidt-book}. Those need the 1973 theorem in its
+algebraic-independence form, which is not formalised.
 
 
 
@@ -606,6 +665,11 @@ $x_{i}y_{j}$ in that span; and for no $\Alg$-independent $x$ of length $2$ and $
 do all six products $x_{i}y_{j}$ lie in it.
 \end{theorem}
 
+The last clause is a case of a theorem of Roy on spaces of dimension at most
+three~\cite[Lemma~12.16 and Exercise~12.10]{waldschmidt-book}: a matrix with entries in such a space
+and linearly independent rows and columns has rank at least a quarter of the number of its rows and
+columns together, so a $2\times3$ one has rank $2$.
+
 The certificate a candidate offers is three-dimensional. A $2\times2$ configuration needs four
 products and fits; a $2\times3$ configuration needs six and cannot. That is the whole reason the
 strong four exponentials conjecture reaches this problem while the six exponentials
@@ -615,7 +679,10 @@ stays inside a three-dimensional certificate space can help. Where there is room
 works as expected: with $x=(1,\pi)$ and $y=(\log2,\log3,\log5)$ it shows that at least one of
 $2^{\pi}$, $3^{\pi}$, $5^{\pi}$ is transcendental; and for $\Q$-independent
 $\lambda,\mu\in\Logs$, at least one of $\e^{\lambda^{2}/\mu}$ and $\e^{\mu^{2}/\lambda}$ is, so that
-one of $2^{\log_{3}2}$ and $3^{\log_{2}3}$ is. The room can also come from a second candidate:
+one of $2^{\log_{3}2}$ and $3^{\log_{2}3}$ is. Both are known in stronger forms: the five
+exponentials theorem already gives one of $2^{\pi}$ and $3^{\pi}$~\cite[(2.2.3)]{waldschmidt-1988},
+and the second statement is the $\Q$-linear form of~\cite[Corollaire~4(3)]{diaz-2007}. The room can
+also come from a second candidate:
 Section~\ref{sec:outside} shows that two candidates of commensurable moduli give the theorem the
 fourth dimension a single one lacks.
 
@@ -715,8 +782,9 @@ The configuration $\bigl(\begin{smallmatrix}1&\bar u\\u&\rho\end{smallmatrix}\bi
 Theorem~\ref{thm:sfe-implies-diaz} is of this kind. The logarithm $i\pi$ of $-1$, which every
 candidate supplies for free, is of no use to it. Part~(c) extends Theorem~\ref{thm:dim} from
 $1,u,\bar u$ to $1,u,\bar u,i\pi$, where counting dimensions no longer decides: Roy's strong six
-exponentials theorem~\cite{roy-1992}, the proved result closest to the strong four exponentials
-conjecture, gives nothing against a generic candidate even with the period added. Diaz observed
+exponentials theorem~\cite{roy-1992}, in Diaz's words the known result closest to the strong four
+exponentials conjecture~\cite[p.~379]{diaz-2007}, gives nothing against a generic candidate even
+with the period added. Diaz observed
 that the theorem has produced no example of a $\lambda\in\aLogs$ with
 $|\lambda|\notin\aLogs$~\cite{diaz-2007}; on a candidate's own data, this is one reason.
 
@@ -817,7 +885,9 @@ Philippon's zero estimate together with the apparatus around it. That reading wa
 the route. Waldschmidt's own proof~\cite{waldschmidt-1973}, with the toolbox of his 1971
 paper~\cite{waldschmidt-1971}, uses none of it: Siegel's lemma, a Gel'fond-type transcendence
 criterion, the maximum principle, and a zero count for exponential polynomials that needs no
-separation hypothesis --- the last being what removes Baker's theorem from the 1973 argument.
+separation hypothesis. The last is what lets the argument do without Gel'fond's lower bound for
+linear forms in two logarithms, which the 1973 paper uses, noting that Baker generalised it, to meet
+a hypothesis of its Lemme~2~\cite[pp.~195, 199]{waldschmidt-1973}.
 Along that route the theorem is now formalised, and the case of the branch that it governs is
 proved with it; see Appendix~\ref{app:certs}. What remains on that branch is not the 1973--74
 theorem but two statements about $1/\pi$, both open. The formal statement takes all four exponentials to be algebraic,
@@ -909,6 +979,8 @@ inhomogeneous form then makes the non-zero $\Alg$-combination $B\lambda+\bar B\b
 transcendental, so it cannot equal the algebraic number $-C$.
 \end{proof}
 
+The argument is the first step of the proof of~\cite[Th\'eor\`eme~3]{diaz-2004}.
+
 The condition has a geometric reading. Writing $B=B_{1}+iB_{2}$ and $\lambda=x+iy$, the relation
 is $2(B_{1}x-B_{2}y)+C=0$: an affine line with real algebraic coefficients, not both zero. So
 Theorem~\ref{thm:line} says a logarithm off the axes lies on no such line. For a candidate the
@@ -966,6 +1038,10 @@ products of $(1,u)$ with $(z,1,u^{-1})$ are
 all of them in $\aLogs$. This contradicts the strong six exponentials theorem.
 \end{proof}
 
+The inclusion $\subseteq$ is the case $x=(1,u)$, $y=(z,u^{-1})$ of Diaz's
+Th\'eor\`eme~4(1)~\cite{diaz-2007}, and the case $\Lambda_{1}=u$ of Waldschmidt's
+Corollary~2.2~\cite{waldschmidt-2005a}.
+
 The force of (M) is that the right-hand side is closed under nothing useful. Two instances:
 
 \begin{corollary}\label{cor:square}
@@ -982,6 +1058,9 @@ Take $z=u$ in (M). If $u^{2}\in\aLogs$ then $u=a'+b'u^{-1}$ for some $a',b'\in\A
 $u^{2}-a'u-b'=0$ and $u$ is algebraic. The second form follows because $\aLogs$ contains $u$ and
 $\Alg$ and is an $\Alg$-subspace.
 \end{proof}
+
+This is Diaz's Corollaire~5(1)~\cite{diaz-2007}, since $u/\bar u=u^{2}/\rho$; see
+also~\cite[Th\'eor\`eme~3(1)]{diaz-2004}. His Corollaire~5(2) gives $u^{3}\notin\aLogs$ as well.
 
 \begin{corollary}\label{cor:recip}
 Assume the strong six exponentials theorem. For every candidate $u$ and every $a\in\Alg^{\times}$,
@@ -1001,7 +1080,8 @@ is $-a\neq0$. So $u$ is algebraic, a contradiction.
 \end{proof}
 
 The contrast is the point. A candidate's reciprocal $1/u$ necessarily lies in $\aLogs$, while no
-algebraically shifted reciprocal does.
+algebraically shifted reciprocal does. At a candidate, Corollary~\ref{cor:recip} is Diaz's
+Corollaire~5(4)~\cite{diaz-2007}: $1/\lambda$ and $1/(\lambda+\alpha)$ are not both in $\aLogs$.
 
 \subsection*{Commensurable pairs, unconditionally}
 
@@ -1063,7 +1143,8 @@ $\operatorname{Re}(pq)\in\Alg$, then $q\in\Q\bar p$: indeed $pq$ is then algebra
 $|pq|^{2}$ is, and Gel'fond--Schneider applied to $q=(q/\bar p)\bar p$ forces $q/\bar p\in\Q$. And if
 $u\in\Logs$ lies off both axes and $w,\,uw/\bar u\in\Logs$, then
 $a|u|^{2}+b\,uw+c\,\overline{uw}=0$ for rationals $a,b,c$ not all zero. That lemma is six
-exponentials with $x=(1,u/\bar u)$ and $y=(\bar u,w,\overline{(u/\bar u)w})$.
+exponentials with $x=(1,u/\bar u)$ and $y=(\bar u,w,\overline{(u/\bar u)w})$, the $\Q$-linear form
+of Diaz's Corollaire~4(4)~\cite{diaz-2007}.
 
 \begin{theorem}\label{thm:quotient}
 Let $u,v,w$ be candidates with $|u|^{2}/|v|^{2}\in\Q$. If $\e^{uw/v}\in\Alg$, then $v\in\Q u$,
@@ -1185,9 +1266,13 @@ Three statements, in increasing strength, each of which settles Conjecture~\ref{
   \item The single relation of Theorem~\ref{thm:one-relation}, for the branch it governs: for
         real $t\neq0$ with $\e^{t}$ algebraic, $t^{2}+\pi^{2}$ is transcendental. Smallest open
         instance: is $\sqrt{(\log2)^{2}+\pi^{2}}$ algebraic?
-  \item The rank inequality of \S\ref{sec:boundary}(a) over $(\Alg,\C,\aLogs)$, together with an
-        inhomogeneous extension of Proposition~12.25. The first component is under active study;
-        the second is not.
+  \item The strong five exponentials conjecture of Waldschmidt~\cite[p.~379]{waldschmidt-1988},
+        which he notes is weaker than the strong four exponentials conjecture. With
+        $x_{1}=y_{1}=1$ its fifth exponential is one of the four, so the instantiations of
+        Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} apply to it unchanged. Version~1.5
+        put here the rank inequality of \S\ref{sec:boundary}(a) together with an inhomogeneous
+        extension of Proposition~12.25; the extension is not needed, and for $2\times2$ matrices the
+        inequality contains Conjecture~\ref{conj:sfe}, so it was no weaker than item~(3).
   \item The strong four exponentials conjecture, which settles the whole question at once by
         Theorem~\ref{thm:sfe-implies-diaz}.
 \end{enumerate}
@@ -1240,8 +1325,11 @@ transcendance de valeurs de la fonction exponentielle usuelle}, J. Théor. Nombr
 \bibitem{diaz-2007} G.~Diaz, \emph{Produits et quotients de combinaisons linéaires de logarithmes
 de nombres algébriques : conjectures et résultats partiels}, J. Théor. Nombres Bordeaux
 \textbf{19} (2007), 373--391. It combines Roy's strong six exponentials theorem with complex
-conjugation to obtain cases of the strong four exponentials conjecture; Roy's theorem is not
-formalised, so those results are not used here.
+conjugation to obtain cases of the strong four exponentials conjecture. Roy's theorem is not
+formalised; where results of Section~\ref{sec:outside} coincide with Diaz's, they carry it as a
+hypothesis.
+\bibitem{diaz-1997} G.~Diaz, \emph{La conjecture des quatre exponentielles et les conjectures de
+D.~Bertrand sur la fonction modulaire}, J. Théor. Nombres Bordeaux \textbf{9} (1997), 229--245.
 \bibitem{karatarakis-wiedijk} M.~Karatarakis and F.~Wiedijk, \emph{A formalization of the
 Gelfond-Schneider theorem}, arXiv:2603.24823 (2026).
 \bibitem{roy-waldschmidt-1995} D.~Roy and M.~Waldschmidt, \emph{Quadratic relations between
@@ -1257,10 +1345,22 @@ related to the exponential function}, J. Number Theory \textbf{6} (1974), 22--31
 J. Number Theory \textbf{5} (1973), 191--202.
 \bibitem{waldschmidt-1971} M.~Waldschmidt, \emph{Indépendance algébrique des valeurs de la
 fonction exponentielle}, Bull. Soc. Math. France \textbf{99} (1971), 285--304.
+\bibitem{waldschmidt-1974} M.~Waldschmidt, \emph{Nombres transcendants}, Lecture Notes in Math.
+\textbf{402}, Springer, 1974.
+\bibitem{waldschmidt-1988} M.~Waldschmidt, \emph{On the transcendence methods of Gel'fond and
+Schneider in several variables}, in \emph{New Advances in Transcendence Theory} (Durham, 1986),
+Cambridge Univ. Press, 1988, 375--398.
 \bibitem{waldschmidt-book} M.~Waldschmidt, \emph{Diophantine Approximation on Linear Algebraic
 Groups}, Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2000.
-\bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{On ranks of matrices of logarithms},
-preprint.
+\bibitem{waldschmidt-2005a} M.~Waldschmidt, \emph{Variations on the six exponentials theorem}, in
+\emph{Algebra and Number Theory} (R.~Tandon, ed.), Hindustan Book Agency, 2005.
+\bibitem{waldschmidt-2005b} M.~Waldschmidt, \emph{Further variations on the six exponentials
+theorem}, Hardy-Ramanujan J. \textbf{28} (2005), 1--9.
+\bibitem{dasgupta-2023} S.~Dasgupta, \emph{Ranks of matrices of logarithms of algebraic numbers I:
+the theorems of Baker and Waldschmidt--Masser}, Essent. Number Theory \textbf{2} (2023), 93--138.
+\bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{Ranks of matrices of logarithms of
+algebraic numbers II: the matrix coefficient conjecture}, Adv. Math. \textbf{487} (2026),
+Art.~110753.
 \end{thebibliography}
 
 
@@ -1281,7 +1381,10 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.5 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.6 of the note; version 1.0 of 21 September 2026 is the first stable release.
+Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
+and corrects attributions throughout: several results below are classical or special cases of
+theirs, and each is attributed in the text.
 Every row of the table below was checked against the platform by script on 24 September 2026, and
 the mirrored project held all 212 proved results of the development at that date.
 
