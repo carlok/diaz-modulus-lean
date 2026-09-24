@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-23 it is met: 195 of 195, counting the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 200 of 200, counting the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider).
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
@@ -474,6 +474,27 @@ first constraint on algebraically independent families of candidates.
 every candidate. The duality `log_square_duality` gives
 `two_pow_log_three_or_three_pow_log_two`: at least one of `2^{log₃2}` and
 `3^{log₂3}` is transcendental.
+
+### A barrier: the four exponentials conjecture sees nothing homogeneous
+
+A candidate certifies three logarithms: `u`, `ū` and `iπ`. On them, the four
+exponentials *conjecture* (ℚ-independent rows and columns, products in ℒ) is
+already a theorem, so it can give nothing.
+
+- `generic_conj_pair_no_quadratic_relation` — if `|u|²` is algebraic and `u`, `πi`
+  are algebraically independent over Q̄, no rational quadratic form vanishes at
+  `(u, ū, iπ)`. It does not use `e^u`.
+- `generic_conj_pair_four_exp_barrier` — hence every singular 2×2 matrix over
+  `ℚu + ℚū + ℚiπ` has ℚ-dependent rows or columns. `det_zero_linear_forms_rank_one`
+  is the classical linear-algebra step.
+- `candidate_nongeneric_four_exp_barrier` — the same conclusion for candidates
+  algebraic over ℚ(π), where the proved four exponentials theorem in
+  transcendence degree one does the work.
+- `recip_pi_log_four_exp_barrier` — the same on `ℚ·γ/(iπ) + ℚ·iπ`, the data an
+  exception to (S) would certify.
+
+A configuration that does detect a counterexample needs an entry with a constant
+term, as in `diaz_of_sfe`. The companion note, version 1.3, states this precisely.
 
 ## What is assumed
 

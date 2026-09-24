@@ -3194,5 +3194,65 @@
   "bytes": 923,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.generic_conj_pair_no_quadratic_relation",
+  "theorem_id": "d6ad726a-a8a5-4bd5-ba3b-ab7d391b7449",
+  "submission_id": "74406b6d-65bf-4fff-b12e-441cc5a4f185",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-23T20:38:20.213101+00:00",
+  "file": "DiazModulus.generic_conj_pair_no_quadratic_relation__74406b6d.lean",
+  "bytes": 4457,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.recip_pi_log_four_exp_barrier",
+  "theorem_id": "9f801e29-5196-47a8-87b9-013bfadae6af",
+  "submission_id": "35ed3dd4-f0d8-4f99-b7ff-0d200715b897",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-23T20:42:29.237982+00:00",
+  "file": "DiazModulus.recip_pi_log_four_exp_barrier__35ed3dd4.lean",
+  "bytes": 5477,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.candidate_nongeneric_four_exp_barrier",
+  "theorem_id": "024631c4-4d51-41d2-b346-2da1b253bb62",
+  "submission_id": "371c34ee-cbea-4545-a35e-358aa180181d",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-23T20:38:21.566991+00:00",
+  "file": "DiazModulus.candidate_nongeneric_four_exp_barrier__371c34ee.lean",
+  "bytes": 8464,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.generic_conj_pair_four_exp_barrier",
+  "theorem_id": "7d4a06b0-0c88-4474-892f-16c8ec61a80e",
+  "submission_id": "c9cc1a9c-2db3-4cc1-b81a-94c3e35d01c0",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-23T20:42:25.217012+00:00",
+  "file": "DiazModulus.generic_conj_pair_four_exp_barrier__c9cc1a9c.lean",
+  "bytes": 2751,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.det_zero_linear_forms_rank_one",
+  "theorem_id": "43368f52-e0aa-4270-9798-a38107dc9561",
+  "submission_id": "fac99310-8598-4cbb-b5f0-5e1f18369852",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-23T20:38:17.28409+00:00",
+  "file": "DiazModulus.det_zero_linear_forms_rank_one__fac99310.lean",
+  "bytes": 3912,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]

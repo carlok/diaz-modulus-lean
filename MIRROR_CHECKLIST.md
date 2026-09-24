@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-23): **195** of 195
+As of the latest archived submission (2026-09-23): **200** of 200
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -137,6 +137,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.candidate_multiplier_module` | yes | `Diaz/Multipliers.lean` | done |  |
 | `DiazModulus.candidate_neg_one_pow_ratio` | yes | `Diaz/Mirror/candidate_neg_one_pow_ratio.lean` | done |  |
 | `DiazModulus.candidate_no_real_algebraic_line` | yes | `Diaz/CheapLine.lean` | done |  |
+| `DiazModulus.candidate_nongeneric_four_exp_barrier` | yes | `Diaz/Mirror/candidate_nongeneric_four_exp_barrier.lean` | done |  |
 | `DiazModulus.candidate_one_log_saturation` | yes | `Diaz/Multipliers.lean` | done |  |
 | `DiazModulus.candidate_one_self_conj_linearIndependent` | yes | `Diaz/Mirror/candidate_one_self_conj_linearIndependent.lean` | done |  |
 | `DiazModulus.candidate_orbit_and_plane_rigidity` | yes | `Diaz/Mirror/candidate_orbit_and_plane_rigidity.lean` | done |  |
@@ -146,6 +147,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.candidate_vanishing_ideal` | yes | `Diaz/Kernel.lean` | done |  |
 | `DiazModulus.conj_eq_norm_sq_div` | yes | `Diaz/Mirror/conj_eq_norm_sq_div.lean` | done |  |
 | `DiazModulus.conj_ratio_multiplier_relation` | yes | `Diaz/Mirror/conj_ratio_multiplier_relation.lean` | done |  |
+| `DiazModulus.det_zero_linear_forms_rank_one` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one.lean` | done |  |
 | `DiazModulus.diaz_iff_no_candidate` | yes | `Diaz/Mirror/diaz_iff_no_candidate.lean` | done |  |
 | `DiazModulus.diaz_locus_dictionary` | yes | `Diaz/Mirror/diaz_locus_dictionary.lean` | done |  |
 | `DiazModulus.diaz_number_forces_transcendence` | yes | `Diaz/Mirror/diaz_number_forces_transcendence.lean` | done |  |
@@ -162,6 +164,8 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.exp_i_div_pi_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_i_div_pi_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_pi_sq_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.four_exponentials_trdeg_one` | yes | `Diaz/Mirror/four_exponentials_trdeg_one.lean` | done |  |
+| `DiazModulus.generic_conj_pair_four_exp_barrier` | yes | `Diaz/Mirror/generic_conj_pair_four_exp_barrier.lean` | done |  |
+| `DiazModulus.generic_conj_pair_no_quadratic_relation` | yes | `Diaz/Mirror/generic_conj_pair_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.geometric_triple_not_logs` | yes | `Diaz/Mirror/geometric_triple_not_logs.lean` | done |  |
 | `DiazModulus.hermite_lindemann_holds` | yes | `Diaz/HermiteLindemann.lean` | done |  |
 | `DiazModulus.kronecker_factorisation` | yes | `Diaz/Mirror/kronecker_factorisation.lean` | done |  |
@@ -180,6 +184,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.pi_transcendental` | yes | `Diaz/Mirror/pi_transcendental.lean` | done |  |
 | `DiazModulus.recip_pi_exp_axis_shape` | yes | `Diaz/Mirror/recip_pi_exp_axis_shape.lean` | done |  |
 | `DiazModulus.recip_pi_exp_value_not_root_of_unity` | yes | `Diaz/Mirror/recip_pi_exp_value_not_root_of_unity.lean` | done |  |
+| `DiazModulus.recip_pi_log_four_exp_barrier` | yes | `Diaz/Mirror/recip_pi_log_four_exp_barrier.lean` | done |  |
 | `DiazModulus.recip_pi_log_of_period_aligned` | yes | `Diaz/Mirror/recip_pi_log_of_period_aligned.lean` | done |  |
 | `DiazModulus.recip_pi_log_of_pi_im_algebraic` | yes | `Diaz/Mirror/recip_pi_log_of_pi_im_algebraic.lean` | done |  |
 | `DiazModulus.recip_pi_log_on_axis` | yes | `Diaz/Mirror/recip_pi_log_on_axis.lean` | done |  |

@@ -154,3 +154,8 @@ import Diaz.Mirror.exp_i_div_pi_or_exp_i_pi_cube_transcendental
 import Diaz.Mirror.candidate_quotient_rigid
 import Diaz.Mirror.candidate_neg_one_pow_ratio
 import Diaz.Mirror.candidate_product_relation_trivial
+import Diaz.Mirror.det_zero_linear_forms_rank_one
+import Diaz.Mirror.generic_conj_pair_no_quadratic_relation
+import Diaz.Mirror.generic_conj_pair_four_exp_barrier
+import Diaz.Mirror.candidate_nongeneric_four_exp_barrier
+import Diaz.Mirror.recip_pi_log_four_exp_barrier
