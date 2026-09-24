@@ -548,7 +548,7 @@ Indistinguishability also holds with π fixed:
   candidate algebraically independent of π cannot be told from a non-candidate
   point of its circle by any vanishing statement with coefficients in `K`.
 
-The companion note, version 1.7, states all of this precisely.
+The companion note, version 1.8, states all of this precisely.
 
 ### From the literature, formalised
 
