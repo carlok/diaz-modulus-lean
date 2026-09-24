@@ -280,9 +280,10 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 224 of 224, counting the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 229 of 229. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
-  Gelfond–Schneider).
+  Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
+  Gelfond–Schneider.
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
 - `tex/` — the companion notes. The note selects from the library; the library does not select.
 
@@ -598,6 +599,28 @@ degree one:
   candidate algebraic over `ℚ(π)`, the real half of (S) holds at `γ = |u|²`.
   A non-generic counterexample to Diaz's conjecture never yields, through its
   squared modulus, a counterexample to (S).
+
+Five more the same day. They came from a size audit of the library that
+applied the platform's own rule on how large a helper may be before it
+becomes a node:
+
+- `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin` — for fields
+  `K ⊆ L`, elements algebraic over `K[x]` generate a `K`-algebra of
+  transcendence degree at most one. Fourteen proofs in this library carry it
+  as a local helper; new proofs import it.
+- `log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq` — Diaz 1997,
+  Proposition 1: if `ℓ₁ℓ₂ = cπ²` with `c ∈ ℚ^×` and `e^{ℓ₁}` not a root of
+  unity, then `ℓ₁, ℓ₂` are algebraically independent, and so are `ℓ₁, 2πi`.
+- `exp_two_pi_I_mul_transcendental_of_normSq_rat` — the case of Diaz's
+  property (4-1) where `τ` is algebraic over `ℚ(π)`: for non-real `τ` with
+  `|τ|² ∈ ℚ`, `e^{2πiτ}` is transcendental.
+- `div_not_mem_logAlgTilde_of_sfe` — under the strong four exponentials
+  conjecture, `Λ₂/Λ₁ ∉ ℒ̃` whenever `Λ₁, Λ₂ ∈ ℒ̃` and `Λ₁`, `Λ₂/Λ₁` are
+  transcendental (Waldschmidt 2005, Consequence 1.7). His Consequence 1.6 is
+  the case `Λ₂ = 1`, and at `Λ₁ = iπ` it gives `1/(iπ) ∉ ℒ̃`.
+- `e_pi_transcendence` — `e^π` is transcendental (Gelfond 1929), as an
+  instance of the Gelfond–Schneider theorem proved here. It closes another
+  contributor's node, which had been open since June 2026.
 
 ## What is assumed
 

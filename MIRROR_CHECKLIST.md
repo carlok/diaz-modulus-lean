@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-24): **224** of 224
+As of the latest archived submission (2026-09-24): **229** of 229
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -171,12 +171,14 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.diaz_of_strong_five_exponentials` | yes | `Diaz/Mirror/diaz_of_strong_five_exponentials.lean` | done |  |
 | `DiazModulus.diaz_of_two_by_two_determinant_conjecture` | yes | `Diaz/Mirror/diaz_of_two_by_two_determinant_conjecture.lean` | done |  |
 | `DiazModulus.diaz_on_axes_of_hermite_lindemann` | yes | `Diaz/Mirror/diaz_on_axes_of_hermite_lindemann.lean` | done |  |
+| `DiazModulus.div_not_mem_logAlgTilde_of_sfe` | yes | `Diaz/Mirror/div_not_mem_logAlgTilde_of_sfe.lean` | done |  |
 | `DiazModulus.exists_noncandidate_transcendental_on_circle` | yes | `Diaz/Mirror/exists_noncandidate_transcendental_on_circle.lean` | done |  |
 | `DiazModulus.exp_I_transcendental` | yes | `Diaz/Mirror/exp_I_transcendental.lean` | done |  |
 | `DiazModulus.exp_abs_log_two_add_i_pi_transcendental` | yes | `Diaz/Mirror/exp_abs_log_two_add_i_pi_transcendental.lean` | done |  |
 | `DiazModulus.exp_abs_transcendental_of_conj_algebraic` | yes | `Diaz/Mirror/exp_abs_transcendental_of_conj_algebraic.lean` | done |  |
 | `DiazModulus.exp_i_div_pi_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_i_div_pi_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_pi_sq_or_exp_i_pi_cube_transcendental.lean` | done |  |
+| `DiazModulus.exp_two_pi_I_mul_transcendental_of_normSq_rat` | yes | `Diaz/Mirror/exp_two_pi_I_mul_transcendental_of_normSq_rat.lean` | done |  |
 | `DiazModulus.four_exponentials_trdeg_one` | yes | `Diaz/Mirror/four_exponentials_trdeg_one.lean` | done |  |
 | `DiazModulus.generic_conj_pair_four_exp_barrier` | yes | `Diaz/Mirror/generic_conj_pair_four_exp_barrier.lean` | done |  |
 | `DiazModulus.generic_conj_pair_no_quadratic_relation` | yes | `Diaz/Mirror/generic_conj_pair_no_quadratic_relation.lean` | done |  |
@@ -190,6 +192,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.kronecker_factorisation` | yes | `Diaz/Mirror/kronecker_factorisation.lean` | done |  |
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
 | `DiazModulus.logAlg_conj_stable` | yes | `Diaz/Mirror/logAlg_conj_stable.lean` | done |  |
+| `DiazModulus.log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq` | yes | `Diaz/Mirror/log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq.lean` | done |  |
 | `DiazModulus.log_pair_rigid_of_trdeg_one` | yes | `Diaz/Mirror/log_pair_rigid_of_trdeg_one.lean` | done |  |
 | `DiazModulus.log_pair_square_ratio_transcendental` | yes | `Diaz/Mirror/log_pair_square_ratio_transcendental.lean` | done |  |
 | `DiazModulus.log_ratio_multipliers` | yes | `Diaz/Mirror/log_ratio_multipliers.lean` | done |  |
@@ -254,3 +257,5 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Schanuel.hermite_lindemann` | yes | `Diaz/Axioms.lean` | done |  |
 | `Schanuel.lindemann_weierstrass` | yes | `Diaz/LindemannWeierstrass.lean` | done |  |
 | `Schanuel.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
+| `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin` | yes | `Diaz/Mirror/trdeg_adjoin_le_one_of_isAlgebraic_adjoin.lean` | done |  |
+| `e_pi_transcendence` | yes | `Diaz/Mirror/e_pi_transcendence.lean` | done |  |

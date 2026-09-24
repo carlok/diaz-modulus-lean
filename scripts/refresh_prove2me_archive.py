@@ -35,11 +35,12 @@ ARCHIVE = ROOT / "archive" / "prove2me"
 MANIFEST = ARCHIVE / "manifest.json"
 CHECKLIST = ROOT / "MIRROR_CHECKLIST.md"
 PRIORITIES = ROOT / "scripts" / "mirror_priorities.json"
-PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.")
+PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.", "Transcendence.")
 # Nodes of other missions that this project proved, from results in this library. Only this
 # account's submissions are archived for them: the other mission's reductions are not ours to keep.
 EXTRA_NODES = ("Schanuel.six_exponentials", "Schanuel.hermite_lindemann",
-               "Schanuel.lindemann_weierstrass", "Schanuel.gelfond_schneider")
+               "Schanuel.lindemann_weierstrass", "Schanuel.gelfond_schneider",
+               "e_pi_transcendence")
 OPEN = ARCHIVE / "open"
 OPEN_PREFIXES = ("FourExp.",)
 OPEN_README = """# Open statements
@@ -253,7 +254,7 @@ def render_checklist(proved, manifest, prio):
     counts = dict(library=0, high=0, normal=0, low=0, defective=0)
     rows = []
     for r in sorted(proved, key=lambda r: r["theorem_name"]):
-        n = r["theorem_name"]; s = n.split(".", 1)[1]
+        n = r["theorem_name"]; s = n.split(".", 1)[-1]
         lib = decls.get(s) or decls.get(aliases.get(s, ""))
         if lib: p = "done"; counts["library"] += 1
         elif s in bad: p = "skip (defective)"; counts["defective"] += 1
@@ -313,12 +314,12 @@ def main():
     # `q=` is a text search, so a FourExp node is returned for `q=Diaz` only if its description
     # happens to mention Diaz. Search each namespace and merge.
     seen, nodes = set(), []
-    for term in ("Diaz", "FourExp"):
+    for term in ("Diaz", "FourExp", "Transcendence"):
         for r in api.paged(f"/theorems?q={term}", "theorems", 200):
             if (r.get("theorem_name") or "").startswith(PREFIXES) and r["theorem_id"] not in seen:
                 seen.add(r["theorem_id"]); nodes.append(r)
     for name in EXTRA_NODES:
-        for r in api.paged(f"/theorems?q={name.split('.', 1)[1]}", "theorems", 200):
+        for r in api.paged(f"/theorems?q={name.split('.', 1)[-1]}", "theorems", 200):
             if r.get("theorem_name") == name and r["theorem_id"] not in seen:
                 seen.add(r["theorem_id"]); nodes.append(r)
     me = api.get("/me").get("user_id")

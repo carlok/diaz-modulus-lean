@@ -3542,5 +3542,65 @@
   "bytes": 7131,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.exp_two_pi_I_mul_transcendental_of_normSq_rat",
+  "theorem_id": "9a4ca87e-2ccf-4e2f-a5c7-a7554b576a21",
+  "submission_id": "fe002d5f-ae82-41af-ae23-78eeebaa3bf0",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-24T18:08:55.91798+00:00",
+  "file": "DiazModulus.exp_two_pi_I_mul_transcendental_of_normSq_rat__fe002d5f.lean",
+  "bytes": 6055,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.div_not_mem_logAlgTilde_of_sfe",
+  "theorem_id": "802c7dc6-80fc-4bbd-ba2e-8024d59f84e6",
+  "submission_id": "255e41f7-4780-4db7-afcf-ff1b6bf65354",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-24T18:03:53.714965+00:00",
+  "file": "DiazModulus.div_not_mem_logAlgTilde_of_sfe__255e41f7.lean",
+  "bytes": 1713,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq",
+  "theorem_id": "1f17c4b6-9163-42b2-bf17-fd14a9cd9448",
+  "submission_id": "9edec8e3-d79a-4109-88d9-9b6403c4db03",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-24T18:06:34.256452+00:00",
+  "file": "DiazModulus.log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq__9edec8e3.lean",
+  "bytes": 9381,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin",
+  "theorem_id": "3a193479-d3d2-4e2b-84bf-6398416dcb95",
+  "submission_id": "1cb70071-c13f-4bc6-abcb-66da64fe7084",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-24T18:03:49.569788+00:00",
+  "file": "Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin__1cb70071.lean",
+  "bytes": 2374,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "e_pi_transcendence",
+  "theorem_id": "e958f5e6-60e1-4bf4-9dd7-6e6864044301",
+  "submission_id": "fd9af761-c9c6-45a8-9d08-7e334384744c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-24T18:03:57.333869+00:00",
+  "file": "e_pi_transcendence__fd9af761.lean",
+  "bytes": 1443,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
