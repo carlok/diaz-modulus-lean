@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.4, 24 September 2026}
+\date{September 2026\\[2pt]\small Version 1.5, 24 September 2026}
 
 \begin{document}
 \maketitle
@@ -507,7 +507,12 @@ of different kinds.
 The distinction is worth keeping. An expectation that the subject will drift towards Diaz's
 conjecture is reasonable for~(a) and unsupported for~(b), and it is~(b) that
 Theorem~\ref{thm:one-relation} runs into: $\sqrt{(\log 2)^{2}+\pi^{2}}$ asks about a
-\emph{sum}, and every available tool is homogeneous.
+\emph{sum}, and every available tool is homogeneous. The homogeneous companion of that question is
+settled at transcendence degree one: for non-real $\lambda\in\Logs$ with $\lambda$, $\bar\lambda$
+algebraically dependent, $\e^{|\lambda|}$ is transcendental (Roy--Waldschmidt~\cite[Cor.~7.4]{roy-waldschmidt-1997}).
+So if $\log2$ and $\pi$ were algebraically dependent, $\exp\sqrt{(\log2)^{2}+\pi^{2}}$ would be
+transcendental. Whether $\sqrt{(\log2)^{2}+\pi^{2}}$ is itself algebraic is the inhomogeneous
+question, and it is open.
 
 What the homogeneous theory does give at $\e^{\pi^{2}}$ is worth recording, because it is
 unconditional and machine-checked. The four exponentials theorem in transcendence degree one
@@ -629,6 +634,9 @@ $\Alg$.
   \item No non-zero rational quadratic form vanishes at $(u,\bar u,i\pi)$.
   \item Every singular $2\times2$ matrix with entries in $\Q u+\Q\bar u+\Q i\pi$ has
         $\Q$-dependent rows or $\Q$-dependent columns.
+  \item The same holds with $\Alg$ in place of $\Q$: there are no $\Alg$-independent pairs
+        $x=(x_{1},x_{2})$, $y=(y_{1},y_{2})$ with all four products $x_{i}y_{j}$ in
+        $\Alg u+\Alg\bar u+\Alg i\pi$.
 \end{enumerate}
 \end{theorem}
 
@@ -639,6 +647,9 @@ the symmetrised coefficients of the form, three of them multiplied by $\rho$ or 
 independence all vanish. (b) The determinant is a rational quadratic form in $(u,\bar u,i\pi)$,
 hence identically zero by (a). A $2\times2$ matrix of linear forms with identically vanishing
 determinant has dependent rows or columns, by unique factorisation in the polynomial ring.
+(c) By Theorem~\ref{thm:period}(a) below the determinant form is a multiple of
+$X_{1}X_{2}-\rho X_{0}^{2}$; it has no constant coefficient, so the multiple is zero, and the
+lemma on linear forms, which holds over any field of characteristic zero, applies over $\Alg$.
 \end{proof}
 
 Nothing here uses $\e^{u}$: the statement is about any point of the circle that is generic in this
@@ -675,6 +686,8 @@ over $\Alg$.
   \item Let $M$ be a singular $2\times2$ matrix with entries in
         $\Alg+\Alg u+\Alg\bar u+\Alg i\pi$, whose rows are $\Alg$-independent and whose columns are
         $\Alg$-independent. Then the coefficient of $i\pi$ in every entry of $M$ is zero.
+  \item There are no $\Alg$-independent $x=(x_{1},x_{2})$ and $y=(y_{1},y_{2},y_{3})$ with all six
+        products $x_{i}y_{j}$ in $\Alg+\Alg u+\Alg\bar u+\Alg i\pi$.
 \end{enumerate}
 \end{theorem}
 
@@ -690,13 +703,25 @@ For the polar form of the determinant, $C_{3}$ is then isotropic and orthogonal 
 $C_{0},C_{1},C_{2}$, which span a non-degenerate three-dimensional subspace of the
 four-dimensional space of $2\times2$ matrices. Its orthogonal complement is a non-degenerate line,
 and the only isotropic vector on it is zero.
+(c) By (a), each $2\times2$ minor of the matrix $(x_{i}y_{j})$, written in the coordinates
+$1,u,\bar u,i\pi$, is a multiple $c_{jl}$ of the norm form. If $c_{01}=0$, the lemma on linear
+forms over $\Alg$ makes $x$ or $(y_{1},y_{2})$ dependent. Otherwise the identity
+$D_{0}L_{i0}-D_{1}L_{i1}+D_{2}L_{i2}=0$, satisfied by the minors $D_{j}$ of any $2\times3$ matrix,
+makes the norm form times a linear form vanish identically; so that linear form vanishes, and at
+$(1,u,\bar u,i\pi)$ it gives an $\Alg$-relation among the $y_{j}$ with a non-zero coefficient.
 \end{proof}
 
 The configuration $\bigl(\begin{smallmatrix}1&\bar u\\u&\rho\end{smallmatrix}\bigr)$ of
 Theorem~\ref{thm:sfe-implies-diaz} is of this kind. The logarithm $i\pi$ of $-1$, which every
-candidate supplies for free, is of no use to it.
+candidate supplies for free, is of no use to it. Part~(c) extends Theorem~\ref{thm:dim} from
+$1,u,\bar u$ to $1,u,\bar u,i\pi$, where counting dimensions no longer decides: Roy's strong six
+exponentials theorem~\cite{roy-1992}, the proved result closest to the strong four exponentials
+conjecture, gives nothing against a generic candidate even with the period added. Diaz observed
+that the theorem has produced no example of a $\lambda\in\aLogs$ with
+$|\lambda|\notin\aLogs$~\cite{diaz-2007}; on a candidate's own data, this is one reason.
 
-Non-generic candidates can carry homogeneous relations, and these can be listed.
+Points of a circle can carry homogeneous relations, and these can be listed. Candidates cannot, as
+the discussion after the proposition shows.
 
 \begin{proposition}\label{prop:relations}
 Let $u=x+iy$ with $x\neq0$ and $y\notin\Q\pi$.
@@ -721,10 +746,19 @@ finishes. (c) Take $x^{2}=(\rho+\pi^{2})/2$ and $y^{2}=(\rho-\pi^{2})/2$; the fo
 $\tfrac12(X_{1}^{2}+X_{2}^{2})+X_{3}^{2}$ is positive definite.
 \end{proof}
 
-A relation with a non-trivial rational zero can be a determinant; the configuration it gives lies
-in transcendence degree one, where Proposition~\ref{prop:homog-nongeneric} excludes it. A relation
-without one, like $\operatorname{Re}(u^{2})=\pi^{2}$, is excluded by nothing this note knows of,
-but it never produces a configuration at all, and (b) does not use $\e^{u}$.
+None of these relations occurs at a candidate. A candidate algebraic over $\Q(\pi)$ with
+$y\notin\Q\pi$ has $u$, $\bar u$, $i\pi$ linearly independent over $\Q$, and all three are
+logarithms of algebraic numbers in a field of transcendence degree one. By Théorème~0.2 of
+Roy--Waldschmidt~\cite{roy-waldschmidt-1997}, the analogue of the 1973--74 theorem for an arbitrary
+quadric, such numbers satisfy no non-trivial rational quadratic relation. With
+Theorem~\ref{thm:homog}(a) for the generic case, no candidate with $\operatorname{Im}u\notin\Q\pi$
+satisfies a rational quadratic relation among $u$, $\bar u$, $i\pi$, and for the points of~(c)
+$\e^{u}$ is transcendental. This is the transcendence-degree-one statement of
+\S\ref{sec:boundary}(a) at work. What Proposition~\ref{prop:relations} adds is narrower, and does not
+use $\e^{u}$: a relation with a non-trivial rational zero can be a determinant, and one without,
+like $\operatorname{Re}(u^{2})=\pi^{2}$, never is, so no $2\times2$ configuration sees it.
+Roy and Waldschmidt reach it through larger matrices, via the Clifford algebra of the form.
+Version~1.4 said that such a relation is excluded by nothing this note knows of; that was wrong.
 
 \subsection*{A decomposition that returns to its start}
 
@@ -1212,6 +1246,11 @@ formalised, so those results are not used here.
 Gelfond-Schneider theorem}, arXiv:2603.24823 (2026).
 \bibitem{roy-waldschmidt-1995} D.~Roy and M.~Waldschmidt, \emph{Quadratic relations between
 logarithms of algebraic numbers}, Proc. Japan Acad. Ser. A \textbf{71} (1995), 151--153.
+\bibitem{roy-waldschmidt-1997} D.~Roy and M.~Waldschmidt, \emph{Approximation diophantienne et
+indépendance algébrique de logarithmes}, Ann. Sci. École Norm. Sup. (4) \textbf{30} (1997),
+753--796.
+\bibitem{roy-1992} D.~Roy, \emph{Matrices whose coefficients are linear forms in logarithms},
+J. Number Theory \textbf{41} (1992), 22--47.
 \bibitem{brownawell-1974} W.~D.~Brownawell, \emph{The algebraic independence of certain numbers
 related to the exponential function}, J. Number Theory \textbf{6} (1974), 22--31.
 \bibitem{waldschmidt-1973} M.~Waldschmidt, \emph{Solution du huitième problème de Schneider},
@@ -1242,9 +1281,9 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.4 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.5 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Every row of the table below was checked against the platform by script on 24 September 2026, and
-the mirrored project held all 210 proved results of the development at that date.
+the mirrored project held all 212 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1288,10 +1327,11 @@ Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_c
 \S\ref{sec:map}, non-candidates on every circle & Proved & \nolinkurl{DiazModulus.exists_noncandidate_transcendental_on_circle} \\
 Thm~\ref{thm:indist-pi} & Proved & \nolinkurl{DiazModulus.generic_indistinguishable_over_pi}, \nolinkurl{DiazModulus.circle_points_indistinguishable} \\
 Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refute_candidate} \\
-Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier} \\
+Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier}, \nolinkurl{DiazModulus.generic_qbar_homogeneous_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
 Thm~\ref{thm:period}(a) & Proved & \nolinkurl{DiazModulus.generic_quadratic_relation_is_norm} \\
 Thm~\ref{thm:period}(b) & Proved & \nolinkurl{DiazModulus.generic_period_never_enters} \\
+Thm~\ref{thm:period}(c) & Proved & \nolinkurl{DiazModulus.generic_no_strong_six_exp_configuration} \\
 Prop.~\ref{prop:relations}(a) & Proved & \nolinkurl{DiazModulus.conj_pair_quadratic_relation_iff} \\
 Prop.~\ref{prop:relations}(b) & Proved & \nolinkurl{DiazModulus.anisotropic_relation_four_exp_barrier}, \nolinkurl{DiazModulus.det_linear_forms_isotropic} \\
 Prop.~\ref{prop:relations}(c) & Proved & \nolinkurl{DiazModulus.anisotropic_relation_on_circle} \\
