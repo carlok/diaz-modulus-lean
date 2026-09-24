@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 212 of 212, counting the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 224 of 224, counting the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider).
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
@@ -547,7 +547,57 @@ Indistinguishability also holds with π fixed:
   candidate algebraically independent of π cannot be told from a non-candidate
   point of its circle by any vanishing statement with coefficients in `K`.
 
-The companion note, version 1.5, states all of this precisely.
+The companion note, version 1.7, states all of this precisely.
+
+### From the literature, formalised
+
+The reading of Diaz, Roy and Waldschmidt on 24 September 2026 produced twelve
+more nodes, all in `Diaz/Mirror/`. Most are published results, formalised and
+attributed as such; two are new couplings.
+
+Known results, now machine-checked:
+
+- `exp_abs_transcendental_of_conj_algebraic` — for a non-real logarithm `λ` with
+  `λ̄` algebraic over `ℚ[λ]`, `e^{|λ|}` is transcendental (Diaz 1997, Prop. 2;
+  Roy–Waldschmidt 1997, Cor. 7.4). At `λ = iπ` it gives `e^π`. It is the
+  unconditional form of `Diaz.log_modulus_forces_independence`.
+- `exp_abs_log_two_add_i_pi_transcendental` — if `log 2` is algebraic over
+  `ℚ(π)`, then `exp √((log 2)² + π²)` is transcendental (Roy–Waldschmidt's
+  example, 1997, p. 792).
+- `log_pair_square_ratio_transcendental` — for `ℚ`-independent logarithms
+  `ℓ₁, ℓ₂` with `ℓ₁` algebraic over `ℚ[ℓ₂]`, both `e^{ℓ₁²/ℓ₂}` and `e^{ℓ₂²/ℓ₁}`
+  are transcendental (Waldschmidt, LN 402, 1974, p. 202).
+- `log_two_pi_dependent_forces_transcendence` — its case `log 2`, `iπ`: if
+  `log 2` and `π` are algebraically dependent, `2^{i log 2/π}` and
+  `e^{π²/log 2}` are transcendental. This strengthens
+  `log_two_diaz_or_transcendental`.
+
+Weaker published conjectures that already give Diaz's conjecture and (S). Each
+is inlined as an explicit hypothesis, as the strong four exponentials conjecture
+is in `diaz_of_sfe`:
+
+- `diaz_of_strong_five_exponentials`, `recip_pi_not_log_of_strong_five_exponentials`
+  — Waldschmidt's strong five exponentials conjecture (1988), which he calls
+  weaker than the strong four exponentials conjecture. With `x₁ = y₁ = 1` its
+  fifth exponential is one of the four.
+- `diaz_of_sharp_four_exponentials`, `recip_pi_not_log_of_sharp_four_exponentials`
+  — the sharp four exponentials conjecture (Waldschmidt 2005; 1988, p. 377).
+- `diaz_of_two_by_two_determinant_conjecture`,
+  `recip_pi_not_log_of_two_by_two_determinant_conjecture` — Conjecture 1.6 of
+  Waldschmidt's *Further variations on the six exponentials theorem* (2005):
+  a 2×2 matrix over `ℒ̃` with suitably independent rows and columns has
+  determinant outside `ℒ̃`. For Diaz the matrix is `H(u, |u|)`.
+
+Two new couplings, both from the four exponentials theorem in transcendence
+degree one:
+
+- `candidate_norm_div_log_not_log` — for a candidate `u` and a logarithm `x`
+  algebraic over `ℚ[u]` outside `ℚu ∪ ℚū`, `e^{|u|²/x}` is transcendental. It
+  generalises `candidate_harmonic_not_log`.
+- `candidate_norm_recip_pi_not_log` — its analogue at `x = iπ`: for every
+  candidate algebraic over `ℚ(π)`, the real half of (S) holds at `γ = |u|²`.
+  A non-generic counterexample to Diaz's conjecture never yields, through its
+  squared modulus, a counterexample to (S).
 
 ## What is assumed
 

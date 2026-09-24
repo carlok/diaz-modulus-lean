@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.6, 24 September 2026}
+\date{September 2026\\[2pt]\small Version 1.7, 24 September 2026}
 
 \begin{document}
 \maketitle
@@ -1381,12 +1381,13 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.6 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.7 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
-theirs, and each is attributed in the text.
+theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
+now machine-checked.
 Every row of the table below was checked against the platform by script on 24 September 2026, and
-the mirrored project held all 212 proved results of the development at that date.
+the mirrored project held all 224 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1423,9 +1424,12 @@ Cor.~\ref{cor:translate} & Proved & \nolinkurl{Diaz.q_translate_unique} \\
 Thm~\ref{thm:one-relation} & Proved & \nolinkurl{DiazModulus.leaf_iff_one} \\
 Thm~\ref{thm:diaz-number} & Proved & \nolinkurl{DiazModulus.diaz_number_forces_transcendence} \\
 Cor.~\ref{cor:log2} & Proved & \nolinkurl{DiazModulus.log_two_diaz_or_transcendental} \\
+\S\ref{sec:quant}, Waldschmidt's remark & Proved & \nolinkurl{DiazModulus.log_pair_square_ratio_transcendental}, \nolinkurl{DiazModulus.log_two_pi_dependent_forces_transcendence} \\
 Thm~\ref{thm:novan} & Proved & \nolinkurl{Diaz.no_vanishing_coeff} \\
 Thm~\ref{thm:pencil} & Proved & \nolinkurl{Diaz.det_pencil_eq_conic} \\
 Prop.~\ref{prop:roy} & Proved & \nolinkurl{Diaz.roy_conic_implies_empty} \\
+\S\ref{sec:boundary}, the $2\times2$ conjecture & Proved & \nolinkurl{DiazModulus.diaz_of_two_by_two_determinant_conjecture} \\
+\S\ref{sec:boundary}, the companion $\e^{|\lambda|}$ & Proved & \nolinkurl{DiazModulus.exp_abs_transcendental_of_conj_algebraic}, \nolinkurl{DiazModulus.exp_abs_log_two_add_i_pi_transcendental} \\
 Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_coeff} \\
 \S\ref{sec:map}, non-candidates on every circle & Proved & \nolinkurl{DiazModulus.exists_noncandidate_transcendental_on_circle} \\
 Thm~\ref{thm:indist-pi} & Proved & \nolinkurl{DiazModulus.generic_indistinguishable_over_pi}, \nolinkurl{DiazModulus.circle_points_indistinguishable} \\
@@ -1445,6 +1449,7 @@ Prop.~\ref{prop:loop} & Not formalised & \nolinkurl{DiazModulus.norm_transcenden
 Prop.~\ref{prop:period-aligned} & Proved & \nolinkurl{DiazModulus.recip_pi_log_of_period_aligned} \\
 Conj.~\ref{conj:S} & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log} \\
 Thm~\ref{thm:S-of-sfe} & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_of_sfe} \\
+\S\ref{sec:what}, item (2) & Proved & \nolinkurl{DiazModulus.diaz_of_strong_five_exponentials}, \nolinkurl{DiazModulus.recip_pi_not_log_of_strong_five_exponentials} \\
 Prop.~\ref{prop:root-of-unity} & Proved & \nolinkurl{DiazModulus.recip_pi_exp_value_not_root_of_unity} \\
 Thm~\ref{thm:S0}(a) & Proved & \nolinkurl{DiazModulus.recip_pi_log_rational_line} \\
 Thm~\ref{thm:S0}(b) & Proved & \nolinkurl{DiazModulus.recip_pi_log_on_axis} \\
