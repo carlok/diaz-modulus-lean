@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-24): **229** of 229
+As of the latest archived submission (2026-09-24): **239** of 239
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -253,9 +253,19 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.zero_count_arith` | yes | `Diaz/Mirror/zero_count_arith.lean` | done |  |
 | `FourExp.zero_count_arith_poly` | yes | `Diaz/Mirror/zero_count_arith_poly.lean` | done |  |
 | `FourExp.zero_count_degenerate` | yes | `Diaz/Mirror/zero_count_degenerate.lean` | done |  |
+| `GelfondSchneider.aux_coeffs` | yes | `Diaz/Mirror/aux_coeffs.lean` | done |  |
+| `GelfondSchneider.common_field` | yes | `Diaz/Mirror/common_field.lean` | done |  |
+| `GelfondSchneider.deriv_identity` | yes | `Diaz/Mirror/deriv_identity.lean` | done |  |
+| `GelfondSchneider.deriv_upper` | yes | `Diaz/Mirror/deriv_upper.lean` | done |  |
+| `GelfondSchneider.main_estimate` | yes | `Diaz/Mirror/main_estimate.lean` | done |  |
+| `GelfondSchneider.rho_denominator` | yes | `Diaz/Mirror/rho_denominator.lean` | done |  |
+| `GelfondSchneider.rho_house_le` | yes | `Diaz/Mirror/rho_house_le.lean` | done |  |
+| `GelfondSchneider.system_entry_house_le` | yes | `Diaz/Mirror/system_entry_house_le.lean` | done |  |
 | `Schanuel.gelfond_schneider` | yes | `Diaz/Mirror/gelfond_schneider.lean` | done |  |
 | `Schanuel.hermite_lindemann` | yes | `Diaz/Axioms.lean` | done |  |
 | `Schanuel.lindemann_weierstrass` | yes | `Diaz/LindemannWeierstrass.lean` | done |  |
 | `Schanuel.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
+| `Transcendence.expSum_first_nonvanishing` | yes | `Diaz/Mirror/expSum_first_nonvanishing.lean` | done |  |
+| `Transcendence.liouville_house` | yes | `Diaz/Mirror/liouville_house.lean` | done |  |
 | `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin` | yes | `Diaz/Mirror/trdeg_adjoin_le_one_of_isAlgebraic_adjoin.lean` | done |  |
 | `e_pi_transcendence` | yes | `Diaz/Mirror/e_pi_transcendence.lean` | done |  |

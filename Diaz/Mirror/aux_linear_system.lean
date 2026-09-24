@@ -915,7 +915,7 @@ lemma coeff_sum_unknowns {S T M d : ℕ} (φ : ℤ[X][X] →+* ℂ) {ω ω₁ : 
     simp [pu, this]
   · simp
 
-lemma deriv_identity {S T M d : ℕ} (φ : ℤ[X][X] →+* ℂ) {ω ω₁ : ℂ} (h0 : φ (C X) = ω) (h1 : φ X = ω₁)
+lemma aux_linear_system_deriv_identity {S T M d : ℕ} (φ : ℤ[X][X] →+* ℂ) {ω ω₁ : ℂ} (h0 : φ (C X) = ω) (h1 : φ X = ω₁)
     (x₁ x₂ : ℂ) (q : Fin S → Fin T → Fin T → Fin M → Fin d → ℤ) (m : ℕ) (w : ℂ) :
     ∑ u : Fin S × Fin T × Fin T × Fin M × Fin d,
         ((q u.1 u.2.1 u.2.2.1 u.2.2.2.1 u.2.2.2.2 : ℤ) : ℂ) *
@@ -1116,7 +1116,7 @@ theorem system_exists (φ : ℤ[X][X] →+* ℂ) {ω ω₁ : ℂ} (h0 : φ (C X)
   rw [map_zero, map_sum] at key
   simp only [map_mul, phi_CC, P, redP_eval Q _ φ hQ0] at key
   simp only [piU_eval φ D Bp _ hB _ _ _ _ hz he] at key
-  rw [← deriv_identity φ h0 h1 x₁ x₂ q m ((a : ℂ) * y₁ + (b : ℂ) * y₂)]
+  rw [← aux_linear_system_deriv_identity φ h0 h1 x₁ x₂ q m ((a : ℂ) * y₁ + (b : ℂ) * y₂)]
   have : (φ D ^ m * φ D ^ S * epartConst mm (φ D) (T * (t₁ + t₂))) *
       ∑ u : Fin S × Fin T × Fin T × Fin M × Fin Q.natDegree,
         ((q u.1 u.2.1 u.2.2.1 u.2.2.2.1 u.2.2.2.2 : ℤ) : ℂ) *

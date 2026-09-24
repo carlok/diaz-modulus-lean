@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 229 of 229. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 239 of 239. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -650,10 +650,29 @@ It no longer declares anything as an axiom.
 Gelfond–Schneider is proved too: `GelfondSchneider.gelfond_schneider` in
 `Diaz/Mirror/gelfond_schneider.lean`. For a non-zero
 logarithm `l` of an algebraic number and an algebraic irrational `b`, `exp (b * l)` is
-transcendental. The proof is the formalization of M. Karatarakis and F. Wiedijk
-(arXiv:2603.24823; Apache 2.0), with a bridge from their `α ^ β` form to an arbitrary logarithm.
-`scripts/gelfond_schneider_port/` rebuilds the accepted submission from their sources and lists
-every change.
+transcendental. Since 24 September 2026 the proof is a tree of eleven modules, each a Prove2Me
+node. It restructures the formalization of M. Karatarakis and F. Wiedijk
+(arXiv:2603.24823; Apache 2.0), which the library first carried as a single 5,388-line module.
+
+Two general tools:
+- `Transcendence.liouville_house`: Liouville's inequality in house form, with an integer
+  denominator;
+- `Transcendence.expSum_first_nonvanishing`: the first non-vanishing derivative of an
+  exponential sum at 1, …, m.
+
+Eight steps of Gelfond's method, in `GelfondSchneider.`:
+- `common_field`;
+- `system_entry_house_le`;
+- `aux_coeffs`, the Siegel step, through Mathlib's Siegel lemma over rings of integers;
+- `deriv_identity`;
+- `rho_denominator`;
+- `rho_house_le`;
+- `deriv_upper`, through the four exponentials subtree's `cauchy_estimate_with_zeros`;
+- `main_estimate`.
+
+The final theorem assembles the last of these with `common_field`. All together, 1,531 lines.
+`scripts/gelfond_schneider_port/` still rebuilds the earlier single-file submission from
+Karatarakis and Wiedijk's sources and lists every change.
 Its first consumer is `salem_quartic_relations_of_logs`, the unconditional form of
 `salem_quartic_relations` for a real and a purely imaginary logarithm of algebraic numbers. The
 older statement keeps Gelfond–Schneider as its explicit hypothesis `hGS`. The others:

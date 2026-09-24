@@ -188,3 +188,13 @@ import Diaz.Mirror.div_not_mem_logAlgTilde_of_sfe
 import Diaz.Mirror.e_pi_transcendence
 import Diaz.Mirror.log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq
 import Diaz.Mirror.exp_two_pi_I_mul_transcendental_of_normSq_rat
+import Diaz.Mirror.liouville_house
+import Diaz.Mirror.expSum_first_nonvanishing
+import Diaz.Mirror.common_field
+import Diaz.Mirror.system_entry_house_le
+import Diaz.Mirror.aux_coeffs
+import Diaz.Mirror.deriv_identity
+import Diaz.Mirror.rho_denominator
+import Diaz.Mirror.rho_house_le
+import Diaz.Mirror.deriv_upper
+import Diaz.Mirror.main_estimate

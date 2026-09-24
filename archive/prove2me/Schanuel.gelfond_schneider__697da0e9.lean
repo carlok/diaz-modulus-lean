@@ -1,19 +1,10 @@
-/-
-Mirrored from Prove2Me: `Schanuel.gelfond_schneider`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/Schanuel.gelfond_schneider__697da0e9.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.common_field
-import Diaz.Mirror.main_estimate
-
-namespace GelfondSchneider
+import Theorems.Thm_GelfondSchneider_common_field
+import Theorems.Thm_GelfondSchneider_main_estimate
 
 -- Gelfond–Schneider in logarithmic form, assembled from the tree: the common number field and
 -- the main estimate `r ^ ((r - 3h)/2) ≤ C ^ r` for arbitrarily large `r`.
-theorem gelfond_schneider (b l : ℂ) (hb : IsAlgebraic ℚ b) (hbq : ∀ q : ℚ, b ≠ (q : ℂ))
+theorem solution (b l : ℂ) (hb : IsAlgebraic ℚ b) (hbq : ∀ q : ℚ, b ≠ (q : ℂ))
     (hl : IsAlgebraic ℚ (Complex.exp l)) (hl0 : l ≠ 0) :
     Transcendental ℚ (Complex.exp (b * l)) := by
   intro hγ
@@ -36,4 +27,4 @@ theorem gelfond_schneider (b l : ℂ) (hb : IsAlgebraic ℚ b) (hbq : ∀ q : �
     rw [Real.rpow_natCast]; exact pow_lt_pow_left₀ (by linarith) (by linarith) hr0.ne'
   linarith
 
-end GelfondSchneider
+#print axioms solution

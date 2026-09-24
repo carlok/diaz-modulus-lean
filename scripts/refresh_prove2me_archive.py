@@ -35,7 +35,7 @@ ARCHIVE = ROOT / "archive" / "prove2me"
 MANIFEST = ARCHIVE / "manifest.json"
 CHECKLIST = ROOT / "MIRROR_CHECKLIST.md"
 PRIORITIES = ROOT / "scripts" / "mirror_priorities.json"
-PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.", "Transcendence.")
+PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.", "Transcendence.", "GelfondSchneider.")
 # Nodes of other missions that this project proved, from results in this library. Only this
 # account's submissions are archived for them: the other mission's reductions are not ours to keep.
 EXTRA_NODES = ("Schanuel.six_exponentials", "Schanuel.hermite_lindemann",
@@ -314,7 +314,7 @@ def main():
     # `q=` is a text search, so a FourExp node is returned for `q=Diaz` only if its description
     # happens to mention Diaz. Search each namespace and merge.
     seen, nodes = set(), []
-    for term in ("Diaz", "FourExp", "Transcendence"):
+    for term in ("Diaz", "FourExp", "Transcendence", "GelfondSchneider"):
         for r in api.paged(f"/theorems?q={term}", "theorems", 200):
             if (r.get("theorem_name") or "").startswith(PREFIXES) and r["theorem_id"] not in seen:
                 seen.add(r["theorem_id"]); nodes.append(r)
