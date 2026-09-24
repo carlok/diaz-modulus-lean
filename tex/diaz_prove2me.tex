@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.3, 24 September 2026}
+\date{September 2026\\[2pt]\small Version 1.4, 24 September 2026}
 
 \begin{document}
 \maketitle
@@ -63,8 +63,10 @@ remaining branch terminates in a theorem of 1973--74. When this note was first w
 theorem had never been formalised; it has been since, in the form the branch needs, and the case
 it governs is proved with it. The natural interpolation route is blocked as well: no first-order
 operator with algebraic coefficients has algebraic values there, and the interpolation determinant
-does not see the candidate's arithmetic at all. What is left is two statements, both open
-mathematics rather than formalisation, and we say exactly which. A third, which the development had
+does not see the candidate's arithmetic at all. The four exponentials conjecture has no instance
+on the logarithms a counterexample certifies: only a configuration with a constant term can detect
+one, and for a generic counterexample the period $i\pi$ cannot enter it. What is left is two
+statements, both open mathematics rather than formalisation, and we say exactly which. A third, which the development had
 carried until now, turns out not to be needed, and it and the statement it pairs with cannot both
 be false. Along the way the transcendence theorems now available formally yield a few
 unconditional results about classical constants, among them that at least one of
@@ -565,6 +567,30 @@ That the intertwining with conjugation comes for free is worth a line: since $\b
 conjugation is a rational function of the generator on $\Alg(u)$, so any $\Phi$ matching
 generators commutes with it automatically. The symmetry is not arranged; it is forced.
 
+The homomorphism of Theorem~\ref{thm:indist} is free to move $\pi$, so a statement whose
+coefficients involve $\pi$ might hope to see what algebraic coefficients cannot. For a generic
+candidate it sees nothing either.
+
+\begin{theorem}[Indistinguishability over $\Q(\pi)$]\label{thm:indist-pi}
+Let $K$ be the algebraic closure of $\Q(\pi)$ in $\C$, and let $u$ be transcendental over $K$
+with $|u|^{2}\in\Alg$. Then there exist a point $t$ of the same circle, transcendental over $K$,
+with $\e^{t}$ transcendental, and a ring homomorphism $\Phi:\C\to\C$ fixing $K$ pointwise,
+carrying $u$ to $t$, commuting with conjugation on $K(u)$, such that for every matrix $M$ over
+$K(u)$ and all vectors $w,v$ over $K$,
+\[
+  w^{\mathsf T}Mv=0 \iff w^{\mathsf T}\Phi(M)v=0 .
+\]
+\end{theorem}
+
+Being transcendental over $K$ is the same as being algebraically independent of $\pi$, so the
+hypothesis says that $u$ is generic, in the sense used for Theorem~\ref{thm:homog} below. It
+cannot be dropped: $\Phi$ fixes $K$. The proof is that of Theorem~\ref{thm:indist} with $K$ in place of $\Alg$, which
+works because $K$ is stable under conjugation. The explicit choice $t=r\e^{i}$ is no longer
+available, since it would need $\e^{i}$ transcendental over $\Q(\pi)$; but $K$ is countable, and
+countability supplies $t$. So nothing algebraic over $\Q(\pi)$ separates a generic candidate from
+a point that is not a candidate. Only the exponential does: for a candidate, $\Phi$ fixes the
+algebraic number $\e^{u}$, while $\e^{\Phi(u)}=\e^{t}$ is transcendental.
+
 \subsection*{The threshold is a dimension}
 
 \begin{theorem}[Dimension count]\label{thm:dim}
@@ -634,13 +660,71 @@ So for every candidate, the four exponentials conjecture restricted to its certi
 already a theorem: by algebra in the generic case, by the 1973--74 theorem otherwise. The same holds
 for an exception $\lambda=\gamma/(i\pi)$ to $(S)$: every singular $2\times2$ matrix over
 $\Q\lambda+\Q i\pi$ has dependent rows or columns, because $\lambda/(i\pi)=-\gamma/\pi^{2}$ is
-transcendental. What does detect a counterexample needs a constant term. The configurations of
-Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} have one. In the generic case, one can
-show that the period $i\pi$ never enters a configuration that detects a candidate (this is not
-formalised). Non-generic candidates can carry homogeneous relations. For example
-$\operatorname{Re}(u^{2})=\pi^{2}$ is satisfied by points of every circle of algebraic radius
-$r>\pi$. But such a relation is never the determinant of a $2\times2$ matrix over the certified
-logarithms unless the four exponentials theorem in transcendence degree one already excludes it.
+transcendental.
+
+What does detect a counterexample needs a constant term. The configurations of
+Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} have one, and in the generic case the
+constant is the only thing they can add to $u$ and $\bar u$.
+
+\begin{theorem}[The period never enters]\label{thm:period}
+Let $u\neq0$ with $\rho=|u|^{2}\in\Alg$, and suppose $u$ and $\pi$ are algebraically independent
+over $\Alg$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item Every quadratic form with algebraic coefficients that vanishes at $(1,u,\bar u,i\pi)$ is a
+        multiple of $X_{1}X_{2}-\rho X_{0}^{2}$.
+  \item Let $M$ be a singular $2\times2$ matrix with entries in
+        $\Alg+\Alg u+\Alg\bar u+\Alg i\pi$, whose rows are $\Alg$-independent and whose columns are
+        $\Alg$-independent. Then the coefficient of $i\pi$ in every entry of $M$ is zero.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) As in Theorem~\ref{thm:homog}(a), now with nine monomials; the only two terms of the form
+that land on the same monomial are $X_{0}^{2}$ and $X_{1}X_{2}$, both at $u^{2}$.
+(b) Write the entries as $\sum_{k}x_{k}C_{k}$ at $x=(1,u,\bar u,i\pi)$, with constant matrices
+$C_{k}$. By (a), $\det\bigl(\sum_{k}x_{k}C_{k}\bigr)=c\,(x_{1}x_{2}-\rho x_{0}^{2})$ identically,
+and $c\neq0$, since otherwise the lemma on linear forms from the proof of
+Theorem~\ref{thm:homog}(b), which holds over any field of characteristic zero and here is used
+over $\Alg$, gives dependent rows or columns.
+For the polar form of the determinant, $C_{3}$ is then isotropic and orthogonal to
+$C_{0},C_{1},C_{2}$, which span a non-degenerate three-dimensional subspace of the
+four-dimensional space of $2\times2$ matrices. Its orthogonal complement is a non-degenerate line,
+and the only isotropic vector on it is zero.
+\end{proof}
+
+The configuration $\bigl(\begin{smallmatrix}1&\bar u\\u&\rho\end{smallmatrix}\bigr)$ of
+Theorem~\ref{thm:sfe-implies-diaz} is of this kind. The logarithm $i\pi$ of $-1$, which every
+candidate supplies for free, is of no use to it.
+
+Non-generic candidates can carry homogeneous relations, and these can be listed.
+
+\begin{proposition}\label{prop:relations}
+Let $u=x+iy$ with $x\neq0$ and $y\notin\Q\pi$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item The rational quadratic relations among $u$, $\bar u$, $i\pi$ are exactly the identities
+        $Q(y,\pi)=s\,|u|^{2}$, with $Q$ a rational binary quadratic form and $s\in\Q$.
+  \item Suppose $|u|^{2}\in\Alg$, and that $u$ satisfies such a relation whose ternary form has no
+        non-trivial rational zero. Then every singular $2\times2$ matrix over
+        $\Q u+\Q\bar u+\Q i\pi$ has $\Q$-dependent rows or $\Q$-dependent columns.
+  \item For every real algebraic $\rho>\pi^{2}$, some $u$ with $|u|^{2}=\rho$, $x\neq0$ and
+        $y\notin\Q\pi$ satisfies $\operatorname{Re}(u^{2})=\pi^{2}$, a relation of the kind in (b).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Compare real and imaginary parts. (b) The determinant of a $2\times2$ matrix of rational
+linear forms in three variables has a non-trivial rational zero: take a common zero of the first
+row. By (a) and the transcendence of $\pi$, every relation $u$ carries is a rational multiple of
+the given one. The determinant of a matrix as in (b) is such a relation, and it has a rational
+zero while the given form has none, so it vanishes identically, and the lemma on linear forms
+finishes. (c) Take $x^{2}=(\rho+\pi^{2})/2$ and $y^{2}=(\rho-\pi^{2})/2$; the form
+$\tfrac12(X_{1}^{2}+X_{2}^{2})+X_{3}^{2}$ is positive definite.
+\end{proof}
+
+A relation with a non-trivial rational zero can be a determinant; the configuration it gives lies
+in transcendence degree one, where Proposition~\ref{prop:homog-nongeneric} excludes it. A relation
+without one, like $\operatorname{Re}(u^{2})=\pi^{2}$, is excluded by nothing this note knows of,
+but it never produces a configuration at all, and (b) does not use $\e^{u}$.
 
 \subsection*{A decomposition that returns to its start}
 
@@ -1076,7 +1160,8 @@ Three statements, in increasing strength, each of which settles Conjecture~\ref{
 
 Nothing here brings any of the three closer. What the development does establish is where the
 question is not: not in a better matrix, by Theorem~\ref{thm:pencil}; not in an algebraic
-invariant of the candidate's hull, by Theorem~\ref{thm:indist}; not in the six exponentials
+invariant of the candidate's hull, by Theorem~\ref{thm:indist}, nor, for a generic candidate, in
+one algebraic over $\Q(\pi)$, by Theorem~\ref{thm:indist-pi}; not in the six exponentials
 theorem, by Theorem~\ref{thm:dim}; and not, on one whole branch, in further case analysis, by
 Proposition~\ref{prop:loop}.
 
@@ -1157,9 +1242,9 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.3 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.4 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Every row of the table below was checked against the platform by script on 24 September 2026, and
-the mirrored project held all 200 proved results of the development at that date.
+the mirrored project held all 210 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1200,11 +1285,18 @@ Thm~\ref{thm:novan} & Proved & \nolinkurl{Diaz.no_vanishing_coeff} \\
 Thm~\ref{thm:pencil} & Proved & \nolinkurl{Diaz.det_pencil_eq_conic} \\
 Prop.~\ref{prop:roy} & Proved & \nolinkurl{Diaz.roy_conic_implies_empty} \\
 Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_coeff} \\
+\S\ref{sec:map}, non-candidates on every circle & Proved & \nolinkurl{DiazModulus.exists_noncandidate_transcendental_on_circle} \\
+Thm~\ref{thm:indist-pi} & Proved & \nolinkurl{DiazModulus.generic_indistinguishable_over_pi}, \nolinkurl{DiazModulus.circle_points_indistinguishable} \\
 Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refute_candidate} \\
 Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
+Thm~\ref{thm:period}(a) & Proved & \nolinkurl{DiazModulus.generic_quadratic_relation_is_norm} \\
+Thm~\ref{thm:period}(b) & Proved & \nolinkurl{DiazModulus.generic_period_never_enters} \\
+Prop.~\ref{prop:relations}(a) & Proved & \nolinkurl{DiazModulus.conj_pair_quadratic_relation_iff} \\
+Prop.~\ref{prop:relations}(b) & Proved & \nolinkurl{DiazModulus.anisotropic_relation_four_exp_barrier}, \nolinkurl{DiazModulus.det_linear_forms_isotropic} \\
+Prop.~\ref{prop:relations}(c) & Proved & \nolinkurl{DiazModulus.anisotropic_relation_on_circle} \\
 \S\ref{sec:map}, the barrier for $(S)$ & Proved & \nolinkurl{DiazModulus.recip_pi_log_four_exp_barrier} \\
-\S\ref{sec:map}, $2\times2$ matrices of linear forms & Proved & \nolinkurl{DiazModulus.det_zero_linear_forms_rank_one} \\
+\S\ref{sec:map}, $2\times2$ matrices of linear forms & Proved & \nolinkurl{DiazModulus.det_zero_linear_forms_rank_one}, \nolinkurl{DiazModulus.det_zero_linear_forms_rank_one_field} \\
 Prop.~\ref{prop:loop} & Not formalised & \nolinkurl{DiazModulus.norm_transcendental_of_generic_conj_pair} (Open) \\
 \S\ref{sec:map}, 1973--74 thm & Proved & \nolinkurl{DiazModulus.four_exponentials_trdeg_one} \\
 Prop.~\ref{prop:period-aligned} & Proved & \nolinkurl{DiazModulus.recip_pi_log_of_period_aligned} \\
