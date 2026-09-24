@@ -159,3 +159,13 @@ import Diaz.Mirror.generic_conj_pair_no_quadratic_relation
 import Diaz.Mirror.generic_conj_pair_four_exp_barrier
 import Diaz.Mirror.candidate_nongeneric_four_exp_barrier
 import Diaz.Mirror.recip_pi_log_four_exp_barrier
+import Diaz.Mirror.conj_pair_quadratic_relation_iff
+import Diaz.Mirror.det_linear_forms_isotropic
+import Diaz.Mirror.det_zero_linear_forms_rank_one_field
+import Diaz.Mirror.exists_noncandidate_transcendental_on_circle
+import Diaz.Mirror.circle_points_indistinguishable
+import Diaz.Mirror.generic_quadratic_relation_is_norm
+import Diaz.Mirror.anisotropic_relation_four_exp_barrier
+import Diaz.Mirror.anisotropic_relation_on_circle
+import Diaz.Mirror.generic_period_never_enters
+import Diaz.Mirror.generic_indistinguishable_over_pi

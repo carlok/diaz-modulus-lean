@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 200 of 200, counting the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 210 of 210, counting the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider).
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
@@ -494,7 +494,40 @@ already a theorem, so it can give nothing.
   exception to (S) would certify.
 
 A configuration that does detect a counterexample needs an entry with a constant
-term, as in `diaz_of_sfe`. The companion note, version 1.3, states this precisely.
+term, as in `diaz_of_sfe`. For a generic candidate the constant is all it can add:
+
+- `generic_quadratic_relation_is_norm` — with algebraic coefficients and a constant
+  coordinate, the only quadratic relation among `1, u, ū, iπ` is the norm
+  `X₁X₂ − ρX₀²`, up to a factor.
+- `generic_period_never_enters` — in a singular 2×2 matrix over
+  `Q̄ + Q̄u + Q̄ū + Q̄iπ` with Q̄-independent rows and columns, the coefficient of `iπ`
+  in every entry is zero. `det_zero_linear_forms_rank_one_field` is the
+  linear-algebra step, over any field of characteristic zero.
+
+Non-generic candidates can carry homogeneous relations, and they are harmless:
+
+- `conj_pair_quadratic_relation_iff` — for `u` off the axes with `Im u ∉ ℚπ`, the
+  rational quadratic relations among `u, ū, iπ` are exactly the identities
+  `Q(Im u, π) = s|u|²`.
+- `anisotropic_relation_four_exp_barrier` — a relation whose form has no rational
+  zero never yields a configuration, because every 2×2 determinant of rational
+  linear forms has one (`det_linear_forms_isotropic`). It uses the transcendence
+  of π, not `e^u`.
+- `anisotropic_relation_on_circle` — such relations occur: `Re(u²) = π²` on every
+  circle of algebraic radius greater than π.
+
+Indistinguishability also holds with π fixed:
+
+- `circle_points_indistinguishable` — two points of a circle, transcendental over a
+  conjugation-stable field `K` containing the squared radius, are indistinguishable
+  over `K`.
+- `exists_noncandidate_transcendental_on_circle` — every circle of positive radius
+  has a point transcendental over a given countable field, with `e^t` transcendental.
+- `generic_indistinguishable_over_pi` — with `K` the algebraic closure of ℚ(π), a
+  candidate algebraically independent of π cannot be told from a non-candidate
+  point of its circle by any vanishing statement with coefficients in `K`.
+
+The companion note, version 1.4, states all of this precisely.
 
 ## What is assumed
 
