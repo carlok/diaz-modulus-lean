@@ -1,21 +1,9 @@
-/-
-Mirrored from Prove2Me: `FourExp.norm_to_polynomial_alg`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.norm_to_polynomial_alg__09b3d375.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
-Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match, and proof steps that became no-ops there were
-dropped; the mathematics is unchanged.
--/
 import Mathlib
-import Diaz.Mirror.exists_iteratedDeriv_reduced_presentation
-import Diaz.Mirror.exists_int_norm
-import Diaz.Mirror.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log
-import Diaz.Mirror.length_sum_le
-import Diaz.Mirror.length_mul_le
-
-namespace Diaz
+import Theorems.Thm_FourExp_exists_iteratedDeriv_reduced_presentation
+import Theorems.Thm_FourExp_exists_int_norm
+import Theorems.Thm_FourExp_exists_pow_mul_pow_le_exp_sq_mul_sqrt_log
+import Theorems.Thm_Transcendence_length_sum_le
+import Theorems.Thm_Transcendence_length_mul_le
 
 /-!
 # A small nonzero derivative gives an integer polynomial that is small at `ω`
@@ -66,7 +54,7 @@ lemma length_C_C_mul_le {a : ℤ} {P : Polynomial (Polynomial ℤ)} {x y : ℝ} 
   exact mul_le_mul ha hP (Nat.cast_nonneg _) ((abs_nonneg _).trans ha)
 
 /-- The length of a sum is at most the number of terms times a bound on their lengths. -/
-lemma norm_to_polynomial_alg_length_sum_le {ι : Type*} (s : Finset ι) (f : ι → Polynomial (Polynomial ℤ)) (B : ℝ)
+lemma length_sum_le {ι : Type*} (s : Finset ι) (f : ι → Polynomial (Polynomial ℤ)) (B : ℝ)
     (h : ∀ i ∈ s, ((∑ k ∈ (f i).support, ∑ j ∈ ((f i).coeff k).support,
       (((f i).coeff k).coeff j).natAbs : ℕ) : ℝ) ≤ B) :
     ((∑ k ∈ (∑ i ∈ s, f i).support, ∑ j ∈ ((∑ i ∈ s, f i).coeff k).support,
@@ -83,7 +71,7 @@ end NormToPolynomialAlg
 
 open Polynomial NormToPolynomialAlg
 
-theorem norm_to_polynomial_alg
+theorem solution
     (x₁ x₂ y₁ y₂ : ℂ)
     (hexp : ∀ i j : Fin 2, IsAlgebraic ℚ (Complex.exp (![x₁, x₂] i * ![y₁, y₂] j))) (ω ω₁ : ℂ) (hω : Transcendental ℚ ω) (Q : Polynomial (Polynomial ℤ)) (hQm : Q.Monic) (hQd : 0 < Q.natDegree)
     (hQroot : Polynomial.eval₂ (Polynomial.eval₂RingHom (Int.castRingHom ℂ) ω) ω₁ Q = 0)
@@ -109,10 +97,10 @@ theorem norm_to_polynomial_alg
         ‖Polynomial.aeval ω P‖ < Real.exp (-(C * (k * (if (N : ℝ) ≤ 3 then (N : ℝ) - 3 + 9 * Real.sqrt (Real.log 3) else (N : ℝ) ^ 2 * Real.sqrt (Real.log (N : ℝ)))) * (k * (if (N : ℝ) ≤ 3 then (N : ℝ) - 3 + 9 / Real.sqrt (Real.log 3) else (N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ)))))) := by
   -- The presentation of the derivatives, the norm down to `ℚ(ω)`, and the growth bound for
   -- the grid `T ≤ 14 N`.
-  obtain ⟨c, hc⟩ := exists_iteratedDeriv_reduced_presentation x₁ x₂ y₁ y₂ hexp ω ω₁ Q
+  obtain ⟨c, hc⟩ := FourExp.exists_iteratedDeriv_reduced_presentation x₁ x₂ y₁ y₂ hexp ω ω₁ Q
     hQm hQroot D E G H hD hE hG hH
-  obtain ⟨c₁, hc₁⟩ := exists_int_norm ω ω₁ Q hQm hQroot hQmin
-  obtain ⟨κ₅, hκ₅, hA5⟩ := exists_pow_mul_pow_le_exp_sq_mul_sqrt_log c 14
+  obtain ⟨c₁, hc₁⟩ := FourExp.exists_int_norm ω ω₁ Q hQm hQroot hQmin
+  obtain ⟨κ₅, hκ₅, hA5⟩ := FourExp.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log c 14
   -- One constant `k` for the height, the degree and the value.
   have hlw : 0 ≤ Real.log (max 1 ‖ω‖) := Real.log_nonneg (le_max_left _ _)
   obtain ⟨β, hβ⟩ : ∃ β : ℝ, β = 4 * κ * Q.natDegree + 6 + κ + κ₅ := ⟨_, rfl⟩
@@ -204,8 +192,8 @@ theorem norm_to_polynomial_alg
       ((Pol.coeff k).coeff i).natAbs = lP := ⟨_, rfl⟩
   have hlPe : (lP : ℝ) ≤ Real.exp (β * A) := by
     rw [← hlP, hPol]
-    refine (norm_to_polynomial_alg_length_sum_le _ _ _ fun i _ => norm_to_polynomial_alg_length_sum_le _ _ _ fun j _ =>
-      norm_to_polynomial_alg_length_sum_le _ _ _ fun k' _ => norm_to_polynomial_alg_length_sum_le _ _ _ fun μ _ => norm_to_polynomial_alg_length_sum_le _ _ _ fun ν _ =>
+    refine (length_sum_le _ _ _ fun i _ => length_sum_le _ _ _ fun j _ =>
+      length_sum_le _ _ _ fun k' _ => length_sum_le _ _ _ fun μ _ => length_sum_le _ _ _ fun ν _ =>
       length_C_C_mul_le (hqq i j k' μ ν) ((Nat.cast_le.2 (hRl i j k' μ ν)).trans hL5)).trans ?_
     simp only [Finset.card_univ, Fintype.card_fin]
     push_cast
@@ -235,7 +223,7 @@ theorem norm_to_polynomial_alg
   have hd0 : (0 : ℝ) ≤ Q.natDegree := Nat.cast_nonneg _
   refine ⟨P, hP0, fun i => ?_, ?_, ?_⟩
   · -- the height
-    rw [ite_eq_right hN3', ← Int.cast_abs, ← Nat.cast_natAbs]
+    rw [if_neg hN3', ← Int.cast_abs, ← Nat.cast_natAbs]
     have h1 : ((P.coeff i).natAbs : ℝ) ≤ ((c₁ * lP : ℕ) : ℝ) ^ Q.natDegree := by
       exact_mod_cast (natAbs_coeff_le P i).trans hPl
     refine h1.trans ((pow_le_pow_left₀ (Nat.cast_nonneg _) hX _).trans ?_)
@@ -246,7 +234,7 @@ theorem norm_to_polynomial_alg
       Q.natDegree * ((κ + 3 * c) * (1 + Real.log (max 1 ‖ω‖))) + κ₅ + 1)
       (by linarith : (0 : ℝ) ≤ A)]
   · -- the degree
-    rw [ite_eq_right hN3']
+    rw [if_neg hN3']
     have h1 : (P.natDegree : ℝ) ≤ Q.natDegree * (((M + c * (1 + m + S) : ℕ) : ℝ) + c₁) := by
       exact_mod_cast hPd
     refine h1.trans ?_
@@ -256,7 +244,7 @@ theorem norm_to_polynomial_alg
       (0 : ℝ) ≤ Q.natDegree * (β + (κ + 3 * c) * Real.log (max 1 ‖ω‖)) + κ₅ + 1)
       (by linarith : (0 : ℝ) ≤ B)]
   · -- the value
-    rw [ite_eq_right hN3', ite_eq_right hN3']
+    rw [if_neg hN3', if_neg hN3']
     have hW : max 1 ‖ω‖ ^ (M + c * (1 + m + S)) ≤
         Real.exp ((κ + 3 * c) * Real.log (max 1 ‖ω‖) * A) := by
       rw [← Real.exp_log (by positivity : (0 : ℝ) < max 1 ‖ω‖), ← Real.exp_nat_mul, Real.log_exp]
@@ -287,4 +275,4 @@ theorem norm_to_polynomial_alg
       have h3 : k * A ≤ k * (N : ℝ) ^ 4 := mul_le_mul_of_nonneg_left hAN hk0.le
       linarith [mul_nonneg (mul_nonneg (abs_nonneg C) (sq_nonneg k)) hN4.le, mul_pos hk0 hN4]
 
-end Diaz
+#print axioms solution

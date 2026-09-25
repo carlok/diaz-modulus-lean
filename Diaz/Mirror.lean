@@ -205,3 +205,11 @@ import Diaz.Mirror.dvd_of_small_values_at_scale
 import Diaz.Mirror.quadratic_coeffs_eq_zero_of_transcendental
 import Diaz.Mirror.four_exp_barrier_of_no_quadratic_relation
 import Diaz.Mirror.aligned_norm_free_no_quadratic_relation
+import Diaz.Mirror.length_sum_le
+import Diaz.Mirror.length_mul_le
+import Diaz.Mirror.exists_int_pow_repr
+import Diaz.Mirror.exists_modByMonic_length_le
+import Diaz.Mirror.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log
+import Diaz.Mirror.exists_iteratedDeriv_presentation
+import Diaz.Mirror.exists_iteratedDeriv_reduced_presentation
+import Diaz.Mirror.exists_int_norm

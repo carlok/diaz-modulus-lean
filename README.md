@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-25 it is met: 246 of 246. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-25 it is met: 254 of 254. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -660,6 +660,28 @@ until then a single 1,550-line proof, most of which it never used. It is now
 `recip_pi_log_four_exp_barrier`, `generic_conj_pair_four_exp_barrier` and
 `period_free_split_nondegenerate` were proved again from them. The four proofs
 went from 2,725 lines to 320.
+
+A third wave took on the two proofs of Waldschmidt's 1973 Lemmas 4 and 7,
+`aux_linear_system` and `norm_to_polynomial_alg`. Each carried the same
+1,046-line block of helpers. Eight nodes replace it:
+
+- `Transcendence.length_sum_le` and `Transcendence.length_mul_le` — the length
+  of integer polynomials (the sum of the absolute values of the coefficients)
+  of a finite sum, and of a product.
+- `Transcendence.exists_int_pow_repr` — scaled powers of an algebraic number are
+  integer combinations of a fixed basis, with coefficients at most `Aⁿ`.
+- `Transcendence.exists_modByMonic_length_le` — reduction modulo any polynomial
+  multiplies the length by at most `Cⁿ`.
+- `exists_iteratedDeriv_presentation` — the derivatives of an exponential
+  polynomial at a grid point, presented through the four exponentials, for any
+  coefficients. `exists_iteratedDeriv_reduced_presentation` adds the unknowns
+  and the reduction modulo `Q`.
+- `exists_pow_mul_pow_le_exp_sq_mul_sqrt_log` — the asymptotic estimate at the
+  scale `N²/√log N`.
+- `exists_int_norm` — the core of Lemma 7, the norm from `ℚ(ω, ω₁)` down to
+  `ℚ(ω)` with size control.
+
+The two proofs went from 4,068 lines to 458, and 2,173 with the new nodes.
 
 ## What is assumed
 

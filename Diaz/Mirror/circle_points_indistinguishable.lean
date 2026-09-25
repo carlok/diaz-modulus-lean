@@ -16,7 +16,7 @@ open ComplexConjugate
 namespace P14Indist
 
 /-- Two ring homomorphisms that agree on `K` and at `u` agree on `hull K u`
-(the proof of the platform node `Diaz.circle_points_indistinguishable_eqOn_hull`). -/
+(the proof of the platform node `Diaz.eqOn_hull`). -/
 theorem circle_points_indistinguishable_eqOn_hull {K : Subfield ℂ} {u : ℂ} (f g : ℂ →+* ℂ) (hK : ∀ z ∈ K, f z = g z)
     (hu : f u = g u) : ∀ z ∈ Diaz.hull K u, f z = g z := by
   intro z hz

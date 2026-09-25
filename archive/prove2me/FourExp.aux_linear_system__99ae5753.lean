@@ -1,15 +1,6 @@
-/-
-Mirrored from Prove2Me: `FourExp.aux_linear_system`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.aux_linear_system__99ae5753.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.exists_iteratedDeriv_reduced_presentation
-import Diaz.Mirror.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log
-
-namespace Diaz
+import Theorems.Thm_FourExp_exists_iteratedDeriv_reduced_presentation
+import Theorems.Thm_FourExp_exists_pow_mul_pow_le_exp_sq_mul_sqrt_log
 
 /-!
 # The auxiliary linear system of the four exponentials argument
@@ -46,7 +37,7 @@ end AuxLinearSystem
 
 open Polynomial
 
-theorem aux_linear_system
+theorem solution
         (x₁ x₂ y₁ y₂ : ℂ)
     (hexp : ∀ i j : Fin 2, IsAlgebraic ℚ (Complex.exp (![x₁, x₂] i * ![y₁, y₂] j))) (ω ω₁ : ℂ) (hω : Transcendental ℚ ω) (Q : Polynomial (Polynomial ℤ)) (hQm : Q.Monic) (hQd : 0 < Q.natDegree)
     (hQroot : Polynomial.eval₂ (Polynomial.eval₂RingHom (Int.castRingHom ℂ) ω) ω₁ Q = 0)
@@ -66,11 +57,11 @@ theorem aux_linear_system
               (fun i j k' => ∑ μ : Fin M, ∑ ν : Fin Q.natDegree, ((q i j k' μ ν : ℤ) : ℂ) * ω ^ (μ : ℕ) * ω₁ ^ (ν : ℕ)) i j k' * z ^ (i : ℕ) * Complex.exp ((((j : ℕ) : ℂ) * x₁ + ((k' : ℕ) : ℂ) * x₂) * z)) ((a : ℂ) * y₁ + (b : ℂ) * y₂) = 0 := by
   classical
   -- The derivatives at the points `a y₁ + b y₂`, as values of polynomials reduced modulo `Q`.
-  obtain ⟨c, hc⟩ := exists_iteratedDeriv_reduced_presentation x₁ x₂ y₁ y₂ hexp ω ω₁ Q
+  obtain ⟨c, hc⟩ := FourExp.exists_iteratedDeriv_reduced_presentation x₁ x₂ y₁ y₂ hexp ω ω₁ Q
     hQm hQroot D E G H hD hE hG hH
   -- `W S` powers of `ω` per unknown leave room for the `X`-degrees of the reduced values.
   obtain ⟨W, hW⟩ : ∃ W : ℕ, W = 3 * c + 1 := ⟨_, rfl⟩
-  obtain ⟨κ, hκ, hκb⟩ := exists_pow_mul_pow_le_exp_sq_mul_sqrt_log c 2
+  obtain ⟨κ, hκ, hκb⟩ := FourExp.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log c 2
   refine ⟨W + κ, by positivity, 3, fun N hN => ?_⟩
   have hN3 : 3 ≤ N := by omega
   -- The three floors.
@@ -186,4 +177,4 @@ theorem aux_linear_system
     rw [hV, eval₂_zero] at h0
     exact (mul_eq_zero.1 h0).resolve_left (hΛ a b m)
 
-end Diaz
+#print axioms solution
