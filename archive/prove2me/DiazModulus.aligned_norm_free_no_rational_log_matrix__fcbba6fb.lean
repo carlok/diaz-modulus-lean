@@ -1,23 +1,15 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.aligned_norm_free_no_rational_log_matrix`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.aligned_norm_free_no_rational_log_matrix__fcbba6fb.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-import Diaz.Mirror.aligned_norm_free_no_quadratic_relation
-import Diaz.Mirror.four_exp_barrier_of_no_quadratic_relation
-
-namespace Diaz
+import Definitions.Def_DiazModulus
+import Theorems.Thm_DiazModulus_aligned_norm_free_no_quadratic_relation
+import Theorems.Thm_DiazModulus_four_exp_barrier_of_no_quadratic_relation
 
 open Complex ComplexConjugate
 
 /- Write each entry as a rational linear form in `u, ū, 2πi`. These numbers satisfy no rational
 quadratic relation (`aligned_norm_free_no_quadratic_relation`), so
 `four_exp_barrier_of_no_quadratic_relation` gives the row or column relation. -/
-theorem aligned_norm_free_no_rational_log_matrix :
+open DiazModulus in
+theorem solution :
     ∀ (u : ℂ) (r : ℚ),
       Transcendental ℚ ((Real.pi : ℝ) : ℂ) →
       u.re ≠ 0 →
@@ -49,4 +41,4 @@ theorem aligned_norm_free_no_rational_log_matrix :
   · exact Or.inl ⟨p, q, not_and_or.mp hpq, h 0, h 1⟩
   · exact Or.inr ⟨p, q, not_and_or.mp hpq, h 0, h 1⟩
 
-end Diaz
+#print axioms solution

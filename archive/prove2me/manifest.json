@@ -3890,5 +3890,89 @@
   "bytes": 4502,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.aligned_norm_free_no_quadratic_relation",
+  "theorem_id": "89563704-a141-48b3-9ff2-513418daa2dc",
+  "submission_id": "6aa4f67f-c482-48aa-8673-f9a429687af2",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-25T10:36:55.121762+00:00",
+  "file": "DiazModulus.aligned_norm_free_no_quadratic_relation__6aa4f67f.lean",
+  "bytes": 8759,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.four_exp_barrier_of_no_quadratic_relation",
+  "theorem_id": "ff0f40a7-c2f2-44ce-803f-5f76aefbeae5",
+  "submission_id": "32650aad-c768-4418-a96c-9280a33bae6e",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-25T10:35:16.673183+00:00",
+  "file": "DiazModulus.four_exp_barrier_of_no_quadratic_relation__32650aad.lean",
+  "bytes": 2128,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.recip_pi_log_four_exp_barrier",
+  "theorem_id": "9f801e29-5196-47a8-87b9-013bfadae6af",
+  "submission_id": "c2a92262-1904-486b-8f7d-73fc4b767d0a",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-25T10:36:57.801499+00:00",
+  "file": "DiazModulus.recip_pi_log_four_exp_barrier__c2a92262.lean",
+  "bytes": 2867,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.generic_conj_pair_four_exp_barrier",
+  "theorem_id": "7d4a06b0-0c88-4474-892f-16c8ec61a80e",
+  "submission_id": "faa2711e-6299-43f8-9e37-5f0df9fc3291",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-25T10:37:00.519687+00:00",
+  "file": "DiazModulus.generic_conj_pair_four_exp_barrier__faa2711e.lean",
+  "bytes": 1152,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.period_free_split_nondegenerate",
+  "theorem_id": "ecd1fff7-7029-4345-8318-1510b0fdb4f2",
+  "submission_id": "afdf1f9e-228c-4274-b88c-aafc8d4eaaed",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-25T10:37:03.155071+00:00",
+  "file": "DiazModulus.period_free_split_nondegenerate__afdf1f9e.lean",
+  "bytes": 8334,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.aligned_norm_free_no_rational_log_matrix",
+  "theorem_id": "931b8b88-3036-4006-9045-de1f1ebd4ecf",
+  "submission_id": "fcbba6fb-f635-4e2f-b2e3-f9e298d9feed",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-25T10:39:17.261756+00:00",
+  "file": "DiazModulus.aligned_norm_free_no_rational_log_matrix__fcbba6fb.lean",
+  "bytes": 2015,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "Transcendence.quadratic_coeffs_eq_zero_of_transcendental",
+  "theorem_id": "0b946dc3-8d94-4797-b943-02e56589f23d",
+  "submission_id": "750283d2-77b7-4fcb-836e-cc0af49439a1",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-25T10:35:13.952438+00:00",
+  "file": "Transcendence.quadratic_coeffs_eq_zero_of_transcendental__750283d2.lean",
+  "bytes": 1694,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]

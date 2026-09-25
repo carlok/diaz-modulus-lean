@@ -1,23 +1,15 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.generic_conj_pair_four_exp_barrier`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.generic_conj_pair_four_exp_barrier__faa2711e.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-import Diaz.Mirror.generic_conj_pair_no_quadratic_relation
-import Diaz.Mirror.four_exp_barrier_of_no_quadratic_relation
-
-namespace Diaz
+import Definitions.Def_DiazModulus
+import Theorems.Thm_DiazModulus_generic_conj_pair_no_quadratic_relation
+import Theorems.Thm_DiazModulus_four_exp_barrier_of_no_quadratic_relation
 
 open Complex ComplexConjugate
 
 /- The entries of `M` are rational linear forms in `u, ū, πi`, and these satisfy no rational
 quadratic relation (`generic_conj_pair_no_quadratic_relation`), so
 `four_exp_barrier_of_no_quadratic_relation` applies. -/
-theorem generic_conj_pair_four_exp_barrier (u : ℂ) (hu : u ≠ 0)
+open DiazModulus in
+theorem solution (u : ℂ) (hu : u ≠ 0)
     (hρ : IsAlgebraic ℚ (u * conj u))
     (hgen : AlgebraicIndependent (↥Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])
     (A : Fin 2 → Fin 2 → Fin 3 → ℚ) (M : Fin 2 → Fin 2 → ℂ)
@@ -28,4 +20,4 @@ theorem generic_conj_pair_four_exp_barrier (u : ℂ) (hu : u ≠ 0)
   exact four_exp_barrier_of_no_quadratic_relation _
     (fun F hF => generic_conj_pair_no_quadratic_relation u hu hρ hgen F hF) A M hM hdet
 
-end Diaz
+#print axioms solution

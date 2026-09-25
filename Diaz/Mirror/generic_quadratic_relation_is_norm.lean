@@ -34,7 +34,7 @@ theorem aeval_Q (c0 c1 c2 c3 c4 c5 c6 c7 c8 : ↥Qbar) (a b : ℂ) :
 /-- A polynomial function `ℂ² → ℂ` supported on the nine monomials
 `1, U, U², U³, U⁴, U W, U² W, U³ W, U² W²` that vanishes identically has zero coefficients:
 read them off from the values at eleven integer points. -/
-theorem generic_quadratic_relation_is_norm_coeffs_eq_zero (c0 c1 c2 c3 c4 c5 c6 c7 c8 : ℂ)
+theorem coeffs_eq_zero (c0 c1 c2 c3 c4 c5 c6 c7 c8 : ℂ)
     (h : ∀ a b : ℂ, c0 + c1 * a + c2 * a ^ 2 + c3 * a ^ 3 + c4 * a ^ 4 + c5 * a * b
       + c6 * a ^ 2 * b + c7 * a ^ 3 * b + c8 * a ^ 2 * b ^ 2 = 0) :
     c0 = 0 ∧ c1 = 0 ∧ c2 = 0 ∧ c3 = 0 ∧ c4 = 0 ∧ c5 = 0 ∧ c6 = 0 ∧ c7 = 0 ∧ c8 = 0 := by
@@ -117,7 +117,7 @@ theorem generic_quadratic_relation_is_norm (u : ℂ) (hu : u ≠ 0)
         + (P 1 3 + P 3 1) * a ^ 3 * b + P 3 3 * a ^ 2 * b ^ 2 = 0 := by
     intro a b
     rw [← hval, hPu, map_zero]
-  obtain ⟨c0, c1, c2, c3, c4, c5, c6, c7, c8⟩ := generic_quadratic_relation_is_norm_coeffs_eq_zero _ _ _ _ _ _ _ _ _ ev
+  obtain ⟨c0, c1, c2, c3, c4, c5, c6, c7, c8⟩ := coeffs_eq_zero _ _ _ _ _ _ _ _ _ ev
   have hP22 : P 2 2 = 0 :=
     (mul_eq_zero.1 c0).resolve_left (pow_ne_zero 2 hρ0)
   have hS02 : P 0 2 + P 2 0 = 0 := (mul_eq_zero.1 c1).resolve_left hρ0

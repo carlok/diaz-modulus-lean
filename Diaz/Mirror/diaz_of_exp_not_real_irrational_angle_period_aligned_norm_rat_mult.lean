@@ -51,7 +51,7 @@ theorem diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_alg_p
   exact Subfield.pow_mem _ hz n
 
 /-- A rational multiple of `2πi` is a logarithm of a root of unity. -/
-theorem diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_alg_exp_rat_two_pi_I (c : ℚ) :
+theorem alg_exp_rat_two_pi_I (c : ℚ) :
     IsAlgebraic ℚ (Complex.exp ((c : ℂ) * (2 * ((Real.pi : ℝ) : ℂ) * Complex.I))) := by
   refine IsAlgebraic.of_pow (n := c.den) c.pos ?_
   have hden : ((c.den : ℕ) : ℂ) * (c : ℂ) = ((c.num : ℤ) : ℂ) := by
@@ -335,7 +335,7 @@ theorem transcendental_of_trdegOne (h4 : FourExpTrdegOne) (u : ℂ)
   have hexpconj : IsAlgebraic ℚ (Complex.exp ((starRingEnd ℂ) u)) := by
     rw [Complex.exp_conj]; exact diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_alg_conj hexp
   have hexpl₃ : IsAlgebraic ℚ (Complex.exp l₃) := by
-    rw [hl3_def]; exact diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_alg_exp_rat_two_pi_I c
+    rw [hl3_def]; exact alg_exp_rat_two_pi_I c
   -- rows and columns are `ℚ`-independent
   have hrows : ∀ a b : ℚ, (a : ℂ) * u + (b : ℂ) * l₃ = 0 →
       (a : ℂ) * ν + (b : ℂ) * ((starRingEnd ℂ) u) = 0 → a = 0 ∧ b = 0 := by

@@ -202,3 +202,6 @@ import Diaz.Mirror.exp_abs_transcendental_of_isAlgebraic_adjoin
 import Diaz.Mirror.qbar_dependent_of_det_linear_forms
 import Diaz.Mirror.circle_vanishing_ideal
 import Diaz.Mirror.dvd_of_small_values_at_scale
+import Diaz.Mirror.quadratic_coeffs_eq_zero_of_transcendental
+import Diaz.Mirror.four_exp_barrier_of_no_quadratic_relation
+import Diaz.Mirror.aligned_norm_free_no_quadratic_relation

@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-25 it is met: 243 of 243. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-25 it is met: 246 of 246. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -643,6 +643,23 @@ On the platform those nine proofs went from 2,865 lines to 856. Here, seven
 mirror modules were regenerated from the new proofs, and `Kernel.lean` now
 derives `candidate_vanishing_ideal` from the circle node: 130 lines instead
 of 472.
+
+A second wave the same day took apart `aligned_norm_free_no_rational_log_matrix`,
+until then a single 1,550-line proof, most of which it never used. It is now
+44 lines, from three new nodes:
+
+- `Transcendence.quadratic_coeffs_eq_zero_of_transcendental` — a transcendental
+  number is a root of no non-zero quadratic with algebraic coefficients.
+- `four_exp_barrier_of_no_quadratic_relation` — if numbers satisfy no rational
+  quadratic relation, a singular 2×2 matrix of rational linear forms in them
+  has rationally dependent rows or columns. The `*_four_exp_barrier` results
+  each proved this step inline.
+- `aligned_norm_free_no_quadratic_relation` — in the aligned, norm-free case,
+  `u`, `ū` and `2πi` satisfy no rational quadratic relation.
+
+`recip_pi_log_four_exp_barrier`, `generic_conj_pair_four_exp_barrier` and
+`period_free_split_nondegenerate` were proved again from them. The four proofs
+went from 2,725 lines to 320.
 
 ## What is assumed
 

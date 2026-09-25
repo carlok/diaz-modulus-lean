@@ -1,23 +1,14 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.recip_pi_log_four_exp_barrier`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.recip_pi_log_four_exp_barrier__c2a92262.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.quadratic_coeffs_eq_zero_of_transcendental
-import Diaz.Mirror.four_exp_barrier_of_no_quadratic_relation
-import Diaz.Mirror.pi_transcendental
-
-namespace Diaz
+import Theorems.Thm_Transcendence_quadratic_coeffs_eq_zero_of_transcendental
+import Theorems.Thm_DiazModulus_four_exp_barrier_of_no_quadratic_relation
+import Theorems.Thm_DiazModulus_pi_transcendental
 
 namespace S7W2_recip_pi_log_four_exp_barrier
 
 /-- `(πi)² = -π²` is transcendental, since `π` is. -/
 theorem w_sq_transcendental : Transcendental ℚ ((((Real.pi : ℝ) : ℂ) * Complex.I) ^ 2) := by
   intro h
-  apply pi_transcendental
+  apply DiazModulus.pi_transcendental
   have e : ((Real.pi : ℝ) : ℂ) ^ 2 = -((((Real.pi : ℝ) : ℂ) * Complex.I) ^ 2) := by
     rw [mul_pow, Complex.I_sq]
     ring
@@ -33,7 +24,7 @@ open S7W2_recip_pi_log_four_exp_barrier in
 multiplied by `w²`, reads `F₁₁ (w²)² + (F₀₁ + F₁₀) γ w² + F₀₀ γ² = 0`. Since `w²` is transcendental
 and `γ ≠ 0` is algebraic, `quadratic_coeffs_eq_zero_of_transcendental` makes `F` alternating, and
 `four_exp_barrier_of_no_quadratic_relation` applies. -/
-theorem recip_pi_log_four_exp_barrier (γ : ℂ) (hγ : IsAlgebraic ℚ γ) (hγ0 : γ ≠ 0)
+theorem solution (γ : ℂ) (hγ : IsAlgebraic ℚ γ) (hγ0 : γ ≠ 0)
     (A : Fin 2 → Fin 2 → Fin 2 → ℚ) (M : Fin 2 → Fin 2 → ℂ)
     (hM : ∀ i j, M i j = (A i j 0 : ℂ) * (γ / (((Real.pi : ℝ) : ℂ) * Complex.I)) + (A i j 1 : ℂ) * (((Real.pi : ℝ) : ℂ) * Complex.I))
     (hdet : M 0 0 * M 1 1 = M 0 1 * M 1 0) :
@@ -41,7 +32,7 @@ theorem recip_pi_log_four_exp_barrier (γ : ℂ) (hγ : IsAlgebraic ℚ γ) (hγ
       (∃ p q : ℚ, ¬(p = 0 ∧ q = 0) ∧ ∀ i, (p : ℂ) * M i 0 + (q : ℂ) * M i 1 = 0) := by
   set w : ℂ := ((Real.pi : ℝ) : ℂ) * Complex.I with hw
   have hw0 : w ≠ 0 := mul_ne_zero (by exact_mod_cast Real.pi_ne_zero) Complex.I_ne_zero
-  refine four_exp_barrier_of_no_quadratic_relation ![γ / w, w] ?_ A M
+  refine DiazModulus.four_exp_barrier_of_no_quadratic_relation ![γ / w, w] ?_ A M
     (fun i j => by rw [hM i j, Fin.sum_univ_two]; rfl) hdet
   intro F hF
   simp only [Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one] at hF
@@ -65,4 +56,4 @@ theorem recip_pi_log_four_exp_barrier (γ : ℂ) (hγ : IsAlgebraic ℚ γ) (hγ
   intro k l
   fin_cases k <;> fin_cases l <;> simp [e11, e00] <;> linarith
 
-end Diaz
+#print axioms solution

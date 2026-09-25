@@ -1,16 +1,7 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.period_free_split_nondegenerate`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.period_free_split_nondegenerate__afdf1f9e.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-import Diaz.Mirror.pi_transcendental
-import Diaz.Mirror.quadratic_coeffs_eq_zero_of_transcendental
-
-namespace Diaz
+import Definitions.Def_DiazModulus
+import Theorems.Thm_DiazModulus_pi_transcendental
+import Theorems.Thm_Transcendence_quadratic_coeffs_eq_zero_of_transcendental
 
 /-!
 # Both halves of the period-free region are non-empty
@@ -185,7 +176,7 @@ end S7W2_period_free_split_nondegenerate
 /- `wC` witnesses the first half and `wB` the second; both use only that `π` is
 transcendental. -/
 open Complex ComplexConjugate in
-theorem period_free_split_nondegenerate :
+theorem solution :
     (∃ u : ℂ, u ≠ 0 ∧ IsAlgebraic ℚ ((‖u‖ : ℝ) : ℂ) ∧ (Complex.exp u).im ≠ 0 ∧
         ¬ (u.im = 0 ∨ u.re = 0) ∧ (¬ ∃ q : ℚ, u.im = (q : ℝ) * Real.pi) ∧
         (¬ ∃ r : ℚ, r ≠ 0 ∧
@@ -196,8 +187,8 @@ theorem period_free_split_nondegenerate :
         (¬ ∃ r : ℚ, r ≠ 0 ∧
           IsAlgebraic ℚ ((Real.pi * (u.im + (r : ℝ) * Real.pi) : ℝ) : ℂ)) ∧
         Transcendental ℚ ((Real.pi * u.im : ℝ) : ℂ)) := by
-  have hpi := pi_transcendental
+  have hpi := DiazModulus.pi_transcendental
   exact ⟨⟨_, S7W2_period_free_split_nondegenerate.wC_mem hpi⟩,
     ⟨_, S7W2_period_free_split_nondegenerate.wB_mem hpi⟩⟩
 
-end Diaz
+#print axioms solution

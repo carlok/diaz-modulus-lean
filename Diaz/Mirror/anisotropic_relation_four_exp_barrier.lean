@@ -165,7 +165,7 @@ theorem det_rel (A : Fin 2 → Fin 2 → Fin 3 → ℚ) (u : ℂ) (M : Fin 2 →
 
 /-- A `ℚ`-linear relation between the coefficient vectors of two linear forms in `w` gives the
 same relation between the forms. -/
-theorem anisotropic_relation_four_exp_barrier_forms_rel (w : Fin 3 → ℂ) (a b : Fin 3 → ℚ) (p q : ℚ)
+theorem forms_rel (w : Fin 3 → ℂ) (a b : Fin 3 → ℚ) (p q : ℚ)
     (hab : ∀ k, p * a k + q * b k = 0) :
     (p : ℂ) * ∑ k, (a k : ℂ) * w k + (q : ℂ) * ∑ k, (b k : ℂ) * w k = 0 := by
   rw [Finset.mul_sum, Finset.mul_sum, ← Finset.sum_add_distrib]
@@ -259,10 +259,10 @@ theorem anisotropic_relation_four_exp_barrier (u : ℂ) (hre : u.re ≠ 0)
   · left
     refine ⟨p, q, hpq, fun j => ?_⟩
     rw [hM 0 j, hM 1 j]
-    exact anisotropic_relation_four_exp_barrier_forms_rel _ (A 0 j) (A 1 j) p q (fun k => hrow j k)
+    exact forms_rel _ (A 0 j) (A 1 j) p q (fun k => hrow j k)
   · right
     refine ⟨p, q, hpq, fun i => ?_⟩
     rw [hM i 0, hM i 1]
-    exact anisotropic_relation_four_exp_barrier_forms_rel _ (A i 0) (A i 1) p q (fun k => hcol i k)
+    exact forms_rel _ (A i 0) (A i 1) p q (fun k => hcol i k)
 
 end Diaz

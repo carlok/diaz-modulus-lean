@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-25): **243** of 243
+As of the latest archived submission (2026-09-25): **246** of 246
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -127,6 +127,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Diaz.transcendental_of_candidate` | yes | `Diaz/Closure.lean` | done |  |
 | `Diaz.two_failures_give_algebraic_log_product` | yes | `Diaz/Mirror/two_failures_give_algebraic_log_product.lean` | done |  |
 | `Diaz.zpow_mem_iff` | yes | `Diaz/Mirror/zpow_mem_iff.lean` | done |  |
+| `DiazModulus.aligned_norm_free_no_quadratic_relation` | yes | `Diaz/Mirror/aligned_norm_free_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.aligned_norm_free_no_rational_log_matrix` | yes | `Diaz/Mirror/aligned_norm_free_no_rational_log_matrix.lean` | done |  |
 | `DiazModulus.anisotropic_relation_four_exp_barrier` | yes | `Diaz/Mirror/anisotropic_relation_four_exp_barrier.lean` | done |  |
 | `DiazModulus.anisotropic_relation_on_circle` | yes | `Diaz/Mirror/anisotropic_relation_on_circle.lean` | done |  |
@@ -180,6 +181,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.exp_i_div_pi_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_i_div_pi_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_pi_sq_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.exp_two_pi_I_mul_transcendental_of_normSq_rat` | yes | `Diaz/Mirror/exp_two_pi_I_mul_transcendental_of_normSq_rat.lean` | done |  |
+| `DiazModulus.four_exp_barrier_of_no_quadratic_relation` | yes | `Diaz/Mirror/four_exp_barrier_of_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.four_exponentials_trdeg_one` | yes | `Diaz/Mirror/four_exponentials_trdeg_one.lean` | done |  |
 | `DiazModulus.generic_conj_pair_four_exp_barrier` | yes | `Diaz/Mirror/generic_conj_pair_four_exp_barrier.lean` | done |  |
 | `DiazModulus.generic_conj_pair_no_quadratic_relation` | yes | `Diaz/Mirror/generic_conj_pair_no_quadratic_relation.lean` | done |  |
@@ -271,5 +273,6 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Transcendence.circle_vanishing_ideal` | yes | `Diaz/Mirror/circle_vanishing_ideal.lean` | done |  |
 | `Transcendence.expSum_first_nonvanishing` | yes | `Diaz/Mirror/expSum_first_nonvanishing.lean` | done |  |
 | `Transcendence.liouville_house` | yes | `Diaz/Mirror/liouville_house.lean` | done |  |
+| `Transcendence.quadratic_coeffs_eq_zero_of_transcendental` | yes | `Diaz/Mirror/quadratic_coeffs_eq_zero_of_transcendental.lean` | done |  |
 | `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin` | yes | `Diaz/Mirror/trdeg_adjoin_le_one_of_isAlgebraic_adjoin.lean` | done |  |
 | `e_pi_transcendence` | yes | `Diaz/Mirror/e_pi_transcendence.lean` | done |  |
