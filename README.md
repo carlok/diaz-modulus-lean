@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-24 it is met: 239 of 239. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-25 it is met: 243 of 243. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -621,6 +621,28 @@ becomes a node:
 - `e_pi_transcendence` — `e^π` is transcendental (Gelfond 1929), as an
   instance of the Gelfond–Schneider theorem proved here. It closes another
   contributor's node, which had been open since June 2026.
+
+On 25 September the same audit took four general results out of proofs that
+carried them inline, and made each a node:
+
+- `exp_abs_transcendental_of_isAlgebraic_adjoin` — if `e^λ` is algebraic, `λ`
+  is not real, and `λ`, `λ̄` are algebraic over one ring `ℚ[x]`, then
+  `e^{|λ|}` is transcendental.
+- `qbar_dependent_of_det_linear_forms` — if each product `x_i y_j` of a 2×2
+  block is an algebraic linear form in four fixed numbers, and the block's
+  determinant vanishes identically as a quadratic form, then the `x`'s or the
+  `y`'s are linearly dependent over `Q̄`.
+- `Transcendence.circle_vanishing_ideal` — for a subfield `K` of `ℂ`, a point
+  of the circle `x² + y² = ρ ≠ 0` whose `y` is transcendental over `K` lies on
+  no curve over `K` except multiples of the circle.
+- `dvd_of_small_values_at_scale` — one scale of Gel'fond's transcendence
+  criterion.
+
+Nine results were proved again, importing these or a node they had re-proved.
+On the platform those nine proofs went from 2,865 lines to 856. Here, seven
+mirror modules were regenerated from the new proofs, and `Kernel.lean` now
+derives `candidate_vanishing_ideal` from the circle node: 130 lines instead
+of 472.
 
 ## What is assumed
 

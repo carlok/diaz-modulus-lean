@@ -1,15 +1,6 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.exp_abs_log_two_add_i_pi_transcendental`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.exp_abs_log_two_add_i_pi_transcendental__e06eb11d.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-import Diaz.Mirror.exp_abs_transcendental_of_isAlgebraic_adjoin
-
-namespace Diaz
+import Definitions.Def_DiazModulus
+import Theorems.Thm_DiazModulus_exp_abs_transcendental_of_isAlgebraic_adjoin
 
 open Complex ComplexConjugate
 
@@ -22,7 +13,7 @@ theorem self_isAlgebraic (x : ℂ) : IsAlgebraic ↥(Algebra.adjoin ℚ ({x} : S
 end S7W1_exp_abs_log_two_add_i_pi
 
 open S7W1_exp_abs_log_two_add_i_pi in
-theorem exp_abs_log_two_add_i_pi_transcendental (hdep : IsAlgebraic (↥(Algebra.adjoin ℚ ({((Real.pi : ℝ) : ℂ) * Complex.I} : Set ℂ))) ((Real.log 2 : ℝ) : ℂ)) :
+theorem solution (hdep : IsAlgebraic (↥(Algebra.adjoin ℚ ({((Real.pi : ℝ) : ℂ) * Complex.I} : Set ℂ))) ((Real.log 2 : ℝ) : ℂ)) :
     Transcendental ℚ (Complex.exp ((Real.sqrt (Real.log 2 ^ 2 + Real.pi ^ 2) : ℝ) : ℂ)) := by
   -- The node with `λ := log 2 + iπ` and `x := iπ`.
   have hnorm : ‖((Real.log 2 : ℝ) : ℂ) + ((Real.pi : ℝ) : ℂ) * Complex.I‖ =
@@ -43,8 +34,8 @@ theorem exp_abs_log_two_add_i_pi_transcendental (hdep : IsAlgebraic (↥(Algebra
     ring
   -- `log 2 ± iπ` are algebraic over `ℚ[iπ]`, since `log 2` is by hypothesis and `iπ ∈ ℚ[iπ]`.
   have hpi := self_isAlgebraic (((Real.pi : ℝ) : ℂ) * Complex.I)
-  have h := exp_abs_transcendental_of_isAlgebraic_adjoin _ _ hexp him
+  have h := DiazModulus.exp_abs_transcendental_of_isAlgebraic_adjoin _ _ hexp him
     (hdep.add hpi) (by rw [hcl]; exact hdep.sub hpi)
   rwa [hnorm] at h
 
-end Diaz
+#print axioms solution

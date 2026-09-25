@@ -1,16 +1,7 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.generic_qbar_homogeneous_four_exp_barrier`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.generic_qbar_homogeneous_four_exp_barrier__23bf313e.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-import Diaz.Mirror.qbar_dependent_of_det_linear_forms
-import Diaz.Mirror.generic_quadratic_relation_is_norm
-
-namespace Diaz
+import Definitions.Def_DiazModulus
+import Theorems.Thm_DiazModulus_qbar_dependent_of_det_linear_forms
+import Theorems.Thm_DiazModulus_generic_quadratic_relation_is_norm
 
 open Complex ComplexConjugate
 
@@ -29,7 +20,7 @@ theorem range3 (a b c : ℂ) : Set.range ![a, b, c] = ({a, b, c} : Set ℂ) := b
 /-- Algebraic coefficients of an element of the `Q̄`-span of `u, conj u, πi`, written in the four
 coordinates `1, u, conj u, πi` with a zero constant coefficient. -/
 theorem coeffs3 (u z : ℂ)
-    (h : z ∈ Submodule.span Qbar
+    (h : z ∈ Submodule.span DiazModulus.Qbar
       ({u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I} : Set ℂ)) :
     ∃ C : Fin 4 → ℂ, (∀ k, IsAlgebraic ℚ (C k)) ∧ C 0 = 0 ∧
       z = ∑ k, C k * ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] k := by
@@ -39,9 +30,9 @@ theorem coeffs3 (u z : ℂ)
   · intro k
     fin_cases k
     · exact isAlgebraic_zero
-    · exact mem_Qbar_iff.1 (c 0).2
-    · exact mem_Qbar_iff.1 (c 1).2
-    · exact mem_Qbar_iff.1 (c 2).2
+    · exact DiazModulus.mem_Qbar_iff.1 (c 0).2
+    · exact DiazModulus.mem_Qbar_iff.1 (c 1).2
+    · exact DiazModulus.mem_Qbar_iff.1 (c 2).2
   · rw [← hc]
     have hs : ∑ k, c k • ![u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] k
         = ∑ k, (c k : ℂ) * ![u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] k := rfl
@@ -49,8 +40,8 @@ theorem coeffs3 (u z : ℂ)
     simp [Fin.sum_univ_three, Fin.sum_univ_four]
 
 /-- Two vectors, independent over `Q̄`. -/
-theorem generic_qbar_homogeneous_four_exp_barrier_li2 {x : Fin 2 → ℂ} (hx : LinearIndependent (↥Qbar) x)
-    (p q : ↥Qbar) (h : (p : ℂ) * x 0 + (q : ℂ) * x 1 = 0) : p = 0 ∧ q = 0 := by
+theorem li2 {x : Fin 2 → ℂ} (hx : LinearIndependent (↥DiazModulus.Qbar) x)
+    (p q : ↥DiazModulus.Qbar) (h : (p : ℂ) * x 0 + (q : ℂ) * x 1 = 0) : p = 0 ∧ q = 0 := by
   have := Fintype.linearIndependent_iff.1 hx ![p, q] (by
     simp only [Fin.sum_univ_two]
     exact h)
@@ -58,8 +49,8 @@ theorem generic_qbar_homogeneous_four_exp_barrier_li2 {x : Fin 2 → ℂ} (hx : 
 
 /-- `generic_quadratic_relation_is_norm` applied to the difference of two products of linear forms
     in `1, u, conj u, πi`. -/
-theorem generic_qbar_homogeneous_four_exp_barrier_det_norm (u : ℂ) (hu : u ≠ 0) (hρ : IsAlgebraic ℚ (u * conj u))
-    (hgen : AlgebraicIndependent (↥Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])
+theorem det_norm (u : ℂ) (hu : u ≠ 0) (hρ : IsAlgebraic ℚ (u * conj u))
+    (hgen : AlgebraicIndependent (↥DiazModulus.Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])
     (a b c d : Fin 4 → ℂ) (ha : ∀ k, IsAlgebraic ℚ (a k)) (hb : ∀ k, IsAlgebraic ℚ (b k))
     (hc : ∀ k, IsAlgebraic ℚ (c k)) (hd : ∀ k, IsAlgebraic ℚ (d k))
     (hrel : (∑ k, a k * ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] k)
@@ -74,7 +65,7 @@ theorem generic_qbar_homogeneous_four_exp_barrier_det_norm (u : ℂ) (hu : u ≠
     intro z
     simp only [Fin.sum_univ_four]
     ring
-  obtain ⟨γ, hγ, hQ⟩ := generic_quadratic_relation_is_norm u hu hρ hgen
+  obtain ⟨γ, hγ, hQ⟩ := DiazModulus.generic_quadratic_relation_is_norm u hu hρ hgen
     (fun k l => a k * b l - c k * d l) (fun k l => ((ha k).mul (hb l)).sub ((hc k).mul (hd l)))
     (by rw [hsum, hrel, sub_self])
   exact ⟨γ, hγ, fun z => by rw [← hsum z]; exact hQ z⟩
@@ -87,8 +78,8 @@ by `generic_quadratic_relation_is_norm` its quadratic form is `c · (z₁z₂ - 
 constant coefficients) while the norm is `-ρ ≠ 0`, so `c = 0`. The determinant then vanishes
 identically; `qbar_dependent_of_det_linear_forms` gives an algebraic row or column relation, and since `y₀ ≠ 0` and
 `x₀ ≠ 0` this is an algebraic relation between `x₀, x₁` or between `y₀, y₁`. -/
-open P15Hom in
-theorem generic_qbar_homogeneous_four_exp_barrier (u : ℂ) (hu : u ≠ 0)
+open P15Hom DiazModulus in
+theorem solution (u : ℂ) (hu : u ≠ 0)
     (hρ : IsAlgebraic ℚ (u * conj u))
     (hgen : AlgebraicIndependent (↥Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])
     (x y : Fin 2 → ℂ) (hx : LinearIndependent (↥Qbar) x) (hy : LinearIndependent (↥Qbar) y) :
@@ -98,7 +89,7 @@ theorem generic_qbar_homogeneous_four_exp_barrier (u : ℂ) (hu : u ≠ 0)
   choose C hC hC0 hCe using hex
   have hx0 : x 0 ≠ 0 := hx.ne_zero 0
   have hy0 : y 0 ≠ 0 := hy.ne_zero 0
-  obtain ⟨γ, -, hQ⟩ := generic_qbar_homogeneous_four_exp_barrier_det_norm u hu hρ hgen (C 0 0) (C 1 1) (C 0 1) (C 1 0)
+  obtain ⟨γ, -, hQ⟩ := det_norm u hu hρ hgen (C 0 0) (C 1 1) (C 0 1) (C 1 0)
     (hC 0 0) (hC 1 1) (hC 0 1) (hC 1 0)
     (by rw [← hCe 0 0, ← hCe 1 1, ← hCe 0 1, ← hCe 1 0]; ring)
   -- at `z = (1, 0, 0, 0)` the form vanishes and the norm is `-u * conj u`
@@ -106,10 +97,10 @@ theorem generic_qbar_homogeneous_four_exp_barrier (u : ℂ) (hu : u ≠ 0)
     have h := hQ ![1, 0, 0, 0]
     simp [Fin.sum_univ_four, hC0] at h
     exact h.resolve_right hu
-  rcases qbar_dependent_of_det_linear_forms
+  rcases DiazModulus.qbar_dependent_of_det_linear_forms
     ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] C hC x y 0 1 hx0 hy0 hCe
     (fun z => by rw [hQ z, hγ, zero_mul]) with ⟨p, q, hpq, h⟩ | ⟨p, q, hpq, h⟩
-  · exact hpq (generic_qbar_homogeneous_four_exp_barrier_li2 hx p q h)
-  · exact hpq (generic_qbar_homogeneous_four_exp_barrier_li2 hy p q h)
+  · exact hpq (li2 hx p q h)
+  · exact hpq (li2 hy p q h)
 
-end Diaz
+#print axioms solution

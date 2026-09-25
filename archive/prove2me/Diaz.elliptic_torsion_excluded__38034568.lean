@@ -1,16 +1,7 @@
-/-
-Mirrored from Prove2Me: `Diaz.elliptic_torsion_excluded`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/Diaz.elliptic_torsion_excluded__38034568.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Closure
-import Diaz.Instantiation
-import Diaz.Mirror.elliptic_axis_alignment
-
-namespace Diaz
+import Definitions.Def_Diaz_Closure
+import Definitions.Def_Diaz_Instantiation
+import Theorems.Thm_Diaz_elliptic_axis_alignment
 
 open ComplexConjugate
 open Diaz
@@ -23,7 +14,7 @@ theorem alg_conj {x : ℂ} (h : IsAlgebraic ℚ x) : IsAlgebraic ℚ (conj x) :=
 end S7W1_elliptic_torsion_excluded
 
 open S7W1_elliptic_torsion_excluded in
-theorem elliptic_torsion_excluded {ω lam α : ℂ} (hω : ¬ IsAlgebraic ℚ ω)
+theorem solution {ω lam α : ℂ} (hω : ¬ IsAlgebraic ℚ ω)
     (hlam : IsAlgebraic ℚ lam) (hcω : conj ω = lam * ω)
     (hα : IsAlgebraic ℚ α) (hα0 : α ≠ 0) :
     ¬ IsAlgebraic ℚ ((α * ω) * conj (α * ω)) := by
@@ -42,4 +33,4 @@ theorem elliptic_torsion_excluded {ω lam α : ℂ} (hω : ¬ IsAlgebraic ℚ ω
     (div_mem (mul_mem (mem_algebraicClosure_iff.mpr (alg_conj hα))
       (mem_algebraicClosure_iff.mpr hlam)) (mem_algebraicClosure_iff.mpr hα))
 
-end Diaz
+#print axioms solution

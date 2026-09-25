@@ -1,16 +1,7 @@
-/-
-Mirrored from Prove2Me: `FourExp.transcendence_criterion_continuous`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.transcendence_criterion_continuous__783df646.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.height_dvd_le
-import Diaz.Mirror.small_irreducible_factor
-import Diaz.Mirror.dvd_of_small_values_at_scale
-
-namespace Diaz
+import Theorems.Thm_FourExp_height_dvd_le
+import Theorems.Thm_FourExp_small_irreducible_factor
+import Theorems.Thm_FourExp_dvd_of_small_values_at_scale
 
 open Filter Topology
 open Polynomial
@@ -82,7 +73,7 @@ end FourExpCrit
 
 set_option maxHeartbeats 400000 in
 open FourExpCrit in
-theorem transcendence_criterion_continuous
+theorem solution
     (α : ℂ) (ε : ℝ) (hε : 0 < ε)
     (σ₁ σ₂ : ℝ → ℝ) (hσ₁ : StrictMono σ₁) (hσ₂ : StrictMono σ₂)
     (hσ₁c : Continuous σ₁) (hσ₂c : Continuous σ₂)
@@ -142,7 +133,7 @@ theorem transcendence_criterion_continuous
       nlinarith [norm_nonneg (aeval α (P q).primPart)]
     have h21q := h₂₁ q (by linarith)
     obtain ⟨Q, hQp, hprim, hirr, s, hs, hQα, hQh, hQd⟩ :=
-      small_irreducible_factor α hα (P q).primPart (isPrimitive_primPart _)
+      FourExp.small_irreducible_factor α hα (P q).primPart (isPrimitive_primPart _)
         (Real.exp (σ₁ q)) (σ₂ q) C hpH (by rw [Real.log_exp]; exact h21q)
         (by rw [natDegree_primPart]; exact hP_deg q hq) (by linarith)
         (by
@@ -186,7 +177,7 @@ theorem transcendence_criterion_continuous
     · have : σ₂ q / s ≤ σ₂ q := div_le_self (by linarith) hs1
       nlinarith
   -- the threshold of the resultant step at one scale
-  obtain ⟨U, hU⟩ := dvd_of_small_values_at_scale α ε hε
+  obtain ⟨U, hU⟩ := FourExp.dvd_of_small_values_at_scale α ε hε
   obtain ⟨Z₁, hZ₁⟩ := eventually_atTop.mp (hσ₁t.eventually_ge_atTop U)
   set Zs : ℝ := max (max (X₀ + 1) ((N₀ : ℝ) + 2)) (max Z₁ 2) with hZsdef
   -- Step 2: some factor has scale at least `Zs`
@@ -379,7 +370,7 @@ theorem transcendence_criterion_continuous
   -- the resultant step at the scale `(u, v)`
   have hdvd : Q ∣ P N := hU u v huU hv1 hvu (P N) Q hirr hPH hd hQH hdz hPsmall hQsmall
   -- Gel'fond's height bound makes both scale inequalities strict
-  have hA1 := height_dvd_le (P N) Q hPne hdvd (Real.exp (σ₁ N)) (hP_height N hNN₀)
+  have hA1 := FourExp.height_dvd_le (P N) Q hPne hdvd (Real.exp (σ₁ N)) (hP_height N hNN₀)
   have hhgt : hgt Q ≤ Real.exp ((d : ℝ) + σ₁ N) := by
     apply hgt_le Q _ (Real.exp_pos _).le
     intro i
@@ -396,4 +387,4 @@ theorem transcendence_criterion_continuous
   · have : v < (1 + ε / 2) * v := by nlinarith
     linarith
 
-end Diaz
+#print axioms solution

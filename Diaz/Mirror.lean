@@ -198,3 +198,7 @@ import Diaz.Mirror.rho_denominator
 import Diaz.Mirror.rho_house_le
 import Diaz.Mirror.deriv_upper
 import Diaz.Mirror.main_estimate
+import Diaz.Mirror.exp_abs_transcendental_of_isAlgebraic_adjoin
+import Diaz.Mirror.qbar_dependent_of_det_linear_forms
+import Diaz.Mirror.circle_vanishing_ideal
+import Diaz.Mirror.dvd_of_small_values_at_scale

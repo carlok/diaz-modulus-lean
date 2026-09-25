@@ -1,16 +1,7 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.generic_no_strong_six_exp_configuration`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.generic_no_strong_six_exp_configuration__3b512588.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-import Diaz.Mirror.qbar_dependent_of_det_linear_forms
-import Diaz.Mirror.generic_quadratic_relation_is_norm
-
-namespace Diaz
+import Definitions.Def_DiazModulus
+import Theorems.Thm_DiazModulus_qbar_dependent_of_det_linear_forms
+import Theorems.Thm_DiazModulus_generic_quadratic_relation_is_norm
 
 open Complex ComplexConjugate
 
@@ -28,27 +19,27 @@ theorem range4 (a b c d : ℂ) : Set.range ![a, b, c, d] = ({a, b, c, d} : Set �
 
 /-- Algebraic coefficients of an element of the `Q̄`-span of `1, u, conj u, πi`. -/
 theorem coeffs (u z : ℂ)
-    (h : z ∈ Submodule.span Qbar
+    (h : z ∈ Submodule.span DiazModulus.Qbar
       ({1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I} : Set ℂ)) :
     ∃ C : Fin 4 → ℂ, (∀ k, IsAlgebraic ℚ (C k)) ∧
       z = ∑ k, C k * ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] k := by
   rw [← range4, Submodule.mem_span_range_iff_exists_fun] at h
   obtain ⟨c, hc⟩ := h
-  refine ⟨fun k => (c k : ℂ), fun k => mem_Qbar_iff.1 (c k).2, ?_⟩
+  refine ⟨fun k => (c k : ℂ), fun k => DiazModulus.mem_Qbar_iff.1 (c k).2, ?_⟩
   rw [← hc]
   rfl
 
 /-- Two vectors, independent over `Q̄`. -/
-theorem li2 {x : Fin 2 → ℂ} (hx : LinearIndependent (↥Qbar) x)
-    (p q : ↥Qbar) (h : (p : ℂ) * x 0 + (q : ℂ) * x 1 = 0) : p = 0 ∧ q = 0 := by
+theorem li2 {x : Fin 2 → ℂ} (hx : LinearIndependent (↥DiazModulus.Qbar) x)
+    (p q : ↥DiazModulus.Qbar) (h : (p : ℂ) * x 0 + (q : ℂ) * x 1 = 0) : p = 0 ∧ q = 0 := by
   have := Fintype.linearIndependent_iff.1 hx ![p, q] (by
     simp only [Fin.sum_univ_two]
     exact h)
   exact ⟨by simpa using this 0, by simpa using this 1⟩
 
 /-- Three vectors, independent over `Q̄`. -/
-theorem li3 {y : Fin 3 → ℂ} (hy : LinearIndependent (↥Qbar) y)
-    (p q r : ↥Qbar) (h : (p : ℂ) * y 0 + (q : ℂ) * y 1 + (r : ℂ) * y 2 = 0) :
+theorem li3 {y : Fin 3 → ℂ} (hy : LinearIndependent (↥DiazModulus.Qbar) y)
+    (p q r : ↥DiazModulus.Qbar) (h : (p : ℂ) * y 0 + (q : ℂ) * y 1 + (r : ℂ) * y 2 = 0) :
     p = 0 ∧ q = 0 ∧ r = 0 := by
   have := Fintype.linearIndependent_iff.1 hy ![p, q, r] (by
     simp only [Fin.sum_univ_three]
@@ -58,7 +49,7 @@ theorem li3 {y : Fin 3 → ℂ} (hy : LinearIndependent (↥Qbar) y)
 /-- `generic_quadratic_relation_is_norm` applied to the difference of two products of linear forms
     in `1, u, conj u, πi`. -/
 theorem det_norm (u : ℂ) (hu : u ≠ 0) (hρ : IsAlgebraic ℚ (u * conj u))
-    (hgen : AlgebraicIndependent (↥Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])
+    (hgen : AlgebraicIndependent (↥DiazModulus.Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])
     (a b c d : Fin 4 → ℂ) (ha : ∀ k, IsAlgebraic ℚ (a k)) (hb : ∀ k, IsAlgebraic ℚ (b k))
     (hc : ∀ k, IsAlgebraic ℚ (c k)) (hd : ∀ k, IsAlgebraic ℚ (d k))
     (hrel : (∑ k, a k * ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] k)
@@ -73,7 +64,7 @@ theorem det_norm (u : ℂ) (hu : u ≠ 0) (hρ : IsAlgebraic ℚ (u * conj u))
     intro z
     simp only [Fin.sum_univ_four]
     ring
-  obtain ⟨γ, hγ, hQ⟩ := generic_quadratic_relation_is_norm u hu hρ hgen
+  obtain ⟨γ, hγ, hQ⟩ := DiazModulus.generic_quadratic_relation_is_norm u hu hρ hgen
     (fun k l => a k * b l - c k * d l) (fun k l => ((ha k).mul (hb l)).sub ((hc k).mul (hd l)))
     (by rw [hsum, hrel, sub_self])
   exact ⟨γ, hγ, fun z => by rw [← hsum z]; exact hQ z⟩
@@ -96,8 +87,8 @@ relation among `1, u, conj u, πi`; by `generic_quadratic_relation_is_norm`, `L0
 `N · Λ = 0` with `Λ = c₁₂ L₀₀ - c₀₂ L₀₁ + c₀₁ L₀₂`. Evaluating at four points where `N ≠ 0` kills
 the coefficients of `Λ`; at `e` this gives `x₀ (c₁₂ y₀ - c₀₂ y₁ + c₀₁ y₂) = 0`, an algebraic
 relation among the `y`'s with `c₀₁ ≠ 0`. -/
-open P15Six in
-theorem generic_no_strong_six_exp_configuration (u : ℂ) (hu : u ≠ 0)
+open P15Six DiazModulus in
+theorem solution (u : ℂ) (hu : u ≠ 0)
     (hρ : IsAlgebraic ℚ (u * conj u))
     (hgen : AlgebraicIndependent (↥Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])
     (x : Fin 2 → ℂ) (y : Fin 3 → ℂ) (hx : LinearIndependent (↥Qbar) x)
@@ -119,7 +110,7 @@ theorem generic_no_strong_six_exp_configuration (u : ℂ) (hu : u ≠ 0)
   obtain ⟨c12, hc12, E12⟩ := hminor 1 2
   by_cases h01 : c01 = 0
   · -- (2) the block of columns `0, 1` has identically vanishing determinant
-    rcases qbar_dependent_of_det_linear_forms
+    rcases DiazModulus.qbar_dependent_of_det_linear_forms
       ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] C hC x y 0 1 hx0 hy0 hCe
       (fun z => by rw [E01 z, h01, zero_mul]) with ⟨p, q, hpq, h⟩ | ⟨p, q, hpq, h⟩
     · exact hpq (li2 hx p q h)
@@ -151,10 +142,10 @@ theorem generic_no_strong_six_exp_configuration (u : ℂ) (hu : u ≠ 0)
         + (h4 - h1 - (u * conj u) * (h2 - h1)) + u * (2 * h1 - h2) + conj u * (h2 - h1)
         + (((Real.pi : ℝ) : ℂ) * Complex.I) * (h3 - h1)
     have hne : c12 * y 0 - c02 * y 1 + c01 * y 2 = 0 := (mul_eq_zero.1 hfin).resolve_left hx0
-    obtain ⟨-, -, hr⟩ := li3 hy ⟨c12, mem_Qbar_iff.2 hc12⟩
-      ⟨-c02, mem_Qbar_iff.2 hc02.neg⟩ ⟨c01, mem_Qbar_iff.2 hc01⟩ (by
+    obtain ⟨-, -, hr⟩ := li3 hy ⟨c12, DiazModulus.mem_Qbar_iff.2 hc12⟩
+      ⟨-c02, DiazModulus.mem_Qbar_iff.2 hc02.neg⟩ ⟨c01, DiazModulus.mem_Qbar_iff.2 hc01⟩ (by
         show c12 * y 0 + -c02 * y 1 + c01 * y 2 = 0
         linear_combination hne)
     exact h01 (by simpa using congrArg Subtype.val hr)
 
-end Diaz
+#print axioms solution
