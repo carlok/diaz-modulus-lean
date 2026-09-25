@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.8, 24 September 2026}
+\date{September 2026\\[2pt]\small Version 1.9, 25 September 2026}
 
 \begin{document}
 \maketitle
@@ -48,8 +48,9 @@
 \begin{abstract}
 Diaz asked whether a non-zero complex number can be a logarithm of an algebraic
 number and have algebraic modulus. We give a short formal development of the question. All but
-one of the numbered statements below have been checked by machine, and the exception is flagged
-where it appears; Appendix~A records where each proof lives, so that any claim here can be
+two of the numbered statements below have been checked by machine, four of them with Baker's theorem
+on linear forms in logarithms taken as a hypothesis, and the two exceptions are flagged
+where they appear; Appendix~A records where each proof lives, so that any claim here can be
 verified rather than taken.
 
 The results divide in two. The first part is a spine: the strong four exponentials conjecture
@@ -108,8 +109,13 @@ source of the difficulty: the linear theory of logarithms --- Baker's theorem an
 logarithms is the four exponentials circle. Section~\ref{sec:ceiling} makes this precise, and
 everything after it is an attempt to ask for less.
 
-Two classical inputs are used without proof. \emph{Hermite--Lindemann}: for algebraic
+Three classical inputs are used without proof. \emph{Hermite--Lindemann}: for algebraic
 $a\neq0$, $\e^{a}$ is transcendental. \emph{Transcendence of $\pi$}, and hence of $\pi^{2}$.
+\emph{Baker's theorem}, in its inhomogeneous form: if $\lambda_{1},\dots,\lambda_{n}\in\Logs$ are
+linearly independent over $\Q$, then $1,\lambda_{1},\dots,\lambda_{n}$ are linearly independent over
+$\Alg$. Unlike the first two, it has no machine-checked proof here: the formal statements of
+Proposition~\ref{prop:no-deriv}, Theorems~\ref{thm:line} and~\ref{thm:saturation} and
+Corollary~\ref{cor:api} take it, or its instance at $u$ and $\bar u$, as an explicit hypothesis.
 Three further classical theorems enter in the results added in version 1.1, and all three are
 machine-checked: the Gel'fond--Schneider theorem, in the formalisation of Karatarakis and
 Wiedijk~\cite{karatarakis-wiedijk}; the six exponentials theorem; and the four exponentials
@@ -198,8 +204,10 @@ $\lvert u\rvert^{2}>\pi^{2}/m^{2}$. What that sharpening is worth is settled by 
 statement, which says the whole family carries exactly one bit of information.
 
 \begin{proposition}\label{prop:quant-orbit}
-For $u$ off the axes, the quantisation conclusion holds across the entire orbit
-$\{qu: q\in\Q^{\times}\}$ if and only if $\operatorname{Re}u\neq0$.
+For $u$ with $\operatorname{Im}u\in\pi\Z\setminus\{0\}$, and with no assumption on $\operatorname{Re}u$,
+the sharpened bound holds across the entire orbit $\{qu: q\in\Q^{\times}\}$, that is,
+$\lvert qu\rvert^{2}>\pi^{2}/m^{2}$ for every $q\in\Q^{\times}$ and every $m\ge1$ with
+$\bigl(\e^{qu}/\overline{\e^{qu}}\bigr)^{m}=1$, if and only if $\operatorname{Re}u\neq0$.
 \end{proposition}
 
 No algebraicity is used. The point is negative: a predicate that looks like a family of
@@ -235,7 +243,7 @@ $4\pi n\theta+4\pi^{2}n^{2}$, algebraic, and dividing by $4n$ gives
 $\pi\theta+\pi^{2}n=\pi(\theta+n\pi)\in\Alg$.
 \end{proof}
 
-Corollary~\ref{cor:translate} is worth reading twice. The condition it produces was introduced
+Corollary~\ref{cor:translate} has no formal counterpart of its own, and Appendix~\ref{app:certs} marks it so. It is worth reading twice. The condition it produces was introduced
 elsewhere in this subject as a technical case distinction; what it says is that the fibre over
 $\e^{u}$ contains a \emph{second} point of algebraic modulus. Theorem~\ref{thm:fibre} bounds how
 often that can happen, and eliminating $\operatorname{Im}u$ between the two displayed relations
@@ -1368,8 +1376,8 @@ Art.~110753.
 \appendix
 \section{Machine-checked certificates}\label{app:certs}
 
-Every numbered statement above but one has been checked in a formal development, in Lean~4
-against a pinned revision of its mathematical library. The table records where each one lives, so
+Every numbered statement above but two has been checked in a formal development, four of them with
+Baker's theorem as a hypothesis, in Lean~4 against a pinned revision of its mathematical library. The table records where each one lives, so
 that any claim in this note can be verified rather than taken on trust. The environment is stated
 here once and nowhere else.
 
@@ -1381,13 +1389,17 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.8 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.9 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
 now machine-checked, and version 1.8 two more: Diaz's Proposition~1 and Waldschmidt's Consequence~1.6.
-Every row of the table below was checked against the platform by script on 24 September 2026, and
-the mirrored project held all 229 proved results of the development at that date.
+Version 1.9 corrects this appendix against the formal statements. Four rows now say that their proofs
+take Baker's theorem as a hypothesis, and Section~1 lists it as a third input used without proof;
+Corollary~\ref{cor:translate} is marked as not formalised; and Proposition~\ref{prop:quant-orbit}
+is restated as its formal counterpart proves it.
+Every row of the table below was checked against the platform by script on 25 September 2026, and
+the mirrored project held all 254 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1401,10 +1413,13 @@ parts of a candidate are each transcendental
 (\nolinkurl{DiazModulus.candidate_re_transcendental},
 \nolinkurl{DiazModulus.candidate_im_transcendental}).
 
-A \textbf{Proved} row means the statement itself has a machine-checked proof. An \textbf{Open}
+A \textbf{Proved} row means the statement itself has a machine-checked proof. A \textbf{Proved, assuming Baker}
+row means the proof is machine-checked with Baker's theorem (Section~1), or an instance of it, taken as an
+explicit hypothesis, because the library used contains no proof of Baker's theorem. An \textbf{Open}
 row means the statement is recorded formally but not proved; every such row here is an open
 conjecture. A \textbf{Not formalised} row means what it says: the statement is proved in this note and has no formal counterpart at all.
-Proposition~\ref{prop:loop} is flagged that way, and its row needs a word: the identifier given
+Corollary~\ref{cor:translate} and Proposition~\ref{prop:loop} are flagged that way. The row of
+Proposition~\ref{prop:loop} needs a word: the identifier given
 is the statement $(\mathrm{NT})$, which is recorded formally and is Open; the \emph{equivalence}
 proved in Proposition~\ref{prop:loop} is what has no formal counterpart.
 
@@ -1420,7 +1435,7 @@ Rem.~\ref{rem:schanuel} & Proved & \nolinkurl{DiazModulus.diaz_of_schanuel} \\
 Thm~\ref{thm:quant} & Proved & \nolinkurl{Diaz.real_quantisation} \\
 Prop.~\ref{prop:quant-orbit} & Proved & \nolinkurl{Diaz.quantisation_orbit_iff_re_ne_zero} \\
 Thm~\ref{thm:fibre} & Proved & \nolinkurl{Diaz.fibre_at_most_two} \\
-Cor.~\ref{cor:translate} & Proved & \nolinkurl{Diaz.q_translate_unique} \\
+Cor.~\ref{cor:translate} & Not formalised & none; it follows from the identity \nolinkurl{Diaz.period_plane_norm} \\
 Thm~\ref{thm:one-relation} & Proved & \nolinkurl{DiazModulus.leaf_iff_one} \\
 Thm~\ref{thm:diaz-number} & Proved & \nolinkurl{DiazModulus.diaz_number_forces_transcendence} \\
 Cor.~\ref{cor:log2} & Proved & \nolinkurl{DiazModulus.log_two_diaz_or_transcendental} \\
@@ -1450,7 +1465,7 @@ Prop.~\ref{prop:loop} & Not formalised & \nolinkurl{DiazModulus.norm_transcenden
 Prop.~\ref{prop:period-aligned} & Proved & \nolinkurl{DiazModulus.recip_pi_log_of_period_aligned} \\
 Conj.~\ref{conj:S} & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log} \\
 Thm~\ref{thm:S-of-sfe} & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_of_sfe} \\
-After Thm~\ref{thm:S-of-sfe}, Consequence~1.6 & Proved & \nolinkurl{DiazModulus.div_not_mem_logAlgTilde_of_sfe} \\
+After Thm~\ref{thm:S-of-sfe}, Consequence~1.6 & Proved & \nolinkurl{DiazModulus.div_not_mem_logAlgTilde_of_sfe} (it states Consequence~1.7, which contains~1.6) \\
 \S\ref{sec:what}, item (2) & Proved & \nolinkurl{DiazModulus.diaz_of_strong_five_exponentials}, \nolinkurl{DiazModulus.recip_pi_not_log_of_strong_five_exponentials} \\
 Prop.~\ref{prop:root-of-unity} & Proved & \nolinkurl{DiazModulus.recip_pi_exp_value_not_root_of_unity} \\
 Thm~\ref{thm:S0}(a) & Proved & \nolinkurl{DiazModulus.recip_pi_log_rational_line} \\
@@ -1461,14 +1476,14 @@ Thm~\ref{thm:S0}(c) & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_real_or_i
 \S\ref{sec:quant}, $\e^{i/\pi}$ or $\e^{i\pi^{3}}$ & Proved & \nolinkurl{DiazModulus.exp_i_div_pi_or_exp_i_pi_cube_transcendental} \\
 \S\ref{sec:quant}, real half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_real_gamma} \\
 \S\ref{sec:quant}, imaginary half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_imag_gamma} \\
-Prop.~\ref{prop:no-deriv} & Proved & \nolinkurl{DiazModulus.no_first_order_arithmetic_operator} \\
+Prop.~\ref{prop:no-deriv} & Proved, assuming Baker & \nolinkurl{DiazModulus.no_first_order_arithmetic_operator} (hypothesis: $1,u,\bar u$ are linearly independent over $\Alg$) \\
 Prop.~\ref{prop:kronecker} & Proved & \nolinkurl{DiazModulus.kronecker_factorisation} \\
 Prop.~\ref{prop:geometric} & Proved & \nolinkurl{DiazModulus.geometric_triple_not_logs} \\
 Cor.~\ref{cor:epi2} & Proved & \nolinkurl{DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental} \\
 \S\ref{sec:map}, $2^{\pi}$, $3^{\pi}$ or $5^{\pi}$ & Proved & \nolinkurl{DiazModulus.two_three_five_pow_pi_transcendental} \\
 \S\ref{sec:map}, $\e^{\lambda^{2}/\mu}$ or $\e^{\mu^{2}/\lambda}$ & Proved & \nolinkurl{DiazModulus.log_square_duality} \\
 \S\ref{sec:map}, $2^{\log_{3}2}$ or $3^{\log_{2}3}$ & Proved & \nolinkurl{DiazModulus.two_pow_log_three_or_three_pow_log_two} \\
-Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line} \\
+Thm~\ref{thm:line} & Proved, assuming Baker & \nolinkurl{DiazModulus.no_algebraic_generalized_line} (hypothesis: Baker's theorem for two logarithms) \\
 Rem.~\ref{rem:line-cheap} & Proved & \nolinkurl{DiazModulus.candidate_no_real_algebraic_line} \\
 Cor.~\ref{cor:distance} & Proved & \nolinkurl{DiazModulus.candidate_distance_transcendental} \\
 Thm~\ref{thm:multiplier} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
@@ -1482,8 +1497,8 @@ Thm~\ref{thm:multipliers} & Proved & \nolinkurl{DiazModulus.log_ratio_multiplier
 Thm~\ref{thm:quotient} & Proved & \nolinkurl{DiazModulus.candidate_quotient_rigid} \\
 Cor.~\ref{cor:sidon} & Proved & \nolinkurl{DiazModulus.candidate_product_relation_trivial} \\
 \S\ref{sec:outside}, $(-1)^{u/\bar u}$ & Proved & \nolinkurl{DiazModulus.candidate_neg_one_pow_ratio} \\
-Thm~\ref{thm:saturation} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
-Cor.~\ref{cor:api} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation} \\
+Thm~\ref{thm:saturation} & Proved, assuming Baker & \nolinkurl{DiazModulus.candidate_one_log_saturation} (hypothesis: Baker's theorem for two logarithms) \\
+Cor.~\ref{cor:api} & Proved, assuming Baker & \nolinkurl{DiazModulus.candidate_one_log_saturation} (the same hypothesis) \\
 Prop.~\ref{prop:kernel} & Proved & \nolinkurl{DiazModulus.candidate_vanishing_ideal} \\
 Hermite--Lindemann & Proved & \nolinkurl{DiazModulus.hermite_lindemann_holds} \\
 \end{longtable}
