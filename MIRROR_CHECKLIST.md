@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-25): **254** of 254
+As of the latest archived submission (2026-09-27): **262** of 262
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -249,6 +249,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.expPoly_zero_count` | yes | `Diaz/Mirror/expPoly_zero_count.lean` | done |  |
 | `FourExp.expPoly_zero_count_scaled` | yes | `Diaz/Mirror/expPoly_zero_count_scaled.lean` | done |  |
 | `FourExp.extrapolation` | yes | `Diaz/Mirror/extrapolation.lean` | done |  |
+| `FourExp.extrapolation_numbers` | yes | `Diaz/Mirror/extrapolation_numbers.lean` | done |  |
 | `FourExp.height_dvd_le` | yes | `Diaz/Mirror/height_dvd_le.lean` | done |  |
 | `FourExp.nonvanishing_derivative` | yes | `Diaz/Mirror/nonvanishing_derivative.lean` | done |  |
 | `FourExp.norm_to_polynomial_alg` | yes | `Diaz/Mirror/norm_to_polynomial_alg.lean` | done |  |
@@ -275,12 +276,19 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Schanuel.lindemann_weierstrass` | yes | `Diaz/LindemannWeierstrass.lean` | done |  |
 | `Schanuel.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
 | `Transcendence.circle_vanishing_ideal` | yes | `Diaz/Mirror/circle_vanishing_ideal.lean` | done |  |
+| `Transcendence.exists_denom_house_monomial_le` | yes | `Diaz/Mirror/exists_denom_house_monomial_le.lean` | done |  |
 | `Transcendence.exists_int_pow_repr` | yes | `Diaz/Mirror/exists_int_pow_repr.lean` | done |  |
+| `Transcendence.exists_irreducible_factor_cofactor_bound` | yes | `Diaz/Mirror/exists_irreducible_factor_cofactor_bound.lean` | done |  |
 | `Transcendence.exists_modByMonic_length_le` | yes | `Diaz/Mirror/exists_modByMonic_length_le.lean` | done |  |
+| `Transcendence.exists_monic_integral_model` | yes | `Diaz/Mirror/exists_monic_integral_model.lean` | done |  |
+| `Transcendence.exists_monic_integral_model_presentation` | yes | `Diaz/Mirror/exists_monic_integral_model_presentation.lean` | done |  |
+| `Transcendence.expPoly_grid_estimate` | yes | `Diaz/Mirror/expPoly_grid_estimate.lean` | done |  |
 | `Transcendence.expSum_first_nonvanishing` | yes | `Diaz/Mirror/expSum_first_nonvanishing.lean` | done |  |
 | `Transcendence.length_mul_le` | yes | `Diaz/Mirror/length_mul_le.lean` | done |  |
 | `Transcendence.length_sum_le` | yes | `Diaz/Mirror/length_sum_le.lean` | done |  |
 | `Transcendence.liouville_house` | yes | `Diaz/Mirror/liouville_house.lean` | done |  |
+| `Transcendence.norm_resultant_le_max_norm_eval` | yes | `Diaz/Mirror/norm_resultant_le_max_norm_eval.lean` | done |  |
 | `Transcendence.quadratic_coeffs_eq_zero_of_transcendental` | yes | `Diaz/Mirror/quadratic_coeffs_eq_zero_of_transcendental.lean` | done |  |
+| `Transcendence.siegel_entrywise` | yes | `Diaz/Mirror/siegel_entrywise.lean` | done |  |
 | `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin` | yes | `Diaz/Mirror/trdeg_adjoin_le_one_of_isAlgebraic_adjoin.lean` | done |  |
 | `e_pi_transcendence` | yes | `Diaz/Mirror/e_pi_transcendence.lean` | done |  |

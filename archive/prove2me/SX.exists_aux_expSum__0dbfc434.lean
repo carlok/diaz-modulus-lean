@@ -1,19 +1,7 @@
-/-
-Mirrored from Prove2Me: `SX.exists_aux_expSum`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/SX.exists_aux_expSum__0dbfc434.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
-Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match, and proof steps that became no-ops there were
-dropped; the mathematics is unchanged.
--/
 import Mathlib
-import Diaz.SXDefs
-import Diaz.Mirror.exists_denom_house_monomial_le
-import Diaz.Mirror.siegel_entrywise
-
-namespace SX
+import Definitions.Def_SX
+import Theorems.Thm_Transcendence_exists_denom_house_monomial_le
+import Theorems.Thm_Transcendence_siegel_entrywise
 
 /-!
 # The auxiliary function of the six exponentials theorem
@@ -28,7 +16,7 @@ A common denominator `b` of the numbers `exp (x i * y j)` makes each coefficient
 `b ^ T ∏ exp (x i * y j) ^ (λ i * m j)`, with `T = d l L M`, an algebraic integer of house at most
 `H ^ T`. Written in an integral basis of `K`, each equation becomes `n` equations over `ℤ` whose
 entries are bounded by a constant times `H ^ T`, and there are still at least twice as many
-unknowns as equations. Siegel's lemma gives a nonzero exists_aux_expSum of size at most `L ^ d` times that
+unknowns as equations. Siegel's lemma gives a nonzero solution of size at most `L ^ d` times that
 bound, which is `exp (O (L M))`. Finally
 `exp (⟨λ, x⟩ ∑_j m j y j) = ∏_{i,j} exp (x i * y j) ^ (λ i * m j)`,
 so the equations say that the exponential sum `SX.expSum x L p` vanishes at `SX.latticeSum y m`.
@@ -42,7 +30,7 @@ open NumberField Transcendence
 
 /-- Siegel's lemma over a number field, with rational integer unknowns. A system of linear
 equations with algebraic integer coefficients of house at most `A`, with at least `2 [K : ℚ]`
-times as many unknowns as equations, has a nonzero integer exists_aux_expSum whose entries are at most
+times as many unknowns as equations, has a nonzero integer solution whose entries are at most
 the number of unknowns times `max 1 (c_K A)`. The constant `c_K` is `[K : ℚ]` times the largest
 entry of the inverse transpose of the matrix `(σ ω)`, `σ` running over the complex embeddings and
 `ω` over an integral basis: it bounds the integer coordinates of an algebraic integer by its
@@ -90,7 +78,7 @@ end AuxSiegel
 
 open NumberField Transcendence AuxSiegel in
 open SX in
-theorem exists_aux_expSum
+theorem solution
     {d l : ℕ} (hdl : d + l < d * l)
     (x : Fin d → ℂ) (y : Fin l → ℂ)
     (hx : LinearIndependent ℚ x) (hy : LinearIndependent ℚ y)
@@ -185,13 +173,13 @@ theorem exists_aux_expSum
       _ ≤ Real.exp (c * L * M) := by rw [← Real.exp_add]; exact Real.exp_le_exp.2 h4
   -- `p` is `t` on the box and zero outside it
   set p : (Fin d → ℕ) → ℤ := fun lam => if h : lam ∈ SX.box d L then t ⟨lam, h⟩ else 0
-  have hpt : ∀ lam : ↥(SX.box d L), p lam.1 = t lam := fun lam => dite_eq_left lam.2
+  have hpt : ∀ lam : ↥(SX.box d L), p lam.1 = t lam := fun lam => dif_pos lam.2
   refine ⟨L, hL0, hLc, p, ?_, fun lam => ?_, fun m hm => ?_⟩
   · obtain ⟨lam, hlam⟩ := Function.ne_iff.1 ht0
     exact ⟨lam.1, lam.2, by rw [hpt]; simpa using hlam⟩
   · by_cases h : lam ∈ SX.box d L
     · simpa only [hpt ⟨lam, h⟩] using hheight ⟨lam, h⟩
-    · rw [show p lam = 0 from dite_eq_right h, Int.cast_zero, abs_zero]; exact (Real.exp_pos _).le
+    · rw [show p lam = 0 from dif_neg h, Int.cast_zero, abs_zero]; exact (Real.exp_pos _).le
   · -- the equation of index `m`, divided by `b ^ T` and read in `ℂ`
     have h2 : ∑ lam : ↥(SX.box d L), (t lam : K) * ∏ ij : Fin d × Fin l,
         θ ij ^ (lam.1 ij.1 * m ij.2) = 0 := by
@@ -205,4 +193,4 @@ theorem exists_aux_expSum
     rw [hpt, SX.exp_expExponent_mul_latticeSum, Fintype.prod_prod_type]
     rfl
 
-end SX
+#print axioms solution

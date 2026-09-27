@@ -1,15 +1,6 @@
-/-
-Mirrored from Prove2Me: `FourExp.trdeg_one_presentation`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.trdeg_one_presentation__9541d31c.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.HermiteLindemann
-import Diaz.Mirror.exists_monic_integral_model_presentation
-
-namespace Diaz
+import Theorems.Thm_DiazModulus_hermite_lindemann_holds
+import Theorems.Thm_Transcendence_exists_monic_integral_model_presentation
 
 /-!
 # The four exponentials data in transcendence degree one
@@ -53,7 +44,7 @@ lemma isAlgebraic_of_trdeg_le_one (S : Set ℂ) (htr : Algebra.trdeg ℚ ↥(Alg
 end TrdegOnePresentation
 
 open TrdegOnePresentation in
-theorem trdeg_one_presentation
+theorem solution
     (x₁ x₂ y₁ y₂ : ℂ) (hx : LinearIndependent ℚ ![x₁, x₂]) (hy : LinearIndependent ℚ ![y₁, y₂])
     (hexp : ∀ i j : Fin 2, IsAlgebraic ℚ (Complex.exp (![x₁, x₂] i * ![y₁, y₂] j)))
     (htr : Algebra.trdeg ℚ ↥(Algebra.adjoin ℚ ({x₁, x₂, y₁, y₂} : Set ℂ)) ≤ 1) :
@@ -68,7 +59,7 @@ theorem trdeg_one_presentation
   have hx1 : x₁ ≠ 0 := by simpa using hx.ne_zero 0
   have hy1 : y₁ ≠ 0 := by simpa using hy.ne_zero 0
   have hω : Transcendental ℚ (x₁ * y₁) := fun ha =>
-    hermite_lindemann_holds (x₁ * y₁) (mul_ne_zero hx1 hy1) ha (by simpa using hexp 0 0)
+    DiazModulus.hermite_lindemann_holds (x₁ * y₁) (mul_ne_zero hx1 hy1) ha (by simpa using hexp 0 0)
   -- the eight numbers are algebraic over `ℚ(ω)`
   have hS : ∀ z ∈ ({x₁, x₂, y₁, y₂} : Set ℂ), z ∈ Algebra.adjoin ℚ ({x₁, x₂, y₁, y₂} : Set ℂ) :=
     fun z hz => Algebra.subset_adjoin hz
@@ -88,4 +79,4 @@ theorem trdeg_one_presentation
     fun j => E (.inr (.inl j)), fun i j => E (.inr (.inr (i, j))), hD, fun i => hE (.inl i),
     fun j => hE (.inr (.inl j)), fun i j => hE (.inr (.inr (i, j)))⟩
 
-end Diaz
+#print axioms solution

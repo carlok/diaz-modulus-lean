@@ -213,3 +213,11 @@ import Diaz.Mirror.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log
 import Diaz.Mirror.exists_iteratedDeriv_presentation
 import Diaz.Mirror.exists_iteratedDeriv_reduced_presentation
 import Diaz.Mirror.exists_int_norm
+import Diaz.Mirror.siegel_entrywise
+import Diaz.Mirror.expPoly_grid_estimate
+import Diaz.Mirror.extrapolation_numbers
+import Diaz.Mirror.norm_resultant_le_max_norm_eval
+import Diaz.Mirror.exists_irreducible_factor_cofactor_bound
+import Diaz.Mirror.exists_monic_integral_model
+import Diaz.Mirror.exists_monic_integral_model_presentation
+import Diaz.Mirror.exists_denom_house_monomial_le

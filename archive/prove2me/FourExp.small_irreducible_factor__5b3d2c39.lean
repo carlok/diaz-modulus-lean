@@ -1,14 +1,5 @@
-/-
-Mirrored from Prove2Me: `FourExp.small_irreducible_factor`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.small_irreducible_factor__5b3d2c39.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.exists_irreducible_factor_cofactor_bound
-
-namespace Diaz
+import Theorems.Thm_Transcendence_exists_irreducible_factor_cofactor_bound
 
 /-!
 # A small irreducible factor (Gel'fond's lemma)
@@ -28,7 +19,7 @@ Put `L = log H`, `a = log M(Q) ≥ 0` and `b = log M(R) ≥ 0`. From
 
 open Polynomial
 
-theorem small_irreducible_factor
+theorem solution
     (α : ℂ) (hα : Transcendental ℚ α) (P : Polynomial ℤ) (hprim : P.IsPrimitive)
     (H n lam : ℝ) (hPH : ∀ i : ℕ, |(P.coeff i : ℝ)| ≤ H)
     (hlog : n ≤ Real.log H) (hdeg : (P.natDegree : ℝ) ≤ n) (hlam : 6 < lam)
@@ -154,4 +145,4 @@ theorem small_irreducible_factor
     rw [le_div_iff₀ he']
     linarith
 
-end Diaz
+#print axioms solution

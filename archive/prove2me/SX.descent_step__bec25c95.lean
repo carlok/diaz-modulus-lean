@@ -1,17 +1,8 @@
-/-
-Mirrored from Prove2Me: `SX.descent_step`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/SX.descent_step__bec25c95.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.SXDefs
-import Diaz.Mirror.expPoly_grid_estimate
-import Diaz.Mirror.exists_denom_house_monomial_le
-import Diaz.Mirror.liouville_house
-
-namespace SX
+import Definitions.Def_SX
+import Theorems.Thm_Transcendence_expPoly_grid_estimate
+import Theorems.Thm_Transcendence_exists_denom_house_monomial_le
+import Theorems.Thm_Transcendence_liouville_house
 
 open Complex
 
@@ -35,7 +26,7 @@ but not at some `w = ∑ m j • y j` with every `m j ≤ N`.
   `N (log 2)^d ≤ C^d c`, which fails once `N ≥ M ≥ M₀`.
 -/
 
-theorem descent_step
+theorem solution
     {d l : ℕ} (hdl : d + l < d * l)
     (x : Fin d → ℂ) (y : Fin l → ℂ)
     (hx : LinearIndependent ℚ x) (hy : LinearIndependent ℚ y)
@@ -176,4 +167,4 @@ theorem descent_step
   rw [div_lt_iff₀ (by positivity)] at hlt
   linarith
 
-end SX
+#print axioms solution

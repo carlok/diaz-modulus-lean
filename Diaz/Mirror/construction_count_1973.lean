@@ -80,7 +80,7 @@ lemma nat_div_two_ge (S : ℕ) : (S : ℝ) - 1 ≤ 2 * ((S / 2 : ℕ) : ℝ) := 
   have : (S : ℝ) ≤ 2 * ((S / 2 : ℕ) : ℝ) + 1 := by exact_mod_cast h
   linarith
 
-lemma construction_count_1973_q_facts (N : ℕ) (hN : 84 ≤ N) :
+lemma q_facts (N : ℕ) (hN : 84 ≤ N) :
     1 ≤ Real.sqrt (Real.log (N:ℝ)) ∧ Real.sqrt (Real.log (N:ℝ)) ^ 2 ≤ (N:ℝ) ∧
       0 < Real.log (N:ℝ) ∧ Real.sqrt (Real.log (N:ℝ)) ≤ (N:ℝ) ∧
       Real.sqrt (Real.log (N:ℝ)) * Real.sqrt (Real.log (N:ℝ)) = Real.log (N:ℝ) := by
@@ -104,7 +104,7 @@ lemma S_facts (N : ℕ) (hN : 84 ≤ N) :
       (N:ℝ) ^ 2 ≤ ((⌊(N:ℝ) ^ 2 / Real.sqrt (Real.log (N:ℝ))⌋₊ : ℝ) + 1) * Real.sqrt (Real.log (N:ℝ)) ∧
       1 ≤ (⌊(N:ℝ) ^ 2 / Real.sqrt (Real.log (N:ℝ))⌋₊ : ℝ) ∧
       (⌊(N:ℝ) ^ 2 / Real.sqrt (Real.log (N:ℝ))⌋₊ : ℝ) ≤ (N:ℝ) ^ 2 := by
-  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := construction_count_1973_q_facts N hN
+  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := q_facts N hN
   have hNr : (84:ℝ) ≤ (N:ℝ) := by exact_mod_cast hN
   have hqpos : (0:ℝ) < Real.sqrt (Real.log (N:ℝ)) := by linarith
   refine ⟨?_, ?_, ?_, ?_⟩
@@ -124,7 +124,7 @@ lemma t_facts (N : ℕ) (hN : 84 ≤ N) :
       (N:ℝ) * Real.sqrt (Real.log (N:ℝ)) - 1 ≤ (⌊(N:ℝ) * Real.sqrt (Real.log (N:ℝ))⌋₊ : ℝ) ∧
       (⌊(N:ℝ) / Real.sqrt (Real.log (N:ℝ))⌋₊ : ℝ) ≤ (N:ℝ) ∧
       (⌊(N:ℝ) * Real.sqrt (Real.log (N:ℝ))⌋₊ : ℝ) ≤ (N:ℝ) ^ 2 := by
-  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := construction_count_1973_q_facts N hN
+  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := q_facts N hN
   have hNr : (84:ℝ) ≤ (N:ℝ) := by exact_mod_cast hN
   have hqpos : (0:ℝ) < Real.sqrt (Real.log (N:ℝ)) := by linarith
   refine ⟨?_, ?_, ?_, ?_⟩
@@ -144,7 +144,7 @@ lemma U_facts (N : ℕ) (hN : 84 ≤ N) :
       (((⌊(N:ℝ) ^ 2 / Real.sqrt (Real.log (N:ℝ))⌋₊ * (2 * N) * (2 * N) : ℕ) : ℝ)) ^ (1 / 20 : ℝ) ≤ (N:ℝ) ∧
       2 * Real.log (N:ℝ)
         ≤ Real.log (((⌊(N:ℝ) ^ 2 / Real.sqrt (Real.log (N:ℝ))⌋₊ * (2 * N) * (2 * N) : ℕ) : ℝ)) := by
-  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := construction_count_1973_q_facts N hN
+  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := q_facts N hN
   obtain ⟨hS1, hS2, hSone, hSN2⟩ := S_facts N hN
   have hNr : (84:ℝ) ≤ (N:ℝ) := by exact_mod_cast hN
   have hNpos : (0:ℝ) < (N:ℝ) := by linarith
@@ -221,7 +221,7 @@ theorem construction_count_1973 (X Y₁ Y₂ : ℝ) (hX : 0 ≤ X) (hY₁ : 0 �
   refine ⟨max 84 ⌈Real.exp ((40 * (1 + 28 * W)) ^ 2)⌉₊, fun N hN => ?_⟩
   have hN84 : 84 ≤ N := by omega
   have hN84r : (84:ℝ) ≤ (N:ℝ) := by exact_mod_cast hN84
-  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := FourExpCount.construction_count_1973_q_facts N hN84
+  obtain ⟨hq1, hq2, hlogpos, hqN, hqq⟩ := FourExpCount.q_facts N hN84
   obtain ⟨hS1, hS2, hSone, hSN2⟩ := FourExpCount.S_facts N hN84
   obtain ⟨ht1, ht2, ht1u, ht2u⟩ := FourExpCount.t_facts N hN84
   obtain ⟨hUeq, hrp, hlogU⟩ := FourExpCount.U_facts N hN84

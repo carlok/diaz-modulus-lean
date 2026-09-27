@@ -1,17 +1,5 @@
-/-
-Mirrored from Prove2Me: `FourExp.siegel_aux`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.siegel_aux__6edf2e47.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
-Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match, and proof steps that became no-ops there were
-dropped; the mathematics is unchanged.
--/
 import Mathlib
-import Diaz.Mirror.siegel_entrywise
-
-namespace Diaz
+import Theorems.Thm_Transcendence_siegel_entrywise
 
 open Polynomial Finset
 
@@ -42,13 +30,13 @@ lemma c_ne_zero {ω ω₁ : ℂ} {Q : Polynomial (Polynomial ℤ)} (hQd : 0 < Q.
   funext μ ν
   have hc := congrArg (fun p : Polynomial (Polynomial ℤ) => (p.coeff ν).coeff μ) hP0
   simp only [P, f, finsetSum_coeff, coeff_C_mul_X_pow, coeff_zero, Fin.val_inj, Finset.sum_ite_eq,
-    Finset.sum_ite_eq', Finset.mem_univ, ite_true, coeff_monomial] at hc
+    Finset.sum_ite_eq', Finset.mem_univ, if_true, coeff_monomial] at hc
   simpa using hc
 
 end FourExpSiegel
 
 open FourExpSiegel in
-theorem siegel_aux
+theorem solution
     (ω ω₁ : ℂ) (Q : Polynomial (Polynomial ℤ)) (hQd : 0 < Q.natDegree)
     (hQmin : ∀ A : Polynomial (Polynomial ℤ), A.natDegree < Q.natDegree → Polynomial.eval₂ (Polynomial.eval₂RingHom (Int.castRingHom ℂ) ω) ω₁ A = 0 → A = 0)
     (κ₁ : ℝ) (hκ₁ : 0 < κ₁) :
@@ -215,4 +203,4 @@ theorem siegel_aux
           rw [hK, ← Real.exp_add, ← Real.exp_add, ← Real.exp_add, ← Real.exp_add]
           apply Real.exp_le_exp.2; linarith
 
-end Diaz
+#print axioms solution

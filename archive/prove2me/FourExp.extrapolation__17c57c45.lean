@@ -1,15 +1,6 @@
-/-
-Mirrored from Prove2Me: `FourExp.extrapolation`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.extrapolation__17c57c45.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.expPoly_grid_estimate
-import Diaz.Mirror.extrapolation_numbers
-
-namespace Diaz
+import Theorems.Thm_Transcendence_expPoly_grid_estimate
+import Theorems.Thm_FourExp_extrapolation_numbers
 
 /-!
 Extrapolation for the auxiliary function of the four exponentials theorem.
@@ -25,7 +16,7 @@ logarithm and everything else `O(N³ q)`, so for `N ≥ 32 (13 + κ + log Y + 2 
 most `exp (-N⁴ q / 32)`.
 -/
 
-theorem extrapolation
+theorem solution
     (x₁ x₂ y₁ y₂ : ℂ) (hy : LinearIndependent ℚ ![y₁, y₂]) (κ : ℝ) (hκ : 0 < κ) :
     ∃ κ' : ℝ, 0 < κ' ∧ ∃ N₀ : ℕ, ∀ N : ℕ, N₀ < N →
       ∀ c : Fin ⌊(N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ))⌋₊ → Fin (2 * N) → Fin (2 * N) → ℂ,
@@ -90,7 +81,7 @@ theorem extrapolation
         ≤ S * (2 * N) * (2 * N) * Real.exp (κ * ((N : ℝ) ^ 2 * q)) := by
       refine (Finset.sum_le_card_nsmul _ _ _ fun p _ => hc _ _ _).trans_eq ?_
       simp [Finset.card_univ, Fintype.card_prod, Fintype.card_fin]; ring
-    refine key.trans (le_trans ?_ (extrapolation_numbers X Y κ hX0 hY1 hκ.le
+    refine key.trans (le_trans ?_ (FourExp.extrapolation_numbers X Y κ hX0 hY1 hκ.le
       N S t₁ t₂ s hbig (by omega) hSu hSl h1l h2l))
     have : (0 : ℝ) ≤ 1 / ((N : ℝ) - 1) := div_nonneg zero_le_one (by linarith)
     gcongr
@@ -110,4 +101,4 @@ theorem extrapolation
           mul_le_mul e1 (by linarith) (by positivity) (by positivity)
       _ = Y * ((N : ℝ) ^ 2 * q) := by rw [hY]; ring
 
-end Diaz
+#print axioms solution

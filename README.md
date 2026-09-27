@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-25 it is met: 254 of 254. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-27 it is met: 262 of 262. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -682,6 +682,32 @@ A third wave took on the two proofs of Waldschmidt's 1973 Lemmas 4 and 7,
   `ℚ(ω)` with size control.
 
 The two proofs went from 4,068 lines to 458, and 2,173 with the new nodes.
+
+A fourth wave took on the remaining proofs of 300 lines or more:
+`extrapolation`, `siegel_aux`, `small_irreducible_factor` and
+`trdeg_one_presentation` in the four exponentials subtree, and the six
+exponentials steps `SX.descent_step` and `SX.exists_aux_expSum`. Eight nodes:
+
+- `Transcendence.siegel_entrywise` — Siegel's lemma with an entrywise bound:
+  with at least twice as many unknowns as equations and entries at most `B`,
+  a non-zero integer solution of size at most `nB`.
+- `Transcendence.expPoly_grid_estimate` — the Cauchy estimate for an
+  exponential polynomial that vanishes to order `n` on a grid of `ℚ`-linearly
+  independent points, at any point of a larger grid.
+- `extrapolation_numbers` — the numerical inequality of the four exponentials
+  extrapolation.
+- `Transcendence.norm_resultant_le_max_norm_eval` — a Liouville inequality
+  through the resultant, the complex form of Roy–Waldschmidt 1997,
+  Corollary 3.7.
+- `Transcendence.exists_irreducible_factor_cofactor_bound` — the multiplicative
+  step of Gel'fond's lemma.
+- `Transcendence.exists_monic_integral_model` and
+  `Transcendence.exists_monic_integral_model_presentation` — finitely many
+  numbers algebraic over `ℚ(ω)`, presented over one monic integral model.
+- `Transcendence.exists_denom_house_monomial_le` — one denominator and a house
+  bound for every monomial of bounded degree in a number field.
+
+The six proofs went from 2,661 lines to 906, and 1,881 with the new nodes.
 
 ## What is assumed
 
