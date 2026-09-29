@@ -4264,5 +4264,65 @@
   "imports_children": true,
   "redacted_comments": false,
   "dependency_of": "DiazModulus.six_exponentials"
+ },
+ {
+  "theorem_name": "DiazModulus.nongeneric_rational_modulus_orbit",
+  "theorem_id": "f22d3ed4-1827-4b5f-8ec8-cdecb9e3147a",
+  "submission_id": "dac2aefe-5119-4d7b-a68b-7d8feb582b0c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-29T06:40:58.179671+00:00",
+  "file": "DiazModulus.nongeneric_rational_modulus_orbit__dac2aefe.lean",
+  "bytes": 3426,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.torsion_rational_modulus_unique",
+  "theorem_id": "f86e8b7b-33e4-40ce-a1c2-010d201771b8",
+  "submission_id": "90a6d908-8970-40c6-af5a-d51e872a3bed",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-29T06:36:18.0528+00:00",
+  "file": "DiazModulus.torsion_rational_modulus_unique__90a6d908.lean",
+  "bytes": 5968,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.recip_pi_log_of_torsion_rational_modulus",
+  "theorem_id": "4ab529e6-b0c9-451a-926e-339e9c2bbfea",
+  "submission_id": "d3bc9123-5fe8-42c5-bd5b-73b5c6bfe48e",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-29T06:28:48.674153+00:00",
+  "file": "DiazModulus.recip_pi_log_of_torsion_rational_modulus__d3bc9123.lean",
+  "bytes": 2869,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.log_two_log_three_not_both_rational",
+  "theorem_id": "d986305f-8b22-40ab-a976-4f96f69de56e",
+  "submission_id": "c20455c1-9d0d-4873-b5f9-cec15602da29",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-29T06:28:46.0542+00:00",
+  "file": "DiazModulus.log_two_log_three_not_both_rational__c20455c1.lean",
+  "bytes": 1402,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi",
+  "theorem_id": "b56a1fae-4ab1-45a1-8f89-c17aa8353ce1",
+  "submission_id": "4dd183ea-2a15-4650-9832-10410c6cd7fd",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-29T06:50:35.685974+00:00",
+  "file": "DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi__4dd183ea.lean",
+  "bytes": 11067,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

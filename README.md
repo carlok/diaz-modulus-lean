@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-27 it is met: 262 of 262. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-29 it is met: 267 of 267. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -485,6 +485,19 @@ first constraint on algebraically independent families of candidates.
 every candidate. The duality `log_square_duality`, the `ℚ`-linear form of
 Diaz 2007, Corollaire 4(3), gives `two_pow_log_three_or_three_pow_log_two`: at
 least one of `2^{log₃2}` and `3^{log₂3}` is transcendental.
+
+At rational squared moduli the theorem gives four statements of 29 September 2026. None of them
+was found in the sources read, and each follows from the theorem in a few lines.
+`nongeneric_rational_modulus_orbit`: logarithms of algebraic numbers that are algebraic over
+`ℚ(π)` and have rational squared modulus are rational multiples of one another, up to
+conjugation. `torsion_rational_modulus_unique`: at most one pair `±t` with `e^t` algebraic makes
+`t² + π²` rational, so `log_two_log_three_not_both_rational`: `(log 2)² + π²` and
+`(log 3)² + π²` are not both rational. `recip_pi_log_of_torsion_rational_modulus`: a rational
+value of `t² + π²` would make `e^{iγ/π}` transcendental at every rational `γ ≠ 0`, so Diaz's
+conjecture at `t + iπ` and the statement (S) cannot both fail at rational data. With
+Waldschmidt's 1973 theorem in its algebraic-independence form carried as a hypothesis,
+`pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi` specialises it: if `e^{ir/π}` is algebraic for a
+rational `r ≠ 0`, then two of `π`, `e`, `e^{π²}` are algebraically independent.
 
 ### A barrier: the four exponentials conjecture sees nothing homogeneous
 

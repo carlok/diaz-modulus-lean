@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-27): **262** of 262
+As of the latest archived submission (2026-09-29): **267** of 267
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -201,10 +201,13 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.log_ratio_multipliers` | yes | `Diaz/Mirror/log_ratio_multipliers.lean` | done |  |
 | `DiazModulus.log_square_duality` | yes | `Diaz/Mirror/log_square_duality.lean` | done |  |
 | `DiazModulus.log_two_diaz_or_transcendental` | yes | `Diaz/Mirror/log_two_diaz_or_transcendental.lean` | done |  |
+| `DiazModulus.log_two_log_three_not_both_rational` | yes | `Diaz/Mirror/log_two_log_three_not_both_rational.lean` | done |  |
 | `DiazModulus.log_two_pi_dependent_forces_transcendence` | yes | `Diaz/Mirror/log_two_pi_dependent_forces_transcendence.lean` | done |  |
 | `DiazModulus.no_algebraic_generalized_line` | yes | `Diaz/Mirror/no_algebraic_generalized_line.lean` | done |  |
 | `DiazModulus.no_first_order_arithmetic_operator` | yes | `Diaz/Mirror/no_first_order_arithmetic_operator.lean` | done |  |
+| `DiazModulus.nongeneric_rational_modulus_orbit` | yes | `Diaz/Mirror/nongeneric_rational_modulus_orbit.lean` | done |  |
 | `DiazModulus.period_free_split_nondegenerate` | yes | `Diaz/Mirror/period_free_split_nondegenerate.lean` | done |  |
+| `DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi` | yes | `Diaz/Mirror/pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi.lean` | done |  |
 | `DiazModulus.pi_log_two_or_pi_log_three_transcendental` | yes | `Diaz/Mirror/pi_log_two_or_pi_log_three_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental` | yes | `Diaz/Mirror/pi_sq_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental_of_real_gamma` | yes | `Diaz/Mirror/pi_sq_transcendental_of_real_gamma.lean` | done | vacuous: its conclusion is proved unconditionally by pi_sq_transcendental |
@@ -215,6 +218,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.recip_pi_log_four_exp_barrier` | yes | `Diaz/Mirror/recip_pi_log_four_exp_barrier.lean` | done |  |
 | `DiazModulus.recip_pi_log_of_period_aligned` | yes | `Diaz/Mirror/recip_pi_log_of_period_aligned.lean` | done |  |
 | `DiazModulus.recip_pi_log_of_pi_im_algebraic` | yes | `Diaz/Mirror/recip_pi_log_of_pi_im_algebraic.lean` | done |  |
+| `DiazModulus.recip_pi_log_of_torsion_rational_modulus` | yes | `Diaz/Mirror/recip_pi_log_of_torsion_rational_modulus.lean` | done |  |
 | `DiazModulus.recip_pi_log_on_axis` | yes | `Diaz/Mirror/recip_pi_log_on_axis.lean` | done |  |
 | `DiazModulus.recip_pi_log_rational_line` | yes | `Diaz/Mirror/recip_pi_log_rational_line.lean` | done |  |
 | `DiazModulus.recip_pi_not_log_of_sfe` | yes | `Diaz/Mirror/recip_pi_not_log_of_sfe.lean` | done |  |
@@ -226,6 +230,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.ringHom_preserves_linearIndependent` | yes | `Diaz/Mirror/ringHom_preserves_linearIndependent.lean` | done |  |
 | `DiazModulus.sixExponentials_cannot_refute_candidate` | yes | `Diaz/NoGo.lean` | done |  |
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
+| `DiazModulus.torsion_rational_modulus_unique` | yes | `Diaz/Mirror/torsion_rational_modulus_unique.lean` | done |  |
 | `DiazModulus.transfer_breaks_exactly` | yes | `Diaz/Mirror/transfer_breaks_exactly.lean` | done |  |
 | `DiazModulus.two_pow_log_three_or_three_pow_log_two` | yes | `Diaz/Mirror/two_pow_log_three_or_three_pow_log_two.lean` | done |  |
 | `DiazModulus.two_three_five_pow_pi_transcendental` | yes | `Diaz/Mirror/two_three_five_pow_pi_transcendental.lean` | done |  |

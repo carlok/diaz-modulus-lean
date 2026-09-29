@@ -221,3 +221,8 @@ import Diaz.Mirror.exists_irreducible_factor_cofactor_bound
 import Diaz.Mirror.exists_monic_integral_model
 import Diaz.Mirror.exists_monic_integral_model_presentation
 import Diaz.Mirror.exists_denom_house_monomial_le
+import Diaz.Mirror.nongeneric_rational_modulus_orbit
+import Diaz.Mirror.torsion_rational_modulus_unique
+import Diaz.Mirror.log_two_log_three_not_both_rational
+import Diaz.Mirror.recip_pi_log_of_torsion_rational_modulus
+import Diaz.Mirror.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi
