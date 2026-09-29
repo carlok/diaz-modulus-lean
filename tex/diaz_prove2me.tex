@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.10, 27 September 2026}
+\date{September 2026\\[2pt]\small Version 1.11, 29 September 2026}
 
 \begin{document}
 \maketitle
@@ -320,7 +320,23 @@ The third number in Theorem~\ref{thm:diaz-number} couples two open statements. T
 $(S)$, below, asks that $\e^{\gamma/(i\pi)}$ be transcendental for real algebraic $\gamma\neq0$;
 the theorem proves it at every $\gamma=t^{2}+\pi^{2}$ that the present question would make
 algebraic. The two remaining open statements of Section~\ref{sec:what} cannot fail at the same
-number.
+number. At rational data they cannot both fail at all.
+
+\begin{corollary}\label{cor:rational-exclusion}
+Let $t\neq0$ be real with $\e^{t}\in\Alg$ and $t^{2}+\pi^{2}\in\Q$. Then $\e^{i\gamma/\pi}$ is
+transcendental for every $\gamma\in\Q^{\times}$.
+\end{corollary}
+
+\begin{proof}
+Put $r=t^{2}+\pi^{2}$. By Theorem~\ref{thm:diaz-number}, $\e^{r/(i\pi)}=\e^{-ir/\pi}$ is
+transcendental. If $\e^{i\gamma/\pi}$ were algebraic, write $r/\gamma=a/b$ with $a\in\Z$ and
+$b\ge1$. Then $(\e^{ir/\pi})^{b}=(\e^{i\gamma/\pi})^{a}$ would be algebraic, and with it
+$\e^{ir/\pi}$ and its inverse.
+\end{proof}
+
+The statement was not found in the sources read. Its key step is Waldschmidt's
+remark~\cite[p.~202]{waldschmidt-1974} at $\ell_{1}=t$ and $\ell_{2}=i\pi$; the scaling step is
+elementary.
 
 \subsection*{A second point in the fibre, and the statement \texorpdfstring{$(S)$}{(S)}}
 
@@ -605,6 +621,14 @@ theory says more at the same point: if $\e^{\pi^{2}}$ is algebraic, then $\e$ an
 algebraically independent~\cite[Corollaire~1]{waldschmidt-1973}, and so are $\pi$ and
 $\e^{i\pi^{3}}$~\cite[Exercise~15.15(c)]{waldschmidt-book}. Those need the 1973 theorem in its
 algebraic-independence form, which is not formalised.
+
+The same theorem, at $x=(i\pi,\,ir/\pi)$ and $y=(-i\pi/r,\,1)$, whose column $y_{2}=1$ carries
+$\e^{i\pi}=-1$ and $\e^{ir/\pi}$, gives: if $\e^{ir/\pi}$ is algebraic for some $r\in\Q^{\times}$, then
+two of $\pi$, $\e$ and $\e^{\pi^{2}}$ are algebraically independent. The substitution was not found in
+the sources read, but it is one line from~\cite[Exercise~15.15(e)]{waldschmidt-book}; it is
+machine-checked with the theorem as a hypothesis. At $r=1$: either $\e^{i/\pi}$, the smallest case of
+the real half of $(S)$, is transcendental, or two of $\pi$, $\e$, $\e^{\pi^{2}}$ are algebraically
+independent, which is an open problem~\cite[\S15.3.5]{waldschmidt-book}.
 
 
 
@@ -1129,6 +1153,41 @@ for $l=pu+q\bar u$ and $m=\rho/l$, shows that $\e^{\rho/(pu+q\bar u)}$ is transc
 non-zero rationals $p,q$. In particular the harmonic mean $\rho/\operatorname{Re}u$ of $u$ and
 $\bar u$ is not in $\Logs$.
 
+Theorem~\ref{thm:pair} also constrains the candidates that are algebraic over $\Q(\pi)$ and have a
+rational squared modulus. The points $t+i\pi$ of Theorem~\ref{thm:one-relation} are of this kind
+whenever $t^{2}+\pi^{2}$ is rational.
+
+\begin{corollary}\label{cor:rational-orbit}
+Let $u,v\in\Logs\setminus\{0\}$ be algebraic over $\Q(\pi)$, with $|u|^{2}$ and $|v|^{2}$ rational.
+Then $v\in\Q u$ or $v\in\Q\bar u$.
+\end{corollary}
+
+\begin{proof}
+The conjugates $\bar u=|u|^{2}/u$ and $\bar v=|v|^{2}/v$ are algebraic over $\Q(\pi)$ as well.
+Hence the field $\Q(u,\bar u,v,\bar v)$ has transcendence degree at most one over $\Q$, and
+$|u|^{2}/|v|^{2}$ is rational, so Theorem~\ref{thm:pair} applies.
+\end{proof}
+
+\begin{corollary}\label{cor:torsion-unique}
+Let $t_{0},t_{1}$ be real with $\e^{t_{0}},\e^{t_{1}}\in\Alg$. If $t_{0}^{2}+\pi^{2}$ and
+$t_{1}^{2}+\pi^{2}$ are both rational, then $t_{1}=\pm t_{0}$. In particular $(\log2)^{2}+\pi^{2}$
+and $(\log3)^{2}+\pi^{2}$ are not both rational.
+\end{corollary}
+
+\begin{proof}
+The numbers $u=t_{0}+i\pi$ and $v=t_{1}+i\pi$ lie in $\Logs\setminus\{0\}$, and they are algebraic
+over $\Q(\pi)$ because $t_{k}^{2}=(t_{k}^{2}+\pi^{2})-\pi^{2}$. Corollary~\ref{cor:rational-orbit}
+gives $v=qu$ or $v=q\bar u$ with $q\in\Q$, and the imaginary parts force $q=\pm1$. For the example,
+$\log3\neq\pm\log2$.
+\end{proof}
+
+So condition (ii) of Theorem~\ref{thm:one-relation} can fail at a rational value of $t^{2}+\pi^{2}$
+for at most one pair $\pm t$. Since $(\log3)^{2}-(\log2)^{2}=\log\frac{3}{2}\cdot\log6$, the example
+also says that $\log\frac{3}{2}\cdot\log6$ is irrational if $(\log2)^{2}+\pi^{2}$ is rational.
+Neither corollary was found in the sources read. Each follows in a few lines from the four
+exponentials theorem in transcendence degree one~\cite[Corollaire~4]{waldschmidt-1973},
+\cite[Theorem~1]{roy-waldschmidt-1995}, here through Theorem~\ref{thm:pair}.
+
 \subsection*{Two candidates, and the six exponentials theorem}
 
 Theorem~\ref{thm:dim} says the six exponentials theorem cannot refute one candidate: its
@@ -1391,7 +1450,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.10 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.11 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1401,9 +1460,12 @@ take Baker's theorem as a hypothesis, and Section~1 lists it as a third input us
 Corollary~\ref{cor:translate} is marked as not formalised; and Proposition~\ref{prop:quant-orbit}
 is restated as its formal counterpart proves it.
 Version 1.10 withdraws a priority claim in Section~\ref{sec:outside} that Diaz's Corollaire~4(2)
-of 2007 contradicts.
-Every row of the table below was checked against the platform by script on 27 September 2026, and
-the mirrored project held all 262 proved results of the development at that date.
+of 2007 contradicts. Version 1.11 adds Corollaries~\ref{cor:rational-exclusion},
+\ref{cor:rational-orbit} and~\ref{cor:torsion-unique}, machine-checked on 29 September 2026, and in
+Section~\ref{sec:boundary} a consequence of the 1973 theorem, machine-checked with that theorem as a
+hypothesis.
+Every row of the table below was checked against the platform by script on 29 September 2026, and
+the mirrored project held all 267 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1419,7 +1481,9 @@ parts of a candidate are each transcendental
 
 A \textbf{Proved} row means the statement itself has a machine-checked proof. A \textbf{Proved, assuming Baker}
 row means the proof is machine-checked with Baker's theorem (Section~1), or an instance of it, taken as an
-explicit hypothesis, because the library used contains no proof of Baker's theorem. An \textbf{Open}
+explicit hypothesis, because the library used contains no proof of Baker's theorem. The one
+\textbf{Proved, assuming Waldschmidt 1973} row is the same with the algebraic-independence theorem
+of~\cite{waldschmidt-1973} as the hypothesis. An \textbf{Open}
 row means the statement is recorded formally but not proved; every such row here is an open
 conjecture. A \textbf{Not formalised} row means what it says: the statement is proved in this note and has no formal counterpart at all.
 Corollary~\ref{cor:translate} and Proposition~\ref{prop:loop} are flagged that way. The row of
@@ -1443,6 +1507,7 @@ Cor.~\ref{cor:translate} & Not formalised & none; it follows from the identity \
 Thm~\ref{thm:one-relation} & Proved & \nolinkurl{DiazModulus.leaf_iff_one} \\
 Thm~\ref{thm:diaz-number} & Proved & \nolinkurl{DiazModulus.diaz_number_forces_transcendence} \\
 Cor.~\ref{cor:log2} & Proved & \nolinkurl{DiazModulus.log_two_diaz_or_transcendental} \\
+Cor.~\ref{cor:rational-exclusion} & Proved & \nolinkurl{DiazModulus.recip_pi_log_of_torsion_rational_modulus} \\
 \S\ref{sec:quant}, Waldschmidt's remark & Proved & \nolinkurl{DiazModulus.log_pair_square_ratio_transcendental}, \nolinkurl{DiazModulus.log_two_pi_dependent_forces_transcendence} \\
 \S\ref{sec:quant}, Diaz's Proposition~1 & Proved & \nolinkurl{DiazModulus.log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq} \\
 Thm~\ref{thm:novan} & Proved & \nolinkurl{Diaz.no_vanishing_coeff} \\
@@ -1484,6 +1549,7 @@ Prop.~\ref{prop:no-deriv} & Proved, assuming Baker & \nolinkurl{DiazModulus.no_f
 Prop.~\ref{prop:kronecker} & Proved & \nolinkurl{DiazModulus.kronecker_factorisation} \\
 Prop.~\ref{prop:geometric} & Proved & \nolinkurl{DiazModulus.geometric_triple_not_logs} \\
 Cor.~\ref{cor:epi2} & Proved & \nolinkurl{DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental} \\
+\S\ref{sec:boundary}, $\e^{ir/\pi}$ & \begin{tabular}[t]{@{}l@{}}Proved, assuming\\ Waldschmidt 1973\end{tabular} & \nolinkurl{DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi} (hypothesis: the theorem of~\cite{waldschmidt-1973}) \\
 \S\ref{sec:map}, $2^{\pi}$, $3^{\pi}$ or $5^{\pi}$ & Proved & \nolinkurl{DiazModulus.two_three_five_pow_pi_transcendental} \\
 \S\ref{sec:map}, $\e^{\lambda^{2}/\mu}$ or $\e^{\mu^{2}/\lambda}$ & Proved & \nolinkurl{DiazModulus.log_square_duality} \\
 \S\ref{sec:map}, $2^{\log_{3}2}$ or $3^{\log_{2}3}$ & Proved & \nolinkurl{DiazModulus.two_pow_log_three_or_three_pow_log_two} \\
@@ -1496,6 +1562,8 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 Thm~\ref{thm:pair} & Proved & \nolinkurl{DiazModulus.log_pair_rigid_of_trdeg_one} \\
 Cor.~\ref{cor:monomial} & Proved & \nolinkurl{DiazModulus.candidate_monomial_not_log} \\
 \S\ref{sec:outside}, harmonic mean & Proved & \nolinkurl{DiazModulus.candidate_harmonic_not_log} \\
+Cor.~\ref{cor:rational-orbit} & Proved & \nolinkurl{DiazModulus.nongeneric_rational_modulus_orbit} \\
+Cor.~\ref{cor:torsion-unique} & Proved & \nolinkurl{DiazModulus.torsion_rational_modulus_unique}, \nolinkurl{DiazModulus.log_two_log_three_not_both_rational} \\
 Thm~\ref{thm:multipliers} & Proved & \nolinkurl{DiazModulus.log_ratio_multipliers} \\
 \S\ref{sec:outside}, the two lemmas & Proved & \nolinkurl{DiazModulus.candidate_conj_product_rational}, \nolinkurl{DiazModulus.conj_ratio_multiplier_relation} \\
 Thm~\ref{thm:quotient} & Proved & \nolinkurl{DiazModulus.candidate_quotient_rigid} \\
