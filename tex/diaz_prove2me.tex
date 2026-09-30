@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.11, 29 September 2026}
+\date{September 2026\\[2pt]\small Version 1.12, 30 September 2026}
 
 \begin{document}
 \maketitle
@@ -620,13 +620,17 @@ Brownawell~\cite{brownawell-1974}; Diaz gives this proof~\cite[p.~386]{diaz-2007
 theory says more at the same point: if $\e^{\pi^{2}}$ is algebraic, then $\e$ and $\pi$ are
 algebraically independent~\cite[Corollaire~1]{waldschmidt-1973}, and so are $\pi$ and
 $\e^{i\pi^{3}}$~\cite[Exercise~15.15(c)]{waldschmidt-book}. Those need the 1973 theorem in its
-algebraic-independence form, which is not formalised.
+algebraic-independence form. That theorem is now machine-checked, as an extension of the formal
+four exponentials theorem of Section~\ref{sec:map} to a single algebraic column, and the first of
+the two statements is formalised with it; the second is not. The problem the 1973 paper takes its
+title from, Schneider's eighth, is formalised too: at least one of $\e^{\e}$ and $\e^{\e^{2}}$ is
+transcendental~\cite[p.~192]{waldschmidt-1973}.
 
 The same theorem, at $x=(i\pi,\,ir/\pi)$ and $y=(-i\pi/r,\,1)$, whose column $y_{2}=1$ carries
 $\e^{i\pi}=-1$ and $\e^{ir/\pi}$, gives: if $\e^{ir/\pi}$ is algebraic for some $r\in\Q^{\times}$, then
 two of $\pi$, $\e$ and $\e^{\pi^{2}}$ are algebraically independent. The substitution was not found in
 the sources read, but it is one line from~\cite[Exercise~15.15(e)]{waldschmidt-book}; it is
-machine-checked with the theorem as a hypothesis. At $r=1$: either $\e^{i/\pi}$, the smallest case of
+machine-checked, and since version 1.12 unconditionally. At $r=1$: either $\e^{i/\pi}$, the smallest case of
 the real half of $(S)$, is transcendental, or two of $\pi$, $\e$, $\e^{\pi^{2}}$ are algebraically
 independent, which is an open problem~\cite[\S15.3.5]{waldschmidt-book}.
 
@@ -1463,15 +1467,17 @@ Version 1.10 withdraws a priority claim in Section~\ref{sec:outside} that Diaz's
 of 2007 contradicts. Version 1.11 adds Corollaries~\ref{cor:rational-exclusion},
 \ref{cor:rational-orbit} and~\ref{cor:torsion-unique}, machine-checked on 29 September 2026, and in
 Section~\ref{sec:boundary} a consequence of the 1973 theorem, machine-checked with that theorem as a
-hypothesis.
-Every row of the table below was checked against the platform by script on 29 September 2026, and
-the mirrored project held all 267 proved results of the development at that date.
+hypothesis. Version 1.12 records that the 1973 theorem itself, Schneider's eighth problem and the
+$\e^{\pi^{2}}$ statement of Section~\ref{sec:boundary} are machine-checked, on 30 September 2026, so
+that consequence is now unconditional.
+Every row of the table below was checked against the platform by script on 30 September 2026, and
+the mirrored project held all 283 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
 auxiliary function, extrapolation and norm step, and the assembly above them. They are separate
 nodes under the \nolinkurl{FourExp} namespace on the platform, and separate modules in the
-project.
+project. The 1973 theorem in its column form reuses that development, with twelve further nodes.
 
 Two further statements, not numbered above because the note does not use them directly, are
 proved alongside Proposition~\ref{prop:kernel} and belong to its argument: the real and imaginary
@@ -1481,9 +1487,7 @@ parts of a candidate are each transcendental
 
 A \textbf{Proved} row means the statement itself has a machine-checked proof. A \textbf{Proved, assuming Baker}
 row means the proof is machine-checked with Baker's theorem (Section~1), or an instance of it, taken as an
-explicit hypothesis, because the library used contains no proof of Baker's theorem. The one
-\textbf{Proved, assuming Waldschmidt 1973} row is the same with the algebraic-independence theorem
-of~\cite{waldschmidt-1973} as the hypothesis. An \textbf{Open}
+explicit hypothesis, because the library used contains no proof of Baker's theorem. An \textbf{Open}
 row means the statement is recorded formally but not proved; every such row here is an open
 conjecture. A \textbf{Not formalised} row means what it says: the statement is proved in this note and has no formal counterpart at all.
 Corollary~\ref{cor:translate} and Proposition~\ref{prop:loop} are flagged that way. The row of
@@ -1549,7 +1553,10 @@ Prop.~\ref{prop:no-deriv} & Proved, assuming Baker & \nolinkurl{DiazModulus.no_f
 Prop.~\ref{prop:kronecker} & Proved & \nolinkurl{DiazModulus.kronecker_factorisation} \\
 Prop.~\ref{prop:geometric} & Proved & \nolinkurl{DiazModulus.geometric_triple_not_logs} \\
 Cor.~\ref{cor:epi2} & Proved & \nolinkurl{DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental} \\
-\S\ref{sec:boundary}, $\e^{ir/\pi}$ & \begin{tabular}[t]{@{}l@{}}Proved, assuming\\ Waldschmidt 1973\end{tabular} & \nolinkurl{DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi} (hypothesis: the theorem of~\cite{waldschmidt-1973}) \\
+\S\ref{sec:boundary}, the 1973 theorem & Proved & \nolinkurl{DiazModulus.two_algebraically_independent_of_exp_column} \\
+\S\ref{sec:boundary}, $\e^{\pi^{2}}$ algebraic & Proved & \nolinkurl{DiazModulus.algebraicIndependent_e_pi_of_exp_pi_sq_algebraic} \\
+\S\ref{sec:boundary}, Schneider's problem & Proved & \nolinkurl{Transcendence.exp_e_or_exp_e_sq_transcendental} \\
+\S\ref{sec:boundary}, $\e^{ir/\pi}$ & Proved & \nolinkurl{DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic} \\
 \S\ref{sec:map}, $2^{\pi}$, $3^{\pi}$ or $5^{\pi}$ & Proved & \nolinkurl{DiazModulus.two_three_five_pow_pi_transcendental} \\
 \S\ref{sec:map}, $\e^{\lambda^{2}/\mu}$ or $\e^{\mu^{2}/\lambda}$ & Proved & \nolinkurl{DiazModulus.log_square_duality} \\
 \S\ref{sec:map}, $2^{\log_{3}2}$ or $3^{\log_{2}3}$ & Proved & \nolinkurl{DiazModulus.two_pow_log_three_or_three_pow_log_two} \\
