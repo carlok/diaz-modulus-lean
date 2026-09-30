@@ -4324,5 +4324,89 @@
   "bytes": 11067,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.transfer_breaks_exactly",
+  "theorem_id": "510e5580-0397-4ddf-8db6-c52efd89a7e5",
+  "submission_id": "de1a8428-bf75-4bc1-8f5f-c61ecf478af7",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-30T04:14:33.22639+00:00",
+  "file": "DiazModulus.transfer_breaks_exactly__de1a8428.lean",
+  "bytes": 3254,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult",
+  "theorem_id": "561efd5c-2eb5-4258-a55b-a7c035576bac",
+  "submission_id": "f2dfa381-7f24-4c4c-bc1d-20268b537071",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-30T04:14:30.433274+00:00",
+  "file": "DiazModulus.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult__f2dfa381.lean",
+  "bytes": 4620,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "Transcendence.expPoly_iteratedDeriv_le",
+  "theorem_id": "305d8079-de0f-43d6-9a80-299b0601e6d1",
+  "submission_id": "d311856e-d99e-4cb3-8c63-739a0a1d9a6c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-30T04:13:03.74926+00:00",
+  "file": "Transcendence.expPoly_iteratedDeriv_le__d311856e.lean",
+  "bytes": 5625,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "GelfondSchneider.deriv_upper",
+  "theorem_id": "d74690db-d2c0-4b78-81b2-800698673390",
+  "submission_id": "d6ebdcf3-0910-441f-a1ce-1eba118faf6f",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-30T04:14:41.74513+00:00",
+  "file": "GelfondSchneider.deriv_upper__d6ebdcf3.lean",
+  "bytes": 10794,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.construction_growth",
+  "theorem_id": "756ef0b1-6367-48de-9b97-b031f9277369",
+  "submission_id": "d681b71a-7217-4a24-be63-b6c6739c70a1",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-30T04:14:38.867355+00:00",
+  "file": "FourExp.construction_growth__d681b71a.lean",
+  "bytes": 9632,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.transcendence_criterion_continuous",
+  "theorem_id": "edd2f289-6d1c-476d-ad9a-5b7015839de3",
+  "submission_id": "41f98a19-edae-4c25-83c8-f4af23bad773",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-30T04:14:36.011984+00:00",
+  "file": "FourExp.transcendence_criterion_continuous__41f98a19.lean",
+  "bytes": 13533,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "FourExp.expPoly_value_le_derivs",
+  "theorem_id": "aec4da14-b097-4fda-999a-687c2dbecdd4",
+  "submission_id": "6992a8c1-e398-4e40-b0ec-f2ddba6caa7e",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-09-30T04:11:05.243557+00:00",
+  "file": "FourExp.expPoly_value_le_derivs__6992a8c1.lean",
+  "bytes": 3065,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

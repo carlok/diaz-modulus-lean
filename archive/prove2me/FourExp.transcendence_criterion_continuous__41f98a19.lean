@@ -1,16 +1,7 @@
-/-
-Mirrored from Prove2Me: `FourExp.transcendence_criterion_continuous`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.transcendence_criterion_continuous__41f98a19.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.height_dvd_le
-import Diaz.Mirror.small_irreducible_factor
-import Diaz.Mirror.dvd_of_small_values_at_scale
-
-namespace Diaz
+import Theorems.Thm_FourExp_height_dvd_le
+import Theorems.Thm_FourExp_small_irreducible_factor
+import Theorems.Thm_FourExp_dvd_of_small_values_at_scale
 
 /-!
 # A transcendence criterion with continuous scales
@@ -18,7 +9,7 @@ namespace Diaz
 Suppose `α` is transcendental, and put `C = max (10 + ε) ((4 + ε) a₁ a₂)`. Heights are Mathlib's
 `Polynomial.supNorm`, the largest absolute value of a coefficient.
 
-* **A small factor.** For large `q`, Gel'fond's lemma (`small_irreducible_factor`, with
+* **A small factor.** For large `q`, Gel'fond's lemma (`FourExp.small_irreducible_factor`, with
   `H = exp σ₁(q)`, `n = σ₂(q)` and `λ = C`), applied to the primitive part of `P q`, gives an
   irreducible `Q` of positive degree and a real `s ≥ 1` with
   `‖Q(α)‖ < exp(-(C - 6) σ₁(q) σ₂(q) / s)`, height at most `exp(3 σ₁(q) / s)` and degree at most
@@ -33,8 +24,8 @@ Suppose `α` is transcendental, and put `C = max (10 + ε) ((4 + ε) a₁ a₂)`
   `‖Q(α)‖ < exp(-(4 + ε) uv)`.
 * **A contradiction.** For `N = ⌊z⌋₊` the growth bounds give `uv ≤ a₁ a₂ σ₁(N) σ₂(N)`, so
   `‖P_N(α)‖ < exp(-(4 + ε) uv)` as well. The resultant step at the scale `(u, v)`
-  (`dvd_of_small_values_at_scale`) gives `Q ∣ P_N`. Gel'fond's height bound
-  (`height_dvd_le`) and `deg Q ≤ deg P_N ≤ v < (1 + ε/2) v` then make both bounds strict
+  (`FourExp.dvd_of_small_values_at_scale`) gives `Q ∣ P_N`. Gel'fond's height bound
+  (`FourExp.height_dvd_le`) and `deg Q ≤ deg P_N ≤ v < (1 + ε/2) v` then make both bounds strict
   at `z`.
 -/
 
@@ -69,7 +60,7 @@ theorem exists_pos_le_norm_aeval (α : ℂ) (hα : Transcendental ℚ α) (D : �
 end W5_transcendence_criterion_continuous
 
 open W5_transcendence_criterion_continuous in
-theorem transcendence_criterion_continuous
+theorem solution
     (α : ℂ) (ε : ℝ) (hε : 0 < ε)
     (σ₁ σ₂ : ℝ → ℝ) (hσ₁ : StrictMono σ₁) (hσ₂ : StrictMono σ₂)
     (hσ₁c : Continuous σ₁) (hσ₂c : Continuous σ₂)
@@ -114,7 +105,7 @@ theorem transcendence_criterion_continuous
     have hpα : ‖aeval α (P q).primPart‖ ≤ ‖aeval α (P q)‖ := by
       conv_rhs => rw [hdec, map_mul, aeval_C, norm_mul]
       exact le_mul_of_one_le_left (norm_nonneg _) (by simpa using hc1)
-    obtain ⟨Q, -, hprim, hirr, s, hs, hQα, hQh, hQd⟩ := small_irreducible_factor α hα
+    obtain ⟨Q, -, hprim, hirr, s, hs, hQα, hQh, hQd⟩ := FourExp.small_irreducible_factor α hα
       (P q).primPart (isPrimitive_primPart _) (Real.exp (σ₁ q)) (σ₂ q) C hpH
       (by rw [Real.log_exp]; exact h₂₁ q (by linarith))
       (by rw [natDegree_primPart]; exact hP_deg q hq) (by linarith)
@@ -136,7 +127,7 @@ theorem transcendence_criterion_continuous
     (isClosed_le continuous_const continuous_id).inter ((isClosed_le continuous_const
       (Real.continuous_exp.comp (continuous_const.mul hσ₁c))).inter
         (isClosed_le continuous_const (continuous_const.mul hσ₂c)))
-  obtain ⟨U, hU⟩ := dvd_of_small_values_at_scale α ε hε
+  obtain ⟨U, hU⟩ := FourExp.dvd_of_small_values_at_scale α ε hε
   obtain ⟨Z₁, hZ₁⟩ := eventually_atTop.mp (hσ₁t.eventually_ge_atTop U)
   set Zs : ℝ := max (max (X₀ + 1) ((N₀ : ℝ) + 2)) Z₁ with hZs
   -- Step 2: a factor with value below every bounded polynomial, so its scale set lies past `Zs`
@@ -235,11 +226,9 @@ theorem transcendence_criterion_continuous
   refine hnotboth ⟨?_, ?_⟩
   · obtain ⟨i, hi⟩ := Q.exists_eq_supNorm
     rw [hi, Int.norm_eq_abs]
-    refine (height_dvd_le (P N) Q (hP_ne N hNN₀) hdvd _ (hP_height N hNN₀) i).trans_lt ?_
+    refine (FourExp.height_dvd_le (P N) Q (hP_ne N hNN₀) hdvd _ (hP_height N hNN₀) i).trans_lt ?_
     rw [← Real.exp_add]
     exact Real.exp_lt_exp.2 (by linarith [hσ₁.monotone hN1])
   · have : (Q.natDegree : ℝ) ≤ (P N).natDegree := by
       exact_mod_cast natDegree_le_of_dvd hdvd (hP_ne N hNN₀)
     linarith [mul_pos hε (by linarith : (0 : ℝ) < v)]
-
-end Diaz

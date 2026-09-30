@@ -1,14 +1,5 @@
-/-
-Mirrored from Prove2Me: `GelfondSchneider.deriv_upper`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/GelfondSchneider.deriv_upper__d6ebdcf3.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.expPoly_grid_estimate
-
-namespace GelfondSchneider
+import Theorems.Thm_Transcendence_expPoly_grid_estimate
 
 /-!
 # `GelfondSchneider.deriv_upper` from `Transcendence.expPoly_grid_estimate`
@@ -139,7 +130,7 @@ lemma arith_combine (m : ℕ) (hm : 0 < m) (K : ℝ) (hK : 0 ≤ K) (C₀ : ℝ)
 end W5_derivUpper
 
 open W5_derivUpper in
-theorem deriv_upper (l β : ℂ) (m : ℕ) (hm : 0 < m) (C₀ : ℝ) (hC₀ : 1 ≤ C₀) :
+theorem solution (l β : ℂ) (m : ℕ) (hm : 0 < m) (C₀ : ℝ) (hC₀ : 1 ≤ C₀) :
     ∃ C : ℝ, 1 ≤ C ∧ ∀ (n q r l₀ : ℕ) (c : Fin q → Fin q → ℂ),
       0 < n → q ^ 2 = 2 * m * n → n ≤ r → 1 ≤ l₀ → l₀ ≤ m →
       (∀ a b, ‖c a b‖ ≤ C₀ ^ n * (n : ℝ) ^ (((n : ℝ) + 1) / 2)) →
@@ -196,5 +187,3 @@ theorem deriv_upper (l β : ℂ) (m : ℕ) (hm : 0 < m) (C₀ : ℝ) (hC₀ : 1 
     gcongr
   · rw [iteratedDeriv_comp_add_const]
     simpa using hvan (j () + 1) (by omega) (by have := hj (); omega) i hi
-
-end GelfondSchneider

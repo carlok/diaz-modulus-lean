@@ -48,7 +48,7 @@ theorem isAlgebraic_ratCast (r : ℚ) : IsAlgebraic Api (r : ℂ) := by
   rwa [e] at h
 
 /-- `i` is algebraic over `ℚ[π]`, being a root of `X² + 1`. -/
-theorem torsion_rational_modulus_unique_isAlgebraic_I : IsAlgebraic Api Complex.I := by
+theorem isAlgebraic_I : IsAlgebraic Api Complex.I := by
   refine IsAlgebraic.of_pow (n := 2) two_pos ?_
   rw [Complex.I_sq]
   exact (isAlgebraic_one (R := Api) (A := ℂ)).neg
@@ -65,7 +65,7 @@ theorem isAlgebraic_add_pi_I (t : ℝ) (r : ℚ) (hr : t ^ 2 + Real.pi ^ 2 = r) 
     refine IsAlgebraic.of_pow (n := 2) two_pos ?_
     rw [hsq]
     exact (isAlgebraic_ratCast r).sub (isAlgebraic_pi.pow 2)
-  exact ht.add (isAlgebraic_pi.mul torsion_rational_modulus_unique_isAlgebraic_I)
+  exact ht.add (isAlgebraic_pi.mul isAlgebraic_I)
 
 /-- `e^{t + π i} = -e^t`, so it is algebraic when `e^t` is. -/
 theorem isAlgebraic_exp_add_pi_I (t : ℝ) (he : IsAlgebraic ℚ (Complex.exp (t : ℂ))) :

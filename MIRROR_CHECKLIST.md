@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-29): **267** of 267
+As of the latest archived submission (2026-09-30): **268** of 268
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -288,6 +288,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Transcendence.exists_monic_integral_model` | yes | `Diaz/Mirror/exists_monic_integral_model.lean` | done |  |
 | `Transcendence.exists_monic_integral_model_presentation` | yes | `Diaz/Mirror/exists_monic_integral_model_presentation.lean` | done |  |
 | `Transcendence.expPoly_grid_estimate` | yes | `Diaz/Mirror/expPoly_grid_estimate.lean` | done |  |
+| `Transcendence.expPoly_iteratedDeriv_le` | yes | `Diaz/Mirror/expPoly_iteratedDeriv_le.lean` | done |  |
 | `Transcendence.expSum_first_nonvanishing` | yes | `Diaz/Mirror/expSum_first_nonvanishing.lean` | done |  |
 | `Transcendence.length_mul_le` | yes | `Diaz/Mirror/length_mul_le.lean` | done |  |
 | `Transcendence.length_sum_le` | yes | `Diaz/Mirror/length_sum_le.lean` | done |  |

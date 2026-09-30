@@ -226,3 +226,4 @@ import Diaz.Mirror.torsion_rational_modulus_unique
 import Diaz.Mirror.log_two_log_three_not_both_rational
 import Diaz.Mirror.recip_pi_log_of_torsion_rational_modulus
 import Diaz.Mirror.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi
+import Diaz.Mirror.expPoly_iteratedDeriv_le

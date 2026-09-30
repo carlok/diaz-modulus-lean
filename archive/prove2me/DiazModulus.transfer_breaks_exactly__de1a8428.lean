@@ -1,14 +1,5 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.transfer_breaks_exactly`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.transfer_breaks_exactly__de1a8428.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-
-namespace Diaz
+import Definitions.Def_DiazModulus
 
 /-!
 # What a transfer that loses candidacy must break
@@ -45,8 +36,8 @@ theorem ringHom_eq_id_or_conj_of_mapsTo_real (Φ : ℂ →+* ℂ)
 
 end W5_transfer
 
-open W5_transfer in
-theorem transfer_breaks_exactly (Φ : ℂ →+* ℂ) (u : ℂ) (hu : IsCandidate u)
+open DiazModulus W5_transfer in
+theorem solution (Φ : ℂ →+* ℂ) (u : ℂ) (hu : IsCandidate u)
     (hfix : ∀ a : ℂ, IsAlgebraic ℚ a → Φ a = a)
     (hconj : Φ (conj u) = conj (Φ u))
     (hnot : ¬ IsCandidate (Φ u)) :
@@ -80,5 +71,3 @@ theorem transfer_breaks_exactly (Φ : ℂ →+* ℂ) (u : ℂ) (hu : IsCandidate
   · have hx := congrArg Complex.im (h x)
     rw [Complex.conj_ofReal, Complex.conj_im] at hx
     linarith
-
-end Diaz

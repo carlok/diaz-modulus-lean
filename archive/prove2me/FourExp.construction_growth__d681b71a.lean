@@ -1,16 +1,4 @@
-/-
-Mirrored from Prove2Me: `FourExp.construction_growth`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.construction_growth__d681b71a.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
-Names and spellings that changed between the platform's Mathlib revision and the one
-pinned here were updated to match, and proof steps that became no-ops there were
-dropped; the mathematics is unchanged.
--/
 import Mathlib
-
-namespace Diaz
 
 /-!
 # Growth of the construction's scales
@@ -56,7 +44,7 @@ lemma strictMono_glue {f : ℝ → ℝ} {a c : ℝ} (hf : StrictMonoOn f (Set.Ic
     StrictMono fun x => if x ≤ a then x - a + c else f x := by
   refine StrictMonoOn.Iic_union_Ici (fun x (hx : x ≤ a) y (hy : y ≤ a) hxy => ?_)
     (hf.congr fun x (hx : a ≤ x) => ?_)
-  · simp only [ite_eq_left hx, ite_eq_left hy]; linarith
+  · simp only [if_pos hx, if_pos hy]; linarith
   · rcases hx.eq_or_lt with rfl | h
     · simp [hc]
     · simp [not_le.2 h]
@@ -89,14 +77,14 @@ lemma strictMono_B : StrictMono B := by
 lemma tendsto_A : Tendsto A atTop atTop := by
   refine tendsto_atTop_mono' atTop ?_ tendsto_id
   filter_upwards [eventually_gt_atTop (3 : ℝ)] with x hx
-  simp only [A, ite_eq_right (not_le.2 hx), id]
+  simp only [A, if_neg (not_le.2 hx), id]
   nlinarith [mul_le_mul_of_nonneg_left (log_facts hx.le).2.2.1 (by positivity : (0 : ℝ) ≤ x ^ 2)]
 
 lemma tendsto_B : Tendsto B atTop atTop := by
   refine tendsto_atTop_mono' atTop ?_ tendsto_id
   filter_upwards [eventually_gt_atTop (3 : ℝ)] with x hx
   obtain ⟨-, hlx, hsx, hqx⟩ := log_facts hx.le
-  simp only [B, ite_eq_right (not_le.2 hx), id]
+  simp only [B, if_neg (not_le.2 hx), id]
   rw [le_div_iff₀ (by linarith)]
   have hs : Real.sqrt (Real.log x) ≤ x := by nlinarith
   nlinarith [mul_le_mul_of_nonneg_left hs (by linarith : (0 : ℝ) ≤ x)]
@@ -116,11 +104,11 @@ lemma A_step (x : ℝ) (hx : 0 < x) : A (x + 1) ≤ 3 * A x := by
   have h3 := (log_facts (le_refl (3 : ℝ))).2.2.1
   unfold A
   by_cases h1 : x + 1 ≤ 3
-  · rw [ite_eq_left h1, ite_eq_left (by linarith : x ≤ 3)]; linarith
+  · rw [if_pos h1, if_pos (by linarith : x ≤ 3)]; linarith
   obtain ⟨-, -, hs1, hq1⟩ := log_facts (not_le.1 h1).le
   by_cases h2 : x ≤ 3
   · -- `3 < x + 1 ≤ 4`, so `(x + 1)² √(log (x + 1)) ≤ 16 · 1.5`
-    rw [ite_eq_right h1, ite_eq_left h2]
+    rw [if_neg h1, if_pos h2]
     have hl : Real.log (x + 1) ≤ 2 * Real.log 2 := by
       have := Real.log_le_log (by linarith) (show x + 1 ≤ 2 ^ 2 by linarith)
       rwa [Real.log_pow, Nat.cast_ofNat] at this
@@ -128,7 +116,7 @@ lemma A_step (x : ℝ) (hx : 0 < x) : A (x + 1) ≤ 3 * A x := by
       nlinarith [Real.sqrt_nonneg (Real.log (x + 1)), Real.log_two_lt_d9]
     nlinarith [mul_le_mul (by nlinarith : (x + 1) ^ 2 ≤ 16) ht (Real.sqrt_nonneg _) (by norm_num)]
   · -- `x > 3`: compare squares, with `log (x + 1) ≤ 2 log x` and `x + 1 ≤ 4x/3`
-    rw [ite_eq_right h1, ite_eq_right h2]
+    rw [if_neg h1, if_neg h2]
     obtain ⟨hl0, -, hs0, hq0⟩ := log_facts (not_le.1 h2).le
     have hl : Real.log (x + 1) ≤ 2 * Real.log x := by
       have := Real.log_le_log (by linarith) (show x + 1 ≤ x ^ 2 by nlinarith)
@@ -145,16 +133,16 @@ lemma B_step (x : ℝ) (hx : 0 < x) : B (x + 1) ≤ 3 * B x := by
   have hc : 6 ≤ 9 / Real.sqrt (Real.log 3) := by rw [le_div_iff₀ (by linarith)]; nlinarith
   unfold B
   by_cases h1 : x + 1 ≤ 3
-  · rw [ite_eq_left h1, ite_eq_left (by linarith : x ≤ 3)]; linarith
+  · rw [if_pos h1, if_pos (by linarith : x ≤ 3)]; linarith
   by_cases h2 : x ≤ 3
   · -- `3 < x + 1 ≤ 4`
-    rw [ite_eq_right h1, ite_eq_left h2]
+    rw [if_neg h1, if_pos h2]
     have hle : (x + 1) ^ 2 / Real.sqrt (Real.log (x + 1)) ≤ 16 / Real.sqrt (Real.log 3) :=
       div_le_div₀ (by norm_num) (by nlinarith) (by linarith)
         (Real.sqrt_le_sqrt (Real.log_le_log (by norm_num) (by linarith)))
     have h16 : 16 / Real.sqrt (Real.log 3) = 16 / 9 * (9 / Real.sqrt (Real.log 3)) := by ring
     linarith
-  · rw [ite_eq_right h1, ite_eq_right h2]
+  · rw [if_neg h1, if_neg h2]
     have hs0 : 0 < Real.sqrt (Real.log x) := by linarith [(log_facts (not_le.1 h2).le).2.2.1]
     have hlog : Real.sqrt (Real.log x) ≤ Real.sqrt (Real.log (x + 1)) :=
       Real.sqrt_le_sqrt (Real.log_le_log (by linarith) (by linarith))
@@ -167,7 +155,7 @@ lemma B_step (x : ℝ) (hx : 0 < x) : B (x + 1) ≤ 3 * B x := by
 end W5_construction_growth
 
 open W5_construction_growth in
-theorem construction_growth (k : ℝ) (hk : 0 < k) :
+theorem solution (k : ℝ) (hk : 0 < k) :
     StrictMono (fun x : ℝ => k * (if x ≤ 3 then x - 3 + 9 * Real.sqrt (Real.log 3) else x ^ 2 * Real.sqrt (Real.log x))) ∧
     StrictMono (fun x : ℝ => k * (if x ≤ 3 then x - 3 + 9 / Real.sqrt (Real.log 3) else x ^ 2 / Real.sqrt (Real.log x))) ∧
     Tendsto (fun x : ℝ => k * (if x ≤ 3 then x - 3 + 9 * Real.sqrt (Real.log 3) else x ^ 2 * Real.sqrt (Real.log x))) atTop atTop ∧
@@ -187,5 +175,3 @@ theorem construction_growth (k : ℝ) (hk : 0 < k) :
   · have h := mul_le_mul_of_nonneg_left (B_step x hx) hk.le
     calc k * B (x + 1) ≤ k * (3 * B x) := h
       _ = 3 * (k * B x) := by ring
-
-end Diaz

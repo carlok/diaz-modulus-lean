@@ -50,7 +50,7 @@ theorem exp_rat_mul_alg (q : ℚ) {w : ℂ} (hw : IsAlgebraic ℚ (Complex.exp w
 
 /-- If every element of a `ℚ`-subalgebra `B ⊆ ℂ` is algebraic over `ℚ[x]` for one `x ∈ B`,
 then `B` has transcendence degree at most one over `ℚ`. -/
-theorem candidate_harmonic_not_log_trdeg_le_one_of_adjoin_singleton
+theorem trdeg_le_one_of_adjoin_singleton
     {B : Subalgebra ℚ ℂ} {x : ℂ} (hxB : x ∈ B)
     (halg : ∀ y ∈ B, IsAlgebraic ↥(Algebra.adjoin ℚ ({x} : Set ℂ)) y) :
     Algebra.trdeg ℚ ↥B ≤ 1 := by
@@ -159,7 +159,7 @@ theorem candidate_harmonic_not_log (u : ℂ) (hu : IsCandidate u) (p q : ℚ) (h
   have htr : Algebra.trdeg ℚ ↥(Algebra.adjoin ℚ ({u, m, l, conj u} : Set ℂ)) ≤ 1 := by
     have hxB : u ∈ Algebra.adjoin ℚ ({u, m, l, conj u} : Set ℂ) :=
       Algebra.subset_adjoin (by simp)
-    refine candidate_harmonic_not_log_trdeg_le_one_of_adjoin_singleton hxB ?_
+    refine trdeg_le_one_of_adjoin_singleton hxB ?_
     have huE : u ∈ candidate_harmonic_not_log_E u := candidate_harmonic_not_log_self_mem_E u
     have hcuE : conj u ∈ candidate_harmonic_not_log_E u := candidate_harmonic_not_log_mem_E_of_mul hu0 huE (candidate_harmonic_not_log_mem_E_of_alg hρalg)
     have hlE : l ∈ candidate_harmonic_not_log_E u := by

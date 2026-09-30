@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-29 it is met: 267 of 267. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-30 it is met: 268 of 268. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -722,6 +722,17 @@ exponentials steps `SX.descent_step` and `SX.exists_aux_expSum`. Eight nodes:
 
 The six proofs went from 2,661 lines to 906, and 1,881 with the new nodes.
 
+A fifth wave, on 30 September 2026, took the six proofs still at 300 lines or more, measured on
+the mirror: `…_period_aligned_norm_rat_mult`, `transfer_breaks_exactly`,
+`transcendence_criterion_continuous`, `construction_growth`, `expPoly_value_le_derivs` and
+`GelfondSchneider.deriv_upper`. Most of their length re-proved something that already existed:
+the non-generic four exponentials barrier, the grid estimate above, or Mathlib
+(`Polynomial.supNorm`, `StrictMonoOn.Iic_union_Ici`, `Complex.real_algHom_eq_id_or_conj`). One
+of them carried 183 lines that no theorem used. One node is new:
+`Transcendence.expPoly_iteratedDeriv_le`, which bounds every derivative of an exponential
+polynomial at a point by its first `N` there, geometrically in the order. The six proofs went
+from 2,234 lines to 884, and 998 with the node.
+
 ## What is assumed
 
 Nothing beyond Lean's own three axioms: `propext`, `Classical.choice`,
@@ -767,10 +778,11 @@ Eight steps of Gelfond's method, in `GelfondSchneider.`:
 - `deriv_identity`;
 - `rho_denominator`;
 - `rho_house_le`;
-- `deriv_upper`, through the four exponentials subtree's `cauchy_estimate_with_zeros`;
+- `deriv_upper`, through the four exponentials subtree's grid estimate
+  `Transcendence.expPoly_grid_estimate`;
 - `main_estimate`.
 
-The final theorem assembles the last of these with `common_field`. All together, 1,531 lines.
+The final theorem assembles the last of these with `common_field`. All together, 1,409 lines.
 `scripts/gelfond_schneider_port/` still rebuilds the earlier single-file submission from
 Karatarakis and Wiedijk's sources and lists every change.
 Its first consumer is `salem_quartic_relations_of_logs`, the unconditional form of

@@ -1,15 +1,6 @@
-/-
-Mirrored from Prove2Me: `DiazModulus.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/DiazModulus.diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult__f2dfa381.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Platform
-import Diaz.Mirror.candidate_nongeneric_four_exp_barrier
-
-namespace Diaz
+import Definitions.Def_DiazModulus
+import Theorems.Thm_DiazModulus_candidate_nongeneric_four_exp_barrier
 
 /-!
 # The period-aligned `norm_rat_mult` half, from the non-generic four exponentials barrier
@@ -21,7 +12,7 @@ Suppose `exp u` is algebraic, so that `u` is a candidate. Write `s = Im u + rπ`
   `ℚu + ℚū + ℚX`, since `si = ½u − ½ū + rX`.
 * `u` is algebraic over `ℚ[X]`, in four steps: `si = −β/X`, `i·Im u = si − rX`, `Re u`, whose
   square is `‖u‖² + (i·Im u)²`, and `u = Re u + i·Im u`.
-* So `candidate_nongeneric_four_exp_barrier` makes the rows or the columns
+* So `DiazModulus.candidate_nongeneric_four_exp_barrier` makes the rows or the columns
   `ℚ`-dependent. Neither can be: `Re u ≠ 0`, while `−c₀X` and `si` are non-zero and purely
   imaginary (`s ≠ 0` because `Im u ∉ ℚπ`).
 -/
@@ -31,7 +22,7 @@ open Complex ComplexConjugate
 namespace W5_norm_rat_mult
 
 /-- A `ℚ`-relation `p u + q l = 0` with `Re u ≠ 0` and `l ≠ 0` purely imaginary is trivial. -/
-theorem diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_key {u l : ℂ} (hu : u.re ≠ 0) (hl : l.re = 0) (hl0 : l ≠ 0) {p q : ℚ}
+theorem key {u l : ℂ} (hu : u.re ≠ 0) (hl : l.re = 0) (hl0 : l ≠ 0) {p q : ℚ}
     (h : (p : ℂ) * u + (q : ℂ) * l = 0) : p = 0 ∧ q = 0 := by
   have hp : p = 0 := by simpa [hl, hu] using congrArg Complex.re h
   subst hp
@@ -39,8 +30,8 @@ theorem diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_key {
 
 end W5_norm_rat_mult
 
-open W5_norm_rat_mult in
-theorem diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult :
+open DiazModulus W5_norm_rat_mult in
+theorem solution :
     ∀ u : ℂ, u ≠ 0 → IsAlgebraic ℚ ((‖u‖ : ℝ) : ℂ) → (Complex.exp u).im ≠ 0 →
       ¬ (u.im = 0 ∨ u.re = 0) → (¬ ∃ q : ℚ, u.im = (q : ℝ) * Real.pi) →
       (∃ r : ℚ, r ≠ 0 ∧
@@ -93,7 +84,5 @@ theorem diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult :
       fin_cases i <;> fin_cases j <;> simp [Fin.sum_univ_three]
       linear_combination hν)
     hdet
-  · exact hpq (diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_key hre (by simp) (by simp [hc₀, Real.pi_ne_zero]) (h 0))
-  · exact hpq (diaz_of_exp_not_real_irrational_angle_period_aligned_norm_rat_mult_key hre (by simp) (by simp [hs0]) (h 0))
-
-end Diaz
+  · exact hpq (key hre (by simp) (by simp [hc₀, Real.pi_ne_zero]) (h 0))
+  · exact hpq (key hre (by simp) (by simp [hs0]) (h 0))

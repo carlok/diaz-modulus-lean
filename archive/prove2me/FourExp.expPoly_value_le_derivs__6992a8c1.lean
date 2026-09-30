@@ -1,14 +1,5 @@
-/-
-Mirrored from Prove2Me: `FourExp.expPoly_value_le_derivs`.
-
-Ported mechanically from the accepted submission archived as
-`archive/prove2me/FourExp.expPoly_value_le_derivs__6992a8c1.lean`. Statement and proof are the platform's; only
-imports, namespaces and the theorem's name were rewritten.
--/
 import Mathlib
-import Diaz.Mirror.expPoly_iteratedDeriv_le
-
-namespace Diaz
+import Theorems.Thm_Transcendence_expPoly_iteratedDeriv_le
 
 /-!
 # The value of an exponential polynomial from its first derivatives at `0`
@@ -21,7 +12,7 @@ then gives `‖f(u)‖ ≤ ∑ₙ Rⁿ/n! · D (W + 1)^{n + N} ≤ D (W + 1)^N e
 -/
 
 open Finset in
-theorem expPoly_value_le_derivs
+theorem solution
     {l : ℕ} (q : Fin l → ℕ) (w : Fin l → ℂ) (hw : Function.Injective w)
     (P : Fin l → Polynomial ℂ) (hP : ∀ j, P j = 0 ∨ (P j).natDegree < q j)
     (W R D : ℝ) (hW0 : 0 ≤ W) (hW : ∀ j, ‖w j‖ ≤ W) (hR : 0 ≤ R)
@@ -61,5 +52,3 @@ theorem expPoly_value_le_derivs
         calc (W + 1) ^ N ≤ (W + 1) ^ (N + 1) := pow_le_pow_right₀ (by linarith) (by omega)
           _ ≤ _ := le_mul_of_one_le_left (by positivity) (by exact_mod_cast hNpos)
     _ = _ := by ring
-
-end Diaz
