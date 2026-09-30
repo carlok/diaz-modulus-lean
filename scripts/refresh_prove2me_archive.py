@@ -107,17 +107,19 @@ class Api:
             req.add_header("Content-Type", "application/json")
         if auth:
             req.add_header("Authorization", "Bearer " + self._token())
-        for attempt in range(4):
+        # The board answers a statement timeout with HTTP 500, and a slow page can outlast the socket
+        # timeout; both pass under load, so they are retried like 429 and 502-504.
+        for attempt in range(6):
             try:
-                with urllib.request.urlopen(req, timeout=60) as r:
+                with urllib.request.urlopen(req, timeout=120) as r:
                     return json.loads(r.read().decode())
             except urllib.error.HTTPError as e:
-                if e.code in (429, 502, 503, 504) and attempt < 3:
-                    time.sleep(2 ** attempt); continue
+                if e.code in (429, 500, 502, 503, 504) and attempt < 5:
+                    time.sleep(5 * 2 ** attempt); continue
                 raise SystemExit(f"{method} {path}: HTTP {e.code}")
-            except urllib.error.URLError:
-                if attempt < 3:
-                    time.sleep(2 ** attempt); continue
+            except (urllib.error.URLError, TimeoutError):
+                if attempt < 5:
+                    time.sleep(5 * 2 ** attempt); continue
                 raise
 
     def _token(self):
@@ -315,11 +317,11 @@ def main():
     # happens to mention Diaz. Search each namespace and merge.
     seen, nodes = set(), []
     for term in ("Diaz", "FourExp", "Transcendence", "GelfondSchneider"):
-        for r in api.paged(f"/theorems?q={term}", "theorems", 200):
+        for r in api.paged(f"/theorems?q={term}", "theorems", 50):
             if (r.get("theorem_name") or "").startswith(PREFIXES) and r["theorem_id"] not in seen:
                 seen.add(r["theorem_id"]); nodes.append(r)
     for name in EXTRA_NODES:
-        for r in api.paged(f"/theorems?q={name.split('.', 1)[-1]}", "theorems", 200):
+        for r in api.paged(f"/theorems?q={name.split('.', 1)[-1]}", "theorems", 50):
             if r.get("theorem_name") == name and r["theorem_id"] not in seen:
                 seen.add(r["theorem_id"]); nodes.append(r)
     me = api.get("/me").get("user_id")

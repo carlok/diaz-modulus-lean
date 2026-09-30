@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-09-30): **268** of 268
+As of the latest archived submission (2026-09-30): **283** of 283
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -127,6 +127,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Diaz.transcendental_of_candidate` | yes | `Diaz/Closure.lean` | done |  |
 | `Diaz.two_failures_give_algebraic_log_product` | yes | `Diaz/Mirror/two_failures_give_algebraic_log_product.lean` | done |  |
 | `Diaz.zpow_mem_iff` | yes | `Diaz/Mirror/zpow_mem_iff.lean` | done |  |
+| `DiazModulus.algebraicIndependent_e_pi_of_exp_pi_sq_algebraic` | yes | `Diaz/Mirror/algebraicIndependent_e_pi_of_exp_pi_sq_algebraic.lean` | done |  |
 | `DiazModulus.aligned_norm_free_no_quadratic_relation` | yes | `Diaz/Mirror/aligned_norm_free_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.aligned_norm_free_no_rational_log_matrix` | yes | `Diaz/Mirror/aligned_norm_free_no_rational_log_matrix.lean` | done |  |
 | `DiazModulus.anisotropic_relation_four_exp_barrier` | yes | `Diaz/Mirror/anisotropic_relation_four_exp_barrier.lean` | done |  |
@@ -208,6 +209,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.nongeneric_rational_modulus_orbit` | yes | `Diaz/Mirror/nongeneric_rational_modulus_orbit.lean` | done |  |
 | `DiazModulus.period_free_split_nondegenerate` | yes | `Diaz/Mirror/period_free_split_nondegenerate.lean` | done |  |
 | `DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi` | yes | `Diaz/Mirror/pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi.lean` | done |  |
+| `DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic` | yes | `Diaz/Mirror/pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic.lean` | done |  |
 | `DiazModulus.pi_log_two_or_pi_log_three_transcendental` | yes | `Diaz/Mirror/pi_log_two_or_pi_log_three_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental` | yes | `Diaz/Mirror/pi_sq_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental_of_real_gamma` | yes | `Diaz/Mirror/pi_sq_transcendental_of_real_gamma.lean` | done | vacuous: its conclusion is proved unconditionally by pi_sq_transcendental |
@@ -232,14 +234,19 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
 | `DiazModulus.torsion_rational_modulus_unique` | yes | `Diaz/Mirror/torsion_rational_modulus_unique.lean` | done |  |
 | `DiazModulus.transfer_breaks_exactly` | yes | `Diaz/Mirror/transfer_breaks_exactly.lean` | done |  |
+| `DiazModulus.two_algebraically_independent_of_exp_column` | yes | `Diaz/Mirror/two_algebraically_independent_of_exp_column.lean` | done |  |
 | `DiazModulus.two_pow_log_three_or_three_pow_log_two` | yes | `Diaz/Mirror/two_pow_log_three_or_three_pow_log_two.lean` | done |  |
 | `DiazModulus.two_three_five_pow_pi_transcendental` | yes | `Diaz/Mirror/two_three_five_pow_pi_transcendental.lean` | done |  |
 | `FourExp.aux_linear_system` | yes | `Diaz/Mirror/aux_linear_system.lean` | done |  |
+| `FourExp.aux_linear_system_column` | yes | `Diaz/Mirror/aux_linear_system_column.lean` | done |  |
 | `FourExp.auxiliary_construction` | yes | `Diaz/Mirror/auxiliary_construction.lean` | done |  |
+| `FourExp.auxiliary_construction_column` | yes | `Diaz/Mirror/auxiliary_construction_column.lean` | done |  |
 | `FourExp.auxiliary_function_alg` | yes | `Diaz/Mirror/auxiliary_function_alg.lean` | done |  |
+| `FourExp.auxiliary_function_alg_column` | yes | `Diaz/Mirror/auxiliary_function_alg_column.lean` | done |  |
 | `FourExp.cauchy_estimate_with_zeros` | yes | `Diaz/Mirror/cauchy_estimate_with_zeros.lean` | done |  |
 | `FourExp.construction_core` | yes | `Diaz/Mirror/construction_core.lean` | done |  |
 | `FourExp.construction_core_1973` | yes | `Diaz/Mirror/construction_core_1973.lean` | done |  |
+| `FourExp.construction_core_column` | yes | `Diaz/Mirror/construction_core_column.lean` | done |  |
 | `FourExp.construction_count` | yes | `Diaz/Mirror/construction_count.lean` | done |  |
 | `FourExp.construction_count_1973` | yes | `Diaz/Mirror/construction_count_1973.lean` | done |  |
 | `FourExp.construction_growth` | yes | `Diaz/Mirror/construction_growth.lean` | done |  |
@@ -247,7 +254,10 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.dvd_of_small_values_at_scale` | yes | `Diaz/Mirror/dvd_of_small_values_at_scale.lean` | done |  |
 | `FourExp.exists_int_norm` | yes | `Diaz/Mirror/exists_int_norm.lean` | done |  |
 | `FourExp.exists_iteratedDeriv_presentation` | yes | `Diaz/Mirror/exists_iteratedDeriv_presentation.lean` | done |  |
+| `FourExp.exists_iteratedDeriv_presentation_column` | yes | `Diaz/Mirror/exists_iteratedDeriv_presentation_column.lean` | done |  |
+| `FourExp.exists_iteratedDeriv_presentation_of_exp_factor` | yes | `Diaz/Mirror/exists_iteratedDeriv_presentation_of_exp_factor.lean` | done |  |
 | `FourExp.exists_iteratedDeriv_reduced_presentation` | yes | `Diaz/Mirror/exists_iteratedDeriv_reduced_presentation.lean` | done |  |
+| `FourExp.exists_iteratedDeriv_reduced_presentation_column` | yes | `Diaz/Mirror/exists_iteratedDeriv_reduced_presentation_column.lean` | done |  |
 | `FourExp.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log` | yes | `Diaz/Mirror/exists_pow_mul_pow_le_exp_sq_mul_sqrt_log.lean` | done |  |
 | `FourExp.expPoly_ne_zero` | yes | `Diaz/Mirror/expPoly_ne_zero.lean` | done |  |
 | `FourExp.expPoly_value_le_derivs` | yes | `Diaz/Mirror/expPoly_value_le_derivs.lean` | done |  |
@@ -258,13 +268,16 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `FourExp.height_dvd_le` | yes | `Diaz/Mirror/height_dvd_le.lean` | done |  |
 | `FourExp.nonvanishing_derivative` | yes | `Diaz/Mirror/nonvanishing_derivative.lean` | done |  |
 | `FourExp.norm_to_polynomial_alg` | yes | `Diaz/Mirror/norm_to_polynomial_alg.lean` | done |  |
+| `FourExp.norm_to_polynomial_alg_column` | yes | `Diaz/Mirror/norm_to_polynomial_alg_column.lean` | done |  |
 | `FourExp.rank_one_parametrization` | yes | `Diaz/Mirror/rank_one_parametrization.lean` | done |  |
 | `FourExp.siegel_aux` | yes | `Diaz/Mirror/siegel_aux.lean` | done |  |
 | `FourExp.small_irreducible_factor` | yes | `Diaz/Mirror/small_irreducible_factor.lean` | done |  |
+| `FourExp.small_polynomials_of_column` | yes | `Diaz/Mirror/small_polynomials_of_column.lean` | done |  |
 | `FourExp.small_polynomials_of_counterexample` | yes | `Diaz/Mirror/small_polynomials_of_counterexample.lean` | done |  |
 | `FourExp.transcendence_criterion` | yes | `Diaz/Mirror/transcendence_criterion.lean` | done |  |
 | `FourExp.transcendence_criterion_continuous` | yes | `Diaz/Mirror/transcendence_criterion_continuous.lean` | done |  |
 | `FourExp.trdeg_one_presentation` | yes | `Diaz/Mirror/trdeg_one_presentation.lean` | done |  |
+| `FourExp.trdeg_one_presentation_column` | yes | `Diaz/Mirror/trdeg_one_presentation_column.lean` | done |  |
 | `FourExp.zero_count_arith` | yes | `Diaz/Mirror/zero_count_arith.lean` | done |  |
 | `FourExp.zero_count_arith_poly` | yes | `Diaz/Mirror/zero_count_arith_poly.lean` | done |  |
 | `FourExp.zero_count_degenerate` | yes | `Diaz/Mirror/zero_count_degenerate.lean` | done |  |
@@ -290,6 +303,8 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Transcendence.expPoly_grid_estimate` | yes | `Diaz/Mirror/expPoly_grid_estimate.lean` | done |  |
 | `Transcendence.expPoly_iteratedDeriv_le` | yes | `Diaz/Mirror/expPoly_iteratedDeriv_le.lean` | done |  |
 | `Transcendence.expSum_first_nonvanishing` | yes | `Diaz/Mirror/expSum_first_nonvanishing.lean` | done |  |
+| `Transcendence.exp_e_or_exp_e_sq_transcendental` | yes | `Diaz/Mirror/exp_e_or_exp_e_sq_transcendental.lean` | done |  |
+| `Transcendence.isAlgebraic_adjoin_of_not_algebraicIndependent_pair` | yes | `Diaz/Mirror/isAlgebraic_adjoin_of_not_algebraicIndependent_pair.lean` | done |  |
 | `Transcendence.length_mul_le` | yes | `Diaz/Mirror/length_mul_le.lean` | done |  |
 | `Transcendence.length_sum_le` | yes | `Diaz/Mirror/length_sum_le.lean` | done |  |
 | `Transcendence.liouville_house` | yes | `Diaz/Mirror/liouville_house.lean` | done |  |

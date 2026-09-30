@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-30 it is met: 268 of 268. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-30 it is met: 283 of 283. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -497,7 +497,27 @@ value of `t² + π²` would make `e^{iγ/π}` transcendental at every rational `
 conjecture at `t + iπ` and the statement (S) cannot both fail at rational data. With
 Waldschmidt's 1973 theorem in its algebraic-independence form carried as a hypothesis,
 `pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi` specialises it: if `e^{ir/π}` is algebraic for a
-rational `r ≠ 0`, then two of `π`, `e`, `e^{π²}` are algebraically independent.
+rational `r ≠ 0`, then two of `π`, `e`, `e^{π²}` are algebraically independent. The next section
+proves the theorem, and `pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic` drops the hypothesis.
+
+### Waldschmidt 1973, and Schneider's eighth problem
+
+`DiazModulus.two_algebraically_independent_of_exp_column` is the Théorème of Waldschmidt 1973 in full:
+if `x₁, x₂` and `y₁, y₂` are `ℚ`-independent and one column, `e^{x₁y₂}` and `e^{x₂y₂}`, is algebraic,
+then two of the eight numbers `xᵢ`, `yⱼ`, `e^{xᵢyⱼ}` are algebraically independent. Brownawell found it
+independently (1974). It reuses 33 nodes of the four exponentials development above unchanged. Twelve
+new nodes carry the column case, where `e^{x₁y₁}` and `e^{x₂y₁}` are only algebraic over `ℚ(ω)`, so
+their powers cost degree. They are sampled along the short side of the interpolation grid, where the
+degree budget absorbs them. Three consequences follow:
+
+- `Transcendence.exp_e_or_exp_e_sq_transcendental` — Schneider's eighth problem, which gave the 1973
+  paper its title: at least one of `e^e` and `e^{e²}` is transcendental.
+- `DiazModulus.algebraicIndependent_e_pi_of_exp_pi_sq_algebraic` — if `e^{π²}` is algebraic, then `e`
+  and `π` are algebraically independent (Corollaire 1 at `α = −1`).
+- `DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic` — the previous section's
+  specialisation, now unconditional.
+
+No new mathematics is claimed for any of them.
 
 ### A barrier: the four exponentials conjecture sees nothing homogeneous
 
