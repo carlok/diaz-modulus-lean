@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.13, 1 October 2026}
+\date{September 2026\\[2pt]\small Version 1.14, 1 October 2026}
 
 \begin{document}
 \maketitle
@@ -797,6 +797,18 @@ for an exception $\lambda=\gamma/(i\pi)$ to $(S)$: every singular $2\times2$ mat
 $\Q\lambda+\Q i\pi$ has dependent rows or columns, because $\lambda/(i\pi)=-\gamma/\pi^{2}$ is
 transcendental.
 
+In the generic case the same holds in every size for the Matrix Coefficient Conjecture of Dasgupta and
+Kakde~\cite[Conjectures~1.2 and~2.3]{dasgupta-kakde}, which at $n=2$ is equivalent to the four
+exponentials conjecture: every singular $n\times n$ matrix $M$ with entries in $\Q u+\Q\bar u+\Q i\pi$
+has non-zero $v,w\in\Q^{n}$ with $\langle w,Mv\rangle=0$, and the same holds over $\Alg$. The proof
+combines Roy's lemma on spaces of singular matrices~\cite[Theorem~2.2]{dasgupta-kakde}, of which
+\cite[Proposition~12.5]{waldschmidt-book} is a stronger form, with the absence of homogeneous
+relations of every degree at $(u,\bar u,i\pi)$, an instance of~\cite[Proposition~12.13]{waldschmidt-book}.
+All three steps are machine-checked. Waldschmidt's book also records the conjecture that its property
+$\left(\begin{smallmatrix}A&B\\C&0\end{smallmatrix}\right)$ holds for
+$(\Q,\C,\Logs)$~\cite[\S12.4.1]{waldschmidt-book}; for square matrices that property implies the
+Matrix Coefficient Conjecture.
+
 What does detect a counterexample needs a constant term. The configurations of
 Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} have one, and in the generic case the
 constant is the only thing they can add to $u$ and $\bar u$.
@@ -1123,8 +1135,20 @@ $\lambda\in\aLogs$ on the real or the imaginary axis~\cite[p.~381]{diaz-2007}; a
 $\e^{\beta\pi u}$ is transcendental for every algebraic $\beta\neq0$, as in~\cite[Th\'eor\`eme~3(2)]{diaz-2004}.
 Diaz's general proofs use Baker's theorem to make $1,\lambda,\bar\lambda$ free over $\Alg$; at a
 candidate that freeness comes from Hermite--Lindemann, because $\bar u=\rho/u$. Both statements are
-machine-checked, with Roy's theorem as a hypothesis, and so are Diaz's Corollaires~1, 2, 4 and~5
-of~\cite{diaz-2007} in their general form, from which they follow.
+machine-checked, with Roy's theorem as a hypothesis, and so is all of \S2 of~\cite{diaz-2007}, where
+they come from: Th\'eor\`emes~3 to~7 and Corollaires~1 to~7, the parts that need it with Baker's
+theorem as a second hypothesis.
+
+No higher power follows this way. For transcendental $u$ and $k\ge1$, two $\Alg$-independent $x_{i}$
+and three $\Alg$-independent $y_{j}$ with all six products in
+$\Alg u^{-k}+\Alg u^{-1}+\Alg+\Alg u+\Alg u^{k}$ exist only for $k=2$ and $k=3$. After multiplying by
+$u^{k}$, the products become polynomials supported on $\{0,k-1,k,k+1,2k\}$, the rows differ by a
+fixed shift $\delta\neq0$ of the orders at $0$, and for $k=1$ and $k\ge4$ no such shift keeps three
+exponents of that set inside it. So from a candidate's own data Roy's theorem excludes $u^{2}$ and
+$u^{3}$ from $\aLogs$ and nothing beyond. Diaz's Th\'eor\`eme~7 gives only
+$\{u,u^{2},u^{3}\}\not\subset\aLogs$, and he remarks that inside that theorem one cannot hope to go
+very far~\cite[p.~390]{diaz-2007}; this is one precise instance. The statement was not found in the
+sources read; it is machine-checked.
 
 \begin{corollary}\label{cor:recip}
 Assume the strong six exponentials theorem. For every candidate $u$ and every $a\in\Alg^{\times}$,
@@ -1483,7 +1507,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.13 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.14 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1502,9 +1526,12 @@ that consequence is now unconditional. Version 1.13 adds, on 1 October 2026, con
 strong six exponentials theorem, machine-checked with that theorem as a hypothesis: Diaz's
 Corollaires~1, 2, 4 and~5 of 2007, and their instances at a candidate and at $i\pi$; and, with
 Baker's theorem as a second hypothesis, a case of a question in~\cite[p.~399]{waldschmidt-book}.
-Version 1.12 had left the first sentence of this paragraph at version 1.11.
+Version 1.12 had left the first sentence of this paragraph at version 1.11. Version 1.14 adds, on the
+same day, the rest of \S2 of Diaz's 2007 paper, the limit of the strong six exponentials route at
+$u^{3}$, and the Matrix Coefficient Conjecture on a generic candidate's homogeneous data in every
+size, with Roy's lemma and the homogeneous-relation statement it uses.
 Every row of the table below was checked against the platform by script on 1 October 2026, and
-the mirrored project held all 293 proved results of the development at that date.
+the mirrored project held all 304 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1603,7 +1630,9 @@ Thm~\ref{thm:multiplier} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_
 Cor.~\ref{cor:square} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
+\S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\
+\S\ref{sec:outside}, \cite{diaz-2007}, Th.~4--7, Cor.~3, 6, 7 & Proved & \nolinkurl{DiazModulus.diaz_2007_th4}, \nolinkurl{DiazModulus.diaz_2007_th5}, \nolinkurl{DiazModulus.diaz_2007_th6}, \nolinkurl{DiazModulus.diaz_2007_th7}, \nolinkurl{DiazModulus.diaz_2007_cor3_Q}, \nolinkurl{DiazModulus.diaz_2007_cor6}, \nolinkurl{DiazModulus.diaz_2007_cor7} \\
 Thm~\ref{thm:pair} & Proved & \nolinkurl{DiazModulus.log_pair_rigid_of_trdeg_one} \\
 Cor.~\ref{cor:monomial} & Proved & \nolinkurl{DiazModulus.candidate_monomial_not_log} \\
 \S\ref{sec:outside}, harmonic mean & Proved & \nolinkurl{DiazModulus.candidate_harmonic_not_log} \\
