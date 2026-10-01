@@ -242,3 +242,13 @@ import Diaz.Mirror.two_algebraically_independent_of_exp_column
 import Diaz.Mirror.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic
 import Diaz.Mirror.exp_e_or_exp_e_sq_transcendental
 import Diaz.Mirror.algebraicIndependent_e_pi_of_exp_pi_sq_algebraic
+import Diaz.Mirror.quadratic_eq_zero_of_not_mem_Qbar
+import Diaz.Mirror.logAlgTilde_conj_stable
+import Diaz.Mirror.strong_six_exponentials_iff_quotient_form
+import Diaz.Mirror.diaz_2007_cor1_PQ
+import Diaz.Mirror.diaz_2007_cor2_P_consequences
+import Diaz.Mirror.diaz_2007_cor4
+import Diaz.Mirror.diaz_2007_cor5
+import Diaz.Mirror.candidate_cube_and_axis_multiple_not_mem_logAlgTilde
+import Diaz.Mirror.pi_powers_not_both_mem_logAlgTilde
+import Diaz.Mirror.algebraic_modulus_log_multiplier_rational

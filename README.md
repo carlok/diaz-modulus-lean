@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-09-30 it is met: 283 of 283. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-10-01 it is met: 293 of 293. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -518,6 +518,33 @@ degree budget absorbs them. Three consequences follow:
   specialisation, now unconditional.
 
 No new mathematics is claimed for any of them.
+
+### Consequences of Roy's strong six exponentials theorem
+
+Ten nodes carry Roy's strong six exponentials theorem as the hypothesis `hSSE`, in the form of
+`candidate_multiplier_module`: if `x₁, x₂` and `y₁, y₂, y₃` are linearly independent over `Q̄`, one of
+the six products `xᵢyⱼ` is not in `ℒ̃`. Every statement was read on the page first.
+
+- `DiazModulus.strong_six_exponentials_iff_quotient_form` — Diaz 2007, Théorème 3: the theorem is
+  equivalent to its four-logarithm quotient form. No hypothesis; it also connects the two forms in
+  which earlier nodes carry the theorem.
+- `DiazModulus.diaz_2007_cor1_PQ`, `diaz_2007_cor2_P_consequences`, `diaz_2007_cor4`,
+  `diaz_2007_cor5` — Diaz 2007, Corollaires 1 (PQ), 2 (P) 2) with its Conséquences 1–3, 4 and 5, in
+  general.
+- `DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde` — every candidate has
+  `u³ ∉ ℒ̃`, and `λu ∉ ℒ̃` for every transcendental `λ ∈ ℒ̃` on the real or imaginary axis; so
+  `e^{βπu}` is transcendental for every algebraic `β ≠ 0`. Diaz's general proofs use Baker's theorem;
+  at a candidate, Hermite–Lindemann does that step.
+- `DiazModulus.pi_powers_not_both_mem_logAlgTilde` — `π²` and `π³`, `π²` and `1/π`, `1/π` and `1/π²`
+  are pairwise not both in `ℒ̃` (Diaz's own instances at `λ = iπ`). An exception to (S) would therefore
+  make `e^{π²}` transcendental.
+- `DiazModulus.algebraic_modulus_log_multiplier_rational` — with Baker's theorem as a second
+  hypothesis: if `λ ∈ ℒ ∖ {0}`, `u ∈ ℒ̃`, and `|u|` and `e^{uλ}` are algebraic, then `u ∈ ℚ` or
+  `uλ/λ̄ ∈ ℚ`. For arbitrary `u` this is an open question in Waldschmidt's book (2000, p. 399); the
+  derivation of the case `u ∈ ℒ̃` was not found in the sources read.
+- Two helpers: `logAlgTilde_conj_stable` and `quadratic_eq_zero_of_not_mem_Qbar`.
+
+Apart from that one derivation, no new mathematics is claimed.
 
 ### A barrier: the four exponentials conjecture sees nothing homogeneous
 
