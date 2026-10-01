@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-01): **304** of 304
+As of the latest archived submission (2026-10-01): **307** of 307
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -129,6 +129,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Diaz.zpow_mem_iff` | yes | `Diaz/Mirror/zpow_mem_iff.lean` | done |  |
 | `DiazModulus.algebraicIndependent_e_pi_of_exp_pi_sq_algebraic` | yes | `Diaz/Mirror/algebraicIndependent_e_pi_of_exp_pi_sq_algebraic.lean` | done |  |
 | `DiazModulus.algebraic_modulus_log_multiplier_rational` | yes | `Diaz/Mirror/algebraic_modulus_log_multiplier_rational.lean` | done |  |
+| `DiazModulus.algebraic_modulus_log_multiplier_rational_of_sfe` | yes | `Diaz/Mirror/algebraic_modulus_log_multiplier_rational_of_sfe.lean` | done |  |
 | `DiazModulus.aligned_norm_free_no_quadratic_relation` | yes | `Diaz/Mirror/aligned_norm_free_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.aligned_norm_free_no_rational_log_matrix` | yes | `Diaz/Mirror/aligned_norm_free_no_rational_log_matrix.lean` | done |  |
 | `DiazModulus.anisotropic_relation_four_exp_barrier` | yes | `Diaz/Mirror/anisotropic_relation_four_exp_barrier.lean` | done |  |
@@ -193,6 +194,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.exp_abs_transcendental_of_conj_algebraic` | yes | `Diaz/Mirror/exp_abs_transcendental_of_conj_algebraic.lean` | done |  |
 | `DiazModulus.exp_abs_transcendental_of_isAlgebraic_adjoin` | yes | `Diaz/Mirror/exp_abs_transcendental_of_isAlgebraic_adjoin.lean` | done |  |
 | `DiazModulus.exp_i_div_pi_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_i_div_pi_or_exp_i_pi_cube_transcendental.lean` | done |  |
+| `DiazModulus.exp_log_mul_log_transcendental_of_strong_five` | yes | `Diaz/Mirror/exp_log_mul_log_transcendental_of_strong_five.lean` | done |  |
 | `DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_pi_sq_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.exp_two_pi_I_mul_transcendental_of_normSq_rat` | yes | `Diaz/Mirror/exp_two_pi_I_mul_transcendental_of_normSq_rat.lean` | done |  |
 | `DiazModulus.four_exp_barrier_of_no_quadratic_relation` | yes | `Diaz/Mirror/four_exp_barrier_of_no_quadratic_relation.lean` | done |  |
@@ -249,6 +251,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.recip_pi_not_log_real_or_imag` | yes | `Diaz/Mirror/recip_pi_not_log_real_or_imag.lean` | done |  |
 | `DiazModulus.recip_pi_or_pi_cube` | yes | `Diaz/Mirror/recip_pi_or_pi_cube.lean` | done |  |
 | `DiazModulus.ringHom_preserves_linearIndependent` | yes | `Diaz/Mirror/ringHom_preserves_linearIndependent.lean` | done |  |
+| `DiazModulus.sharp_four_and_strong_five_exponentials_of_strong_four` | yes | `Diaz/Mirror/sharp_four_and_strong_five_exponentials_of_strong_four.lean` | done |  |
 | `DiazModulus.sixExponentials_cannot_refute_candidate` | yes | `Diaz/NoGo.lean` | done |  |
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
 | `DiazModulus.strong_six_exponentials_iff_quotient_form` | yes | `Diaz/Mirror/strong_six_exponentials_iff_quotient_form.lean` | done |  |

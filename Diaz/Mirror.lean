@@ -263,3 +263,6 @@ import Diaz.Mirror.diaz_2007_th5
 import Diaz.Mirror.diaz_2007_cor7
 import Diaz.Mirror.diaz_2007_th6
 import Diaz.Mirror.diaz_2007_th7
+import Diaz.Mirror.sharp_four_and_strong_five_exponentials_of_strong_four
+import Diaz.Mirror.algebraic_modulus_log_multiplier_rational_of_sfe
+import Diaz.Mirror.exp_log_mul_log_transcendental_of_strong_five

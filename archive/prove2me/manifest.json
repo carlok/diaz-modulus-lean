@@ -4840,5 +4840,41 @@
   "bytes": 6184,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.exp_log_mul_log_transcendental_of_strong_five",
+  "theorem_id": "22665446-f1ad-4cee-b924-f8f713e21868",
+  "submission_id": "2b0a5b4b-735a-47cd-9166-e707684f7b8a",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-01T14:42:41.857346+00:00",
+  "file": "DiazModulus.exp_log_mul_log_transcendental_of_strong_five__2b0a5b4b.lean",
+  "bytes": 5431,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.algebraic_modulus_log_multiplier_rational_of_sfe",
+  "theorem_id": "25ceb5d5-7338-4f59-84bc-844a97561846",
+  "submission_id": "149affac-ad2c-42e6-8822-5e15749928bd",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-01T14:42:38.900982+00:00",
+  "file": "DiazModulus.algebraic_modulus_log_multiplier_rational_of_sfe__149affac.lean",
+  "bytes": 5256,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.sharp_four_and_strong_five_exponentials_of_strong_four",
+  "theorem_id": "4dd86423-9f18-4f44-80de-848cb622c49d",
+  "submission_id": "1414f4b9-136a-4a12-b60c-78143dfdcd9b",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-01T14:42:36.050677+00:00",
+  "file": "DiazModulus.sharp_four_and_strong_five_exponentials_of_strong_four__1414f4b9.lean",
+  "bytes": 12147,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

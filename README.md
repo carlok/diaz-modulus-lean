@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-10-01 it is met: 304 of 304. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-10-01 it is met: 307 of 307. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -540,8 +540,9 @@ the six products `xᵢyⱼ` is not in `ℒ̃`. Every statement was read on the p
   make `e^{π²}` transcendental.
 - `DiazModulus.algebraic_modulus_log_multiplier_rational` — with Baker's theorem as a second
   hypothesis: if `λ ∈ ℒ ∖ {0}`, `u ∈ ℒ̃`, and `|u|` and `e^{uλ}` are algebraic, then `u ∈ ℚ` or
-  `uλ/λ̄ ∈ ℚ`. For arbitrary `u` this is an open question in Waldschmidt's book (2000, p. 399); the
-  derivation of the case `u ∈ ℒ̃` was not found in the sources read.
+  `uλ/λ̄ ∈ ℚ`. For arbitrary `u` this is an open question in Waldschmidt's book (2000, p. 399), which
+  derives it from the strong four exponentials conjecture (`algebraic_modulus_log_multiplier_rational_of_sfe`,
+  below); the derivation of the case `u ∈ ℒ̃` was not found in the sources read.
 - Two helpers: `logAlgTilde_conj_stable` and `quadratic_eq_zero_of_not_mem_Qbar`.
 - The rest of Diaz 2007 §2, added the same day: `diaz_2007_cor3_Q`, `diaz_2007_th4`,
   `diaz_2007_cor6`, `diaz_2007_th5`, `diaz_2007_cor7` (the modular statement (C4) of Diaz 1997 when τ or
@@ -572,6 +573,24 @@ theorem one cannot hope to go very far.
   `ℚu + ℚū + ℚiπ` (resp. `Q̄u + Q̄ū + Q̄iπ`) has non-zero rational (resp. algebraic) `v, w` with
   `wᵀMv = 0`: the Matrix Coefficient Conjecture of Dasgupta and Kakde, and its `Q̄` form, hold on these
   matrices in every size, as the four exponentials conjecture does at `n = 2`.
+
+### Strong four, sharp four and strong five exponentials
+
+Three nodes of 2026-10-01, each carrying a conjecture as a hypothesis:
+
+- `DiazModulus.sharp_four_and_strong_five_exponentials_of_strong_four` — the strong four exponentials
+  conjecture (the hypothesis of `diaz_of_sfe`), with Baker's theorem, implies the sharp four exponentials
+  conjecture, and that one implies the strong five (Waldschmidt's remark, 1988, p. 379). Both conclusions
+  are stated in the forms of `diaz_of_sharp_four_exponentials` and `diaz_of_strong_five_exponentials`,
+  and plug into them.
+- `DiazModulus.algebraic_modulus_log_multiplier_rational_of_sfe` — the open question of Waldschmidt's
+  book, p. 399, for every `u`, from the strong four exponentials conjecture as the book says: if
+  `λ ∈ ℒ ∖ {0}` and `|u|`, `e^{uλ}` are algebraic, then `u ∈ ℚ` or `uλ/λ̄ ∈ ℚ`. No Baker.
+- `DiazModulus.exp_log_mul_log_transcendental_of_strong_five` — under the strong five exponentials
+  conjecture, `(log a)(log b) ≠ log c` for non-zero logarithms (Waldschmidt 1988, p. 379); so `e^{λ²}`
+  and `e^{π²}` are transcendental (Waldschmidt 2005).
+
+No new mathematics is claimed for these three.
 
 ### A barrier: the four exponentials conjecture sees nothing homogeneous
 
@@ -666,8 +685,9 @@ is in `diaz_of_sfe`:
 
 - `diaz_of_strong_five_exponentials`, `recip_pi_not_log_of_strong_five_exponentials`
   — Waldschmidt's strong five exponentials conjecture (1988), which he calls
-  weaker than the strong four exponentials conjecture. With `x₁ = y₁ = 1` its
-  fifth exponential is one of the four.
+  weaker than the strong four exponentials conjecture of that paper: the sharp
+  four exponentials conjecture of the next item, not the hypothesis of
+  `diaz_of_sfe`. With `x₁ = y₁ = 1` its fifth exponential is one of the four.
 - `diaz_of_sharp_four_exponentials`, `recip_pi_not_log_of_sharp_four_exponentials`
   — the sharp four exponentials conjecture (Waldschmidt 2005; 1988, p. 377).
 - `diaz_of_two_by_two_determinant_conjecture`,
