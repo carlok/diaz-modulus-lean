@@ -280,7 +280,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-10-01 it is met: 293 of 293. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-10-01 it is met: 304 of 304. That count includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -543,8 +543,35 @@ the six products `xᵢyⱼ` is not in `ℒ̃`. Every statement was read on the p
   `uλ/λ̄ ∈ ℚ`. For arbitrary `u` this is an open question in Waldschmidt's book (2000, p. 399); the
   derivation of the case `u ∈ ℒ̃` was not found in the sources read.
 - Two helpers: `logAlgTilde_conj_stable` and `quadratic_eq_zero_of_not_mem_Qbar`.
+- The rest of Diaz 2007 §2, added the same day: `diaz_2007_cor3_Q`, `diaz_2007_th4`,
+  `diaz_2007_cor6`, `diaz_2007_th5`, `diaz_2007_cor7` (the modular statement (C4) of Diaz 1997 when τ or
+  1/τ lies in `ℒ̃`), `diaz_2007_th6` and `diaz_2007_th7` (`u, u², u³` not all in `ℒ̃`). Parts that need
+  it carry Baker's theorem as a second hypothesis.
 
 Apart from that one derivation, no new mathematics is claimed.
+
+### Where the strong six exponentials route stops
+
+`DiazModulus.power_hull_strong_six_exp_configuration_iff`: for transcendental `u` and `k ≥ 1`, a
+configuration of the strong six exponentials theorem with all six products in
+`Q̄u⁻ᵏ + Q̄u⁻¹ + Q̄ + Q̄u + Q̄uᵏ` exists iff `k = 2` or `k = 3`. At a candidate, `ℒ̃` contains `1`, `u` and
+`ū = |u|²/u`, and with `uᵏ` also `ūᵏ`; so the theorem, fed with the candidate's own data, excludes
+`u²` and `u³` from `ℒ̃` and no higher power. The proof counts orders at `0` of polynomials supported on
+`{0, k−1, k, k+1, 2k}`. Not found in the sources read; Diaz (2007, p. 390) remarks that inside that
+theorem one cannot hope to go very far.
+
+### The Matrix Coefficient Conjecture sees nothing homogeneous either
+
+- `Transcendence.singular_matrix_subspace_annihilating_pair` — Roy's lemma (Dasgupta–Kakde II,
+  Thm 2.2; a stronger form is Waldschmidt's book, Prop. 12.5): over an infinite field, a linear space of
+  singular `n × n` matrices has non-zero `v, w` with `wᵀAv = 0` for all its elements.
+- `DiazModulus.generic_no_homogeneous_relation` — for `u` and `π` algebraically independent with `|u|²`
+  algebraic, no non-zero homogeneous polynomial over `Q̄` vanishes at `(u, ū, iπ)` (an instance of the
+  book's Prop. 12.13).
+- `DiazModulus.generic_matrix_coefficient_barrier` — in that setting every singular `n × n` matrix over
+  `ℚu + ℚū + ℚiπ` (resp. `Q̄u + Q̄ū + Q̄iπ`) has non-zero rational (resp. algebraic) `v, w` with
+  `wᵀMv = 0`: the Matrix Coefficient Conjecture of Dasgupta and Kakde, and its `Q̄` form, hold on these
+  matrices in every size, as the four exponentials conjecture does at `n = 2`.
 
 ### A barrier: the four exponentials conjecture sees nothing homogeneous
 

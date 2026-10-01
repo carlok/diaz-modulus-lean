@@ -252,3 +252,14 @@ import Diaz.Mirror.diaz_2007_cor5
 import Diaz.Mirror.candidate_cube_and_axis_multiple_not_mem_logAlgTilde
 import Diaz.Mirror.pi_powers_not_both_mem_logAlgTilde
 import Diaz.Mirror.algebraic_modulus_log_multiplier_rational
+import Diaz.Mirror.singular_matrix_subspace_annihilating_pair
+import Diaz.Mirror.generic_no_homogeneous_relation
+import Diaz.Mirror.generic_matrix_coefficient_barrier
+import Diaz.Mirror.power_hull_strong_six_exp_configuration_iff
+import Diaz.Mirror.diaz_2007_cor3_Q
+import Diaz.Mirror.diaz_2007_th4
+import Diaz.Mirror.diaz_2007_cor6
+import Diaz.Mirror.diaz_2007_th5
+import Diaz.Mirror.diaz_2007_cor7
+import Diaz.Mirror.diaz_2007_th6
+import Diaz.Mirror.diaz_2007_th7

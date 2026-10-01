@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-01): **293** of 293
+As of the latest archived submission (2026-10-01): **304** of 304
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -162,8 +162,15 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.det_zero_linear_forms_rank_one_field` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one_field.lean` | done |  |
 | `DiazModulus.diaz_2007_cor1_PQ` | yes | `Diaz/Mirror/diaz_2007_cor1_PQ.lean` | done |  |
 | `DiazModulus.diaz_2007_cor2_P_consequences` | yes | `Diaz/Mirror/diaz_2007_cor2_P_consequences.lean` | done |  |
+| `DiazModulus.diaz_2007_cor3_Q` | yes | `Diaz/Mirror/diaz_2007_cor3_Q.lean` | done |  |
 | `DiazModulus.diaz_2007_cor4` | yes | `Diaz/Mirror/diaz_2007_cor4.lean` | done |  |
 | `DiazModulus.diaz_2007_cor5` | yes | `Diaz/Mirror/diaz_2007_cor5.lean` | done |  |
+| `DiazModulus.diaz_2007_cor6` | yes | `Diaz/Mirror/diaz_2007_cor6.lean` | done |  |
+| `DiazModulus.diaz_2007_cor7` | yes | `Diaz/Mirror/diaz_2007_cor7.lean` | done |  |
+| `DiazModulus.diaz_2007_th4` | yes | `Diaz/Mirror/diaz_2007_th4.lean` | done |  |
+| `DiazModulus.diaz_2007_th5` | yes | `Diaz/Mirror/diaz_2007_th5.lean` | done |  |
+| `DiazModulus.diaz_2007_th6` | yes | `Diaz/Mirror/diaz_2007_th6.lean` | done |  |
+| `DiazModulus.diaz_2007_th7` | yes | `Diaz/Mirror/diaz_2007_th7.lean` | done |  |
 | `DiazModulus.diaz_iff_no_candidate` | yes | `Diaz/Mirror/diaz_iff_no_candidate.lean` | done |  |
 | `DiazModulus.diaz_locus_dictionary` | yes | `Diaz/Mirror/diaz_locus_dictionary.lean` | done |  |
 | `DiazModulus.diaz_number_forces_transcendence` | yes | `Diaz/Mirror/diaz_number_forces_transcendence.lean` | done |  |
@@ -193,6 +200,8 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.generic_conj_pair_four_exp_barrier` | yes | `Diaz/Mirror/generic_conj_pair_four_exp_barrier.lean` | done |  |
 | `DiazModulus.generic_conj_pair_no_quadratic_relation` | yes | `Diaz/Mirror/generic_conj_pair_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.generic_indistinguishable_over_pi` | yes | `Diaz/Mirror/generic_indistinguishable_over_pi.lean` | done |  |
+| `DiazModulus.generic_matrix_coefficient_barrier` | yes | `Diaz/Mirror/generic_matrix_coefficient_barrier.lean` | done |  |
+| `DiazModulus.generic_no_homogeneous_relation` | yes | `Diaz/Mirror/generic_no_homogeneous_relation.lean` | done |  |
 | `DiazModulus.generic_no_strong_six_exp_configuration` | yes | `Diaz/Mirror/generic_no_strong_six_exp_configuration.lean` | done |  |
 | `DiazModulus.generic_period_never_enters` | yes | `Diaz/Mirror/generic_period_never_enters.lean` | done |  |
 | `DiazModulus.generic_qbar_homogeneous_four_exp_barrier` | yes | `Diaz/Mirror/generic_qbar_homogeneous_four_exp_barrier.lean` | done |  |
@@ -222,6 +231,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.pi_sq_transcendental` | yes | `Diaz/Mirror/pi_sq_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental_of_real_gamma` | yes | `Diaz/Mirror/pi_sq_transcendental_of_real_gamma.lean` | done | vacuous: its conclusion is proved unconditionally by pi_sq_transcendental |
 | `DiazModulus.pi_transcendental` | yes | `Diaz/Mirror/pi_transcendental.lean` | done |  |
+| `DiazModulus.power_hull_strong_six_exp_configuration_iff` | yes | `Diaz/Mirror/power_hull_strong_six_exp_configuration_iff.lean` | done |  |
 | `DiazModulus.qbar_dependent_of_det_linear_forms` | yes | `Diaz/Mirror/qbar_dependent_of_det_linear_forms.lean` | done |  |
 | `DiazModulus.quadratic_eq_zero_of_not_mem_Qbar` | yes | `Diaz/Mirror/quadratic_eq_zero_of_not_mem_Qbar.lean` | done |  |
 | `DiazModulus.recip_pi_exp_axis_shape` | yes | `Diaz/Mirror/recip_pi_exp_axis_shape.lean` | done |  |
@@ -321,5 +331,6 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `Transcendence.norm_resultant_le_max_norm_eval` | yes | `Diaz/Mirror/norm_resultant_le_max_norm_eval.lean` | done |  |
 | `Transcendence.quadratic_coeffs_eq_zero_of_transcendental` | yes | `Diaz/Mirror/quadratic_coeffs_eq_zero_of_transcendental.lean` | done |  |
 | `Transcendence.siegel_entrywise` | yes | `Diaz/Mirror/siegel_entrywise.lean` | done |  |
+| `Transcendence.singular_matrix_subspace_annihilating_pair` | yes | `Diaz/Mirror/singular_matrix_subspace_annihilating_pair.lean` | done |  |
 | `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin` | yes | `Diaz/Mirror/trdeg_adjoin_le_one_of_isAlgebraic_adjoin.lean` | done |  |
 | `e_pi_transcendence` | yes | `Diaz/Mirror/e_pi_transcendence.lean` | done |  |
