@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.14, 1 October 2026}
+\date{September 2026\\[2pt]\small Version 1.15, 1 October 2026}
 
 \begin{document}
 \maketitle
@@ -166,7 +166,11 @@ the six products of $x=(1,u)$ and $y=(\lambda,\overline{u\lambda},1)$ lie in $\a
 $u\,\overline{u\lambda}=\lvert u\rvert^{2}\bar\lambda$, so $y$ is linearly dependent over $\Alg$,
 and Baker's theorem turns that into $\overline{u\lambda}\in\Q\lambda$. The case $u\in\Alg$ is
 Gel'fond--Schneider. This derivation was not found in the sources read; it is machine-checked with
-both theorems as hypotheses.
+both theorems as hypotheses. The full statement follows from Conjecture~\ref{conj:sfe}, as the book
+says, and without Baker's theorem: the four products of $x=(1,u)$ and $y=(\lambda,\bar u\bar\lambda)$
+lie in $\aLogs$, and Gel'fond--Schneider, applied to whichever pair is dependent, gives $u\in\Q$ or
+$\overline{u\lambda}\in\Q\lambda$. That derivation is machine-checked too, with the conjecture as a
+hypothesis.
 
 \begin{remark}\label{rem:schanuel}
 Schanuel's conjecture also suffices, by a different route. If $u$ and $\bar u$ are linearly
@@ -807,7 +811,13 @@ relations of every degree at $(u,\bar u,i\pi)$, an instance of~\cite[Proposition
 All three steps are machine-checked. Waldschmidt's book also records the conjecture that its property
 $\left(\begin{smallmatrix}A&B\\C&0\end{smallmatrix}\right)$ holds for
 $(\Q,\C,\Logs)$~\cite[\S12.4.1]{waldschmidt-book}; for square matrices that property implies the
-Matrix Coefficient Conjecture.
+Matrix Coefficient Conjecture. The same section records the homogeneous form of the conjecture on
+algebraic independence of logarithms: if $\lambda_{0},\dots,\lambda_{n}\in\Logs$ are linearly
+independent over $\Q$, then $\lambda_{1}/\lambda_{0},\dots,\lambda_{n}/\lambda_{0}$ are algebraically
+independent. At a generic candidate's own logarithms $u$, $\bar u$ and $i\pi$ it holds: that is
+the absence of homogeneous relations at $(u,\bar u,i\pi)$ just used, and the one relation the
+candidate does satisfy, $u\bar u=\rho$, is not homogeneous. So that conjecture cannot refute a
+generic candidate through its own logarithms either.
 
 What does detect a counterexample needs a constant term. The configurations of
 Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} have one, and in the generic case the
@@ -1393,9 +1403,16 @@ Three statements, in increasing strength, each of which settles Conjecture~\ref{
         real $t\neq0$ with $\e^{t}$ algebraic, $t^{2}+\pi^{2}$ is transcendental. Smallest open
         instance: is $\sqrt{(\log2)^{2}+\pi^{2}}$ algebraic?
   \item The strong five exponentials conjecture of Waldschmidt~\cite[p.~379]{waldschmidt-1988},
-        which he notes is weaker than the strong four exponentials conjecture. With
+        which he notes is weaker than the strong form of the four exponentials conjecture of that
+        paper~\cite[p.~377]{waldschmidt-1988}, the sharp four exponentials conjecture
+        of~\cite{waldschmidt-hopf}. Conjecture~\ref{conj:sfe} implies that sharp form with
+        Baker's theorem, so item~(2) is indeed weaker than item~(3); both steps are
+        machine-checked. With
         $x_{1}=y_{1}=1$ its fifth exponential is one of the four, so the instantiations of
-        Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} apply to it unchanged. Version~1.5
+        Theorems~\ref{thm:sfe-implies-diaz} and~\ref{thm:S-of-sfe} apply to it unchanged. It would
+        also give $(\log a)(\log b)\neq\log c$ for non-zero logarithms~\cite[p.~379]{waldschmidt-1988},
+        hence the transcendence of $\e^{\pi^{2}}$~\cite{waldschmidt-hopf}; this too is
+        machine-checked. Version~1.5
         put here the rank inequality of \S\ref{sec:boundary}(a) together with an inhomogeneous
         extension of Proposition~12.25; the extension is not needed, and for $2\times2$ matrices the
         inequality contains Conjecture~\ref{conj:sfe}, so it was no weaker than item~(3).
@@ -1482,6 +1499,8 @@ Groups}, Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2
 \emph{Algebra and Number Theory} (R.~Tandon, ed.), Hindustan Book Agency, 2005.
 \bibitem{waldschmidt-2005b} M.~Waldschmidt, \emph{Further variations on the six exponentials
 theorem}, Hardy-Ramanujan J. \textbf{28} (2005), 1--9.
+\bibitem{waldschmidt-hopf} M.~Waldschmidt, \emph{Hopf algebras and transcendental numbers}, in
+\emph{Zeta Functions, Topology and Quantum Physics}, Springer, 2005, 197--219.
 \bibitem{dasgupta-2023} S.~Dasgupta, \emph{Ranks of matrices of logarithms of algebraic numbers I:
 the theorems of Baker and Waldschmidt--Masser}, Essent. Number Theory \textbf{2} (2023), 93--138.
 \bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{Ranks of matrices of logarithms of
@@ -1507,7 +1526,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.14 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.15 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1529,9 +1548,13 @@ Baker's theorem as a second hypothesis, a case of a question in~\cite[p.~399]{wa
 Version 1.12 had left the first sentence of this paragraph at version 1.11. Version 1.14 adds, on the
 same day, the rest of \S2 of Diaz's 2007 paper, the limit of the strong six exponentials route at
 $u^{3}$, and the Matrix Coefficient Conjecture on a generic candidate's homogeneous data in every
-size, with Roy's lemma and the homogeneous-relation statement it uses.
+size, with Roy's lemma and the homogeneous-relation statement it uses. Version 1.15 adds, the same
+day, three consequences of the strong four and strong five exponentials conjectures, machine-checked
+with those conjectures as hypotheses; corrects item~(2) of Section~\ref{sec:what}, which compared
+it with the strong four exponentials conjecture of 1988 as though it were Conjecture~\ref{conj:sfe};
+and notes that the homogeneous conjecture on logarithms cannot see a generic candidate either.
 Every row of the table below was checked against the platform by script on 1 October 2026, and
-the mirrored project held all 304 proved results of the development at that date.
+the mirrored project held all 307 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1564,6 +1587,7 @@ proved in Proposition~\ref{prop:loop} is what has no formal counterpart.
 Conj.~\ref{conj:diaz} & Open (conjecture) & \nolinkurl{DiazModulus.diaz_modulus_conjecture} \\
 Thm~\ref{thm:sfe-implies-diaz} & Proved & \nolinkurl{DiazModulus.diaz_of_sfe} \\
 \S\ref{sec:ceiling}, $\e^{u\lambda}$ for $u\in\aLogs$ & Proved & \nolinkurl{DiazModulus.algebraic_modulus_log_multiplier_rational} \\
+\S\ref{sec:ceiling}, $\e^{u\lambda}$, every $u$, from Conj.~\ref{conj:sfe} & Proved & \nolinkurl{DiazModulus.algebraic_modulus_log_multiplier_rational_of_sfe} \\
 Rem.~\ref{rem:schanuel} & Proved & \nolinkurl{DiazModulus.diaz_of_schanuel} \\
 Thm~\ref{thm:quant} & Proved & \nolinkurl{Diaz.real_quantisation} \\
 Prop.~\ref{prop:quant-orbit} & Proved & \nolinkurl{Diaz.quantisation_orbit_iff_re_ne_zero} \\
@@ -1602,6 +1626,8 @@ Thm~\ref{thm:S-of-sfe} & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_of_sfe
 \S\ref{sec:quant}, an exception to $(S)$ & Proved & \nolinkurl{DiazModulus.pi_powers_not_both_mem_logAlgTilde} \\
 After Thm~\ref{thm:S-of-sfe}, Consequence~1.6 & Proved & \nolinkurl{DiazModulus.div_not_mem_logAlgTilde_of_sfe} (it states Consequence~1.7, which contains~1.6) \\
 \S\ref{sec:what}, item (2) & Proved & \nolinkurl{DiazModulus.diaz_of_strong_five_exponentials}, \nolinkurl{DiazModulus.recip_pi_not_log_of_strong_five_exponentials} \\
+\S\ref{sec:what}, item (2) from (3) & Proved & \nolinkurl{DiazModulus.sharp_four_and_strong_five_exponentials_of_strong_four} \\
+\S\ref{sec:what}, item (2), $\e^{\pi^{2}}$ & Proved & \nolinkurl{DiazModulus.exp_log_mul_log_transcendental_of_strong_five} \\
 Prop.~\ref{prop:root-of-unity} & Proved & \nolinkurl{DiazModulus.recip_pi_exp_value_not_root_of_unity} \\
 Thm~\ref{thm:S0}(a) & Proved & \nolinkurl{DiazModulus.recip_pi_log_rational_line} \\
 Thm~\ref{thm:S0}(b) & Proved & \nolinkurl{DiazModulus.recip_pi_log_on_axis} \\
