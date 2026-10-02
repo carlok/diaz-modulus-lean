@@ -23,7 +23,7 @@ cannot settle it.
 | a non-zero logarithm of an algebraic number is transcendental | Hermite 1873, Lindemann 1882 | `Diaz.hermite_lindemann` | derived here from the next row |
 | `e^{α₁}, …, e^{αₙ}` are linearly independent over Q̄ for distinct algebraic `αᵢ` | Lindemann 1882, Weierstrass 1885 | `linearIndependent_exp`, `algebraicIndependent_exp` | ported from Mathlib PR #28013 (unmerged) |
 | `e^{bℓ}` is transcendental for algebraic irrational `b` and a non-zero logarithm `ℓ` | Gel'fond 1934, Schneider 1934 | `GelfondSchneider.gelfond_schneider` | restructured from M. Karatarakis and F. Wiedijk |
-| `e^π` is transcendental | Gel'fond 1929 | `Diaz.e_pi_transcendence` | another Prove2Me contributor |
+| `e^π` is transcendental | Gel'fond 1929 | `Diaz.e_pi_transcendence` | this project (the node was posed by another Prove2Me contributor) |
 | the six exponentials theorem | Lang 1965–66, Ramachandra 1968 | `Diaz.six_exponentials` | this project |
 | the four exponentials theorem in transcendence degree one | Waldschmidt 1973, Brownawell 1974 | `Diaz.four_exponentials_trdeg_one` | this project |
 | two of `xᵢ, yⱼ, e^{xᵢyⱼ}` are algebraically independent when one column is algebraic | Waldschmidt 1973, Brownawell 1974 | `Diaz.two_algebraically_independent_of_exp_column` | this project |
