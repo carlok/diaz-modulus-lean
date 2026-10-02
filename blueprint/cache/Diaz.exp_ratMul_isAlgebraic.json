@@ -1,0 +1,20 @@
+{
+ "theorem_id": "177f92bd-ce70-4233-a916-026728a38ece",
+ "theorem_name": "Diaz.exp_ratMul_isAlgebraic",
+ "theorem_title": "Rational multiples of a logarithm are logarithms",
+ "status": "Proved",
+ "formal_statement": "theorem Diaz.exp_ratMul_isAlgebraic {u : ℂ} (hexp : IsAlgebraic ℚ (Complex.exp u)) (a : ℚ) :\n    IsAlgebraic ℚ (Complex.exp ((a : ℂ) * u)) := by sorry",
+ "natural_language_statement": "If $e^{u}$ is algebraic and $a \\in \\mathbb{Q}$, then $e^{au}$ is algebraic. Equivalently, the set $\\mathcal{L} = \\{u : e^{u} \\in \\bar{\\mathbb{Q}}^{\\times}\\}$ is stable under multiplication by rationals.\n\n**Where this sits.** This is the $\\mathbb{Q}$-vector-space property of $\\mathcal{L}$, used silently throughout Carlo Perassi's work and in particular in the second half of the proof of his algebraic-distance and plane rigidity theorem, where the point $au$ is asserted to lie in the candidate locus $\\mathcal{D}$ alongside $u$ so that the algebraic-distance criterion can be applied to the pair $(au, w)$. Together with $|au| = |a||u|$ it is the statement, recorded in his definition of the candidate locus, that $\\mathcal{D}$ is stable under $\\mathbb{Q}^{\\times}$.\n\n**Proof.** Write $a = p/q$ in lowest terms with $q > 0$. Then $q \\cdot (au) = p \\cdot u$, so\n\n$$\\bigl(e^{au}\\bigr)^{q} = e^{q a u} = e^{pu} = \\bigl(e^{u}\\bigr)^{p},$$\n\nwhich is algebraic (a non-zero algebraic number has algebraic integer and negative powers). An element whose $q$-th power is algebraic is algebraic.\n\nEntirely standard; recorded because the plane argument of that theorem depends on it.\n\n**Source.** Carlo Perassi, companion note to https://github.com/carlok/diaz-modulus-lean, version 1.9, 25 September 2026 (GitHub release note-v1.9), proof of Proposition 3.8, where it is stated with this argument. The fact is standard; this node only records it in Lean, and claims no novelty of its own.",
+ "created_at": "2026-09-08T07:17:39.8824+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory"
+ ],
+ "preamble": "import Mathlib\nimport Definitions.Def_Diaz_Closure\nimport Definitions.Def_Diaz_Instantiation\n\nopen ComplexConjugate\nopen Diaz",
+ "source": "Stated with this argument in the proof of Proposition 3.8 of Carlo Perassi, companion note to https://github.com/carlok/diaz-modulus-lean, version 1.10, 27 September 2026 (GitHub release note-v1.10); the fact is standard. Formal proof: Diaz modulus mission, 8 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

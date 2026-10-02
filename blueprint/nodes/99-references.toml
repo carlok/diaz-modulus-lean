@@ -2,9 +2,19 @@
 # Every entry is taken from the source line of a Prove2Me page.
 
 [[reference]]
+key = "Bak66"
+label = "Bak66"
+text = '''A.~Baker, Linear forms in the logarithms of algebraic numbers I, \emph{Mathematika} 13 (1966), 204--216.'''
+
+[[reference]]
 key = "Bak75"
 label = "Bak75"
 text = '''A.~Baker, \emph{Transcendental Number Theory}, Cambridge University Press, 1975.'''
+
+[[reference]]
+key = "BM80"
+label = "BM80"
+text = '''D.~Bertrand and D.~W.~Masser, Linear forms in elliptic integrals, \emph{Invent. Math.} 58 (1980), 283--288.'''
 
 [[reference]]
 key = "Bro74"
@@ -45,6 +55,11 @@ text = '''S.~Lang, \emph{Introduction to Transcendental Numbers}, Addison-Wesley
 key = "Lin1882"
 label = "Lin1882"
 text = '''F.~Lindemann, Über die Zahl $\pi$, \emph{Math. Ann.} 20 (1882), 213--225.'''
+
+[[reference]]
+key = "Mas81"
+label = "Mas81"
+text = '''D.~W.~Masser, A note on Baker's theorem, in \emph{Recent Progress in Analytic Number Theory}, Vol.~2 (Durham, 1979), Academic Press, 1981, 153--158.'''
 
 [[reference]]
 key = "Ram68"

@@ -1,0 +1,24 @@
+{
+ "theorem_id": "a0417130-5d91-4638-a293-bea5fb28fcf6",
+ "theorem_name": "Schanuel.baker_linear_forms_in_logarithms",
+ "theorem_title": "Baker's theorem on linear forms in logarithms",
+ "status": "Proved",
+ "formal_statement": "namespace Schanuel\ntheorem baker_linear_forms_in_logarithms (n : ℕ) (l : Fin n → ℂ)\n    (hl : LinearIndependent ℚ l) (hlalg : ∀ i, IsAlgebraic ℚ (Complex.exp (l i)))\n    (b₀ : ℂ) (b : Fin n → ℂ) (hb₀ : IsAlgebraic ℚ b₀) (hb : ∀ i, IsAlgebraic ℚ (b i))\n    (hne : b₀ ≠ 0 ∨ ∃ i, b i ≠ 0) :\n    b₀ + ∑ i, b i * l i ≠ 0 := by sorry\nend Schanuel",
+ "natural_language_statement": "**Baker's theorem.** Let $\\lambda_1, \\dots, \\lambda_n$ be logarithms of algebraic numbers, that is, complex numbers with $e^{\\lambda_i}$ algebraic, and assume they are linearly independent over $\\mathbb{Q}$. Let $\\beta_0, \\beta_1, \\dots, \\beta_n$ be algebraic numbers, not all zero. Then\n\n$$\\beta_0 + \\sum_{i=1}^{n} \\beta_i \\lambda_i \\;\\neq\\; 0 .$$\n\nEquivalently, $1, \\lambda_1, \\dots, \\lambda_n$ are linearly independent over the field of algebraic numbers. Baker proved this in 1966, generalizing Gelfond–Schneider from $n = 1$ to arbitrary $n$ and adding the inhomogeneous term $\\beta_0$; the effective versions of the theorem underlie the resolution of many Diophantine equations.",
+ "created_at": "2026-09-15T17:33:47.248724+00:00",
+ "tags": [
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "A. Baker, Linear forms in the logarithms of algebraic numbers I, Mathematika 13 (1966), 204–216, https://doi.org/10.1112/S0025579300003971; see also A. Baker, Transcendental Number Theory, CUP, 1975, Theorem 2.1 and Chapter 2",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": {
+  "readback": "> **⚠️ Provenance: this read-back is non-blind.** It was written by the same agent that drafted the Lean statement it describes, at the explicit instruction of the proposal owner — not by an independent auditor working from the code alone with a fresh context. It is self-testimony, not independent testimony, and a reviewer should not give it the evidential weight of a blind read-back.\n\nThe statement is quantified over a natural number $n$, a family $\\lambda = (\\lambda_0, \\dots, \\lambda_{n-1})$ of complex numbers, a single complex number $\\beta_0$, and a family $b = (b_0, \\dots, b_{n-1})$ of complex numbers.\n\n**Hypotheses.**\n\n- the family $\\lambda$ is linearly independent over $\\mathbb{Q}$, with $\\mathbb{C}$ viewed as a $\\mathbb{Q}$-vector space;\n- for every index $i$, the complex exponential $e^{\\lambda_i}$ is algebraic over $\\mathbb{Q}$;\n- $\\beta_0$ is algebraic over $\\mathbb{Q}$, and every $b_i$ is algebraic over $\\mathbb{Q}$;\n- either $\\beta_0 \\neq 0$, or there is an index $i$ with $b_i \\neq 0$ (a disjunction: not both are required).\n\n**Conclusion.**\n\n$$\\beta_0 + \\sum_{i=0}^{n-1} b_i \\lambda_i \\;\\neq\\; 0 .$$\n\n**Degenerate cases.** For $n = 0$ the sum is empty, the last hypothesis reduces to $\\beta_0 \\neq 0$, and the conclusion reduces to $\\beta_0 \\neq 0$; that case is therefore trivially true and carries no content. Nothing forces the $\\lambda_i$ to be principal logarithms, and the coefficients $\\beta_0, b_i$ may be non-real algebraic numbers.",
+  "model": "Aristotle (Harmonic)",
+  "created_at": "2026-09-15T17:33:48.07962+00:00"
+ }
+}

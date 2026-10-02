@@ -1,0 +1,21 @@
+{
+ "theorem_id": "ad262221-bdaa-4542-9af2-2228372ffe2c",
+ "theorem_name": "Transcendence.cartesian_schwarz",
+ "theorem_title": "Schwarz's lemma for Cartesian products: vanishing on E₁×⋯×Eₙ makes an entire function small",
+ "status": "Proved",
+ "formal_statement": "namespace Transcendence\n\n/-- **Schwarz's lemma for Cartesian products** (Waldschmidt, *Diophantine Approximation on Linear Algebraic\nGroups*, Prop. 4.7, in the form used for Baker's theorem). Let `f` be an entire function of `n ≥ 1` complex\nvariables, and let `E₁, …, Eₙ` be sets of `S₁` points in the closed disc of radius `r`. If every derivative of\n`f` of total order `< n·S₀` vanishes at every point of `E₁ × ⋯ × Eₙ`, and `|f| ≤ M` on the polydisc of radius\n`R ≥ 5r`, then `|f| ≤ n·(2·3ⁿ·r/R)^(S₀S₁)·M` on the polydisc of radius `r`. (The book assumes vanishing of the\npartial derivatives with every exponent `< S₀`, which the hypothesis here implies, and has `18ⁿ` for `2·3ⁿ`.) -/\ntheorem cartesian_schwarz {n : ℕ} (hn : 0 < n) (f : (Fin n → ℂ) → ℂ) (hf : AnalyticOnNhd ℂ f Set.univ)\n    (E : Fin n → Finset ℂ) {S₀ S₁ : ℕ} (hE : ∀ i, (E i).card = S₁)\n    {r R M : ℝ} (hr : 0 < r) (hEr : ∀ i, ∀ ζ ∈ E i, ‖ζ‖ ≤ r) (hR : 5 * r ≤ R)\n    (hM : ∀ z ∈ Metric.closedBall (0 : Fin n → ℂ) R, ‖f z‖ ≤ M)\n    (hvan : ∀ ξ : Fin n → ℂ, (∀ i, ξ i ∈ E i) → ∀ k < n * S₀, iteratedFDeriv ℂ k f ξ = 0) :\n    ∀ z ∈ Metric.closedBall (0 : Fin n → ℂ) r,\n      ‖f z‖ ≤ n * (2 * 3 ^ n * r / R) ^ (S₀ * S₁) * M := by\n  sorry\n\nend Transcendence\n",
+ "natural_language_statement": "Let $f$ be an entire function of $n \\ge 1$ complex variables, and let $E_1, \\dots, E_n$ be sets of $S_1$ points in the closed disc of radius $r > 0$. Suppose that every derivative of $f$ of total order less than $nS_0$ vanishes at every point of $E_1 \\times \\dots \\times E_n$, and that $|f| \\le M$ on the polydisc of radius $R \\ge 5r$. Then on the polydisc of radius $r$\n\n$$|f| \\le n\\,\\Bigl(\\frac{2\\cdot 3^{n} r}{R}\\Bigr)^{S_0S_1} M.$$\n\nThis is Proposition 4.7 of Waldschmidt's book in the form used for Baker's theorem. The book assumes vanishing of the partial derivatives with every exponent below $S_0$, which the hypothesis here implies, and has $18^n$ in place of $2\\cdot 3^n$. Total order is the form the application needs: vanishing with every exponent below $S_0$ is not preserved by the linear change of variables in §4.6 of the book, while vanishing by total order is.\n\nIt is one step of the proof of Baker's theorem formalised in this mission, which follows Chapter 4 of Waldschmidt's book: Baker's theorem from the criterion of Schneider–Lang for Cartesian products, as observed by Bertrand and Masser (1980).\n\n**Proof.** One variable at a time: a one-dimensional Hermite division with explicit bounds (the book's step 2.4) and a telescoping over the coordinates, so only one-variable complex analysis is used.\n\n**Novelty.** None for the statement (the book's Proposition 4.7, with a better constant). The contribution of this node is the formal proof.",
+ "created_at": "2026-10-02T08:17:42.607365+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000, Proposition 4.7 (pp. 122–130), in the form used in §4.6. Formal proof: Diaz modulus mission, 2 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

@@ -56,6 +56,21 @@ Let $K$ be a field of characteristic zero and let $\alpha\in K$ be algebraic ove
 Take for $L$ the leading coefficient of an integer polynomial vanishing at $\alpha$. Then $L\alpha$ is an algebraic integer, and reducing its powers modulo a monic integer polynomial keeps the coefficients geometrically bounded.
 \end{proof}
 
+% Prove2Me: Diaz.exp_ratMul_isAlgebraic -- https://prove2.me/theorems/177f92bd-ce70-4233-a916-026728a38ece
+\begin{lemma}[Rational multiples of logarithms]
+\label{lem:exp_ratMul_isAlgebraic}
+\lean{Diaz.exp_ratMul_isAlgebraic}
+\leanok
+Let $u\in\C$ with $e^{u}$ algebraic, and let $a\in\Q$. Then $e^{au}$ is algebraic.
+
+{\small\emph{Source:} Standard.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+With $a=p/q$ and $q>0$, $(e^{au})^{q}=(e^{u})^{p}$ is algebraic, and so is a number whose $q$-th power is algebraic.
+\end{proof}
+
 \section{Siegel's lemma}
 
 % Prove2Me: Transcendence.siegel_entrywise -- https://prove2.me/theorems/be2108be-d4da-41d0-89c3-0a31d75bb6f8

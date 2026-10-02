@@ -1,0 +1,21 @@
+{
+ "theorem_id": "2e4bdbd5-ff19-4bd2-a497-f14f53276e86",
+ "theorem_name": "Transcendence.hermite_basis",
+ "theorem_title": "Hermite interpolation over a field of characteristic 0: polynomials dual to the jets of order < S₀ at a finite set of nodes",
+ "status": "Proved",
+ "formal_statement": "open Polynomial\n\nnamespace Transcendence\n\n/-- **Hermite interpolation** over a field of characteristic `0`. Let `E` be a finite set and `S₀ ∈ ℕ`. There\nare polynomials `b_{ζ,k}` (`ζ ∈ E`, `k < S₀`) of degree `< |E|·S₀` with `b_{ζ,k}^{(k')}(ζ') = 1` if\n`(ζ', k') = (ζ, k)` and `0` otherwise, for all `ζ' ∈ E` and `k' < S₀`. Every polynomial `q` of degree\n`< |E|·S₀` is then determined by its jets on `E`: `q = ∑_{ζ ∈ E, k < S₀} q^{(k)}(ζ) · b_{ζ,k}`. -/\ntheorem hermite_basis {K : Type*} [Field K] [CharZero K] [DecidableEq K] (E : Finset K) (S₀ : ℕ) :\n    ∃ b : ↥E × Fin S₀ → K[X], (∀ x, b x ∈ degreeLT K (E.card * S₀)) ∧\n      (∀ x y : ↥E × Fin S₀,\n        (derivative^[y.2] (b x)).eval (y.1 : K) = if x = y then 1 else 0) ∧\n      ∀ q ∈ degreeLT K (E.card * S₀),\n        q = ∑ x : ↥E × Fin S₀, C ((derivative^[x.2] q).eval (x.1 : K)) * b x := by\n  sorry\n\nend Transcendence\n",
+ "natural_language_statement": "Let $K$ be a field of characteristic $0$, $E \\subset K$ a finite set and $S_0 \\in \\mathbb{N}$, and write $q^{(k)}$ for the $k$-th formal derivative of a polynomial $q$. There are polynomials $b_{\\zeta,k} \\in K[X]$ ($\\zeta \\in E$, $0 \\le k < S_0$) of degree less than $|E|S_0$ with\n\n$$b_{\\zeta,k}^{(k')}(\\zeta') = \\begin{cases}1 & \\text{if } (\\zeta', k') = (\\zeta, k),\\\\ 0 & \\text{otherwise}\\end{cases} \\qquad (\\zeta' \\in E,\\ 0 \\le k' < S_0),$$\n\nand every polynomial $q \\in K[X]$ of degree less than $|E|S_0$ satisfies\n\n$$q = \\sum_{\\zeta \\in E}\\ \\sum_{0 \\le k < S_0} q^{(k)}(\\zeta)\\, b_{\\zeta,k}.$$\n\n`Transcendence.coord_hermite_step` uses it to write the Hermite remainder of every slice of a function of several variables in one fixed basis, so that the remainder depends on the other variables only through the jets of the function at the nodes.\n\nIt is one step of the proof of Baker's theorem formalised in this mission, which follows Chapter 4 of Waldschmidt's book: Baker's theorem from the criterion of Schneider–Lang for Cartesian products, as observed by Bertrand and Masser (1980).\n\n**Novelty.** None: Hermite interpolation, a standard result. The contribution of this node is the formal proof.",
+ "created_at": "2026-10-02T08:18:37.592784+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Standard (Hermite interpolation). Formal proof: Diaz modulus mission, 2 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

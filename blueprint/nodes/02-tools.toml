@@ -45,6 +45,17 @@ Take for $L$ the leading coefficient of an integer polynomial vanishing at $\alp
 '''
 
 [[node]]
+platform = "Diaz.exp_ratMul_isAlgebraic"
+title = "Rational multiples of logarithms"
+statement = '''
+Let $u\in\C$ with $e^{u}$ algebraic, and let $a\in\Q$. Then $e^{au}$ is algebraic.
+'''
+source = '''Standard.'''
+sketch = '''
+With $a=p/q$ and $q>0$, $(e^{au})^{q}=(e^{u})^{p}$ is algebraic, and so is a number whose $q$-th power is algebraic.
+'''
+
+[[node]]
 platform = "Transcendence.siegel_entrywise"
 section = "Siegel's lemma"
 title = "Siegel's lemma with an entrywise bound"

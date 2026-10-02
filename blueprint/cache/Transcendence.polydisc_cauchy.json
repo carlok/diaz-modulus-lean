@@ -1,0 +1,21 @@
+{
+ "theorem_id": "623dbe11-9b39-48a3-aa5c-a35bb6a4613c",
+ "theorem_name": "Transcendence.polydisc_cauchy",
+ "theorem_title": "Cauchy's inequalities on a polydisc, for mixed derivatives along a list of directions",
+ "status": "Proved",
+ "formal_statement": "namespace Transcendence\n\n/-- **Cauchy's inequalities on a polydisc** (Waldschmidt, *Diophantine Approximation on Linear Algebraic\nGroups*, p. XVII). Let `F` be an entire function of the variables `z_ν` (`ν ∈ ι`), bounded by `M` on the closed\npolydisc of centre `p` and radius `ρ > 0` (the sup-norm ball). The mixed partial derivative of `F` at `p` along\nthe coordinate directions `L 0, …, L (k-1)`, of multi-index `σ_ν = #{l | L l = ν}` and total order `k`, satisfies\n`|D^σ F(p)| ≤ σ! · M / ρ^k`, where `σ! = ∏_ν σ_ν!`. -/\ntheorem polydisc_cauchy {ι : Type*} [Fintype ι] [DecidableEq ι] {F : (ι → ℂ) → ℂ}\n    (hF : AnalyticOnNhd ℂ F Set.univ) (p : ι → ℂ) {ρ M : ℝ} (hρ : 0 < ρ)\n    (hM : ∀ z ∈ Metric.closedBall p ρ, ‖F z‖ ≤ M) (k : ℕ) (L : Fin k → ι) :\n    ‖iteratedFDeriv ℂ k F p (fun l => Pi.single (L l) 1)‖ ≤\n      (∏ ν, ((Finset.univ.filter fun l => L l = ν).card.factorial : ℝ)) * M / ρ ^ k := by\n  sorry\n\nend Transcendence\n",
+ "natural_language_statement": "Let $F$ be an entire function on $\\mathbb{C}^\\iota$ with $|F| \\le M$ on the closed polydisc of centre $p$ and radius $\\rho > 0$ (the closed ball for the sup norm). For a list of directions $L : \\{0, \\dots, k-1\\} \\to \\iota$, let $\\sigma_\\nu$ be the number of times $\\nu$ occurs in $L$. Then\n\n$$\\Bigl|D^{k}F(p)\\,(e_{L(0)}, \\dots, e_{L(k-1)})\\Bigr| \\le \\Bigl(\\prod_\\nu \\sigma_\\nu!\\Bigr)\\,\\frac{M}{\\rho^{k}},$$\n\nwhere $D^kF$ is the $k$-th Fréchet derivative and $e_\\nu$ the coordinate vectors; in multi-index notation, $|D^\\sigma F(p)| \\le \\sigma!\\,M\\rho^{-|\\sigma|}$.\n\nIt is one step of the proof of Baker's theorem formalised in this mission, which follows Chapter 4 of Waldschmidt's book: Baker's theorem from the criterion of Schneider–Lang for Cartesian products, as observed by Bertrand and Masser (1980).\n\n**Novelty.** None: the classical Cauchy inequalities, in the form recorded in Waldschmidt's book (p. XVII). The contribution of this node is the formal proof.",
+ "created_at": "2026-10-02T08:18:49.492323+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Classical; the form used here is in M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000, p. XVII. Formal proof: Diaz modulus mission, 2 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

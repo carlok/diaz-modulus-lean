@@ -1,0 +1,21 @@
+{
+ "theorem_id": "65e8b744-5d79-469e-aee5-891c31c9b115",
+ "theorem_name": "Transcendence.siegel_small_values_parameters",
+ "theorem_title": "The choice of T, X and ℓ in the proof of Proposition 4.10 of Waldschmidt's book",
+ "status": "Proved",
+ "formal_statement": "namespace Transcendence\n\n/-- **The parameters of Prop. 4.10** (Waldschmidt, *Diophantine Approximation on Linear Algebraic Groups*,\nproof of Prop. 4.10). Let `n ≥ 1` and `L` be integers and `N, U, V, r, R` reals with `r > 0`,\n`W = N + U + V ≥ 12n²`, `e ≤ R/r ≤ e^{W/6}` and `(2W)^{n+1} ≤ L·N·(log(R/r))ⁿ`. Then there are integers\n`T`, `X` and `ℓ ≥ 1` with `X ≤ e^N`, `ℓ^{2Tⁿ} < (X + 1)^L`, `Tⁿ · 2 e^U X / ℓ ≤ (3/4) e^{-V}` and\n`X e^U (r/R)^T / (1 - r/R) ≤ (1/4) e^{-V}`. -/\ntheorem siegel_small_values_parameters {n L : ℕ} (hn : 0 < n) {N U V r R : ℝ} (hr : 0 < r)\n    (hW : 12 * (n : ℝ) ^ 2 ≤ N + U + V)\n    (hRe : Real.exp 1 * r ≤ R) (hRW : R ≤ r * Real.exp ((N + U + V) / 6))\n    (hmain : (2 * (N + U + V)) ^ (n + 1) ≤ L * N * Real.log (R / r) ^ n) :\n    ∃ T X ℓ : ℕ, 0 < ℓ ∧ (X : ℝ) ≤ Real.exp N ∧ ℓ ^ (2 * T ^ n) < (X + 1) ^ L ∧\n      (T : ℝ) ^ n * (2 * (Real.exp U * X / ℓ)) ≤ 3 / 4 * Real.exp (-V) ∧\n      X * Real.exp U * (r / R) ^ T / (1 - r / R) ≤ 1 / 4 * Real.exp (-V) := by\n  sorry\n\nend Transcendence\n",
+ "natural_language_statement": "Let $n \\ge 1$ and $L$ be integers and $N, U, V, r, R$ real numbers with $r > 0$, $W = N + U + V \\ge 12n^2$, $e \\le R/r \\le e^{W/6}$ and\n\n$$(2W)^{n+1} \\le L\\,N\\,\\bigl(\\log(R/r)\\bigr)^{n}.$$\n\nThen there are integers $T$, $X$ and $\\ell \\ge 1$ with $X \\le e^{N}$, $\\ell^{2T^n} < (X+1)^{L}$,\n\n$$T^n\\cdot\\frac{2e^{U}X}{\\ell} \\le \\frac34\\,e^{-V} \\qquad\\text{and}\\qquad \\frac{Xe^{U}(r/R)^{T}}{1 - r/R} \\le \\frac14\\,e^{-V}.$$\n\nThese are the conditions under which `Transcendence.siegel_small_values_of_count`, with $C = e^U$, gives Proposition 4.10 (`Transcendence.siegel_small_values`).\n\nIt is one step of the proof of Baker's theorem formalised in this mission, which follows Chapter 4 of Waldschmidt's book: Baker's theorem from the criterion of Schneider–Lang for Cartesian products, as observed by Bertrand and Masser (1980).\n\n**Novelty.** None: the numerical part of the proof of Proposition 4.10 of Waldschmidt's book (pp. 135–136), with the book's $T$, defined by $\\frac43W \\le T\\log(R/r) < \\frac43W + \\log(R/r)$, the book's $X = \\lfloor e^N\\rfloor$, and an explicit number of cells $\\ell = \\lceil\\frac83T^ne^W\\rceil$ for the box principle. It proves the book's inequality $3(\\frac43W + 1)^n < e^{W/3}$ for $W \\ge 12n^2$, which is tight at $n = 1$, $W = 12$ ($51 < e^4 \\approx 54.6$). The contribution of this node is the formal proof.",
+ "created_at": "2026-10-02T08:19:09.921341+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "The numerical part of the proof of M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000, Proposition 4.10 (pp. 135–136). Formal proof: Diaz modulus mission, 2 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
