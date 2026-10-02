@@ -44,6 +44,8 @@ jobs:
           latexmk_use_xelatex: true
       - name: Build the web version
         run: leanblueprint web
+      - name: Restore relation spacing in the web pages
+        run: python scripts/fix_web_relations.py
       - name: Add the PDF, and serve the Lean links from GitHub source lines
         # The site's Lean links go to docs/find/#doc/<name>, doc-gen4's search URL. Without
         # doc-gen4 pages, blueprint/docs-find/ answers there and redirects to the declaration.
