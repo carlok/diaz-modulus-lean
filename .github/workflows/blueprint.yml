@@ -30,8 +30,10 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.11"
-      - name: Install Graphviz
-        run: sudo apt-get update && sudo apt-get install -y graphviz libgraphviz-dev
+      - name: Install Graphviz, and kpsewhich for plasTeX
+        # Without kpsewhich, plasTeX resolves \input only for bare file names in the current
+        # directory, so \input{macros/common} and \input{chapters/...} silently produce nothing.
+        run: sudo apt-get update && sudo apt-get install -y graphviz libgraphviz-dev texlive-base
       - name: Install leanblueprint
         run: pip install leanblueprint==0.0.20
       - name: Check that the chapters are generated from the current sources
@@ -46,6 +48,17 @@ jobs:
         run: leanblueprint web
       - name: Restore relation spacing in the web pages
         run: python scripts/fix_web_relations.py
+      - name: Refuse an incomplete site
+        # Every chapter of content.tex must have become a page, and the landing page must carry
+        # the generated result count; otherwise the deploy stops here.
+        run: |
+          set -e
+          want=$(grep -c '^\\input{chapters/' blueprint/src/content.tex)
+          got=$(ls blueprint/web/chap-*.html | wc -l)
+          echo "chapters: $got pages for $want inputs"
+          test "$got" -ge "$want"
+          grep -q 'results' blueprint/web/index.html
+          grep -E -q '[0-9]+ results' blueprint/web/index.html
       - name: Add the PDF, and serve the Lean links from GitHub source lines
         # The site's Lean links go to docs/find/#doc/<name>, doc-gen4's search URL. Without
         # doc-gen4 pages, blueprint/docs-find/ answers there and redirects to the declaration.
