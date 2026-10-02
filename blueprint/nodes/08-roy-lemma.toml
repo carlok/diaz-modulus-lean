@@ -1,0 +1,20 @@
+# Chapter 8. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "Roy's lemma"
+text = '''
+Roy's lemma on linear spaces of singular matrices. It is the step by which the Structural Rank Conjecture implies the Matrix Coefficient Conjecture of Dasgupta and Kakde \cite{DK24}.
+'''
+
+[[node]]
+platform = "Transcendence.singular_matrix_subspace_annihilating_pair"
+root = true
+title = "Roy's lemma"
+statement = '''
+Let $F$ be an infinite field and $E$ a linear subspace of the $n\times n$ matrices over $F$, all of whose elements are singular. Then there are non-zero $v,w\in F^{n}$ with
+\[ w^{\mathsf T}Av=0\qquad\text{for every }A\in E. \]
+'''
+source = '''\cite[Theorem 2.2]{DK24}, with a proof communicated by D.~Roy; a stronger form is \cite[Proposition 12.5]{Wal00}, credited there to Roy (1990).'''
+sketch = '''
+Take $A_0\in E$ of maximal rank $r<n$. For every $B\in E$, $B(\ker A_0)\subseteq\operatorname{Im}A_0$: otherwise $A_0+aB\in E$ would have rank $r+1$ for all but finitely many $a\in F$. Take non-zero $v\in\ker A_0$ and non-zero $w$ orthogonal to $\operatorname{Im}A_0$.
+'''

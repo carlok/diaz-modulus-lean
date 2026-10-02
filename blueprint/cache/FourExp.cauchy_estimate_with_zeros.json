@@ -1,0 +1,21 @@
+{
+ "theorem_id": "840a447e-cb2b-4bc8-9bc7-4496079c88d7",
+ "theorem_name": "FourExp.cauchy_estimate_with_zeros",
+ "theorem_title": "A Cauchy estimate that uses the zeros of an entire function",
+ "status": "Proved",
+ "formal_statement": "namespace FourExp\n\ntheorem cauchy_estimate_with_zeros\n    (F : ℂ → ℂ) (hF : Differentiable ℂ F) (c : ℂ) (ρ R M : ℝ) (hρ : 0 ≤ ρ) (hR : ρ + 1 < R)\n    (S : Finset ℂ) (hS : ∀ z ∈ S, ‖z - c‖ ≤ ρ)\n    (hM : ∀ z : ℂ, ‖z - c‖ = R → ‖F z‖ ≤ M) (s : ℕ) :\n    ‖iteratedDeriv s F c‖\n      ≤ (s.factorial : ℝ) * (R / (R - 1)) * ((ρ + 1) / (R - ρ)) ^ (∑ z ∈ S, analyticOrderNatAt F z) * M := by\n  sorry\n\nend FourExp",
+ "natural_language_statement": "**Cauchy's estimate, sharpened by zeros.**\n\nLet $F$ be entire, $c \\in \\mathbb{C}$, $\\rho \\ge 0$ and $R > \\rho + 1$. Let $S$ be a finite set of points with $|z - c| \\le \\rho$, and let $\\sigma = \\sum_{z \\in S} \\operatorname{ord}_z F$. If $|F| \\le M$ on the circle $|z - c| = R$, then for every $s \\ge 0$\n$$|F^{(s)}(c)| \\;\\le\\; s!\\;\\frac{R}{R-1}\\Bigl(\\frac{\\rho+1}{R-\\rho}\\Bigr)^{\\sigma} M .$$\n\n**Proof idea.** Divide out the zeros: $G(z) = F(z) / \\prod_{\\beta \\in S}(z - \\beta)^{\\operatorname{ord}_\\beta F}$ is entire.\n- On $|z - c| = R$ each factor has $|z - \\beta| \\ge R - \\rho$, so $|G| \\le M/(R-\\rho)^\\sigma$ there, and by the maximum principle everywhere inside.\n- On $|z - c| = 1$ each factor has $|z - \\beta| \\le \\rho + 1$, so $|F| \\le M\\bigl((\\rho+1)/(R-\\rho)\\bigr)^\\sigma$ there.\n- Cauchy's estimate on the unit circle (`Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le`) then gives the bound even without the factor $R/(R-1) \\ge 1$.\n\nThe paper's argument is a double contour integral, which produces that factor.\n\n**What it is for.** It is one of the two estimates behind `FourExp.expPoly_zero_count_scaled`.",
+ "created_at": "2026-09-15T04:08:38.741763+00:00",
+ "tags": [
+  "complex-analysis",
+  "exponential-polynomials",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib\n\nopen Finset",
+ "source": "M. Waldschmidt, Indépendance algébrique des valeurs de la fonction exponentielle, Bull. Soc. Math. France 99 (1971), 285–304, §4, inequality (4.3).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

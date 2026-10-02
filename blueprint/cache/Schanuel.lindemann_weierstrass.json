@@ -1,0 +1,24 @@
+{
+ "theorem_id": "afb75b5a-3ca6-4700-9c55-ebd4e3ecc762",
+ "theorem_name": "Schanuel.lindemann_weierstrass",
+ "theorem_title": "Lindemann–Weierstrass theorem",
+ "status": "Proved",
+ "formal_statement": "namespace Schanuel\ntheorem lindemann_weierstrass (n : ℕ) (a b : Fin n → ℂ)\n    (ha : ∀ i, IsAlgebraic ℚ (a i)) (hainj : Function.Injective a)\n    (hb : ∀ i, IsAlgebraic ℚ (b i)) (hb0 : ∃ i, b i ≠ 0) :\n    ∑ i, b i * Complex.exp (a i) ≠ 0 := by sorry\nend Schanuel",
+ "natural_language_statement": "**Lindemann–Weierstrass theorem.** Let $\\alpha_1, \\dots, \\alpha_n$ be pairwise distinct algebraic numbers and let $\\beta_1, \\dots, \\beta_n$ be algebraic numbers, not all zero. Then\n\n$$\\sum_{i=1}^{n} \\beta_i e^{\\alpha_i} \\neq 0 .$$\n\nEquivalently, the numbers $e^{\\alpha_1}, \\dots, e^{\\alpha_n}$ are linearly independent over the field $\\overline{\\mathbb{Q}}$ of algebraic numbers. Taking $n = 2$, $\\alpha_1 = \\alpha$, $\\alpha_2 = 0$ recovers the Hermite–Lindemann theorem.",
+ "created_at": "2026-09-15T17:31:35.236603+00:00",
+ "tags": [
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "K. Weierstrass, Zu Lindemann's Abhandlung 'Über die Ludolph'sche Zahl', Sitzungsber. Preuss. Akad. Wiss. (1885), 1067–1085; see also A. Baker, Transcendental Number Theory, CUP, 1975, Theorem 1.4",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": {
+  "readback": "> **⚠️ Provenance: this read-back is non-blind.** It was written by the same agent that drafted the Lean statement it describes, at the explicit instruction of the proposal owner — not by an independent auditor working from the code alone with a fresh context. It is self-testimony, not independent testimony, and a reviewer should not give it the evidential weight of a blind read-back.\n\nThe statement is quantified over a natural number $n$ and two families of complex numbers $a = (a_0,\\dots,a_{n-1})$ and $b = (b_0,\\dots,b_{n-1})$ indexed by $\\{0,\\dots,n-1\\}$.\n\n**Hypotheses.**\n\n- every $a_i$ is algebraic over $\\mathbb{Q}$;\n- the map $i \\mapsto a_i$ is injective, i.e. the $a_i$ are pairwise distinct;\n- every $b_i$ is algebraic over $\\mathbb{Q}$ (the $b_i$ may be zero, and may be non-real);\n- there exists an index $i$ with $b_i \\neq 0$.\n\n**Conclusion.**\n\n$$\\sum_{i=0}^{n-1} b_i\\, e^{a_i} \\;\\neq\\; 0,$$\n\nthe sum being the finite sum over all indices and $e^{\\cdot}$ the complex exponential.\n\n**Degenerate cases.** For $n = 0$ the fourth hypothesis cannot be satisfied, so the statement says nothing there. No hypothesis excludes $a_i = 0$ for one index, and no individual $b_i$ is required to be nonzero — only that not all of them vanish.",
+  "model": "Aristotle (Harmonic)",
+  "created_at": "2026-09-15T17:33:02.190989+00:00"
+ }
+}

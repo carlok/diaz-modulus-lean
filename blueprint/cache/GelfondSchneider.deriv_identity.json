@@ -1,0 +1,22 @@
+{
+ "theorem_id": "c21422a2-1acb-478f-8fd1-ae8ea5b082f4",
+ "theorem_name": "GelfondSchneider.deriv_identity",
+ "theorem_title": "Derivatives of Gelfond's auxiliary function at the integers",
+ "status": "Proved",
+ "formal_statement": "open NumberField\n\nnamespace GelfondSchneider\n\ntheorem deriv_identity (K : Type*) [Field K] (σ : K →+* ℂ) (α' β' γ' : K) (l β : ℂ)\n    (hβ : σ β' = β) (hα : σ α' = Complex.exp l) (hγ : σ γ' = Complex.exp (β * l))\n    (q : ℕ) (η : Fin q → Fin q → K) (k j : ℕ) :\n    iteratedDeriv k (fun z : ℂ => ∑ a : Fin q, ∑ b : Fin q,\n        σ (η a b) * Complex.exp ((((a : ℕ) + 1 : ℂ) + ((b : ℕ) + 1 : ℂ) * β) * l * z)) (j : ℂ) =\n      l ^ k * σ (∑ a : Fin q, ∑ b : Fin q, η a b *\n        (((a : ℕ) + 1 : K) + ((b : ℕ) + 1 : K) * β') ^ k *\n        α' ^ (((a : ℕ) + 1) * j) * γ' ^ (((b : ℕ) + 1) * j)) := by\n  sorry\n\nend GelfondSchneider\n",
+ "natural_language_statement": "Let $\\sigma : K \\to \\mathbb C$ with $\\sigma(\\beta') = \\beta$, $\\sigma(\\alpha') = e^{l}$ and $\\sigma(\\gamma') = e^{\\beta l}$. For coefficients $\\eta_{ab} \\in K$ put $E(z) = \\sum_{a,b} \\sigma(\\eta_{ab})\\, e^{(a + b\\beta) l z}$. Then for every $k$ and every natural number $j$,\n\n$$E^{(k)}(j) = l^{k}\\, \\sigma\\!\\left(\\sum_{a,b} \\eta_{ab}\\,(a + b\\beta')^{k}\\,\\alpha'^{\\,aj}\\,\\gamma'^{\\,bj}\\right).$$\n\nSo the derivatives of the auxiliary function at the integers are, up to the factor $l^k$, images of elements of $K$.",
+ "created_at": "2026-09-24T20:04:53.036741+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "gelfond-schneider",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Known: A. O. Gelfond (1934), T. Schneider (1934); this step of Gelfond's proof. Formal proof: Diaz modulus mission, 24 September 2026 (C. Perassi), restructuring the formalization by M. Karatarakis and F. Wiedijk, A formalization of the Gelfond-Schneider theorem, arXiv:2603.24823 (2026), mathlib4 fork at commit cb781672 (Apache 2.0).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

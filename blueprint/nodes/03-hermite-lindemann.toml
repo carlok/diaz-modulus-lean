@@ -1,0 +1,57 @@
+# Chapter 3. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "Hermite–Lindemann and Lindemann–Weierstrass"
+text = '''
+The Lean proof of Lindemann--Weierstrass is ported from Mathlib pull request \#28013 by Yuyang Zhao, which is not merged; it depends on Mathlib alone. Hermite--Lindemann is derived from it, in two equivalent forms. The four exponentials development uses Hermite--Lindemann to make one generator of a field transcendental.
+'''
+
+[[node]]
+platform = "Schanuel.lindemann_weierstrass"
+root = true
+env = "theorem"
+label = "thm:lindemann_weierstrass"
+lean = ["linearIndependent_exp", "algebraicIndependent_exp"]
+title = "Lindemann–Weierstrass"
+from_lean = true
+note = "part (b), algebraicIndependent_exp, is not on the page, which states part (a)"
+statement = '''
+\begin{enumerate}
+\item[(a)] Let $\alpha_1,\dots,\alpha_n$ be pairwise distinct algebraic numbers. Then $e^{\alpha_1},\dots,e^{\alpha_n}$ are linearly independent over $\Qbar$: if $\beta_1,\dots,\beta_n\in\Qbar$ are not all zero, then $\sum_i\beta_ie^{\alpha_i}\neq0$.
+\item[(b)] If algebraic numbers $\alpha_1,\dots,\alpha_n$ are linearly independent over $\Q$, then $e^{\alpha_1},\dots,e^{\alpha_n}$ are algebraically independent over $\Qbar$.
+\end{enumerate}
+(The Lean statements take families indexed by any type; in (b) they ask for linear independence over $\N$, which for a family in a $\Q$-vector space is the same.)
+'''
+source = '''Lindemann \cite{Lin1882}, Weierstrass \cite{Wei1885}; see \cite[Theorem 1.4]{Bak75}.'''
+sketch = '''
+(a) is the proof of the Mathlib pull request. (b) applies (a) to the numbers $\sum_ie_i\alpha_i$, $e\in\N^{n}$, which are pairwise distinct.
+'''
+
+[[node]]
+platform = "DiazModulus.hermite_lindemann_holds"
+env = "theorem"
+title = "Hermite–Lindemann"
+statement = '''
+If $a$ is a non-zero algebraic number, then $e^{a}$ is transcendental.
+'''
+source = '''Hermite \cite{Her1873} for $a=1$, Lindemann \cite{Lin1882} in general; see \cite[Theorem 1.4]{Bak75}.'''
+sketch = '''
+Apply Theorem~\ref{thm:lindemann_weierstrass}(a) to $\alpha=(a,0)$ and $\beta=(1,-e^{a})$.
+'''
+
+[[node]]
+platform = "Schanuel.hermite_lindemann"
+root = true
+env = "theorem"
+title = "Hermite–Lindemann, logarithmic form"
+from_lean = true
+note = "the page states the equivalent direct form, e^a transcendental for algebraic a ≠ 0"
+uses = ["Schanuel.lindemann_weierstrass"]
+uses_note = "the accepted proof imports DiazModulus.hermite_lindemann_holds, but Diaz/Axioms.lean proves Diaz.hermite_lindemann from Lindemann–Weierstrass directly"
+statement = '''
+Let $u\in\C$, $u\neq0$, with $e^{u}$ algebraic. Then $u$ is transcendental.
+'''
+source = '''Hermite \cite{Her1873}, Lindemann \cite{Lin1882}; see \cite[Theorem 1.4]{Bak75}.'''
+sketch = '''
+Apply Theorem~\ref{thm:lindemann_weierstrass}(a) to $\alpha=(u,0)$ and $\beta=(1,-e^{u})$. This is the form the rest of the library uses; Theorem~\ref{thm:hermite_lindemann_holds} is its contrapositive. (The accepted Prove2Me proof derives it from Theorem~\ref{thm:hermite_lindemann_holds}; the library's proof, shown here, does not.)
+'''

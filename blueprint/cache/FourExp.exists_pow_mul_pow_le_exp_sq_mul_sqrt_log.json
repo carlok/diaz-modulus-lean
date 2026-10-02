@@ -1,0 +1,21 @@
+{
+ "theorem_id": "1cc8c606-255e-418d-a988-71ed7b28748d",
+ "theorem_name": "FourExp.exists_pow_mul_pow_le_exp_sq_mul_sqrt_log",
+ "theorem_title": "The size estimate at the scale N²/√log N used in the four exponentials construction",
+ "status": "Proved",
+ "formal_statement": "namespace FourExp\n\n/-- The size bound of the four exponentials system in the range of parameters of the proof.\n\nWith `s = √(log N) ≥ 1`, take `m ≤ S ≤ N² / s`, `T ≤ r N`, `a ≤ r N / s` and `b ≤ r N s`. Then\n`1 + m + S ≤ 3 N² / s`, `T (a + b) ≤ 2 r² N² s` and `1 + m + S + T + a + b ≤ (3 + 3 r) N²`, so the\nlogarithm of `c^(c (1 + m + S + T (a + b))) · (1 + m + S + T + a + b)^(c (1 + m + S))` is at most\n`c (3 + 2 r²) N² s log c + 3 c (N² / s) (log (3 + 3 r) + 2 s²)`, which is `O(N² s)`. -/\ntheorem exists_pow_mul_pow_le_exp_sq_mul_sqrt_log (c r : ℕ) :\n    ∃ κ : ℝ, 0 < κ ∧ ∀ N S T a b m : ℕ, 3 ≤ N →\n      (S : ℝ) ≤ (N : ℝ) ^ 2 / Real.sqrt (Real.log (N : ℝ)) → m ≤ S → T ≤ r * N →\n      (a : ℝ) ≤ r * ((N : ℝ) / Real.sqrt (Real.log (N : ℝ))) →\n      (b : ℝ) ≤ r * ((N : ℝ) * Real.sqrt (Real.log (N : ℝ))) →\n      ((c ^ (c * (1 + m + S + T * (a + b))) * (1 + m + S + T + a + b) ^ (c * (1 + m + S)) : ℕ) : ℝ)\n        ≤ Real.exp (κ * ((N : ℝ) ^ 2 * Real.sqrt (Real.log (N : ℝ)))) := by\n  sorry\n\nend FourExp\n",
+ "natural_language_statement": "For all $c, r \\in \\mathbb{N}$ there is $\\kappa > 0$ such that for every $N \\ge 3$ and all $S, T, a, b, m$ with\n\n$$S \\le \\frac{N^{2}}{\\sqrt{\\log N}},\\quad m \\le S,\\quad T \\le rN,\\quad a \\le r\\,\\frac{N}{\\sqrt{\\log N}},\\quad b \\le r\\,N\\sqrt{\\log N},$$\n\none has\n\n$$c^{\\,c(1+m+S+T(a+b))}\\,(1+m+S+T+a+b)^{\\,c(1+m+S)} \\le e^{\\kappa N^{2}\\sqrt{\\log N}}.$$\n\nThis is the one asymptotic estimate behind the choice of parameters in the four exponentials construction; the grid factor $r$ is $2$ for the linear system and $14$ for the extrapolation.",
+ "created_at": "2026-09-25T16:43:55.300463+00:00",
+ "tags": [
+  "four-exponentials",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "The parameter estimates in the proofs of Lemmas 4 and 7 of M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202. Formal proof: Diaz modulus mission, 25 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

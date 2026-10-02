@@ -1,0 +1,22 @@
+{
+ "theorem_id": "62c29048-d0cf-49fc-8309-6427246ebbcf",
+ "theorem_name": "GelfondSchneider.rho_house_le",
+ "theorem_title": "House of the first non-zero derivative",
+ "status": "Proved",
+ "formal_statement": "open NumberField\n\nnamespace GelfondSchneider\n\ntheorem rho_house_le (K : Type*) [Field K] [NumberField K] (α' β' γ' : K) (m : ℕ) (hm : 0 < m)\n    (C₀ : ℝ) (hC₀ : 1 ≤ C₀) :\n    ∃ C : ℝ, 1 ≤ C ∧ ∀ (n q r l₀ : ℕ) (η : Fin q → Fin q → 𝓞 K),\n      0 < n → q ^ 2 = 2 * m * n → n ≤ r → 1 ≤ l₀ → l₀ ≤ m →\n      (∀ a b, house (η a b : K) ≤ C₀ ^ n * (n : ℝ) ^ (((n : ℝ) + 1) / 2)) →\n      house (∑ a : Fin q, ∑ b : Fin q, (η a b : K) *\n          (((a : ℕ) + 1 : K) + ((b : ℕ) + 1 : K) * β') ^ r *\n          α' ^ (((a : ℕ) + 1) * l₀) * γ' ^ (((b : ℕ) + 1) * l₀)) ≤\n        C ^ r * (r : ℝ) ^ ((r : ℝ) + 3 / 2) := by\n  sorry\n\nend GelfondSchneider\n",
+ "natural_language_statement": "Let $K$ be a number field, $\\alpha', \\beta', \\gamma' \\in K$, $m \\ge 1$ and $C_0 \\ge 1$. There is $C \\ge 1$ such that whenever $n \\ge 1$, $q^2 = 2mn$, $n \\le r$, $1 \\le l_0 \\le m$ and the algebraic integers $\\eta_{ab}$ have houses at most $C_0^{n} n^{(n+1)/2}$,\n\n$$\\overline{\\left|\\sum_{a,b} \\eta_{ab}\\,(a + b\\beta')^{r}\\,\\alpha'^{\\,a l_0}\\,\\gamma'^{\\,b l_0}\\right|} \\le C^{r}\\, r^{\\,r + 3/2}.$$",
+ "created_at": "2026-09-24T20:05:24.669565+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "gelfond-schneider",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Known: A. O. Gelfond (1934), T. Schneider (1934); this step of Gelfond's proof. Formal proof: Diaz modulus mission, 24 September 2026 (C. Perassi), restructuring the formalization by M. Karatarakis and F. Wiedijk, A formalization of the Gelfond-Schneider theorem, arXiv:2603.24823 (2026), mathlib4 fork at commit cb781672 (Apache 2.0).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

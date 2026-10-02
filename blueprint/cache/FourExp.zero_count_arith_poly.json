@@ -1,0 +1,21 @@
+{
+ "theorem_id": "46d2beb4-7606-4504-994b-05af059e4f49",
+ "theorem_name": "FourExp.zero_count_arith_poly",
+ "theorem_title": "At most n − 1 zeros already beats the zero count bound",
+ "status": "Proved",
+ "formal_statement": "namespace FourExp\n\ntheorem zero_count_arith_poly\n    (n : ℕ) (x lam : ℝ) (hx : 0 ≤ x) (hlam : 0 < lam) (σ : ℕ) (h : σ + 1 ≤ n) :\n    (σ : ℝ) < (n : ℝ) / lam + 2 * (1 + (n : ℝ) ^ lam) / (lam * Real.log (n : ℝ)) * (1 + x) := by\n  sorry\n\nend FourExp",
+ "natural_language_statement": "**A real-variable inequality for the degenerate cases.**\n\nFor every integer $n \\ge 1$, real $x \\ge 0$ and $\\lambda > 0$, and every integer $0 \\le \\sigma \\le n - 1$,\n$$\\sigma < \\frac{n}{\\lambda} + 2\\,\\frac{1 + n^{\\lambda}}{\\lambda \\log n}\\,(1 + x).$$\nFor $n = 1$ the second term is read as $0$, following Lean's convention $a/0 = 0$.\n\n**Why it holds.**\n- For $n = 1$: $\\sigma = 0 < 1/\\lambda$.\n- For $n \\ge 2$ and $\\lambda \\le 1$: $n/\\lambda \\ge n > \\sigma$.\n- For $n \\ge 2$ and $\\lambda > 1$: write $u = \\lambda\\log n > \\log n$. The right-hand side is at least $\\varphi(u) = (n\\log n + 2e^{u})/u$, and $\\varphi(\\log n) = n + 2n/\\log n > n$. For $n \\ge 8$ one has $2e^{u}(u-1) \\ge n\\log n$ at $u = \\log n$, so $\\varphi$ is increasing on $[\\log n, \\infty)$ and stays above $n$. For $2 \\le n \\le 7$, the minimum of $\\varphi$ over $u > 0$ exceeds $n - 1$; this was checked numerically and has to be verified case by case in a proof.\n\n**What it is for.** Together with `FourExp.zero_count_degenerate` it covers the degenerate cases of `FourExp.expPoly_zero_count`.",
+ "created_at": "2026-09-15T03:45:36.976542+00:00",
+ "tags": [
+  "exponential-polynomials",
+  "real-analysis",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Elementary real analysis.",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

@@ -1,0 +1,102 @@
+# References for \cite in the node files. `label` is what the citation shows.
+# Every entry is taken from the source line of a Prove2Me page.
+
+[[reference]]
+key = "Bak75"
+label = "Bak75"
+text = '''A.~Baker, \emph{Transcendental Number Theory}, Cambridge University Press, 1975.'''
+
+[[reference]]
+key = "Bro74"
+label = "Bro74"
+text = '''W.~D.~Brownawell, The algebraic independence of certain numbers related by the exponential function, \emph{J. Number Theory} 6 (1974), 22--31.'''
+
+[[reference]]
+key = "DK24"
+label = "DK24"
+text = '''S.~Dasgupta and M.~Kakde, Ranks of matrices of logarithms of algebraic numbers II: the Matrix Coefficient Conjecture, arXiv:2408.08178, 2024.'''
+
+[[reference]]
+key = "Gel34"
+label = "Gel34"
+text = '''A.~O.~Gel'fond, Sur le septième problème de Hilbert, \emph{Izv. Akad. Nauk SSSR} (1934), 623--634.'''
+
+[[reference]]
+key = "Gel52"
+label = "Gel52"
+text = '''A.~O.~Gel'fond, \emph{Transcendental and Algebraic Numbers}, 1952.'''
+
+[[reference]]
+key = "Her1873"
+label = "Her1873"
+text = '''C.~Hermite, Sur la fonction exponentielle, \emph{C. R. Acad. Sci. Paris} 77 (1873), 18--24, 74--79, 226--233, 285--293.'''
+
+[[reference]]
+key = "KW26"
+label = "KW26"
+text = '''M.~Karatarakis and F.~Wiedijk, A formalization of the Gelfond--Schneider theorem, arXiv:2603.24823, 2026.'''
+
+[[reference]]
+key = "Lang66"
+label = "Lang66"
+text = '''S.~Lang, \emph{Introduction to Transcendental Numbers}, Addison-Wesley, 1966.'''
+
+[[reference]]
+key = "Lin1882"
+label = "Lin1882"
+text = '''F.~Lindemann, Über die Zahl $\pi$, \emph{Math. Ann.} 20 (1882), 213--225.'''
+
+[[reference]]
+key = "Ram68"
+label = "Ram68"
+text = '''K.~Ramachandra, Contributions to the theory of transcendental numbers I, \emph{Acta Arith.} 14 (1968), 65--72.'''
+
+[[reference]]
+key = "RW95"
+label = "RW95"
+text = '''D.~Roy and M.~Waldschmidt, Quadratic relations between logarithms of algebraic numbers, \emph{Proc. Japan Acad. Ser. A} 71 (1995), 151--153.'''
+
+[[reference]]
+key = "RW97"
+label = "RW97"
+text = '''D.~Roy and M.~Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, \emph{Ann. Sci. École Norm. Sup. (4)} 30 (1997), 753--796.'''
+
+[[reference]]
+key = "Sch34"
+label = "Sch34"
+text = '''Th.~Schneider, Transzendenzuntersuchungen periodischer Funktionen, \emph{J. Reine Angew. Math.} 172 (1934), 65--69.'''
+
+[[reference]]
+key = "Sch57"
+label = "Sch57"
+text = '''Th.~Schneider, \emph{Einführung in die transzendenten Zahlen}, Springer, Berlin, 1957.'''
+
+[[reference]]
+key = "Tij71"
+label = "Tij71"
+text = '''R.~Tijdeman, \emph{Proc. Kon. Nederl. Akad. Wetensch. Ser. A} 74 (= \emph{Indag. Math.} 33) (1971), 1--7.'''
+
+[[reference]]
+key = "W71"
+label = "Wal71"
+text = '''M.~Waldschmidt, Indépendance algébrique des valeurs de la fonction exponentielle, \emph{Bull. Soc. Math. France} 99 (1971), 285--304.'''
+
+[[reference]]
+key = "W73"
+label = "Wal73"
+text = '''M.~Waldschmidt, Solution du huitième problème de Schneider, \emph{J. Number Theory} 5 (1973), 191--202.'''
+
+[[reference]]
+key = "Wal00"
+label = "Wal00"
+text = '''M.~Waldschmidt, \emph{Diophantine Approximation on Linear Algebraic Groups}, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000.'''
+
+[[reference]]
+key = "Wal09"
+label = "Wal09"
+text = '''M.~Waldschmidt, Auxiliary functions in transcendence proofs, arXiv:0908.4024, 2009.'''
+
+[[reference]]
+key = "Wei1885"
+label = "Wei1885"
+text = '''K.~Weierstrass, Zu Lindemann's Abhandlung ``Über die Ludolph'sche Zahl'', \emph{Sitzungsber. Preuss. Akad. Wiss.} (1885), 1067--1085.'''

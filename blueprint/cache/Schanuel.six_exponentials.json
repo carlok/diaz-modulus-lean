@@ -1,0 +1,24 @@
+{
+ "theorem_id": "75ca528d-83e0-43c7-b183-42e42df38b0f",
+ "theorem_name": "Schanuel.six_exponentials",
+ "theorem_title": "Six exponentials theorem",
+ "status": "Proved",
+ "formal_statement": "namespace Schanuel\ntheorem six_exponentials (x : Fin 2 → ℂ) (y : Fin 3 → ℂ)\n    (hx : LinearIndependent ℚ x) (hy : LinearIndependent ℚ y) :\n    ∃ i j, Transcendental ℚ (Complex.exp (x i * y j)) := by sorry\nend Schanuel",
+ "natural_language_statement": "**Six exponentials theorem.** Let $x_1, x_2$ be complex numbers that are linearly independent over $\\mathbb{Q}$, and let $y_1, y_2, y_3$ be complex numbers that are linearly independent over $\\mathbb{Q}$. Then at least one of the six numbers $$e^{x_i y_j}, \\qquad i \\in \\{1,2\\},\\ j \\in \\{1,2,3\\},$$ is transcendental.\n\nEquivalently: the six numbers cannot all be algebraic. The theorem is due to Siegel (unpublished), Lang and Ramachandra. The analogous statement with two $x$'s and two $y$'s — the four exponentials conjecture — is open, and follows from Schanuel's conjecture.",
+ "created_at": "2026-09-15T17:33:29.019026+00:00",
+ "tags": [
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "S. Lang, Introduction to Transcendental Numbers, Addison-Wesley, 1966, Chapter II; K. Ramachandra, Contributions to the theory of transcendental numbers I, Acta Arith. 14 (1968), 65–72",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": {
+  "readback": "> **⚠️ Provenance: this read-back is non-blind.** It was written by the same agent that drafted the Lean statement it describes, at the explicit instruction of the proposal owner — not by an independent auditor working from the code alone with a fresh context. It is self-testimony, not independent testimony, and a reviewer should not give it the evidential weight of a blind read-back.\n\nThe statement is quantified over a family $x = (x_0, x_1)$ of two complex numbers and a family $y = (y_0, y_1, y_2)$ of three complex numbers.\n\n**Hypotheses.** The family $x$ is linearly independent over $\\mathbb{Q}$ (no nonzero pair of rationals $(q_0,q_1)$ satisfies $q_0 x_0 + q_1 x_1 = 0$), and the family $y$ is linearly independent over $\\mathbb{Q}$ in the same sense. Here $\\mathbb{C}$ is viewed as a $\\mathbb{Q}$-vector space.\n\n**Conclusion.** There exist an index $i \\in \\{0,1\\}$ and an index $j \\in \\{0,1,2\\}$ such that $e^{x_i y_j}$ is transcendental over $\\mathbb{Q}$, i.e. is the root of no nonzero rational polynomial. The claim is purely existential: it does not say which of the six products has this property, and it asserts nothing about the other five.\n\n**Scope.** The index sets have exactly $2$ and $3$ elements respectively — they are fixed, not quantified. Both families consist of arbitrary complex numbers subject only to the independence hypotheses, which are satisfiable, so the statement is not vacuous.",
+  "model": "Aristotle (Harmonic)",
+  "created_at": "2026-09-15T17:33:32.289818+00:00"
+ }
+}

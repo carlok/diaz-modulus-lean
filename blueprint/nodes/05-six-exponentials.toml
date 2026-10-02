@@ -1,0 +1,74 @@
+# Chapter 5. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "The six exponentials theorem"
+text = '''
+Schneider's method in the form of Lang and Ramachandra, relativised to a fixed number field: an auxiliary function built by Siegel's lemma, a descent that extends its zeros over a lattice, and a zero estimate.
+
+In this chapter $x=(x_1,\dots,x_d)$ and $y=(y_1,\dots,y_l)$ are families of complex numbers, each linearly independent over $\Q$. For $\lambda\in\N^{d}$ and $m\in\N^{l}$ write $\langle\lambda,x\rangle=\sum_i\lambda_ix_i$ and $\langle m,y\rangle=\sum_jm_jy_j$. For $L\in\N$ and integers $p_\lambda$ the auxiliary function is
+\[ F_p(z)=\sum_{\lambda\in\{0,\dots,L-1\}^{d}}p_\lambda\,e^{\langle\lambda,x\rangle z}. \]
+A number field $K$ is a subfield of $\C$ of finite degree over $\Q$.
+'''
+
+[[node]]
+platform = "SX.exists_aux_expSum"
+title = "The auxiliary function"
+statement = '''
+Let $d+l<dl$, and let $K$ be a number field containing every $e^{x_iy_j}$. There is $c>0$ such that for every large $M$ there are an integer $L\ge1$ with $L^{d}\le cM^{l}$ and integers $p_\lambda$ with $|p_\lambda|\le e^{cLM}$, not all zero for $\lambda\in\{0,\dots,L-1\}^{d}$, such that $F_p(\langle m,y\rangle)=0$ for every $m\in\N^{l}$ with $m_j<M$ for all $j$.
+'''
+source = '''\cite[Ch.~II]{Lang66}, \cite{Ram68}; see \cite[\S3.4]{Wal09}.'''
+sketch = '''
+At the lattice points the exponentials are products of powers of the $e^{x_iy_j}$, so the conditions form a linear system over $K$: $M^{l}$ conditions on $L^{d}$ unknowns, and $d+l<dl$ leaves room for Siegel's lemma (Lemma~\ref{lem:siegel_entrywise}), with the denominators and houses of Lemma~\ref{lem:exists_denom_house_monomial_le}.
+'''
+
+[[node]]
+platform = "SX.descent_step"
+title = "The descent step"
+statement = '''
+Let $d+l<dl$, let $K$ be a number field containing every $e^{x_iy_j}$, and let $c>0$. There is $M_0$ such that for all $M\ge M_0$, all $L\ge1$ with $L^{d}\le cM^{l}$, all integers $p_\lambda$ with $|p_\lambda|\le e^{cLM}$ and all $N\ge M$: if $F_p(\langle m,y\rangle)=0$ for every $m\in\N^{l}$ with all $m_j<N$, then $F_p(\langle m,y\rangle)=0$ for every $m\in\N^{l}$ with all $m_j<N+1$.
+'''
+source = '''\cite[Ch.~II]{Lang66}, \cite{Ram68}; see \cite[\S3.4]{Wal09}.'''
+sketch = '''
+At a new lattice point $F_p$ is small, by Lemma~\ref{lem:expPoly_grid_estimate} applied to the zeros already known. Its value there is an element of $K$ with controlled denominator and house (Lemma~\ref{lem:exists_denom_house_monomial_le}), so if it were non-zero Lemma~\ref{lem:liouville_house} would bound it from below. The two bounds are incompatible because $dl>d+l$.
+'''
+
+[[node]]
+platform = "SX.eq_zero_of_expSum_vanishes"
+title = "Vanishing on the whole lattice"
+statement = '''
+Let $l\ge2$, $L\in\N$ and $p_\lambda$ integers. If $F_p(\langle m,y\rangle)=0$ for every $m\in\N^{l}$, then $p_\lambda=0$ for every $\lambda\in\{0,\dots,L-1\}^{d}$.
+'''
+source = '''\cite[Ch.~II]{Lang66}, \cite{Ram68}; see \cite[\S3.4]{Wal09}.'''
+sketch = '''
+The exponents $\langle\lambda,x\rangle$ are pairwise distinct, and as $l\ge2$ and the $y_j$ are independent, $\lambda\mapsto(e^{\langle\lambda,x\rangle y_j})_j$ is injective; Dedekind's independence of characters concludes.
+'''
+
+[[node]]
+platform = "SX.six_exponentials_of_numberField"
+env = "theorem"
+title = "Six exponentials over a number field"
+statement = '''
+Let $d,l\in\N$ with $d+l<dl$, let $x_1,\dots,x_d$ and $y_1,\dots,y_l$ be complex numbers, each family linearly independent over $\Q$, and let $K$ be a number field. Then some $e^{x_iy_j}$ does not lie in $K$.
+'''
+source = '''\cite[Ch.~II]{Lang66}, \cite{Ram68}; see \cite[Theorem 1.12]{Wal00}.'''
+sketch = '''
+Otherwise Lemma~\ref{lem:exists_aux_expSum} gives an auxiliary function, Lemma~\ref{lem:descent_step} makes it vanish on the whole lattice by induction, and Lemma~\ref{lem:eq_zero_of_expSum_vanishes} makes all its coefficients zero ($d+l<dl$ forces $l\ge2$), a contradiction.
+'''
+
+[[node]]
+platform = "DiazModulus.six_exponentials"
+root = true
+env = "theorem"
+title = "The six exponentials theorem"
+statement = '''
+Let $x_1,x_2$ be complex numbers linearly independent over $\Q$, and let $y_1,y_2,y_3$ be complex numbers linearly independent over $\Q$. Then at least one of the six numbers $e^{x_iy_j}$ ($i=1,2$, $j=1,2,3$) is transcendental.
+'''
+source = '''Lang \cite[Ch.~II]{Lang66}, Ramachandra \cite{Ram68}; see \cite[\S1.3, Theorem 1.12]{Wal00}.'''
+sketch = '''
+Finitely many algebraic numbers lie in one number field; apply Theorem~\ref{thm:six_exponentials_of_numberField} with $(d,l)=(2,3)$.
+'''
+
+[[node]]
+platform = "Schanuel.six_exponentials"
+root = true
+same_as = "DiazModulus.six_exponentials"

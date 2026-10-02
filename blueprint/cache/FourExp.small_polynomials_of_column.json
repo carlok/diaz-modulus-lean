@@ -1,0 +1,21 @@
+{
+ "theorem_id": "4b4429d8-3091-408a-8b30-d661d6c0a9ef",
+ "theorem_name": "FourExp.small_polynomials_of_column",
+ "theorem_title": "When only e^{x₁y₂} and e^{x₂y₂} are algebraic, transcendence degree one yields integer polynomials too small at a transcendental number",
+ "status": "Proved",
+ "formal_statement": "open Filter Topology\n\nnamespace FourExp\n\n/-- The analytic half of Waldschmidt's theorem of 1973, in the column case.\n\nLet `x₁, x₂` and `y₁, y₂` be `ℚ`-linearly independent, with `e^{x₁y₂}` and `e^{x₂y₂}` algebraic,\nand suppose that `ℚ[x₁, x₂, y₁, y₂, e^{x₁y₁}, e^{x₂y₁}]` has transcendence degree at most one.\nThen there are a transcendental `ω` and integer polynomials `P_N ≠ 0`, of height at most\n`e^{σ₁(N)}` and degree at most `σ₂(N)`, with `|P_N(ω)| < e^{-C σ₁(N) σ₂(N)}` for every `C`; the\nfunctions `σ₁, σ₂` satisfy the growth conditions of Gel'fond's criterion\n(`FourExp.transcendence_criterion`), which then makes `ω` algebraic.\n\nThis is `FourExp.small_polynomials_of_counterexample` with the column hypothesis in place of the\nfour algebraic exponentials. -/\ntheorem small_polynomials_of_column :\n    ∀ x₁ x₂ y₁ y₂ : ℂ, LinearIndependent ℚ ![x₁, x₂] → LinearIndependent ℚ ![y₁, y₂] →\n      IsAlgebraic ℚ (Complex.exp (x₁ * y₂)) → IsAlgebraic ℚ (Complex.exp (x₂ * y₂)) →\n      Algebra.trdeg ℚ ↥(Algebra.adjoin ℚ ({x₁, x₂, y₁, y₂, Complex.exp (x₁ * y₁),\n          Complex.exp (x₂ * y₁)} : Set ℂ)) ≤ 1 →\n      ∃ ω : ℂ, Transcendental ℚ ω ∧\n        ∃ σ₁ σ₂ : ℝ → ℝ, StrictMono σ₁ ∧ StrictMono σ₂ ∧\n          Tendsto σ₁ atTop atTop ∧ Tendsto σ₂ atTop atTop ∧\n          ∃ a₁ a₂ : ℝ, 1 ≤ a₁ ∧ 1 ≤ a₂ ∧\n            (∀ x : ℝ, 0 < x → σ₂ x ≤ σ₁ x) ∧\n            (∀ x : ℝ, 0 < x → σ₁ (x + 1) ≤ a₁ * σ₁ x) ∧\n            (∀ x : ℝ, 0 < x → σ₂ (x + 1) ≤ a₂ * σ₂ x) ∧\n            ∀ C : ℝ, ∃ N₀ : ℕ, ∃ P : ℕ → Polynomial ℤ, ∀ N : ℕ, N₀ < N →\n              P N ≠ 0 ∧\n              (∀ i : ℕ, |((P N).coeff i : ℝ)| ≤ Real.exp (σ₁ N)) ∧\n              ((P N).natDegree : ℝ) ≤ σ₂ N ∧\n              ‖Polynomial.aeval ω (P N)‖ < Real.exp (-(C * σ₁ N * σ₂ N)) := by\n  sorry\n\nend FourExp\n",
+ "natural_language_statement": "Let $x_1, x_2$ be $\\mathbb{Q}$-linearly independent, and likewise $y_1, y_2$. Suppose that $e^{x_1y_2}$ and $e^{x_2y_2}$ are algebraic and that\n\n$$\\operatorname{trdeg}_{\\mathbb{Q}}\\, \\mathbb{Q}[x_1, x_2, y_1, y_2, e^{x_1y_1}, e^{x_2y_1}] \\le 1.$$\n\nThen there are a transcendental $\\omega$ and growth functions $\\sigma_1, \\sigma_2$ with constants $a_1, a_2 \\ge 1$, satisfying the hypotheses of `FourExp.transcendence_criterion`, such that for every $C$ there are non-zero $P_N \\in \\mathbb{Z}[X]$ for all large $N$, with coefficients at most $e^{\\sigma_1(N)}$, degree at most $\\sigma_2(N)$ and\n\n$$|P_N(\\omega)| < e^{-C\\sigma_1(N)\\sigma_2(N)}.$$\n\nThis is `FourExp.small_polynomials_of_counterexample` with only $e^{x_1y_2}$ and $e^{x_2y_2}$ assumed algebraic and with $e^{x_1y_1}$, $e^{x_2y_1}$ in the transcendence-degree hypothesis, stated for given $x$ and $y$ instead of a $2 \\times 2$ matrix of logarithms. In Waldschmidt (1973) it is Lemmes 4–7 together: `FourExp.auxiliary_construction_column` builds the auxiliary function, and `FourExp.nonvanishing_derivative` finds a non-zero derivative on the grid. Gel'fond's criterion then makes $\\omega$ algebraic, which is the contradiction in `DiazModulus.two_algebraically_independent_of_exp_column`; so the hypotheses never hold together.",
+ "created_at": "2026-09-30T07:40:19.971644+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202, Lemmes 4–7, with the zero estimate of M. Waldschmidt, Indépendance algébrique des valeurs de la fonction exponentielle, Bull. Soc. Math. France 99 (1971), 285–304, Lemme 3, in place of Gel'fond's zero lemma (Lemme 2 of the 1973 paper) in Lemme 6. Formal proof: Diaz modulus mission, 30 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

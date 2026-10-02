@@ -1,0 +1,24 @@
+{
+ "theorem_id": "2e4b9062-99bc-4797-b90c-279b63f084aa",
+ "theorem_name": "Schanuel.gelfond_schneider",
+ "theorem_title": "Gelfond–Schneider theorem (logarithmic form)",
+ "status": "Proved",
+ "formal_statement": "namespace Schanuel\ntheorem gelfond_schneider (b l : ℂ) (hb : IsAlgebraic ℚ b) (hbq : ∀ q : ℚ, b ≠ (q : ℂ))\n    (hl : IsAlgebraic ℚ (Complex.exp l)) (hl0 : l ≠ 0) :\n    Transcendental ℚ (Complex.exp (b * l)) := by sorry\nend Schanuel",
+ "natural_language_statement": "**Gelfond–Schneider theorem, logarithmic form.** Let $\\lambda$ be a nonzero complex number whose exponential $e^{\\lambda}$ is algebraic (that is, $\\lambda$ is a nonzero logarithm of an algebraic number), and let $\\beta$ be an algebraic number that is not rational. Then $e^{\\beta \\lambda}$ is transcendental.\n\nWriting $\\alpha = e^{\\lambda}$ and $\\alpha^{\\beta} = e^{\\beta\\lambda}$ for the corresponding branch, this is the classical statement that $\\alpha^{\\beta}$ is transcendental for algebraic $\\alpha \\notin \\{0, 1\\}$ and algebraic irrational $\\beta$ — Hilbert's seventh problem, solved independently by Gelfond and by Schneider in 1934. It yields the transcendence of $2^{\\sqrt 2}$ and of $e^{\\pi} = (-1)^{-i}$.",
+ "created_at": "2026-09-15T17:33:14.472082+00:00",
+ "tags": [
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "A. O. Gelfond, Sur le septième problème de Hilbert, Izv. Akad. Nauk SSSR (1934), 623–634; Th. Schneider, Transzendenzuntersuchungen periodischer Funktionen, J. Reine Angew. Math. 172 (1934), 65–69; see A. Baker, Transcendental Number Theory, CUP, 1975, Theorem 2.1",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": {
+  "readback": "> **⚠️ Provenance: this read-back is non-blind.** It was written by the same agent that drafted the Lean statement it describes, at the explicit instruction of the proposal owner — not by an independent auditor working from the code alone with a fresh context. It is self-testimony, not independent testimony, and a reviewer should not give it the evidential weight of a blind read-back.\n\nThe statement is quantified over two complex numbers, called $\\beta$ and $\\lambda$ here.\n\n**Hypotheses.**\n\n- $\\beta$ is algebraic over $\\mathbb{Q}$;\n- $\\beta$ is different from the image of every rational number in $\\mathbb{C}$, i.e. $\\beta \\notin \\mathbb{Q}$;\n- $e^{\\lambda}$ is algebraic over $\\mathbb{Q}$, where $e^{\\cdot}$ is the complex exponential;\n- $\\lambda \\neq 0$.\n\n**Conclusion.** $e^{\\beta\\lambda}$ is transcendental over $\\mathbb{Q}$: no nonzero polynomial with rational coefficients vanishes at it.\n\n**Scope.** Nothing restricts $\\lambda$ to be a principal logarithm or to have $e^{\\lambda} \\neq 1$; for example $\\lambda = 2\\pi i$ satisfies the hypotheses. $\\beta$ may be a non-real algebraic number. The product in the exponent is $\\beta \\cdot \\lambda$ in that order (immaterial, as $\\mathbb{C}$ is commutative). The hypotheses are satisfiable, e.g. $\\lambda = \\log 2$ and $\\beta = \\sqrt{2}$.",
+  "model": "Aristotle (Harmonic)",
+  "created_at": "2026-09-15T17:33:16.23542+00:00"
+ }
+}

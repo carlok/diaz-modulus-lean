@@ -1,0 +1,21 @@
+{
+ "theorem_id": "be2108be-d4da-41d0-89c3-0a31d75bb6f8",
+ "theorem_name": "Transcendence.siegel_entrywise",
+ "theorem_title": "Siegel's lemma with an entrywise bound, for at least twice as many unknowns as equations",
+ "status": "Proved",
+ "formal_statement": "namespace Transcendence\n\ntheorem siegel_entrywise {α β : Type*} [Fintype α] [Fintype β] (A : Matrix α β ℤ)\n    (hβ : 0 < Fintype.card β) (hcard : 2 * Fintype.card α ≤ Fintype.card β) {B : ℝ}\n    (hB : 1 ≤ B) (hA : ∀ a b, |(A a b : ℝ)| ≤ B) :\n    ∃ t : β → ℤ, t ≠ 0 ∧ (∀ a, ∑ b, A a b * t b = 0) ∧\n      ∀ b, |(t b : ℝ)| ≤ Fintype.card β * B := by\n  sorry\n\nend Transcendence\n",
+ "natural_language_statement": "Let $A$ be an integer matrix with $m$ rows and $n \\ge 1$ columns, where $2m \\le n$, and suppose every entry satisfies $|A_{ab}| \\le B$ for some real $B \\ge 1$. Then there is a non-zero $t \\in \\mathbb{Z}^{n}$ with $At = 0$ and\n\n$$|t_b| \\le nB \\quad \\text{for every } b.$$\n\nMathlib's Siegel lemma (`Int.Matrix.exists_ne_zero_int_vec_norm_le`) bounds the solution by $(n \\max(1, \\|A\\|))^{m/(n-m)}$; with at least twice as many unknowns as equations the exponent is at most one, and this is the linear form used by the auxiliary-function constructions of the four and six exponentials theorems.",
+ "created_at": "2026-09-27T07:58:09.795978+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Siegel's lemma, as in S. Lang, Introduction to Transcendental Numbers (1966), ch. I §2, here in the form of Mathlib's `Int.Matrix.exists_ne_zero_int_vec_norm_le`. Formal proof: Diaz modulus mission, 27 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

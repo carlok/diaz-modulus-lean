@@ -32,3 +32,9 @@ tex/*.fdb_latexmk
 
 # Palomar Comparator tool cache
 .cache/
+
+# Blueprint build output (leanblueprint web / pdf)
+blueprint/web/
+blueprint/print/
+blueprint/lean_decls
+blueprint/src/web.paux

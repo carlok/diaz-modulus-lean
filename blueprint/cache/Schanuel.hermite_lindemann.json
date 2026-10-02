@@ -1,0 +1,24 @@
+{
+ "theorem_id": "f88819a5-647b-4cbb-854b-5c8bbfe23d70",
+ "theorem_name": "Schanuel.hermite_lindemann",
+ "theorem_title": "Hermite–Lindemann theorem",
+ "status": "Proved",
+ "formal_statement": "namespace Schanuel\ntheorem hermite_lindemann (a : ℂ) (ha : IsAlgebraic ℚ a) (ha0 : a ≠ 0) :\n    Transcendental ℚ (Complex.exp a) := by sorry\nend Schanuel",
+ "natural_language_statement": "**Hermite–Lindemann theorem.** If $\\alpha$ is a nonzero complex number that is algebraic over $\\mathbb{Q}$, then $e^{\\alpha}$ is transcendental over $\\mathbb{Q}$: no nonzero polynomial with rational coefficients vanishes at $e^{\\alpha}$.\n\nProved by Lindemann in 1882, extending Hermite's 1873 proof of the transcendence of $e$. Applied to $\\alpha = i\\pi$, together with $e^{i\\pi} = -1$, it yields the transcendence of $\\pi$.",
+ "created_at": "2026-09-15T17:31:11.422362+00:00",
+ "tags": [
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "F. Lindemann, Über die Zahl π, Mathematische Annalen 20 (1882), 213–225; see also A. Baker, Transcendental Number Theory, CUP, 1975, Theorem 1.4",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": {
+  "readback": "> **⚠️ Provenance: this read-back is non-blind.** It was written by the same agent that drafted the Lean statement it describes, at the explicit instruction of the proposal owner — not by an independent auditor working from the code alone with a fresh context. It is self-testimony, not independent testimony, and a reviewer should not give it the evidential weight of a blind read-back.\n\nThe statement is quantified over a single complex number $\\alpha$.\n\n**Hypotheses.** (i) $\\alpha$ is algebraic over $\\mathbb{Q}$: there is a nonzero polynomial with rational coefficients having $\\alpha$ as a root. (ii) $\\alpha \\neq 0$.\n\n**Conclusion.** $e^{\\alpha}$ is transcendental over $\\mathbb{Q}$, where $e^{\\cdot}$ is the complex exponential: no nonzero polynomial with rational coefficients has $e^{\\alpha}$ as a root. Equivalently, $e^{\\alpha}$ is not algebraic over $\\mathbb{Q}$.\n\n**Scope.** $\\alpha$ ranges over all of $\\mathbb{C}$, not only the reals, and the algebraicity is over the rationals, not over any larger field. The hypotheses are satisfiable (for instance $\\alpha = 1$), so the statement is not vacuous.",
+  "model": "Aristotle (Harmonic)",
+  "created_at": "2026-09-15T17:31:19.658412+00:00"
+ }
+}

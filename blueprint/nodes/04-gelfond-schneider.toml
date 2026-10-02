@@ -1,0 +1,127 @@
+# Chapter 4. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "Gelfond–Schneider"
+text = '''
+The Gelfond--Schneider theorem in logarithmic form, by Gel'fond's method, and the transcendence of $e^{\pi}$. The Lean proof restructures the formalisation of M.~Karatarakis and F.~Wiedijk \cite{KW26} (Apache 2.0), which the library first carried as a single module of 5,388 lines. It is now a tree of eleven results, 1,409 lines in all: two tools of Chapter~\ref{chap:02-tools}, Lemmas~\ref{lem:liouville_house} and~\ref{lem:expSum_first_nonvanishing}; the eight steps of Gel'fond's method below; and Theorem~\ref{thm:gelfond_schneider}. Lemma~\ref{lem:deriv_upper} goes through the grid estimate of Lemma~\ref{lem:expPoly_grid_estimate}, which the four exponentials development shares.
+
+Unless said otherwise, $K$ is a number field, $\sigma\colon K\to\C$ a field embedding and $\alpha',\beta',\gamma'\in K$; sums over $a,b$ run over $1\le a,b\le q$.
+'''
+
+[[node]]
+platform = "GelfondSchneider.common_field"
+title = "One number field"
+statement = '''
+Let $l,\beta\in\C$ with $\beta$, $e^{l}$ and $e^{\beta l}$ algebraic. There are a number field $K$, a field embedding $\sigma\colon K\to\C$ and $\alpha',\beta',\gamma'\in K$ with $\sigma(\alpha')=e^{l}$, $\sigma(\beta')=\beta$ and $\sigma(\gamma')=e^{\beta l}$.
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+sketch = '''
+Take $K=\Q(e^{l},\beta,e^{\beta l})$ and its inclusion in $\C$.
+'''
+
+[[node]]
+platform = "GelfondSchneider.system_entry_house_le"
+title = "Entries of the linear system"
+statement = '''
+Let $m\ge1$. There is $C\ge1$ such that for all $n\ge1$ and $q$ with $q^{2}=2mn$, all $1\le a,b\le q$, $1\le j\le m$ and $k<n$,
+\[ \houseof{(a+b\beta')^{k}\alpha'^{\,aj}\gamma'^{\,bj}}\le C^{n}n^{(n-1)/2}. \]
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+
+[[node]]
+platform = "GelfondSchneider.aux_coeffs"
+title = "Gel'fond's auxiliary function"
+statement = '''
+Let $\alpha',\gamma'\neq0$ and $m\ge1$. There is $C\ge1$ such that for all $n\ge1$ and $q$ with $q^{2}=2mn$ there are algebraic integers $\eta_{ab}\in\mathcal{O}_K$, not all zero, with $\houseof{\eta_{ab}}\le C^{n}n^{(n+1)/2}$ and
+\[ \sum_{a,b}\eta_{ab}(a+b\beta')^{k}\alpha'^{\,aj}\gamma'^{\,bj}=0\qquad(1\le j\le m,\ 0\le k<n). \]
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+sketch = '''
+There are $q^{2}=2mn$ unknowns and $mn$ equations, so Mathlib's Siegel lemma over $\mathcal{O}_K$ applies with exponent one once denominators are cleared; Lemma~\ref{lem:system_entry_house_le} bounds the entries.
+'''
+
+[[node]]
+platform = "GelfondSchneider.deriv_identity"
+title = "Derivatives at the integers"
+statement = '''
+Let $K$ be any field, $\sigma\colon K\to\C$ a ring homomorphism, and $l,\beta\in\C$ with $\sigma(\beta')=\beta$, $\sigma(\alpha')=e^{l}$ and $\sigma(\gamma')=e^{\beta l}$. For $\eta_{ab}\in K$ put $E(z)=\sum_{a,b}\sigma(\eta_{ab})e^{(a+b\beta)lz}$. Then for all $k,j\in\N$
+\[ E^{(k)}(j)=l^{k}\,\sigma\Bigl(\sum_{a,b}\eta_{ab}(a+b\beta')^{k}\alpha'^{\,aj}\gamma'^{\,bj}\Bigr). \]
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+sketch = '''
+Differentiate term by term: $e^{(a+b\beta)lj}=\sigma(\alpha'^{\,aj}\gamma'^{\,bj})$.
+'''
+
+[[node]]
+platform = "GelfondSchneider.rho_denominator"
+title = "A common denominator"
+statement = '''
+Let $m\in\N$. There is an integer $D\neq0$ such that for all $n,q,r,l_0$ with $n\ge1$, $q^{2}=2mn$, $n\le r$ and $1\le l_0\le m$, and all $\eta_{ab}\in\mathcal{O}_K$, the number
+\[ D^{r}\sum_{a,b}\eta_{ab}(a+b\beta')^{r}\alpha'^{\,al_0}\gamma'^{\,bl_0} \]
+is an algebraic integer.
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+sketch = '''
+The powers of $\alpha'$, $\beta'$ and $\gamma'$ that occur have exponents at most linear in $r$, since $q\le q^{2}=2mn\le2mr$.
+'''
+
+[[node]]
+platform = "GelfondSchneider.rho_house_le"
+title = "House of the first non-zero derivative"
+statement = '''
+Let $m\ge1$ and $C_0\ge1$. There is $C\ge1$ such that whenever $n\ge1$, $q^{2}=2mn$, $n\le r$, $1\le l_0\le m$, and $\eta_{ab}\in\mathcal{O}_K$ satisfy $\houseof{\eta_{ab}}\le C_0^{n}n^{(n+1)/2}$,
+\[ \houseof{\sum_{a,b}\eta_{ab}(a+b\beta')^{r}\alpha'^{\,al_0}\gamma'^{\,bl_0}}\le C^{r}r^{\,r+3/2}. \]
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+
+[[node]]
+platform = "GelfondSchneider.deriv_upper"
+title = "Upper bound for the first non-zero derivative"
+statement = '''
+Let $l,\beta\in\C$, $m\ge1$ and $C_0\ge1$. There is $C\ge1$ with the following property. Let $n\ge1$, $q^{2}=2mn$, $n\le r$ and $1\le l_0\le m$, and let $E(z)=\sum_{a,b}c_{ab}e^{(a+b\beta)lz}$ with $c_{ab}\in\C$, $|c_{ab}|\le C_0^{n}n^{(n+1)/2}$. If $E^{(k)}(j)=0$ for all $1\le j\le m$ and $k<r$, then
+\[ |E^{(r)}(l_0)|\le C^{r}r^{\,r(3-m)/2+3/2}. \]
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+sketch = '''
+Lemma~\ref{lem:expPoly_grid_estimate} for the one-dimensional grid of the points $1,\dots,m$: the zeros of order $r$ at all of them, $l_0$ included, give the factor $r^{-rm/2}$.
+'''
+
+[[node]]
+platform = "GelfondSchneider.main_estimate"
+title = "Gel'fond's main estimate"
+statement = '''
+Let $K$ have degree $h$, let $l\in\C$, $l\neq0$, and let $\beta\in\C\setminus\Q$, with $\sigma(\alpha')=e^{l}$, $\sigma(\beta')=\beta$ and $\sigma(\gamma')=e^{\beta l}$. There is $C\ge1$ such that for every $N\in\N$ there is an integer $r\ge\max(N,1)$ with
+\[ r^{(r-3h)/2}\le C^{r}. \]
+'''
+source = '''A step of Gel'fond's proof \cite{Gel34}.'''
+sketch = '''
+Take $m=2h+2$ and the auxiliary function of Lemma~\ref{lem:aux_coeffs}; its frequencies are distinct because $\beta\notin\Q$. Lemma~\ref{lem:expSum_first_nonvanishing} gives a first non-zero derivative $E^{(r)}(l_0)$, which by Lemma~\ref{lem:deriv_identity} is $l^{r}$ times the image of an element of $K$. Lemmas~\ref{lem:rho_denominator}, \ref{lem:rho_house_le} and~\ref{lem:liouville_house} bound it from below, and Lemma~\ref{lem:deriv_upper} from above.
+'''
+
+[[node]]
+platform = "Schanuel.gelfond_schneider"
+root = true
+env = "theorem"
+title = "Gelfond–Schneider"
+statement = '''
+Let $l\in\C$, $l\neq0$, with $e^{l}$ algebraic, and let $\beta$ be an algebraic number that is not rational. Then $e^{\beta l}$ is transcendental.
+'''
+source = '''Gel'fond \cite{Gel34} and Schneider \cite{Sch34}, Hilbert's seventh problem; see \cite[Theorem 2.1]{Bak75}.'''
+sketch = '''
+If $e^{\beta l}$ were algebraic, Lemma~\ref{lem:common_field} would put $e^{l}$, $\beta$ and $e^{\beta l}$ in one number field, and Lemma~\ref{lem:main_estimate} would give $r^{(r-3h)/2}\le C^{r}$ for arbitrarily large $r$, which is false.
+'''
+
+[[node]]
+platform = "e_pi_transcendence"
+root = true
+env = "theorem"
+title = 'Transcendence of $e^{\pi}$'
+from_lean = true
+note = "the page text is a question with commentary, not a statement"
+statement = '''
+The number $e^{\pi}$ is transcendental.
+'''
+source = '''Gel'fond (1929).'''
+sketch = '''
+Theorem~\ref{thm:gelfond_schneider} with $l=i\pi$ and $\beta=-i$: $e^{i\pi}=-1$ is algebraic, and $e^{\beta l}=e^{\pi}$.
+'''

@@ -1,0 +1,21 @@
+{
+ "theorem_id": "88a49c67-0ede-4536-a0bb-9287b4baff0b",
+ "theorem_name": "Transcendence.liouville_house",
+ "theorem_title": "Liouville's inequality in house form, with an integer denominator",
+ "status": "Proved",
+ "formal_statement": "open NumberField\n\nnamespace Transcendence\n\ntheorem liouville_house {K : Type*} [Field K] [NumberField K] {α : K} (hα : α ≠ 0)\n    {c : ℤ} (hc : c ≠ 0) (hcα : IsIntegral ℤ ((c : K) * α)) (σ : K →+* ℂ) :\n    1 ≤ |(c : ℝ)| ^ Module.finrank ℚ K * ‖σ α‖ * house α ^ (Module.finrank ℚ K - 1) := by\n  sorry\n\nend Transcendence\n",
+ "natural_language_statement": "Let $K$ be a number field of degree $d$, let $\\sigma : K \\to \\mathbb C$ be an embedding, and let $\\alpha \\in K$ be non-zero. If $c\\,\\alpha$ is an algebraic integer for some non-zero integer $c$, then\n\n$$1 \\le |c|^{d}\\,|\\sigma(\\alpha)|\\,\\overline{|\\alpha|}^{\\,d-1},$$\n\nwhere $\\overline{|\\alpha|}$ is the house of $\\alpha$, the largest absolute value of its conjugates.\n\nThe norm of $c\\alpha$ is a non-zero integer, and its absolute value is at most $|\\sigma(c\\alpha)|$ times the product of the other $d-1$ conjugates. With $c = 1$ this is the usual lower bound for a non-zero algebraic integer at one embedding. It is the arithmetic half of Gelfond's proof of the Gelfond–Schneider theorem.",
+ "created_at": "2026-09-24T20:04:14.478093+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Standard (Liouville's inequality). Formal proof: Diaz modulus mission, 24 September 2026 (C. Perassi); the step appears in the formalization of the Gelfond-Schneider theorem by M. Karatarakis and F. Wiedijk, A formalization of the Gelfond-Schneider theorem, arXiv:2603.24823 (2026), mathlib4 fork at commit cb781672 (Apache 2.0).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

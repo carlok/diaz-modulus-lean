@@ -1,0 +1,22 @@
+{
+ "theorem_id": "58990e61-4127-41a3-b61f-f9254333c532",
+ "theorem_name": "GelfondSchneider.aux_coeffs",
+ "theorem_title": "Gelfond's auxiliary function: small integral coefficients by Siegel's lemma",
+ "status": "Proved",
+ "formal_statement": "open NumberField\n\nnamespace GelfondSchneider\n\ntheorem aux_coeffs (K : Type*) [Field K] [NumberField K] (α' β' γ' : K)\n    (hα' : α' ≠ 0) (hγ' : γ' ≠ 0) (m : ℕ) (hm : 0 < m) :\n    ∃ C : ℝ, 1 ≤ C ∧ ∀ n q : ℕ, 0 < n → q ^ 2 = 2 * m * n →\n      ∃ η : Fin q → Fin q → 𝓞 K, η ≠ 0 ∧\n        (∀ a b, house (η a b : K) ≤ C ^ n * (n : ℝ) ^ (((n : ℝ) + 1) / 2)) ∧\n        ∀ j : ℕ, 1 ≤ j → j ≤ m → ∀ k < n, ∑ a : Fin q, ∑ b : Fin q,\n          (η a b : K) * (((a : ℕ) + 1 : K) + ((b : ℕ) + 1 : K) * β') ^ k *\n            α' ^ (((a : ℕ) + 1) * j) * γ' ^ (((b : ℕ) + 1) * j) = 0 := by\n  sorry\n\nend GelfondSchneider\n",
+ "natural_language_statement": "Let $K$ be a number field, $\\alpha', \\beta', \\gamma' \\in K$ with $\\alpha', \\gamma' \\ne 0$, and $m \\ge 1$. There is a constant $C \\ge 1$ such that for all $n \\ge 1$ and $q$ with $q^2 = 2mn$ there are algebraic integers $\\eta_{ab} \\in \\mathcal O_K$ ($1 \\le a, b \\le q$), not all zero, with houses at most $C^{n} n^{(n+1)/2}$, such that\n\n$$\\sum_{a,b} \\eta_{ab}\\,(a + b\\beta')^{k}\\,\\alpha'^{\\,aj}\\,\\gamma'^{\\,bj} = 0 \\qquad (1 \\le j \\le m,\\ 0 \\le k < n).$$\n\nThere are $q^2 = 2mn$ unknowns and $mn$ equations, so Siegel's lemma over $\\mathcal O_K$ applies with exponent one; the system's entries are bounded by `GelfondSchneider.system_entry_house_le` after clearing denominators.",
+ "created_at": "2026-09-24T20:05:27.986157+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "gelfond-schneider",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Known: A. O. Gelfond (1934), T. Schneider (1934); this step of Gelfond's proof. Formal proof: Diaz modulus mission, 24 September 2026 (C. Perassi), restructuring the formalization by M. Karatarakis and F. Wiedijk, A formalization of the Gelfond-Schneider theorem, arXiv:2603.24823 (2026), mathlib4 fork at commit cb781672 (Apache 2.0).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

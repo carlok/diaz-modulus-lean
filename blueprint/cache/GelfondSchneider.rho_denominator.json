@@ -1,0 +1,22 @@
+{
+ "theorem_id": "cd68ef56-23e3-4b24-9858-0f3a3818c994",
+ "theorem_name": "GelfondSchneider.rho_denominator",
+ "theorem_title": "A common denominator for the first non-zero derivative",
+ "status": "Proved",
+ "formal_statement": "open NumberField\n\nnamespace GelfondSchneider\n\ntheorem rho_denominator (K : Type*) [Field K] [NumberField K] (α' β' γ' : K)\n    (m : ℕ) :\n    ∃ D : ℤ, D ≠ 0 ∧ ∀ (n q r l₀ : ℕ) (η : Fin q → Fin q → 𝓞 K),\n      0 < n → q ^ 2 = 2 * m * n → n ≤ r → 1 ≤ l₀ → l₀ ≤ m →\n      IsIntegral ℤ ((D : K) ^ r * ∑ a : Fin q, ∑ b : Fin q, (η a b : K) *\n          (((a : ℕ) + 1 : K) + ((b : ℕ) + 1 : K) * β') ^ r *\n          α' ^ (((a : ℕ) + 1) * l₀) * γ' ^ (((b : ℕ) + 1) * l₀)) := by\n  sorry\n\nend GelfondSchneider\n",
+ "natural_language_statement": "Let $K$ be a number field, $\\alpha', \\beta', \\gamma' \\in K$ and $m \\in \\mathbb N$. There is a non-zero integer $D$ such that for all $n$, $q$, $r$, $l_0$ with $n \\ge 1$, $q^2 = 2mn$, $n \\le r$ and $1 \\le l_0 \\le m$, and all $\\eta_{ab} \\in \\mathcal O_K$,\n\n$$D^{r} \\sum_{a,b} \\eta_{ab}\\,(a + b\\beta')^{r}\\,\\alpha'^{\\,a l_0}\\,\\gamma'^{\\,b l_0}$$\n\nis an algebraic integer. The exponent of the denominator grows linearly in $r$ because $q \\le q^2 = 2mn \\le 2mr$.",
+ "created_at": "2026-09-24T20:05:15.092309+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "gelfond-schneider",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Known: A. O. Gelfond (1934), T. Schneider (1934); this step of Gelfond's proof. Formal proof: Diaz modulus mission, 24 September 2026 (C. Perassi), restructuring the formalization by M. Karatarakis and F. Wiedijk, A formalization of the Gelfond-Schneider theorem, arXiv:2603.24823 (2026), mathlib4 fork at commit cb781672 (Apache 2.0).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

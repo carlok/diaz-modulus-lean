@@ -1,0 +1,21 @@
+{
+ "theorem_id": "3b96e024-7747-4dc5-92bd-7e2392eba335",
+ "theorem_name": "FourExp.exists_int_norm",
+ "theorem_title": "Norms from a finite extension of ℚ(ω) to ℚ(ω), with size control",
+ "status": "Proved",
+ "formal_statement": "namespace FourExp\n\ntheorem exists_int_norm (ω ω₁ : ℂ) (Q : Polynomial (Polynomial ℤ)) (hQm : Q.Monic)\n    (hQroot : Polynomial.eval₂ (Polynomial.eval₂RingHom (Int.castRingHom ℂ) ω) ω₁ Q = 0)\n    (hQmin : ∀ A : Polynomial (Polynomial ℤ), A.natDegree < Q.natDegree →\n      Polynomial.eval₂ (Polynomial.eval₂RingHom (Int.castRingHom ℂ) ω) ω₁ A = 0 → A = 0) :\n    ∃ c : ℕ, ∀ (Pol : Polynomial (Polynomial ℤ)) (b e : ℕ), Pol.natDegree < Q.natDegree →\n      ∑ k ∈ Pol.support, ∑ i ∈ (Pol.coeff k).support, ((Pol.coeff k).coeff i).natAbs ≤ b →\n      (∀ k, (Pol.coeff k).natDegree ≤ e) →\n      Polynomial.eval₂ (Polynomial.eval₂RingHom (Int.castRingHom ℂ) ω) ω₁ Pol ≠ 0 →\n      ∃ P : Polynomial ℤ, P ≠ 0 ∧\n        ∑ i ∈ P.support, (P.coeff i).natAbs ≤ (c * b) ^ Q.natDegree ∧\n        P.natDegree ≤ Q.natDegree * (e + c) ∧\n        ‖Polynomial.aeval ω P‖ ≤\n          ‖Polynomial.eval₂ (Polynomial.eval₂RingHom (Int.castRingHom ℂ) ω) ω₁ Pol‖ *\n            (((c * b : ℕ) : ℝ) * max 1 ‖ω‖ ^ e) ^ Q.natDegree := by\n  sorry\n\nend FourExp\n",
+ "natural_language_statement": "Let $Q \\in \\mathbb{Z}[X][Y]$ be monic in $Y$ of degree $d$, vanishing at $(\\omega, \\omega_1)$ and minimal there: no non-zero polynomial of $Y$-degree less than $d$ vanishes at $(\\omega, \\omega_1)$. There is $c$ such that for every $\\mathrm{Pol} \\in \\mathbb{Z}[X][Y]$ of $Y$-degree less than $d$, length at most $b$ and $X$-degree at most $e$, with $\\mathrm{Pol}(\\omega, \\omega_1) \\neq 0$, there is $P \\in \\mathbb{Z}[X]$, $P \\neq 0$, with length at most $(cb)^{d}$, degree at most $d(e + c)$, and\n\n$$|P(\\omega)| \\le |\\mathrm{Pol}(\\omega, \\omega_1)|\\,\\big(c\\,b\\,\\max(1, |\\omega|)^{e}\\big)^{d}.$$\n\n$P$ is the determinant of multiplication by $\\mathrm{Pol}$ on $\\mathbb{Z}[X][Y]/(Q)$ in the basis $1, Y, \\dots, Y^{d-1}$: the norm from $\\mathbb{Q}(\\omega, \\omega_1)$ to $\\mathbb{Q}(\\omega)$, up to the denominators. No hypothesis on $\\omega$ is needed.",
+ "created_at": "2026-09-25T16:44:07.770429+00:00",
+ "tags": [
+  "four-exponentials",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "The core of the proof of Lemma 7 of M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202. Formal proof: Diaz modulus mission, 25 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

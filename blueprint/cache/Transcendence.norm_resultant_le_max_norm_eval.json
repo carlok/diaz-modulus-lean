@@ -1,0 +1,22 @@
+{
+ "theorem_id": "2a14f6ae-4226-47c6-a9ba-10c45a47e70b",
+ "theorem_name": "Transcendence.norm_resultant_le_max_norm_eval",
+ "theorem_title": "A Liouville inequality through the resultant: |Res(F, G)| is controlled by max(|F(θ)|, |G(θ)|)",
+ "status": "Proved",
+ "formal_statement": "namespace Transcendence\n\n/-- A Liouville inequality through the resultant.\n\nLet `F, G ∈ ℂ[X]` have Mahler measures at least `1`. Then at every point `θ`,\n`|Res(F, G)| ≤ 2^(deg F · deg G) · M(F)^(deg G) · M(G)^(deg F) · max(|F(θ)|, |G(θ)|)`.\n\nLet `α₁` be the root of `F` or `G` nearest to `θ`, say a root of `F`. Writing the resultant as\n`a^(deg G) ∏ G(α)` over the roots `α` of `F`, the factor `G(α₁)` is at most `2^(deg G) |G(θ)|`,\nbecause every root `β` of `G` has `|α₁ - β| ≤ 2 |θ - β|`, and each other factor `G(α)` is at most\n`2^(deg G) max(1, |α|)^(deg G) M(G)`. If neither polynomial has a root, both are constants and the\nresultant is `1 ≤ M(F) = |F(θ)|`. This is the complex form of the inequality of Roy–Waldschmidt\n(1997), Corollary 3.7, proved as in their Lemma 3.4: when `F, G ∈ ℤ[X]` are coprime, the resultant\nis a non-zero integer and the right-hand side is at least `1`. -/\ntheorem norm_resultant_le_max_norm_eval (F G : Polynomial ℂ) (hF : 1 ≤ F.mahlerMeasure)\n    (hG : 1 ≤ G.mahlerMeasure) (θ : ℂ) :\n    ‖F.resultant G‖ ≤ 2 ^ (F.natDegree * G.natDegree) * F.mahlerMeasure ^ G.natDegree *\n      G.mahlerMeasure ^ F.natDegree * max ‖F.eval θ‖ ‖G.eval θ‖ := by\n  sorry\n\nend Transcendence\n",
+ "natural_language_statement": "Let $F, G \\in \\mathbb{C}[X]$ have Mahler measures $M(F), M(G) \\ge 1$. Then for every $\\theta \\in \\mathbb{C}$,\n\n$$|\\operatorname{Res}(F, G)| \\le 2^{\\deg F \\deg G}\\, M(F)^{\\deg G}\\, M(G)^{\\deg F}\\, \\max\\big(|F(\\theta)|, |G(\\theta)|\\big).$$\n\nResultant and Mahler measure are Mathlib's `Polynomial.resultant` and `Polynomial.mahlerMeasure`. When $F, G \\in \\mathbb{Z}[X]$ are non-zero and coprime, the resultant is a non-zero integer and both Mahler measures are at least $1$, so the right-hand side is at least $1$: this is Corollary 3.7 of Roy–Waldschmidt (1997).",
+ "created_at": "2026-09-27T07:58:32.814704+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "polynomials",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "D. Roy and M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. École Norm. Sup. (4) 30 (1997), 753–796, Corollary 3.7, in the complex form of their Lemma 3.4; they describe the inequality as well known and cite W. D. Brownawell (J. Number Theory 6, 1974), A. O. Gel'fond (Transcendental and Algebraic Numbers, 1952) and R. Tijdeman (Indag. Math. 33, 1971). Formal proof: Diaz modulus mission, 27 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
