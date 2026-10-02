@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.15, 1 October 2026}
+\date{September 2026\\[2pt]\small Version 1.16, 2 October 2026}
 
 \begin{document}
 \maketitle
@@ -48,8 +48,8 @@
 \begin{abstract}
 Diaz asked whether a non-zero complex number can be a logarithm of an algebraic
 number and have algebraic modulus. We give a short formal development of the question. All but
-two of the numbered statements below have been checked by machine, four of them with Baker's theorem
-on linear forms in logarithms taken as a hypothesis, and the two exceptions are flagged
+two of the numbered statements below have been checked by machine, together with Baker's theorem
+on linear forms in logarithms, which four of them use, and the two exceptions are flagged
 where they appear; Appendix~A records where each proof lives, so that any claim here can be
 verified rather than taken.
 
@@ -113,10 +113,12 @@ Three classical inputs are used without proof. \emph{Hermite--Lindemann}: for al
 $a\neq0$, $\e^{a}$ is transcendental. \emph{Transcendence of $\pi$}, and hence of $\pi^{2}$.
 \emph{Baker's theorem}, in its inhomogeneous form: if $\lambda_{1},\dots,\lambda_{n}\in\Logs$ are
 linearly independent over $\Q$, then $1,\lambda_{1},\dots,\lambda_{n}$ are linearly independent over
-$\Alg$. Unlike the first two, it has no machine-checked proof here: the formal statements of
-Proposition~\ref{prop:no-deriv}, Theorems~\ref{thm:line} and~\ref{thm:saturation},
-Corollary~\ref{cor:api} and the case of Waldschmidt's question in Section~\ref{sec:ceiling} take it,
-or its instance at $u$ and $\bar u$, as an explicit hypothesis.
+$\Alg$. Since version 1.16 it is machine-checked too, along the route of Bertrand and
+Masser~\cite{bertrand-masser} through the criterion of Schneider--Lang~\cite[Ch.~4]{waldschmidt-book}.
+Proposition~\ref{prop:no-deriv}, Theorems~\ref{thm:line} and~\ref{thm:saturation} and
+Corollary~\ref{cor:api} were first proved with it, or its instance at $u$ and $\bar u$, as an explicit
+hypothesis, and now also without; the case of Waldschmidt's question in Section~\ref{sec:ceiling}
+still carries it, beside Roy's theorem.
 Three further classical theorems enter in the results added in version 1.1, and all three are
 machine-checked: the Gel'fond--Schneider theorem, in the formalisation of Karatarakis and
 Wiedijk~\cite{karatarakis-wiedijk}; the six exponentials theorem; and the four exponentials
@@ -1254,6 +1256,54 @@ Neither corollary was found in the sources read. Each follows in a few lines fro
 exponentials theorem in transcendence degree one~\cite[Corollaire~4]{waldschmidt-1973},
 \cite[Theorem~1]{roy-waldschmidt-1995}, here through Theorem~\ref{thm:pair}.
 
+\subsection*{Products on the axes}
+
+The matrix of Theorem~\ref{thm:pair} has a sibling that reads the argument of a product instead of a
+ratio of moduli.
+
+\begin{proposition}\label{prop:axis-products}
+Let $\lambda,\mu\in\Logs\setminus\{0\}$ with $\trdeg_{\Q}\Q(\lambda,\bar\lambda,\mu,\bar\mu)\le1$. If
+$\lambda\mu$ is real, then $\lambda$ and $\mu$ are both real, or both purely imaginary, or
+$\mu\in\Q\bar\lambda$. If $\lambda\mu$ is purely imaginary, one of $\lambda,\mu$ is real and the
+other purely imaginary.
+\end{proposition}
+
+\begin{proof}
+If $\lambda\mu$ is real, the matrix $\begin{pmatrix}\lambda&\bar\lambda\\ \bar\mu&\mu\end{pmatrix}$
+has non-zero entries in $\Logs$ and determinant $\lambda\mu-\overline{\lambda\mu}=0$. A row relation
+gives $\mu\in\Q\bar\lambda$. A column relation gives $\bar\lambda=q\lambda$ and $\mu=q\bar\mu$, and
+$|q|=1$ forces $q=\pm1$. If $\lambda\mu$ is purely imaginary, the matrix
+$\begin{pmatrix}\lambda&\bar\lambda\\ -\bar\mu&\mu\end{pmatrix}$ has determinant
+$\lambda\mu+\overline{\lambda\mu}=0$; a row relation forces $\mu=0$, and a column relation puts
+$\lambda$ and $\mu$ on different axes.
+\end{proof}
+
+With $\lambda=\bar\ell_{0}$ and $\mu=\ell_{1}$, $\lambda\mu=|\ell_{0}|^{2}\,\ell_{1}/\ell_{0}$, so the
+product lies on an axis exactly when the quotient does. That turns the proposition into Diaz's
+conjecture (Qr2)~\cite[p.~376]{diaz-2007} in transcendence degree one. Diaz derives (Qr2) from the
+four exponentials conjecture with the same matrix~\cite[p.~377]{diaz-2007}.
+
+\begin{theorem}\label{thm:qr2}
+Let $\ell_{0},\ell_{1}\in\Logs$, neither real nor purely imaginary, with
+$\trdeg_{\Q}\Q(\ell_{0},\bar\ell_{0},\ell_{1},\bar\ell_{1})\le1$. If $\ell_{1}/\ell_{0}$ is real or
+purely imaginary, then $\ell_{1}/\ell_{0}\in\Q$.
+\end{theorem}
+
+For a candidate the hypothesis on the transcendence degree holds for every $\mu$ algebraic over
+$\Q(u)$, since $\bar u=\rho/u$, and $u$ lies on neither axis, by Hermite--Lindemann.
+
+\begin{corollary}\label{cor:axis-partner}
+Let $u$ be a candidate and $\mu\in\Logs\setminus\{0\}$ algebraic over $\Q(u)$. Then $u\mu$ is real if
+and only if $\mu\in\Q\bar u$, and $u\mu$ is never purely imaginary.
+\end{corollary}
+
+Diaz quotes the four exponentials theorem in transcendence degree one on p.~386 of~\cite{diaz-2007}
+but does not combine it with (Qr2); his Corollaire~6(2) proves (Qr2) when $\ell_{1}/\ell_{0}\in\aLogs$
+instead. The combination was not found in the sources read. Under Schanuel's conjecture the
+hypothesis of Theorem~\ref{thm:qr2} never holds off the axes, so these statements, like
+Theorem~\ref{thm:pair}, constrain configurations that are not known to be impossible, and
+Corollary~\ref{cor:axis-partner} is vacuous if Conjecture~\ref{conj:diaz} holds.
+
 \subsection*{Two candidates, and the six exponentials theorem}
 
 Theorem~\ref{thm:dim} says the six exponentials theorem cannot refute one candidate: its
@@ -1482,8 +1532,12 @@ indépendance algébrique de logarithmes}, Ann. Sci. École Norm. Sup. (4) \text
 753--796.
 \bibitem{roy-1992} D.~Roy, \emph{Matrices whose coefficients are linear forms in logarithms},
 J. Number Theory \textbf{41} (1992), 22--47.
+\bibitem{baker-1966} A.~Baker, \emph{Linear forms in the logarithms of algebraic numbers~I},
+Mathematika \textbf{13} (1966), 204--216.
+\bibitem{bertrand-masser} D.~Bertrand and D.~W.~Masser, \emph{Linear forms in elliptic
+integrals}, Invent. Math. \textbf{58} (1980), 283--288.
 \bibitem{brownawell-1974} W.~D.~Brownawell, \emph{The algebraic independence of certain numbers
-related to the exponential function}, J. Number Theory \textbf{6} (1974), 22--31.
+related by the exponential function}, J. Number Theory \textbf{6} (1974), 22--31.
 \bibitem{waldschmidt-1973} M.~Waldschmidt, \emph{Solution du huitième problème de Schneider},
 J. Number Theory \textbf{5} (1973), 191--202.
 \bibitem{waldschmidt-1971} M.~Waldschmidt, \emph{Indépendance algébrique des valeurs de la
@@ -1513,8 +1567,8 @@ Art.~110753.
 \appendix
 \section{Machine-checked certificates}\label{app:certs}
 
-Every numbered statement above but two has been checked in a formal development, four of them with
-Baker's theorem as a hypothesis, in Lean~4 against a pinned revision of its mathematical library. The table records where each one lives, so
+Every numbered statement above but two has been checked in a formal development, together with
+Baker's theorem, which four of them use, in Lean~4 against a pinned revision of its mathematical library. The table records where each one lives, so
 that any claim in this note can be verified rather than taken on trust. The environment is stated
 here once and nowhere else.
 
@@ -1526,7 +1580,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.15 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.16 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1553,8 +1607,12 @@ day, three consequences of the strong four and strong five exponentials conjectu
 with those conjectures as hypotheses; corrects item~(2) of Section~\ref{sec:what}, which compared
 it with the strong four exponentials conjecture of 1988 as though it were Conjecture~\ref{conj:sfe};
 and notes that the homogeneous conjecture on logarithms cannot see a generic candidate either.
-Every row of the table below was checked against the platform by script on 1 October 2026, and
-the mirrored project held all 307 proved results of the development at that date.
+Version 1.16 adds, on 2 October 2026, Proposition~\ref{prop:axis-products},
+Theorem~\ref{thm:qr2} and Corollary~\ref{cor:axis-partner}: Diaz's (Qr2) in transcendence degree
+one. Baker's theorem is now machine-checked, so the four rows that assumed it name unconditional
+forms and read Proved; and the title of Brownawell's 1974 paper is corrected.
+Every row of the table below was checked against the platform by script on 2 October 2026, and
+the mirrored project held all 340 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1568,9 +1626,9 @@ parts of a candidate are each transcendental
 (\nolinkurl{DiazModulus.candidate_re_transcendental},
 \nolinkurl{DiazModulus.candidate_im_transcendental}).
 
-A \textbf{Proved} row means the statement itself has a machine-checked proof. A \textbf{Proved, assuming Baker}
-row means the proof is machine-checked with Baker's theorem (Section~1), or an instance of it, taken as an
-explicit hypothesis, because the library used contains no proof of Baker's theorem. An \textbf{Open}
+A \textbf{Proved} row means the statement itself has a machine-checked proof. Until version 1.15 four
+rows read \textbf{Proved, assuming Baker}: their proofs took Baker's theorem as a hypothesis. Baker's
+theorem is now machine-checked, and those rows name the unconditional forms. An \textbf{Open}
 row means the statement is recorded formally but not proved; every such row here is an open
 conjecture. A \textbf{Not formalised} row means what it says: the statement is proved in this note and has no formal counterpart at all.
 Corollary~\ref{cor:translate} and Proposition~\ref{prop:loop} are flagged that way. The row of
@@ -1637,7 +1695,7 @@ Thm~\ref{thm:S0}(c) & Proved & \nolinkurl{DiazModulus.recip_pi_not_log_real_or_i
 \S\ref{sec:quant}, $\e^{i/\pi}$ or $\e^{i\pi^{3}}$ & Proved & \nolinkurl{DiazModulus.exp_i_div_pi_or_exp_i_pi_cube_transcendental} \\
 \S\ref{sec:quant}, real half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_real_gamma} \\
 \S\ref{sec:quant}, imaginary half of $(S)$ & Open (conjecture) & \nolinkurl{DiazModulus.recip_pi_not_log_imag_gamma} \\
-Prop.~\ref{prop:no-deriv} & Proved, assuming Baker & \nolinkurl{DiazModulus.no_first_order_arithmetic_operator} (hypothesis: $1,u,\bar u$ are linearly independent over $\Alg$) \\
+Prop.~\ref{prop:no-deriv} & Proved & \nolinkurl{DiazModulus.no_first_order_arithmetic_operator_unconditional} \\
 Prop.~\ref{prop:kronecker} & Proved & \nolinkurl{DiazModulus.kronecker_factorisation} \\
 Prop.~\ref{prop:geometric} & Proved & \nolinkurl{DiazModulus.geometric_triple_not_logs} \\
 Cor.~\ref{cor:epi2} & Proved & \nolinkurl{DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental} \\
@@ -1649,7 +1707,7 @@ Cor.~\ref{cor:epi2} & Proved & \nolinkurl{DiazModulus.exp_pi_sq_or_exp_i_pi_cube
 \S\ref{sec:map}, $2^{\pi}$, $3^{\pi}$ or $5^{\pi}$ & Proved & \nolinkurl{DiazModulus.two_three_five_pow_pi_transcendental} \\
 \S\ref{sec:map}, $\e^{\lambda^{2}/\mu}$ or $\e^{\mu^{2}/\lambda}$ & Proved & \nolinkurl{DiazModulus.log_square_duality} \\
 \S\ref{sec:map}, $2^{\log_{3}2}$ or $3^{\log_{2}3}$ & Proved & \nolinkurl{DiazModulus.two_pow_log_three_or_three_pow_log_two} \\
-Thm~\ref{thm:line} & Proved, assuming Baker & \nolinkurl{DiazModulus.no_algebraic_generalized_line} (hypothesis: Baker's theorem for two logarithms) \\
+Thm~\ref{thm:line} & Proved & \nolinkurl{DiazModulus.no_algebraic_generalized_line_unconditional} \\
 Rem.~\ref{rem:line-cheap} & Proved & \nolinkurl{DiazModulus.candidate_no_real_algebraic_line} \\
 Cor.~\ref{cor:distance} & Proved & \nolinkurl{DiazModulus.candidate_distance_transcendental} \\
 Thm~\ref{thm:multiplier} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
@@ -1664,22 +1722,28 @@ Cor.~\ref{cor:monomial} & Proved & \nolinkurl{DiazModulus.candidate_monomial_not
 \S\ref{sec:outside}, harmonic mean & Proved & \nolinkurl{DiazModulus.candidate_harmonic_not_log} \\
 Cor.~\ref{cor:rational-orbit} & Proved & \nolinkurl{DiazModulus.nongeneric_rational_modulus_orbit} \\
 Cor.~\ref{cor:torsion-unique} & Proved & \nolinkurl{DiazModulus.torsion_rational_modulus_unique}, \nolinkurl{DiazModulus.log_two_log_three_not_both_rational} \\
+Prop.~\ref{prop:axis-products} & Proved & \nolinkurl{DiazModulus.log_mul_real_trichotomy_of_trdeg_one}, \nolinkurl{DiazModulus.log_mul_imaginary_mixed_of_trdeg_one} \\
+Thm~\ref{thm:qr2} & Proved & \nolinkurl{DiazModulus.diaz_2007_qr2_of_trdeg_one} \\
+Cor.~\ref{cor:axis-partner} & Proved & \nolinkurl{DiazModulus.candidate_log_mul_real_iff_rat_conj} \\
 Thm~\ref{thm:multipliers} & Proved & \nolinkurl{DiazModulus.log_ratio_multipliers} \\
 \S\ref{sec:outside}, the two lemmas & Proved & \nolinkurl{DiazModulus.candidate_conj_product_rational}, \nolinkurl{DiazModulus.conj_ratio_multiplier_relation} \\
 Thm~\ref{thm:quotient} & Proved & \nolinkurl{DiazModulus.candidate_quotient_rigid} \\
 Cor.~\ref{cor:sidon} & Proved & \nolinkurl{DiazModulus.candidate_product_relation_trivial} \\
 \S\ref{sec:outside}, $(-1)^{u/\bar u}$ & Proved & \nolinkurl{DiazModulus.candidate_neg_one_pow_ratio} \\
-Thm~\ref{thm:saturation} & Proved, assuming Baker & \nolinkurl{DiazModulus.candidate_one_log_saturation} (hypothesis: Baker's theorem for two logarithms) \\
-Cor.~\ref{cor:api} & Proved, assuming Baker & \nolinkurl{DiazModulus.candidate_one_log_saturation} (the same hypothesis) \\
+Thm~\ref{thm:saturation} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation_unconditional} \\
+Cor.~\ref{cor:api} & Proved & \nolinkurl{DiazModulus.candidate_one_log_saturation_unconditional} \\
 Prop.~\ref{prop:kernel} & Proved & \nolinkurl{DiazModulus.candidate_vanishing_ideal} \\
 Hermite--Lindemann & Proved & \nolinkurl{DiazModulus.hermite_lindemann_holds} \\
+Baker's theorem & Proved & \nolinkurl{Schanuel.baker_linear_forms_in_logarithms}, \nolinkurl{DiazModulus.baker_two_logs} \\
 \end{longtable}
 \end{center}
 
 Two entries need a word. Hermite--Lindemann is used freely in the text as classical; it is listed
 because the library used does not contain it, so it had to be established rather than cited. The
 same holds for Gel'fond--Schneider, which is proved on the platform in another mission, from the
-formalisation of Karatarakis and Wiedijk, and is mirrored in the project. And
+formalisation of Karatarakis and Wiedijk, and is mirrored in the project. Baker's theorem is listed
+for the same reason~\cite{baker-1966}; it is proved in this mission, along Chapter~4
+of~\cite{waldschmidt-book}, and the board's own statement of it is the node closed there. And
 the statement $(\mathrm{NT})$ of Proposition~\ref{prop:loop} was contributed by another
 participant in the same development, independently of the work reported here; the equivalence
 with Conjecture~\ref{conj:diaz} is what is established above.
