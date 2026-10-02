@@ -5,8 +5,8 @@ applies them to one open problem: Diaz's conjecture that a non-zero logarithm of
 has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
-method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, zero counts for exponential
-polynomials, and the theorems they prove. All 307 results build in CI and depend only on Lean's three
+method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
+exponential polynomials, and the theorems they prove. All 340 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -33,6 +33,9 @@ with a dependency graph, links to the Lean source and a PDF.
 | one of `e^e`, `e^{e²}` is transcendental (Schneider's eighth problem) | Waldschmidt 1973, Brownawell 1974 | `Transcendence.exp_e_or_exp_e_sq_transcendental` | this project |
 | Roy's lemma on singular spaces of matrices | D. Roy (Dasgupta–Kakde II, Thm 2.2; a stronger form is DALAG Prop. 12.5) | `Transcendence.singular_matrix_subspace_annihilating_pair` | this project |
 | Waldschmidt's transcendence criterion; zero counts for exponential polynomials | Waldschmidt 1971 | `Diaz.transcendence_criterion`, `Diaz.expPoly_zero_count` | this project |
+| Baker's theorem: `1` and ℚ-independent logarithms of algebraic numbers are linearly independent over Q̄ | Baker 1966; the route of Bertrand–Masser 1980, as in DALAG Ch. 4 | `Transcendence.baker_linear_forms_in_logarithms` | this project |
+| the criterion of Schneider–Lang for `ℂ^{d₀} × (ℂ^×)^{d₁}` with `d₀ ≤ 1` | Schneider 1949, Lang 1966; this form is DALAG Cor. 4.2 | `Transcendence.schneider_lang_cartesian` | this project |
+| a Schwarz lemma for Cartesian products | DALAG Prop. 4.7 | `Transcendence.cartesian_schwarz` | this project |
 
 Some results carry a conjecture as an explicit hypothesis: the strong four, sharp four and strong five
 exponentials conjectures. Others carry Roy's strong six exponentials theorem, which is proved in the
@@ -589,6 +592,33 @@ degree budget absorbs them. Three consequences follow:
 
 No new mathematics is claimed for any of them.
 
+### Baker's theorem, by Schneider–Lang in several variables
+
+Twenty-five nodes of 2 October 2026 prove Baker's theorem in its qualitative, inhomogeneous form: if
+`l₁, …, lₙ` are logarithms of algebraic numbers, linearly independent over `ℚ`, then
+`b₀ + b₁l₁ + ⋯ + bₙlₙ ≠ 0` for algebraic `b₀, …, bₙ` not all zero. On the platform this is
+`Schanuel.baker_linear_forms_in_logarithms`, which had been Open; here it is
+`Transcendence.baker_linear_forms_in_logarithms`. The route is the one Bertrand and Masser found (1980),
+as Waldschmidt writes it in Chapter 4 of *Diophantine Approximation on Linear Algebraic Groups*:
+
+- `Transcendence.schneider_lang_cartesian` — the criterion of Schneider–Lang for `ℂ^{d₀} × (ℂ^×)^{d₁}`
+  with `d₀ ≤ 1` (the book's Corollary 4.2), proved directly as in §4.6: Siegel's lemma, Liouville's
+  inequality, a Schwarz lemma, and the first derivative that does not vanish. No zero estimate is needed.
+- `Transcendence.cartesian_schwarz` — a Schwarz lemma for Cartesian products (the book's Proposition 4.7),
+  from one-variable Hermite division, telescoped over the coordinates. Mixed derivatives are lists of
+  directions, matched with `iteratedFDeriv` by `Transcendence.partials_eq_iteratedFDeriv`.
+- `Transcendence.baker_number_field_basis` — the book's Theorem 4.5: Baker's theorem for a basis of a
+  number field, through its trace form.
+- `DiazModulus.baker_two_logs` — the two-logarithm form that the nodes below had assumed as `hB`.
+
+Step 5 of §4.6 needed a repair: vanishing to a given order in each coordinate does not survive the change
+of variables the proof makes, while vanishing to a given total order does; only the constants change. A
+survey of other provers on 1 October 2026 found no machine-checked proof of qualitative Baker, of
+Schneider–Lang in several variables, or of the Cartesian Schwarz lemma. The 25 proofs total 3,320 lines;
+the largest is 261.
+
+No new mathematics is claimed.
+
 ### Consequences of Roy's strong six exponentials theorem
 
 Ten nodes carry Roy's strong six exponentials theorem as the hypothesis `hSSE`, in the form of
@@ -661,6 +691,34 @@ Three nodes of 2026-10-01, each carrying a conjecture as a hypothesis:
   and `e^{π²}` are transcendental (Waldschmidt 2005).
 
 No new mathematics is claimed for these three.
+
+### Diaz's (Qr2) in transcendence degree one
+
+Four nodes of 2 October 2026, from the four exponentials theorem in transcendence degree one:
+
+- `DiazModulus.log_mul_real_trichotomy_of_trdeg_one` and `DiazModulus.log_mul_imaginary_mixed_of_trdeg_one`
+  — for non-zero logarithms `λ, μ` such that `λ, λ̄, μ, μ̄` generate a field of transcendence degree at
+  most one: a real product `λμ` has both factors real, both purely imaginary, or `μ ∈ ℚλ̄`; a purely
+  imaginary product has one factor on each axis.
+- `DiazModulus.diaz_2007_qr2_of_trdeg_one` — Diaz's conjecture (Qr2) (2007, p. 376) in transcendence
+  degree one: for logarithms `ℓ₀, ℓ₁` off both axes, a real or purely imaginary `ℓ₁/ℓ₀` is rational.
+- `DiazModulus.candidate_log_mul_real_iff_rat_conj` — for a candidate `u` and a logarithm `μ` algebraic
+  over `ℚ(u)`: `uμ` is real exactly when `μ ∈ ℚū`, and it is never purely imaginary.
+
+They are immediate from Diaz 2007, who proves (Qr2) from the four exponentials conjecture with the same
+2×2 matrix and quotes the theorem in transcendence degree one without combining the two. The
+transcendence-degree-one form was not found in the sources read.
+
+### Baker's theorem as a hypothesis, discharged
+
+With Baker's theorem proved, four nodes of 2 October 2026 drop it:
+
+- `DiazModulus.no_algebraic_generalized_line_unconditional`;
+- `DiazModulus.candidate_one_log_saturation_unconditional`, which drops Hermite–Lindemann as a hypothesis
+  too;
+- `DiazModulus.no_first_order_arithmetic_operator_unconditional`, through
+  `DiazModulus.candidate_qbar_independent_one_u_conj`: for a candidate `u`, the numbers `1, u, ū` are
+  linearly independent over `Q̄`, which is Baker's theorem at a candidate.
 
 ### A barrier: the four exponentials conjecture sees nothing homogeneous
 
@@ -980,7 +1038,8 @@ should not have to.
   differential operator, and its interpolation matrix on a Cartesian
   lattice factors as a Kronecker product with non-zero determinant.
   Neither needed real analysis in the end. The first is Baker's theorem,
-  carried as an explicit hypothesis, plus the fact that a polynomial
+  carried as an explicit hypothesis until Baker's theorem was proved here
+  (`no_first_order_arithmetic_operator_unconditional`), plus the fact that a polynomial
   vanishing on `ℤ²` is zero; the second is `Matrix.det_kronecker` and a
   Vandermonde determinant. The first is stated for polynomial
   coefficients, where the note states it for rational functions regular

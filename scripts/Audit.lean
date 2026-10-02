@@ -32,3 +32,14 @@ import Solution
 #print axioms DiazRigidity.exists_algHom_of_transcendental
 #print axioms DiazRigidity.no_vanishing_coeff_matrix
 #print axioms DiazRigidity.coeff_indistinguishable
+-- 2026-10-02: Baker's theorem by Schneider–Lang (E12), Diaz's (Qr2) in transcendence degree one (R2),
+-- and the unconditional forms of the nodes that had carried Baker as a hypothesis (R3)
+#print axioms Transcendence.baker_linear_forms_in_logarithms
+#print axioms Transcendence.schneider_lang_cartesian
+#print axioms Transcendence.cartesian_schwarz
+#print axioms Diaz.baker_two_logs
+#print axioms Diaz.diaz_2007_qr2_of_trdeg_one
+#print axioms Diaz.candidate_log_mul_real_iff_rat_conj
+#print axioms Diaz.no_algebraic_generalized_line_unconditional
+#print axioms Diaz.candidate_one_log_saturation_unconditional
+#print axioms Diaz.no_first_order_arithmetic_operator_unconditional

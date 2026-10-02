@@ -40,7 +40,7 @@ PREFIXES = ("Diaz.", "DiazModulus.", "FourExp.", "Transcendence.", "GelfondSchne
 # account's submissions are archived for them: the other mission's reductions are not ours to keep.
 EXTRA_NODES = ("Schanuel.six_exponentials", "Schanuel.hermite_lindemann",
                "Schanuel.lindemann_weierstrass", "Schanuel.gelfond_schneider",
-               "e_pi_transcendence")
+               "Schanuel.baker_linear_forms_in_logarithms", "e_pi_transcendence")
 OPEN = ARCHIVE / "open"
 OPEN_PREFIXES = ("FourExp.",)
 OPEN_README = """# Open statements
