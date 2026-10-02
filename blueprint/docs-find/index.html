@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lean declaration</title>
+<style>
+  body { font-family: system-ui, sans-serif; line-height: 1.5; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; color: #222; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #ddd; background: #181818; } a { color: #8ab4f8; } }
+</style>
+</head>
+<body>
+<!--
+  The blueprint's Lean links point to docs/find/#doc/<name>, where doc-gen4 would answer.
+  Until there are doc-gen4 pages, this page is served there instead: it looks the name up
+  in decls.json (written by scripts/gen_blueprint.py) and goes to the line on GitHub that
+  declares it. The workflow copies blueprint/docs-find/ to docs/find/ in the site.
+-->
+<p id="message">Looking up the Lean declaration…</p>
+<noscript><p>This page needs JavaScript. The Lean sources are at
+<a href="https://github.com/carlok/diaz-modulus-lean">github.com/carlok/diaz-modulus-lean</a>.</p></noscript>
+<script>
+(function () {
+  var repo = "https://github.com/carlok/diaz-modulus-lean";
+  var message = document.getElementById("message");
+  function fallback(text) {
+    var link = document.createElement("a");
+    link.href = repo;
+    link.textContent = "the repository";
+    message.textContent = text + " The Lean sources are in ";
+    message.appendChild(link);
+    message.appendChild(document.createTextNode("."));
+  }
+  function go() {
+    var m = /^#doc\/(.+)$/.exec(location.hash);
+    if (!m) { fallback("No Lean declaration was named."); return; }
+    var name = m[1];
+    try { name = decodeURIComponent(name); } catch (e) {}
+    fetch("decls.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function (decls) {
+        if (Object.prototype.hasOwnProperty.call(decls, name)) location.replace(decls[name]);
+        else fallback("This blueprint has no Lean declaration called " + name + ".");
+      })
+      .catch(function () { fallback("The list of Lean declarations could not be loaded."); });
+  }
+  window.addEventListener("hashchange", go);
+  go();
+})();
+</script>
+</body>
+</html>
