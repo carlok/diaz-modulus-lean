@@ -17,7 +17,7 @@ The notation is that of Chapter~\ref{chap:06-four-exponentials}. The \emph{colum
 \leanok
 If $x_1,x_2,y_1,y_2$ satisfy the column hypotheses, then they have presentation data.
 
-\emph{Source:} The reduction to $\omega$ in the proof of the Théorème, \cite[p.~196]{W73}.
+{\small\emph{Source:} The reduction to $\omega$ in the proof of the Théorème, \cite[p.~196]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -36,7 +36,7 @@ Let $x_1,x_2,y_1,y_2,\omega,\omega_1\in\C$, let $\varphi$ be evaluation at $(\om
 Then there are $P_{ijh}\in\Z[X][Y]$ ($i<S$, $j,h<T$), of length at most $c^{c(1+m+S)}(1+m+S+T+a+b)^{c(1+m+S)}L$ and of degree at most $c(1+m+S)+\delta$ in $X$ and in $Y$, such that for all $f_{ijh}\in\C$
 \[ \varphi(D)^{m+S}\,\Lambda_1\cdot\frac{d^{m}}{dz^{m}}\Bigl(\sum_{i,j,h}f_{ijh}\,z^{i}e^{(jx_1+hx_2)z}\Bigr)\Big|_{z=ay_1+by_2}=\sum_{i,j,h}f_{ijh}\,\varphi(P_{ijh}). \]
 
-\emph{Source:} The presentation step that the proofs of \cite[Lemmes 4 and 7]{W73} share between the four exponentials case and the case of one algebraic column; the derivatives are expanded as in \cite[(7), p.~197]{W73}.
+{\small\emph{Source:} The presentation step that the proofs of \cite[Lemmes 4 and 7]{W73} share between the four exponentials case and the case of one algebraic column; the derivatives are expanded as in \cite[(7), p.~197]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -50,9 +50,11 @@ Leibniz's rule; $\varphi(D)^{m+S}$ clears the denominators of $jx_1+hx_2$ and of
 \label{lem:exists_iteratedDeriv_presentation_column}
 \lean{Diaz.exists_iteratedDeriv_presentation_column}
 \leanok
-Let $x_1,x_2,y_1,y_2\in\C$ with $e^{x_1y_2}$ and $e^{x_2y_2}$ algebraic, and let $\omega,\omega_1$, $\varphi$ and $D,E_i,G_j,H_{ij}$ be as in Lemma~\ref{lem:exists_iteratedDeriv_presentation}. There is $c\in\N$ such that for all $S,T,a,b,m\in\N$ there are $\Lambda\neq0$ with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$ and $P_{ijh}\in\Z[X][Y]$ ($i<S$, $j,h<T$), of length at most $c^{\,c(1+m+S+T(a+b))}(1+m+S+T+a+b)^{c(1+m+S)}$ and of degree at most $c(1+m+S+Ta)$ in $X$ and in $Y$, for which the identity of Lemma~\ref{lem:exists_iteratedDeriv_presentation} holds for all $f_{ijh}\in\C$.
+Let $x_1,x_2,y_1,y_2\in\C$ with $e^{x_1y_2}$ and $e^{x_2y_2}$ algebraic, and let $\omega,\omega_1$, $\varphi$ and $D,E_i,G_j,H_{ij}$ be as in Lemma~\ref{lem:exists_iteratedDeriv_presentation}. There is $c\in\N$ such that for all $S,T,a,b,m\in\N$ there are $\Lambda\neq0$ with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$ and $P_{ijh}\in\Z[X][Y]$ ($i<S$, $j,h<T$), of degree at most $c(1+m+S+Ta)$ in $X$ and in $Y$ and of length at most
+\[ c^{\,c(1+m+S+T(a+b))}\,(1+m+S+T+a+b)^{c(1+m+S)}, \]
+for which the identity of Lemma~\ref{lem:exists_iteratedDeriv_presentation} holds for all $f_{ijh}\in\C$.
 
-\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}, pp.~197 and 200.
+{\small\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}, pp.~197 and 200.}
 \end{lemma}
 
 \begin{proof}
@@ -68,7 +70,7 @@ At $ay_1+by_2$ the exponential factor is $(e^{x_1y_1})^{ja}(e^{x_1y_2})^{jb}(e^{
 \leanok
 In the setting of Lemma~\ref{lem:exists_iteratedDeriv_presentation_column}, let moreover $Q\in\Z[X][Y]$ be monic in $Y$ with $\varphi(Q)=0$. Then the conclusion of Lemma~\ref{lem:exists_iteratedDeriv_reduced_presentation} holds with the $X$-degree bound $M+c(1+m+S+Ta)$ in place of $M+c(1+m+S)$.
 
-\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}, pp.~197 and 200.
+{\small\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}, pp.~197 and 200.}
 \end{lemma}
 
 \begin{proof}
@@ -84,7 +86,7 @@ From Lemma~\ref{lem:exists_iteratedDeriv_presentation_column}, reducing modulo $
 \leanok
 Let $x_1,x_2,y_1,y_2,\omega,\omega_1\in\C$ and $Q\in\Z[X][Y]$, and suppose that the derivatives of the functions $F_q$ have reduced presentations as in the conclusion of Lemma~\ref{lem:exists_iteratedDeriv_reduced_presentation_column}. Then the conclusion of Lemma~\ref{lem:aux_linear_system} holds, with $d=\deg_YQ$.
 
-\emph{Source:} The equation count of \cite[Lemme 4]{W73}, pp.~197--198.
+{\small\emph{Source:} The equation count of \cite[Lemme 4]{W73}, pp.~197--198.}
 \end{lemma}
 
 \begin{proof}
@@ -100,7 +102,7 @@ As for Lemma~\ref{lem:aux_linear_system}, with the bounds of Lemma~\ref{lem:exis
 \leanok
 Let $x_1,x_2,y_1,y_2,\omega,\omega_1\in\C$ and $Q\in\Z[X][Y]$ with $d=\deg_YQ\ge1$, such that no non-zero $A\in\Z[X][Y]$ with $\deg_YA<d$ vanishes at $(\omega,\omega_1)$, and suppose that the derivatives of the functions $F_q$ have reduced presentations as in the conclusion of Lemma~\ref{lem:exists_iteratedDeriv_reduced_presentation_column}. Then the conclusion of Lemma~\ref{lem:auxiliary_function_alg} holds.
 
-\emph{Source:} \cite[Lemme 4]{W73}, pp.~197--198, with Siegel's lemma, Lemme 1 there.
+{\small\emph{Source:} \cite[Lemme 4]{W73}, pp.~197--198, with Siegel's lemma, Lemme 1 there.}
 \end{lemma}
 
 \begin{proof}
@@ -116,7 +118,7 @@ Lemma~\ref{lem:aux_linear_system_column}, then Lemma~\ref{lem:siegel_aux}.
 \leanok
 Let $x_1,x_2,y_1,y_2,\omega,\omega_1\in\C$ and let $Q\in\Z[X][Y]$ be monic in $Y$ with $Q(\omega,\omega_1)=0$ and minimal there, and suppose that the derivatives of the functions $F_q$ have reduced presentations as in the conclusion of Lemma~\ref{lem:exists_iteratedDeriv_reduced_presentation_column}. Then the conclusion of Lemma~\ref{lem:norm_to_polynomial_alg} holds.
 
-\emph{Source:} \cite[Lemme 7]{W73}, pp.~200--201.
+{\small\emph{Source:} \cite[Lemme 7]{W73}, pp.~200--201.}
 \end{lemma}
 
 \begin{proof}
@@ -132,7 +134,7 @@ As for Lemma~\ref{lem:norm_to_polynomial_alg}, with the norm of Lemma~\ref{lem:e
 \leanok
 If $x_1,x_2,y_1,y_2$ satisfy the column hypotheses, then the conclusion of Lemma~\ref{lem:construction_core_1973} holds.
 
-\emph{Source:} \cite[Lemmes 4, 5 and 7]{W73}, with the parameters of p.~196.
+{\small\emph{Source:} \cite[Lemmes 4, 5 and 7]{W73}, with the parameters of p.~196.}
 \end{lemma}
 
 \begin{proof}
@@ -148,7 +150,7 @@ Lemmas~\ref{lem:trdeg_one_presentation_column}, \ref{lem:exists_iteratedDeriv_re
 \leanok
 Let $x_1,x_2,y_1,y_2$ satisfy the column hypotheses. Then there are a transcendental $\omega$, and functions $\sigma_1,\sigma_2$ and constants $a_1,a_2\ge1$ satisfying the hypotheses of Theorem~\ref{thm:transcendence_criterion}, such that for every $C$ and every large $N$ there are natural numbers $S,T,R_1,R_2,S'$, coefficients $c(i,j,h)\in\C$ ($i<S$, $j,h<T$), not all zero, and $\lambda>0$ with the two properties listed in Lemma~\ref{lem:auxiliary_construction}, for these $x_1,x_2,y_1,y_2$.
 
-\emph{Source:} \cite[Lemmes 4, 5 and 7]{W73}, with the growth functions of p.~201, and the count that \cite[Lemme 6]{W73} needs for the zero estimate \cite[\S4, Lemme 3]{W71}.
+{\small\emph{Source:} \cite[Lemmes 4, 5 and 7]{W73}, with the growth functions of p.~201, and the count that \cite[Lemme 6]{W73} needs for the zero estimate \cite[\S4, Lemme 3]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -164,7 +166,7 @@ Lemma~\ref{lem:construction_core_column}, with the growth functions of Lemma~\re
 \leanok
 Let $x_1,x_2,y_1,y_2$ satisfy the column hypotheses. Then there are a transcendental $\omega\in\C$, functions $\sigma_1,\sigma_2$ and constants $a_1,a_2\ge1$ satisfying the hypotheses of Theorem~\ref{thm:transcendence_criterion}, such that for every $C\in\R$ there is $N_0$ and for every $N>N_0$ a polynomial $P_N\in\Z[X]$ that is small at $\omega$ for $(N,C)$ with respect to $\sigma_1,\sigma_2$.
 
-\emph{Source:} \cite[Lemmes 4--7]{W73}, with the zero estimate \cite[\S4, Lemme 3]{W71} in place of Gel'fond's zero lemma in Lemme 6.
+{\small\emph{Source:} \cite[Lemmes 4--7]{W73}, with the zero estimate \cite[\S4, Lemme 3]{W71} in place of Gel'fond's zero lemma in Lemme 6.}
 \end{lemma}
 
 \begin{proof}
@@ -184,7 +186,7 @@ Let $x_1,x_2$ be complex numbers linearly independent over $\Q$, and $y_1,y_2$ c
 \[ x_1,\ x_2,\ y_1,\ y_2,\ e^{x_1y_1},\ e^{x_1y_2},\ e^{x_2y_1},\ e^{x_2y_2} \]
 are algebraically independent over $\Q$.
 
-\emph{Source:} Waldschmidt \cite[Théorème, p.~192]{W73}; found independently by Brownawell \cite{Bro74}.
+{\small\emph{Source:} Waldschmidt \cite[Théorème, p.~192]{W73}; found independently by Brownawell \cite{Bro74}.}
 \end{theorem}
 
 \begin{proof}
@@ -200,7 +202,7 @@ Suppose not. One of $x_1$, $y_2$ is transcendental by Theorem~\ref{thm:hermite_l
 \leanok
 At least one of the numbers $e^{e}$ and $e^{e^{2}}$ is transcendental.
 
-\emph{Source:} The problem: Schneider \cite{Sch57}, as quoted in \cite[p.~191]{W73}. The solution: \cite[p.~192]{W73}, the case $r=1$ of the solution of Schneider's problem, deduced from Corollaire 1; found independently by Brownawell \cite{Bro74}.
+{\small\emph{Source:} The problem: Schneider \cite{Sch57}, as quoted in \cite[p.~191]{W73}. The solution: \cite[p.~192]{W73}, the case $r=1$ of the solution of Schneider's problem, deduced from Corollaire 1; found independently by Brownawell \cite{Bro74}.}
 \end{theorem}
 
 \begin{proof}

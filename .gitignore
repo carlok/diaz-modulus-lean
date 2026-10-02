@@ -38,3 +38,7 @@ blueprint/web/
 blueprint/print/
 blueprint/lean_decls
 blueprint/src/web.paux
+blueprint/src/print.pdf
+blueprint/src/*.fls
+blueprint/src/*.fdb_latexmk
+blueprint/src/*.xdv

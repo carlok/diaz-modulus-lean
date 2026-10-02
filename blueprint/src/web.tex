@@ -1,8 +1,4 @@
-% This file makes a web version of the blueprint
-% It should include all the \usepackage needed for this version.
-% The template includes standard AMS packages.
-% It is otherwise a very minimal preamble (you should probably at least
-% add cleveref and tikz-cd).
+% The web version of the blueprint (leanblueprint web). The print version is print.tex.
 
 \documentclass{report}
 
@@ -13,15 +9,27 @@
 
 \input{macros/common}
 \input{macros/web}
+\input{macros/stats}
 
 \home{https://carlok.github.io/diaz-modulus-lean/}
 \github{https://github.com/carlok/diaz-modulus-lean}
 \dochome{https://carlok.github.io/diaz-modulus-lean/docs}
 
-\title{Transcendence theory in Lean 4: the classical theorems}
+\title{Transcendence theory in Lean 4}
 \author{Carlo Perassi}
 
 \begin{document}
 \maketitle
+
+% The landing page. extra_styles.css sets this paragraph as the subtitle and the list as a
+% row of facts; macros/stats.tex is written by scripts/gen_blueprint.py.
+Classical transcendence theory in Lean 4 and Mathlib, from Hermite--Lindemann to the four exponentials theorem in transcendence degree one.
+
+\begin{itemize}
+\item \blueprintresults{} results
+\item all proved
+\item Lean's three axioms
+\end{itemize}
+
 \input{content}
 \end{document}

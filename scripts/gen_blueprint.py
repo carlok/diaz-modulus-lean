@@ -25,6 +25,7 @@ Inputs
 
 Outputs
   blueprint/src/content.tex and blueprint/src/chapters/*.tex. Do not edit them by hand.
+  blueprint/src/macros/stats.tex: \\blueprintresults, the number of results, for web.tex.
   blueprint/docs-find/decls.json: each \\lean{} name and the GitHub URL of the line that
       declares it. The site's Lean links go to docs/find/#doc/<name>, where doc-gen4 would
       answer; until there are doc-gen4 pages, blueprint/docs-find/index.html is served there
@@ -439,7 +440,7 @@ def node_tex(n: Node) -> str:
     out.append(n.statement.strip())
     if n.source.strip():
         out.append("")
-        out.append(f"\\emph{{Source:}} {n.source.strip()}")
+        out.append(f"{{\\small\\emph{{Source:}} {n.source.strip()}}}")
     out.append(f"\\end{{{n.env}}}")
     out.append("")
     out.append("\\begin{proof}")
@@ -455,6 +456,9 @@ def node_tex(n: Node) -> str:
 def render(chapters, references, links) -> dict[Path, str]:
     files: dict[Path, str] = {}
     files[DOCS_FIND / "decls.json"] = json.dumps(dict(sorted(links.items())), indent=1) + "\n"
+    results = sum(len(c.nodes) for c in chapters)
+    files[SRC / "macros" / "stats.tex"] = (GENERATED.format(stem="*") +
+                                          f"\\newcommand{{\\blueprintresults}}{{{results}}}\n")
     inputs = []
     for c in chapters:
         parts = [GENERATED.format(stem=c.stem), f"\\chapter{{{c.title}}}", f"\\label{{chap:{c.stem}}}", ""]

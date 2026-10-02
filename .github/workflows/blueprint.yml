@@ -36,14 +36,22 @@ jobs:
         run: pip install leanblueprint==0.0.20
       - name: Check that the chapters are generated from the current sources
         run: python scripts/gen_blueprint.py --check
+      - name: Build the PDF version
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # 4.1.0
+        with:
+          root_file: print.tex
+          working_directory: blueprint/src
+          latexmk_use_xelatex: true
       - name: Build the web version
         run: leanblueprint web
-      - name: Serve the Lean links from GitHub source lines
+      - name: Add the PDF, and serve the Lean links from GitHub source lines
         # The site's Lean links go to docs/find/#doc/<name>, doc-gen4's search URL. Without
         # doc-gen4 pages, blueprint/docs-find/ answers there and redirects to the declaration.
+        # The header's PDF link (blueprint/src/site.js) points to blueprint.pdf.
         run: |
           mkdir -p blueprint/web/docs/find
           cp -R blueprint/docs-find/. blueprint/web/docs/find/
+          cp blueprint/src/print.pdf blueprint/web/blueprint.pdf
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: blueprint/web

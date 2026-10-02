@@ -236,7 +236,9 @@ source = '''The parameter estimates in the proofs of \cite[Lemmes 4 and 7]{W73}.
 platform = "FourExp.exists_iteratedDeriv_presentation"
 title = "Derivatives at a grid point, presented"
 statement = '''
-Let $x_1,x_2,y_1,y_2\in\C$ with every $e^{x_iy_j}$ algebraic. Let $\omega,\omega_1\in\C$, let $\varphi$ be evaluation at $(\omega,\omega_1)$, and let $D,E_i,G_j,H_{ij}\in\Z[X][Y]$ with $\varphi(D)\neq0$, $x_i\varphi(D)=\varphi(E_i)$, $y_j\varphi(D)=\varphi(G_j)$ and $e^{x_iy_j}\varphi(D)=\varphi(H_{ij})$. There is $c\in\N$ such that for all $S,T,a,b,m\in\N$ there are $\Lambda\in\C$, $\Lambda\neq0$, with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$, and $P_{ijh}\in\Z[X][Y]$ ($i<S$, $j,h<T$) of length at most $c^{\,c(1+m+S+T(a+b))}(1+m+S+T+a+b)^{c(1+m+S)}$ and of degree at most $c(1+m+S)$ in $X$ and in $Y$, such that for all $f_{ijh}\in\C$
+Let $x_1,x_2,y_1,y_2\in\C$ with every $e^{x_iy_j}$ algebraic. Let $\omega,\omega_1\in\C$, let $\varphi$ be evaluation at $(\omega,\omega_1)$, and let $D,E_i,G_j,H_{ij}\in\Z[X][Y]$ with $\varphi(D)\neq0$, $x_i\varphi(D)=\varphi(E_i)$, $y_j\varphi(D)=\varphi(G_j)$ and $e^{x_iy_j}\varphi(D)=\varphi(H_{ij})$. There is $c\in\N$ such that for all $S,T,a,b,m\in\N$ there are $\Lambda\in\C$, $\Lambda\neq0$, with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$, and $P_{ijh}\in\Z[X][Y]$ ($i<S$, $j,h<T$) of degree at most $c(1+m+S)$ in $X$ and in $Y$ and of length at most
+\[ c^{\,c(1+m+S+T(a+b))}\,(1+m+S+T+a+b)^{c(1+m+S)}, \]
+such that for all $f_{ijh}\in\C$
 \[ \Lambda\cdot\frac{d^{m}}{dz^{m}}\Bigl(\sum_{i,j,h}f_{ijh}\,z^{i}e^{(jx_1+hx_2)z}\Bigr)\Big|_{z=ay_1+by_2}=\sum_{i,j,h}f_{ijh}\,\varphi(P_{ijh}). \]
 '''
 source = '''A step of the proofs of \cite[Lemmes 4 and 7]{W73}.'''
@@ -248,7 +250,9 @@ Expand the derivative by Leibniz's rule. The powers of the algebraic numbers $e^
 platform = "FourExp.exists_iteratedDeriv_reduced_presentation"
 title = "Reduced presentations"
 statement = '''
-In the setting of Lemma~\ref{lem:exists_iteratedDeriv_presentation}, let moreover $Q\in\Z[X][Y]$ be monic in $Y$ with $\varphi(Q)=0$. There is $c\in\N$ such that for all $S,T,M,a,b,m\in\N$ there are $\Lambda\neq0$ with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$ and $R_{ijh\mu\nu}\in\Z[X][Y]$ ($i<S$, $j,h<T$, $\mu<M$, $\nu<\deg_YQ$) of $Y$-degree less than $\deg_YQ$, length at most $c^{\,c(1+m+S+T(a+b))}(1+m+S+T+a+b)^{c(1+m+S)}$ and $X$-degree at most $M+c(1+m+S)$, such that for every integer array $q$
+In the setting of Lemma~\ref{lem:exists_iteratedDeriv_presentation}, let moreover $Q\in\Z[X][Y]$ be monic in $Y$ with $\varphi(Q)=0$. There is $c\in\N$ such that for all $S,T,M,a,b,m\in\N$ there are $\Lambda\neq0$ with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$ and $R_{ijh\mu\nu}\in\Z[X][Y]$ ($i<S$, $j,h<T$, $\mu<M$, $\nu<\deg_YQ$) of $Y$-degree less than $\deg_YQ$ and $X$-degree at most $M+c(1+m+S)$, and of length at most
+\[ c^{\,c(1+m+S+T(a+b))}\,(1+m+S+T+a+b)^{c(1+m+S)}, \]
+such that for every integer array $q$
 \[ \Lambda\,F_q^{(m)}(ay_1+by_2)=\varphi\Bigl(\sum_{i,j,h,\mu,\nu}q(i,j,h,\mu,\nu)\,R_{ijh\mu\nu}\Bigr), \]
 where $F_q$ is formed with $T$ in place of $2N$.
 '''

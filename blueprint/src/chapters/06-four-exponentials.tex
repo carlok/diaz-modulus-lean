@@ -27,7 +27,7 @@ Given functions $\sigma_1,\sigma_2$, a polynomial $P\in\Z[X]$ is \emph{small at 
 \leanok
 Let $P\in\Z[X]$ be non-zero and let $Q\in\Z[X]$ divide $P$. If every coefficient of $P$ has absolute value at most $H$, then every coefficient of $Q$ has absolute value at most $e^{\deg P}H$.
 
-\emph{Source:} \cite[\S3, Lemme 1]{W71} (Gel'fond; a generalisation of a lemma of Popken and Koksma).
+{\small\emph{Source:} \cite[\S3, Lemme 1]{W71} (Gel'fond; a generalisation of a lemma of Popken and Koksma).}
 \end{lemma}
 
 \begin{proof}
@@ -44,7 +44,7 @@ Let $\alpha\in\C$ be transcendental and let $P\in\Z[X]$ be primitive, with every
 \[ |Q(\alpha)|<H^{-(\lambda-6)n/s},\qquad\deg Q\le n/s, \]
 and every coefficient of $Q$ of absolute value at most $H^{1/s}e^{2n/s}$.
 
-\emph{Source:} \cite[\S3, Lemme 2]{W71}, after Gel'fond \cite{Gel52}.
+{\small\emph{Source:} \cite[\S3, Lemme 2]{W71}, after Gel'fond \cite{Gel52}.}
 \end{lemma}
 
 \begin{proof}
@@ -62,7 +62,7 @@ Let $P,Q\in\Z[X]$ with $Q$ irreducible, let $\alpha\in\C$, and let $H,h\ge1$ bou
 \[ \bigl((1+|\alpha|)(d+\delta)\bigr)^{d+\delta}H^{\delta}h^{d}\bigl(|P(\alpha)|+|Q(\alpha)|\bigr)<1, \]
 then $Q$ divides $P$.
 
-\emph{Source:} \cite[\S3, (3.13)]{W71}, citing \cite[Ch.~V, \S2]{Lang66}.
+{\small\emph{Source:} \cite[\S3, (3.13)]{W71}, citing \cite[Ch.~V, \S2]{Lang66}.}
 \end{lemma}
 
 \begin{proof}
@@ -77,7 +77,7 @@ Otherwise $P$ and $Q$ are coprime, and their resultant is a non-zero integer of 
 \leanok
 Let $\alpha\in\C$ and $\varepsilon>0$. There is $U$ such that for all real $u\ge U$ and $1\le v\le u$ the following holds. Let $P,Q\in\Z[X]$ with $Q$ irreducible, the coefficients of $P$ of absolute value at most $e^{u}$ and $\deg P\le v$, the coefficients of $Q$ of absolute value at most $e^{3u}$ and $\deg Q\le(1+\varepsilon/2)v$, and $|P(\alpha)|<e^{-(4+\varepsilon)uv}$, $|Q(\alpha)|<e^{-(4+\varepsilon)uv}$. Then $Q$ divides $P$.
 
-\emph{Source:} A step of the proof of \cite[\S3, Lemme fondamental]{W71}.
+{\small\emph{Source:} A step of the proof of \cite[\S3, Lemme fondamental]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -95,7 +95,7 @@ Let $\alpha\in\C$ and $\varepsilon>0$. Let $\sigma_1,\sigma_2\colon\R\to\R$ be c
 \[ \sigma_2(x)\le\sigma_1(x),\qquad\sigma_i(x+1)\le a_i\,\sigma_i(x)\quad(i=1,2). \]
 Put $C=\max\{10+\varepsilon,(4+\varepsilon)a_1a_2\}$. Suppose that for every integer $N>N_0$ there is a non-zero $P_N\in\Z[X]$ with every coefficient of absolute value at most $e^{\sigma_1(N)}$, $\deg P_N\le\sigma_2(N)$ and $|P_N(\alpha)|<e^{-C\sigma_1(N)\sigma_2(N)}$. Then $\alpha$ is algebraic.
 
-\emph{Source:} \cite[\S3, Lemme fondamental]{W71} and its proof, where continuity of the $\sigma_i$ is assumed without loss of generality.
+{\small\emph{Source:} \cite[\S3, Lemme fondamental]{W71} and its proof, where continuity of the $\sigma_i$ is assumed without loss of generality.}
 \end{lemma}
 
 \begin{proof}
@@ -113,7 +113,7 @@ Let $\alpha\in\C$ and $\varepsilon>0$. Let $\sigma_1,\sigma_2\colon\R\to\R$ be s
 \[ \sigma_2(x)\le\sigma_1(x),\qquad\sigma_i(x+1)\le a_i\,\sigma_i(x)\quad(i=1,2). \]
 Put $C=\max\{10+\varepsilon,(4+\varepsilon)a_1a_2\}$. Suppose that for every integer $N>N_0$ there is a non-zero $P_N\in\Z[X]$ with every coefficient of absolute value at most $e^{\sigma_1(N)}$, $\deg P_N\le\sigma_2(N)$ and $|P_N(\alpha)|<e^{-C\sigma_1(N)\sigma_2(N)}$. Then $\alpha$ is algebraic.
 
-\emph{Source:} \cite[\S3, Lemme fondamental]{W71}, with constant $a_i$ as in Remark 2 there; a refinement of Gel'fond's criterion \cite[Ch.~III, \S4, Lemma VII]{Gel52}.
+{\small\emph{Source:} \cite[\S3, Lemme fondamental]{W71}, with constant $a_i$ as in Remark 2 there; a refinement of Gel'fond's criterion \cite[Ch.~III, \S4, Lemma VII]{Gel52}.}
 \end{theorem}
 
 \begin{proof}
@@ -132,7 +132,7 @@ Replace $\sigma_1,\sigma_2$ by their piecewise linear interpolations between the
 Let $w_1,\dots,w_l\in\C$ be pairwise distinct with $|w_j|\le W$ for some $W\ge0$. For each $j$ let $P_j\in\C[z]$ be zero or of degree less than $q_j$, and put $g(z)=\sum_jP_j(z)e^{w_jz}$ and $n=\sum_jq_j$. Let $R\ge0$. If $|g^{(s)}(0)|\le D$ for every $s<n$, then
 \[ |g(u)|\le n\,(W+1)^{n+1}e^{R(W+1)}D\qquad\text{whenever }|u|\le R. \]
 
-\emph{Source:} \cite[\S4, (4.5)--(4.13)]{W71}.
+{\small\emph{Source:} \cite[\S4, (4.5)--(4.13)]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -149,7 +149,7 @@ Expand $g$ in its Taylor series at $0$ and bound every derivative there with Lem
 Let $f(z)=\sum_{j=1}^{l}\sum_{i<q_j}b_{j,i}z^{i}e^{\omega_jz}$ with pairwise distinct $\omega_j$ and $b_{j,i}$ not all zero; put $n=\sum_jq_j$ and $\Omega=\max_j|\omega_j|$, and suppose $\Omega>0$. Let $z_0\in\C$, $\rho\ge0$, let $S$ be a finite set of points of the disc $|z-z_0|\le\rho$, and put $\sigma=\sum_{z\in S}\ord_zf$ and $x=\rho\Omega$. Then for every $R>x+1$
 \[ \sigma\log\frac{R-x}{x+1}\le\log\Bigl(n!\,2^{n+1}\frac{R}{R-1}\Bigr)+2R. \]
 
-\emph{Source:} \cite[\S4, (4.14)]{W71} and the rescaling that follows it.
+{\small\emph{Source:} \cite[\S4, (4.14)]{W71} and the rescaling that follows it.}
 \end{lemma}
 
 \begin{proof}
@@ -168,7 +168,7 @@ Let $n\ge2$ be an integer and let $x\ge0$, $\lambda>0$ and $\sigma\ge0$ be real.
 then
 \[ \sigma<\frac{n}{\lambda}+2\,\frac{1+n^{\lambda}}{\lambda\log n}\,(1+x). \]
 
-\emph{Source:} After \cite[\S4, (4.14)]{W71}.
+{\small\emph{Source:} After \cite[\S4, (4.14)]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -185,7 +185,7 @@ For every integer $n\ge1$, real $x\ge0$ and $\lambda>0$, and every integer $0\le
 \[ \sigma<\frac{n}{\lambda}+2\,\frac{1+n^{\lambda}}{\lambda\log n}\,(1+x), \]
 where for $n=1$ the second term is read as $0$.
 
-\emph{Source:} Elementary.
+{\small\emph{Source:} Elementary.}
 \end{lemma}
 
 \begin{proof}
@@ -201,7 +201,7 @@ For $n=1$, $\sigma=0<1/\lambda$; for $\lambda\le1$, $n/\lambda\ge n>\sigma$. For
 Let $f$, $n$ and $\Omega$ be as in Lemma~\ref{lem:expPoly_zero_count_scaled}, without the hypothesis $\Omega>0$, and suppose that $n\le1$ or $\Omega=0$. Then for every finite set $S\subset\C$
 \[ \sum_{z\in S}\ord_zf\le n-1. \]
 
-\emph{Source:} Elementary; the degenerate cases of \cite[\S4, Lemme 3]{W71}.
+{\small\emph{Source:} Elementary; the degenerate cases of \cite[\S4, Lemme 3]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -220,7 +220,7 @@ Let $z_0\in\C$, $\rho\ge0$ and $\lambda>0$. Then for every finite set $S$ of poi
 \[ \sum_{z\in S}\ord_zf<\frac{n}{\lambda}+2\,\frac{1+n^{\lambda}}{\lambda\log n}\,(1+\rho\Omega), \]
 where for $n=1$ the second term is read as $0$. No separation between the $\omega_j$ is assumed.
 
-\emph{Source:} \cite[\S4, Lemme 3, (4.2)]{W71}; compare \cite{Tij71}.
+{\small\emph{Source:} \cite[\S4, Lemme 3, (4.2)]{W71}; compare \cite{Tij71}.}
 \end{theorem}
 
 \begin{proof}
@@ -240,7 +240,7 @@ If for some $\lambda>0$
 \[ \frac{n}{\lambda}+2\,\frac{1+n^{\lambda}}{\lambda\log n}\Bigl(1+(R_1|y_1|+R_2|y_2|)\,T(|x_1|+|x_2|)\Bigr)\le R_1R_2S', \]
 then $G^{(s)}(ay_1+by_2)\neq0$ for some $a<R_1$, $b<R_2$ and $s<S'$.
 
-\emph{Source:} \cite[Lemme 6]{W73}, with the zero estimate \cite[\S4, Lemme 3]{W71} in place of Gel'fond's zero lemma.
+{\small\emph{Source:} \cite[Lemme 6]{W73}, with the zero estimate \cite[\S4, Lemme 3]{W71} in place of Gel'fond's zero lemma.}
 \end{lemma}
 
 \begin{proof}
@@ -258,7 +258,7 @@ Otherwise the $R_1R_2$ points $ay_1+by_2$, distinct because $y_1,y_2$ are indepe
 \leanok
 Let $l_{11},l_{12},l_{21},l_{22}$ be non-zero complex numbers with every $e^{l_{ij}}$ algebraic, $l_{11}l_{22}=l_{12}l_{21}$ and $\trdeg_{\Q}\Q[l_{11},l_{12},l_{21},l_{22}]\le1$, and suppose that neither the rows nor the columns of $(l_{ij})$ are linearly dependent over $\Q$. Then there are $x_1,x_2,y_1,y_2\in\C$, with $x_1,x_2$ linearly independent over $\Q$ and likewise $y_1,y_2$, such that every $e^{x_iy_j}$ is algebraic and $\trdeg_{\Q}\Q[x_1,x_2,y_1,y_2]\le1$.
 
-\emph{Source:} Elementary; as in \cite[\S I]{W73}.
+{\small\emph{Source:} Elementary; as in \cite[\S I]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -273,7 +273,7 @@ Take $x=(l_{11},l_{21})$ and $y=(1,l_{12}/l_{11})$, so that $x_iy_j=l_{ij}$.
 \leanok
 Let $x_1,x_2$ be linearly independent over $\Q$, and likewise $y_1,y_2$. If every $e^{x_iy_j}$ is algebraic and $\trdeg_{\Q}\Q[x_1,x_2,y_1,y_2]\le1$, then $x_1,x_2,y_1,y_2$ have presentation data.
 
-\emph{Source:} The opening of \cite[\S III]{W73}.
+{\small\emph{Source:} The opening of \cite[\S III]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -292,7 +292,7 @@ For all $c,r\in\N$ there is $\kappa>0$ such that for all integers $N\ge3$ and $S
 one has
 \[ c^{\,c(1+m+S+T(a+b))}(1+m+S+T+a+b)^{c(1+m+S)}\le e^{\kappa N^{2}\sqrt{\log N}}. \]
 
-\emph{Source:} The parameter estimates in the proofs of \cite[Lemmes 4 and 7]{W73}.
+{\small\emph{Source:} The parameter estimates in the proofs of \cite[Lemmes 4 and 7]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -304,10 +304,12 @@ one has
 \label{lem:exists_iteratedDeriv_presentation}
 \lean{Diaz.exists_iteratedDeriv_presentation}
 \leanok
-Let $x_1,x_2,y_1,y_2\in\C$ with every $e^{x_iy_j}$ algebraic. Let $\omega,\omega_1\in\C$, let $\varphi$ be evaluation at $(\omega,\omega_1)$, and let $D,E_i,G_j,H_{ij}\in\Z[X][Y]$ with $\varphi(D)\neq0$, $x_i\varphi(D)=\varphi(E_i)$, $y_j\varphi(D)=\varphi(G_j)$ and $e^{x_iy_j}\varphi(D)=\varphi(H_{ij})$. There is $c\in\N$ such that for all $S,T,a,b,m\in\N$ there are $\Lambda\in\C$, $\Lambda\neq0$, with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$, and $P_{ijh}\in\Z[X][Y]$ ($i<S$, $j,h<T$) of length at most $c^{\,c(1+m+S+T(a+b))}(1+m+S+T+a+b)^{c(1+m+S)}$ and of degree at most $c(1+m+S)$ in $X$ and in $Y$, such that for all $f_{ijh}\in\C$
+Let $x_1,x_2,y_1,y_2\in\C$ with every $e^{x_iy_j}$ algebraic. Let $\omega,\omega_1\in\C$, let $\varphi$ be evaluation at $(\omega,\omega_1)$, and let $D,E_i,G_j,H_{ij}\in\Z[X][Y]$ with $\varphi(D)\neq0$, $x_i\varphi(D)=\varphi(E_i)$, $y_j\varphi(D)=\varphi(G_j)$ and $e^{x_iy_j}\varphi(D)=\varphi(H_{ij})$. There is $c\in\N$ such that for all $S,T,a,b,m\in\N$ there are $\Lambda\in\C$, $\Lambda\neq0$, with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$, and $P_{ijh}\in\Z[X][Y]$ ($i<S$, $j,h<T$) of degree at most $c(1+m+S)$ in $X$ and in $Y$ and of length at most
+\[ c^{\,c(1+m+S+T(a+b))}\,(1+m+S+T+a+b)^{c(1+m+S)}, \]
+such that for all $f_{ijh}\in\C$
 \[ \Lambda\cdot\frac{d^{m}}{dz^{m}}\Bigl(\sum_{i,j,h}f_{ijh}\,z^{i}e^{(jx_1+hx_2)z}\Bigr)\Big|_{z=ay_1+by_2}=\sum_{i,j,h}f_{ijh}\,\varphi(P_{ijh}). \]
 
-\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}.
+{\small\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -321,11 +323,13 @@ Expand the derivative by Leibniz's rule. The powers of the algebraic numbers $e^
 \label{lem:exists_iteratedDeriv_reduced_presentation}
 \lean{Diaz.exists_iteratedDeriv_reduced_presentation}
 \leanok
-In the setting of Lemma~\ref{lem:exists_iteratedDeriv_presentation}, let moreover $Q\in\Z[X][Y]$ be monic in $Y$ with $\varphi(Q)=0$. There is $c\in\N$ such that for all $S,T,M,a,b,m\in\N$ there are $\Lambda\neq0$ with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$ and $R_{ijh\mu\nu}\in\Z[X][Y]$ ($i<S$, $j,h<T$, $\mu<M$, $\nu<\deg_YQ$) of $Y$-degree less than $\deg_YQ$, length at most $c^{\,c(1+m+S+T(a+b))}(1+m+S+T+a+b)^{c(1+m+S)}$ and $X$-degree at most $M+c(1+m+S)$, such that for every integer array $q$
+In the setting of Lemma~\ref{lem:exists_iteratedDeriv_presentation}, let moreover $Q\in\Z[X][Y]$ be monic in $Y$ with $\varphi(Q)=0$. There is $c\in\N$ such that for all $S,T,M,a,b,m\in\N$ there are $\Lambda\neq0$ with $|\Lambda|\le c^{\,c(1+m+S+T(a+b))}$ and $R_{ijh\mu\nu}\in\Z[X][Y]$ ($i<S$, $j,h<T$, $\mu<M$, $\nu<\deg_YQ$) of $Y$-degree less than $\deg_YQ$ and $X$-degree at most $M+c(1+m+S)$, and of length at most
+\[ c^{\,c(1+m+S+T(a+b))}\,(1+m+S+T+a+b)^{c(1+m+S)}, \]
+such that for every integer array $q$
 \[ \Lambda\,F_q^{(m)}(ay_1+by_2)=\varphi\Bigl(\sum_{i,j,h,\mu,\nu}q(i,j,h,\mu,\nu)\,R_{ijh\mu\nu}\Bigr), \]
 where $F_q$ is formed with $T$ in place of $2N$.
 
-\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}.
+{\small\emph{Source:} A step of the proofs of \cite[Lemmes 4 and 7]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -342,7 +346,7 @@ Put the coefficients $c_q$ into Lemma~\ref{lem:exists_iteratedDeriv_presentation
 Let $x_1,x_2,y_1,y_2\in\C$ have presentation data, and suppose every $e^{x_iy_j}$ is algebraic. There is $\kappa_1>0$ such that for every large $N$ there are an integer $M$ with $0<M\le\kappa_1S$ and an $R\times U$ integer matrix $B$, where $U=S(2N)^{2}Md$ and $2R\le U$, with entries of absolute value at most $e^{\kappa_1N^{2}\sqrt{\log N}}$, such that for every integer vector $q$ with $Bq=0$
 \[ F_q^{(m)}(ay_1+by_2)=0\qquad\text{for all }a<t_1,\ b<t_2,\ m<S. \]
 
-\emph{Source:} The equation count of \cite[Lemme 4]{W73}.
+{\small\emph{Source:} The equation count of \cite[Lemme 4]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -358,7 +362,7 @@ The rows of $B$ are the coefficients of the reduced polynomials of Lemma~\ref{le
 \leanok
 Let $\omega,\omega_1\in\C$ and $Q\in\Z[X][Y]$ with $d=\deg_YQ\ge1$, such that no non-zero $A\in\Z[X][Y]$ with $\deg_YA<d$ vanishes at $(\omega,\omega_1)$, and let $\kappa_1>0$. There is $\kappa\ge\kappa_1$ such that for every large $N$, every $M$ with $0<M\le\kappa_1S$, and every $R\times U$ integer matrix $B$ with $U=S(2N)^{2}Md$, $2R\le U$ and entries of absolute value at most $e^{\kappa_1N^{2}\sqrt{\log N}}$, there is an integer vector $q$ with $Bq=0$ such that every $|q(i,j,h,\mu,\nu)|\le e^{\kappa N^{2}\sqrt{\log N}}$, some $c_q(i,j,h)\neq0$, and every $|c_q(i,j,h)|\le e^{\kappa N^{2}\sqrt{\log N}}$.
 
-\emph{Source:} Siegel's lemma \cite[Ch.~I, \S2]{Lang66}, as used in \cite[Lemme 4]{W73}.
+{\small\emph{Source:} Siegel's lemma \cite[Ch.~I, \S2]{Lang66}, as used in \cite[Lemme 4]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -375,7 +379,7 @@ Lemma~\ref{lem:siegel_entrywise} gives $q\neq0$. A non-zero block $q(i,j,h,\cdot
 Let $x_1,x_2,y_1,y_2\in\C$ have presentation data, and suppose every $e^{x_iy_j}$ is algebraic. There is $\kappa>0$ such that for every large $N$ there are $M\le\kappa S$ and integers $q(i,j,h,\mu,\nu)$ ($i<S$, $j,h<2N$, $\mu<M$, $\nu<d$) of absolute value at most $e^{\kappa N^{2}\sqrt{\log N}}$, such that the coefficients $c_q(i,j,h)$ are not all zero and of absolute value at most $e^{\kappa N^{2}\sqrt{\log N}}$, and
 \[ F_q^{(m)}(ay_1+by_2)=0\qquad\text{for all }a<t_1,\ b<t_2,\ m<S. \]
 
-\emph{Source:} \cite[Lemme 4]{W73}, with Siegel's lemma.
+{\small\emph{Source:} \cite[Lemme 4]{W73}, with Siegel's lemma.}
 \end{lemma}
 
 \begin{proof}
@@ -392,7 +396,7 @@ Lemma~\ref{lem:aux_linear_system}, then Lemma~\ref{lem:siegel_aux}.
 Let $X\ge0$, $Y\ge1$ and $\kappa\ge0$ be real, and let $N,S,t_1,t_2,s$ be natural numbers with $s\le S$ and $N\ge32(13+\kappa+\log Y+2XY)$. Write $w=\sqrt{\log N}$ and suppose $Sw\le N^{2}\le2Sw$, $N\le2t_1w$ and $Nw\le2t_2$. Then
 \[ 2\,s!\,(N-1)^{-t_1t_2S}\cdot S(2N)^{2}e^{\kappa N^{2}w}\,(YN^{2}w)^{S}\,e^{2NX\cdot YN^{2}w}\le e^{-N^{4}w/32}. \]
 
-\emph{Source:} The parameter estimate in the proof of \cite[Lemme 5]{W73}.
+{\small\emph{Source:} The parameter estimate in the proof of \cite[Lemme 5]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -407,7 +411,7 @@ Let $X\ge0$, $Y\ge1$ and $\kappa\ge0$ be real, and let $N,S,t_1,t_2,s$ be natura
 Let $x_1,x_2\in\C$, let $y_1,y_2$ be linearly independent over $\Q$, and let $\kappa>0$. There are $\kappa'>0$ and $N_0$ such that for every $N>N_0$ and all coefficients with $|c(i,j,h)|\le e^{\kappa N^{2}\sqrt{\log N}}$: if $F^{(m)}(ay_1+by_2)=0$ for all $a<t_1$, $b<t_2$ and $m<S$, then
 \[ |F^{(s)}(ay_1+by_2)|\le\exp\bigl(-N^{4}\sqrt{\log N}/\kappa'\bigr)\qquad\text{for all }s<S',\ a<R_1,\ b<R_2. \]
 
-\emph{Source:} \cite[Lemme 5]{W73}.
+{\small\emph{Source:} \cite[Lemme 5]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -424,7 +428,7 @@ Lemma~\ref{lem:expPoly_grid_estimate} for the grid $\{ay_1+by_2:a<t_1,\ b<t_2\}$
 Let $\omega,\omega_1\in\C$ and let $Q\in\Z[X][Y]$ be monic in $Y$ of degree $d$, with $Q(\omega,\omega_1)=0$ and minimal there. There is $c\in\N$ such that for every $A\in\Z[X][Y]$ of $Y$-degree less than $d$, length at most $b$ and $X$-degree at most $e$, with $A(\omega,\omega_1)\neq0$, there is a non-zero $P\in\Z[X]$ of length at most $(cb)^{d}$ and degree at most $d(e+c)$ with
 \[ |P(\omega)|\le|A(\omega,\omega_1)|\,\bigl(cb\max(1,|\omega|)^{e}\bigr)^{d}. \]
 
-\emph{Source:} The core of the proof of \cite[Lemme 7]{W73}.
+{\small\emph{Source:} The core of the proof of \cite[Lemme 7]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -441,7 +445,7 @@ Let $x_1,x_2,y_1,y_2\in\C$ have presentation data, suppose every $e^{x_iy_j}$ is
 \[ 0<|F_q^{(s)}(ay_1+by_2)|\le\exp\bigl(-N^{4}\sqrt{\log N}/\kappa'\bigr), \]
 then some $P\in\Z[X]$ is small at $\omega$ for $(N,C)$ with respect to the growth functions of constant $k$.
 
-\emph{Source:} \cite[Lemme 7]{W73}.
+{\small\emph{Source:} \cite[Lemme 7]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -457,7 +461,7 @@ Lemma~\ref{lem:exists_iteratedDeriv_reduced_presentation} writes the value, time
 \leanok
 Let $x_1,x_2$ be linearly independent over $\Q$, and likewise $y_1,y_2$. Suppose every $e^{x_iy_j}$ is algebraic and $\trdeg_{\Q}\Q[x_1,x_2,y_1,y_2]\le1$. Then there are a transcendental $\omega\in\C$ and $k>0$ such that for every $C$ and every large $N$ there are coefficients $c(i,j,h)$, not all zero, with the following property: whenever $a<R_1$, $b<R_2$, $s<S'$ and $F^{(s)}(ay_1+by_2)\neq0$, some $P\in\Z[X]$ is small at $\omega$ for $(N,C)$ with respect to the growth functions of constant $k$.
 
-\emph{Source:} \cite[\S III, (4) and Lemmes 4, 5, 7]{W73}.
+{\small\emph{Source:} \cite[\S III, (4) and Lemmes 4, 5, 7]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -474,7 +478,7 @@ Lemma~\ref{lem:trdeg_one_presentation} gives presentation data and Lemma~\ref{le
 For every $k>0$ the growth functions $\sigma_1,\sigma_2$ are strictly increasing and tend to $+\infty$, and for every $x>0$
 \[ \sigma_2(x)\le\sigma_1(x),\qquad\sigma_i(x+1)\le3\,\sigma_i(x)\quad(i=1,2). \]
 
-\emph{Source:} Elementary; the functions of the end of \cite[\S III]{W73}.
+{\small\emph{Source:} Elementary; the functions of the end of \cite[\S III]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -489,7 +493,7 @@ For every $k>0$ the growth functions $\sigma_1,\sigma_2$ are strictly increasing
 Let $X,Y_1,Y_2\ge0$. There is $N_0$ such that for every integer $N>N_0$, with $T=2N$, $\lambda=1/20$ and $n=ST^{2}$,
 \[ \frac{n}{\lambda}+2\,\frac{1+n^{\lambda}}{\lambda\log n}\bigl(1+(R_1Y_1+R_2Y_2)\,TX\bigr)\le R_1R_2S'. \]
 
-\emph{Source:} The parameters of \cite[(4) and Lemme 6]{W73} against the zero estimate \cite[\S4, Lemme 3]{W71}.
+{\small\emph{Source:} The parameters of \cite[(4) and Lemme 6]{W73} against the zero estimate \cite[\S4, Lemme 3]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -510,7 +514,7 @@ Let $l_{11},l_{12},l_{21},l_{22}$ satisfy the hypotheses of Lemma~\ref{lem:rank_
 some $P\in\Z[X]$ is small at $\omega$ for $(N,C)$ with respect to $\sigma_1,\sigma_2$.
 \end{itemize}
 
-\emph{Source:} \cite[\S III, (4) and Lemmes 4, 5, 7]{W73}.
+{\small\emph{Source:} \cite[\S III, (4) and Lemmes 4, 5, 7]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -526,7 +530,7 @@ Lemma~\ref{lem:rank_one_parametrization} gives $x$ and $y$, and Lemma~\ref{lem:c
 \leanok
 Let $l_{11},l_{12},l_{21},l_{22}$ be non-zero complex numbers with every $e^{l_{ij}}$ algebraic, $l_{11}l_{22}=l_{12}l_{21}$ and $\trdeg_{\Q}\Q[l_{11},l_{12},l_{21},l_{22}]\le1$, and suppose that neither the rows nor the columns of $(l_{ij})$ are linearly dependent over $\Q$. Then there are a transcendental $\omega\in\C$, functions $\sigma_1,\sigma_2$ and constants $a_1,a_2\ge1$ satisfying the hypotheses of Theorem~\ref{thm:transcendence_criterion}, such that for every $C\in\R$ there is $N_0$ and for every $N>N_0$ a polynomial $P_N\in\Z[X]$ that is small at $\omega$ for $(N,C)$ with respect to $\sigma_1,\sigma_2$.
 
-\emph{Source:} \cite[\S III, Lemmes 4--7]{W73}, with the zero estimate of \cite[\S4, Lemme 3]{W71}; see also \cite{Bro74}.
+{\small\emph{Source:} \cite[\S III, Lemmes 4--7]{W73}, with the zero estimate of \cite[\S4, Lemme 3]{W71}; see also \cite{Bro74}.}
 \end{lemma}
 
 \begin{proof}
@@ -546,7 +550,7 @@ Let $l_{11},l_{12},l_{21},l_{22}$ be non-zero logarithms of algebraic numbers wi
 \[ l_{11}l_{22}=l_{12}l_{21},\qquad\trdeg_{\Q}\Q(l_{11},l_{12},l_{21},l_{22})\le1. \]
 Then the two rows, or the two columns, of $\begin{pmatrix}l_{11}&l_{12}\\ l_{21}&l_{22}\end{pmatrix}$ are linearly dependent over $\Q$. Equivalently, if $x_1,x_2$ and $y_1,y_2$ are pairs of complex numbers linearly independent over $\Q$ and the four products $x_iy_j$ are logarithms of algebraic numbers, then $\trdeg_{\Q}\Q(x_1,x_2,y_1,y_2)\ge2$.
 
-\emph{Source:} Waldschmidt \cite[Cor.~4]{W73} and Brownawell \cite[Cor.~7]{Bro74}; stated in this form as \cite[Theorem 1]{RW95}.
+{\small\emph{Source:} Waldschmidt \cite[Cor.~4]{W73} and Brownawell \cite[Cor.~7]{Bro74}; stated in this form as \cite[Theorem 1]{RW95}.}
 \end{theorem}
 
 \begin{proof}

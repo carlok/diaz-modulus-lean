@@ -17,7 +17,7 @@ The house $\houseof{\alpha}$ of an algebraic number $\alpha$ is the largest abso
 Let $K$ be a number field of degree $d$, let $\sigma\colon K\to\C$ be a field embedding, and let $\alpha\in K$, $\alpha\neq0$. If $c\alpha$ is an algebraic integer for some integer $c\neq0$, then
 \[ 1\le|c|^{d}\,|\sigma(\alpha)|\,\houseof{\alpha}^{\,d-1}. \]
 
-\emph{Source:} Standard (Liouville's inequality).
+{\small\emph{Source:} Standard (Liouville's inequality).}
 \end{lemma}
 
 \begin{proof}
@@ -32,7 +32,7 @@ The norm of $c\alpha$ is a non-zero integer. Its absolute value is $|c|^{d}|\sig
 \leanok
 Let $K$ be a number field and $(\theta_i)_{i\in I}$ a finite family in $K$. There are a non-zero algebraic integer $b\in K$ and a real number $H\ge1$ such that for every $e\in\N^{I}$ and every $E\in\N$ with $\sum_ie_i\le E$, the number $b^{E}\prod_i\theta_i^{e_i}$ is an algebraic integer whose house is at most $H^{E}$.
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
@@ -48,7 +48,7 @@ Take $b$ with every $b\theta_i$ an algebraic integer, and $H=1+\houseof{b}+\sum_
 Let $K$ be a field of characteristic zero and let $\alpha\in K$ be algebraic over $\Q$. There are $\ell,A\in\N$ and an integer $L\neq0$ such that for every $n\in\N$ there are integers $r_0,\dots,r_{\ell-1}$ with $|r_l|\le A^{n}$ and
 \[ L^{n}\alpha^{n}=\sum_{l<\ell}r_l\,\alpha^{l}. \]
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
@@ -65,7 +65,7 @@ Take for $L$ the leading coefficient of an integer polynomial vanishing at $\alp
 \leanok
 Let $A$ be an $m\times n$ matrix with integer entries, where $n\ge1$ and $2m\le n$, and suppose that every entry satisfies $|A_{ab}|\le B$ for some real $B\ge1$. Then there is $t\in\Z^{n}$, $t\neq0$, with $At=0$ and $|t_b|\le nB$ for every $b$.
 
-\emph{Source:} Siegel's lemma \cite[Ch.~I, \S2]{Lang66}, in the form Mathlib states it for integer matrices.
+{\small\emph{Source:} Siegel's lemma \cite[Ch.~I, \S2]{Lang66}, in the form Mathlib states it for integer matrices.}
 \end{lemma}
 
 \begin{proof}
@@ -84,7 +84,7 @@ Let $\omega_1,\dots,\omega_l\in\C$ be pairwise distinct, let $q_1,\dots,q_l\in\N
 \[ f(z)=\sum_{j=1}^{l}\sum_{i=0}^{q_j-1}b_{j,i}\,z^{i}e^{\omega_jz} \]
 takes a non-zero value at some point of $\C$.
 
-\emph{Source:} Classical; see \cite{Tij71} or \cite[\S4]{W71}.
+{\small\emph{Source:} Classical; see \cite{Tij71} or \cite[\S4]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -99,7 +99,7 @@ Induction on $l$: multiply by $e^{-\omega_lz}$ and differentiate $q_l$ times. Th
 \leanok
 Let $F(z)=\sum_{i\in I}c_ie^{\rho_iz}$ be a finite exponential sum with pairwise distinct $\rho_i\in\C$ and coefficients $c_i\in\C$ not all zero. Let $m\ge1$ and $n\in\N$, and suppose that $F^{(k)}(j)=0$ for all $j\in\{1,\dots,m\}$ and $k<n$. Then there are $r\ge n$ and $l_0\in\{1,\dots,m\}$ with $F^{(r)}(l_0)\neq0$ and $F^{(k)}(j)=0$ for all $j\in\{1,\dots,m\}$ and $k<r$.
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
@@ -116,7 +116,7 @@ By Lemma~\ref{lem:expPoly_ne_zero} the function $F$ is not identically zero, so 
 Let $F$ be an entire function, $c\in\C$, $\rho\ge0$ and $R>\rho+1$. Let $S$ be a finite set of points $z$ with $|z-c|\le\rho$, and put $\sigma=\sum_{z\in S}\ord_zF$. If $|F(z)|\le M$ whenever $|z-c|=R$, then for every $s\in\N$
 \[ |F^{(s)}(c)|\le s!\,\frac{R}{R-1}\Bigl(\frac{\rho+1}{R-\rho}\Bigr)^{\sigma}M. \]
 
-\emph{Source:} \cite[\S4, (4.3)]{W71}.
+{\small\emph{Source:} \cite[\S4, (4.3)]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -132,7 +132,7 @@ Divide $F$ by $\prod_{\beta\in S}(z-\beta)^{\ord_\beta F}$. The quotient is boun
 Let $y_1,\dots,y_l\in\C$ be linearly independent over $\Q$, and let $F(z)=\sum_{k\in s}c_kz^{e_k}e^{\omega_kz}$ be a finite sum with $|\omega_k|\le W$ and $e_k\le E$ for all $k$. Let $t_j\le A_j$ ($1\le j\le l$) and $n$ be natural numbers, and suppose that $F^{(i)}\bigl(\sum_jm'_jy_j\bigr)=0$ for all $i<n$ and all $m'\in\N^{l}$ with $m'_j<t_j$ for every $j$. Let $u\ge2$ and $Z\ge\bigl(\sum_jA_j|y_j|+1\bigr)(u+1)$. Then for every $m\in\N^{l}$ with $m_j<A_j$ for every $j$, every $r\in\N$ and $w=\sum_jm_jy_j$,
 \[ |F^{(r)}(w)|\le2\,r!\,(u-1)^{-n\prod_jt_j}\Bigl(\sum_{k\in s}|c_k|\Bigr)Z^{E}e^{WZ}. \]
 
-\emph{Source:} The analytic step of the extrapolation in \cite[Lemme 5]{W73} and in the six exponentials theorem \cite[Ch.~II]{Lang66}; it rests on \cite[\S4, (4.3)]{W71}.
+{\small\emph{Source:} The analytic step of the extrapolation in \cite[Lemme 5]{W73} and in the six exponentials theorem \cite[Ch.~II]{Lang66}; it rests on \cite[\S4, (4.3)]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -150,7 +150,7 @@ Let $f(z)=\sum_{j\in J}P_j(z)e^{w_jz}$, over a finite set $J$, with $|w_j|\le W$
 \[ |f^{(n)}(c)|\le D\,(W+1)^{n+N}\qquad\text{for every }n\in\N. \]
 The $w_j$ need not be distinct.
 
-\emph{Source:} No source is claimed; an elementary induction.
+{\small\emph{Source:} No source is claimed; an elementary induction.}
 \end{lemma}
 
 \begin{proof}
@@ -168,7 +168,7 @@ Induction on $N$. If $q_{j_0}\ge1$, then $g=f'-w_{j_0}f$ has the same form with 
 For every finite family $(f_i)_{i\in s}$ in $\Z[X][Y]$,
 \[ L\Bigl(\sum_{i\in s}f_i\Bigr)\le\sum_{i\in s}L(f_i). \]
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
@@ -182,7 +182,7 @@ For every finite family $(f_i)_{i\in s}$ in $\Z[X][Y]$,
 \leanok
 For all $P,Q\in\Z[X][Y]$, $L(PQ)\le L(P)\,L(Q)$.
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
@@ -198,7 +198,7 @@ Let $Q\in\Z[X][Y]$. There is $C\in\N$ such that for all $b,e,n\in\N$ and every $
 \[ L(P\bmod Q)\le C^{n}b, \]
 and every coefficient of $P\bmod Q$ has $X$-degree at most $e+Cn$. (When $Q$ is not monic in $Y$, the remainder is $P$, as in Mathlib's \texttt{modByMonic}.)
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
@@ -214,7 +214,7 @@ and every coefficient of $P\bmod Q$ has $X$-degree at most $e+Cn$. (When $Q$ is 
 Let $F,G\in\C[X]$ with $M(F)\ge1$ and $M(G)\ge1$. Then for every $\theta\in\C$
 \[ |\Res(F,G)|\le2^{\deg F\deg G}M(F)^{\deg G}M(G)^{\deg F}\max\bigl(|F(\theta)|,|G(\theta)|\bigr). \]
 
-\emph{Source:} \cite[Corollary 3.7]{RW97}, in the complex form of their Lemma 3.4; they describe the inequality as well known.
+{\small\emph{Source:} \cite[Corollary 3.7]{RW97}, in the complex form of their Lemma 3.4; they describe the inequality as well known.}
 \end{lemma}
 
 \begin{proof}
@@ -229,7 +229,7 @@ Let $F,G\in\C[X]$ with $M(F)\ge1$ and $M(G)\ge1$. Then for every $\theta\in\C$
 Let $P\in\Z[X]$ have positive degree and let $\theta\in\C$. Then $P=Q^{e}R$ with $Q,R\in\Z[X]$, $Q$ irreducible of positive degree, $e\ge1$, and
 \[ 1\le2^{\deg Q\deg R}M(Q)^{\deg R}M(R)^{\deg Q}|R(\theta)|. \]
 
-\emph{Source:} The multiplicative step of Gel'fond's lemma \cite{Gel52}, as in \cite[\S3, Lemme 2]{W71}.
+{\small\emph{Source:} The multiplicative step of Gel'fond's lemma \cite{Gel52}, as in \cite[\S3, Lemme 2]{W71}.}
 \end{lemma}
 
 \begin{proof}
@@ -247,7 +247,7 @@ Take for $Q$ an irreducible factor of positive degree at which $|Q(\theta)|$ is 
 \leanok
 Let $\omega\in\C$ be transcendental and let $\theta\in\C$ be algebraic over $\Q(\omega)$. There are $\omega_1\in\C$ and $Q\in\Z[X][Y]$, monic in $Y$ of degree $d\ge1$, with $Q(\omega,\omega_1)=0$ and minimal there: no non-zero $A\in\Z[X][Y]$ with $\deg_YA<d$ vanishes at $(\omega,\omega_1)$. Moreover $\omega_1=v(\omega)\,\theta$ for some $v\in\Z[X]$ with $v(\omega)\neq0$.
 
-\emph{Source:} Standard; the normalisation at the start of \cite[\S III]{W73}.
+{\small\emph{Source:} Standard; the normalisation at the start of \cite[\S III]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -263,7 +263,7 @@ Clear the denominators of the minimal polynomial of $\theta$ over $\Q(\omega)$ w
 Let $\omega\in\C$ be transcendental and let $(z_i)_{i\in I}$ be a finite family of complex numbers algebraic over $\Q(\omega)$. There are $\omega_1\in\C$ and $Q\in\Z[X][Y]$, monic in $Y$ of degree $d\ge1$, with $Q(\omega,\omega_1)=0$ and minimal there in the sense of Lemma~\ref{lem:exists_monic_integral_model}, and $D,E_i\in\Z[X][Y]$ with $D(\omega,\omega_1)\neq0$ and
 \[ z_i\,D(\omega,\omega_1)=E_i(\omega,\omega_1)\qquad\text{for every }i. \]
 
-\emph{Source:} Standard; the presentation used in \cite[\S III]{W73}.
+{\small\emph{Source:} Standard; the presentation used in \cite[\S III]{W73}.}
 \end{lemma}
 
 \begin{proof}
@@ -279,7 +279,7 @@ By the primitive element theorem the $z_i$ lie in $\Q(\omega)(\theta)$ for one $
 \leanok
 Let $K\subseteq L$ be fields, $x\in L$, and $S\subseteq L$ a set each of whose elements is algebraic over the ring $K[x]$. Then the $K$-algebra $K[S]$ generated by $S$ has transcendence degree at most one over $K$.
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
@@ -293,7 +293,7 @@ Let $K\subseteq L$ be fields, $x\in L$, and $S\subseteq L$ a set each of whose e
 \leanok
 Let $R$ be a commutative ring, $A$ a commutative $R$-algebra and $t\in A$ transcendental over $R$. If $t$ and $z\in A$ are not algebraically independent over $R$, then $z$ is algebraic over the subalgebra $R[t]$.
 
-\emph{Source:} Standard.
+{\small\emph{Source:} Standard.}
 \end{lemma}
 
 \begin{proof}
