@@ -18,6 +18,9 @@ cannot settle it.
 
 ## The classical theorems
 
+The blueprint at https://carlok.github.io/diaz-modulus-lean/ states each of them, and every result their proofs use,
+with a dependency graph, links to the Lean source and a PDF.
+
 | Result | Due to | Lean name | Lean proof |
 |---|---|---|---|
 | a non-zero logarithm of an algebraic number is transcendental | Hermite 1873, Lindemann 1882 | `Diaz.hermite_lindemann` | derived here from the next row |

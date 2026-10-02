@@ -1,6 +1,6 @@
 /* The blueprint's own style, on top of plasTeX's white theme, leanblueprint and the
    dependency graph plugin. System fonts only: the site loads no font files.
-   Colours are variables, with a dark scheme under prefers-color-scheme. */
+   Colours are variables. The site is light only, whatever the reader's system scheme (Carlo, 2026-10-02). */
 
 :root {
   --bg: #faf7f0;            /* warm off-white page */
@@ -19,36 +19,12 @@
   --chip-ink: #2a2620;
   --ok-bg: #dcefe0;
   --ok-ink: #1d5a33;
-  --graph-bg: #fdfcf9;      /* the graph keeps a light ground in both schemes */
+  --graph-bg: #fdfcf9;      /* the graph's ground */
   --shadow: 0 1px 2px rgba(31, 28, 23, .06), 0 8px 24px rgba(31, 28, 23, .10);
   --serif: ui-serif, "New York", Charter, "Iowan Old Style", Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1c1a17;
-    --bg-side: #211e1a;
-    --bg-raised: #27231e;
-    --ink: #ebe5da;
-    --ink-muted: #b3aa9b;
-    --rule: #3a342c;
-    --hover: #322d26;
-    --accent: #5cc9bb;
-    --accent-strong: #84ddd1;
-    --accent-soft: #1d332f;
-    --card-bg: #22231f;
-    --card-rule: #34372f;
-    --chip-bg: #322d26;
-    --chip-ink: #ebe5da;
-    --ok-bg: #1d3626;
-    --ok-ink: #a6e3b6;
-    --graph-bg: #f7f4ee;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
-    color-scheme: dark;
-  }
 }
 
 /* --- Page --------------------------------------------------------------------------- */
