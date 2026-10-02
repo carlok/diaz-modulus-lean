@@ -1,15 +1,85 @@
-# Diaz's modulus conjecture — a formalized negative result
+# Transcendence theory in Lean 4
 
-Let `ℒ = {u ∈ ℂ : eᵘ ∈ Q̄ˣ}`, the logarithms of algebraic numbers. Diaz
-conjectured in 2004 that no non-zero element of `ℒ` has algebraic
-modulus, and asked alongside it a question of method: how could the
-non-holomorphic maps `z ↦ z̄` and `z ↦ |z|` enter a transcendence proof
-at all?
+This library proves classical theorems of transcendental number theory in Lean 4 with Mathlib, and
+applies them to one open problem: Diaz's conjecture that a non-zero logarithm of an algebraic number never
+has algebraic modulus.
 
-This repository is the machine-checked part of an answer in the negative
-direction.
+It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
+method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, zero counts for exponential
+polynomials, and the theorems they prove. All 307 results build in CI and depend only on Lean's three
+standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
-## The observation
+The proofs are engineered as well as checked: cut into small results that later proofs import, with
+shared tools stated for general use, and with the size of every proof kept down. See "Proof engineering".
+
+No new transcendence theorem is claimed. The classical results are attributed below, and so are the Lean
+proofs written by others. The results about Diaz's conjecture are mostly negative: they show which methods
+cannot settle it.
+
+## The classical theorems
+
+| Result | Due to | Lean name | Lean proof |
+|---|---|---|---|
+| a non-zero logarithm of an algebraic number is transcendental | Hermite 1873, Lindemann 1882 | `Diaz.hermite_lindemann` | derived here from the next row |
+| `e^{α₁}, …, e^{αₙ}` are linearly independent over Q̄ for distinct algebraic `αᵢ` | Lindemann 1882, Weierstrass 1885 | `linearIndependent_exp`, `algebraicIndependent_exp` | ported from Mathlib PR #28013 (unmerged) |
+| `e^{bℓ}` is transcendental for algebraic irrational `b` and a non-zero logarithm `ℓ` | Gel'fond 1934, Schneider 1934 | `GelfondSchneider.gelfond_schneider` | restructured from M. Karatarakis and F. Wiedijk |
+| `e^π` is transcendental | Gel'fond 1929 | `Diaz.e_pi_transcendence` | another Prove2Me contributor |
+| the six exponentials theorem | Lang 1965–66, Ramachandra 1968 | `Diaz.six_exponentials` | this project |
+| the four exponentials theorem in transcendence degree one | Waldschmidt 1973, Brownawell 1974 | `Diaz.four_exponentials_trdeg_one` | this project |
+| two of `xᵢ, yⱼ, e^{xᵢyⱼ}` are algebraically independent when one column is algebraic | Waldschmidt 1973, Brownawell 1974 | `Diaz.two_algebraically_independent_of_exp_column` | this project |
+| one of `e^e`, `e^{e²}` is transcendental (Schneider's eighth problem) | Waldschmidt 1973, Brownawell 1974 | `Transcendence.exp_e_or_exp_e_sq_transcendental` | this project |
+| Roy's lemma on singular spaces of matrices | D. Roy (Dasgupta–Kakde II, Thm 2.2; a stronger form is DALAG Prop. 12.5) | `Transcendence.singular_matrix_subspace_annihilating_pair` | this project |
+| Waldschmidt's transcendence criterion; zero counts for exponential polynomials | Waldschmidt 1971 | `Diaz.transcendence_criterion`, `Diaz.expPoly_zero_count` | this project |
+
+Some results carry a conjecture as an explicit hypothesis: the strong four, sharp four and strong five
+exponentials conjectures. Others carry Roy's strong six exponentials theorem, which is proved in the
+literature but not yet here. "What is assumed" lists each one.
+
+Names are the library's own; `MIRROR_CHECKLIST.md` maps each to its name on Prove2Me.
+
+## Proof engineering
+
+A proof that Lean accepts can still be hard to use. These proofs are also kept short enough to read,
+cut where other proofs can reuse their parts, and written the same way throughout.
+
+- **Small results.** Every result is a separate statement with its own proof. The size rule, counting
+  lines of content without blanks and comments: a proof of 400 lines or more becomes a tree of results,
+  and in a proof of 300 to 399 lines any helper over 40 lines becomes a result of its own. Two proofs
+  still break it: Lindemann–Weierstrass as ported from Mathlib PR #28013, and
+  `exists_iteratedDeriv_presentation` in the four exponentials development.
+- **Import, don't re-prove.** A result is proved once and imported where it is needed; by script, no
+  proof carries a helper whose statement is another result's. The proof of Waldschmidt's 1973 Théorème
+  reuses 33 results of the four exponentials development unchanged.
+- **Shared tools.** Pieces that several proofs need are results of their own in the `Transcendence`
+  namespace, stated for general use rather than for the proof that first needed them: Siegel's lemma
+  with an entrywise bound, Liouville's inequality in house form, the Cauchy estimate for an exponential
+  polynomial on a grid, the length of integer polynomials under sums and products.
+- **One layout.** Almost every result proved on Prove2Me is one module in `Diaz/Mirror/`, generated by a
+  script from the accepted proof; its statement is the platform's, up to the namespace. The whole
+  library builds on one version of Lean and Mathlib in CI.
+
+What this has done so far:
+- Five size waves, from 25 to 30 September 2026, took 27 proofs from 14,553 lines to 3,424. In the three
+  waves where the new shared results were counted too, 8,963 lines became 5,052.
+- One proof went from 1,550 lines to 44. Another carried 183 lines that no theorem used.
+- Gelfond–Schneider was first carried as a single 5,388-line module, adapted from Karatarakis and
+  Wiedijk's formalisation. It is now a tree of eleven results, 1,409 lines in all, and shares its grid
+  estimate with the four exponentials development.
+
+The sections below record each wave.
+
+## Diaz's conjecture
+
+Let `ℒ = {u ∈ ℂ : eᵘ ∈ Q̄ˣ}`, the logarithms of algebraic numbers. Diaz conjectured in 2004 that no non-zero
+element of `ℒ` has algebraic modulus. He also asked a question of method: how could the non-holomorphic maps
+`z ↦ z̄` and `z ↦ |z|` enter a transcendence proof at all?
+
+The companion note (`tex/`) gives the mathematical account. Every branch of the conjecture is either closed
+or reduced to two open statements. Each of the published conjectures above would settle it. The note also
+records which methods cannot: in particular, nothing homogeneous on a candidate's own data, and the strong
+six exponentials route stops at `u³`.
+
+### The observation
 
 Suppose `u ≠ 0` has `eᵘ` and `|u|` both algebraic, and put `ρ = u ū`.
 Then
@@ -29,8 +99,6 @@ circle.
 
 An entire style of attack — accumulate algebraic constraints on `u` and
 `ū` until they collide — cannot settle the conjecture.
-
-No new transcendence result is claimed. These are negative results.
 
 ## Build
 
@@ -280,7 +348,7 @@ nothing but Lean's own axioms.
 - `Diaz/` — the Lean library. Everything here builds in CI.
 - `archive/prove2me/` — every accepted Prove2Me proof for this mission, verbatim, not built.
 - `archive/local/` — proofs written for the mission and never published on the platform, not built.
-- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and as of 2026-10-01 it is met: 307 of 307. That count includes the four `Schanuel.*` results
+- `MIRROR_CHECKLIST.md` — which Prove2Me results are already in `Diaz/`. The goal is all of them, and it is met: the count is at the top of this README. It includes the four `Schanuel.*` results
   proved for the mission (six exponentials, Hermite–Lindemann, Lindemann–Weierstrass,
   Gelfond–Schneider) and `e_pi_transcendence`, another contributor's node closed with
   Gelfond–Schneider.
@@ -395,8 +463,7 @@ only `propext`, `Classical.choice`, `Quot.sound`.
 
 ## Four exponentials in transcendence degree one
 
-The largest thing in the mirror is not a negative result. `Diaz/Mirror/` now
-carries a complete proof of the four exponentials theorem in transcendence
+`Diaz/Mirror/` carries a complete proof of the four exponentials theorem in transcendence
 degree one, as `DiazModulus.four_exponentials_trdeg_one`. In the form the node
 states it: take a 2×2 matrix of non-zero logarithms of algebraic numbers with
 `l₁₁l₂₂ = l₁₂l₂₁`, and suppose the field they generate has transcendence degree
