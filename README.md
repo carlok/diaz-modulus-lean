@@ -612,10 +612,12 @@ as Waldschmidt writes it in Chapter 4 of *Diophantine Approximation on Linear Al
 - `DiazModulus.baker_two_logs` — the two-logarithm form that the nodes below had assumed as `hB`.
 
 Step 5 of §4.6 needed a repair: vanishing to a given order in each coordinate does not survive the change
-of variables the proof makes, while vanishing to a given total order does; only the constants change. A
-survey of other provers on 1 October 2026 found no machine-checked proof of qualitative Baker, of
-Schneider–Lang in several variables, or of the Cartesian Schwarz lemma. The 25 proofs total 3,320 lines;
-the largest is 261.
+of variables the proof makes, while vanishing to a given total order does; only the constants change.
+M. Karatarakis's Lean formalisation of the same chapter makes the same repair. It is on the branch `baker`
+of github.com/mkaratarakis/mathlib4, public since 25 September 2026 and not yet in Mathlib, and formalises
+Baker's theorem by the same route, the book's Corollary 4.2 for every d₀ ≤ n, and Proposition 4.7; his
+branch `baker-padic` formalises Brumer's p-adic analogue. A survey of the other provers on 4 October 2026
+found none of these results elsewhere. The 25 proofs total 3,320 lines; the largest is 261.
 
 No new mathematics is claimed.
 
