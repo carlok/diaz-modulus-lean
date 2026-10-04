@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.16, 2 October 2026}
+\date{September 2026\\[2pt]\small Version 1.17, 4 October 2026}
 
 \begin{document}
 \maketitle
@@ -350,8 +350,44 @@ $\e^{ir/\pi}$ and its inverse.
 \end{proof}
 
 The statement was not found in the sources read. Its key step is Waldschmidt's
-remark~\cite[p.~202]{waldschmidt-1974} at $\ell_{1}=t$ and $\ell_{2}=i\pi$; the scaling step is
+remark~\cite[p.~202]{waldschmidt-1974} at $\ell_{1}=t$ and $\ell_{2}=i\pi$, and it is printed as
+Brownawell's Corollary~5~\cite[p.~23]{brownawell-1974} at $\eta=t/\pi$; the scaling step is
 elementary.
+
+The same argument gives more: a general form, and an instance about a classical constant.
+
+\begin{proposition}\label{prop:rational-quadric}
+Let $t\neq0$ be real with $\e^{t}\in\Alg$, and let $a,b,c\in\Q$ with $a\neq0$ and
+$at^{2}+b\pi^{2}=c$. Then $\e^{i\gamma/\pi}$ is transcendental for every $\gamma\in\Q^{\times}$.
+\end{proposition}
+
+\begin{proof}
+Suppose $\e^{i\gamma/\pi}\in\Alg$, so that $\lambda=i\gamma/\pi\in\Logs$. Then
+$t^{2}/(i\pi)=-\frac{c}{a\gamma}\,\lambda+\frac{b}{a}\,i\pi$ lies in $\Logs$, and the matrix
+$\begin{pmatrix}t&t^{2}/(i\pi)\\ i\pi&t\end{pmatrix}$ has determinant $0$, entries in $\Logs$, and
+entries in a field of transcendence degree one, since $t$ is algebraic over $\Q(\pi)$. By the four
+exponentials theorem in transcendence degree one, its rows or its columns are $\Q$-dependent. Either
+way $\alpha t+\beta i\pi=0$ with $\alpha,\beta\in\Q$ not both zero, which is impossible: $t$ is real
+and non-zero, and $i\pi$ is purely imaginary.
+\end{proof}
+
+\begin{corollary}\label{cor:dilog}
+The number $\mathrm{Li}_{2}(1/2)=\sum_{n\ge1}1/(n^{2}2^{n})=\pi^{2}/12-(\log2)^{2}/2$ is irrational,
+or $\e^{i\gamma/\pi}$ is transcendental for every $\gamma\in\Q^{\times}$.
+\end{corollary}
+
+\begin{proof}
+If $\mathrm{Li}_{2}(1/2)=s\in\Q$, apply Proposition~\ref{prop:rational-quadric} with $t=\log2$,
+$a=-1/2$, $b=1/12$ and $c=s$.
+\end{proof}
+
+Both alternatives are open. Waldschmidt lists the irrationality of $\mathrm{Li}_{2}(1/2)$ as
+unknown~\cite[p.~274]{waldschmidt-odp}. It is known for $\mathrm{Li}_{2}(1/q)$ when $q\ge6$ or
+$q\le-5$~\cite{hata-1993,rhin-viola-2005}, and the case $q=2$ is still
+open~\cite[Remark~2.8.2]{calegari-dimitrov-tang}. The number $\e^{i/\pi}$ is the smallest case of
+the real half of the statement $(S)$ below. Proposition~\ref{prop:rational-quadric} is Brownawell's
+Corollary~5~\cite[p.~23]{brownawell-1974} at $\eta=t/\pi$, followed by rational scaling; the
+dichotomy was not found in the sources read.
 
 \subsection*{A second point in the fibre, and the statement \texorpdfstring{$(S)$}{(S)}}
 
@@ -748,6 +784,36 @@ machine-checked as well. The room can
 also come from a second candidate:
 Section~\ref{sec:outside} shows that two candidates of commensurable moduli give the theorem the
 fourth dimension a single one lacks.
+
+Room helps only where the added numbers are tied to $u$ by an algebraic relation.
+
+\begin{theorem}\label{thm:generic-room}
+Let $u\neq0$ with $u\bar u\in\Alg$, and let $w_{1},\dots,w_{m}\in\C$ be such that
+$u,w_{1},\dots,w_{m}$ are algebraically independent over $\Alg$. Then there are no $\Alg$-independent
+$x=(x_{1},x_{2})$ and $y=(y_{1},y_{2},y_{3})$ with all six products $x_{i}y_{j}$ in
+$\Alg+\Alg u+\Alg\bar u+\sum_{j}\Alg w_{j}$.
+\end{theorem}
+
+\begin{proof}
+Multiply by $u$. Since $\bar u=\rho/u$ with $\rho\in\Alg$, every element of the space times $u$ is the
+value at $(u,w)$ of a polynomial over $\Alg$ of total degree at most two that is constant once its
+first variable $X_{0}$ is set to $0$, and evaluation at $(u,w)$ is injective. So a configuration gives
+a rank-one $2\times3$ matrix of such polynomials, which factors as $(h,g)\otimes(c_{0},c_{1},c_{2})$
+with both factors free. Total degrees add, and $X_{0}\mapsto0$ is a ring map. If $h$ and $g$ vanish
+at $X_{0}=0$, they lie in $\Alg X_{0}$ unless every $c_{j}$ is constant. Otherwise every $c_{j}$ is
+constant at $X_{0}=0$ and lies in $\Alg+\Alg X_{0}$ unless $h$ and $g$ are constant. Each case puts
+two free vectors in a line or three in a plane.
+\end{proof}
+
+The case $m=0$ is the last clause of Theorem~\ref{thm:dim}, and the case $m=1$, $w_{1}=i\pi$ is
+Theorem~\ref{thm:period}(c) below. The exponential of $u$ plays no role, so the theorem holds for every
+point of a circle of algebraic radius, candidate or not. For a candidate and logarithms $w_{j}$ it
+says that the six exponentials theorem and Roy's strong six exponentials theorem~\cite{roy-1992},
+and the sharp form after an application of Baker's theorem, cannot refute the candidate on generic
+data, however many logarithms are added. Roy~\cite[\S3.2]{roy-1995} and
+Fischler~\cite[p.~186]{fischler-2001} make the corresponding point for rank methods and the quadric
+$xy=z^{2}$. Where the data satisfy one more relation, Roy's theorem does see something: see
+Corollaries~\ref{cor:square} and~\ref{cor:recip} in Section~\ref{sec:outside}.
 
 \subsection*{The four exponentials conjecture sees nothing homogeneous}
 
@@ -1254,7 +1320,53 @@ for at most one pair $\pm t$. Since $(\log3)^{2}-(\log2)^{2}=\log\frac{3}{2}\cdo
 also says that $\log\frac{3}{2}\cdot\log6$ is irrational if $(\log2)^{2}+\pi^{2}$ is rational.
 Neither corollary was found in the sources read. Each follows in a few lines from the four
 exponentials theorem in transcendence degree one~\cite[Corollaire~4]{waldschmidt-1973},
-\cite[Theorem~1]{roy-waldschmidt-1995}, here through Theorem~\ref{thm:pair}.
+\cite[Theorem~1]{roy-waldschmidt-1995}, here through Theorem~\ref{thm:pair}; each is also one
+substitution in Brownawell's Corollary~7~\cite[p.~23]{brownawell-1974}.
+
+For two candidates the pair theorem becomes a dichotomy, and it decides when two candidates on an
+axis-parallel line share a modulus. Both results come from the author's unpublished manuscript on the
+conjecture, where they were derived from~\cite[Th\'eor\`eme~0.2]{roy-waldschmidt-1997}. They are direct
+instances of~\cite[Corollaire~4]{waldschmidt-1973}.
+
+\begin{corollary}\label{cor:pair-dichotomy}
+Let $u,v$ be candidates with $|v|^{2}/|u|^{2}\in\Q$. Then $v\in\Q^{\times}u\cup\Q^{\times}\bar u$ if and
+only if $u$ and $v$ are algebraically dependent over $\Q$.
+\end{corollary}
+
+\begin{proof}
+If $v\in\Q^{\times}u\cup\Q^{\times}\bar u$, then $u$ and $v$ are dependent, since $\bar u=\rho/u$.
+Conversely, if they are dependent, then $\Q(u,\bar u,v,\bar v)$ has transcendence degree at most one,
+as $\bar u=\rho/u$ and $\bar v=|v|^{2}/v$, and Theorem~\ref{thm:pair} applies.
+\end{proof}
+
+\begin{corollary}\label{cor:axis-ratio}
+Let $u\neq v$ be candidates with $v-u$ real or purely imaginary. Then the following are equivalent:
+$|v|^{2}/|u|^{2}\in\Q$; $|v|=|u|$; and $v=\bar u$ if $v-u\in i\R$, $v=-\bar u$ if $v-u\in\R$.
+\end{corollary}
+
+\begin{proof}
+The last two are equivalent by plane geometry, and $|v|=|u|$ gives a rational ratio. Conversely,
+$v-\bar v=u-\bar u$ or $v+\bar v=u+\bar u$ makes $v$ a root of a quadratic polynomial over $\Alg(u)$, so
+$u$ and $v$ are dependent, and Corollary~\ref{cor:pair-dichotomy} gives $v=cu$ or $v=c\bar u$ with
+$c\in\Q^{\times}$. A candidate lies on neither axis, so $c=1$ in the first case, which is excluded,
+and $c=\pm1$ in the second.
+\end{proof}
+
+\begin{theorem}\label{thm:mixed-rigidity}
+Let $u$ be a candidate and $\mu\in\Logs\setminus(\Q u\cup\Q\bar u)$. Then
+$\trdeg_{\Q}\Q(u,\mu,\e^{u\bar u/\mu})\ge2$.
+\end{theorem}
+
+\begin{proof}
+Waldschmidt's theorem~\cite{waldschmidt-1973} applies to $x=(u,\mu)$ and $y=(\bar u/\mu,1)$, whose
+second column gives the algebraic numbers $\e^{u}$ and $\e^{\mu}$. Two of the eight numbers are then
+algebraically independent, and all eight are algebraic over $\Q(u,\mu,\e^{u\bar u/\mu})$.
+\end{proof}
+
+When $\mu$ is algebraic over $\Q(u)$, the theorem gives the transcendence of $\e^{\rho/\mu}$, as in the
+remark after Corollary~\ref{cor:monomial}. It is~\cite[Corollaire~4]{waldschmidt-1973} at
+$(u,\bar u,\mu)$; see also~\cite[Exercise~7.4.d]{waldschmidt-1974}
+and~\cite[Corollary~1.2(c)]{roy-waldschmidt-1997}.
 
 \subsection*{Products on the axes}
 
@@ -1525,6 +1637,9 @@ hypothesis.
 D.~Bertrand sur la fonction modulaire}, J. Théor. Nombres Bordeaux \textbf{9} (1997), 229--245.
 \bibitem{karatarakis-wiedijk} M.~Karatarakis and F.~Wiedijk, \emph{A formalization of the
 Gelfond-Schneider theorem}, arXiv:2603.24823 (2026).
+\bibitem{karatarakis-baker} M.~Karatarakis, branch \texttt{baker} of
+\url{https://github.com/mkaratarakis/mathlib4}, public since 25 September 2026: a Lean formalisation
+of Baker's theorem along~\cite[Ch.~4]{waldschmidt-book}.
 \bibitem{roy-waldschmidt-1995} D.~Roy and M.~Waldschmidt, \emph{Quadratic relations between
 logarithms of algebraic numbers}, Proc. Japan Acad. Ser. A \textbf{71} (1995), 151--153.
 \bibitem{roy-waldschmidt-1997} D.~Roy and M.~Waldschmidt, \emph{Approximation diophantienne et
@@ -1532,6 +1647,8 @@ indépendance algébrique de logarithmes}, Ann. Sci. École Norm. Sup. (4) \text
 753--796.
 \bibitem{roy-1992} D.~Roy, \emph{Matrices whose coefficients are linear forms in logarithms},
 J. Number Theory \textbf{41} (1992), 22--47.
+\bibitem{roy-1995} D.~Roy, \emph{Points whose coordinates are logarithms of algebraic numbers on
+algebraic varieties}, Acta Math. \textbf{175} (1995), 49--73.
 \bibitem{baker-1966} A.~Baker, \emph{Linear forms in the logarithms of algebraic numbers~I},
 Mathematika \textbf{13} (1966), 204--216.
 \bibitem{bertrand-masser} D.~Bertrand and D.~W.~Masser, \emph{Linear forms in elliptic
@@ -1555,6 +1672,16 @@ Groups}, Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2
 theorem}, Hardy-Ramanujan J. \textbf{28} (2005), 1--9.
 \bibitem{waldschmidt-hopf} M.~Waldschmidt, \emph{Hopf algebras and transcendental numbers}, in
 \emph{Zeta Functions, Topology and Quantum Physics}, Springer, 2005, 197--219.
+\bibitem{waldschmidt-odp} M.~Waldschmidt, \emph{Open Diophantine problems}, Mosc. Math. J.
+\textbf{4} (2004), 245--305.
+\bibitem{fischler-2001} S.~Fischler, \emph{Orbits under algebraic groups and logarithms of algebraic
+numbers}, Acta Arith. \textbf{100} (2001), 167--187.
+\bibitem{hata-1993} M.~Hata, \emph{Rational approximations to the dilogarithm}, Trans. Amer. Math.
+Soc. \textbf{336} (1993), 363--387.
+\bibitem{rhin-viola-2005} G.~Rhin and C.~Viola, \emph{The permutation group method for the
+dilogarithm}, Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) \textbf{4} (2005), 389--437.
+\bibitem{calegari-dimitrov-tang} F.~Calegari, V.~Dimitrov and Y.~Tang, \emph{The linear independence
+of $1$, $\zeta(2)$, and $L(2,\chi_{-3})$}, arXiv:2408.15403 (2024).
 \bibitem{dasgupta-2023} S.~Dasgupta, \emph{Ranks of matrices of logarithms of algebraic numbers I:
 the theorems of Baker and Waldschmidt--Masser}, Essent. Number Theory \textbf{2} (2023), 93--138.
 \bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{Ranks of matrices of logarithms of
@@ -1580,7 +1707,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.16 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.17 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1611,8 +1738,15 @@ Version 1.16 adds, on 2 October 2026, Proposition~\ref{prop:axis-products},
 Theorem~\ref{thm:qr2} and Corollary~\ref{cor:axis-partner}: Diaz's (Qr2) in transcendence degree
 one. Baker's theorem is now machine-checked, so the four rows that assumed it name unconditional
 forms and read Proved; and the title of Brownawell's 1974 paper is corrected.
-Every row of the table below was checked against the platform by script on 2 October 2026, and
-the mirrored project held all 340 proved results of the development at that date.
+Version 1.17 adds, on 4 October 2026, Proposition~\ref{prop:rational-quadric} and
+Corollary~\ref{cor:dilog} (the dilogarithm $\mathrm{Li}_{2}(1/2)$ against $\e^{i/\pi}$),
+Theorem~\ref{thm:generic-room} (no $2\times3$ configuration on generic data, whatever is added), and
+Corollaries~\ref{cor:pair-dichotomy} and~\ref{cor:axis-ratio} with Theorem~\ref{thm:mixed-rigidity},
+three results of the author's manuscript that Waldschmidt's 1973 corollary now gives directly. It
+credits Brownawell's 1974 corollaries where they apply, and Karatarakis's formalisation of Baker's
+theorem.
+Every row of the table below was checked against the platform by script on 4 October 2026, and
+the mirrored project held all 346 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1655,6 +1789,8 @@ Thm~\ref{thm:one-relation} & Proved & \nolinkurl{DiazModulus.leaf_iff_one} \\
 Thm~\ref{thm:diaz-number} & Proved & \nolinkurl{DiazModulus.diaz_number_forces_transcendence} \\
 Cor.~\ref{cor:log2} & Proved & \nolinkurl{DiazModulus.log_two_diaz_or_transcendental} \\
 Cor.~\ref{cor:rational-exclusion} & Proved & \nolinkurl{DiazModulus.recip_pi_log_of_torsion_rational_modulus} \\
+Prop.~\ref{prop:rational-quadric} & Proved & \nolinkurl{DiazModulus.recip_pi_log_of_rational_quadratic_relation} \\
+Cor.~\ref{cor:dilog} & Proved & \nolinkurl{DiazModulus.dilog_half_irrational_or_exp_i_div_pi_transcendental} \\
 \S\ref{sec:quant}, Waldschmidt's remark & Proved & \nolinkurl{DiazModulus.log_pair_square_ratio_transcendental}, \nolinkurl{DiazModulus.log_two_pi_dependent_forces_transcendence} \\
 \S\ref{sec:quant}, Diaz's Proposition~1 & Proved & \nolinkurl{DiazModulus.log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq} \\
 Thm~\ref{thm:novan} & Proved & \nolinkurl{Diaz.no_vanishing_coeff} \\
@@ -1666,6 +1802,7 @@ Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_c
 \S\ref{sec:map}, non-candidates on every circle & Proved & \nolinkurl{DiazModulus.exists_noncandidate_transcendental_on_circle} \\
 Thm~\ref{thm:indist-pi} & Proved & \nolinkurl{DiazModulus.generic_indistinguishable_over_pi}, \nolinkurl{DiazModulus.circle_points_indistinguishable} \\
 Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refute_candidate} \\
+Thm~\ref{thm:generic-room} & Proved & \nolinkurl{DiazModulus.generic_circle_point_no_two_by_three_configuration} \\
 Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier}, \nolinkurl{DiazModulus.generic_qbar_homogeneous_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
 Thm~\ref{thm:period}(a) & Proved & \nolinkurl{DiazModulus.generic_quadratic_relation_is_norm} \\
@@ -1722,6 +1859,9 @@ Cor.~\ref{cor:monomial} & Proved & \nolinkurl{DiazModulus.candidate_monomial_not
 \S\ref{sec:outside}, harmonic mean & Proved & \nolinkurl{DiazModulus.candidate_harmonic_not_log} \\
 Cor.~\ref{cor:rational-orbit} & Proved & \nolinkurl{DiazModulus.nongeneric_rational_modulus_orbit} \\
 Cor.~\ref{cor:torsion-unique} & Proved & \nolinkurl{DiazModulus.torsion_rational_modulus_unique}, \nolinkurl{DiazModulus.log_two_log_three_not_both_rational} \\
+Cor.~\ref{cor:pair-dichotomy} & Proved & \nolinkurl{DiazModulus.candidate_pair_dichotomy} \\
+Cor.~\ref{cor:axis-ratio} & Proved & \nolinkurl{DiazModulus.candidate_axis_ratio} \\
+Thm~\ref{thm:mixed-rigidity} & Proved & \nolinkurl{DiazModulus.candidate_mixed_rigidity} \\
 Prop.~\ref{prop:axis-products} & Proved & \nolinkurl{DiazModulus.log_mul_real_trichotomy_of_trdeg_one}, \nolinkurl{DiazModulus.log_mul_imaginary_mixed_of_trdeg_one} \\
 Thm~\ref{thm:qr2} & Proved & \nolinkurl{DiazModulus.diaz_2007_qr2_of_trdeg_one} \\
 Cor.~\ref{cor:axis-partner} & Proved & \nolinkurl{DiazModulus.candidate_log_mul_real_iff_rat_conj} \\
@@ -1743,7 +1883,9 @@ because the library used does not contain it, so it had to be established rather
 same holds for Gel'fond--Schneider, which is proved on the platform in another mission, from the
 formalisation of Karatarakis and Wiedijk, and is mirrored in the project. Baker's theorem is listed
 for the same reason~\cite{baker-1966}; it is proved in this mission, along Chapter~4
-of~\cite{waldschmidt-book}, and the board's own statement of it is the node closed there. And
+of~\cite{waldschmidt-book}, and the board's own statement of it is the node closed there.
+M.~Karatarakis has formalised the same route, for every $d_{0}$, on a public branch of his
+Mathlib fork~\cite{karatarakis-baker}. And
 the statement $(\mathrm{NT})$ of Proposition~\ref{prop:loop} was contributed by another
 participant in the same development, independently of the work reported here; the equivalence
 with Conjecture~\ref{conj:diaz} is what is established above.
