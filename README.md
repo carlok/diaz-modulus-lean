@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 346 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 354 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -1134,6 +1134,11 @@ the node texts on the platform attribute each one.
 Code written by others is credited where it is used:
 - Lindemann–Weierstrass, from Mathlib PR #28013;
 - Gelfond–Schneider, from M. Karatarakis and F. Wiedijk.
+- eight results contributed to the Diaz mission by the Prove2Me contributor Nickrobbins95 (3–4 October 2026),
+  mirrored here with their proofs: `s0_conj_mem`, `s0_add_mem`, `s0_rat_scale_mem` and
+  `s0_bridge_halves_imp_parent` on the set S₀ of the statement (S); `real_axis_exp_unit_circle`,
+  `real_axis_root_of_unity_implies_pi_sq_rat` and `imag_axis_div_normalisation` on the axes; and
+  `normSq_of_modulus_conjecture`.
 
 `e_pi_transcendence` answers a node that another Prove2Me contributor posed; its proof is this project's.
 

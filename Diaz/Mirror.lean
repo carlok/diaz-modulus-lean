@@ -305,3 +305,11 @@ import Diaz.Mirror.dilog_half_irrational_or_exp_i_div_pi_transcendental
 import Diaz.Mirror.candidate_axis_ratio
 import Diaz.Mirror.candidate_mixed_rigidity
 import Diaz.Mirror.generic_circle_point_no_two_by_three_configuration
+import Diaz.Mirror.normSq_of_modulus_conjecture
+import Diaz.Mirror.real_axis_root_of_unity_implies_pi_sq_rat
+import Diaz.Mirror.real_axis_exp_unit_circle
+import Diaz.Mirror.imag_axis_div_normalisation
+import Diaz.Mirror.s0_conj_mem
+import Diaz.Mirror.s0_add_mem
+import Diaz.Mirror.s0_rat_scale_mem
+import Diaz.Mirror.s0_bridge_halves_imp_parent

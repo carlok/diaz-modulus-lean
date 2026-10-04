@@ -12,9 +12,9 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-04): **346** of 354
+As of the latest archived submission (2026-10-04): **354** of 354
 Proved nodes are in the library. Of the rest, **0** marked high
-priority, **8** normal, **0** low (folklore,
+priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
 
 **Every Proved node is to be ported, trivial or not.** The companion note selects
@@ -220,7 +220,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.generic_quadratic_relation_is_norm` | yes | `Diaz/Mirror/generic_quadratic_relation_is_norm.lean` | done |  |
 | `DiazModulus.geometric_triple_not_logs` | yes | `Diaz/Mirror/geometric_triple_not_logs.lean` | done |  |
 | `DiazModulus.hermite_lindemann_holds` | yes | `Diaz/HermiteLindemann.lean` | done |  |
-| `DiazModulus.imag_axis_div_normalisation` | yes | — | normal |  |
+| `DiazModulus.imag_axis_div_normalisation` | yes | `Diaz/Mirror/imag_axis_div_normalisation.lean` | done |  |
 | `DiazModulus.kronecker_factorisation` | yes | `Diaz/Mirror/kronecker_factorisation.lean` | done |  |
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
 | `DiazModulus.logAlgTilde_conj_stable` | yes | `Diaz/Mirror/logAlgTilde_conj_stable.lean` | done |  |
@@ -240,7 +240,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.no_first_order_arithmetic_operator` | yes | `Diaz/Mirror/no_first_order_arithmetic_operator.lean` | done |  |
 | `DiazModulus.no_first_order_arithmetic_operator_unconditional` | yes | `Diaz/Mirror/no_first_order_arithmetic_operator_unconditional.lean` | done |  |
 | `DiazModulus.nongeneric_rational_modulus_orbit` | yes | `Diaz/Mirror/nongeneric_rational_modulus_orbit.lean` | done |  |
-| `DiazModulus.normSq_of_modulus_conjecture` | yes | — | normal |  |
+| `DiazModulus.normSq_of_modulus_conjecture` | yes | `Diaz/Mirror/normSq_of_modulus_conjecture.lean` | done |  |
 | `DiazModulus.period_free_split_nondegenerate` | yes | `Diaz/Mirror/period_free_split_nondegenerate.lean` | done |  |
 | `DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi` | yes | `Diaz/Mirror/pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi.lean` | done |  |
 | `DiazModulus.pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic` | yes | `Diaz/Mirror/pi_e_exp_pi_sq_indep_of_exp_i_rat_div_pi_algebraic.lean` | done |  |
@@ -252,8 +252,8 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.power_hull_strong_six_exp_configuration_iff` | yes | `Diaz/Mirror/power_hull_strong_six_exp_configuration_iff.lean` | done |  |
 | `DiazModulus.qbar_dependent_of_det_linear_forms` | yes | `Diaz/Mirror/qbar_dependent_of_det_linear_forms.lean` | done |  |
 | `DiazModulus.quadratic_eq_zero_of_not_mem_Qbar` | yes | `Diaz/Mirror/quadratic_eq_zero_of_not_mem_Qbar.lean` | done |  |
-| `DiazModulus.real_axis_exp_unit_circle` | yes | — | normal |  |
-| `DiazModulus.real_axis_root_of_unity_implies_pi_sq_rat` | yes | — | normal |  |
+| `DiazModulus.real_axis_exp_unit_circle` | yes | `Diaz/Mirror/real_axis_exp_unit_circle.lean` | done |  |
+| `DiazModulus.real_axis_root_of_unity_implies_pi_sq_rat` | yes | `Diaz/Mirror/real_axis_root_of_unity_implies_pi_sq_rat.lean` | done |  |
 | `DiazModulus.recip_pi_exp_axis_shape` | yes | `Diaz/Mirror/recip_pi_exp_axis_shape.lean` | done |  |
 | `DiazModulus.recip_pi_exp_value_not_root_of_unity` | yes | `Diaz/Mirror/recip_pi_exp_value_not_root_of_unity.lean` | done |  |
 | `DiazModulus.recip_pi_log_four_exp_barrier` | yes | `Diaz/Mirror/recip_pi_log_four_exp_barrier.lean` | done |  |
@@ -270,10 +270,10 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.recip_pi_not_log_real_or_imag` | yes | `Diaz/Mirror/recip_pi_not_log_real_or_imag.lean` | done |  |
 | `DiazModulus.recip_pi_or_pi_cube` | yes | `Diaz/Mirror/recip_pi_or_pi_cube.lean` | done |  |
 | `DiazModulus.ringHom_preserves_linearIndependent` | yes | `Diaz/Mirror/ringHom_preserves_linearIndependent.lean` | done |  |
-| `DiazModulus.s0_add_mem` | yes | — | normal |  |
-| `DiazModulus.s0_bridge_halves_imp_parent` | yes | — | normal |  |
-| `DiazModulus.s0_conj_mem` | yes | — | normal |  |
-| `DiazModulus.s0_rat_scale_mem` | yes | — | normal |  |
+| `DiazModulus.s0_add_mem` | yes | `Diaz/Mirror/s0_add_mem.lean` | done |  |
+| `DiazModulus.s0_bridge_halves_imp_parent` | yes | `Diaz/Mirror/s0_bridge_halves_imp_parent.lean` | done |  |
+| `DiazModulus.s0_conj_mem` | yes | `Diaz/Mirror/s0_conj_mem.lean` | done |  |
+| `DiazModulus.s0_rat_scale_mem` | yes | `Diaz/Mirror/s0_rat_scale_mem.lean` | done |  |
 | `DiazModulus.sharp_four_and_strong_five_exponentials_of_strong_four` | yes | `Diaz/Mirror/sharp_four_and_strong_five_exponentials_of_strong_four.lean` | done |  |
 | `DiazModulus.sixExponentials_cannot_refute_candidate` | yes | `Diaz/NoGo.lean` | done |  |
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
