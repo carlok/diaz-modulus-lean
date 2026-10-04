@@ -43,3 +43,9 @@ import Solution
 #print axioms Diaz.no_algebraic_generalized_line_unconditional
 #print axioms Diaz.candidate_one_log_saturation_unconditional
 #print axioms Diaz.no_first_order_arithmetic_operator_unconditional
+#print axioms Diaz.recip_pi_log_of_rational_quadratic_relation
+#print axioms Diaz.dilog_half_irrational_or_exp_i_div_pi_transcendental
+#print axioms Diaz.generic_circle_point_no_two_by_three_configuration
+#print axioms Diaz.candidate_pair_dichotomy
+#print axioms Diaz.candidate_axis_ratio
+#print axioms Diaz.candidate_mixed_rigidity

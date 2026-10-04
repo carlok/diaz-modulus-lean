@@ -299,3 +299,9 @@ import Diaz.Mirror.candidate_qbar_independent_one_u_conj
 import Diaz.Mirror.diaz_2007_qr2_of_trdeg_one
 import Diaz.Mirror.no_algebraic_generalized_line_unconditional
 import Diaz.Mirror.no_first_order_arithmetic_operator_unconditional
+import Diaz.Mirror.recip_pi_log_of_rational_quadratic_relation
+import Diaz.Mirror.candidate_pair_dichotomy
+import Diaz.Mirror.dilog_half_irrational_or_exp_i_div_pi_transcendental
+import Diaz.Mirror.candidate_axis_ratio
+import Diaz.Mirror.candidate_mixed_rigidity
+import Diaz.Mirror.generic_circle_point_no_two_by_three_configuration

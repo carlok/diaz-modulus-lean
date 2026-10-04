@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 340 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 346 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -663,6 +663,19 @@ configuration of the strong six exponentials theorem with all six products in
 `{0, k−1, k, k+1, 2k}`. Not found in the sources read; Diaz (2007, p. 390) remarks that inside that
 theorem one cannot hope to go very far.
 
+### No 2×3 configuration on generic data
+
+`DiazModulus.generic_circle_point_no_two_by_three_configuration` (4 October 2026): let u ≠ 0 with uū algebraic,
+and let w₁, …, w_m be numbers such that u, w₁, …, w_m are algebraically independent over Q̄. Then no Q̄-independent
+x₁, x₂ and y₁, y₂, y₃ have all six products x_i y_j in Q̄ + Q̄u + Q̄ū + ΣQ̄w_j.
+
+For a candidate and logarithms w_j, this means Roy's strong six exponentials theorem cannot refute the candidate
+on generic data, and neither can any statement whose hypothesis is a rank-one 2×3 configuration, whatever
+logarithms are added.
+- The case m = 0 is Roy's (1995, Th. 3.4).
+- The case m = 1, w = iπ is `DiazModulus.generic_no_strong_six_exp_configuration`.
+- The proof is algebra: polynomials of total degree at most two, and the ring map X₀ ↦ 0.
+
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 
 - `Transcendence.singular_matrix_subspace_annihilating_pair` — Roy's lemma (Dasgupta–Kakde II,
@@ -710,6 +723,27 @@ Four nodes of 2 October 2026, from the four exponentials theorem in transcendenc
 They are immediate from Diaz 2007, who proves (Qr2) from the four exponentials conjecture with the same
 2×2 matrix and quotes the theorem in transcendence degree one without combining the two. The
 transcendence-degree-one form was not found in the sources read.
+
+### A dichotomy for Li₂(1/2)
+
+`DiazModulus.dilog_half_irrational_or_exp_i_div_pi_transcendental`: Li₂(1/2) = π²/12 − (log 2)²/2 is irrational,
+or e^{iγ/π} is transcendental for every rational γ ≠ 0.
+- Both alternatives are open. Waldschmidt lists the irrationality of Li₂(1/2) as unknown (*Open Diophantine
+  Problems*, 2004, p. 274), and e^{i/π} is the smallest case of the real half of (S).
+- It comes from `DiazModulus.recip_pi_log_of_rational_quadratic_relation`: if a·t² + b·π² is rational, with a ≠ 0,
+  then e^{iγ/π} is transcendental. That is Brownawell's Corollary 5 (1974) in general form.
+- The dichotomy was not found in the sources read.
+
+### From the manuscript, through Waldschmidt 1973
+
+Carlo Perassi's unpublished manuscript on the conjecture had three results that seemed to need Roy–Waldschmidt
+1997. They are direct instances of Waldschmidt's 1973 Corollaire 4:
+- `DiazModulus.candidate_pair_dichotomy` (Theorem 2.5): two candidates with a rational ratio of squared moduli
+  are rational multiples of each other, or of the conjugate, exactly when they are algebraically dependent;
+- `DiazModulus.candidate_axis_ratio` (Theorem 2.3): for two distinct candidates whose difference is real or
+  purely imaginary, a rational ratio of squared moduli, equal moduli, and v = ±ū are equivalent;
+- `DiazModulus.candidate_mixed_rigidity` (Theorem 3.9): for a candidate u and a logarithm μ outside ℚu ∪ ℚū, the
+  numbers u, μ and e^{uū/μ} generate transcendence degree at least two.
 
 ### Baker's theorem as a hypothesis, discharged
 
