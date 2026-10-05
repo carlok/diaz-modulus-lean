@@ -1,6 +1,8 @@
 /-
 Mirrored from Prove2Me: `FourExp.construction_count`.
 
+Proof by the Prove2Me contributor cm_beta, credited in the README.
+
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.construction_count__94995e8d.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.

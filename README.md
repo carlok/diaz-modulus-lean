@@ -1133,12 +1133,14 @@ the node texts on the platform attribute each one.
 
 Code written by others is credited where it is used:
 - Lindemann–Weierstrass, from Mathlib PR #28013;
-- Gelfond–Schneider, from M. Karatarakis and F. Wiedijk.
+- Gelfond–Schneider, from M. Karatarakis and F. Wiedijk;
 - eight results contributed to the Diaz mission by the Prove2Me contributor Nickrobbins95 (3–4 October 2026),
   mirrored here with their proofs: `s0_conj_mem`, `s0_add_mem`, `s0_rat_scale_mem` and
   `s0_bridge_halves_imp_parent` on the set S₀ of the statement (S); `real_axis_exp_unit_circle`,
   `real_axis_root_of_unity_implies_pi_sq_rat` and `imag_axis_div_normalisation` on the axes; and
-  `normSq_of_modulus_conjecture`.
+  `normSq_of_modulus_conjecture`;
+- `construction_count`, a counting inequality for the auxiliary construction of the four exponentials
+  proof, proved by the Prove2Me contributor cm_beta (23 September 2026).
 
 `e_pi_transcendence` answers a node that another Prove2Me contributor posed; its proof is this project's.
 
