@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.18, 5 October 2026}
+\date{September 2026\\[2pt]\small Version 1.19, 5 October 2026}
 
 \begin{document}
 \maketitle
@@ -183,6 +183,19 @@ that degree is at most $1$. If instead $u=q\bar u$ with $q\in\Q$, then $\lvert q
 $q=\pm1$ and $u^{2}=\pm\lvert u\rvert^{2}\in\Alg$, making $u$ algebraic; Hermite--Lindemann
 finishes. Schanuel at $n=1$ is itself Hermite--Lindemann, so no separate input is needed. This is
 Diaz's Proposition~1~\cite[pp.~550--551]{diaz-2004}, with the same two cases.
+\end{remark}
+
+\begin{remark}\label{rem:weak-schanuel}
+A weaker form already confines the candidates. Kirby's weak Schanuel conjecture~\cite[Conjecture~1.5]{kirby-2018}
+asserts that if $\trdeg_{\Q}\Q(a_{1},\e^{a_{1}},\dots,a_{n},\e^{a_{n}})<n$, then $\sum_{i}m_{i}a_{i}\in2\pi i\Z$ for
+some integers $m_{i}$, not all zero. At a candidate $u$ the pair $(u,\bar u)$ satisfies the hypothesis, as in
+Remark~\ref{rem:schanuel}, and since a candidate is off both axes, $m_{1}u+m_{2}\bar u\in2\pi i\Z$ forces
+$m_{1}=-m_{2}\neq0$, hence $\operatorname{Im}u\in\pi\Q$. An integer multiple of $u$ is then a candidate with
+$\e^{u}$ real. Assuming it, Conjecture~\ref{conj:diaz} is equivalent to statement~(ii) of
+Theorem~\ref{thm:one-relation}, and Conjecture~\ref{conj:S} is not needed. The weak form says nothing about~(ii)
+itself, nor about Conjecture~\ref{conj:S}: the logarithms involved always satisfy the relation
+$2\cdot i\pi\in2\pi i\Z$. This reduction was not found in the sources read. The name ``weak Schanuel'' is also used
+for the algebraic independence of logarithms of algebraic numbers, which is a much stronger statement.
 \end{remark}
 
 Theorem~\ref{thm:sfe-implies-diaz} fixes the ceiling of the whole subject. Any decomposition of
@@ -633,7 +646,10 @@ $\aLogs$, and conjectured the same for $2\times2$
 matrices~\cite[Theorem~1.2 and Conjecture~1.6]{waldschmidt-2005b}. The matrix $H(u,r)$ meets the
 hypotheses of that conjecture and has determinant $0$, so the conjecture implies Diaz's. Roy
 extended the Waldschmidt--Masser rank bound to $\Q+\Logs$ and to $\aLogs$, and Dasgupta and Kakde
-expect their Matrix Coefficient Conjecture to extend to $\Q+\Logs$~\cite[\S2]{dasgupta-kakde}.
+expect their Matrix Coefficient Conjecture to extend to $\Q+\Logs$~\cite[\S2]{dasgupta-kakde}. For
+$2\times2$ matrices that extension is the sharp four exponentials conjecture~\cite[p.~4]{waldschmidt-hopf}
+with rational constants; it would settle the candidates with $\lvert u\rvert^{2}\in\Q$, and
+Conjecture~\ref{conj:S} for $\gamma\in\Q$.
 None of this is known to reach a candidate.
 
 On the unconditional route it is~(b) that Theorem~\ref{thm:one-relation} runs into:
@@ -1723,6 +1739,7 @@ Soc. \textbf{336} (1993), 363--387.
 dilogarithm}, Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) \textbf{4} (2005), 389--437.
 \bibitem{calegari-dimitrov-tang} F.~Calegari, V.~Dimitrov and Y.~Tang, \emph{The linear independence
 of $1$, $\zeta(2)$, and $L(2,\chi_{-3})$}, arXiv:2408.15403 (2024).
+\bibitem{kirby-2018} J.~Kirby, \emph{Variants of Schanuel's conjecture}, arXiv:1801.08765 (2018).
 \bibitem{dasgupta-2023} S.~Dasgupta, \emph{Ranks of matrices of logarithms of algebraic numbers I:
 the theorems of Baker and Waldschmidt--Masser}, Essent. Number Theory \textbf{2} (2023), 93--138.
 \bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{Ranks of matrices of logarithms of
@@ -1748,7 +1765,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.18 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.19 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1789,6 +1806,9 @@ theorem.
 Version 1.18 adds, on 5 October 2026, Theorem~\ref{thm:extension-room}: the four-dimensional
 extensions $\Alg+\Alg u+\Alg\bar u+\Alg z$ that carry a $2\times3$ configuration are exactly those
 containing $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$.
+Version 1.19 adds, on 5 October 2026, Remark~\ref{rem:weak-schanuel}, on Kirby's weak form of Schanuel's
+conjecture, and identifies the $2\times2$ case of an extension expected by Dasgupta and Kakde with the
+sharp four exponentials conjecture with rational constants.
 Every row of the table below was checked against the platform by script on 5 October 2026, and
 the mirrored project held all 359 proved results of the development at that date.
 
