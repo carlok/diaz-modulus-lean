@@ -20,6 +20,8 @@ cannot settle it.
 
 The blueprint at https://carlok.github.io/diaz-modulus-lean/ states each of them, and every result their proofs use,
 with a dependency graph, links to the Lean source and a PDF.
+Since 5 October 2026 it also has two chapters of the library's own results: the rank-one configurations near a
+point of a circle (Theorems A and B, below) and the dichotomy for Li₂(1/2).
 
 | Result | Due to | Lean name | Lean proof |
 |---|---|---|---|

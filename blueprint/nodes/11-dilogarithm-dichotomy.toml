@@ -1,0 +1,32 @@
+# Chapter 11. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "A dichotomy for the dilogarithm at one half"
+text = '''
+Two statements about classical constants from the library's work on Diaz's conjecture. Both rest on the four exponentials theorem in transcendence degree one (Chapter~\ref{chap:06-four-exponentials}). Each alternative of Corollary~\ref{cor:dilog_half_irrational_or_exp_i_div_pi_transcendental} is open, so at least one of two open questions has a positive answer.
+'''
+
+[[node]]
+platform = "DiazModulus.recip_pi_log_of_rational_quadratic_relation"
+env = "proposition"
+title = "A rational quadratic relation between $t$ and $\\pi$"
+statement = '''
+Let $t\neq0$ be real with $e^{t}$ algebraic, and let $a,b,c\in\Q$ with $a\neq0$ and $at^{2}+b\pi^{2}=c$. Then $e^{i\gamma/\pi}$ is transcendental for every $\gamma\in\Q$, $\gamma\neq0$.
+'''
+source = '''Brownawell's Corollary~5 \cite[p.~23]{Bro74} at $\eta=t/\pi$, followed by rational scaling. The statement for general $a,b$ was not found in the sources read.'''
+sketch = '''
+Suppose $e^{i\gamma/\pi}$ is algebraic, so that $\lambda=i\gamma/\pi$ is a logarithm of an algebraic number. The relation gives $t^{2}/(i\pi)=-\frac{c}{a\gamma}\,\lambda+\frac{b}{a}\,i\pi$, again a logarithm of an algebraic number. The matrix $\begin{pmatrix}t&t^{2}/(i\pi)\\ i\pi&t\end{pmatrix}$ has determinant $0$ and entries in a field of transcendence degree one, since $t$ is algebraic over $\Q(\pi)$. By Theorem~\ref{thm:four_exponentials_trdeg_one} its rows or its columns are linearly dependent over $\Q$; either way $\alpha t+\beta i\pi=0$ with $\alpha,\beta\in\Q$ not both zero, impossible since $t$ is real and non-zero and $i\pi$ is purely imaginary.
+'''
+
+[[node]]
+platform = "DiazModulus.dilog_half_irrational_or_exp_i_div_pi_transcendental"
+root = true
+env = "corollary"
+title = "$\\mathrm{Li}_2(1/2)$ against $e^{i/\\pi}$"
+statement = '''
+Either $\pi^{2}/12-(\log2)^{2}/2$ is irrational, or $e^{i\gamma/\pi}$ is transcendental for every $\gamma\in\Q$, $\gamma\neq0$.
+'''
+source = '''By Euler's identity, $\pi^{2}/12-(\log2)^{2}/2=\mathrm{Li}_2(1/2)=\sum_{n\ge1}1/(n^{2}2^{n})$. Its irrationality is listed as unknown in \cite[p.~274]{Wal04} and is still open: \cite{Hat93,RV05,CDT24} cover $\mathrm{Li}_2(1/q)$ only for $q\ge6$ and $q\le-5$. The dichotomy was not found in the sources read.'''
+sketch = '''
+If $\pi^{2}/12-(\log2)^{2}/2=s\in\Q$, apply Proposition~\ref{prop:recip_pi_log_of_rational_quadratic_relation} with $t=\log2$, $a=-1/2$, $b=1/12$ and $c=s$.
+'''

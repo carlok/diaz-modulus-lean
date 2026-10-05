@@ -1,0 +1,89 @@
+# Chapter 10. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "Rank-one configurations near a point of a circle"
+text = '''
+Two results of the library's work on Diaz's conjecture, about the hypothesis that rank-one statements need. The six exponentials theorem (Chapter~\ref{chap:05-six-exponentials}) and Roy's strong six exponentials theorem \cite{Roy92} take as input a \emph{configuration}: $x_1,x_2$ linearly independent over $\Qbar$ and $y_1,y_2,y_3$ linearly independent over $\Qbar$, with all six products $x_iy_j$ in a given $\Qbar$-vector space. Near a point $u$ of a circle of algebraic radius, that is $u\neq0$ with $u\bar u$ algebraic, Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration} shows that generic data carry no configuration, whatever numbers are added, and Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} classifies the four-dimensional extensions $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z$ that carry one. Neither statement involves $e^{u}$, so both keep their content if Diaz's conjecture holds. Neither was found in the sources read; the printed special cases are named in each source line.
+'''
+
+# --- Generic data ------------------------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.generic_circle_point_no_two_by_three_configuration"
+root = true
+env = "theorem"
+section = "Generic data"
+title = "No configuration on generic data"
+statement = '''
+Let $u\neq0$ with $u\bar u$ algebraic, and let $w_1,\dots,w_m\in\C$ be such that $u,w_1,\dots,w_m$ are algebraically independent over $\Qbar$. Then there are no $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $\Qbar+\Qbar u+\Qbar\bar u+\sum_j\Qbar w_j$.
+'''
+source = '''The case $m=0$ is \cite[Theorem 3.4]{Roy95} and \cite[Lemma 12.16 and Exercise 12.10]{Wal00}; see also \cite[\S3.2]{Roy95} and \cite[p.~186]{Fis01}. The general statement was not found in the sources read.'''
+sketch = '''
+Multiply by $u$. Since $\bar u=\rho/u$ with $\rho$ algebraic, every element of the space times $u$ is the value at $(u,w)$ of a polynomial over $\Qbar$ of total degree at most two that is constant once its first variable $X_0$ is set to $0$, and evaluation at $(u,w)$ is injective. A configuration therefore gives a rank-one $2\times3$ matrix of such polynomials, which factors as $(h,g)\otimes(c_0,c_1,c_2)$ with both factors free. Total degrees add, and $X_0\mapsto0$ is a ring map; each case puts two free vectors in a line or three in a plane.
+'''
+
+# --- Four-dimensional extensions ---------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.two_by_three_configuration_forces_progression"
+section = "Four-dimensional extensions"
+title = "A configuration in dimension four is a progression"
+statement = '''
+Let $V\subseteq\C$ be a $\Qbar$-vector subspace of dimension at most $4$, and let $x_1,x_2$ and $y_1,y_2,y_3$ be linearly independent over $\Qbar$ with all six products $x_iy_j$ in $V$. Then
+\[ V=\Qbar\,b+\Qbar\,bh+\Qbar\,bh^{2}+\Qbar\,bh^{3} \]
+for some $b\neq0$ and $h\notin\Qbar$.
+'''
+source = '''The converse direction, that such a progression carries a configuration, is used in \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}. This direction was not found in the sources read.'''
+sketch = '''
+Put $h=x_2/x_1$, which is not in $\Qbar$ and so is transcendental, and $B=x_1(\Qbar y_1+\Qbar y_2+\Qbar y_3)$. Both $B$ and $hB$ lie in $V$, so $W=B\cap hB$ has dimension at least $2$. The spaces $W$ and $h^{-1}W$ lie in $B$ and have dimension at least $2$, so they meet in some $c=hb\neq0$ with $b\in B$. Then $b,hb,h^{2}b\in B$ and $h^{3}b\in hB$: four free vectors in $V$.
+'''
+
+[[node]]
+platform = "DiazModulus.cubic_product_eq_square_normal_form"
+title = "A normal form for $P_1P_2=P_0^2$"
+statement = '''
+Let $K$ be a field and $P_0,P_1,P_2\in K[X]$ with $\deg P_1,\deg P_2\le3$, $P_1P_2=P_0^{2}$, and $P_0,P_1$ linearly independent over $K$. Then there are $Q_0,Q_1\in K[X]$ of degree at most $1$, linearly independent over $K$, and $a,b\in K$ such that, with $g=aQ_0+bQ_1$,
+\[ P_0=g\,Q_0Q_1,\qquad P_1=g\,Q_1^{2},\qquad P_2=g\,Q_0^{2}. \]
+'''
+source = '''Elementary.'''
+sketch = '''
+Divide out a common factor: $P_0=dQ_0$ and $P_1=dQ_1$ with $Q_0,Q_1$ coprime. Then $Q_1P_2=dQ_0^{2}$, so $Q_1$ divides $d$, say $d=gQ_1$. Degrees add, so $\deg Q_i\le1$. A relation between $Q_0$ and $Q_1$ would be one between $P_0$ and $P_1$, so they are independent; one of them has degree $1$, hence $\deg g\le1$, and by Cramer's rule $g=aQ_0+bQ_1$.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_hull_progression_contains_square_or_reciprocal"
+title = "A progression through $1$, $u$ and $\bar u$"
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $u\bar u$ algebraic, let $b\neq0$ and $h\notin\Qbar$, and suppose that $V=\Qbar\,b+\Qbar\,bh+\Qbar\,bh^{2}+\Qbar\,bh^{3}$ contains $1$, $u$ and $\bar u$. Then $V$ contains $u^{2}$, or $\bar u^{2}$, or $1/(u-a)$ for some $a\in\Qbar$, $a\neq0$.
+'''
+source = '''A step of Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff}.'''
+sketch = '''
+Write $1=bP_0(h)$, $u=bP_1(h)$ and $u^{-1}=\bar u/(u\bar u)=bP_2(h)$ with $\deg P_i\le3$. As $h$ is transcendental, $P_1P_2=P_0^{2}$, and $P_0,P_1$ are independent because $u\notin\Qbar$. Lemma~\ref{lem:cubic_product_eq_square_normal_form} gives $g=aQ_0+cQ_1$ and $u=Q_1(h)/Q_0(h)$. If $c=0$, then $u^{2}=b\,aQ_1(h)^{3}$; if $a=0$, then $\bar u^{2}=b\,\rho^{2}c\,Q_0(h)^{3}$ with $\rho=u\bar u$; otherwise $1/(u+a/c)=b\,c\,Q_0(h)^{2}Q_1(h)$.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_point_extension_carries_two_by_three_configuration"
+env = "proposition"
+title = "Three spaces that carry a configuration"
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $u\bar u$ algebraic, and let $w$ be $u^{2}$, $\bar u^{2}$, or $1/(u-a)$ with $a\in\Qbar$, $a\neq0$. Then there are $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $\Qbar+\Qbar u+\Qbar\bar u+\Qbar w$.
+'''
+source = '''The configurations behind \cite[Corollaire 5(1) and 5(4)]{Dia07}, used there with Roy's strong six exponentials theorem \cite{Roy92}.'''
+sketch = '''
+Here $u^{-1}=\bar u/(u\bar u)$ lies in the space. Take $(1,u)\otimes(u^{-1},1,u)$ for $u^{2}$, $(1,u^{-1})\otimes(u,1,u^{-1})$ for $\bar u^{2}$, and $(u^{-1},(u-a)^{-1})\otimes(1,u,u^{2}-au)$ for $1/(u-a)$. The families are free because $u$ is transcendental; the last one uses $a\neq0$.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_point_extension_two_by_three_configuration_iff"
+root = true
+env = "theorem"
+title = "The four-dimensional extensions that carry a configuration"
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $u\bar u$ algebraic, put $H_0=\Qbar+\Qbar u+\Qbar\bar u$, and let $z\notin H_0$. There are $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $H_0+\Qbar z$ if and only if $z\in H_0+\Qbar w$ for $w=u^{2}$, $w=\bar u^{2}$, or $w=1/(u-a)$ with $a\in\Qbar$, $a\neq0$.
+'''
+source = '''The classification was not found in the sources read. With Roy's strong six exponentials theorem \cite{Roy92}, the ``if'' direction gives at a candidate the exclusions of \cite[Corollaire 5(1) and 5(4)]{Dia07}; every configuration has the shape of \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}.'''
+sketch = '''
+If $z\in H_0+\Qbar w$ and $z\notin H_0$, then $H_0+\Qbar z=H_0+\Qbar w$, which carries a configuration by Proposition~\ref{prop:circle_point_extension_carries_two_by_three_configuration}. Conversely, Lemma~\ref{lem:two_by_three_configuration_forces_progression} writes $H_0+\Qbar z$ as $b(\Qbar+\Qbar h+\Qbar h^{2}+\Qbar h^{3})$ with $h\notin\Qbar$, and Lemma~\ref{lem:circle_hull_progression_contains_square_or_reciprocal} puts $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ in it. That element is not in $H_0$, since $u$ is transcendental, so $z\in H_0+\Qbar w$.
+
+Since $\widetilde{\mathcal L}$, the $\Qbar$-span of $1$ and the logarithms of algebraic numbers, is closed under complex conjugation, a hypothesis $z\in\widetilde{\mathcal L}$ also brings $\bar z$; the five-dimensional spaces $H_0+\Qbar z+\Qbar\bar z$ are not covered.
+'''
