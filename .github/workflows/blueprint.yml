@@ -48,6 +48,8 @@ jobs:
         run: leanblueprint web
       - name: Restore relation spacing in the web pages
         run: python scripts/fix_web_relations.py
+      - name: Draw the dependency graph's nodes as rounded rectangles
+        run: python scripts/fix_web_depgraph.py
       - name: Refuse an incomplete site
         # Every chapter of content.tex must have become a page, and the landing page must carry
         # the generated result count; otherwise the deploy stops here.
