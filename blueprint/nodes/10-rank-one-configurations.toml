@@ -52,7 +52,7 @@ Divide out a common factor: $P_0=dQ_0$ and $P_1=dQ_1$ with $Q_0,Q_1$ coprime. Th
 
 [[node]]
 platform = "DiazModulus.circle_hull_progression_contains_square_or_reciprocal"
-title = "A progression through $1$, $u$ and $\bar u$"
+title = 'A progression through $1$, $u$ and $\bar u$'
 statement = '''
 Let $u\in\C\setminus\Qbar$ with $u\bar u$ algebraic, let $b\neq0$ and $h\notin\Qbar$, and suppose that $V=\Qbar\,b+\Qbar\,bh+\Qbar\,bh^{2}+\Qbar\,bh^{3}$ contains $1$, $u$ and $\bar u$. Then $V$ contains $u^{2}$, or $\bar u^{2}$, or $1/(u-a)$ for some $a\in\Qbar$, $a\neq0$.
 '''
