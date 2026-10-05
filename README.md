@@ -22,6 +22,8 @@ The blueprint at https://carlok.github.io/diaz-modulus-lean/ states each of them
 with a dependency graph, links to the Lean source and a PDF.
 Since 5 October 2026 it also has two chapters of the library's own results: the rank-one configurations near a
 point of a circle (Theorems A and B, below) and the dichotomy for Li₂(1/2).
+Its chapter "Results not found in the sources read" lists every result of the library not found in the literature
+checked, and marks those that are not routine; in the dependency graph they have a double border.
 
 | Result | Due to | Lean name | Lean proof |
 |---|---|---|---|

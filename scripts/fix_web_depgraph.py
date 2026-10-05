@@ -1,22 +1,42 @@
 #!/usr/bin/env python3
-"""Draw the dependency graph's nodes as rounded rectangles instead of ellipses.
+"""Draw the dependency graph's nodes as rounded rectangles, and mark the results that were not found in print.
 
 plastexdepgraph gives every node that is not a definition the Graphviz shape `ellipse`, and leanblueprint offers
 no option to change it. This rewrites the DOT source that blueprint/web/dep_graph_document.html passes to
-`renderDot`: `shape=ellipse` becomes `shape=box`, and the style of those nodes gains `rounded` (filled nodes
-become `style="rounded,filled"`). Definitions keep plain boxes. The legend is updated to match. Run it after
-`leanblueprint web`; it exits 1 if the page no longer has the expected form, so a format change cannot pass
-silently.
+`renderDot`:
+- `shape=ellipse` becomes `shape=box`, and the style of those nodes gains `rounded` (filled nodes become
+  `style="rounded,filled"`). Definitions keep plain boxes.
+- Nodes whose entry in blueprint/nodes/*.toml has `novelty = "not-routine"` (not found in the sources read, and not
+  a routine consequence of them; see the chapter "Results not found in the sources read") get a double border.
+The legend is updated to match. Run it after `leanblueprint web`; it exits 1 if the page no longer has the expected
+form, or a marked node is missing from the graph, so a change cannot pass silently.
 """
 import pathlib
 import re
 import sys
+import tomllib
 
-WEB = pathlib.Path(__file__).resolve().parent.parent / "blueprint" / "web"
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+WEB = ROOT / "blueprint" / "web"
+NODES = ROOT / "blueprint" / "nodes"
+ENV_PREFIX = {"theorem": "thm", "lemma": "lem", "proposition": "prop", "corollary": "cor", "definition": "def"}
 DOT = re.compile(r"(\.renderDot\(`)(.*?)(`\))", re.S)
 NODE = re.compile(r"\[[^\[\]]*\]")  # one attribute list of the DOT source
 LEGEND_OLD = "<dt>Ellipses</dt><dd>theorems and lemmas</dd>"
-LEGEND_NEW = "<dt>Rounded boxes</dt><dd>theorems and lemmas</dd>"
+LEGEND_NEW = ("<dt>Rounded boxes</dt><dd>theorems and lemmas</dd>\n"
+              "      <dt>Double border</dt><dd>not found in the sources read, and not routine "
+              "(chapter &ldquo;Results not found in the sources read&rdquo;)</dd>")
+
+
+def marked_labels() -> list[str]:
+    """Graph labels of the nodes marked `novelty = "not-routine"`, computed as gen_blueprint.py computes them."""
+    labels = []
+    for path in sorted(NODES.glob("*.toml")):
+        for e in tomllib.loads(path.read_text()).get("node", []):
+            if e.get("novelty") == "not-routine":
+                short = e["platform"].split(".")[-1]
+                labels.append(e.get("label", f"{ENV_PREFIX[e.get('env', 'lemma')]}:{short}"))
+    return labels
 
 
 def round_node(attrs: str) -> str:
@@ -45,12 +65,18 @@ def main():
     new_dot = NODE.sub(lambda a: round_node(a.group(0)), dot)
     if "ellipse" in new_dot:
         sys.exit("some ellipse nodes were not rewritten")
+    marked = marked_labels()
+    for label in marked:
+        node = re.compile(r'("' + re.escape(label) + r'"\s*\[)')
+        new_dot, k = node.subn(r"\1peripheries=2, ", new_dot)
+        if k != 1:
+            sys.exit(f"marked node {label} found {k} times in the graph")
     s = s[:m.start(2)] + new_dot + s[m.end(2):]
     if s.count(LEGEND_OLD) != 1:
         sys.exit("the legend entry for ellipses was not found exactly once")
     s = s.replace(LEGEND_OLD, LEGEND_NEW)
     page.write_text(s, encoding="utf-8")
-    print(f"rounded {n_ellipse} graph nodes")
+    print(f"rounded {n_ellipse} graph nodes; double border on {len(marked)}: {', '.join(marked)}")
 
 
 if __name__ == "__main__":
