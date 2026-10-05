@@ -5440,5 +5440,65 @@
   "bytes": 582,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.cubic_product_eq_square_normal_form",
+  "theorem_id": "bbd5da86-854b-4c2d-b59d-2fe6ec883487",
+  "submission_id": "c53a0870-71c4-42fe-a3be-302236471c94",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-05T08:40:17.785984+00:00",
+  "file": "DiazModulus.cubic_product_eq_square_normal_form__c53a0870.lean",
+  "bytes": 5075,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.two_by_three_configuration_forces_progression",
+  "theorem_id": "46109c0d-3af4-46c3-900b-441e398cde5e",
+  "submission_id": "f2a52f3e-637a-40c2-96fb-a42b83691dbd",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-05T08:18:41.484918+00:00",
+  "file": "DiazModulus.two_by_three_configuration_forces_progression__f2a52f3e.lean",
+  "bytes": 6585,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_extension_two_by_three_configuration_iff",
+  "theorem_id": "f2c817ff-c9ef-49ae-94c0-78ef031172be",
+  "submission_id": "89de4b46-8cd0-48e5-a8a9-5ad3d0a87018",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-05T07:56:25.314473+00:00",
+  "file": "DiazModulus.circle_point_extension_two_by_three_configuration_iff__89de4b46.lean",
+  "bytes": 8275,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_extension_carries_two_by_three_configuration",
+  "theorem_id": "dd39ce78-249e-4099-a7ff-76acfc50ff77",
+  "submission_id": "301b2c23-2714-408c-b86d-aecdd519770d",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-05T08:18:38.775648+00:00",
+  "file": "DiazModulus.circle_point_extension_carries_two_by_three_configuration__301b2c23.lean",
+  "bytes": 10819,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_hull_progression_contains_square_or_reciprocal",
+  "theorem_id": "1706d5e7-e333-42e4-8cad-2b8657fafca8",
+  "submission_id": "86ae8d03-6c8c-4330-99a7-4090844884d8",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-05T08:18:35.902554+00:00",
+  "file": "DiazModulus.circle_hull_progression_contains_square_or_reciprocal__86ae8d03.lean",
+  "bytes": 7016,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

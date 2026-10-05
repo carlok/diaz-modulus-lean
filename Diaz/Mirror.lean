@@ -313,3 +313,8 @@ import Diaz.Mirror.s0_conj_mem
 import Diaz.Mirror.s0_add_mem
 import Diaz.Mirror.s0_rat_scale_mem
 import Diaz.Mirror.s0_bridge_halves_imp_parent
+import Diaz.Mirror.cubic_product_eq_square_normal_form
+import Diaz.Mirror.two_by_three_configuration_forces_progression
+import Diaz.Mirror.circle_point_extension_carries_two_by_three_configuration
+import Diaz.Mirror.circle_hull_progression_contains_square_or_reciprocal
+import Diaz.Mirror.circle_point_extension_two_by_three_configuration_iff

@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-04): **354** of 354
+As of the latest archived submission (2026-10-05): **359** of 359
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -161,10 +161,14 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.candidate_quotient_rigid` | yes | `Diaz/Mirror/candidate_quotient_rigid.lean` | done |  |
 | `DiazModulus.candidate_re_transcendental` | yes | `Diaz/Kernel.lean` | done |  |
 | `DiazModulus.candidate_vanishing_ideal` | yes | `Diaz/Kernel.lean` | done |  |
+| `DiazModulus.circle_hull_progression_contains_square_or_reciprocal` | yes | `Diaz/Mirror/circle_hull_progression_contains_square_or_reciprocal.lean` | done |  |
+| `DiazModulus.circle_point_extension_carries_two_by_three_configuration` | yes | `Diaz/Mirror/circle_point_extension_carries_two_by_three_configuration.lean` | done |  |
+| `DiazModulus.circle_point_extension_two_by_three_configuration_iff` | yes | `Diaz/Mirror/circle_point_extension_two_by_three_configuration_iff.lean` | done |  |
 | `DiazModulus.circle_points_indistinguishable` | yes | `Diaz/Mirror/circle_points_indistinguishable.lean` | done |  |
 | `DiazModulus.conj_eq_norm_sq_div` | yes | `Diaz/Mirror/conj_eq_norm_sq_div.lean` | done |  |
 | `DiazModulus.conj_pair_quadratic_relation_iff` | yes | `Diaz/Mirror/conj_pair_quadratic_relation_iff.lean` | done |  |
 | `DiazModulus.conj_ratio_multiplier_relation` | yes | `Diaz/Mirror/conj_ratio_multiplier_relation.lean` | done |  |
+| `DiazModulus.cubic_product_eq_square_normal_form` | yes | `Diaz/Mirror/cubic_product_eq_square_normal_form.lean` | done |  |
 | `DiazModulus.det_linear_forms_isotropic` | yes | `Diaz/Mirror/det_linear_forms_isotropic.lean` | done |  |
 | `DiazModulus.det_zero_linear_forms_rank_one` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one.lean` | done |  |
 | `DiazModulus.det_zero_linear_forms_rank_one_field` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one_field.lean` | done |  |
@@ -281,6 +285,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.torsion_rational_modulus_unique` | yes | `Diaz/Mirror/torsion_rational_modulus_unique.lean` | done |  |
 | `DiazModulus.transfer_breaks_exactly` | yes | `Diaz/Mirror/transfer_breaks_exactly.lean` | done |  |
 | `DiazModulus.two_algebraically_independent_of_exp_column` | yes | `Diaz/Mirror/two_algebraically_independent_of_exp_column.lean` | done |  |
+| `DiazModulus.two_by_three_configuration_forces_progression` | yes | `Diaz/Mirror/two_by_three_configuration_forces_progression.lean` | done |  |
 | `DiazModulus.two_pow_log_three_or_three_pow_log_two` | yes | `Diaz/Mirror/two_pow_log_three_or_three_pow_log_two.lean` | done |  |
 | `DiazModulus.two_three_five_pow_pi_transcendental` | yes | `Diaz/Mirror/two_three_five_pow_pi_transcendental.lean` | done |  |
 | `FourExp.aux_linear_system` | yes | `Diaz/Mirror/aux_linear_system.lean` | done |  |

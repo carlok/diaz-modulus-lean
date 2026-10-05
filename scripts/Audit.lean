@@ -49,3 +49,8 @@ import Solution
 #print axioms Diaz.candidate_pair_dichotomy
 #print axioms Diaz.candidate_axis_ratio
 #print axioms Diaz.candidate_mixed_rigidity
+#print axioms Diaz.cubic_product_eq_square_normal_form
+#print axioms Diaz.two_by_three_configuration_forces_progression
+#print axioms Diaz.circle_point_extension_carries_two_by_three_configuration
+#print axioms Diaz.circle_hull_progression_contains_square_or_reciprocal
+#print axioms Diaz.circle_point_extension_two_by_three_configuration_iff

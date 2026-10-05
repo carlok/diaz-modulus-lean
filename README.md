@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 354 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 359 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -675,6 +675,19 @@ logarithms are added.
 - The case m = 0 is Roy's (1995, Th. 3.4).
 - The case m = 1, w = iπ is `DiazModulus.generic_no_strong_six_exp_configuration`.
 - The proof is algebra: polynomials of total degree at most two, and the ring map X₀ ↦ 0.
+
+### Which four-dimensional extensions carry one
+
+`DiazModulus.circle_point_extension_two_by_three_configuration_iff` (5 October 2026): let u ∉ Q̄ with uū algebraic,
+and z ∉ H₀ = Q̄ + Q̄u + Q̄ū. Then H₀ + Q̄z carries Q̄-independent x₁, x₂ and y₁, y₂, y₃ with all six products in it
+exactly when z ∈ H₀ + Q̄w for w = u², w = ū² or w = 1/(u − a) with a algebraic and non-zero.
+- With Roy's strong six exponentials theorem, these are Diaz's exclusions at a candidate (2007, Cor. 5(1) and
+  5(4)). Every configuration in such a space is a geometric progression b, bh, bh², bh³, the shape of Fischler
+  (2001, Lemma 6.1) and Diaz (2007, Th. 7(2)).
+- The classification was not found in the sources read. Since ℒ̃ is closed under conjugation, z ∈ ℒ̃ brings z̄
+  with it, and the five-dimensional spaces H₀ + Q̄z + Q̄z̄ are not covered.
+- Five nodes: the progression lemma, a normal form for cubics with P₁P₂ = P₀², the progression step, the three
+  configurations, and the equivalence.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.17, 4 October 2026}
+\date{September 2026\\[2pt]\small Version 1.18, 5 October 2026}
 
 \begin{document}
 \maketitle
@@ -814,6 +814,47 @@ data, however many logarithms are added. Roy~\cite[\S3.2]{roy-1995} and
 Fischler~\cite[p.~186]{fischler-2001} make the corresponding point for rank methods and the quadric
 $xy=z^{2}$. Where the data satisfy one more relation, Roy's theorem does see something: see
 Corollaries~\ref{cor:square} and~\ref{cor:recip} in Section~\ref{sec:outside}.
+
+On a four-dimensional extension of the certificate space, the one further relation can be classified.
+
+\begin{theorem}\label{thm:extension-room}
+Let $u\notin\Alg$ with $u\bar u\in\Alg$, put $H_{0}=\Alg+\Alg u+\Alg\bar u$, and let $z\notin H_{0}$.
+There are $\Alg$-independent $x=(x_{1},x_{2})$ and $y=(y_{1},y_{2},y_{3})$ with all six products
+$x_{i}y_{j}$ in $H_{0}+\Alg z$ if and only if $z\in H_{0}+\Alg w$ for $w=u^{2}$, $w=\bar u^{2}$, or
+$w=1/(u-a)$ with $a\in\Alg$, $a\neq0$.
+\end{theorem}
+
+\begin{proof}
+Here $u^{-1}=\bar u/(u\bar u)\in H_{0}$. If $z\in H_{0}+\Alg w$ and $z\notin H_{0}$, then
+$H_{0}+\Alg z=H_{0}+\Alg w$, and the three spaces carry the configurations $(1,u)\otimes(u^{-1},1,u)$,
+$(1,u^{-1})\otimes(u,1,u^{-1})$ and $(u^{-1},(u-a)^{-1})\otimes(1,u,u^{2}-au)$; they are free because
+$u$ is transcendental. Conversely, let $V=H_{0}+\Alg z$ carry a configuration. Put $h=x_{2}/x_{1}$,
+which is not in $\Alg$ and so is transcendental, and $B=x_{1}(\Alg y_{1}+\Alg y_{2}+\Alg y_{3})$. Then
+$B+hB\subseteq V$ has dimension at most four, so $W=B\cap hB$ and $h^{-1}W$ are subspaces of dimension at
+least two of the three-dimensional $B$; they meet in some $c=hb\neq0$ with $b\in B$. Then $b,hb,h^{2}b\in B$,
+and $V=b\,(\Alg+\Alg h+\Alg h^{2}+\Alg h^{3})$. Write $1=bP_{0}(h)$, $u=bP_{1}(h)$ and $u^{-1}=bP_{2}(h)$
+with $\deg P_{i}\le3$. Since $h$ is transcendental, $P_{1}P_{2}=P_{0}^{2}$, and $P_{0},P_{1}$ are independent.
+Unique factorisation gives $P_{0}=gQ_{0}Q_{1}$, $P_{1}=gQ_{1}^{2}$ and $P_{2}=gQ_{0}^{2}$ with $Q_{0},Q_{1}$
+independent of degree at most one and $g=\alpha Q_{0}+\beta Q_{1}$, so $u=Q_{1}(h)/Q_{0}(h)$ is a Möbius
+function of $h$. If $\beta=0$, then $u^{2}=b\,\alpha Q_{1}(h)^{3}\in V$; if $\alpha=0$, then
+$u^{-2}=b\,\beta Q_{0}(h)^{3}\in V$, and so $\bar u^{2}\in V$; otherwise
+$1/(u+\alpha/\beta)=b\,\beta Q_{0}(h)^{2}Q_{1}(h)\in V$. The element $w$ found lies in $H_{0}+\Alg z$
+but not in $H_{0}$, so $z\in H_{0}+\Alg w$.
+\end{proof}
+
+Theorems~\ref{thm:generic-room} and~\ref{thm:extension-room} together say what a rank-one $2\times3$
+statement can see near a point of a circle: nothing on generic data, and, on a four-dimensional
+extension of $H_{0}$, exactly $u^{2}$, $\bar u^{2}$ and $1/(u-a)$. With Roy's theorem these are the
+exclusions of Diaz's Corollaire~5(1) and~5(4)~\cite{diaz-2007}, behind Corollaries~\ref{cor:square}
+and~\ref{cor:recip}. The progression $b,bh,bh^{2},bh^{3}$ is the shape of Fischler's
+Lemma~6.1~\cite{fischler-2001} and of Diaz's Th\'eor\`eme~7(2)~\cite{diaz-2007}, which use the converse
+direction: a progression carries a configuration. The classification itself was not found in the
+sources read. It does not involve $\e^{u}$, so it keeps its content if Diaz's conjecture holds. One
+caveat: $\aLogs$ is closed under complex conjugation, so a hypothesis $z\in\aLogs$ brings $\bar z\in\aLogs$
+with it, and the space to classify is in general $H_{0}+\Alg z+\Alg\bar z$, of dimension five, where
+more is excluded. For instance $u^{3}\in\aLogs$ brings $\bar u^{3}$, and $x=(u,\bar u)$,
+$y=(1,\bar u/u,u/\bar u)$ is then a configuration: this is Diaz's Corollaire~5(2). The
+five-dimensional case is not treated here.
 
 \subsection*{The four exponentials conjecture sees nothing homogeneous}
 
@@ -1707,7 +1748,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.17 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.18 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1745,8 +1786,11 @@ Corollaries~\ref{cor:pair-dichotomy} and~\ref{cor:axis-ratio} with Theorem~\ref{
 three results of the author's manuscript that Waldschmidt's 1973 corollary now gives directly. It
 credits Brownawell's 1974 corollaries where they apply, and Karatarakis's formalisation of Baker's
 theorem.
-Every row of the table below was checked against the platform by script on 4 October 2026, and
-the mirrored project held all 346 proved results of the development at that date.
+Version 1.18 adds, on 5 October 2026, Theorem~\ref{thm:extension-room}: the four-dimensional
+extensions $\Alg+\Alg u+\Alg\bar u+\Alg z$ that carry a $2\times3$ configuration are exactly those
+containing $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$.
+Every row of the table below was checked against the platform by script on 5 October 2026, and
+the mirrored project held all 359 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1803,6 +1847,7 @@ Thm~\ref{thm:indist} & Proved & \nolinkurl{Diaz.candidate_indistinguishable_by_c
 Thm~\ref{thm:indist-pi} & Proved & \nolinkurl{DiazModulus.generic_indistinguishable_over_pi}, \nolinkurl{DiazModulus.circle_points_indistinguishable} \\
 Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refute_candidate} \\
 Thm~\ref{thm:generic-room} & Proved & \nolinkurl{DiazModulus.generic_circle_point_no_two_by_three_configuration} \\
+Thm~\ref{thm:extension-room} & Proved & \nolinkurl{DiazModulus.circle_point_extension_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.two_by_three_configuration_forces_progression}, \nolinkurl{DiazModulus.cubic_product_eq_square_normal_form}, \nolinkurl{DiazModulus.circle_hull_progression_contains_square_or_reciprocal}, \nolinkurl{DiazModulus.circle_point_extension_carries_two_by_three_configuration} \\
 Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier}, \nolinkurl{DiazModulus.generic_qbar_homogeneous_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
 Thm~\ref{thm:period}(a) & Proved & \nolinkurl{DiazModulus.generic_quadratic_relation_is_norm} \\
