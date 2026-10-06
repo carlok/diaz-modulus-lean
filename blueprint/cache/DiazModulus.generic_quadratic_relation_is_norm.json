@@ -1,0 +1,21 @@
+{
+ "theorem_id": "835b0305-9121-4c4b-a5d6-9aa2cc5f7bb1",
+ "theorem_name": "DiazModulus.generic_quadratic_relation_is_norm",
+ "theorem_title": "For u algebraically independent of π on a circle of algebraic radius, every algebraic quadratic relation among 1, u, ū, iπ is a multiple of the norm",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem generic_quadratic_relation_is_norm (u : ℂ) (hu : u ≠ 0)\n    (hρ : IsAlgebraic ℚ (u * conj u))\n    (hgen : AlgebraicIndependent (↥Qbar) ![u, ((Real.pi : ℝ) : ℂ) * Complex.I])\n    (P : Fin 4 → Fin 4 → ℂ) (hP : ∀ k l, IsAlgebraic ℚ (P k l))\n    (hrel : ∑ k, ∑ l, P k l * ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] k\n      * ![1, u, conj u, ((Real.pi : ℝ) : ℂ) * Complex.I] l = 0) :\n    ∃ c : ℂ, IsAlgebraic ℚ c ∧\n      ∀ x : Fin 4 → ℂ, ∑ k, ∑ l, P k l * x k * x l = c * (x 1 * x 2 - u * conj u * x 0 ^ 2) := by\n  sorry\n\nend DiazModulus",
+ "natural_language_statement": "**With a constant term, the norm is the only quadratic relation.**\n\nLet $u \\neq 0$ with $\\rho = |u|^{2}$ algebraic, and suppose that $u$ and $i\\pi$ are algebraically independent over $\\overline{\\mathbb{Q}}$. If a quadratic form $P$ in four variables with algebraic coefficients vanishes at $(1, u, \\bar u, i\\pi)$, then\n\n$$P = c\\,(X_1X_2 - \\rho X_0^{2})$$\n\nas a function on $\\mathbb{C}^{4}$, for some algebraic $c$.\n\nThis extends `DiazModulus.generic_conj_pair_no_quadratic_relation` to algebraic coefficients and to relations with a constant term. In particular, a relation without constant term is trivial: the relation $u\\bar u = \\rho$ needs the constant.\n\n**Novelty.** None claimed.",
+ "created_at": "2026-09-24T04:56:53.447902+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Carlo Perassi, companion note to https://github.com/carlok/diaz-modulus-lean, version 1.9, 25 September 2026 (GitHub release note-v1.9), Theorem 5.6(a). Novelty is not asserted. Formal proof: Diaz modulus mission, 24 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
