@@ -1,0 +1,95 @@
+# Chapter 13. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "Quadratic relations near a point of a circle"
+text = '''
+Results of the library's work on Diaz's conjecture about quadratic relations at a point $u$ of a circle of algebraic radius, that is $u\neq0$ with $\rho=u\bar u$ algebraic. On such a point the norm form $X_1X_2-\rho X_0^{2}$ vanishes at $(1,u,\bar u)$. Theorems~\ref{thm:generic_quadratic_relation_is_norm} and~\ref{thm:generic_period_never_enters} show that on generic data it is the only quadratic relation, and that the period $i\pi$ never enters a singular $2\times2$ matrix; Theorems~\ref{thm:no_vanishing_coeff} and~\ref{thm:det_pencil_eq_conic} describe the matrix a counterexample to Diaz's conjecture would give, and show that its only singular pencil is the norm form. None of the four statements involves $e^{u}$, and none was found in the sources read (Chapter~\ref{chap:12-not-found-in-the-sources}).
+'''
+
+# --- Matrices of linear forms ------------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.det_zero_linear_forms_rank_one_field"
+section = "Matrices of linear forms"
+title = "The lemma on linear forms"
+statement = '''
+Let $F$ be a field of characteristic $0$ and let $M$ be a $2\times2$ matrix whose entries are linear forms over $F$ in $n$ variables. If $\det M$ vanishes identically, then the rows of $M$ are linearly dependent over $F$, or its columns are.
+'''
+source = '''Elementary.'''
+sketch = '''
+Write $M=\begin{pmatrix}L_{11}&L_{12}\\L_{21}&L_{22}\end{pmatrix}$, so that $L_{11}L_{22}=L_{12}L_{21}$ in $F[X_1,\dots,X_n]$. If $L_{11}=0$, then $L_{12}=0$ or $L_{21}=0$, a zero row or a zero column. Otherwise the linear form $L_{11}$ is irreducible and divides $L_{12}L_{21}$, so $L_{12}=cL_{11}$ or $L_{21}=cL_{11}$ with $c\in F$; cancelling $L_{11}$ gives $L_{22}=cL_{21}$, a column relation, or $L_{22}=cL_{12}$, a row relation.
+'''
+
+# --- Generic data ------------------------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.generic_quadratic_relation_is_norm"
+root = true
+novelty = "not-routine"
+env = "theorem"
+section = "Generic data"
+title = "Every quadratic relation is the norm form"
+statement = '''
+Let $u\neq0$ with $\rho=u\bar u$ algebraic, and suppose that $u$ and $i\pi$ are algebraically independent over $\Qbar$. Every quadratic form with algebraic coefficients that vanishes at $(1,u,\bar u,i\pi)$ is an algebraic multiple of $X_1X_2-\rho X_0^{2}$.
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:12-not-found-in-the-sources}). No source read considers the triple $(u,\bar u,i\pi)$.'''
+sketch = '''
+Substitute $\bar u=\rho/u$ and multiply by $u^{2}$. The form becomes a polynomial in $u$ and $i\pi$ with nine monomials, and by independence all its coefficients vanish. The only two terms of the form that land on the same monomial are $X_0^{2}$ and $X_1X_2$, both at $u^{2}$; their coefficients are therefore proportional to $-\rho$ and $1$, and every other coefficient is zero.
+'''
+
+[[node]]
+platform = "DiazModulus.generic_period_never_enters"
+root = true
+novelty = "not-routine"
+env = "theorem"
+title = "The period never enters"
+statement = '''
+Let $u\neq0$ with $\rho=u\bar u$ algebraic, and suppose that $u$ and $i\pi$ are algebraically independent over $\Qbar$. Let $M$ be a singular $2\times2$ matrix with entries $c_{ij0}+c_{ij1}u+c_{ij2}\bar u+c_{ij3}\,i\pi$, $c_{ijk}$ algebraic, whose rows are linearly independent over $\Qbar$ and whose columns are linearly independent over $\Qbar$. Then $c_{ij3}=0$ for all $i,j$: the coefficient of $i\pi$ vanishes in every entry.
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:12-not-found-in-the-sources}). No source read considers the triple $(u,\bar u,i\pi)$.'''
+sketch = '''
+Write $M=\sum_k x_kC_k$ at $x=(1,u,\bar u,i\pi)$ with constant matrices $C_k$. By Theorem~\ref{thm:generic_quadratic_relation_is_norm}, $\det\bigl(\sum_k x_kC_k\bigr)=c\,(x_1x_2-\rho x_0^{2})$ identically, and $c\neq0$: otherwise Lemma~\ref{lem:det_zero_linear_forms_rank_one_field} over $\Qbar$ gives dependent rows or columns. For the polar form of the determinant, $C_3$ is then isotropic and orthogonal to $C_0,C_1,C_2$, which span a non-degenerate three-dimensional subspace of the four-dimensional space of $2\times2$ matrices. Its orthogonal complement is a non-degenerate line, whose only isotropic vector is zero.
+'''
+
+# --- The shape of a counterexample ---------------------------------------------------------
+
+[[node]]
+platform = "Diaz.binary_form_eq_zero"
+section = "The shape of a counterexample"
+title = "Binary forms at a transcendental point"
+statement = '''
+Let $K\subseteq\C$ be a subfield and $x,y\in\C$ with $y\neq0$ and $x/y$ transcendental over $K$. If $\sum_{i=0}^{d}c_ix^{i}y^{d-i}=0$ with all $c_i\in K$, then all $c_i$ are zero.
+'''
+source = '''Elementary.'''
+sketch = '''
+Divide by $y^{d}$: then $\sum_i c_i(x/y)^{i}=0$ is a polynomial relation over $K$ satisfied by $x/y$, so every coefficient vanishes.
+'''
+
+[[node]]
+platform = "Diaz.no_vanishing_coeff"
+root = true
+novelty = "not-routine"
+env = "theorem"
+title = "No vanishing coefficient"
+statement = '''
+Let $K\subseteq\C$ be a subfield, $r\in K$, and $u\notin K$ with $u\bar u=r^{2}$, and put $H=\begin{pmatrix}u&r\\r&\bar u\end{pmatrix}$. Then $w^{\mathsf T}Hv\neq0$ for all non-zero $w,v\in K^{2}$.
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:12-not-found-in-the-sources}). The nearest printed passage is \cite[\S3.2, p.~65]{Roy95}: Roy's rank method cannot exclude points of $xy=z^{2}$ with $\Qbar$-free coordinates, and $(u,\bar u,r)$ is such a point; see also \cite[p.~186]{Fis01}.'''
+sketch = '''
+Here $u\neq0$, and $r\neq0$ since $u\bar u=r^{2}$. The matrix $H$ has rank one, and $w^{\mathsf T}Hv=(w_0+(r/u)w_1)(uv_0+rv_1)$. If $uv_0+rv_1=0$ with $v\neq0$, then $v_0\neq0$ and $u=-rv_1/v_0\in K$; if $uw_0+rw_1=0$ with $w\neq0$, likewise. Either way $u\in K$, a contradiction.
+'''
+
+[[node]]
+platform = "Diaz.det_pencil_eq_conic"
+root = true
+novelty = "not-routine"
+env = "theorem"
+title = "The only singular pencil"
+statement = '''
+Let $K\subseteq\C$ be a subfield, let $u\neq0$ be transcendental over $K$ with $u\bar u\in K$, and let $A,B,C$ be $2\times2$ matrices over $K$ with $\det(A+uB+\bar uC)=0$. Then there is $c\in K$ with
+\[ \det(xA+yB+zC)=c\,\bigl(yz-(u\bar u)\,x^{2}\bigr)\qquad\text{for all }x,y,z\in\C. \]
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:12-not-found-in-the-sources}). Roy has neither this classification nor Theorem~\ref{thm:no_vanishing_coeff}; the nearest printed passage is \cite[\S3.2, p.~65]{Roy95}.'''
+sketch = '''
+The determinant $Q(x,y,z)=\det(xA+yB+zC)$ is a quadratic form over $K$. With $\rho=u\bar u$, the number $u^{2}Q(1,u,\rho/u)$ is a polynomial of degree at most $4$ in $u$ over $K$; it vanishes, so all its coefficients vanish. They are the coefficients of $y^{2}$, $xy$, $xz$ and $z^{2}$ in $Q$ (up to the factors $\rho$ and $\rho^{2}$) and $a_{xx}+\rho\,a_{yz}$; so $Q=a_{yz}(yz-\rho x^{2})$.
+'''

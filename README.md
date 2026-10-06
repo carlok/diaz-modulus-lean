@@ -20,8 +20,9 @@ cannot settle it.
 
 The blueprint at https://carlok.github.io/diaz-modulus-lean/ states each of them, and every result their proofs use,
 with a dependency graph, links to the Lean source and a PDF.
-Since 5 October 2026 it also has two chapters of the library's own results: the rank-one configurations near a
-point of a circle (Theorems A and B, below) and the dichotomy for Li₂(1/2).
+Since October 2026 it also has chapters of the library's own results: the rank-one configurations near a point of
+a circle (Theorems A and B below, the five-dimensional spaces and the power hulls), the dichotomy for Li₂(1/2),
+quadratic relations near a point of a circle, and consequences in transcendence degree one.
 Its chapter "Results not found in the sources read" lists every result of the library not found in the literature
 checked, and marks those that are not routine; in the dependency graph they have a double border.
 

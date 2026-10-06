@@ -1,0 +1,155 @@
+# Chapter 14. Read by scripts/gen_blueprint.py; see its docstring for the format.
+
+[chapter]
+title = "Consequences in transcendence degree one"
+text = '''
+Results of the library's work on Diaz's conjecture that follow from the four exponentials theorem in transcendence degree one (Theorem~\ref{thm:four_exponentials_trdeg_one}): a $2\times2$ matrix with non-zero entries in $\mathcal L$, the logarithms of algebraic numbers, that generate a field of transcendence degree at most one and with vanishing determinant has rationally dependent rows or columns. Each statement here is one matrix away from that theorem, or from Brownawell's corollaries of 1974 \cite{Bro74}; they were not found in the sources read in this form, and they are short (Chapter~\ref{chap:12-not-found-in-the-sources}). The last section holds a conditional statement: Waldschmidt's strong five exponentials conjecture implies Diaz's.
+'''
+
+# --- Products and quotients on an axis ---------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.log_mul_real_trichotomy_of_trdeg_one"
+env = "proposition"
+section = "Products and quotients on an axis"
+title = "Real products of logarithms"
+statement = '''
+Let $\lambda,\mu\in\mathcal L\setminus\{0\}$ with $\operatorname{trdeg}_{\Q}\Q(\lambda,\mu,\bar\lambda,\bar\mu)\le1$. If $\lambda\mu$ is real, then $\lambda$ and $\mu$ are both real, or both purely imaginary, or $\mu\in\Q\bar\lambda$.
+'''
+source = '''A step of Theorem~\ref{thm:diaz_2007_qr2_of_trdeg_one}.'''
+sketch = '''
+The matrix $\begin{pmatrix}\lambda&\bar\lambda\\\bar\mu&\mu\end{pmatrix}$ has non-zero entries in $\mathcal L$ and determinant $\lambda\mu-\overline{\lambda\mu}=0$, so Theorem~\ref{thm:four_exponentials_trdeg_one} applies. A row relation gives $\mu\in\Q\bar\lambda$. A column relation gives $\bar\lambda=q\lambda$ and $\mu=q\bar\mu$ with $q\in\Q$, and $|q|=1$ forces $q=\pm1$.
+'''
+
+[[node]]
+platform = "DiazModulus.log_mul_imaginary_mixed_of_trdeg_one"
+env = "proposition"
+title = "Purely imaginary products of logarithms"
+statement = '''
+Let $\lambda,\mu\in\mathcal L\setminus\{0\}$ with $\operatorname{trdeg}_{\Q}\Q(\lambda,\mu,\bar\lambda,\bar\mu)\le1$. If $\lambda\mu$ is purely imaginary, then one of $\lambda,\mu$ is real and the other purely imaginary.
+'''
+source = '''A step of Theorem~\ref{thm:diaz_2007_qr2_of_trdeg_one}.'''
+sketch = '''
+The matrix $\begin{pmatrix}\lambda&\bar\lambda\\-\bar\mu&\mu\end{pmatrix}$ has determinant $\lambda\mu+\overline{\lambda\mu}=0$. By Theorem~\ref{thm:four_exponentials_trdeg_one}, a row relation would force $\mu=0$, and a column relation puts $\lambda$ and $\mu$ on different axes.
+'''
+
+[[node]]
+platform = "DiazModulus.diaz_2007_qr2_of_trdeg_one"
+root = true
+env = "theorem"
+title = "Diaz's (Qr2) in transcendence degree one"
+statement = '''
+Let $\ell_0,\ell_1\in\mathcal L$, neither real nor purely imaginary, with $\operatorname{trdeg}_{\Q}\Q(\ell_0,\ell_1,\bar\ell_0,\bar\ell_1)\le1$. If $\ell_1/\ell_0$ is real or purely imaginary, then $\ell_1/\ell_0\in\Q$.
+'''
+source = '''Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}). The statement is Diaz's conjecture (Qr2) \cite[p.~376]{Dia07}, here in transcendence degree one; Diaz derives (Qr2) from the four exponentials conjecture with the same matrix \cite[p.~377]{Dia07}. It is one substitution in \cite[Corollary 7]{Bro74}, at $(\ell_1/\ell_0,\bar\ell_0/\ell_0,\ell_0)$.'''
+sketch = '''
+Take $\lambda=\bar\ell_0$ and $\mu=\ell_1$, so that $\lambda\mu=|\ell_0|^{2}\,\ell_1/\ell_0$ lies on an axis exactly when $\ell_1/\ell_0$ does. Proposition~\ref{prop:log_mul_imaginary_mixed_of_trdeg_one} rules out the imaginary axis, since neither $\ell_0$ nor $\ell_1$ lies on an axis; on the real axis, Proposition~\ref{prop:log_mul_real_trichotomy_of_trdeg_one} leaves only $\ell_1\in\Q\ell_0$.
+'''
+
+[[node]]
+platform = "DiazModulus.log_pair_rigid_of_trdeg_one"
+root = true
+env = "theorem"
+section = "Moduli in a rational ratio"
+title = "Pair rigidity in transcendence degree one"
+statement = '''
+Let $u,v\in\mathcal L\setminus\{0\}$ with $|u|^{2}/|v|^{2}\in\Q$ and $\operatorname{trdeg}_{\Q}\Q(u,v,\bar u,\bar v)\le1$. Then $v\in\Q u$ or $v\in\Q\bar u$.
+'''
+source = '''Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}). It is \cite[Corollary 7]{Bro74} at $(v/u,c\bar v/u,u)$, word for word.'''
+sketch = '''
+With $c=|u|^{2}/|v|^{2}$, the matrix $\begin{pmatrix}u&v\\c\bar v&\bar u\end{pmatrix}$ has non-zero entries in $\mathcal L$ and determinant $|u|^{2}-c|v|^{2}=0$. By Theorem~\ref{thm:four_exponentials_trdeg_one}, a column relation gives $v\in\Q u$ and a row relation $v\in\Q\bar u$.
+'''
+
+[[node]]
+platform = "DiazModulus.nongeneric_rational_modulus_orbit"
+env = "corollary"
+title = "Rational moduli over the field of pi"
+statement = '''
+Let $u,v\in\mathcal L\setminus\{0\}$ be algebraic over $\Q(\pi)$, with $|u|^{2}$ and $|v|^{2}$ rational. Then $v\in\Q u$ or $v\in\Q\bar u$.
+'''
+source = '''A step of Corollary~\ref{cor:torsion_rational_modulus_unique}; one substitution in \cite[Corollary 7]{Bro74}.'''
+sketch = '''
+The conjugates $\bar u=|u|^{2}/u$ and $\bar v=|v|^{2}/v$ are algebraic over $\Q(\pi)$ as well, so $\Q(u,v,\bar u,\bar v)$ has transcendence degree at most one, and $|u|^{2}/|v|^{2}$ is rational: Theorem~\ref{thm:log_pair_rigid_of_trdeg_one} applies.
+'''
+
+[[node]]
+platform = "DiazModulus.torsion_rational_modulus_unique"
+root = true
+env = "corollary"
+title = "At most one rational value of t squared plus pi squared"
+statement = '''
+Let $t_0,t_1$ be real with $e^{t_0},e^{t_1}$ algebraic. If $t_0^{2}+\pi^{2}$ and $t_1^{2}+\pi^{2}$ are both rational, then $t_1=\pm t_0$.
+'''
+source = '''Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}). One substitution in \cite[Corollary 7]{Bro74}.'''
+sketch = '''
+The numbers $u=t_0+i\pi$ and $v=t_1+i\pi$ lie in $\mathcal L\setminus\{0\}$, and they are algebraic over $\Q(\pi)$ because $t_k^{2}=(t_k^{2}+\pi^{2})-\pi^{2}$. Corollary~\ref{cor:nongeneric_rational_modulus_orbit} gives $v=qu$ or $v=q\bar u$ with $q\in\Q$, and the imaginary parts force $q=\pm1$.
+'''
+
+[[node]]
+platform = "DiazModulus.log_two_log_three_not_both_rational"
+root = true
+env = "corollary"
+title = "Two named constants"
+statement = '''
+The numbers $(\log2)^{2}+\pi^{2}$ and $(\log3)^{2}+\pi^{2}$ are not both rational.
+'''
+source = '''Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}).'''
+sketch = '''
+Corollary~\ref{cor:torsion_rational_modulus_unique} with $t_0=\log2$ and $t_1=\log3$, since $\log3\neq\pm\log2$.
+'''
+
+# --- Rational data on the real axis --------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.geometric_triple_not_logs"
+env = "proposition"
+section = "Rational data on the real axis"
+title = "No geometric triple of logarithms"
+statement = '''
+Let $w\neq0$ and $z\notin\Q$ with $\operatorname{trdeg}_{\Q}\Q(w,z)\le1$. Then $w$, $wz$ and $wz^{2}$ are not all in $\mathcal L$.
+'''
+source = '''A step of Theorem~\ref{thm:diaz_number_forces_transcendence}.'''
+sketch = '''
+Otherwise the matrix $\begin{pmatrix}w&wz\\wz&wz^{2}\end{pmatrix}$ has vanishing determinant and entries in $\mathcal L$ generating a field of transcendence degree at most one, so by Theorem~\ref{thm:four_exponentials_trdeg_one} its rows or columns satisfy a relation $pw+q\,wz=0$ with $p,q\in\Q$ not both zero; this forces $z=-p/q\in\Q$.
+'''
+
+[[node]]
+platform = "DiazModulus.diaz_number_forces_transcendence"
+env = "theorem"
+title = "Three transcendental exponentials"
+statement = '''
+Let $t\neq0$ be real with $e^{t}$ algebraic, and suppose that $\rho=t^{2}+\pi^{2}$ is algebraic. Then $e^{it^{2}/\pi}$, $e^{\pi^{2}/t}$ and $e^{\rho/(i\pi)}$ are transcendental.
+'''
+source = '''The first number is \cite[Corollary 5]{Bro74} at $\eta=t/\pi$.'''
+sketch = '''
+The hypothesis makes $t$ algebraic over $\Q(\pi)$, since $t^{2}=\rho-\pi^{2}$. Proposition~\ref{prop:geometric_triple_not_logs} applies to $(w,z)=(i\pi,t/(i\pi))$, where $e^{w}=-1$ and $wz=t$, so $wz^{2}=-it^{2}/\pi\notin\mathcal L$; and to $(w,z)=(t,i\pi/t)$, where $wz=i\pi$, so $wz^{2}=-\pi^{2}/t\notin\mathcal L$. Finally $\rho/(i\pi)=-it^{2}/\pi-i\pi$, so $e^{\rho/(i\pi)}=-e^{-it^{2}/\pi}$.
+'''
+
+[[node]]
+platform = "DiazModulus.recip_pi_log_of_torsion_rational_modulus"
+root = true
+env = "corollary"
+title = "Rational data exclude one boundary failure"
+statement = '''
+Let $t\neq0$ be real with $e^{t}$ algebraic and $t^{2}+\pi^{2}\in\Q$. Then $e^{i\gamma/\pi}$ is transcendental for every $\gamma\in\Q$, $\gamma\neq0$.
+'''
+source = '''Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}): the two open boundary statements of the library cannot both fail at rational data. The key step is \cite[Corollary 5]{Bro74} at $\eta=t/\pi$.'''
+sketch = '''
+Put $r=t^{2}+\pi^{2}$. By Theorem~\ref{thm:diaz_number_forces_transcendence}, $e^{r/(i\pi)}=e^{-ir/\pi}$ is transcendental. If $e^{i\gamma/\pi}$ were algebraic, write $r/\gamma=a/b$ with $a\in\Z$ and $b\ge1$; then $(e^{ir/\pi})^{b}=(e^{i\gamma/\pi})^{a}$ would be algebraic, and with it $e^{ir/\pi}$ and its inverse.
+'''
+
+# --- The strong five exponentials conjecture --------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.diaz_of_strong_five_exponentials"
+root = true
+env = "theorem"
+section = "The strong five exponentials conjecture"
+title = "The strong five exponentials conjecture implies Diaz's"
+statement = '''
+Assume Waldschmidt's strong five exponentials conjecture: if $x_1,x_2$ are linearly independent over $\Q$, $y_1,y_2$ are linearly independent over $\Q$, $\eta\neq0$, the $\alpha_{ij}$ and $\beta$ are algebraic, and the five numbers $e^{x_iy_j-\alpha_{ij}}$ and $e^{\eta x_2/x_1-\beta}$ are algebraic, then $x_iy_j=\alpha_{ij}$ for all $i,j$ and $\eta x_2=\beta x_1$. Then for every $u\neq0$ with $|u|$ algebraic, $e^{u}$ is transcendental.
+'''
+source = '''Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}): the derivation is one line. The conjecture is \cite[Conjecture 3.5]{Wal04}.'''
+sketch = '''
+Suppose $e^{u}$ algebraic. Then $u$ is transcendental by Theorem~\ref{thm:hermite_lindemann_holds}, so $(1,u)$ and $(1,\bar u)$ are free over $\Q$, and $e^{\bar u}=\overline{e^{u}}$ is algebraic. Apply the conjecture to $x=(1,u)$, $y=(1,\bar u)$, with $\alpha=(1,0,0,u\bar u)$, $\eta=1$ and $\beta=0$: the five exponentials are $1$, $e^{\bar u}$, $e^{u}$, $1$ and $e^{u}$, all algebraic. The conclusion $x_1y_2=\alpha_{12}$ says $\bar u=0$, a contradiction.
+'''
