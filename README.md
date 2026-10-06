@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 359 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 364 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -689,9 +689,25 @@ exactly when z ∈ H₀ + Q̄w for w = u², w = ū² or w = 1/(u − a) with a a
   5(4)). Every configuration in such a space is a geometric progression b, bh, bh², bh³, the shape of Fischler
   (2001, Lemma 6.1) and Diaz (2007, Th. 7(2)).
 - The classification was not found in the sources read. Since ℒ̃ is closed under conjugation, z ∈ ℒ̃ brings z̄
-  with it, and the five-dimensional spaces H₀ + Q̄z + Q̄z̄ are not covered.
+  with it; the five-dimensional spaces H₀ + Q̄z + Q̄z̄ are the next section.
 - Five nodes: the progression lemma, a normal form for cubics with P₁P₂ = P₀², the progression step, the three
   configurations, and the equivalence.
+
+### Five-dimensional spaces that Theorem B cannot see
+
+`DiazModulus.circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions` (6 October 2026):
+let u ∉ Q̄ with ρ = uū algebraic, a ∈ Q̄ non-zero, and z = u/(u² − a) if aā ≠ ρ², or z = u/(u² − a)² if aā = ρ².
+Then W = H₀ + Q̄z + Q̄z̄ carries a configuration (the progression b, bu², bu⁴, bu⁶), but no four-dimensional
+H₀ + Q̄w inside W does.
+- The configuration's shape is printed (Diaz 2004, Th. 2; Diaz 2007, Th. 6(1) and 7(1)), and so are, up to one
+  substitution, its consequences at a candidate: u/(u² − a) ∉ ℒ̃ is Diaz 2004, Th. 2 at x = (u, ū), and
+  u/(u² − a)² ∉ ℒ̃ is Diaz 2007, Th. 6(3) (`DiazModulus.candidate_div_sq_sub_not_mem_logAlgTilde`).
+- What was not found in the sources read is the invisibility to Theorem B's spaces; the proof is short (parity in u).
+- For aā = ρ² the conjugation-stable H₀ + Q̄·u/(u² − a) carries none
+  (`DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration`): the conjugate z̄ is what lets
+  the strong six exponentials theorem see u/(u² − a).
+- Five nodes: the configuration, the exclusion of u², ū² and 1/(u − b), the invisibility, the contrast, and the
+  exclusions at a candidate.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

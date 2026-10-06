@@ -155,3 +155,8 @@ text = '''G.~Rhin and C.~Viola, The permutation group method for the dilogarithm
 key = "CDT24"
 label = "CDT24"
 text = '''F.~Calegari, V.~Dimitrov and Y.~Tang, The linear independence of $1$, $\zeta(2)$, and $L(2,\chi_{-3})$, arXiv:2408.15403, 2024.'''
+
+[[reference]]
+key = "Dia04"
+label = "Dia04"
+text = '''G.~Diaz, Utilisation de la conjugaison complexe dans l'étude de la transcendance de valeurs de la fonction exponentielle usuelle, \emph{J. Théor. Nombres Bordeaux} 16 (2004), 535--553.'''

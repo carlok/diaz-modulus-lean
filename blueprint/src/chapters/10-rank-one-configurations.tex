@@ -3,7 +3,7 @@
 \chapter{Rank-one configurations near a point of a circle}
 \label{chap:10-rank-one-configurations}
 
-Two results of the library's work on Diaz's conjecture, about the hypothesis that rank-one statements need. The six exponentials theorem (Chapter~\ref{chap:05-six-exponentials}) and Roy's strong six exponentials theorem \cite{Roy92} take as input a \emph{configuration}: $x_1,x_2$ linearly independent over $\Qbar$ and $y_1,y_2,y_3$ linearly independent over $\Qbar$, with all six products $x_iy_j$ in a given $\Qbar$-vector space. Near a point $u$ of a circle of algebraic radius, that is $u\neq0$ with $u\bar u$ algebraic, Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration} shows that generic data carry no configuration, whatever numbers are added, and Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} classifies the four-dimensional extensions $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z$ that carry one. Neither statement involves $e^{u}$, so both keep their content if Diaz's conjecture holds. Neither was found in the sources read; the printed special cases are named in each source line.
+Two results of the library's work on Diaz's conjecture, about the hypothesis that rank-one statements need. The six exponentials theorem (Chapter~\ref{chap:05-six-exponentials}) and Roy's strong six exponentials theorem \cite{Roy92} take as input a \emph{configuration}: $x_1,x_2$ linearly independent over $\Qbar$ and $y_1,y_2,y_3$ linearly independent over $\Qbar$, with all six products $x_iy_j$ in a given $\Qbar$-vector space. Near a point $u$ of a circle of algebraic radius, that is $u\neq0$ with $u\bar u$ algebraic, Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration} shows that generic data carry no configuration, whatever numbers are added, and Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} classifies the four-dimensional extensions $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z$ that carry one. Neither statement involves $e^{u}$, so both keep their content if Diaz's conjecture holds. Neither was found in the sources read; the printed special cases are named in each source line. The last section adds two families of five-dimensional spaces $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ that carry a configuration invisible to those extensions (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}); that was not found either, but it is short, and its consequences at a candidate are printed (Corollary~\ref{cor:candidate_div_sq_sub_not_mem_logAlgTilde}).
 
 \section{Generic data}
 
@@ -103,5 +103,116 @@ Let $u\in\C\setminus\Qbar$ with $u\bar u$ algebraic, put $H_0=\Qbar+\Qbar u+\Qba
 \uses{lem:two_by_three_configuration_forces_progression,lem:circle_hull_progression_contains_square_or_reciprocal,prop:circle_point_extension_carries_two_by_three_configuration}
 If $z\in H_0+\Qbar w$ and $z\notin H_0$, then $H_0+\Qbar z=H_0+\Qbar w$, which carries a configuration by Proposition~\ref{prop:circle_point_extension_carries_two_by_three_configuration}. Conversely, Lemma~\ref{lem:two_by_three_configuration_forces_progression} writes $H_0+\Qbar z$ as $b(\Qbar+\Qbar h+\Qbar h^{2}+\Qbar h^{3})$ with $h\notin\Qbar$, and Lemma~\ref{lem:circle_hull_progression_contains_square_or_reciprocal} puts $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ in it. That element is not in $H_0$, since $u$ is transcendental, so $z\in H_0+\Qbar w$.
 
-Since $\widetilde{\mathcal L}$, the $\Qbar$-span of $1$ and the logarithms of algebraic numbers, is closed under complex conjugation, a hypothesis $z\in\widetilde{\mathcal L}$ also brings $\bar z$; the five-dimensional spaces $H_0+\Qbar z+\Qbar\bar z$ are not covered.
+Since $\widetilde{\mathcal L}$, the $\Qbar$-span of $1$ and the logarithms of algebraic numbers, is closed under complex conjugation, a hypothesis $z\in\widetilde{\mathcal L}$ also brings $\bar z$; the five-dimensional spaces $H_0+\Qbar z+\Qbar\bar z$ are the subject of the next section.
+\end{proof}
+
+\section{Five-dimensional extensions}
+
+% Prove2Me: DiazModulus.circle_point_conjugate_pair_extension_carries_two_by_three_configuration -- https://prove2.me/theorems/d8abac5b-9bd4-4091-a0ed-2be61713f899
+\begin{proposition}[Two families of five-dimensional spaces that carry a configuration]
+\label{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}
+\lean{Diaz.circle_point_conjugate_pair_extension_carries_two_by_three_configuration}
+\leanok
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, let $a\in\Qbar$, $a\neq0$, and let $z=u/(u^{2}-a)$ if $a\bar a\neq\rho^{2}$, or $z=u/(u^{2}-a)^{2}$ if $a\bar a=\rho^{2}$. Then there are $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$.
+
+{\small\emph{Source:} Rescaled, the configuration is the one in the proofs of \cite[Théorème 2]{Dia04} and \cite[Théorèmes 6(1) and 7(1)]{Dia07}, and the progression of \cite[Lemma 6.1]{Fis01}.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+In the first case put $a'=\rho^{2}/\bar a$, which differs from $a$; then $\bar z=-(\rho/\bar a)\,u/(u^{2}-a')$, and let $b=1/(u(u^{2}-a)(u^{2}-a'))$. In the second, $\bar z=(\rho/\bar a^{2})\,u^{3}/(u^{2}-a)^{2}$, and let $b=1/(u(u^{2}-a)^{2})$. Partial fractions in $u^{2}$, with $u^{-1}=\bar u/\rho$, put $b,bu^{2},bu^{4},bu^{6}$ in the space, so $(1,u^{2})\otimes(b,bu^{2},bu^{4})$ is a configuration, free because $u$ is transcendental.
+\end{proof}
+
+% Prove2Me: DiazModulus.circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals -- https://prove2.me/theorems/f640cf63-2fec-48d4-b85e-1eff3f39da34
+\begin{lemma}[What these spaces do not contain]
+\label{lem:circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals}
+\lean{Diaz.circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals}
+\leanok
+With $u$, $a$ and $z$ as in Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}, the space $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ contains neither $u^{2}$ nor $\bar u^{2}$, nor $1/(u-b)$ for any $b\in\Qbar$, $b\neq0$.
+
+{\small\emph{Source:} Elementary.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Clearing denominators turns a membership into $A(u^{2})+u\,B(u^{2})=0$ with $A,B\in\Qbar[X]$. The same identity holds at $-u$, so $A=B=0$. For $u^{2}$ the odd part is not zero; for $\bar u^{2}=\rho^{2}/u^{2}$ the even part is not zero at $0$; for $1/(u-b)=(u+b)/(u^{2}-b^{2})$ the odd part is not zero at $b^{2}$.
+\end{proof}
+
+% Prove2Me: DiazModulus.circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions -- https://prove2.me/theorems/901396cf-2688-4738-be1c-a80b6ff6e7c7
+\begin{theorem}[Configurations invisible to the four-dimensional extensions]
+\label{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}
+\lean{Diaz.circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}
+\leanok
+With $u$, $a$ and $z$ as in Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}, put $H_0=\Qbar+\Qbar u+\Qbar\bar u$ and $W=H_0+\Qbar z+\Qbar\bar z$. Then $W$ carries a configuration, but for no $w\in W\setminus H_0$ does $H_0+\Qbar w$ carry one.
+
+{\small\emph{Source:} Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}). The shape of the configuration is printed; see Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration,lem:circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals,thm:circle_point_extension_two_by_three_configuration_iff}
+The configuration is Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}. If $H_0+\Qbar w$ carried one, Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} would give $w\in H_0+\Qbar t$ with $t$ one of $u^{2}$, $\bar u^{2}$, $1/(u-b)$. Since $w\notin H_0$, exchange puts $t$ in $H_0+\Qbar w\subseteq W$, against Lemma~\ref{lem:circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals}. The configuration does not need all of $W$: its six products span the odd part $\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$.
+\end{proof}
+
+% Prove2Me: DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration -- https://prove2.me/theorems/9819e926-24a6-4c12-8431-7a5f6be68dfa
+\begin{proposition}[The conjugation-stable case carries none]
+\label{prop:conj_stable_circle_point_extension_no_two_by_three_configuration}
+\lean{Diaz.conj_stable_circle_point_extension_no_two_by_three_configuration}
+\leanok
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, and let $a\in\Qbar$, $a\neq0$, with $a\bar a=\rho^{2}$. Then there are no $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $\Qbar+\Qbar u+\Qbar\bar u+\Qbar\,u/(u^{2}-a)$.
+
+{\small\emph{Source:} A consequence of Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}. It is where the hypotheses of \cite[Théorème 2]{Dia04} and of \cite[Corollaire 4(4) and Théorème 7(1)]{Dia07} fail for this family.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}
+Here $z=u/(u^{2}-a)$ has $\bar z=-(\rho/\bar a)z$, so the space is stable under conjugation. With $z_2=u/(u^{2}-a)^{2}$, the element $u/(u^{2}-a)=(\bar a^{2}/\rho)\bar z_2-az_2$ lies in $H_0+\Qbar z_2+\Qbar\bar z_2$ and not in $H_0$, so Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions} applies. When $a\bar a\neq\rho^{2}$, adding $\bar z$ gives a space that does carry a configuration.
+\end{proof}
+
+% Prove2Me: DiazModulus.logAlg_conj_stable -- https://prove2.me/theorems/95246d4a-a61c-4120-bfd0-0f30ffec3055
+\begin{lemma}[Conjugation keeps the logarithms]
+\label{lem:logAlg_conj_stable}
+\lean{Diaz.logAlg_conj_stable}
+\leanok
+If $\lambda$ is a logarithm of an algebraic number, so is $\bar\lambda$.
+
+{\small\emph{Source:} Elementary.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+$e^{\bar\lambda}=\overline{e^{\lambda}}$, and the conjugate of an algebraic number is algebraic.
+\end{proof}
+
+% Prove2Me: DiazModulus.logAlgTilde_conj_stable -- https://prove2.me/theorems/9922f109-5be0-427a-93a2-e7015b8cdf9d
+\begin{lemma}[Conjugation keeps $\widetilde{\mathcal L}$]
+\label{lem:logAlgTilde_conj_stable}
+\lean{Diaz.logAlgTilde_conj_stable}
+\leanok
+The $\Qbar$-vector space $\widetilde{\mathcal L}$ spanned by $1$ and the logarithms of algebraic numbers is closed under complex conjugation.
+
+{\small\emph{Source:} Elementary; it is the stability that \cite[Théorème 2]{Dia04} uses.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:logAlg_conj_stable}
+Conjugation fixes $1$, sends logarithms to logarithms (Lemma~\ref{lem:logAlg_conj_stable}), and $\overline{c\lambda}=\bar c\,\bar\lambda$ with $\bar c\in\Qbar$.
+\end{proof}
+
+% Prove2Me: DiazModulus.candidate_div_sq_sub_not_mem_logAlgTilde -- https://prove2.me/theorems/35486890-e3f7-4a35-a512-441fc709f738
+\begin{corollary}[Two exclusions at a candidate]
+\label{cor:candidate_div_sq_sub_not_mem_logAlgTilde}
+\lean{Diaz.candidate_div_sq_sub_not_mem_logAlgTilde}
+\leanok
+Assume Roy's strong six exponentials theorem, and let $u$ be a candidate: $u\neq0$, $|u|$ algebraic and $e^{u}$ algebraic. Let $a\in\Qbar$, $a\neq0$, and $\rho=u\bar u$. Then $u/(u^{2}-a)\notin\widetilde{\mathcal L}$ if $a\bar a\neq\rho^{2}$, and $u/(u^{2}-a)^{2}\notin\widetilde{\mathcal L}$ if $a\bar a=\rho^{2}$.
+
+{\small\emph{Source:} One substitution in \cite[Théorème 2]{Dia04}, at $x=(u,\bar u)$ and $y=1/(u^{2}-a)$, and in \cite[Corollaire 4(4) and Théorème 7(1)]{Dia07}; the second part is \cite[Théorème 6(3)]{Dia07}. Roy's theorem is \cite{Roy92}.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration,thm:hermite_lindemann_holds,lem:logAlg_conj_stable,lem:logAlgTilde_conj_stable}
+$\widetilde{\mathcal L}$ is closed under conjugation and contains $1$, $u$ and $\bar u$, so $z\in\widetilde{\mathcal L}$ would put the space of Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration} in $\widetilde{\mathcal L}$, with its configuration, against Roy's theorem.
 \end{proof}

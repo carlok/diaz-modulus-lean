@@ -1,0 +1,23 @@
+{
+ "theorem_id": "95246d4a-a61c-4120-bfd0-0f30ffec3055",
+ "theorem_name": "DiazModulus.logAlg_conj_stable",
+ "theorem_title": "$\\mathcal{L}$ is stable under complex conjugation",
+ "status": "Proved",
+ "formal_statement": "namespace DiazModulus\ntheorem logAlg_conj_stable (u : ℂ) (h : u ∈ LogAlg) : conj u ∈ LogAlg := by sorry\nend DiazModulus",
+ "natural_language_statement": "If $u$ is a logarithm of an algebraic number, so is $\\bar u$.\n\nConcretely: if $e^{u}$ is algebraic then $e^{\\bar u}$ is algebraic, because $e^{\\bar u} = \\overline{e^{u}}$ and a polynomial with rational coefficients that annihilates $z$ also annihilates $\\bar z$ (its coefficients are fixed by conjugation).\n\nThis is elementary, but it is the first thing every later argument in the mission uses. A hypothetical counterexample $u$ to Diaz's question has $\\bar u \\in \\mathcal{L}$ as well, and that is exactly what puts the pair $(u,\\bar u)$ inside the reach of Schanuel's conjecture and of the four-exponentials configuration.",
+ "created_at": "2026-09-07T06:43:41.160434+00:00",
+ "tags": [
+  "number-theory"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus\n\nopen Complex ComplexConjugate",
+ "source": "G. Diaz, Utilisation de la conjugaison complexe dans l'etude de la transcendance de valeurs de la fonction exponentielle usuelle, J. Theor. Nombres Bordeaux 16 (2004), no. 3, 535-553, doi:10.5802/jtnb.459, section 5.1, p. 550",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": {
+  "readback": "Working in namespace `DiazModulus` with the definition bundle imported and `Complex`, `ComplexConjugate` opened, this posts as an open problem the following claim, with a single explicit binder $u$ and one explicit hypothesis:\n\n> For every complex number $u$, if $u \\in \\mathcal{L}$ then $\\overline{u} \\in \\mathcal{L}$.\n\nExpanding the bundle's $\\mathcal{L}$ and the conjugation notation ($\\mathrm{conj}$ is `starRingEnd ℂ`, ordinary complex conjugation), the statement is:\n$$\\forall\\, u \\in \\mathbb{C},\\quad e^{u} \\text{ is algebraic over } \\mathbb{Q} \\;\\Longrightarrow\\; e^{\\overline{u}} \\text{ is algebraic over } \\mathbb{Q}.$$\n\nThe hypothesis is genuinely used (it is the antecedent) and is satisfiable — $u = 0$ satisfies it, since $e^0 = 1$ is algebraic — so the claim is not vacuous. There are no typeclass arguments, no implicit binders, no casts between $\\mathbb{R}$ and $\\mathbb{C}$, no division, and no appeal to $\\overline{\\mathbb{Q}}$, $\\tilde{\\mathcal{L}}$, `IsCandidate`, or any of the four propositions in the bundle.\n\nThe conclusion is pointwise membership, which is equivalent to the set-level assertion $\\mathrm{conj}(\\mathcal{L}) \\subseteq \\mathcal{L}$; the reverse inclusion (hence equality) is not asserted, though it follows from this one applied to $\\overline{u}$.\n\n**Discrepancies:** none. The file carries no doc-comment or section header, and the declaration name `logAlg_conj_stable` (\"$\\mathcal{L}$ is stable under conjugation\") matches what the code asserts.\n",
+  "model": "claude-opus-5",
+  "created_at": "2026-09-07T06:43:42.185179+00:00"
+ }
+}

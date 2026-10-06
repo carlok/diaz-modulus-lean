@@ -5500,5 +5500,65 @@
   "bytes": 7016,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration",
+  "theorem_id": "9819e926-24a6-4c12-8431-7a5f6be68dfa",
+  "submission_id": "2da779b0-8141-46f0-b9bf-ad5490bbbca1",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-06T07:49:22.053161+00:00",
+  "file": "DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration__2da779b0.lean",
+  "bytes": 6245,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals",
+  "theorem_id": "f640cf63-2fec-48d4-b85e-1eff3f39da34",
+  "submission_id": "0b8283f2-7cc5-417a-a5ef-d7e8f10617f9",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-06T08:26:22.528264+00:00",
+  "file": "DiazModulus.circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals__0b8283f2.lean",
+  "bytes": 10931,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_conjugate_pair_extension_carries_two_by_three_configuration",
+  "theorem_id": "d8abac5b-9bd4-4091-a0ed-2be61713f899",
+  "submission_id": "4840b65e-cf13-4dca-a3fa-b8b835caf276",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-06T08:26:19.887746+00:00",
+  "file": "DiazModulus.circle_point_conjugate_pair_extension_carries_two_by_three_configuration__4840b65e.lean",
+  "bytes": 12450,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.candidate_div_sq_sub_not_mem_logAlgTilde",
+  "theorem_id": "35486890-e3f7-4a35-a512-441fc709f738",
+  "submission_id": "25ad55d1-e851-45fd-9ee2-2ca98cab9ba6",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-06T07:49:19.473522+00:00",
+  "file": "DiazModulus.candidate_div_sq_sub_not_mem_logAlgTilde__25ad55d1.lean",
+  "bytes": 3137,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions",
+  "theorem_id": "901396cf-2688-4738-be1c-a80b6ff6e7c7",
+  "submission_id": "0b1f1bd0-4915-4eed-959c-09fc84e080f1",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-06T08:08:02.244361+00:00",
+  "file": "DiazModulus.circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions__0b1f1bd0.lean",
+  "bytes": 3616,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
