@@ -61,6 +61,16 @@ jobs:
           test "$got" -ge "$want"
           grep -q 'results' blueprint/web/index.html
           grep -E -q '[0-9]+ results' blueprint/web/index.html
+      - name: Redirect the addresses of renumbered chapters
+        # blueprint/redirects/ holds one page per old chapter address, pointing to the new one. A redirect never
+        # replaces a page the build produced.
+        run: |
+          set -e
+          for f in blueprint/redirects/*.html; do
+            name=$(basename "$f")
+            if [ -e "blueprint/web/$name" ]; then echo "redirect $name would hide a real page"; exit 1; fi
+            cp "$f" "blueprint/web/$name"
+          done
       - name: Add the PDF, and serve the Lean links from GitHub source lines
         # The site's Lean links go to docs/find/#doc/<name>, doc-gen4's search URL. Without
         # doc-gen4 pages, blueprint/docs-find/ answers there and redirects to the declaration.

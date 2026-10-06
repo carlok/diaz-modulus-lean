@@ -18,7 +18,7 @@ title = "No configuration on generic data"
 statement = '''
 Let $u\neq0$ with $u\bar u$ algebraic, and let $w_1,\dots,w_m\in\C$ be such that $u,w_1,\dots,w_m$ are algebraically independent over $\Qbar$. Then there are no $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $\Qbar+\Qbar u+\Qbar\bar u+\sum_j\Qbar w_j$.
 '''
-source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:12-not-found-in-the-sources}). The case $m=0$ is \cite[Theorem 3.4]{Roy95} and \cite[Lemma 12.16 and Exercise 12.10]{Wal00}; see also \cite[\S3.2]{Roy95} and \cite[p.~186]{Fis01}. The general statement was not found in the sources read.'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). The case $m=0$ is \cite[Theorem 3.4]{Roy95} and \cite[Lemma 12.16 and Exercise 12.10]{Wal00}; see also \cite[\S3.2]{Roy95} and \cite[p.~186]{Fis01}. The general statement was not found in the sources read.'''
 sketch = '''
 Multiply by $u$. Since $\bar u=\rho/u$ with $\rho$ algebraic, every element of the space times $u$ is the value at $(u,w)$ of a polynomial over $\Qbar$ of total degree at most two that is constant once its first variable $X_0$ is set to $0$, and evaluation at $(u,w)$ is injective. A configuration therefore gives a rank-one $2\times3$ matrix of such polynomials, which factors as $(h,g)\otimes(c_0,c_1,c_2)$ with both factors free. Total degrees add, and $X_0\mapsto0$ is a ring map; each case puts two free vectors in a line or three in a plane.
 '''
@@ -83,7 +83,7 @@ title = "The four-dimensional extensions that carry a configuration"
 statement = '''
 Let $u\in\C\setminus\Qbar$ with $u\bar u$ algebraic, put $H_0=\Qbar+\Qbar u+\Qbar\bar u$, and let $z\notin H_0$. There are $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $H_0+\Qbar z$ if and only if $z\in H_0+\Qbar w$ for $w=u^{2}$, $w=\bar u^{2}$, or $w=1/(u-a)$ with $a\in\Qbar$, $a\neq0$.
 '''
-source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:12-not-found-in-the-sources}). With Roy's strong six exponentials theorem \cite{Roy92}, the ``if'' direction gives at a candidate the exclusions of \cite[Corollaire 5(1) and 5(4)]{Dia07}; every configuration has the shape of \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}.'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). With Roy's strong six exponentials theorem \cite{Roy92}, the ``if'' direction gives at a candidate the exclusions of \cite[Corollaire 5(1) and 5(4)]{Dia07}; every configuration has the shape of \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}.'''
 sketch = '''
 If $z\in H_0+\Qbar w$ and $z\notin H_0$, then $H_0+\Qbar z=H_0+\Qbar w$, which carries a configuration by Proposition~\ref{prop:circle_point_extension_carries_two_by_three_configuration}. Conversely, Lemma~\ref{lem:two_by_three_configuration_forces_progression} writes $H_0+\Qbar z$ as $b(\Qbar+\Qbar h+\Qbar h^{2}+\Qbar h^{3})$ with $h\notin\Qbar$, and Lemma~\ref{lem:circle_hull_progression_contains_square_or_reciprocal} puts $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ in it. That element is not in $H_0$, since $u$ is transcendental, so $z\in H_0+\Qbar w$.
 
@@ -124,7 +124,7 @@ title = "Configurations invisible to the four-dimensional extensions"
 statement = '''
 With $u$, $a$ and $z$ as in Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}, put $H_0=\Qbar+\Qbar u+\Qbar\bar u$ and $W=H_0+\Qbar z+\Qbar\bar z$. Then $W$ carries a configuration, but for no $w\in W\setminus H_0$ does $H_0+\Qbar w$ carry one.
 '''
-source = '''Not found in the sources read, but short (Chapter~\ref{chap:12-not-found-in-the-sources}). The shape of the configuration is printed; see Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}.'''
+source = '''Not found in the sources read, but short (Chapter~\ref{chap:14-not-found-in-the-sources}). The shape of the configuration is printed; see Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}.'''
 sketch = '''
 The configuration is Proposition~\ref{prop:circle_point_conjugate_pair_extension_carries_two_by_three_configuration}. If $H_0+\Qbar w$ carried one, Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} would give $w\in H_0+\Qbar t$ with $t$ one of $u^{2}$, $\bar u^{2}$, $1/(u-b)$. Since $w\notin H_0$, exchange puts $t$ in $H_0+\Qbar w\subseteq W$, against Lemma~\ref{lem:circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals}. The configuration does not need all of $W$: its six products span the odd part $\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$.
 '''
@@ -189,7 +189,7 @@ title = "Configurations in the power hulls"
 statement = '''
 Let $u\in\C\setminus\Qbar$ and $k\ge1$. There are $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $\Qbar u^{-k}+\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{k}$ if and only if $k=2$ or $k=3$.
 '''
-source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:12-not-found-in-the-sources}). For $k=2,3$ the configurations are geometric progressions of four elements, which \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07} exclude from $\widetilde{\mathcal L}$ with Roy's theorem; at a candidate they give \cite[Corollaire 5(1) and 5(2)]{Dia07}. The direction ``only for $k=2,3$'' was not found; Diaz remarks that inside that theorem one cannot hope to go very far \cite[p.~390]{Dia07}.'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). For $k=2,3$ the configurations are geometric progressions of four elements, which \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07} exclude from $\widetilde{\mathcal L}$ with Roy's theorem; at a candidate they give \cite[Corollaire 5(1) and 5(2)]{Dia07}. The direction ``only for $k=2,3$'' was not found; Diaz remarks that inside that theorem one cannot hope to go very far \cite[p.~390]{Dia07}.'''
 sketch = '''
 For $k=2$ take $(1,u)\otimes(u^{-1},1,u)$, and for $k=3$ take $(u,u^{-1})\otimes(1,u^{-2},u^{2})$. Conversely, multiply by $u^{k}$: the products become polynomials in $u$ supported on $\{0,k-1,k,k+1,2k\}$, and since $u$ is transcendental a rank-one $2\times3$ matrix of them, with free rows and columns, has rows that differ by a fixed non-zero shift of the orders at $0$. For $k=1$ and for $k\ge4$ no shift keeps three exponents of that set inside it.
 '''
