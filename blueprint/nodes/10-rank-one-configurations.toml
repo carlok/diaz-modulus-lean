@@ -3,7 +3,7 @@
 [chapter]
 title = "Rank-one configurations near a point of a circle"
 text = '''
-Results of the library's work on Diaz's conjecture, about the hypothesis that rank-one statements need. The six exponentials theorem (Chapter~\ref{chap:05-six-exponentials}) and Roy's strong six exponentials theorem \cite{Roy92} take as input a \emph{configuration}: $x_1,x_2$ linearly independent over $\Qbar$ and $y_1,y_2,y_3$ linearly independent over $\Qbar$, with all six products $x_iy_j$ in a given $\Qbar$-vector space. Near a point $u$ of a circle of algebraic radius, that is $u\neq0$ with $u\bar u$ algebraic, Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration} shows that generic data carry no configuration, whatever numbers are added, and Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} classifies the four-dimensional extensions $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z$ that carry one. Neither statement involves $e^{u}$, so both keep their content if Diaz's conjecture holds. Neither was found in the sources read; the printed special cases are named in each source line. A third section adds two families of five-dimensional spaces $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ that carry a configuration invisible to those extensions (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}); that was not found either, but it is short, and its consequences at a candidate are printed (Corollary~\ref{cor:candidate_div_sq_sub_not_mem_logAlgTilde}). The last section shows that in the power hulls $\Qbar u^{-k}+\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{k}$ a configuration exists only for $k=2$ and $k=3$ (Theorem~\ref{thm:power_hull_strong_six_exp_configuration_iff}), so that the strong six exponentials route at a candidate stops at $u^{3}$.
+Results of the library's work on Diaz's conjecture, about the hypothesis that rank-one statements need. The six exponentials theorem (Chapter~\ref{chap:05-six-exponentials}) and Roy's strong six exponentials theorem \cite{Roy92} take as input a \emph{configuration}: $x_1,x_2$ linearly independent over $\Qbar$ and $y_1,y_2,y_3$ linearly independent over $\Qbar$, with all six products $x_iy_j$ in a given $\Qbar$-vector space. Near a point $u$ of a circle of algebraic radius, that is $u\neq0$ with $u\bar u$ algebraic, Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration} shows that generic data carry no configuration, whatever numbers are added, and Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} classifies the four-dimensional extensions $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z$ that carry one. Neither statement involves $e^{u}$, so both keep their content if Diaz's conjecture holds. Neither was found in the sources read; the printed special cases are named in each source line. A third section adds two families of five-dimensional spaces $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ that carry a configuration invisible to those extensions (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}); that was not found either, but it is short, and its consequences at a candidate are printed (Corollary~\ref{cor:candidate_div_sq_sub_not_mem_logAlgTilde}). The last section shows that in the power hulls $\Qbar u^{-k}+\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{k}$ a configuration exists only for $k=2$ and $k=3$ (Theorem~\ref{thm:power_hull_strong_six_exp_configuration_iff}), so that the strong six exponentials route at a candidate stops at $u^{3}$. The last two sections put these results into one mechanism over any field: separation (Theorem~\ref{thm:rank_one_config_separation}), the normal form of $2\times2$ configurations (Theorem~\ref{thm:circle_point_two_by_two_normal_form}) and configurations in Laurent hulls (Theorem~\ref{thm:laurent_hull_config_iff}).
 '''
 
 # --- Generic data ------------------------------------------------------------------------
@@ -192,4 +192,241 @@ Let $u\in\C\setminus\Qbar$ and $k\ge1$. There are $x_1,x_2$, linearly independen
 source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). For $k=2,3$ the configurations are geometric progressions of four elements, which \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07} exclude from $\widetilde{\mathcal L}$ with Roy's theorem; at a candidate they give \cite[Corollaire 5(1) and 5(2)]{Dia07}. The direction ``only for $k=2,3$'' was not found; Diaz remarks that inside that theorem one cannot hope to go very far \cite[p.~390]{Dia07}.'''
 sketch = '''
 For $k=2$ take $(1,u)\otimes(u^{-1},1,u)$, and for $k=3$ take $(u,u^{-1})\otimes(1,u^{-2},u^{2})$. Conversely, multiply by $u^{k}$: the products become polynomials in $u$ supported on $\{0,k-1,k,k+1,2k\}$, and since $u$ is transcendental a rank-one $2\times3$ matrix of them, with free rows and columns, has rows that differ by a fixed non-zero shift of the orders at $0$. For $k=1$ and for $k\ge4$ no shift keeps three exponents of that set inside it.
+'''
+
+# --- Separation and the normal form (R6) ---------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.rank_one_config_separation_two"
+env = "lemma"
+section = "Separation and the normal form"
+title = 'Separation for one number'
+statement = '''
+Let $K\subseteq F$ be subfields of $\C$, $V_0\subseteq F$ a $K$-space and $w$ transcendental over $F$. If $x_1,x_2$ and $y_1,y_2$ are each linearly independent over $K$ and every $x_iy_j$ lies in $V_0+Kw$, then every $x_iy_j$ lies in $V_0$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Write $x_iy_j=c_{ij}+\ell_{ij}w$ with $c_{ij}\in V_0$, $\ell_{ij}\in K$. Since $w$ is transcendental over $F$ and $\det(C+wL)=0$, $\det L=0$. A non-zero column $j$ of $L$ gives $z=\ell_{2j}x_1-\ell_{1j}x_2\neq0$ with $zy_1,zy_2\in F$; comparing coefficients of $w$ in $(zy_1)(x_iy_2)=(zy_2)(x_iy_1)$ gives $z(\ell_{i2}y_1-\ell_{i1}y_2)=0$, so $L=0$ by the independence of $y$.
+'''
+
+[[node]]
+platform = "DiazModulus.rank_one_config_separation"
+root = true
+novelty = "not-routine"
+env = "theorem"
+title = 'Separation'
+statement = '''
+A $p\times q$ \emph{configuration over $K$} in a $K$-space $V\subseteq\C$ is a pair of families $x_1,\dots,x_p$ and $y_1,\dots,y_q$, each linearly independent over $K$, with every product $x_iy_j$ in $V$.
+
+Let $K\subseteq F$ be subfields of $\C$, $V_0\subseteq F$ a $K$-space and $w_1,\dots,w_m$ algebraically independent over $F$. Every $p\times q$ configuration over $K$ with $p,q\ge2$ in $V_0+Kw_1+\dots+Kw_m$ lies in $V_0$.
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). It contains the separation steps of Theorems~\ref{thm:generic_circle_point_no_two_by_three_configuration} and~\ref{thm:generic_period_never_enters}, which are over $\Qbar$.'''
+sketch = '''
+Induction on $m$, over $F(w_1,\dots,w_{m-1})$: every entry lies in a $2\times2$ block, to which Lemma~\ref{lem:rank_one_config_separation_two} applies.
+'''
+
+[[node]]
+platform = "DiazModulus.polynomial_submodule_trailing_degrees_card"
+env = "lemma"
+title = 'Orders at zero of a space of polynomials'
+statement = '''
+Let $K$ be a field and $X\subseteq K[X]$ a finite-dimensional $K$-space. The orders at $0$ of the non-zero elements of $X$ take exactly $\dim X$ values.
+'''
+source = '''Standard: the valuation argument of \cite[proof of Theorem 33]{BSZ17}.'''
+sketch = '''
+Induction on $\dim X$: if $n_0$ is the least order, attained by $f_0$, the elements with coefficient $0$ at $X^{n_0}$ form a complement of $Kf_0$ whose orders are the others.
+'''
+
+[[node]]
+platform = "DiazModulus.polynomial_submodule_mul_finrank_ge"
+env = "lemma"
+title = 'Linear Cauchy--Davenport for polynomials'
+statement = '''
+For non-zero finite-dimensional $K$-spaces $X,Y\subseteq K[X]$, the span $XY$ of the products satisfies $\dim X+\dim Y\le\dim XY+1$.
+'''
+source = '''A case of the linear Cauchy--Davenport theorem of Eliahou and Lecouvey, as stated in \cite[Theorem 2]{BSZ17}.'''
+sketch = '''
+The order sets $A,B$ of $X,Y$ have $\dim X$ and $\dim Y$ elements (Lemma~\ref{lem:polynomial_submodule_trailing_degrees_card}), and $A+B$ lies in the order set of $XY$; Cauchy--Davenport in $\mathbb N$.
+'''
+
+[[node]]
+platform = "DiazModulus.rank_one_config_card_le_finrank_add_one"
+env = "proposition"
+title = 'Configurations in a space of rational functions'
+statement = '''
+Let $u$ be transcendental over a subfield $K\subseteq\C$ and $V_0\subseteq K(u)$ a finite-dimensional $K$-space. Every $p\times q$ configuration over $K$ in $V_0$ has $p+q\le\dim V_0+1$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Clear denominators: $g(u)x_iy_j=A_{ij}(u)$ with $A_{i1}A_{1j}=A_{11}A_{ij}$ in $K[X]$; the spans of the $A_{i1}$ and of the $A_{1j}$ have dimensions $p$ and $q$, and Lemma~\ref{lem:polynomial_submodule_mul_finrank_ge} bounds the span of their products, which embeds in $V_0$.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_point_config_card_le_four"
+env = "corollary"
+title = 'At most $2\times2$ near a point of a circle'
+statement = '''
+Let $u$ be transcendental over a subfield $K\subseteq\C$ with $\rho=u\bar u\in K$. Every $p\times q$ configuration over $K$ in $K+Ku+K\bar u$ has $p+q\le4$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). Over $\Qbar$ it is a case of Roy's lemma \cite[Lemma 12.16]{Wal00}.'''
+sketch = '''
+$K+Ku+K\bar u\subseteq K(u)$ has dimension $3$; Proposition~\ref{prop:rank_one_config_card_le_finrank_add_one}.
+'''
+
+[[node]]
+platform = "DiazModulus.generic_circle_point_config_is_two_by_two"
+env = "corollary"
+title = 'Generic numbers never enter'
+statement = '''
+Let $u,w_1,\dots,w_m$ be algebraically independent over a subfield $K\subseteq\C$, with $\rho=u\bar u\in K$. Every $p\times q$ configuration over $K$ with $p,q\ge2$ in $K+Ku+K\bar u+Kw_1+\dots+Kw_m$ is $2\times2$ and lies in $K+Ku+K\bar u$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). For $K=\Qbar$ it contains Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration}.'''
+sketch = '''
+Theorem~\ref{thm:rank_one_config_separation} with $F=K(u)$, then Corollary~\ref{cor:circle_point_config_card_le_four}.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_point_two_by_two_normal_form"
+root = true
+novelty = "not-routine"
+env = "theorem"
+title = 'The normal form'
+statement = '''
+Let $u$ be transcendental over a subfield $K\subseteq\C$ with $\rho=u\bar u\in K$. Then $x_1,x_2$ and $y_1,y_2$ form a $2\times2$ configuration over $K$ in $K+Ku+K\bar u$ if and only if $x_i=\mu(P_{i1}+P_{i2}u)$ and $y_j=\mu^{-1}(Q_{1j}+Q_{2j}\bar u)$ for some $\mu\neq0$ and invertible $P,Q\in K^{2\times2}$: the configurations form the orbit of $(1,u)\otimes(1,\bar u)$ under $\mathrm{GL}_2(K)\times\mathrm{GL}_2(K)$.
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$ux_iy_j=A_{ij}(u)$ with $\deg A_{ij}\le2$, and the vanishing minor factors $A_{ij}=a_ib_j$ in $K[X]$ (extract a gcd). Neither the $a_i$ nor the $b_j$ are both constant, so all have degree at most $1$; then $x_i=\mu a_i(u)$ and $y_j=\mu^{-1}b_j(u)/u$, with $1/u=\bar u/\rho$.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_point_config_constant_matrix_det_ne_zero"
+env = "corollary"
+title = 'The constant terms form an invertible matrix'
+statement = '''
+In the setting of Corollary~\ref{cor:generic_circle_point_config_is_two_by_two}, for every $2\times2$ configuration there is an invertible $c\in K^{2\times2}$ with $x_iy_j-c_{ij}\in Ku+K\bar u$. In particular no $2\times2$ configuration lies in $Ku+K\bar u+Kw_1+\dots+Kw_m$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). It sharpens \texttt{Diaz.generic\_qbar\_homogeneous\_four\_exp\_barrier}, the homogeneous barrier of the companion note.'''
+sketch = '''
+Corollary~\ref{cor:generic_circle_point_config_is_two_by_two}, then Theorem~\ref{thm:circle_point_two_by_two_normal_form}: $c=P\,\mathrm{diag}(1,\rho)\,Q$, of determinant $\rho\det P\det Q\neq0$.
+'''
+
+[[node]]
+platform = "DiazModulus.two_by_two_config_critical_progression"
+root = true
+env = "lemma"
+title = 'Three products: a progression'
+statement = '''
+Let $x_1,x_2$ and $y_1,y_2$ be pairs, each linearly independent over a subfield $K\subseteq\C$, whose four products span a $K$-space of dimension $3$. Then $\operatorname{span}(x_1,x_2)=Ka+Kah$ and $\operatorname{span}(y_1,y_2)=Kb+Kbh$ for some $h\notin K$ and $a,b\neq0$.
+'''
+source = '''The dimension-2 case of \cite[Lemmas 4--5]{BSZ17}, stated there for a base field algebraically closed in the extension; here over any subfield.'''
+sketch = '''
+A relation $x_1u'+x_2v=0$ with $u',v\in\operatorname{span}(y)$, $v\neq0$; take $h=x_2/x_1$, $a=x_1$, $b=v$, so that $bh=-u'$.
+'''
+
+[[node]]
+platform = "DiazModulus.algebraic_mem_span_logAlg_eq_zero"
+env = "lemma"
+title = 'Baker: no algebraic number in $\Qbar\mathcal L$'
+statement = '''
+An algebraic number in the $\Qbar$-span of the logarithms of algebraic numbers is $0$.
+'''
+source = '''A consequence of Baker's theorem \cite{Bak66}.'''
+sketch = '''
+Choose a $\Q$-linearly independent family of logarithms with the same $\Q$-span, write $z$ on it with algebraic coefficients, and apply Theorem~\ref{thm:baker_linear_forms_in_logarithms} with constant term $-z$.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_two_by_two_config_entry_not_mem_span_logAlg"
+root = true
+env = "corollary"
+title = 'Not a matrix of logarithms'
+statement = '''
+Let $u$ be a candidate with $u,w_1,\dots,w_m$ algebraically independent over $\Qbar$. In every $2\times2$ configuration over $\Qbar$ in $\Qbar+\Qbar u+\Qbar\bar u+\Qbar w_1+\dots+\Qbar w_m$, each row and each column has an entry outside $\Qbar\mathcal L$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Corollary~\ref{cor:circle_point_config_constant_matrix_det_ne_zero} with $K=\Qbar$: an entry with $c_{ij}\neq0$ in $\Qbar\mathcal L$ would put $c_{ij}$ in $\Qbar\mathcal L$, as $u,\bar u\in\mathcal L$; Lemma~\ref{lem:algebraic_mem_span_logAlg_eq_zero}.
+'''
+
+# --- Laurent hulls (R6) ----------------------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.two_sumset_iff_difference_count"
+env = "lemma"
+section = "Laurent hulls"
+title = 'Sumsets with two summands'
+statement = '''
+A finite $S\subseteq\Z$ contains $A+B$ with $|A|=2$, $|B|=q$ if and only if some $d>0$ has $\#\{s\in S:s+d\in S\}\ge q$.
+'''
+source = '''Elementary.'''
+sketch = '''
+For $A=\{a,a+d\}$, $A+B\subseteq S$ says that $a+B$ lies in $\{s\in S:s+d\in S\}$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_hull_config_iff"
+root = true
+novelty = "not-routine"
+env = "theorem"
+title = 'Configurations in Laurent hulls'
+statement = '''
+A $p\times q$ \emph{configuration over $K$} in a $K$-space $V\subseteq\C$ is a pair of families $x_1,\dots,x_p$ and $y_1,\dots,y_q$, each linearly independent over $K$, with every product $x_iy_j$ in $V$.
+
+Let $u$ be transcendental over a subfield $K\subseteq\C$ and $S\subseteq\Z$ finite. The $K$-span of the $u^s$, $s\in S$, carries a $p\times q$ configuration ($p,q\ge1$) if and only if $A+B\subseteq S$ for some $|A|=p$, $|B|=q$.
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). Theorem~\ref{thm:power_hull_strong_six_exp_configuration_iff} is the case $S=\{0,\pm1,\pm k\}$; the nearest printed result is \cite[Lemma 6.1]{Fis01}.'''
+sketch = '''
+Distinct powers of $u$ are independent. Conversely, $P_{ij}(u)=u^Nx_iy_j$ with $P_{ij}$ supported on $S+N$; the spans of the $P_{i1}$ and the $P_{1j}$ have $p$ and $q$ orders at $0$ (Lemma~\ref{lem:polynomial_submodule_trailing_degrees_card}), and $fg=P_{11}h$ puts their sums, shifted, in $S$.
+'''
+
+[[node]]
+platform = "DiazModulus.power_pair_difference_count_iff"
+env = "lemma"
+title = 'Three equal differences in $\{0,\pm1,\pm k,\pm l\}$'
+statement = '''
+For integers $4\le k<l$, some difference occurs three times in $\{0,\pm1,\pm k,\pm l\}$ if and only if $l\in\{k+1,k+2,2k-1,2k,2k+1,3k\}$.
+'''
+source = '''Elementary.'''
+sketch = '''
+The positive differences are $1,k-1,k,k+1,l-1,l,l+1,l-k,l+k$ twice each and $2,2k,2l$ once each; a third occurrence needs one of the six coincidences.
+'''
+
+[[node]]
+platform = "DiazModulus.power_pair_hull_two_by_three_iff"
+root = true
+env = "proposition"
+title = 'Pairs of powers'
+statement = '''
+Let $u$ be transcendental over a subfield $K\subseteq\C$ and $4\le k<l$. The span of the $u^s$, $s\in\{0,\pm1,\pm k,\pm l\}$, carries a $2\times3$ configuration if and only if $l\in\{k+1,k+2,2k-1,2k,2k+1,3k\}$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). The exclusions it gives at a candidate are substitutions in \cite{Dia07} (Corollary~\ref{cor:candidate_power_pair_not_both_mem_logAlgTilde}).'''
+sketch = '''
+Theorem~\ref{thm:laurent_hull_config_iff}, Lemma~\ref{lem:two_sumset_iff_difference_count} and Lemma~\ref{lem:power_pair_difference_count_iff}.
+'''
+
+[[node]]
+platform = "DiazModulus.four_pow_hull_no_two_by_three"
+root = true
+env = "proposition"
+title = 'The powers $u^{4^j}$'
+statement = '''
+Let $u$ be transcendental over a subfield $K\subseteq\C$. The span of the $u^s$, $s\in\{0,\pm1\}\cup\{\pm4^j:j\ge1\}$, carries no $2\times3$ configuration. So at a candidate, Roy's theorem used through Laurent hulls cannot exclude $u^{4^j}\in\widetilde{\mathcal L}$ for all $j$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). Not in \cite{Dia07} (p.~390) nor \cite{Fis01}.'''
+sketch = '''
+Reduce to a finite part. For a pair $s<s+d$ with $M=\max(|s|,|s+d|)$, either $s=-M$, $d=2M$, or $|d-M|\le M/4$ and $s\in\{M-d,-M\}$; distinct non-zero absolute values differ by a factor at least $4$, so no difference occurs three times.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde"
+root = true
+env = "corollary"
+title = 'Pairs of powers at a candidate'
+statement = '''
+Assume Roy's strong six exponentials theorem and let $u$ be a candidate. For $4\le k<l$ with $l\in\{k+1,k+2,2k-1,2k,2k+1,3k\}$, $u^k$ and $u^l$ are not both in $\widetilde{\mathcal L}$.
+'''
+source = '''Each case is one substitution in \cite{Dia07}: Corollaire 2(P)(1), Théorème 7(1), Corollaire 5(1)--(2), with $\bar u^{k}=\rho^{k}u^{-k}$.'''
+sketch = '''
+By conjugation $u^s\in\widetilde{\mathcal L}$ for $s\in\{0,\pm1,\pm k,\pm l\}$; in each case an explicit $(u^a)_{a\in A}\otimes(u^b)_{b\in B}$ with $A+B\subseteq\{0,\pm1,\pm k,\pm l\}$ contradicts Roy's theorem.
 '''

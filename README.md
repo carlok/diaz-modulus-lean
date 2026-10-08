@@ -710,6 +710,30 @@ H₀ + Q̄w inside W does.
 - Five nodes: the configuration, the exclusion of u², ū² and 1/(u − b), the invisibility, the contrast, and the
   exclusions at a candidate.
 
+### Separation, a normal form, and Laurent hulls
+
+Eighteen nodes of 8 October 2026 put the previous sections into one mechanism, over any subfield K of ℂ.
+- **Separation** (`DiazModulus.rank_one_config_separation`): for K ≤ F, a K-space V₀ ⊆ F and w₁, …, w_m
+  algebraically independent over F, every p×q configuration (p, q ≥ 2) in V₀ + Kw₁ + … + Kw_m lies in V₀. The
+  numbers iπ of `generic_period_never_enters` and the w_j of the previous section are cases.
+- **The normal form** (`DiazModulus.circle_point_two_by_two_normal_form`): for u transcendental over K with uū ∈ K,
+  the 2×2 configurations in H₀ = K + Ku + Kū are exactly x = μ·P(1, u), y = μ⁻¹·Q(1, ū) with P, Q ∈ GL₂(K): one
+  orbit, that of the certificate (1, u) ⊗ (1, ū). Their constant terms form the invertible matrix P·diag(1, ρ)·Q
+  (`DiazModulus.circle_point_config_constant_matrix_det_ne_zero`), so at a candidate every row and column has an
+  entry outside the Q̄-span of the logarithms
+  (`DiazModulus.candidate_two_by_two_config_entry_not_mem_span_logAlg`, with Baker's theorem).
+- **Laurent hulls** (`DiazModulus.laurent_hull_config_iff`): span_K{uˢ : s ∈ S}, S finite, carries a p×q
+  configuration iff S contains a sumset A + B with |A| = p, |B| = q. The power hulls above are the case
+  S = {0, ±1, ±k}. For S = {0, ±1, ±k, ±l} with 4 ≤ k < l, a 2×3 configuration exists iff
+  l ∈ {k+1, k+2, 2k−1, 2k, 2k+1, 3k} (`DiazModulus.power_pair_hull_two_by_three_iff`); and the hull of
+  {0, ±1} ∪ {±4ʲ : j ≥ 1} carries none (`DiazModulus.four_pow_hull_no_two_by_three`), so the strong six
+  exponentials theorem, used through Laurent hulls, cannot exclude "u^{4ʲ} ∈ ℒ̃ for all j" at a candidate.
+- The tools: the trailing-degree count, linear Cauchy–Davenport in K[X] (a case of Eliahou–Lecouvey, Th. 6.2, as
+  stated in Bachoc–Serra–Zémor 2017, Th. 2), and p + q ≤ dim V₀ + 1 for configurations in K(u).
+- Separation, the normal form and the Laurent criterion were not found in the sources read. The pairs of powers
+  excluded at a candidate (`DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde`) are not claimed: each case is
+  one substitution in Diaz (2007, Cor. 2(P)(1), Th. 7(1), Cor. 5).
+
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 
 - `Transcendence.singular_matrix_subspace_annihilating_pair` — Roy's lemma (Dasgupta–Kakde II,

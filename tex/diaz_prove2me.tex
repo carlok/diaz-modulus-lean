@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.20, 6 October 2026}
+\date{September 2026\\[2pt]\small Version 1.21, 8 October 2026}
 
 \begin{document}
 \maketitle
@@ -534,22 +534,19 @@ non-real $\lambda\in\Logs$. Its rows are dependent over $\C$. The next statement
 dependent in no weaker sense, and it is the sharpest way to see where this problem sits.
 
 \begin{theorem}[No vanishing coefficient]\label{thm:novan}
-Let $K\subseteq\C$ be a subfield with $r\in K$, $r\neq0$, and let $u$ be transcendental over
-$K$ with $u\bar u=r^{2}$. Then for all non-zero $w,v\in K^{2}$,
+Let $K\subseteq\C$ be a subfield with $r\in K$, $r\neq0$, and let $u\notin K$ with
+$u\bar u=r^{2}$. Then for all non-zero $w,v\in K^{2}$,
 \[
   w^{\mathsf T}H(u,r)\,v \;\neq\; 0 .
 \]
 \end{theorem}
 
 \begin{proof}
-Expanding, $w^{\mathsf T}Hv=w_{0}(uv_{0}+rv_{1})+w_{1}(rv_{0}+\bar u v_{1})$. Using
-$\bar u=r^{2}/u$ and clearing the denominator $u\neq0$, the vanishing of this expression is a
-quadratic relation for $u$ over $K$ with coefficients built from $w,v,r$; its leading coefficient
-is $w_{0}v_{0}$ and its constant term is $r^{2}w_{1}v_{1}$. A vanishing of the expression makes
-$u$ a root of a polynomial over $K$, so by transcendence that polynomial is identically zero:
-$w_{0}v_{0}=0$, $r^{2}w_{1}v_{1}=0$, and the middle coefficient $r(w_{0}v_{1}+w_{1}v_{0})=0$.
-With $r\neq0$ the first two give $w_{0}v_{0}=w_{1}v_{1}=0$, and combining with the third forces
-$w=0$ or $v=0$.
+Since $\bar u=r^{2}/u$, the matrix factors as $H(u,r)=(u,r)^{\mathsf T}(1,r/u)$, so
+$w^{\mathsf T}Hv=(w_{0}u+w_{1}r)(v_{0}+v_{1}r/u)$. If $w_{0}u+w_{1}r=0$, then $w_{0}=0$, since otherwise
+$u=-w_{1}r/w_{0}\in K$, and then $w_{1}=0$ because $r\neq0$; so $w=0$. Likewise $v_{0}u+v_{1}r=0$ forces
+$v=0$. (Earlier versions assumed $u$ transcendental over $K$; the factorisation needs only $u\notin K$, as in
+the Lean statement.)
 \end{proof}
 
 At $K=\Alg$ the transcendence hypothesis is exactly what a candidate supplies: an algebraic $u$
@@ -1075,6 +1072,86 @@ use $\e^{u}$: a relation with a non-trivial rational zero can be a determinant, 
 like $\operatorname{Re}(u^{2})=\pi^{2}$, never is, so no $2\times2$ configuration sees it.
 Roy and Waldschmidt reach it through larger matrices, via the Clifford algebra of the form.
 Version~1.4 said that such a relation is excluded by nothing this note knows of; that was wrong.
+
+\subsection*{One mechanism: separation, a normal form, Laurent hulls}
+
+The results of this section so far share one mechanism, which works over any subfield $K\subseteq\C$. A
+\emph{$p\times q$ configuration over $K$} in a $K$-space $V\subseteq\C$ is a pair of $K$-linearly independent
+families $x_{1},\dots,x_{p}$ and $y_{1},\dots,y_{q}$ with every product $x_{i}y_{j}$ in $V$.
+
+\begin{theorem}\label{thm:separation-normal}
+Let $K\subseteq F$ be subfields of $\C$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item If $V_{0}\subseteq F$ is a $K$-space and $w_{1},\dots,w_{m}$ are algebraically independent over $F$, every
+$p\times q$ configuration over $K$ with $p,q\ge2$ in $V_{0}+Kw_{1}+\dots+Kw_{m}$ lies in $V_{0}$.
+\item Let $u$ be transcendental over $K$ with $\rho=u\bar u\in K$, and $H_{0}=K+Ku+K\bar u$. Every $p\times q$
+configuration over $K$ in $H_{0}$ has $p+q\le4$, and the $2\times2$ ones are exactly
+\[
+  x_{i}=\mu\,(P_{i1}+P_{i2}u),\qquad y_{j}=\mu^{-1}(Q_{1j}+Q_{2j}\bar u),\qquad \mu\neq0,\ P,Q\in\mathrm{GL}_{2}(K):
+\]
+the orbit of the certificate $(1,u)\otimes(1,\bar u)$ under $\mathrm{GL}_{2}(K)\times\mathrm{GL}_{2}(K)$.
+\item If moreover $u,w_{1},\dots,w_{m}$ are algebraically independent over $K$, every configuration over $K$ with
+$p,q\ge2$ in $H_{0}+Kw_{1}+\dots+Kw_{m}$ is $2\times2$ and lies in $H_{0}$, and $x_{i}y_{j}-c_{ij}\in Ku+K\bar u$
+for the invertible matrix $c=P\,\mathrm{diag}(1,\rho)\,Q$.
+\item At a candidate, with $u,w_{1},\dots,w_{m}$ algebraically independent over $\Alg$, every row and every
+column of such a $2\times2$ configuration over $\Alg$ has an entry outside $\Alg\Logs$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) For one number $w$ and $p=q=2$, write $x_{i}y_{j}=c_{ij}+\ell_{ij}w$ with $c_{ij}\in V_{0}$ and
+$\ell_{ij}\in K$. The determinant $\det(C+wL)$ vanishes and $w$ is transcendental over $F$, so $\det L=0$. If a
+column $j$ of $L$ were non-zero, $z=\ell_{2j}x_{1}-\ell_{1j}x_{2}\neq0$ would have $zy_{1},zy_{2}\in F$, and
+comparing the coefficients of $w$ in $(zy_{1})(x_{i}y_{2})=(zy_{2})(x_{i}y_{1})$ gives
+$z(\ell_{i2}y_{1}-\ell_{i1}y_{2})=0$ for each $i$, so $L=0$ by the independence of $y$. In general, induct on
+$m$ over $F(w_{1},\dots,w_{m-1})$, using that every entry lies in a $2\times2$ block.
+(b) $H_{0}$ is a subspace of $K(u)$ of dimension $3$, and a $p\times q$ configuration in a finite-dimensional
+$V_{0}\subseteq K(u)$ has $p+q\le\dim V_{0}+1$. To see this, clear denominators: $g(u)x_{i}y_{j}=A_{ij}(u)$ with
+$A_{ij}\in K[X]$ and $A_{i1}A_{1j}=A_{11}A_{ij}$; then the spaces spanned by the $A_{i1}$ and by the $A_{1j}$
+have dimensions $p$ and $q$, and the linear Cauchy--Davenport inequality in $K[X]$, proved by counting
+orders at $0$, bounds the space spanned by their products. For the normal form, $ux_{i}y_{j}=A_{ij}(u)$ with
+$\deg A_{ij}\le2$, the vanishing minor factors $A_{ij}=a_{i}b_{j}$ in $K[X]$, neither the $a_{i}$ nor the
+$b_{j}$ are both constant, so all have degree at most one, and $1/u=\bar u/\rho$ gives the form of $y$.
+(c) By (a) with $F=K(u)$, then (b), expanding with $u\bar u=\rho$.
+(d) By (c) with $K=\Alg$: an entry with $c_{ij}\neq0$ in $\Alg\Logs$ would put the algebraic number $c_{ij}$ in
+$\Alg\Logs$, since $u,\bar u\in\Logs$, and Baker's theorem gives $\Alg\cap\Alg\Logs=0$.
+\end{proof}
+
+\begin{proposition}\label{prop:laurent}
+Let $u$ be transcendental over $K$ and, for $S\subseteq\Z$, let $V_{S}$ be the $K$-span of the $u^{s}$, $s\in S$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item For finite $S$, $V_{S}$ carries a $p\times q$ configuration iff $A+B\subseteq S$ for some $|A|=p$,
+$|B|=q$; for $2\times3$, iff some difference occurs three times in $S$.
+\item For $4\le k<l$, $V_{\{0,\pm1,\pm k,\pm l\}}$ carries a $2\times3$ configuration iff
+$l\in\{k+1,k+2,2k-1,2k,2k+1,3k\}$.
+\item $V_{S}$ with $S=\{0,\pm1\}\cup\{\pm4^{j}:j\ge1\}$ carries no $2\times3$ configuration.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Distinct powers of $u$ are independent, which gives one direction. Conversely, write
+$P_{ij}(u)=u^{N}x_{i}y_{j}$ with $P_{ij}$ supported on $S+N$; the spans of the $P_{i1}$ and of the $P_{1j}$
+have $p$ and $q$ distinct orders at $0$, and $fg=P_{11}h$ with $h$ in the span of the $P_{ij}$ turns their sums
+into elements of $S$ after a shift. For $|A|=2$, $A=\{a,a+d\}$, and $A+B\subseteq S$ says that $a+B$ lies in
+$\{s\in S:s+d\in S\}$. (b) The positive differences of $\{0,\pm1,\pm k,\pm l\}$ are $1,k-1,k,k+1,l-1,l,l+1,l-k,l+k$
+twice each and $2,2k,2l$ once each, and a third occurrence needs one of the six coincidences listed. (c) Every
+configuration lies in a finite part of the hull, and in $S$ no difference occurs three times: for a pair
+$s<s+d$ in $S$ with $M=\max(|s|,|s+d|)$, either $s=-M$, $d=2M$, or $|d-M|\le M/4$ and $s\in\{M-d,-M\}$, and
+non-zero absolute values in $S$ that differ do so by a factor at least $4$.
+\end{proof}
+
+\begin{remark}\label{rem:r6-credit}
+At a candidate, $u^{k}\in\aLogs$ brings $u^{-k}=\rho^{-k}\overline{u^{k}}\in\aLogs$, so hypotheses on powers of $u$
+put Laurent hulls inside $\aLogs$, and Proposition~\ref{prop:laurent}(a) says exactly when Roy's theorem refutes
+them through those hulls. The power hulls of \S\ref{sec:outside} are the case $S=\{0,\pm1,\pm k\}$. The pairs excluded in~(b)
+are not claimed: each is one substitution in~\cite{diaz-2007} (Corollaire~2(P)(1), Th\'eor\`eme~7(1),
+Corollaire~5(1)--(2)), which does not state them at a candidate. Part~(c) says that the route cannot exclude
+``$u^{4^{j}}\in\aLogs$ for all $j$''; it was not found in the sources read, nor were (a) and parts~(a)--(c) of
+Theorem~\ref{thm:separation-normal}, which generalise Theorem~\ref{thm:homog}(c), the power hulls of \S\ref{sec:outside} and the
+generic statements of this section. The linear Cauchy--Davenport inequality is a case of a theorem of Eliahou
+and Lecouvey, as stated in~\cite[Theorem~2]{bachoc-serra-zemor}; Theorem~\ref{thm:separation-normal}(d) uses
+Baker's theorem~\cite{baker-1966}.
+\end{remark}
 
 \subsection*{A decomposition that returns to its start}
 
@@ -1777,6 +1854,7 @@ theorem}, Hardy-Ramanujan J. \textbf{28} (2005), 1--9.
 \textbf{4} (2004), 245--305.
 \bibitem{fischler-2001} S.~Fischler, \emph{Orbits under algebraic groups and logarithms of algebraic
 numbers}, Acta Arith. \textbf{100} (2001), 167--187.
+\bibitem{bachoc-serra-zemor} C.~Bachoc, O.~Serra and G.~Z\'emor, \emph{An analogue of Vosper's theorem for extension fields}, Math. Proc. Cambridge Philos. Soc. (2017); arXiv:1501.00602.
 \bibitem{hata-1993} M.~Hata, \emph{Rational approximations to the dilogarithm}, Trans. Amer. Math.
 Soc. \textbf{336} (1993), 363--387.
 \bibitem{rhin-viola-2005} G.~Rhin and C.~Viola, \emph{The permutation group method for the
@@ -1809,7 +1887,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.20 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.21 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1856,8 +1934,11 @@ sharp four exponentials conjecture with rational constants.
 Version 1.20 adds, on 6 October 2026, Proposition~\ref{prop:conjugate-pair}: five-dimensional spaces
 $\Alg+\Alg u+\Alg\bar u+\Alg z+\Alg\bar z$ that carry a $2\times3$ configuration invisible to the
 four-dimensional spaces of Theorem~\ref{thm:extension-room}.
-Every row of the table below was checked against the platform by script on 6 October 2026, and
-the mirrored project held all 364 proved results of the development at that date.
+Version 1.21 adds, on 8 October 2026, Theorem~\ref{thm:separation-normal} and Proposition~\ref{prop:laurent}: separation,
+the normal form of $2\times2$ configurations near a point of a circle, and configurations in Laurent
+hulls; Theorem~\ref{thm:novan} now assumes only $u\notin K$, as its Lean statement does.
+Every row of the table below was checked against the platform by script on 8 October 2026, and
+the mirrored project held all 382 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1916,6 +1997,8 @@ Thm~\ref{thm:dim} & Proved & \nolinkurl{DiazModulus.sixExponentials_cannot_refut
 Thm~\ref{thm:generic-room} & Proved & \nolinkurl{DiazModulus.generic_circle_point_no_two_by_three_configuration} \\
 Thm~\ref{thm:extension-room} & Proved & \nolinkurl{DiazModulus.circle_point_extension_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.two_by_three_configuration_forces_progression}, \nolinkurl{DiazModulus.cubic_product_eq_square_normal_form}, \nolinkurl{DiazModulus.circle_hull_progression_contains_square_or_reciprocal}, \nolinkurl{DiazModulus.circle_point_extension_carries_two_by_three_configuration} \\
 Prop~\ref{prop:conjugate-pair} & Proved & \nolinkurl{DiazModulus.circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.circle_point_conjugate_pair_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration}, \nolinkurl{DiazModulus.candidate_div_sq_sub_not_mem_logAlgTilde} \\
+Thm~\ref{thm:separation-normal} & Proved & \nolinkurl{DiazModulus.rank_one_config_separation_two}, \nolinkurl{DiazModulus.rank_one_config_separation}, \nolinkurl{DiazModulus.polynomial_submodule_trailing_degrees_card}, \nolinkurl{DiazModulus.polynomial_submodule_mul_finrank_ge}, \nolinkurl{DiazModulus.rank_one_config_card_le_finrank_add_one}, \nolinkurl{DiazModulus.circle_point_config_card_le_four}, \nolinkurl{DiazModulus.circle_point_two_by_two_normal_form}, \nolinkurl{DiazModulus.generic_circle_point_config_is_two_by_two}, \nolinkurl{DiazModulus.circle_point_config_constant_matrix_det_ne_zero}, \nolinkurl{DiazModulus.algebraic_mem_span_logAlg_eq_zero}, \nolinkurl{DiazModulus.candidate_two_by_two_config_entry_not_mem_span_logAlg} \\
+Prop~\ref{prop:laurent} & Proved & \nolinkurl{DiazModulus.laurent_hull_config_iff}, \nolinkurl{DiazModulus.two_sumset_iff_difference_count}, \nolinkurl{DiazModulus.power_pair_difference_count_iff}, \nolinkurl{DiazModulus.power_pair_hull_two_by_three_iff}, \nolinkurl{DiazModulus.four_pow_hull_no_two_by_three}, \nolinkurl{DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.two_by_two_config_critical_progression} \\
 Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier}, \nolinkurl{DiazModulus.generic_qbar_homogeneous_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
 Thm~\ref{thm:period}(a) & Proved & \nolinkurl{DiazModulus.generic_quadratic_relation_is_norm} \\

@@ -160,3 +160,8 @@ text = '''F.~Calegari, V.~Dimitrov and Y.~Tang, The linear independence of $1$, 
 key = "Dia04"
 label = "Dia04"
 text = '''G.~Diaz, Utilisation de la conjugaison complexe dans l'étude de la transcendance de valeurs de la fonction exponentielle usuelle, \emph{J. Théor. Nombres Bordeaux} 16 (2004), 535--553.'''
+
+[[reference]]
+key = "BSZ17"
+label = "BSZ17"
+text = '''C.~Bachoc, O.~Serra and G.~Zémor, An analogue of Vosper's theorem for extension fields, \emph{Math. Proc. Cambridge Philos. Soc.} (2017); arXiv:1501.00602.'''
