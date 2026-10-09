@@ -430,3 +430,68 @@ source = '''Each case is one substitution in \cite{Dia07}: Corollaire 2(P)(1), T
 sketch = '''
 By conjugation $u^s\in\widetilde{\mathcal L}$ for $s\in\{0,\pm1,\pm k,\pm l\}$; in each case an explicit $(u^a)_{a\in A}\otimes(u^b)_{b\in B}$ with $A+B\subseteq\{0,\pm1,\pm k,\pm l\}$ contradicts Roy's theorem.
 '''
+
+# --- Two poles (R7) ----------------------------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration"
+env = "proposition"
+section = "Two poles"
+title = 'Two poles carry a configuration'
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, $a_1\neq a_2$ non-zero algebraic numbers, $z_i=u/(u^{2}-a_i)$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z_1+\Qbar z_2$. Then $W$ carries a $2\times3$ configuration: $x=(1,u^{2})$, $y=(b,bu^{2},bu^{4})$ with $b=1/(u(u^{2}-a_1)(u^{2}-a_2))$.
+'''
+source = '''The progression of \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}, with ratio $u^{2}$.'''
+sketch = '''
+Partial fractions: $bu^{2}=(z_1-z_2)/(a_1-a_2)$, $bu^{4}=(a_1z_1-a_2z_2)/(a_1-a_2)$, $bu^{6}=u+(a_1^{2}z_1-a_2^{2}z_2)/(a_1-a_2)$, and $b$ is a combination of $u^{-1}=\bar u/\rho$, $z_1$, $z_2$.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals"
+env = "lemma"
+title = 'What two poles do not contain'
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, $a_1\neq a_2$ non-zero algebraic numbers, $z_i=u/(u^{2}-a_i)$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z_1+\Qbar z_2$. Then $W$ contains none of $u^{2}$, $\bar u^{2}$ and $1/(u-c)$ with $c\in\Qbar$ non-zero.
+'''
+source = '''Elementary.'''
+sketch = '''
+Every element of $W$ is a constant plus an odd function of $u$; clearing denominators gives $A(u^{2})+uB(u^{2})=0$, so $A=B=0$, and each of the three numbers has a non-zero part of the wrong parity.
+'''
+
+[[node]]
+platform = "DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions"
+root = true
+env = "theorem"
+title = 'Invisible to four-dimensional extensions'
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, $a_1\neq a_2$ non-zero algebraic numbers, $z_i=u/(u^{2}-a_i)$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z_1+\Qbar z_2$. Then $W$ carries a $2\times3$ configuration, but no $\Qbar+\Qbar u+\Qbar\bar u+\Qbar w$ with $w\in W$ outside $\Qbar+\Qbar u+\Qbar\bar u$ does.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). It drops the conjugation condition of Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}.'''
+sketch = '''
+Proposition~\ref{prop:circle_point_two_pole_extension_carries_two_by_three_configuration}; for the second part, Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} and exchange would put $u^{2}$, $\bar u^{2}$ or $1/(u-c)$ in $W$, against Lemma~\ref{lem:circle_point_two_pole_extension_excludes_squares_and_reciprocals}.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde"
+env = "corollary"
+title = 'Two poles at a candidate'
+statement = '''
+Assume Roy's strong six exponentials theorem and let $u$ be a candidate. For distinct non-zero algebraic $a_1,a_2$, the numbers $u/(u^{2}-a_1)$ and $u/(u^{2}-a_2)$ are not both in $\widetilde{\mathcal L}$.
+'''
+source = '''One substitution in \cite[Théorème 7(2)]{Dia07}, that is \cite[Lemma 6.1]{Fis01}.'''
+sketch = '''
+Both in $\widetilde{\mathcal L}$ would put $W$ in $\widetilde{\mathcal L}$ (Lemma~\ref{lem:logAlg_conj_stable}), with the configuration of Proposition~\ref{prop:circle_point_two_pole_extension_carries_two_by_three_configuration}.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde"
+root = true
+env = "corollary"
+title = 'The third family at a candidate'
+statement = '''
+Assume Roy's strong six exponentials theorem, let $u$ be a candidate and $a_1\neq a_2$ algebraic with $a_i\bar a_i=|u|^{4}$. Then $u/(u^{2}-a_1)+u/(u^{2}-a_2)\notin\widetilde{\mathcal L}$.
+'''
+source = '''One line from a substitution in \cite[Théorème 7(2)]{Dia07}.'''
+sketch = '''
+$\bar z_i=-(\rho/\bar a_i)z_i$, so the sum and its conjugate (Lemma~\ref{lem:logAlgTilde_conj_stable}) give both $z_i$; Corollary~\ref{cor:candidate_two_pole_not_both_mem_logAlgTilde}.
+'''

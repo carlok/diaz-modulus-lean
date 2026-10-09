@@ -165,3 +165,8 @@ text = '''G.~Diaz, Utilisation de la conjugaison complexe dans l'étude de la tr
 key = "BSZ17"
 label = "BSZ17"
 text = '''C.~Bachoc, O.~Serra and G.~Zémor, An analogue of Vosper's theorem for extension fields, \emph{Math. Proc. Cambridge Philos. Soc.} (2017); arXiv:1501.00602.'''
+
+[[reference]]
+key = "Kir18"
+label = "Kir18"
+text = '''J.~Kirby, Variants of Schanuel's conjecture, arXiv:1801.08765 (2018).'''

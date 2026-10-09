@@ -5776,5 +5776,89 @@
   "bytes": 2339,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals",
+  "theorem_id": "2ea6a548-8444-48d0-9666-c224dac35020",
+  "submission_id": "c992e7c0-5bee-4c89-9ede-0a6499662fb3",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-09T09:05:07.082796+00:00",
+  "file": "DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals__c992e7c0.lean",
+  "bytes": 8788,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde",
+  "theorem_id": "6309030f-2cc2-42a6-92a0-5518c3d03e9f",
+  "submission_id": "8a99840e-3cb3-424c-b6f7-6007f91c0fa5",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-09T09:02:11.399888+00:00",
+  "file": "DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde__8a99840e.lean",
+  "bytes": 3869,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration",
+  "theorem_id": "9cdff91f-d194-421e-bd97-a3a72faf9979",
+  "submission_id": "8596d31d-ba5c-4ab1-9c06-a70ebaf7b396",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-09T09:07:52.959809+00:00",
+  "file": "DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration__8596d31d.lean",
+  "bytes": 7919,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.diaz_iff_single_relation_of_weak_schanuel",
+  "theorem_id": "8fd6a1b2-9aee-4669-9d18-07def040f128",
+  "submission_id": "d3660277-50fb-4019-8f12-0af885b0a2e6",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-09T09:02:16.743402+00:00",
+  "file": "DiazModulus.diaz_iff_single_relation_of_weak_schanuel__d3660277.lean",
+  "bytes": 3801,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions",
+  "theorem_id": "7554ba08-b9b2-4739-8cc0-acf2e0c2ab9e",
+  "submission_id": "f6df3947-5b10-460c-abb0-384c6b26399d",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-09T09:02:14.105813+00:00",
+  "file": "DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions__f6df3947.lean",
+  "bytes": 3535,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde",
+  "theorem_id": "9c51926f-f543-4223-ad7d-e06913f68e74",
+  "submission_id": "e1f6d784-f081-444d-b592-350473f0dde7",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-09T09:05:04.346304+00:00",
+  "file": "DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde__e1f6d784.lean",
+  "bytes": 2505,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel",
+  "theorem_id": "aa7b3103-88ec-47f5-9bb1-86362797f1af",
+  "submission_id": "34ed427a-7f64-448f-ae0f-f3b2a0aaf51c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-09T09:05:01.500347+00:00",
+  "file": "DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel__34ed427a.lean",
+  "bytes": 5901,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

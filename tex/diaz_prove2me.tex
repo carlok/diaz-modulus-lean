@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.21, 8 October 2026}
+\date{September 2026\\[2pt]\small Version 1.22, 9 October 2026}
 
 \begin{document}
 \maketitle
@@ -194,7 +194,8 @@ $m_{1}=-m_{2}\neq0$, hence $\operatorname{Im}u\in\pi\Q$. An integer multiple of 
 $\e^{u}$ real. Assuming it, Conjecture~\ref{conj:diaz} is equivalent to statement~(ii) of
 Theorem~\ref{thm:one-relation}, and Conjecture~\ref{conj:S} is not needed. The weak form says nothing about~(ii)
 itself, nor about Conjecture~\ref{conj:S}: the logarithms involved always satisfy the relation
-$2\cdot i\pi\in2\pi i\Z$. This reduction was not found in the sources read. The name ``weak Schanuel'' is also used
+$2\cdot i\pi\in2\pi i\Z$. This reduction was not found in the sources read; both of its steps are formal, with
+only the case $n=2$ of the conjecture as hypothesis. The name ``weak Schanuel'' is also used
 for the algebraic independence of logarithms of algebraic numbers, which is a much stronger statement.
 \end{remark}
 
@@ -910,8 +911,35 @@ invisible to the four-dimensional spaces of Theorem~\ref{thm:extension-room}. It
 since its six products span the odd part $\Alg u+\Alg\bar u+\Alg z+\Alg\bar z$. Part~(3) is where the
 hypotheses of those printed results fail for this family, and $\bar z$ is what lets the strong six
 exponentials theorem see $u/(u^{2}-a)$. A third family, $z=u/(u^{2}-a_{1})+u/(u^{2}-a_{2})$ with
-$a_{1}\bar a_{1}=a_{2}\bar a_{2}=\rho^{2}$ and $a_{1}\neq a_{2}$, behaves in the same way; it is not formalised.
+$a_{1}\bar a_{1}=a_{2}\bar a_{2}=\rho^{2}$ and $a_{1}\neq a_{2}$, behaves in the same way, and the conjugation
+condition can be dropped altogether: Proposition~\ref{prop:two-pole}.
 \end{remark}
+
+\begin{proposition}\label{prop:two-pole}
+Let $u\notin\Alg$ with $\rho=u\bar u\in\Alg$, let $a_{1}\neq a_{2}$ be non-zero algebraic numbers, $z_{i}=u/(u^{2}-a_{i})$,
+and $W=H_{0}+\Alg z_{1}+\Alg z_{2}$.
+\begin{enumerate}
+\item $W$ carries a $2\times3$ configuration, and for no $w\in W\setminus H_{0}$ does $H_{0}+\Alg w$ carry one.
+\item If $u$ is a candidate, Roy's theorem gives that $z_{1}$ and $z_{2}$ are not both in $\aLogs$; and if moreover
+$a_{1}\bar a_{1}=a_{2}\bar a_{2}=\rho^{2}$, then $z_{1}+z_{2}\notin\aLogs$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+With $b=1/(u(u^{2}-a_{1})(u^{2}-a_{2}))$ and $\Delta=a_{1}-a_{2}$, partial fractions give $bu^{2}=(z_{1}-z_{2})/\Delta$,
+$bu^{4}=(a_{1}z_{1}-a_{2}z_{2})/\Delta$, $bu^{6}=u+(a_{1}^{2}z_{1}-a_{2}^{2}z_{2})/\Delta$, and $b$ is a combination of
+$u^{-1}=\bar u/\rho$, $z_{1}$ and $z_{2}$; so $x=(1,u^{2})$, $y=(b,bu^{2},bu^{4})$ is a configuration in $W$. Every
+element of $W$ is a constant plus an odd function of $u$, so the parity argument of
+Proposition~\ref{prop:conjugate-pair}(2) excludes $u^{2}$, $\bar u^{2}$ and $1/(u-c)$, $c\neq0$, and
+Theorem~\ref{thm:extension-room} with exchange gives~(1). For~(2), $z_{1},z_{2}\in\aLogs$ would put $W$ in $\aLogs$. On
+the circle $\bar z_{i}=-(\rho/\bar a_{i})z_{i}$, with $\rho/\bar a_{1}\neq\rho/\bar a_{2}$, so $z_{1}+z_{2}$ and its
+conjugate together give both $z_{i}$.
+\end{proof}
+
+The configuration is the progression of~\cite[Lemma~6.1]{fischler-2001} and~\cite[Th\'eor\`eme~7(2)]{diaz-2007} with
+ratio $u^{2}$, so part~(2) is one substitution there; it is not claimed. The invisibility in~(1) was not found in the
+sources read; it is short. For $a_{2}=\rho^{2}/\bar a_{1}$ the space $W$ is the first family of
+Proposition~\ref{prop:conjugate-pair}.
 
 \subsection*{The four exponentials conjecture sees nothing homogeneous}
 
@@ -1887,7 +1915,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.21 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.22 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1937,8 +1965,10 @@ four-dimensional spaces of Theorem~\ref{thm:extension-room}.
 Version 1.21 adds, on 8 October 2026, Theorem~\ref{thm:separation-normal} and Proposition~\ref{prop:laurent}: separation,
 the normal form of $2\times2$ configurations near a point of a circle, and configurations in Laurent
 hulls; Theorem~\ref{thm:novan} now assumes only $u\notin K$, as its Lean statement does.
-Every row of the table below was checked against the platform by script on 8 October 2026, and
-the mirrored project held all 382 proved results of the development at that date.
+Version 1.22 adds, on 9 October 2026, Proposition~\ref{prop:two-pole} (two poles, no conjugation condition),
+and makes Remark~\ref{rem:weak-schanuel} formal.
+Every row of the table below was checked against the platform by script on 9 October 2026, and
+the mirrored project held all 389 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -1999,6 +2029,8 @@ Thm~\ref{thm:extension-room} & Proved & \nolinkurl{DiazModulus.circle_point_exte
 Prop~\ref{prop:conjugate-pair} & Proved & \nolinkurl{DiazModulus.circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.circle_point_conjugate_pair_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_conjugate_pair_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration}, \nolinkurl{DiazModulus.candidate_div_sq_sub_not_mem_logAlgTilde} \\
 Thm~\ref{thm:separation-normal} & Proved & \nolinkurl{DiazModulus.rank_one_config_separation_two}, \nolinkurl{DiazModulus.rank_one_config_separation}, \nolinkurl{DiazModulus.polynomial_submodule_trailing_degrees_card}, \nolinkurl{DiazModulus.polynomial_submodule_mul_finrank_ge}, \nolinkurl{DiazModulus.rank_one_config_card_le_finrank_add_one}, \nolinkurl{DiazModulus.circle_point_config_card_le_four}, \nolinkurl{DiazModulus.circle_point_two_by_two_normal_form}, \nolinkurl{DiazModulus.generic_circle_point_config_is_two_by_two}, \nolinkurl{DiazModulus.circle_point_config_constant_matrix_det_ne_zero}, \nolinkurl{DiazModulus.algebraic_mem_span_logAlg_eq_zero}, \nolinkurl{DiazModulus.candidate_two_by_two_config_entry_not_mem_span_logAlg} \\
 Prop~\ref{prop:laurent} & Proved & \nolinkurl{DiazModulus.laurent_hull_config_iff}, \nolinkurl{DiazModulus.two_sumset_iff_difference_count}, \nolinkurl{DiazModulus.power_pair_difference_count_iff}, \nolinkurl{DiazModulus.power_pair_hull_two_by_three_iff}, \nolinkurl{DiazModulus.four_pow_hull_no_two_by_three}, \nolinkurl{DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.two_by_two_config_critical_progression} \\
+Prop~\ref{prop:two-pole} & Proved & \nolinkurl{DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde} \\
+Rem~\ref{rem:weak-schanuel} & Proved & \nolinkurl{DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_iff_single_relation_of_weak_schanuel} \\
 Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier}, \nolinkurl{DiazModulus.generic_qbar_homogeneous_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
 Thm~\ref{thm:period}(a) & Proved & \nolinkurl{DiazModulus.generic_quadratic_relation_is_norm} \\

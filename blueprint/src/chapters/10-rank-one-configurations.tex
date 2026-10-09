@@ -523,3 +523,83 @@ Assume Roy's strong six exponentials theorem and let $u$ be a candidate. For $4\
 \uses{lem:logAlgTilde_conj_stable,thm:hermite_lindemann_holds}
 By conjugation $u^s\in\widetilde{\mathcal L}$ for $s\in\{0,\pm1,\pm k,\pm l\}$; in each case an explicit $(u^a)_{a\in A}\otimes(u^b)_{b\in B}$ with $A+B\subseteq\{0,\pm1,\pm k,\pm l\}$ contradicts Roy's theorem.
 \end{proof}
+
+\section{Two poles}
+
+% Prove2Me: DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration -- https://prove2.me/theorems/9cdff91f-d194-421e-bd97-a3a72faf9979
+\begin{proposition}[Two poles carry a configuration]
+\label{prop:circle_point_two_pole_extension_carries_two_by_three_configuration}
+\lean{Diaz.circle_point_two_pole_extension_carries_two_by_three_configuration}
+\leanok
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, $a_1\neq a_2$ non-zero algebraic numbers, $z_i=u/(u^{2}-a_i)$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z_1+\Qbar z_2$. Then $W$ carries a $2\times3$ configuration: $x=(1,u^{2})$, $y=(b,bu^{2},bu^{4})$ with $b=1/(u(u^{2}-a_1)(u^{2}-a_2))$.
+
+{\small\emph{Source:} The progression of \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}, with ratio $u^{2}$.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+Partial fractions: $bu^{2}=(z_1-z_2)/(a_1-a_2)$, $bu^{4}=(a_1z_1-a_2z_2)/(a_1-a_2)$, $bu^{6}=u+(a_1^{2}z_1-a_2^{2}z_2)/(a_1-a_2)$, and $b$ is a combination of $u^{-1}=\bar u/\rho$, $z_1$, $z_2$.
+\end{proof}
+
+% Prove2Me: DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals -- https://prove2.me/theorems/2ea6a548-8444-48d0-9666-c224dac35020
+\begin{lemma}[What two poles do not contain]
+\label{lem:circle_point_two_pole_extension_excludes_squares_and_reciprocals}
+\lean{Diaz.circle_point_two_pole_extension_excludes_squares_and_reciprocals}
+\leanok
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, $a_1\neq a_2$ non-zero algebraic numbers, $z_i=u/(u^{2}-a_i)$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z_1+\Qbar z_2$. Then $W$ contains none of $u^{2}$, $\bar u^{2}$ and $1/(u-c)$ with $c\in\Qbar$ non-zero.
+
+{\small\emph{Source:} Elementary.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Every element of $W$ is a constant plus an odd function of $u$; clearing denominators gives $A(u^{2})+uB(u^{2})=0$, so $A=B=0$, and each of the three numbers has a non-zero part of the wrong parity.
+\end{proof}
+
+% Prove2Me: DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions -- https://prove2.me/theorems/7554ba08-b9b2-4739-8cc0-acf2e0c2ab9e
+\begin{theorem}[Invisible to four-dimensional extensions]
+\label{thm:circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}
+\lean{Diaz.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}
+\leanok
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u$ algebraic, $a_1\neq a_2$ non-zero algebraic numbers, $z_i=u/(u^{2}-a_i)$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z_1+\Qbar z_2$. Then $W$ carries a $2\times3$ configuration, but no $\Qbar+\Qbar u+\Qbar\bar u+\Qbar w$ with $w\in W$ outside $\Qbar+\Qbar u+\Qbar\bar u$ does.
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). It drops the conjugation condition of Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{prop:circle_point_two_pole_extension_carries_two_by_three_configuration,lem:circle_point_two_pole_extension_excludes_squares_and_reciprocals,thm:circle_point_extension_two_by_three_configuration_iff}
+Proposition~\ref{prop:circle_point_two_pole_extension_carries_two_by_three_configuration}; for the second part, Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} and exchange would put $u^{2}$, $\bar u^{2}$ or $1/(u-c)$ in $W$, against Lemma~\ref{lem:circle_point_two_pole_extension_excludes_squares_and_reciprocals}.
+\end{proof}
+
+% Prove2Me: DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde -- https://prove2.me/theorems/9c51926f-f543-4223-ad7d-e06913f68e74
+\begin{corollary}[Two poles at a candidate]
+\label{cor:candidate_two_pole_not_both_mem_logAlgTilde}
+\lean{Diaz.candidate_two_pole_not_both_mem_logAlgTilde}
+\leanok
+Assume Roy's strong six exponentials theorem and let $u$ be a candidate. For distinct non-zero algebraic $a_1,a_2$, the numbers $u/(u^{2}-a_1)$ and $u/(u^{2}-a_2)$ are not both in $\widetilde{\mathcal L}$.
+
+{\small\emph{Source:} One substitution in \cite[Théorème 7(2)]{Dia07}, that is \cite[Lemma 6.1]{Fis01}.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{prop:circle_point_two_pole_extension_carries_two_by_three_configuration,thm:hermite_lindemann_holds,lem:logAlg_conj_stable}
+Both in $\widetilde{\mathcal L}$ would put $W$ in $\widetilde{\mathcal L}$ (Lemma~\ref{lem:logAlg_conj_stable}), with the configuration of Proposition~\ref{prop:circle_point_two_pole_extension_carries_two_by_three_configuration}.
+\end{proof}
+
+% Prove2Me: DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde -- https://prove2.me/theorems/6309030f-2cc2-42a6-92a0-5518c3d03e9f
+\begin{corollary}[The third family at a candidate]
+\label{cor:candidate_sum_div_sq_sub_not_mem_logAlgTilde}
+\lean{Diaz.candidate_sum_div_sq_sub_not_mem_logAlgTilde}
+\leanok
+Assume Roy's strong six exponentials theorem, let $u$ be a candidate and $a_1\neq a_2$ algebraic with $a_i\bar a_i=|u|^{4}$. Then $u/(u^{2}-a_1)+u/(u^{2}-a_2)\notin\widetilde{\mathcal L}$.
+
+{\small\emph{Source:} One line from a substitution in \cite[Théorème 7(2)]{Dia07}.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{cor:candidate_two_pole_not_both_mem_logAlgTilde,lem:logAlgTilde_conj_stable}
+$\bar z_i=-(\rho/\bar a_i)z_i$, so the sum and its conjugate (Lemma~\ref{lem:logAlgTilde_conj_stable}) give both $z_i$; Corollary~\ref{cor:candidate_two_pole_not_both_mem_logAlgTilde}.
+\end{proof}

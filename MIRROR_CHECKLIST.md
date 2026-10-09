@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-08): **382** of 382
+As of the latest archived submission (2026-10-09): **389** of 389
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -143,6 +143,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.candidate_div_sq_sub_not_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_div_sq_sub_not_mem_logAlgTilde.lean` | done |  |
 | `DiazModulus.candidate_exp_angularTriple_transcendental` | yes | `Diaz/Mirror/candidate_exp_angularTriple_transcendental.lean` | done |  |
 | `DiazModulus.candidate_harmonic_not_log` | yes | `Diaz/Mirror/candidate_harmonic_not_log.lean` | done |  |
+| `DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel` | yes | `Diaz/Mirror/candidate_im_mem_pi_rat_of_weak_schanuel.lean` | done |  |
 | `DiazModulus.candidate_im_transcendental` | yes | `Diaz/Kernel.lean` | done |  |
 | `DiazModulus.candidate_log_mul_real_iff_rat_conj` | yes | `Diaz/Mirror/candidate_log_mul_real_iff_rat_conj.lean` | done |  |
 | `DiazModulus.candidate_mixed_rigidity` | yes | `Diaz/Mirror/candidate_mixed_rigidity.lean` | done |  |
@@ -163,7 +164,9 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.candidate_qbar_independent_one_u_conj` | yes | `Diaz/Mirror/candidate_qbar_independent_one_u_conj.lean` | done |  |
 | `DiazModulus.candidate_quotient_rigid` | yes | `Diaz/Mirror/candidate_quotient_rigid.lean` | done |  |
 | `DiazModulus.candidate_re_transcendental` | yes | `Diaz/Kernel.lean` | done |  |
+| `DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_sum_div_sq_sub_not_mem_logAlgTilde.lean` | done |  |
 | `DiazModulus.candidate_two_by_two_config_entry_not_mem_span_logAlg` | yes | `Diaz/Mirror/candidate_two_by_two_config_entry_not_mem_span_logAlg.lean` | done |  |
+| `DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_two_pole_not_both_mem_logAlgTilde.lean` | done |  |
 | `DiazModulus.candidate_vanishing_ideal` | yes | `Diaz/Kernel.lean` | done |  |
 | `DiazModulus.circle_hull_progression_contains_square_or_reciprocal` | yes | `Diaz/Mirror/circle_hull_progression_contains_square_or_reciprocal.lean` | done |  |
 | `DiazModulus.circle_point_config_card_le_four` | yes | `Diaz/Mirror/circle_point_config_card_le_four.lean` | done |  |
@@ -174,6 +177,9 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.circle_point_extension_carries_two_by_three_configuration` | yes | `Diaz/Mirror/circle_point_extension_carries_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.circle_point_extension_two_by_three_configuration_iff` | yes | `Diaz/Mirror/circle_point_extension_two_by_three_configuration_iff.lean` | done |  |
 | `DiazModulus.circle_point_two_by_two_normal_form` | yes | `Diaz/Mirror/circle_point_two_by_two_normal_form.lean` | done |  |
+| `DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |
+| `DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration` | yes | `Diaz/Mirror/circle_point_two_pole_extension_carries_two_by_three_configuration.lean` | done |  |
+| `DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/circle_point_two_pole_extension_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.circle_points_indistinguishable` | yes | `Diaz/Mirror/circle_points_indistinguishable.lean` | done |  |
 | `DiazModulus.conj_eq_norm_sq_div` | yes | `Diaz/Mirror/conj_eq_norm_sq_div.lean` | done |  |
 | `DiazModulus.conj_pair_quadratic_relation_iff` | yes | `Diaz/Mirror/conj_pair_quadratic_relation_iff.lean` | done |  |
@@ -196,6 +202,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.diaz_2007_th6` | yes | `Diaz/Mirror/diaz_2007_th6.lean` | done |  |
 | `DiazModulus.diaz_2007_th7` | yes | `Diaz/Mirror/diaz_2007_th7.lean` | done |  |
 | `DiazModulus.diaz_iff_no_candidate` | yes | `Diaz/Mirror/diaz_iff_no_candidate.lean` | done |  |
+| `DiazModulus.diaz_iff_single_relation_of_weak_schanuel` | yes | `Diaz/Mirror/diaz_iff_single_relation_of_weak_schanuel.lean` | done |  |
 | `DiazModulus.diaz_locus_dictionary` | yes | `Diaz/Mirror/diaz_locus_dictionary.lean` | done |  |
 | `DiazModulus.diaz_number_forces_transcendence` | yes | `Diaz/Mirror/diaz_number_forces_transcendence.lean` | done |  |
 | `DiazModulus.diaz_of_exp_eq_one` | yes | `Diaz/Mirror/diaz_of_exp_eq_one.lean` | done |  |

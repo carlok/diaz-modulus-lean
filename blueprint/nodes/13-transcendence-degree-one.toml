@@ -243,3 +243,43 @@ source = '''From the author's unpublished manuscript on the conjecture; it is \c
 sketch = '''
 Theorem~\ref{thm:two_algebraically_independent_of_exp_column} at $x=(u,\mu)$, $y=(\bar u/\mu,1)$: the column $y_2=1$ carries $e^{u}$ and $e^{\mu}$, both algebraic, so two of the eight numbers are algebraically independent, and all eight are algebraic over $\Q(u,\mu,e^{u\bar u/\mu})$.
 '''
+
+# --- Kirby's weak Schanuel conjecture (R7) -------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.leaf_iff_one"
+env = "theorem"
+section = "Kirby's weak Schanuel conjecture"
+title = 'One relation'
+statement = '''
+The following are equivalent: (i) for every $u\neq0$ off both axes with $|u|$ algebraic, $e^{u}$ real and $e^{u}\neq1$, $e^{u}$ is transcendental; (ii) for every real $t\neq0$ with $e^{t}$ algebraic, $t^{2}+\pi^{2}$ is transcendental.
+'''
+source = '''Elementary, from the quantisation of the imaginary part.'''
+sketch = '''
+If $e^{u}$ is real and algebraic, $u=t+ik\pi$ with $k\neq0$, and $u/k$ has $\operatorname{Im}=\pi$; conversely $u=t+i\pi$.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel"
+env = "proposition"
+title = "Kirby's weak form at a candidate"
+statement = '''
+Assume the case $n=2$ of Kirby's weak Schanuel conjecture \cite[Conjecture 1.5]{Kir18}: if $\trdeg_{\Q}\Q(a,b,e^{a},e^{b})<2$, then $ma+nb\in2\pi i\Z$ for some integers $(m,n)\neq(0,0)$. Then every candidate $u$ has $\operatorname{Re}u\neq0$ and $\operatorname{Im}u\in\pi\Q^{\times}$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). It is not the ``weak Schanuel'' of Calegari and Mazur, which is the algebraic independence of logarithms.'''
+sketch = '''
+$\trdeg\Q(u,\bar u,e^{u},e^{\bar u})\le1$, so $mu+n\bar u=2\pi ik$; off the axes (Lemma~\ref{lem:diaz_on_axes_of_hermite_lindemann}) this forces $n=-m\neq0$ and $\operatorname{Im}u=(k/m)\pi$.
+'''
+
+[[node]]
+platform = "DiazModulus.diaz_iff_single_relation_of_weak_schanuel"
+root = true
+env = "corollary"
+title = "Diaz under Kirby's weak form"
+statement = '''
+Assume the case $n=2$ of Kirby's weak Schanuel conjecture \cite[Conjecture 1.5]{Kir18}: if $\trdeg_{\Q}\Q(a,b,e^{a},e^{b})<2$, then $ma+nb\in2\pi i\Z$ for some integers $(m,n)\neq(0,0)$. Then Diaz's conjecture holds if and only if $t^{2}+\pi^{2}$ is transcendental for every real $t\neq0$ with $e^{t}$ algebraic.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+One direction is Theorem~\ref{thm:leaf_iff_one}. Conversely, Proposition~\ref{prop:candidate_im_mem_pi_rat_of_weak_schanuel} gives a multiple $Nu$ with $e^{Nu}$ real, algebraic and $\neq1$, against (i).
+'''

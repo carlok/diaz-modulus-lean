@@ -734,6 +734,22 @@ Eighteen nodes of 8 October 2026 put the previous sections into one mechanism, o
   excluded at a candidate (`DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde`) are not claimed: each case is
   one substitution in Diaz (2007, Cor. 2(P)(1), Th. 7(1), Cor. 5).
 
+### Two poles, and Kirby's weak Schanuel conjecture
+
+Seven nodes of 9 October 2026.
+- **Two poles** (`DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions`): for
+  u ∉ Q̄ with uū algebraic and any distinct non-zero algebraic a₁, a₂, the space
+  H₀ + Q̄u/(u² − a₁) + Q̄u/(u² − a₂) carries a configuration (the progression b, bu², bu⁴, bu⁶) that no
+  four-dimensional H₀ + Q̄w inside it carries. This drops the conjugation condition of the previous section's first
+  family and covers the third family, a₁ā₁ = a₂ā₂ = ρ². At a candidate, u/(u² − a₁) and u/(u² − a₂) are not both
+  in ℒ̃, and in the third family their sum is not; both are one substitution in Diaz (2007, Th. 7(2)), which is
+  Fischler (2001, Lemma 6.1), and are not claimed.
+- **Kirby's weak Schanuel conjecture** (Kirby 2018, Conj. 1.5), only its case n = 2, as a hypothesis: every
+  candidate has Im u ∈ πℚ (`DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel`), and Diaz's conjecture is
+  equivalent to the single relation "t² + π² is transcendental for real t ≠ 0 with eᵗ algebraic"
+  (`DiazModulus.diaz_iff_single_relation_of_weak_schanuel`). Not found in the sources read. The weak form says
+  nothing about that relation itself, whose logarithms always satisfy 2·iπ ∈ 2πiℤ.
+
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 
 - `Transcendence.singular_matrix_subspace_annihilating_pair` — Roy's lemma (Dasgupta–Kakde II,
