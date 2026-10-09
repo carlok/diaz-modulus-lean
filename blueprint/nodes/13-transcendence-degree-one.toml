@@ -153,3 +153,93 @@ source = '''Not found in the sources read, but short (Chapter~\ref{chap:14-not-f
 sketch = '''
 Suppose $e^{u}$ algebraic. Then $u$ is transcendental by Theorem~\ref{thm:hermite_lindemann_holds}, so $(1,u)$ and $(1,\bar u)$ are free over $\Q$, and $e^{\bar u}=\overline{e^{u}}$ is algebraic. Apply the conjecture to $x=(1,u)$, $y=(1,\bar u)$, with $\alpha=(1,0,0,u\bar u)$, $\eta=1$ and $\beta=0$: the five exponentials are $1$, $e^{\bar u}$, $e^{u}$, $1$ and $e^{u}$, all algebraic. The conclusion $x_1y_2=\alpha_{12}$ says $\bar u=0$, a contradiction.
 '''
+
+# --- Two candidates (R7a) ---------------------------------------------------------------------
+
+[[node]]
+platform = "Diaz.pair_dichotomy_exclusive"
+env = "lemma"
+section = "Two candidates"
+title = 'Rational multiples are dependent'
+statement = '''
+Let $u,v\in\C$ with $u\bar u$ algebraic. If $v=cu$ or $v=c\bar u$ for some $c\in\Q^{\times}$, then $u$ and $v$ are algebraically dependent over $\Q$.
+'''
+source = '''Elementary.'''
+sketch = '''
+$v-cu=0$ is a relation; if $v=c\bar u$, then $uv=c\,u\bar u$ is algebraic, which is a relation too.
+'''
+
+[[node]]
+platform = "Diaz.normal_form"
+env = "lemma"
+title = 'Algebraic modulus'
+statement = '''
+Let $u\neq0$. Then $|u|$ is algebraic if and only if $u\bar u$ is, and then $u\bar u=\rho$ for a positive real algebraic $\rho$.
+'''
+source = '''Elementary.'''
+sketch = '''
+$u\bar u=|u|^{2}$, and $|u|=\sqrt{u\bar u}$ is algebraic when $u\bar u$ is.
+'''
+
+[[node]]
+platform = "Diaz.algebraic_of_axis"
+env = "lemma"
+title = 'Numbers on an axis'
+statement = '''
+If $\bar u=\pm u$ and $|u|$ is algebraic, then $u$ is algebraic.
+'''
+source = '''Known: the first step of Case 1 of the proof of \cite[Proposition 1]{Dia04}, p.~551.'''
+sketch = '''
+$u=\pm|u|$ or $u=\pm i|u|$.
+'''
+
+[[node]]
+platform = "DiazModulus.diaz_on_axes_of_hermite_lindemann"
+env = "lemma"
+title = 'Candidates are off the axes'
+statement = '''
+Let $u\neq0$ be real or purely imaginary with $|u|$ algebraic. Then $e^{u}$ is transcendental.
+'''
+source = '''A consequence of Hermite--Lindemann (Theorem~\ref{thm:hermite_lindemann_holds}).'''
+sketch = '''
+On either axis $u\in\{\pm|u|,\pm i|u|\}$ is a non-zero algebraic number.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_pair_dichotomy"
+root = true
+env = "corollary"
+title = 'The pair dichotomy'
+statement = '''
+Let $u,v$ be candidates with $|v|^{2}/|u|^{2}\in\Q$. Then $v\in\Q^{\times}u\cup\Q^{\times}\bar u$ if and only if $u$ and $v$ are algebraically dependent over $\Q$.
+'''
+source = '''From the author's unpublished manuscript on the conjecture, where it was derived from \cite[Théorème 0.2]{RW97}; it is a direct instance of \cite[Corollaire 4]{W73}.'''
+sketch = '''
+One direction is Lemma~\ref{lem:pair_dichotomy_exclusive}. Conversely, $\bar u=|u|^{2}/u$ and $\bar v=|v|^{2}/v$, so dependence gives $\operatorname{trdeg}_{\Q}\Q(u,v,\bar u,\bar v)\le1$ (Lemmas~\ref{lem:isAlgebraic_adjoin_of_not_algebraicIndependent_pair} and~\ref{lem:trdeg_adjoin_le_one_of_isAlgebraic_adjoin}), and Theorem~\ref{thm:log_pair_rigid_of_trdeg_one} applies.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_axis_ratio"
+root = true
+env = "corollary"
+title = 'Two candidates on an axis-parallel line'
+statement = '''
+Let $u\neq v$ be candidates with $v-u$ real or purely imaginary. Then $|v|^{2}/|u|^{2}\in\Q$ if and only if $|v|=|u|$, and $|v|=|u|$ if and only if $v=\bar u$ when $v-u\in i\R$ and $v=-\bar u$ when $v-u\in\R$.
+'''
+source = '''From the author's unpublished manuscript on the conjecture, where it was derived from \cite[Théorème 0.2]{RW97}; it is a direct instance of \cite[Corollaire 4]{W73}.'''
+sketch = '''
+$v-\bar v=u-\bar u$ or $v+\bar v=u+\bar u$ makes $v$ a root of a quadratic over $\Q(u)$, so $u,v$ are dependent, and Corollary~\ref{cor:candidate_pair_dichotomy} gives $v=cu$ or $v=c\bar u$, $c\in\Q^{\times}$. A candidate is off both axes (Lemma~\ref{lem:diaz_on_axes_of_hermite_lindemann}), so $c=1$ in the first case, which is excluded, and $c=\pm1$ in the second.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_mixed_rigidity"
+root = true
+env = "theorem"
+title = 'Mixed rigidity'
+statement = '''
+Let $u$ be a candidate and $\mu\in\mathcal L$ with $\mu\notin\Q u\cup\Q\bar u$. Then $\operatorname{trdeg}_{\Q}\Q(u,\mu,e^{u\bar u/\mu})\ge2$.
+'''
+source = '''From the author's unpublished manuscript on the conjecture; it is \cite[Corollaire 4]{W73} at $(u,\bar u,\mu)$.'''
+sketch = '''
+Theorem~\ref{thm:two_algebraically_independent_of_exp_column} at $x=(u,\mu)$, $y=(\bar u/\mu,1)$: the column $y_2=1$ carries $e^{u}$ and $e^{\mu}$, both algebraic, so two of the eight numbers are algebraically independent, and all eight are algebraic over $\Q(u,\mu,e^{u\bar u/\mu})$.
+'''

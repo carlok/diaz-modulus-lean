@@ -188,3 +188,115 @@ Assume Waldschmidt's strong five exponentials conjecture: if $x_1,x_2$ are linea
 \uses{thm:hermite_lindemann_holds}
 Suppose $e^{u}$ algebraic. Then $u$ is transcendental by Theorem~\ref{thm:hermite_lindemann_holds}, so $(1,u)$ and $(1,\bar u)$ are free over $\Q$, and $e^{\bar u}=\overline{e^{u}}$ is algebraic. Apply the conjecture to $x=(1,u)$, $y=(1,\bar u)$, with $\alpha=(1,0,0,u\bar u)$, $\eta=1$ and $\beta=0$: the five exponentials are $1$, $e^{\bar u}$, $e^{u}$, $1$ and $e^{u}$, all algebraic. The conclusion $x_1y_2=\alpha_{12}$ says $\bar u=0$, a contradiction.
 \end{proof}
+
+\section{Two candidates}
+
+% Prove2Me: Diaz.pair_dichotomy_exclusive -- https://prove2.me/theorems/99e66042-79f9-4b5d-a081-f97c074c1023
+\begin{lemma}[Rational multiples are dependent]
+\label{lem:pair_dichotomy_exclusive}
+\lean{Diaz.pair_dichotomy_exclusive}
+\leanok
+Let $u,v\in\C$ with $u\bar u$ algebraic. If $v=cu$ or $v=c\bar u$ for some $c\in\Q^{\times}$, then $u$ and $v$ are algebraically dependent over $\Q$.
+
+{\small\emph{Source:} Elementary.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+$v-cu=0$ is a relation; if $v=c\bar u$, then $uv=c\,u\bar u$ is algebraic, which is a relation too.
+\end{proof}
+
+% Prove2Me: Diaz.normal_form -- https://prove2.me/theorems/72e875b7-76ef-4bce-a2d1-17b4bde2556e
+\begin{lemma}[Algebraic modulus]
+\label{lem:normal_form}
+\lean{Diaz.normal_form}
+\leanok
+Let $u\neq0$. Then $|u|$ is algebraic if and only if $u\bar u$ is, and then $u\bar u=\rho$ for a positive real algebraic $\rho$.
+
+{\small\emph{Source:} Elementary.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+$u\bar u=|u|^{2}$, and $|u|=\sqrt{u\bar u}$ is algebraic when $u\bar u$ is.
+\end{proof}
+
+% Prove2Me: Diaz.algebraic_of_axis -- https://prove2.me/theorems/b2f3b1a6-8393-4b94-8f71-c9b5a45a192d
+\begin{lemma}[Numbers on an axis]
+\label{lem:algebraic_of_axis}
+\lean{Diaz.algebraic_of_axis}
+\leanok
+If $\bar u=\pm u$ and $|u|$ is algebraic, then $u$ is algebraic.
+
+{\small\emph{Source:} Known: the first step of Case 1 of the proof of \cite[Proposition 1]{Dia04}, p.~551.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:normal_form}
+$u=\pm|u|$ or $u=\pm i|u|$.
+\end{proof}
+
+% Prove2Me: DiazModulus.diaz_on_axes_of_hermite_lindemann -- https://prove2.me/theorems/36d1a5d8-6cb7-4a84-baec-03e375793e25
+\begin{lemma}[Candidates are off the axes]
+\label{lem:diaz_on_axes_of_hermite_lindemann}
+\lean{Diaz.diaz_on_axes_of_hermite_lindemann}
+\leanok
+Let $u\neq0$ be real or purely imaginary with $|u|$ algebraic. Then $e^{u}$ is transcendental.
+
+{\small\emph{Source:} A consequence of Hermite--Lindemann (Theorem~\ref{thm:hermite_lindemann_holds}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:algebraic_of_axis}
+On either axis $u\in\{\pm|u|,\pm i|u|\}$ is a non-zero algebraic number.
+\end{proof}
+
+% Prove2Me: DiazModulus.candidate_pair_dichotomy -- https://prove2.me/theorems/05ec7995-333b-4521-bada-128a331448cc
+\begin{corollary}[The pair dichotomy]
+\label{cor:candidate_pair_dichotomy}
+\lean{Diaz.candidate_pair_dichotomy}
+\leanok
+Let $u,v$ be candidates with $|v|^{2}/|u|^{2}\in\Q$. Then $v\in\Q^{\times}u\cup\Q^{\times}\bar u$ if and only if $u$ and $v$ are algebraically dependent over $\Q$.
+
+{\small\emph{Source:} From the author's unpublished manuscript on the conjecture, where it was derived from \cite[Théorème 0.2]{RW97}; it is a direct instance of \cite[Corollaire 4]{W73}.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{lem:pair_dichotomy_exclusive,thm:log_pair_rigid_of_trdeg_one,thm:hermite_lindemann_holds,lem:trdeg_adjoin_le_one_of_isAlgebraic_adjoin,lem:isAlgebraic_adjoin_of_not_algebraicIndependent_pair}
+One direction is Lemma~\ref{lem:pair_dichotomy_exclusive}. Conversely, $\bar u=|u|^{2}/u$ and $\bar v=|v|^{2}/v$, so dependence gives $\operatorname{trdeg}_{\Q}\Q(u,v,\bar u,\bar v)\le1$ (Lemmas~\ref{lem:isAlgebraic_adjoin_of_not_algebraicIndependent_pair} and~\ref{lem:trdeg_adjoin_le_one_of_isAlgebraic_adjoin}), and Theorem~\ref{thm:log_pair_rigid_of_trdeg_one} applies.
+\end{proof}
+
+% Prove2Me: DiazModulus.candidate_axis_ratio -- https://prove2.me/theorems/4ceacade-6c53-4820-83b2-764b4e7061c3
+\begin{corollary}[Two candidates on an axis-parallel line]
+\label{cor:candidate_axis_ratio}
+\lean{Diaz.candidate_axis_ratio}
+\leanok
+Let $u\neq v$ be candidates with $v-u$ real or purely imaginary. Then $|v|^{2}/|u|^{2}\in\Q$ if and only if $|v|=|u|$, and $|v|=|u|$ if and only if $v=\bar u$ when $v-u\in i\R$ and $v=-\bar u$ when $v-u\in\R$.
+
+{\small\emph{Source:} From the author's unpublished manuscript on the conjecture, where it was derived from \cite[Théorème 0.2]{RW97}; it is a direct instance of \cite[Corollaire 4]{W73}.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{cor:candidate_pair_dichotomy,thm:hermite_lindemann_holds,lem:diaz_on_axes_of_hermite_lindemann}
+$v-\bar v=u-\bar u$ or $v+\bar v=u+\bar u$ makes $v$ a root of a quadratic over $\Q(u)$, so $u,v$ are dependent, and Corollary~\ref{cor:candidate_pair_dichotomy} gives $v=cu$ or $v=c\bar u$, $c\in\Q^{\times}$. A candidate is off both axes (Lemma~\ref{lem:diaz_on_axes_of_hermite_lindemann}), so $c=1$ in the first case, which is excluded, and $c=\pm1$ in the second.
+\end{proof}
+
+% Prove2Me: DiazModulus.candidate_mixed_rigidity -- https://prove2.me/theorems/778ee6fb-417e-413f-9290-d3cc0e0ea607
+\begin{theorem}[Mixed rigidity]
+\label{thm:candidate_mixed_rigidity}
+\lean{Diaz.candidate_mixed_rigidity}
+\leanok
+Let $u$ be a candidate and $\mu\in\mathcal L$ with $\mu\notin\Q u\cup\Q\bar u$. Then $\operatorname{trdeg}_{\Q}\Q(u,\mu,e^{u\bar u/\mu})\ge2$.
+
+{\small\emph{Source:} From the author's unpublished manuscript on the conjecture; it is \cite[Corollaire 4]{W73} at $(u,\bar u,\mu)$.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:two_algebraically_independent_of_exp_column,thm:hermite_lindemann_holds,lem:trdeg_adjoin_le_one_of_isAlgebraic_adjoin,lem:isAlgebraic_adjoin_of_not_algebraicIndependent_pair}
+Theorem~\ref{thm:two_algebraically_independent_of_exp_column} at $x=(u,\mu)$, $y=(\bar u/\mu,1)$: the column $y_2=1$ carries $e^{u}$ and $e^{\mu}$, both algebraic, so two of the eight numbers are algebraically independent, and all eight are algebraic over $\Q(u,\mu,e^{u\bar u/\mu})$.
+\end{proof}

@@ -1,0 +1,20 @@
+{
+ "theorem_id": "72e875b7-76ef-4bce-a2d1-17b4bde2556e",
+ "theorem_name": "Diaz.normal_form",
+ "theorem_title": "The elementary normal form: algebraic modulus, algebraic norm, and the affine conic $XY=\\rho$",
+ "status": "Proved",
+ "formal_statement": "theorem Diaz.normal_form {u : ℂ} (hu : u ≠ 0) :\n    (IsAlgebraic ℚ ‖u‖ ↔ IsAlgebraic ℚ (u * conj u)) ∧\n      (IsAlgebraic ℚ (u * conj u) ↔\n        ∃ ρ : ℝ, 0 < ρ ∧ IsAlgebraic ℚ ρ ∧ u * conj u = (ρ : ℂ)) := by sorry",
+ "natural_language_statement": "**Source.** A definition of the Diaz candidate locus together with the display that\nfollows it, unpublished apart from this node. The mathematics is Carlo Perassi's. Nothing here is claimed as\nnew; the content is elementary.\n\n**Statement.** Let $u \\in \\mathbb{C}$ with $u \\neq 0$. Then\n\n1. $|u|$ is algebraic over $\\mathbb{Q}$ if and only if $u\\bar u$ is;\n2. $u\\bar u$ is algebraic over $\\mathbb{Q}$ if and only if there is a real number $\\rho$ with\n   $\\rho > 0$, $\\rho$ algebraic over $\\mathbb{Q}$, and $u\\bar u = \\rho$.\n\nIn Lean the first `IsAlgebraic ℚ` is read in $\\mathbb{R}$ (`‖u‖ : ℝ`), the second in $\\mathbb{C}$\n(`u * conj u : ℂ`), and the $\\rho$ of part 2 is real with its coercion to $\\mathbb{C}$ appearing\nin the equation. Part of the content of part 1 is exactly that this change of ambient field does\nnot matter.\n\n**Why this is the normal form.** Write\n$\\mathcal{L} = \\{u \\in \\mathbb{C} : e^{u} \\in \\overline{\\mathbb{Q}}^{\\times}\\}$ for the logarithms\nof non-zero algebraic numbers and\n$$\\mathcal{D} = \\{u \\in \\mathcal{L}\\setminus\\{0\\} : u\\bar u \\in \\overline{\\mathbb{Q}}\\}$$\nfor the locus of hypothetical counterexamples to Diaz's conjecture, which asserts $\\mathcal{D} =\n\\varnothing$. Part 1 is the assertion, made in the definition cited above, that $\\mathcal{D}$ is equally well\ndescribed by \"$|u|$ algebraic\" — the two descriptions of the locus agree. Part 2 carries that\ndescription over to the geometric one: a candidate is precisely a logarithmic point\n$(u, \\bar u) \\in \\mathcal{L}^{2}$ on the **affine** conic\n$$X_{\\rho} := \\{(X,Y) \\in \\mathbb{C}^{2} : XY = \\rho\\}, \\qquad\n\\rho \\in \\overline{\\mathbb{Q}} \\cap \\mathbb{R}_{>0}.$$\nThat conic is the one on which Section 4 of Carlo Perassi's companion note to https://github.com/carlok/diaz-modulus-lean (version 1.9, 25 September 2026, GitHub release note-v1.9) places a candidate, and its affineness — as against\na homogeneous quadric — is where the available rank criteria for points of $\\mathcal{L}^{n}$ on\nquadrics stop applying.\n\n**Scope.** Neither part mentions the exponential: both are statements about one non-zero complex\nnumber, and the hypothesis $u \\neq 0$ enters only to make $\\rho$ strictly positive. This node\ntherefore reduces nothing about Diaz's conjecture; it fixes the coordinates the rest of the\nargument works in.\n\nThe proof is the identity $u\\bar u = |u|^{2}$, the fact that a complex number is algebraic exactly\nwhen its square is, and the fact that the inclusion $\\mathbb{R} \\hookrightarrow \\mathbb{C}$ both\npreserves and reflects algebraicity over $\\mathbb{Q}$.",
+ "created_at": "2026-09-08T06:59:32.608586+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory"
+ ],
+ "preamble": "import Mathlib\nimport Definitions.Def_Diaz_Closure\nimport Definitions.Def_Diaz_Instantiation\n\nopen ComplexConjugate\nopen Diaz",
+ "source": null,
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
