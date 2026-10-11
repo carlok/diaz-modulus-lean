@@ -350,3 +350,19 @@ Assume the case $n=2$ of Kirby's weak Schanuel conjecture \cite[Conjecture 1.5]{
 \uses{prop:candidate_im_mem_pi_rat_of_weak_schanuel,thm:leaf_iff_one}
 One direction is Theorem~\ref{thm:leaf_iff_one}. Conversely, Proposition~\ref{prop:candidate_im_mem_pi_rat_of_weak_schanuel} gives a multiple $Nu$ with $e^{Nu}$ real, algebraic and $\neq1$, against (i).
 \end{proof}
+
+% Prove2Me: DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel -- https://prove2.me/theorems/858142e9-e8e2-4f63-ab8d-8f07e4dd167b
+\begin{corollary}[Diaz under Kirby's weak form and Schanuel over the kernel]
+\label{cor:diaz_of_weak_schanuel_and_kernel_schanuel}
+\lean{Diaz.diaz_of_weak_schanuel_and_kernel_schanuel}
+\leanok
+Assume the case $n=2$ of Kirby's weak Schanuel conjecture \cite[Conjecture 1.5]{Kir18}, and that $\trdeg_{\Q}\Q(\pi,a,e^{a})\geq2$ for every $a\notin2\pi i\Q$. Then Diaz's conjecture holds.
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). The step from Schanuel over the kernel to the single relation is standard.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{cor:diaz_iff_single_relation_of_weak_schanuel}
+Corollary~\ref{cor:diaz_iff_single_relation_of_weak_schanuel}: if $t^{2}+\pi^{2}$ were algebraic, $\trdeg_{\Q}\Q(\pi,t,e^{t})\leq1$.
+\end{proof}

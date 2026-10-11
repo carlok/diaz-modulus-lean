@@ -759,10 +759,36 @@ Four nodes of 10 October 2026 extend the two-pole spaces to every Möbius involu
   (`DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions`). τ: u ↦ −u is the
   previous section.
 - Conversely (proved in the research notes, not formalised), every five-dimensional space containing a progression
-  and invisible to Theorem B is of this form. The progression step is Bachoc–Serra–Zémor (2017, Lemma 4).
+  and invisible to Theorem B is of this form. The progression step is Bachoc–Serra–Zémor (2017, Lemma 4). The
+  index-one half is now formal: see the next section.
 - A configuration whose products fill the space can be invisible too: Q̄u⁻¹ + Q̄ + Q̄u + Q̄u³ + Q̄u⁴
   (`DiazModulus.laurent_case_two_configuration_invisible`). That space is not stable under conjugation.
 - Not found in the sources read.
+
+### Conjugation-stable configurations that are not progressions
+
+Seven nodes of 11 October 2026.
+- **The family.** For u ∉ Q̄, s ∈ Q̄ real with s² = uū, λ ∈ Q̄ with |λ| = 1 and f real, the span of 1, u, ū, f,
+  f/(s + λu) is stable under conjugation and carries the configuration (1, u) ⊗ (u⁻¹, 1, f/(s + λu))
+  (`DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration`). Conversely, if 1, u, ū, g, ug are
+  free and ḡ ∈ Q̄ + Q̄u + Q̄ug, the span of 1, u, ū, g, ug is one of these
+  (`DiazModulus.conj_equivariant_degree_one_space_eq_real_pencil_space`).
+- **An invisible member with no progression.** For λ = 1 and f = u²/s² + s²/u², the space contains none of u², ū²
+  and 1/(u − b), so no four-dimensional space of Theorem B inside it carries a configuration
+  (`DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions`). Its polar divisor has
+  degree 5, so it contains no progression. This answers the question left open above: conjugation-stable invisible
+  spaces need not contain a progression.
+- **At a candidate**, under Roy's strong six exponentials theorem, f and f/(|u| + λu) are not both in ℒ̃
+  (`DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde`). This is one substitution in Diaz (2007, Th. 7(1))
+  and is not claimed.
+- **Index one is visible.** If h is a Möbius function of u and Q̄ + Q̄u + Q̄u⁻¹ + Σ_{k≤3} Q̄ c hᵏ has dimension 5, it
+  contains u², u⁻² or some 1/(u − b) (`DiazModulus.mobius_progression_space_contains_square_or_reciprocal`). The
+  proof uses only one relation c u p(u) = r(u) between the progression and Q̄ + Q̄u + Q̄u⁻¹, not the divisor argument
+  of the notes.
+- **Two hypotheses.** Kirby's weak Schanuel conjecture for n = 2, with Schanuel's conjecture over the kernel 2πiℚ for
+  n = 1, implies Diaz's conjecture (`DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel`). The second hypothesis
+  contains the algebraic independence of e and π, which is open.
+- Not found in the sources read, except the candidate statement; all short.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-10): **393** of 393
+As of the latest archived submission (2026-10-11): **400** of 400
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -164,6 +164,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.candidate_qbar_independent_one_u_conj` | yes | `Diaz/Mirror/candidate_qbar_independent_one_u_conj.lean` | done |  |
 | `DiazModulus.candidate_quotient_rigid` | yes | `Diaz/Mirror/candidate_quotient_rigid.lean` | done |  |
 | `DiazModulus.candidate_re_transcendental` | yes | `Diaz/Kernel.lean` | done |  |
+| `DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_real_pencil_not_both_mem_logAlgTilde.lean` | done |  |
 | `DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_sum_div_sq_sub_not_mem_logAlgTilde.lean` | done |  |
 | `DiazModulus.candidate_two_by_two_config_entry_not_mem_span_logAlg` | yes | `Diaz/Mirror/candidate_two_by_two_config_entry_not_mem_span_logAlg.lean` | done |  |
 | `DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_two_pole_not_both_mem_logAlgTilde.lean` | done |  |
@@ -182,9 +183,11 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/circle_point_two_pole_extension_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.circle_points_indistinguishable` | yes | `Diaz/Mirror/circle_points_indistinguishable.lean` | done |  |
 | `DiazModulus.conj_eq_norm_sq_div` | yes | `Diaz/Mirror/conj_eq_norm_sq_div.lean` | done |  |
+| `DiazModulus.conj_equivariant_degree_one_space_eq_real_pencil_space` | yes | `Diaz/Mirror/conj_equivariant_degree_one_space_eq_real_pencil_space.lean` | done |  |
 | `DiazModulus.conj_pair_quadratic_relation_iff` | yes | `Diaz/Mirror/conj_pair_quadratic_relation_iff.lean` | done |  |
 | `DiazModulus.conj_ratio_multiplier_relation` | yes | `Diaz/Mirror/conj_ratio_multiplier_relation.lean` | done |  |
 | `DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration` | yes | `Diaz/Mirror/conj_stable_circle_point_extension_no_two_by_three_configuration.lean` | done |  |
+| `DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration` | yes | `Diaz/Mirror/conj_stable_real_pencil_space_carries_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.cubic_product_eq_square_normal_form` | yes | `Diaz/Mirror/cubic_product_eq_square_normal_form.lean` | done |  |
 | `DiazModulus.det_linear_forms_isotropic` | yes | `Diaz/Mirror/det_linear_forms_isotropic.lean` | done |  |
 | `DiazModulus.det_zero_linear_forms_rank_one` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one.lean` | done |  |
@@ -216,6 +219,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.diaz_of_strongFourExponentials_and_hermite_lindemann` | yes | `Diaz/Mirror/diaz_of_strongFourExponentials_and_hermite_lindemann.lean` | done |  |
 | `DiazModulus.diaz_of_strong_five_exponentials` | yes | `Diaz/Mirror/diaz_of_strong_five_exponentials.lean` | done |  |
 | `DiazModulus.diaz_of_two_by_two_determinant_conjecture` | yes | `Diaz/Mirror/diaz_of_two_by_two_determinant_conjecture.lean` | done |  |
+| `DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel` | yes | `Diaz/Mirror/diaz_of_weak_schanuel_and_kernel_schanuel.lean` | done |  |
 | `DiazModulus.diaz_on_axes_of_hermite_lindemann` | yes | `Diaz/Mirror/diaz_on_axes_of_hermite_lindemann.lean` | done |  |
 | `DiazModulus.dilog_half_irrational_or_exp_i_div_pi_transcendental` | yes | `Diaz/Mirror/dilog_half_irrational_or_exp_i_div_pi_transcendental.lean` | done |  |
 | `DiazModulus.div_not_mem_logAlgTilde_of_sfe` | yes | `Diaz/Mirror/div_not_mem_logAlgTilde_of_sfe.lean` | done |  |
@@ -264,6 +268,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.log_two_diaz_or_transcendental` | yes | `Diaz/Mirror/log_two_diaz_or_transcendental.lean` | done |  |
 | `DiazModulus.log_two_log_three_not_both_rational` | yes | `Diaz/Mirror/log_two_log_three_not_both_rational.lean` | done |  |
 | `DiazModulus.log_two_pi_dependent_forces_transcendence` | yes | `Diaz/Mirror/log_two_pi_dependent_forces_transcendence.lean` | done |  |
+| `DiazModulus.mobius_progression_space_contains_square_or_reciprocal` | yes | `Diaz/Mirror/mobius_progression_space_contains_square_or_reciprocal.lean` | done |  |
 | `DiazModulus.no_algebraic_generalized_line` | yes | `Diaz/Mirror/no_algebraic_generalized_line.lean` | done |  |
 | `DiazModulus.no_algebraic_generalized_line_unconditional` | yes | `Diaz/Mirror/no_algebraic_generalized_line_unconditional.lean` | done |  |
 | `DiazModulus.no_first_order_arithmetic_operator` | yes | `Diaz/Mirror/no_first_order_arithmetic_operator.lean` | done |  |
@@ -290,6 +295,8 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.rank_one_config_separation_two` | yes | `Diaz/Mirror/rank_one_config_separation_two.lean` | done |  |
 | `DiazModulus.real_axis_exp_unit_circle` | yes | `Diaz/Mirror/real_axis_exp_unit_circle.lean` | done |  |
 | `DiazModulus.real_axis_root_of_unity_implies_pi_sq_rat` | yes | `Diaz/Mirror/real_axis_root_of_unity_implies_pi_sq_rat.lean` | done |  |
+| `DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |
+| `DiazModulus.real_pencil_quartic_space_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/real_pencil_quartic_space_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.recip_pi_exp_axis_shape` | yes | `Diaz/Mirror/recip_pi_exp_axis_shape.lean` | done |  |
 | `DiazModulus.recip_pi_exp_value_not_root_of_unity` | yes | `Diaz/Mirror/recip_pi_exp_value_not_root_of_unity.lean` | done |  |
 | `DiazModulus.recip_pi_log_four_exp_barrier` | yes | `Diaz/Mirror/recip_pi_log_four_exp_barrier.lean` | done |  |

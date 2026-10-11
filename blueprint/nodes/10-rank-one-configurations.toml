@@ -548,3 +548,82 @@ source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found
 sketch = '''
 Independence of distinct powers of $u$, and clearing denominators.
 '''
+
+# --- Conjugation-stable configurations (R11) ---------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration"
+env = "proposition"
+section = "Conjugation-stable configurations"
+title = 'The real pencil spaces'
+statement = '''
+Let $u\in\C\setminus\Qbar$, let $s\in\Qbar$ be real with $s^{2}=u\bar u$, let $\lambda\in\Qbar$ with $\lambda\bar\lambda=1$, let $f\in\C$ be real, $g=f/(s+\lambda u)$, and let $W$ be the span of $1,u,\bar u,f,g$. If these five numbers are free, then $W$ is stable under conjugation and carries the configuration $(1,u)\otimes(u^{-1},1,g)$.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$\bar g=f/s-g$ and $ug=(f-sg)/\lambda$.
+'''
+
+[[node]]
+platform = "DiazModulus.conj_equivariant_degree_one_space_eq_real_pencil_space"
+root = true
+env = "theorem"
+title = 'Every conjugation-stable degree-one configuration'
+statement = '''
+Let $u\in\C\setminus\Qbar$ and $s\in\Qbar$ real with $s^{2}=u\bar u$. If $1,u,\bar u,g,ug$ are free and $\bar g\in\Qbar+\Qbar u+\Qbar ug$, then $\Qbar+\Qbar u+\Qbar\bar u+\Qbar g+\Qbar ug$ is a space of Proposition~\ref{prop:conj_stable_real_pencil_space_carries_two_by_three_configuration}.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Conjugating $\bar g=a+bu+c\,ug$ twice gives $|c|^{2}s^{2}=1$; after $g\mapsto g+q\bar u$, $\bar g=c\,ug$, and $f=g(s+\lambda u)$ with $\lambda=cs$ is real.
+'''
+
+[[node]]
+platform = "DiazModulus.real_pencil_quartic_space_excludes_squares_and_reciprocals"
+env = "lemma"
+title = 'A real pencil space without Theorem B elements'
+statement = '''
+Let $u\in\C\setminus\Qbar$, let $s\in\Qbar$ be real with $s^{2}=u\bar u$, $f=u^{2}/s^{2}+s^{2}/u^{2}$, and let $W$ be the span of $1,u,\bar u,f,f/(s+u)$. Then the five numbers are free, and $W$ contains none of $u^{2}$, $\bar u^{2}$ and $1/(u-b)$ with $b\in\Qbar$ non-zero.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+With $v=u/s$, modulo $\Qbar+\Qbar v+\Qbar v^{-1}$ the last generator is $v^{-2}+2/(v+1)$; compare coefficients.
+'''
+
+[[node]]
+platform = "DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions"
+root = true
+env = "theorem"
+title = 'A conjugation-stable invisible space with no progression'
+statement = '''
+Let $u\in\C\setminus\Qbar$, let $s\in\Qbar$ be real with $s^{2}=u\bar u$, $f=u^{2}/s^{2}+s^{2}/u^{2}$, and let $W$ be the span of $1,u,\bar u,f,f/(s+u)$. Then $W$ is stable under conjugation and carries a $2\times3$ configuration, and no $\Qbar+\Qbar u+\Qbar\bar u+\Qbar w$ with $w\in W$ outside $\Qbar+\Qbar u+\Qbar\bar u$ does.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). Its polar divisor has degree $5$, so $W$ contains no progression: the conjugation-stable analogue of Proposition~\ref{prop:laurent_case_two_configuration_invisible}.'''
+sketch = '''
+Proposition~\ref{prop:conj_stable_real_pencil_space_carries_two_by_three_configuration}; Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} and exchange, against Lemma~\ref{lem:real_pencil_quartic_space_excludes_squares_and_reciprocals}.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde"
+root = true
+env = "corollary"
+title = 'The real pencil at a candidate'
+statement = '''
+Assume Roy's strong six exponentials theorem. Let $u$ be a candidate, $\lambda\in\Qbar$ with $\lambda\bar\lambda=1$, and $f$ real with $1,u,\bar u,f,f/(|u|+\lambda u)$ free. Then $f$ and $f/(|u|+\lambda u)$ are not both in $\widetilde{\mathcal L}$.
+'''
+source = '''One substitution in \cite[Théorème 7(1)]{Dia07}, with $v_{0}=f/(|u|+\lambda u)$; also \cite[Théorème 2]{Dia04}.'''
+sketch = '''
+Proposition~\ref{prop:conj_stable_real_pencil_space_carries_two_by_three_configuration} inside $\widetilde{\mathcal L}$.
+'''
+
+[[node]]
+platform = "DiazModulus.mobius_progression_space_contains_square_or_reciprocal"
+root = true
+env = "theorem"
+title = 'Index one is visible'
+statement = '''
+Let $u\in\C\setminus\Qbar$, $h=(\alpha u+\beta)/(\gamma u+\delta)$ with $\alpha,\beta,\gamma,\delta\in\Qbar$, $\alpha\delta-\beta\gamma\neq0$, and $c\neq0$. If $\Qbar+\Qbar u+\Qbar u^{-1}+\sum_{k\le3}\Qbar ch^{k}$ has dimension $5$, it contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$ with $b\in\Qbar$ non-zero.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). With Theorem~\ref{thm:involution_pencil_configuration_invisible_to_four_dimensional_extensions} (index two) it classifies the five-dimensional spaces containing a progression; that the index is $1$ or $2$ is not formalised.'''
+sketch = '''
+The progression spans $c'\,\Qbar[u]_{\le3}$, which meets $\Qbar+\Qbar u+\Qbar u^{-1}$: $c'u\,p(u)=r(u)$ with $\deg p\le3$, $\deg r\le2$. Induction on $\deg p$, cancelling common roots; a root $b$ of $p$ that $r$ does not share gives $1/(u-b)$, and a constant $p$ gives $u^{2}$ or $u^{-2}$.
+'''

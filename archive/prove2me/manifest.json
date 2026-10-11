@@ -5908,5 +5908,89 @@
   "bytes": 5346,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.mobius_progression_space_contains_square_or_reciprocal",
+  "theorem_id": "5f4fe8a8-3b1c-45fa-8e8b-8db0e6e84bc3",
+  "submission_id": "471b5837-e33e-4737-b04e-e1612e9e67ee",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-11T08:06:43.367984+00:00",
+  "file": "DiazModulus.mobius_progression_space_contains_square_or_reciprocal__471b5837.lean",
+  "bytes": 18785,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel",
+  "theorem_id": "858142e9-e8e2-4f63-ab8d-8f07e4dd167b",
+  "submission_id": "7741f239-96a4-41f2-956d-024f8752d46c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-11T08:06:40.650465+00:00",
+  "file": "DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel__7741f239.lean",
+  "bytes": 5340,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration",
+  "theorem_id": "e9964520-a9f1-44f5-b162-795fd27d47a7",
+  "submission_id": "4cd75100-2ae2-4e23-bf21-3164275380b4",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-11T08:09:57.740729+00:00",
+  "file": "DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration__4cd75100.lean",
+  "bytes": 6944,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.real_pencil_quartic_space_excludes_squares_and_reciprocals",
+  "theorem_id": "19f4aca0-9d73-4c13-b43c-d9f02199b074",
+  "submission_id": "6ea49a7e-3c32-4d2f-9cbb-497818c1580c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-11T08:10:00.592023+00:00",
+  "file": "DiazModulus.real_pencil_quartic_space_excludes_squares_and_reciprocals__6ea49a7e.lean",
+  "bytes": 11056,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde",
+  "theorem_id": "b498918f-d12c-4ac9-bed4-d9fc8929e2d7",
+  "submission_id": "6e59697c-7d2f-4a57-9486-90e69f733499",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-11T08:06:35.376803+00:00",
+  "file": "DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde__6e59697c.lean",
+  "bytes": 2813,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.conj_equivariant_degree_one_space_eq_real_pencil_space",
+  "theorem_id": "52da0e34-a456-43ea-aa23-27c31ae95cbe",
+  "submission_id": "9369ca0c-8c95-429d-a44e-3ed6c91a2b24",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-11T08:06:38.012989+00:00",
+  "file": "DiazModulus.conj_equivariant_degree_one_space_eq_real_pencil_space__9369ca0c.lean",
+  "bytes": 7321,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions",
+  "theorem_id": "a5c588d2-840c-4db0-bf64-b41a6ae70cb5",
+  "submission_id": "e99e997a-65b7-4475-9c25-b4ff1260eb58",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-11T08:06:46.158725+00:00",
+  "file": "DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions__e99e997a.lean",
+  "bytes": 4740,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
