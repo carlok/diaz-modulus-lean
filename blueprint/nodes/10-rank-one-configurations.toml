@@ -495,3 +495,56 @@ source = '''One line from a substitution in \cite[Théorème 7(2)]{Dia07}.'''
 sketch = '''
 $\bar z_i=-(\rho/\bar a_i)z_i$, so the sum and its conjugate (Lemma~\ref{lem:logAlgTilde_conj_stable}) give both $z_i$; Corollary~\ref{cor:candidate_two_pole_not_both_mem_logAlgTilde}.
 '''
+
+# --- Every involution (R9) ---------------------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.involution_pencil_space_carries_two_by_three_configuration"
+env = "proposition"
+section = "Every involution"
+title = 'Every involution carries a configuration'
+statement = '''
+Let $u\in\C\setminus\Qbar$, let $q_1,q_2\in\Qbar[X]$ be coprime of degree at most $2$, one of degree exactly $2$ (so that $\Qbar q_1+\Qbar q_2$ is the pencil of quadratics vanishing on the orbits of a Möbius involution of the $u$-line), let $l_1,l_2$ be non-zero members of the pencil, and let $W$ be the span of $1,u,u^{-1}$ and of $q_1(u)^{i}q_2(u)^{3-i}/(u\,l_1(u)l_2(u))$, $i=0,\dots,3$. Then $W$ carries a $2\times3$ configuration: the progression $c,cr,cr^{2},cr^{3}$ with $r=q_1(u)/q_2(u)$.
+'''
+source = '''The progression of \cite[Lemma 6.1]{Fis01}; that a critical configuration is a progression is \cite[Lemma 4]{BSZ17}.'''
+sketch = '''
+$c=q_2(u)^{3}/(u\,l_1(u)l_2(u))$; $r$ is transcendental because $q_1,q_2$ are coprime.
+'''
+
+[[node]]
+platform = "DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals"
+env = "lemma"
+title = 'What the involution spaces do not contain'
+statement = '''
+Let $u\in\C\setminus\Qbar$, let $q_1,q_2\in\Qbar[X]$ be coprime of degree at most $2$, one of degree exactly $2$ (so that $\Qbar q_1+\Qbar q_2$ is the pencil of quadratics vanishing on the orbits of a Möbius involution of the $u$-line), let $l_1,l_2$ be non-zero members of the pencil, and let $W$ be the span of $1,u,u^{-1}$ and of $q_1(u)^{i}q_2(u)^{3-i}/(u\,l_1(u)l_2(u))$, $i=0,\dots,3$. Then $W$ contains none of $u^{2}$, $u^{-2}$ and $1/(u-b)$ with $b\in\Qbar$ non-zero.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+With $\tau(X)=(AX+B)/(\Gamma X-A)$, $D=A^{2}+B\Gamma\neq0$, a cleared membership $N(u)L(u)=(u-\beta)(QL+S)(u)$ also holds at $\tau(u)$; eliminating $S$ forces $\beta$ to be fixed by $\tau$ and then $D=0$.
+'''
+
+[[node]]
+platform = "DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions"
+root = true
+env = "theorem"
+title = 'Every involution is invisible to four-dimensional extensions'
+statement = '''
+Let $u\in\C\setminus\Qbar$, let $q_1,q_2\in\Qbar[X]$ be coprime of degree at most $2$, one of degree exactly $2$ (so that $\Qbar q_1+\Qbar q_2$ is the pencil of quadratics vanishing on the orbits of a Möbius involution of the $u$-line), let $l_1,l_2$ be non-zero members of the pencil, and let $W$ be the span of $1,u,u^{-1}$ and of $q_1(u)^{i}q_2(u)^{3-i}/(u\,l_1(u)l_2(u))$, $i=0,\dots,3$. Suppose $u\bar u$ is algebraic. Then $W$ carries a $2\times3$ configuration, and no $\Qbar+\Qbar u+\Qbar\bar u+\Qbar w$ with $w\in W$ outside $\Qbar+\Qbar u+\Qbar\bar u$ does.
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). For $q_1=X^{2}$, $q_2=1$ it is Theorem~\ref{thm:circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}. Conversely (not formalised), every five-dimensional space containing a progression and invisible to Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} is of this form.'''
+sketch = '''
+Proposition~\ref{prop:involution_pencil_space_carries_two_by_three_configuration}; Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} and exchange, against Lemma~\ref{lem:involution_pencil_space_excludes_squares_and_reciprocals}.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_case_two_configuration_invisible"
+root = true
+env = "proposition"
+title = 'A configuration that is not a progression'
+statement = '''
+Let $u\in\C\setminus\Qbar$. The products of $(1,u)$ and $(u^{-1},1,u^{3})$ span $\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{3}+\Qbar u^{4}$, which contains none of $u^{2}$, $u^{-2}$ and $1/(u-b)$ ($b\in\Qbar^{\times}$).
+'''
+source = '''Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). The space is not stable under conjugation.'''
+sketch = '''
+Independence of distinct powers of $u$, and clearing denominators.
+'''

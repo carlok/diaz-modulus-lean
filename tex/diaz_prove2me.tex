@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.22, 9 October 2026}
+\date{September 2026\\[2pt]\small Version 1.23, 10 October 2026}
 
 \begin{document}
 \maketitle
@@ -940,6 +940,44 @@ The configuration is the progression of~\cite[Lemma~6.1]{fischler-2001} and~\cit
 ratio $u^{2}$, so part~(2) is one substitution there; it is not claimed. The invisibility in~(1) was not found in the
 sources read; it is short. For $a_{2}=\rho^{2}/\bar a_{1}$ the space $W$ is the first family of
 Proposition~\ref{prop:conjugate-pair}.
+
+Proposition~\ref{prop:two-pole} is the case $\tau\colon u\mapsto-u$ of a statement about every involution. A Möbius
+involution $\tau$ of the $u$-line is determined by its \emph{pencil} $\Lambda_{\tau}$: the quadratics vanishing on
+its orbits $\{x,\tau x\}$. Conversely every pencil $\Lambda=\Alg q_{1}+\Alg q_{2}$ with $q_{1},q_{2}\in\Alg[X]$ coprime,
+of degree at most $2$ and not both of degree below $2$, is $\Lambda_{\tau}$ for exactly one $\tau$.
+
+\begin{theorem}\label{thm:involution}
+Let $u\notin\Alg$ with $\rho=u\bar u\in\Alg$, let $\Lambda=\Alg q_{1}+\Alg q_{2}$ be such a pencil, $l_{1},l_{2}\in\Lambda$
+non-zero, and
+\[
+  W=H_{0}+\sum_{i=0}^{3}\Alg\,\frac{q_{1}(u)^{i}q_{2}(u)^{3-i}}{u\,l_{1}(u)\,l_{2}(u)} .
+\]
+Then $W$ carries a $2\times3$ configuration, and contains none of $u^{2}$, $\bar u^{2}$ and $1/(u-b)$ with
+$b\in\Alg^{\times}$; so no $H_{0}+\Alg w\subseteq W$ with $w\notin H_{0}$ carries one.
+\end{theorem}
+
+\begin{proof}
+With $r=q_{1}(u)/q_{2}(u)$, which is transcendental, $W$ contains the progression $c,cr,cr^{2},cr^{3}$,
+$c=q_{2}(u)^{3}/(u\,l_{1}(u)l_{2}(u))$. For the exclusions, write the involution as $\tau(X)=(AX+B)/(\Gamma X-A)$ with
+$A,B,\Gamma$ the Plücker coordinates of the pencil and $D=A^{2}+B\Gamma\neq0$; then $(\Gamma u-A)^{2}q(\tau u)=D\,q(u)$
+for $q\in\Lambda$. A membership, cleared of denominators, is a polynomial identity $N(u)L(u)=(u-\beta)(Q(u)L(u)+S(u))$
+with $N(\beta)\neq0$. It also holds at $\tau(u)$; eliminating $S$ shows that $\beta$ is a fixed point of $\tau$ and
+then that $D=0$. The last sentence follows from Theorem~\ref{thm:extension-room} by exchange.
+\end{proof}
+
+\begin{remark}\label{rem:involution-converse}
+The converse holds, but is not formalised. Let $W\supseteq H_{0}$ be a five-dimensional space of rational functions of
+$u$ containing a four-term progression $c,ch,ch^{2},ch^{3}$. That a $2\times3$ configuration whose six products span
+only four dimensions is such a progression is~\cite[Lemma~4]{bachoc-serra-zemor}. If $h$ generates $\Alg(u)$, then
+$W$ is a complete linear system $L(E)$ of degree $4$ with $E\geq[0]+[\infty]$, and contains $u^{2}$, $u^{-2}$ or some
+$1/(u-a)$. Otherwise $\Alg(h)$ has index~$2$, it is the field of invariants of an involution $\tau$, and $W$ is the space
+of Theorem~\ref{thm:involution} for $\Lambda=\Lambda_{\tau}$. So the five-dimensional spaces that carry a progression
+and are invisible to Theorem~\ref{thm:extension-room} are exactly those of Theorem~\ref{thm:involution}. Configurations
+whose products fill the whole space are a separate case: $\Alg u^{-1}+\Alg+\Alg u+\Alg u^{3}+\Alg u^{4}$ carries
+$(1,u)\otimes(u^{-1},1,u^{3})$ and contains none of $u^{2}$, $u^{-2}$, $1/(u-b)$; it is not stable under conjugation.
+Whether a conjugation-stable space of that kind exists is open. None of these statements was found in the sources
+read; at a candidate their exclusions are, as before, substitutions in~\cite[Th\'eor\`eme~7(2)]{diaz-2007}.
+\end{remark}
 
 \subsection*{The four exponentials conjecture sees nothing homogeneous}
 
@@ -1915,7 +1953,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.22 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.23 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -1967,8 +2005,10 @@ the normal form of $2\times2$ configurations near a point of a circle, and confi
 hulls; Theorem~\ref{thm:novan} now assumes only $u\notin K$, as its Lean statement does.
 Version 1.22 adds, on 9 October 2026, Proposition~\ref{prop:two-pole} (two poles, no conjugation condition),
 and makes Remark~\ref{rem:weak-schanuel} formal.
-Every row of the table below was checked against the platform by script on 9 October 2026, and
-the mirrored project held all 389 proved results of the development at that date.
+Version 1.23 adds, on 10 October 2026, Theorem~\ref{thm:involution} (every involution of the $u$-line) and
+Remark~\ref{rem:involution-converse} (its converse, not formalised).
+Every row of the table below was checked against the platform by script on 10 October 2026, and
+the mirrored project held all 393 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2031,6 +2071,8 @@ Thm~\ref{thm:separation-normal} & Proved & \nolinkurl{DiazModulus.rank_one_confi
 Prop~\ref{prop:laurent} & Proved & \nolinkurl{DiazModulus.laurent_hull_config_iff}, \nolinkurl{DiazModulus.two_sumset_iff_difference_count}, \nolinkurl{DiazModulus.power_pair_difference_count_iff}, \nolinkurl{DiazModulus.power_pair_hull_two_by_three_iff}, \nolinkurl{DiazModulus.four_pow_hull_no_two_by_three}, \nolinkurl{DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.two_by_two_config_critical_progression} \\
 Prop~\ref{prop:two-pole} & Proved & \nolinkurl{DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde} \\
 Rem~\ref{rem:weak-schanuel} & Proved & \nolinkurl{DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_iff_single_relation_of_weak_schanuel} \\
+Thm~\ref{thm:involution} & Proved & \nolinkurl{DiazModulus.involution_pencil_space_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions} \\
+Rem~\ref{rem:involution-converse} & Proved & \nolinkurl{DiazModulus.laurent_case_two_configuration_invisible} \\
 Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier}, \nolinkurl{DiazModulus.generic_qbar_homogeneous_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
 Thm~\ref{thm:period}(a) & Proved & \nolinkurl{DiazModulus.generic_quadratic_relation_is_norm} \\

@@ -603,3 +603,66 @@ Assume Roy's strong six exponentials theorem, let $u$ be a candidate and $a_1\ne
 \uses{cor:candidate_two_pole_not_both_mem_logAlgTilde,lem:logAlgTilde_conj_stable}
 $\bar z_i=-(\rho/\bar a_i)z_i$, so the sum and its conjugate (Lemma~\ref{lem:logAlgTilde_conj_stable}) give both $z_i$; Corollary~\ref{cor:candidate_two_pole_not_both_mem_logAlgTilde}.
 \end{proof}
+
+\section{Every involution}
+
+% Prove2Me: DiazModulus.involution_pencil_space_carries_two_by_three_configuration -- https://prove2.me/theorems/b372d03d-7bb5-469f-93a0-efc25a44f423
+\begin{proposition}[Every involution carries a configuration]
+\label{prop:involution_pencil_space_carries_two_by_three_configuration}
+\lean{Diaz.involution_pencil_space_carries_two_by_three_configuration}
+\leanok
+Let $u\in\C\setminus\Qbar$, let $q_1,q_2\in\Qbar[X]$ be coprime of degree at most $2$, one of degree exactly $2$ (so that $\Qbar q_1+\Qbar q_2$ is the pencil of quadratics vanishing on the orbits of a Möbius involution of the $u$-line), let $l_1,l_2$ be non-zero members of the pencil, and let $W$ be the span of $1,u,u^{-1}$ and of $q_1(u)^{i}q_2(u)^{3-i}/(u\,l_1(u)l_2(u))$, $i=0,\dots,3$. Then $W$ carries a $2\times3$ configuration: the progression $c,cr,cr^{2},cr^{3}$ with $r=q_1(u)/q_2(u)$.
+
+{\small\emph{Source:} The progression of \cite[Lemma 6.1]{Fis01}; that a critical configuration is a progression is \cite[Lemma 4]{BSZ17}.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+$c=q_2(u)^{3}/(u\,l_1(u)l_2(u))$; $r$ is transcendental because $q_1,q_2$ are coprime.
+\end{proof}
+
+% Prove2Me: DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals -- https://prove2.me/theorems/212fc5e4-7258-42d6-acf0-73a839f920c5
+\begin{lemma}[What the involution spaces do not contain]
+\label{lem:involution_pencil_space_excludes_squares_and_reciprocals}
+\lean{Diaz.involution_pencil_space_excludes_squares_and_reciprocals}
+\leanok
+Let $u\in\C\setminus\Qbar$, let $q_1,q_2\in\Qbar[X]$ be coprime of degree at most $2$, one of degree exactly $2$ (so that $\Qbar q_1+\Qbar q_2$ is the pencil of quadratics vanishing on the orbits of a Möbius involution of the $u$-line), let $l_1,l_2$ be non-zero members of the pencil, and let $W$ be the span of $1,u,u^{-1}$ and of $q_1(u)^{i}q_2(u)^{3-i}/(u\,l_1(u)l_2(u))$, $i=0,\dots,3$. Then $W$ contains none of $u^{2}$, $u^{-2}$ and $1/(u-b)$ with $b\in\Qbar$ non-zero.
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+With $\tau(X)=(AX+B)/(\Gamma X-A)$, $D=A^{2}+B\Gamma\neq0$, a cleared membership $N(u)L(u)=(u-\beta)(QL+S)(u)$ also holds at $\tau(u)$; eliminating $S$ forces $\beta$ to be fixed by $\tau$ and then $D=0$.
+\end{proof}
+
+% Prove2Me: DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions -- https://prove2.me/theorems/542ffb79-4eab-4af6-a4b2-041826f79ece
+\begin{theorem}[Every involution is invisible to four-dimensional extensions]
+\label{thm:involution_pencil_configuration_invisible_to_four_dimensional_extensions}
+\lean{Diaz.involution_pencil_configuration_invisible_to_four_dimensional_extensions}
+\leanok
+Let $u\in\C\setminus\Qbar$, let $q_1,q_2\in\Qbar[X]$ be coprime of degree at most $2$, one of degree exactly $2$ (so that $\Qbar q_1+\Qbar q_2$ is the pencil of quadratics vanishing on the orbits of a Möbius involution of the $u$-line), let $l_1,l_2$ be non-zero members of the pencil, and let $W$ be the span of $1,u,u^{-1}$ and of $q_1(u)^{i}q_2(u)^{3-i}/(u\,l_1(u)l_2(u))$, $i=0,\dots,3$. Suppose $u\bar u$ is algebraic. Then $W$ carries a $2\times3$ configuration, and no $\Qbar+\Qbar u+\Qbar\bar u+\Qbar w$ with $w\in W$ outside $\Qbar+\Qbar u+\Qbar\bar u$ does.
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). For $q_1=X^{2}$, $q_2=1$ it is Theorem~\ref{thm:circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}. Conversely (not formalised), every five-dimensional space containing a progression and invisible to Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} is of this form.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{prop:involution_pencil_space_carries_two_by_three_configuration,lem:involution_pencil_space_excludes_squares_and_reciprocals,thm:circle_point_extension_two_by_three_configuration_iff}
+Proposition~\ref{prop:involution_pencil_space_carries_two_by_three_configuration}; Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} and exchange, against Lemma~\ref{lem:involution_pencil_space_excludes_squares_and_reciprocals}.
+\end{proof}
+
+% Prove2Me: DiazModulus.laurent_case_two_configuration_invisible -- https://prove2.me/theorems/7527a895-a765-4126-bd2b-4e5db48f206e
+\begin{proposition}[A configuration that is not a progression]
+\label{prop:laurent_case_two_configuration_invisible}
+\lean{Diaz.laurent_case_two_configuration_invisible}
+\leanok
+Let $u\in\C\setminus\Qbar$. The products of $(1,u)$ and $(u^{-1},1,u^{3})$ span $\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{3}+\Qbar u^{4}$, which contains none of $u^{2}$, $u^{-2}$ and $1/(u-b)$ ($b\in\Qbar^{\times}$).
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). The space is not stable under conjugation.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+Independence of distinct powers of $u$, and clearing denominators.
+\end{proof}

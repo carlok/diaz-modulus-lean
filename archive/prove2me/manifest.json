@@ -5860,5 +5860,53 @@
   "bytes": 5901,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.laurent_case_two_configuration_invisible",
+  "theorem_id": "7527a895-a765-4126-bd2b-4e5db48f206e",
+  "submission_id": "a914b5a7-33cb-4489-8fbb-a6b95574a612",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-10T20:24:53.076884+00:00",
+  "file": "DiazModulus.laurent_case_two_configuration_invisible__a914b5a7.lean",
+  "bytes": 6640,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.involution_pencil_space_carries_two_by_three_configuration",
+  "theorem_id": "b372d03d-7bb5-469f-93a0-efc25a44f423",
+  "submission_id": "69d260a1-ac81-4b98-b1ae-5c26fa17a5f6",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-10T20:28:16.769982+00:00",
+  "file": "DiazModulus.involution_pencil_space_carries_two_by_three_configuration__69d260a1.lean",
+  "bytes": 6621,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals",
+  "theorem_id": "212fc5e4-7258-42d6-acf0-73a839f920c5",
+  "submission_id": "7a74631c-79be-4c4f-8c66-eb6241bb4c28",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-10T20:28:19.566682+00:00",
+  "file": "DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals__7a74631c.lean",
+  "bytes": 19130,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions",
+  "theorem_id": "542ffb79-4eab-4af6-a4b2-041826f79ece",
+  "submission_id": "ba5cd59e-f742-4d71-aa7f-1152f23852e6",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-10T20:24:50.40198+00:00",
+  "file": "DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions__ba5cd59e.lean",
+  "bytes": 5346,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

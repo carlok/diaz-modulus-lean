@@ -750,6 +750,20 @@ Seven nodes of 9 October 2026.
   (`DiazModulus.diaz_iff_single_relation_of_weak_schanuel`). Not found in the sources read. The weak form says
   nothing about that relation itself, whose logarithms always satisfy 2·iπ ∈ 2πiℤ.
 
+### Every involution of the u-line
+
+Four nodes of 10 October 2026 extend the two-pole spaces to every Möbius involution τ of the u-line.
+- τ is given by its pencil q₁, q₂ (coprime quadratics). For non-zero l₁, l₂ in the pencil, the space
+  H₀ + Σᵢ Q̄ q₁(u)ⁱq₂(u)³⁻ⁱ/(u l₁(u) l₂(u)) carries a configuration (the progression with ratio q₁(u)/q₂(u)). It
+  contains none of u², u⁻² and 1/(u − b), so no four-dimensional space of Theorem B inside it carries one
+  (`DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions`). τ: u ↦ −u is the
+  previous section.
+- Conversely (proved in the research notes, not formalised), every five-dimensional space containing a progression
+  and invisible to Theorem B is of this form. The progression step is Bachoc–Serra–Zémor (2017, Lemma 4).
+- A configuration whose products fill the space can be invisible too: Q̄u⁻¹ + Q̄ + Q̄u + Q̄u³ + Q̄u⁴
+  (`DiazModulus.laurent_case_two_configuration_invisible`). That space is not stable under conjugation.
+- Not found in the sources read.
+
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 
 - `Transcendence.singular_matrix_subspace_annihilating_pair` — Roy's lemma (Dasgupta–Kakde II,

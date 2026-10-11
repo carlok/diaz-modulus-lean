@@ -84,3 +84,7 @@ import Solution
 #print axioms Diaz.candidate_sum_div_sq_sub_not_mem_logAlgTilde
 #print axioms Diaz.candidate_im_mem_pi_rat_of_weak_schanuel
 #print axioms Diaz.diaz_iff_single_relation_of_weak_schanuel
+#print axioms Diaz.involution_pencil_space_carries_two_by_three_configuration
+#print axioms Diaz.involution_pencil_space_excludes_squares_and_reciprocals
+#print axioms Diaz.involution_pencil_configuration_invisible_to_four_dimensional_extensions
+#print axioms Diaz.laurent_case_two_configuration_invisible

@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-09): **389** of 389
+As of the latest archived submission (2026-10-10): **393** of 393
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -245,7 +245,11 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.geometric_triple_not_logs` | yes | `Diaz/Mirror/geometric_triple_not_logs.lean` | done |  |
 | `DiazModulus.hermite_lindemann_holds` | yes | `Diaz/HermiteLindemann.lean` | done |  |
 | `DiazModulus.imag_axis_div_normalisation` | yes | `Diaz/Mirror/imag_axis_div_normalisation.lean` | done |  |
+| `DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/involution_pencil_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |
+| `DiazModulus.involution_pencil_space_carries_two_by_three_configuration` | yes | `Diaz/Mirror/involution_pencil_space_carries_two_by_three_configuration.lean` | done |  |
+| `DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/involution_pencil_space_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.kronecker_factorisation` | yes | `Diaz/Mirror/kronecker_factorisation.lean` | done |  |
+| `DiazModulus.laurent_case_two_configuration_invisible` | yes | `Diaz/Mirror/laurent_case_two_configuration_invisible.lean` | done |  |
 | `DiazModulus.laurent_hull_config_iff` | yes | `Diaz/Mirror/laurent_hull_config_iff.lean` | done |  |
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
 | `DiazModulus.logAlgTilde_conj_stable` | yes | `Diaz/Mirror/logAlgTilde_conj_stable.lean` | done |  |
