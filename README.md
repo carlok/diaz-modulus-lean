@@ -117,7 +117,7 @@ An entire style of attack — accumulate algebraic constraints on `u` and
 lake exe cache get && lake build Diaz
 ```
 
-Lean 4.34.1, Mathlib v4.34.1.
+Lean 4.34.0, Mathlib v4.34.0.
 
 ## Dependency graph
 
