@@ -758,9 +758,12 @@ Four nodes of 10 October 2026 extend the two-pole spaces to every Möbius involu
   contains none of u², u⁻² and 1/(u − b), so no four-dimensional space of Theorem B inside it carries one
   (`DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions`). τ: u ↦ −u is the
   previous section.
-- Conversely (proved in the research notes, not formalised), every five-dimensional space containing a progression
-  and invisible to Theorem B is of this form. The progression step is Bachoc–Serra–Zémor (2017, Lemma 4). The
-  index-one half is now formal: see the next section.
+- Conversely, every five-dimensional space containing a progression with ratio rational in u is visible to
+  Theorem B or of this form (`DiazModulus.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space`,
+  12 October 2026). The ratio has degree at most 2 (`DiazModulus.progression_space_ratio_degree_le_two`, through
+  the degree formula in Mathlib's proof of Lüroth's theorem); degree 1 is the next section's index-one node, degree 2
+  gives the involution space (`DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space`). The
+  progression step is Bachoc–Serra–Zémor (2017, Lemma 4) and stays in the research notes.
 - A configuration whose products fill the space can be invisible too: Q̄u⁻¹ + Q̄ + Q̄u + Q̄u³ + Q̄u⁴
   (`DiazModulus.laurent_case_two_configuration_invisible`). That space is not stable under conjugation.
 - Not found in the sources read.

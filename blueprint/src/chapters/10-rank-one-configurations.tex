@@ -760,3 +760,49 @@ Let $u\in\C\setminus\Qbar$, $h=(\alpha u+\beta)/(\gamma u+\delta)$ with $\alpha,
 \leanok
 The progression spans $c'\,\Qbar[u]_{\le3}$, which meets $\Qbar+\Qbar u+\Qbar u^{-1}$: $c'u\,p(u)=r(u)$ with $\deg p\le3$, $\deg r\le2$. Induction on $\deg p$, cancelling common roots; a root $b$ of $p$ that $r$ does not share gives $1/(u-b)$, and a constant $p$ gives $u^{2}$ or $u^{-2}$.
 \end{proof}
+
+% Prove2Me: DiazModulus.progression_space_ratio_degree_le_two -- https://prove2.me/theorems/36e45dbf-d812-422f-8517-c1a21fd08d3f
+\begin{lemma}[The ratio has degree at most two]
+\label{lem:progression_space_ratio_degree_le_two}
+\lean{Diaz.progression_space_ratio_degree_le_two}
+\leanok
+Let $u\in\C\setminus\Qbar$, let $p,q\in\Qbar[X]$ be coprime, $h=p(u)/q(u)$, $c\neq0$, and suppose $W=\Qbar+\Qbar u+\Qbar u^{-1}+\sum_{k\le3}\Qbar ch^{k}$ has dimension $5$. If $\max(\deg p,\deg q)\geq1$, then $\max(\deg p,\deg q)\leq2$.
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Two independent elements of $(\Qbar+\Qbar u+\Qbar u^{-1})\cap\sum_k\Qbar ch^{k}$ have a ratio of $u$-degree at most $2$ in $\Qbar(h)$; $[\Qbar(X):\Qbar(p/q)]=\max(\deg p,\deg q)$ (Mathlib, Lüroth's file) and the tower law.
+\end{proof}
+
+% Prove2Me: DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space -- https://prove2.me/theorems/fed2dbdb-56de-4027-a142-5ac1990bb701
+\begin{proposition}[Index two gives the involution spaces]
+\label{prop:quadratic_ratio_progression_space_eq_involution_pencil_space}
+\lean{Diaz.quadratic_ratio_progression_space_eq_involution_pencil_space}
+\leanok
+Let $u\in\C\setminus\Qbar$, let $p,q\in\Qbar[X]$ be coprime, $h=p(u)/q(u)$, $c\neq0$, and suppose $W=\Qbar+\Qbar u+\Qbar u^{-1}+\sum_{k\le3}\Qbar ch^{k}$ has dimension $5$. If $\max(\deg p,\deg q)=2$, then $W$ is the space of Theorem~\ref{thm:involution_pencil_configuration_invisible_to_four_dimensional_extensions} for the pencil $\Qbar p+\Qbar q$, for some non-zero $l_1,l_2$ in it.
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{proposition}
+
+\begin{proof}
+\leanok
+$cu\,\varphi_i(h)=R_i(u)$ for two independent $\varphi_i$; removing their gcd, coprimality of the associated forms gives $cu\,g(h)=\kappa q(u)$ with $\deg g\le2$, and $g$ splits into $l_1l_2$.
+\end{proof}
+
+% Prove2Me: DiazModulus.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space -- https://prove2.me/theorems/d2501f32-e51d-4d24-be11-d86a26332da9
+\begin{theorem}[The progression spaces, classified]
+\label{thm:progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}
+\lean{Diaz.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}
+\leanok
+Let $u\in\C\setminus\Qbar$, let $p,q\in\Qbar[X]$ be coprime, $h=p(u)/q(u)$, $c\neq0$, and suppose $W=\Qbar+\Qbar u+\Qbar u^{-1}+\sum_{k\le3}\Qbar ch^{k}$ has dimension $5$. If $\max(\deg p,\deg q)\geq1$, then $W$ contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$ with $b\in\Qbar$ non-zero, or $W$ is the space of Theorem~\ref{thm:involution_pencil_configuration_invisible_to_four_dimensional_extensions} for the pencil $\Qbar p+\Qbar q$.
+
+{\small\emph{Source:} Not found in the sources read; short (Chapter~\ref{chap:14-not-found-in-the-sources}). The progression step (a configuration spanning four dimensions is a progression) is \cite[Lemma 4]{BSZ17} and is not used: the progression is a hypothesis.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:progression_space_ratio_degree_le_two,prop:quadratic_ratio_progression_space_eq_involution_pencil_space,thm:mobius_progression_space_contains_square_or_reciprocal}
+Lemma~\ref{lem:progression_space_ratio_degree_le_two}; degree $1$ is Theorem~\ref{thm:mobius_progression_space_contains_square_or_reciprocal}, degree $2$ Proposition~\ref{prop:quadratic_ratio_progression_space_eq_involution_pencil_space}.
+\end{proof}

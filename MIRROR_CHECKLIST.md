@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-11): **400** of 400
+As of the latest archived submission (2026-10-12): **403** of 403
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -288,8 +288,11 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.power_hull_strong_six_exp_configuration_iff` | yes | `Diaz/Mirror/power_hull_strong_six_exp_configuration_iff.lean` | done |  |
 | `DiazModulus.power_pair_difference_count_iff` | yes | `Diaz/Mirror/power_pair_difference_count_iff.lean` | done |  |
 | `DiazModulus.power_pair_hull_two_by_three_iff` | yes | `Diaz/Mirror/power_pair_hull_two_by_three_iff.lean` | done |  |
+| `DiazModulus.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space` | yes | `Diaz/Mirror/progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space.lean` | done |  |
+| `DiazModulus.progression_space_ratio_degree_le_two` | yes | `Diaz/Mirror/progression_space_ratio_degree_le_two.lean` | done |  |
 | `DiazModulus.qbar_dependent_of_det_linear_forms` | yes | `Diaz/Mirror/qbar_dependent_of_det_linear_forms.lean` | done |  |
 | `DiazModulus.quadratic_eq_zero_of_not_mem_Qbar` | yes | `Diaz/Mirror/quadratic_eq_zero_of_not_mem_Qbar.lean` | done |  |
+| `DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space` | yes | `Diaz/Mirror/quadratic_ratio_progression_space_eq_involution_pencil_space.lean` | done |  |
 | `DiazModulus.rank_one_config_card_le_finrank_add_one` | yes | `Diaz/Mirror/rank_one_config_card_le_finrank_add_one.lean` | done |  |
 | `DiazModulus.rank_one_config_separation` | yes | `Diaz/Mirror/rank_one_config_separation.lean` | done |  |
 | `DiazModulus.rank_one_config_separation_two` | yes | `Diaz/Mirror/rank_one_config_separation_two.lean` | done |  |

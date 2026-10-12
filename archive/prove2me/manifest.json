@@ -5992,5 +5992,41 @@
   "bytes": 4740,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.progression_space_ratio_degree_le_two",
+  "theorem_id": "36e45dbf-d812-422f-8517-c1a21fd08d3f",
+  "submission_id": "b4e97be1-c48b-41c0-8c2f-88e9b84c7336",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-12T19:27:31.686083+00:00",
+  "file": "DiazModulus.progression_space_ratio_degree_le_two__b4e97be1.lean",
+  "bytes": 12968,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space",
+  "theorem_id": "fed2dbdb-56de-4027-a142-5ac1990bb701",
+  "submission_id": "3a820b7e-666f-4a4a-aa30-de6d5c0ebd68",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-12T19:27:34.687424+00:00",
+  "file": "DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space__3a820b7e.lean",
+  "bytes": 22610,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space",
+  "theorem_id": "d2501f32-e51d-4d24-be11-d86a26332da9",
+  "submission_id": "d5639c59-9594-4851-8de6-b38bd4d5fb13",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-12T19:25:07.542457+00:00",
+  "file": "DiazModulus.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space__d5639c59.lean",
+  "bytes": 5482,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

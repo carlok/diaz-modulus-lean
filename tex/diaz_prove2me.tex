@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.24, 11 October 2026}
+\date{September 2026\\[2pt]\small Version 1.25, 12 October 2026}
 
 \begin{document}
 \maketitle
@@ -971,12 +971,16 @@ then that $D=0$. The last sentence follows from Theorem~\ref{thm:extension-room}
 \end{proof}
 
 \begin{remark}\label{rem:involution-converse}
-The converse holds, but is not formalised. Let $W\supseteq H_{0}$ be a five-dimensional space of rational functions of
+The converse holds. Let $W\supseteq H_{0}$ be a five-dimensional space of rational functions of
 $u$ containing a four-term progression $c,ch,ch^{2},ch^{3}$. That a $2\times3$ configuration whose six products span
 only four dimensions is such a progression is~\cite[Lemma~4]{bachoc-serra-zemor}. If $h$ generates $\Alg(u)$, then
 $W$ is a complete linear system $L(E)$ of degree $4$ with $E\geq[0]+[\infty]$, and contains $u^{2}$, $u^{-2}$ or some
-$1/(u-a)$; this step is formal. Otherwise $\Alg(h)$ has index~$2$, it is the field of invariants of an involution $\tau$, and $W$ is the space
-of Theorem~\ref{thm:involution} for $\Lambda=\Lambda_{\tau}$. So the five-dimensional spaces that carry a progression
+$1/(u-a)$. Otherwise $\Alg(h)$ has index~$2$: the index is at most~$2$ because two independent elements of
+$H_{0}\cap\sum_{k}\Alg ch^{k}$ have a ratio of degree at most~$2$ in~$u$ lying in $\Alg(h)$. Then $\Alg(h)$ is the
+field of invariants of an involution $\tau$, and $W$ is the space of Theorem~\ref{thm:involution} for
+$\Lambda=\Lambda_{\tau}$. For a ratio $h$ rational in $u$ all of this is formal, the index bound through the
+degree formula $[\Alg(X):\Alg(f)]=\max(\deg p,\deg q)$ of Mathlib's proof of L\"uroth's theorem; the progression
+step and the rationality of $h$ stay in the text. So the five-dimensional spaces that carry a progression
 and are invisible to Theorem~\ref{thm:extension-room} are exactly those of Theorem~\ref{thm:involution}. Configurations
 whose products fill the whole space are a separate case: $\Alg u^{-1}+\Alg+\Alg u+\Alg u^{3}+\Alg u^{4}$ carries
 $(1,u)\otimes(u^{-1},1,u^{3})$ and contains none of $u^{2}$, $u^{-2}$, $1/(u-b)$; it is not stable under conjugation.
@@ -1995,7 +1999,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.24 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.25 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2052,8 +2056,10 @@ Remark~\ref{rem:involution-converse} (its converse, not formalised).
 Version 1.24 adds, on 11 October 2026, Proposition~\ref{prop:real-pencil} (the conjugation-stable spaces of
 Case II with a factor of degree one), makes the index-one step of Remark~\ref{rem:involution-converse}
 formal, and adds the kernel form of Schanuel's conjecture to Remark~\ref{rem:weak-schanuel}.
-Every row of the table below was checked against the platform by script on 11 October 2026, and
-the mirrored project held all 400 proved results of the development at that date.
+Version 1.25 makes, on 12 October 2026, the classification of Remark~\ref{rem:involution-converse} formal for a
+ratio rational in $u$.
+Every row of the table below was checked against the platform by script on 12 October 2026, and
+the mirrored project held all 403 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2117,7 +2123,7 @@ Prop~\ref{prop:laurent} & Proved & \nolinkurl{DiazModulus.laurent_hull_config_if
 Prop~\ref{prop:two-pole} & Proved & \nolinkurl{DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde} \\
 Rem~\ref{rem:weak-schanuel} & Proved & \nolinkurl{DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_iff_single_relation_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel} \\
 Thm~\ref{thm:involution} & Proved & \nolinkurl{DiazModulus.involution_pencil_space_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions} \\
-Rem~\ref{rem:involution-converse} & Proved & \nolinkurl{DiazModulus.laurent_case_two_configuration_invisible}, \nolinkurl{DiazModulus.mobius_progression_space_contains_square_or_reciprocal} \\
+Rem~\ref{rem:involution-converse} & Proved & \nolinkurl{DiazModulus.laurent_case_two_configuration_invisible}, \nolinkurl{DiazModulus.mobius_progression_space_contains_square_or_reciprocal}, \nolinkurl{DiazModulus.progression_space_ratio_degree_le_two}, \nolinkurl{DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space}, \nolinkurl{DiazModulus.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space} \\
 Prop~\ref{prop:real-pencil} & Proved & \nolinkurl{DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.conj_equivariant_degree_one_space_eq_real_pencil_space}, \nolinkurl{DiazModulus.real_pencil_quartic_space_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde} \\
 Thm~\ref{thm:homog} & Proved & \nolinkurl{DiazModulus.generic_conj_pair_no_quadratic_relation}, \nolinkurl{DiazModulus.generic_conj_pair_four_exp_barrier}, \nolinkurl{DiazModulus.generic_qbar_homogeneous_four_exp_barrier} \\
 Prop.~\ref{prop:homog-nongeneric} & Proved & \nolinkurl{DiazModulus.candidate_nongeneric_four_exp_barrier} \\
