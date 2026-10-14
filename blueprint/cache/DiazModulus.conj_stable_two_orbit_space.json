@@ -1,0 +1,21 @@
+{
+ "theorem_id": "443a680e-ccae-4356-a4ca-0f724e487350",
+ "theorem_name": "DiazModulus.conj_stable_two_orbit_space",
+ "theorem_title": "For u ∉ Q̄ and real algebraic s with s² = uū: the two-orbit space with |a| = |b| = s and β/α, δ/γ real is stable under complex conjugation",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem conj_stable_two_orbit_space\n    (u : ℂ) (hu : u ∉ Qbar) (a b α β γ δ : ℂ) (ha : a ∈ Qbar) (hb : b ∈ Qbar) (hα : α ∈ Qbar) (hβ : β ∈ Qbar)\n    (hγ : γ ∈ Qbar) (hδ : δ ∈ Qbar) (ha0 : a ≠ 0) (hb0 : b ≠ 0) (hab : a ^ 2 ≠ b ^ 2)\n    (hα0 : α ≠ 0) (hβ0 : β ≠ 0) (hγ0 : γ ≠ 0) (hδ0 : δ ≠ 0)\n    (s : ℂ) (hs : s ∈ Qbar) (hsr : conj s = s) (hss : s * s = u * conj u)\n    (haa : a * conj a = s * s) (hbb : b * conj b = s * s)\n    (hαβ : β * conj α = conj β * α) (hγδ : δ * conj γ = conj δ * γ) :\n    ∀ w ∈ Submodule.span Qbar ({1, u, u⁻¹, (α / (u - a) + β / (u + a)), (γ / (u - b) + δ / (u + b))} : Set ℂ), conj w ∈ Submodule.span Qbar ({1, u, u⁻¹, (α / (u - a) + β / (u + a)), (γ / (u - b) + δ / (u + b))} : Set ℂ) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $u \\in \\mathbb{C} \\setminus \\overline{\\mathbb{Q}}$, let $a, b \\in \\overline{\\mathbb{Q}}^\\times$ with $a^2 \\neq b^2$ and $\\alpha, \\beta, \\gamma, \\delta \\in \\overline{\\mathbb{Q}}^\\times$, put $g_1 = \\alpha/(u - a) + \\beta/(u + a)$, $g_2 = \\gamma/(u - b) + \\delta/(u + b)$, and let $W$ be the $\\overline{\\mathbb{Q}}$-span of $1, u, u^{-1}, g_1, g_2$. Let $s \\in \\overline{\\mathbb{Q}}$ be real with $s^2 = u\\bar u$, suppose $a\\bar a = b\\bar b = s^2$ and that $\\beta/\\alpha$ and $\\delta/\\gamma$ are real. Then $W$ is stable under complex conjugation.\n\nWith `DiazModulus.two_orbit_configuration_invisible_to_four_dimensional_extensions` this gives a family of conjugation-stable spaces, invisible to Theorem B, whose configuration factor $(1, u^2)$ has degree two.\n\n**Proof.** Substitute $\\bar u = s^2/u$, $\\bar a = s^2/a$, $\\bar b = s^2/b$ and $\\bar\\beta = \\beta\\bar\\alpha/\\alpha$, $\\bar\\delta = \\delta\\bar\\gamma/\\gamma$. Then $\\bar g_1 = a(\\bar\\beta - \\bar\\alpha)/s^2 - (a^2\\bar\\alpha/(s^2\\alpha))\\,g_1$ and similarly for $g_2$, while $\\bar u = s^2u^{-1}$ and $\\overline{u^{-1}} = s^{-2}u$; conjugation of \\overline{\\mathbb{Q}}-scalars stays in \\overline{\\mathbb{Q}}, and induction on the span finishes.\n\n**Novelty.** Not found in the sources read; it is short.",
+ "created_at": "2026-10-14T07:30:12.219211+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Not found in the sources read. R14 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 14 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

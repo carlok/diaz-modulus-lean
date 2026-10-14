@@ -793,6 +793,30 @@ Seven nodes of 11 October 2026.
   contains the algebraic independence of e and π, which is open.
 - Not found in the sources read, except the candidate statement; all short.
 
+### Case II beyond degree one
+
+Eleven nodes of 14 October 2026, from the R12 research notes.
+- **A space with no factor of degree one.** For u ∉ Q̄ and s ∈ Q̄ real with s² = uū, put F = u³/s³ + u²/s². The span
+  of 1, u, ū, F, F̄ is stable under conjugation, the six products of (1, u²) and (ū, u + s, F̄) span it, and it is
+  invisible to Theorem B (`DiazModulus.laurent_cubic_configuration_invisible_to_four_dimensional_extensions`). No
+  configuration in it has a Möbius ratio (`DiazModulus.laurent_cubic_space_no_mobius_ratio_configuration`), so it is
+  none of the real pencil spaces above.
+- **Two orbits of u ↦ −u.** The span of 1, u, u⁻¹, α/(u − a) + β/(u + a), γ/(u − b) + δ/(u + b) carries a spanning
+  configuration with factor (1, u²) and is invisible when α ≠ β or γ ≠ δ
+  (`DiazModulus.two_orbit_configuration_invisible_to_four_dimensional_extensions`); α = β, γ = δ is the two-pole family.
+  With |a| = |b| = |u| and β/α, δ/γ real it is stable under conjugation (`DiazModulus.conj_stable_two_orbit_space`).
+- **No factor of degree three or more.** If 1, u, u⁻¹ lie in the span of c, ch, ch², ck, chk with h = p(u)/q(u), then
+  max(deg p, deg q) ≤ 2 (`DiazModulus.progression_pair_span_ratio_degree_le_two`, through the degree formula in
+  Mathlib's proof of Lüroth's theorem).
+- **Visibility for Laurent f.** For a real Laurent polynomial f of width k in u/s, the real pencil space W(λ, f) is
+  invisible when k ≥ 3, or k = 2 and f(−λ̄) ≠ 0, and contains u² when k = 2 and f(−λ̄) = 0
+  (`DiazModulus.laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions`,
+  `DiazModulus.laurent_real_pencil_space_contains_square_of_root`).
+- In the research notes only, not formalised: the general visibility criterion (W(λ, f) is visible exactly when it is
+  a complete linear system) and the normal forms of the degree-two case.
+- Not found in the sources read; all short. At a candidate they add nothing: Roy's theorem already excludes every such
+  space.
+
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 
 - `Transcendence.singular_matrix_subspace_annihilating_pair` — Roy's lemma (Dasgupta–Kakde II,
