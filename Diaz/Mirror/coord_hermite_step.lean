@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Transcendence.coord_hermite_step`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Transcendence.coord_hermite_step__901f3878.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Mirror.hermite_division_bound
@@ -94,7 +97,7 @@ lemma contDiff_update_const (i : ι) (c : ℂ) :
   by_cases h : j = i
   · subst h
     simpa using contDiff_const
-  · simpa [update_of_ne h] using contDiff_apply ℂ ℂ j
+  · simpa [update_of_ne h] using contDiff_apply ℂ (fun _ => ℂ) j
 
 lemma coord_hermite_step_differentiable_slice {g : (ι → ℂ) → ℂ} (hg : ContDiff ℂ ω g) (z : ι → ℂ) (i : ι) :
     Differentiable ℂ (fun w => g (update z i w)) :=
@@ -113,7 +116,7 @@ lemma contDiff_T {g : (ι → ℂ) → ℂ} (hg : ContDiff ℂ ω g) {E : Finset
   unfold T
   refine ContDiff.sum fun x _ => ?_
   exact ((contDiff_iterate_pd hg i x.2).comp (contDiff_update_const i x.1)).mul
-    ((Polynomial.differentiable _).contDiff.comp (contDiff_apply ℂ ℂ i))
+    ((Polynomial.differentiable _).contDiff.comp (contDiff_apply ℂ (fun _ => ℂ) i))
 
 /-- One slice, through `z` in the `R`-polydisc: `g z = T z + P · c` with
 `P = ∏_{ζ ∈ E} (z i - ζ)^S₀`, `2|T z| + K ≤ 3^p K` and `|c| ≤ (3/R)^p K`, where

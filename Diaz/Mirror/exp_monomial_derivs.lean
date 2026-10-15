@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Transcendence.exp_monomial_derivs`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Transcendence.exp_monomial_derivs__f36be092.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -173,8 +176,8 @@ lemma map_step (φ : K →+* ℂ) (k₀ j : ι) (x : K) (P : K[X]) :
 omit [NumberField K] [DecidableEq ι] in
 lemma contDiff_g (φ : K →+* ℂ) (k₀ : ι) (τ : ℕ) (w : ι → K) :
     ContDiff ℂ ω (fun z : ι → ℂ => z k₀ ^ τ * Complex.exp (∑ ν, φ (w ν) * z ν)) :=
-  ((contDiff_apply ℂ ℂ k₀).pow τ).mul
-    (ContDiff.cexp (ContDiff.sum fun ν _ => contDiff_const.mul (contDiff_apply ℂ ℂ ν)))
+  ((contDiff_apply ℂ (fun _ => ℂ) k₀).pow τ).mul
+    (ContDiff.cexp (ContDiff.sum fun ν _ => contDiff_const.mul (contDiff_apply ℂ (fun _ => ℂ) ν)))
 
 /-- The mixed partial along `L` is `F_{P.map φ}` for a polynomial `P ∈ K[X]` with the three
 coefficient invariants. -/

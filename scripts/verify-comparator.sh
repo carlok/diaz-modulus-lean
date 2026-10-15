@@ -8,8 +8,8 @@ comparator_dir="$cache_root/comparator"
 lean4export_dir="$cache_root/lean4export"
 nanoda_dir="$cache_root/nanoda"
 
-comparator_commit=d03acab154d269c06e60e4de7e4cc85deebff94b
-lean4export_commit=076e8e57707e813375e8f9da8bf989799ace9680
+comparator_commit=e3dcf3083fc53d44b27a4431fabf7d43181583f5
+lean4export_commit=5a9a355dc6c5fd82b69058d433e2ae2e8dfbf8fe
 landrun_commit=811cfff51ceaf3d9843708aa6d22e9b84ccac8b4
 nanoda_commit=68d5ca9db226849b41a6fff59d796ff19d0a8840
 
