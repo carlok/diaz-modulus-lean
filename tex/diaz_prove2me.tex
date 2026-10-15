@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.26, 14 October 2026}
+\date{September 2026\\[2pt]\small Version 1.27, 15 October 2026}
 
 \begin{document}
 \maketitle
@@ -866,9 +866,10 @@ statement can see near a point of a circle: nothing on generic data, and, on a f
 extension of $H_{0}$, exactly $u^{2}$, $\bar u^{2}$ and $1/(u-a)$. With Roy's theorem these are the
 exclusions of Diaz's Corollaire~5(1) and~5(4)~\cite{diaz-2007}, behind Corollaries~\ref{cor:square}
 and~\ref{cor:recip}. The progression $b,bh,bh^{2},bh^{3}$ is the shape of Fischler's
-Lemma~6.1~\cite{fischler-2001} and of Diaz's Th\'eor\`eme~7(2)~\cite{diaz-2007}, which use the converse
-direction: a progression carries a configuration. The classification itself was not found in the
-sources read. It does not involve $\e^{u}$, so it keeps its content if Diaz's conjecture holds. One
+Lemma~6.1~\cite{fischler-2001}, for logarithms, and of Diaz's Th\'eor\`eme~7(2)~\cite{diaz-2007}, for
+$\aLogs$, which use the converse direction: a progression carries a configuration. That a configuration
+in a four-dimensional space is such a progression is~\cite[Lemma~4]{bachoc-serra-zemor}. The
+classification itself was not found in the sources read. It does not involve $\e^{u}$, so it keeps its content if Diaz's conjecture holds. One
 caveat: $\aLogs$ is closed under complex conjugation, so a hypothesis $z\in\aLogs$ brings $\bar z\in\aLogs$
 with it, and the space to classify is in general $H_{0}+\Alg z+\Alg\bar z$, of dimension five, where
 more is excluded. For instance $u^{3}\in\aLogs$ brings $\bar u^{3}$, and $x=(u,\bar u)$,
@@ -941,8 +942,9 @@ the circle $\bar z_{i}=-(\rho/\bar a_{i})z_{i}$, with $\rho/\bar a_{1}\neq\rho/\
 conjugate together give both $z_{i}$.
 \end{proof}
 
-The configuration is the progression of~\cite[Lemma~6.1]{fischler-2001} and~\cite[Th\'eor\`eme~7(2)]{diaz-2007} with
-ratio $u^{2}$, so part~(2) is one substitution there; it is not claimed. The invisibility in~(1) was not found in the
+The configuration is the progression of~\cite[Th\'eor\`eme~7(2)]{diaz-2007} with ratio $u^{2}$
+(\cite[Lemma~6.1]{fischler-2001} is its version for logarithms), so part~(2) is one substitution there; it
+is not claimed. The invisibility in~(1) was not found in the
 sources read; it is short. For $a_{2}=\rho^{2}/\bar a_{1}$ the space $W$ is the first family of
 Proposition~\ref{prop:conjugate-pair}.
 
@@ -1556,8 +1558,9 @@ and three $\Alg$-independent $y_{j}$ with all six products in
 $\Alg u^{-k}+\Alg u^{-1}+\Alg+\Alg u+\Alg u^{k}$ exist only for $k=2$ and $k=3$. After multiplying by
 $u^{k}$, the products become polynomials supported on $\{0,k-1,k,k+1,2k\}$, the rows differ by a
 fixed shift $\delta\neq0$ of the orders at $0$, and for $k=1$ and $k\ge4$ no such shift keeps three
-exponents of that set inside it. So from a candidate's own data Roy's theorem excludes $u^{2}$ and
-$u^{3}$ from $\aLogs$ and nothing beyond. Diaz's Th\'eor\`eme~7 gives only
+exponents of that set inside it. So, through the hull of a single power, Roy's theorem excludes $u^{2}$ and
+$u^{3}$ from $\aLogs$ and no higher power; pairs of higher powers can still be excluded
+(Proposition~\ref{prop:laurent}(b)). Diaz's Th\'eor\`eme~7 gives only
 $\{u,u^{2},u^{3}\}\not\subset\aLogs$, and he remarks that inside that theorem one cannot hope to go
 very far~\cite[p.~390]{diaz-2007}; this is one precise instance. The statement was not found in the
 sources read; it is machine-checked.
@@ -2043,7 +2046,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.26 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.27 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2104,7 +2107,11 @@ Version 1.25 makes, on 12 October 2026, the classification of Remark~\ref{rem:in
 ratio rational in $u$.
 Version 1.26 adds, on 14 October 2026, Proposition~\ref{prop:beyond-degree-one} (configurations of degree two)
 and Remark~\ref{rem:degree-bound-visibility} (no higher degree; visibility for Laurent $f$).
-Every row of the table below was checked against the platform by script on 14 October 2026, and
+Version 1.27 corrects, on 15 October 2026, three attributions found by two referee reports: that a configuration
+in a four-dimensional space is a progression is Lemma~4 of Bachoc, Serra and Z\'emor; Fischler's
+Lemma~6.1 is about logarithms, and Diaz's Th\'eor\`eme~7(2) is its form for $\aLogs$; and the strong six
+exponentials route stops at $u^{3}$ only for single powers through their hulls.
+Every row of the table below was checked against the platform by script on 15 October 2026, and
 the mirrored project held all 414 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of

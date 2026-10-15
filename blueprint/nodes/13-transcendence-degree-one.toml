@@ -3,7 +3,7 @@
 [chapter]
 title = "Consequences in transcendence degree one"
 text = '''
-Results of the library's work on Diaz's conjecture that follow from the four exponentials theorem in transcendence degree one (Theorem~\ref{thm:four_exponentials_trdeg_one}): a $2\times2$ matrix with non-zero entries in $\mathcal L$, the logarithms of algebraic numbers, that generate a field of transcendence degree at most one and with vanishing determinant has rationally dependent rows or columns. Each statement here is one matrix away from that theorem, or from Brownawell's corollaries of 1974 \cite{Bro74}; they were not found in the sources read in this form, and they are short (Chapter~\ref{chap:14-not-found-in-the-sources}). The last section holds a conditional statement: Waldschmidt's strong five exponentials conjecture implies Diaz's.
+Results of the library's work on Diaz's conjecture in transcendence degree one, and two conditional reductions. The first three sections follow from the four exponentials theorem in transcendence degree one (Theorem~\ref{thm:four_exponentials_trdeg_one}): a $2\times2$ matrix with non-zero entries in $\mathcal L$, the logarithms of algebraic numbers, that generate a field of transcendence degree at most one and with vanishing determinant has rationally dependent rows or columns. Each statement there is one matrix away from that theorem, or from Brownawell's corollaries of 1974 \cite{Bro74}; they were not found in the sources read in this form, and they are short (Chapter~\ref{chap:14-not-found-in-the-sources}). The fourth section holds a conditional statement: Waldschmidt's strong five exponentials conjecture implies Diaz's. The fifth, on two candidates, holds results from the author's unpublished manuscript, each an instance of \cite[Corollaire 4]{W73}, with the elementary lemmas they use. The last works under the case $n=2$ of Kirby's weak Schanuel conjecture \cite[Conjecture 1.5]{Kir18}: Theorem~\ref{thm:leaf_iff_one} reduces the real branch to one relation, Kirby's hypothesis makes Diaz's conjecture equivalent to it, and with the case $n=1$ of Schanuel's conjecture over the kernel Diaz's conjecture holds.
 '''
 
 # --- Products and quotients on an axis ---------------------------------------------------
@@ -164,7 +164,7 @@ title = 'Rational multiples are dependent'
 statement = '''
 Let $u,v\in\C$ with $u\bar u$ algebraic. If $v=cu$ or $v=c\bar u$ for some $c\in\Q^{\times}$, then $u$ and $v$ are algebraically dependent over $\Q$.
 '''
-source = '''Elementary.'''
+source = '''Elementary. The proof is by the Prove2Me contributor amorphic (8 September 2026).'''
 sketch = '''
 $v-cu=0$ is a relation; if $v=c\bar u$, then $uv=c\,u\bar u$ is algebraic, which is a relation too.
 '''

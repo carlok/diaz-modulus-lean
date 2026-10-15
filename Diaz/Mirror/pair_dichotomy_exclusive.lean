@@ -1,6 +1,8 @@
 /-
 Mirrored from Prove2Me: `Diaz.pair_dichotomy_exclusive`.
 
+Proof by the Prove2Me contributor amorphic, credited in the README.
+
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.pair_dichotomy_exclusive__05cfa456.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.

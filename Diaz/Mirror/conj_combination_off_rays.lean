@@ -1,6 +1,8 @@
 /-
 Mirrored from Prove2Me: `Diaz.conj_combination_off_rays`.
 
+Proof by the Prove2Me contributor amorphic, credited in the README.
+
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.conj_combination_off_rays__3484bf5b.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.

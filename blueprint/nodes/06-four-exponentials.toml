@@ -5,7 +5,7 @@ title = "The four exponentials theorem in transcendence degree one"
 text = '''
 The four exponentials conjecture holds when the four logarithms generate a field of transcendence degree one: Theorem~\ref{thm:four_exponentials_trdeg_one}, proved independently by Waldschmidt and by Brownawell. The proof here is Waldschmidt's of 1973 \cite{W73} with the tools of his 1971 paper \cite{W71}, so it needs neither a lower bound for linear forms in logarithms nor Philippon's zero estimate. The printed 1973 proof meets one hypothesis of its Lemme~2 with Gel'fond's bound for linear forms in two logarithms; the zero count of Theorem~\ref{thm:expPoly_zero_count}, which needs no separation between the frequencies, makes that hypothesis unnecessary.
 
-The chapter has three parts: Gel'fond's transcendence criterion in Waldschmidt's form, the zero count, and the construction of 1973. The construction proves by contradiction that its hypotheses cannot hold together, so several statements of the last part have hypotheses that are never satisfied.
+The chapter has four sections: Gel'fond's transcendence criterion in Waldschmidt's form, the zero count, the construction of 1973, and the theorem. The construction proves by contradiction that its hypotheses cannot hold together, so several of its statements have hypotheses that are never satisfied.
 
 \textbf{Notation for the construction.} $N$ is a large integer, and
 \[ S=\Bigl\lfloor\frac{N^{2}}{\sqrt{\log N}}\Bigr\rfloor,\qquad S'=\lfloor S/2\rfloor,\qquad t_1=\Bigl\lfloor\frac{N}{\sqrt{\log N}}\Bigr\rfloor,\qquad t_2=\bigl\lfloor N\sqrt{\log N}\bigr\rfloor, \]

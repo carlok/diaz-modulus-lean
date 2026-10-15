@@ -102,7 +102,7 @@
  "Diaz.norm_to_polynomial_alg": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/norm_to_polynomial_alg.lean#L86",
  "Diaz.norm_to_polynomial_alg_column": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/norm_to_polynomial_alg_column.lean#L89",
  "Diaz.normal_form": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/normal_form.lean#L23",
- "Diaz.pair_dichotomy_exclusive": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/pair_dichotomy_exclusive.lean#L15",
+ "Diaz.pair_dichotomy_exclusive": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/pair_dichotomy_exclusive.lean#L17",
  "Diaz.polynomial_submodule_mul_finrank_ge": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/polynomial_submodule_mul_finrank_ge.lean#L81",
  "Diaz.polynomial_submodule_trailing_degrees_card": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/polynomial_submodule_trailing_degrees_card.lean#L113",
  "Diaz.power_hull_strong_six_exp_configuration_iff": "https://github.com/carlok/diaz-modulus-lean/blob/master/Diaz/Mirror/power_hull_strong_six_exp_configuration_iff.lean#L326",

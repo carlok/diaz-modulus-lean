@@ -3,7 +3,7 @@
 [chapter]
 title = "Gelfond–Schneider"
 text = '''
-The Gelfond--Schneider theorem in logarithmic form, by Gel'fond's method, and the transcendence of $e^{\pi}$. The Lean proof restructures the formalisation of M.~Karatarakis and F.~Wiedijk \cite{KW26} (Apache 2.0), which the library first carried as a single module of 5,388 lines. It is now a tree of eleven results, 1,409 lines in all: two tools of Chapter~\ref{chap:02-tools}, Lemmas~\ref{lem:liouville_house} and~\ref{lem:expSum_first_nonvanishing}; the eight steps of Gel'fond's method below; and Theorem~\ref{thm:gelfond_schneider}. Lemma~\ref{lem:deriv_upper} goes through the grid estimate of Lemma~\ref{lem:expPoly_grid_estimate}, which the four exponentials development shares.
+The Gelfond--Schneider theorem in logarithmic form, by Gel'fond's method, and the transcendence of $e^{\pi}$. The Lean proof restructures the formalisation of M.~Karatarakis and F.~Wiedijk \cite{KW26} (Apache 2.0), which the library first carried as a single module of 5,388 lines. It is now a tree of eleven results of its own, 1,409 lines in all: two tools of Chapter~\ref{chap:02-tools}, Lemmas~\ref{lem:liouville_house} and~\ref{lem:expSum_first_nonvanishing}; the eight steps of Gel'fond's method below; and Theorem~\ref{thm:gelfond_schneider}. Lemma~\ref{lem:deriv_upper} goes through the grid estimate of Lemma~\ref{lem:expPoly_grid_estimate}, which it shares with the four exponentials development, together with the results that lemma uses.
 
 Unless said otherwise, $K$ is a number field, $\sigma\colon K\to\C$ a field embedding and $\alpha',\beta',\gamma'\in K$; sums over $a,b$ run over $1\le a,b\le q$.
 '''

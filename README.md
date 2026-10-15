@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 364 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 414 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -21,10 +21,12 @@ cannot settle it.
 The blueprint at https://carlok.github.io/diaz-modulus-lean/ states each of them, and every result their proofs use,
 with a dependency graph, links to the Lean source and a PDF.
 Since October 2026 it also has chapters of the library's own results: the rank-one configurations near a point of
-a circle (Theorems A and B below, the five-dimensional spaces and the power hulls), the dichotomy for Li₂(1/2),
-quadratic relations near a point of a circle, and consequences in transcendence degree one.
-Its chapter "Results not found in the sources read" lists every result of the library not found in the literature
-checked, and marks those that are not routine; in the dependency graph they have a double border.
+a circle (Theorems A and B below, the power and Laurent hulls, separation, and the five-dimensional spaces, with the
+progression spaces classified and configurations up to degree two), the dichotomy for Li₂(1/2), quadratic relations
+near a point of a circle, and consequences in transcendence degree one, with results from the author's unpublished
+manuscript and reductions under Kirby's weak Schanuel conjecture.
+Its chapter "Results not found in the sources read" lists the blueprint's results not found in the literature
+checked and ranks those that are not routine; in the dependency graph they have a double border.
 
 | Result | Due to | Lean name | Lean proof |
 |---|---|---|---|
@@ -42,9 +44,12 @@ checked, and marks those that are not routine; in the dependency graph they have
 | the criterion of Schneider–Lang for `ℂ^{d₀} × (ℂ^×)^{d₁}` with `d₀ ≤ 1` | Schneider 1949, Lang 1966; this form is DALAG Cor. 4.2 | `Transcendence.schneider_lang_cartesian` | this project |
 | a Schwarz lemma for Cartesian products | DALAG Prop. 4.7 | `Transcendence.cartesian_schwarz` | this project |
 
-Some results carry a conjecture as an explicit hypothesis: the strong four, sharp four and strong five
-exponentials conjectures. Others carry Roy's strong six exponentials theorem, which is proved in the
-literature but not yet here. "What is assumed" lists each one.
+Some results carry a conjecture as an explicit hypothesis: Schanuel's conjecture; the strong four, sharp four and
+strong five exponentials conjectures; Waldschmidt's 2×2 determinant conjecture; the case n = 2 of Kirby's weak
+Schanuel conjecture; and the case n = 1 of Schanuel's conjecture over the kernel. Others carry Roy's strong six
+exponentials theorem, which is proved in the literature but not yet here. Each is a hypothesis of the statement that
+uses it, named in that statement's section below, so the library still assumes only Lean's three axioms ("What is
+assumed").
 
 Names are the library's own; `MIRROR_CHECKLIST.md` maps each to its name on Prove2Me.
 
@@ -55,11 +60,14 @@ cut where other proofs can reuse their parts, and written the same way throughou
 
 - **Small results.** Every result is a separate statement with its own proof. The size rule, counting
   lines of content without blanks and comments: a proof of 400 lines or more becomes a tree of results,
-  and in a proof of 300 to 399 lines any helper over 40 lines becomes a result of its own. Two proofs
-  still break it: Lindemann–Weierstrass as ported from Mathlib PR #28013, and
-  `exists_iteratedDeriv_presentation` in the four exponentials development.
-- **Import, don't re-prove.** A result is proved once and imported where it is needed; by script, no
-  proof carries a helper whose statement is another result's. The proof of Waldschmidt's 1973 Théorème
+  and in a proof of 300 to 399 lines any helper over 40 lines becomes a result of its own. Five proofs
+  break it (measured 15 October 2026): Lindemann–Weierstrass as ported from Mathlib PR #28013;
+  `exists_iteratedDeriv_presentation` and `exists_iteratedDeriv_presentation_of_exp_factor` in the four
+  exponentials development; and two of October, `mobius_progression_space_contains_square_or_reciprocal` and
+  `quadratic_ratio_progression_space_eq_involution_pencil_space`.
+- **Import, don't re-prove.** A result is proved once and imported where it is needed. The known exception
+  is a transcendence-degree helper that is also the result
+  `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin`: sixteen proofs carry their own lemmas of that kind. The proof of Waldschmidt's 1973 Théorème
   reuses 33 results of the four exponentials development unchanged.
 - **Shared tools.** Pieces that several proofs need are results of their own in the `Transcendence`
   namespace, stated for general use rather than for the proof that first needed them: Siegel's lemma
@@ -87,7 +95,7 @@ element of `ℒ` has algebraic modulus. He also asked a question of method: how 
 
 The companion note (`tex/`) gives the mathematical account. Every branch of the conjecture is either closed
 or reduced to two open statements. Each of the published conjectures above would settle it. The note also
-records which methods cannot: in particular, nothing homogeneous on a candidate's own data, and the strong
+records which methods cannot: in particular, nothing homogeneous on a candidate's own data, and, for a single power through its hull, the strong
 six exponentials route stops at `u³`.
 
 ### The observation
@@ -382,7 +390,7 @@ after a script re-checks each appendix row against the live board.
 **Stable version 1.0** (2026-09-21) is tagged `note-v1.0`, with the PDF attached to
 the matching GitHub release. It records the end of the case analysis: every branch
 of the conjecture is closed or reduced to one of three open statements, named in its
-last section. The older
+last section; version 1.26 (14 October 2026) reduces every branch to two. The older
 `tex/diaz-modulus.tex` is a different and earlier note, about the model and the
 negative result, and is not superseded by it.
 
@@ -441,7 +449,7 @@ the former, and imported by the latter.
 
 ### The first two, in detail
 
-`Multipliers.lean` is not part of the note. It is a local copy of two
+`Multipliers.lean` was not part of the first versions of the note (its appendix now cites it). It is a local copy of two
 results published on [Prove2Me](https://prove2.me) in September 2026, kept
 here so that they survive independently of that platform. They are stated
 in the platform's own vocabulary — `LogAlg`, `LogAlgTilde`, `IsCandidate`,
@@ -628,7 +636,7 @@ No new mathematics is claimed.
 
 ### Consequences of Roy's strong six exponentials theorem
 
-Ten nodes carry Roy's strong six exponentials theorem as the hypothesis `hSSE`, in the form of
+Ten nodes of 1 October 2026 carry Roy's strong six exponentials theorem as the hypothesis `hSSE` (later rounds added more), in the form of
 `candidate_multiplier_module`: if `x₁, x₂` and `y₁, y₂, y₃` are linearly independent over `Q̄`, one of
 the six products `xᵢyⱼ` is not in `ℒ̃`. Every statement was read on the page first.
 
@@ -668,7 +676,7 @@ configuration of the strong six exponentials theorem with all six products in
 `{0, k−1, k, k+1, 2k}`. Not found in the sources read; Diaz (2007, p. 390) remarks that inside that
 theorem one cannot hope to go very far.
 
-### No 2×3 configuration on generic data
+### No 2×3 configuration on generic data (Theorem A)
 
 `DiazModulus.generic_circle_point_no_two_by_three_configuration` (4 October 2026): let u ≠ 0 with uū algebraic,
 and let w₁, …, w_m be numbers such that u, w₁, …, w_m are algebraically independent over Q̄. Then no Q̄-independent
@@ -681,7 +689,7 @@ logarithms are added.
 - The case m = 1, w = iπ is `DiazModulus.generic_no_strong_six_exp_configuration`.
 - The proof is algebra: polynomials of total degree at most two, and the ring map X₀ ↦ 0.
 
-### Which four-dimensional extensions carry one
+### Which four-dimensional extensions carry one (Theorem B)
 
 `DiazModulus.circle_point_extension_two_by_three_configuration_iff` (5 October 2026): let u ∉ Q̄ with uū algebraic,
 and z ∉ H₀ = Q̄ + Q̄u + Q̄ū. Then H₀ + Q̄z carries Q̄-independent x₁, x₂ and y₁, y₂, y₃ with all six products in it
@@ -715,7 +723,7 @@ H₀ + Q̄w inside W does.
 Eighteen nodes of 8 October 2026 put the previous sections into one mechanism, over any subfield K of ℂ.
 - **Separation** (`DiazModulus.rank_one_config_separation`): for K ≤ F, a K-space V₀ ⊆ F and w₁, …, w_m
   algebraically independent over F, every p×q configuration (p, q ≥ 2) in V₀ + Kw₁ + … + Kw_m lies in V₀. The
-  numbers iπ of `generic_period_never_enters` and the w_j of the previous section are cases.
+  numbers iπ of `generic_period_never_enters` and the w_j of Theorem A above are cases.
 - **The normal form** (`DiazModulus.circle_point_two_by_two_normal_form`): for u transcendental over K with uū ∈ K,
   the 2×2 configurations in H₀ = K + Ku + Kū are exactly x = μ·P(1, u), y = μ⁻¹·Q(1, ū) with P, Q ∈ GL₂(K): one
   orbit, that of the certificate (1, u) ⊗ (1, ū). Their constant terms form the invertible matrix P·diag(1, ρ)·Q
@@ -740,7 +748,7 @@ Seven nodes of 9 October 2026.
 - **Two poles** (`DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions`): for
   u ∉ Q̄ with uū algebraic and any distinct non-zero algebraic a₁, a₂, the space
   H₀ + Q̄u/(u² − a₁) + Q̄u/(u² − a₂) carries a configuration (the progression b, bu², bu⁴, bu⁶) that no
-  four-dimensional H₀ + Q̄w inside it carries. This drops the conjugation condition of the previous section's first
+  four-dimensional H₀ + Q̄w inside it carries. This drops the conjugation condition of the five-dimensional section's first
   family and covers the third family, a₁ā₁ = a₂ā₂ = ρ². At a candidate, u/(u² − a₁) and u/(u² − a₂) are not both
   in ℒ̃, and in the third family their sum is not; both are one substitution in Diaz (2007, Th. 7(2)), which is
   Fischler (2001, Lemma 6.1), and are not claimed.
@@ -779,8 +787,8 @@ Seven nodes of 11 October 2026.
 - **An invisible member with no progression.** For λ = 1 and f = u²/s² + s²/u², the space contains none of u², ū²
   and 1/(u − b), so no four-dimensional space of Theorem B inside it carries a configuration
   (`DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions`). Its polar divisor has
-  degree 5, so it contains no progression. This answers the question left open above: conjugation-stable invisible
-  spaces need not contain a progression.
+  degree 5, so it contains no progression: conjugation-stable invisible spaces need not contain a
+  progression.
 - **At a candidate**, under Roy's strong six exponentials theorem, f and f/(|u| + λu) are not both in ℒ̃
   (`DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde`). This is one substitution in Diaz (2007, Th. 7(1))
   and is not claimed.
@@ -959,7 +967,7 @@ Indistinguishability also holds with π fixed:
   candidate algebraically independent of π cannot be told from a non-candidate
   point of its circle by any vanishing statement with coefficients in `K`.
 
-The companion note, version 1.8, states all of this precisely.
+The companion note (since version 1.8) states all of this precisely.
 
 ### From the literature, formalised
 
@@ -1018,8 +1026,10 @@ becomes a node:
 
 - `Transcendence.trdeg_adjoin_le_one_of_isAlgebraic_adjoin` — for fields
   `K ⊆ L`, elements algebraic over `K[x]` generate a `K`-algebra of
-  transcendence degree at most one. Fourteen proofs in this library carry it
-  as a local helper; new proofs import it.
+  transcendence degree at most one. Sixteen proofs in this library carry local
+  lemmas of this kind, most written before it became a result; two of October
+  (`candidate_im_mem_pi_rat_of_weak_schanuel`, `diaz_of_weak_schanuel_and_kernel_schanuel`) carry
+  copies instead of importing it.
 - `log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq` — Diaz 1997,
   Proposition 1: if `ℓ₁ℓ₂ = cπ²` with `c ∈ ℚ^×` and `e^{ℓ₁}` not a root of
   unity, then `ℓ₁, ℓ₂` are algebraically independent, and so are `ℓ₁, 2πi`.
@@ -1269,7 +1279,7 @@ Lean checks that every proof proves its statement, with only the three standard 
 that a statement says what the cited source says. Agents compared each statement and attribution with the
 primary sources, often from page images, and several claims of novelty died that way. What survives is
 what survived that. A reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta–Kakde on
-24 September 2026 moved several more results from "possibly known" to known. Version 1.6 of the note and
+24 September 2026 moved several more results from "possibly known" to known. Since version 1.6, the note and
 the node texts on the platform attribute each one.
 
 Code written by others is credited where it is used:
@@ -1281,7 +1291,10 @@ Code written by others is credited where it is used:
   `real_axis_root_of_unity_implies_pi_sq_rat` and `imag_axis_div_normalisation` on the axes; and
   `normSq_of_modulus_conjecture`;
 - `construction_count`, a counting inequality for the auxiliary construction of the four exponentials
-  proof, proved by the Prove2Me contributor cm_beta (23 September 2026).
+  proof, proved by the Prove2Me contributor cm_beta (23 September 2026);
+- `pair_dichotomy_exclusive` and `conj_combination_off_rays`, proved by the Prove2Me contributor amorphic
+  (8 September 2026);
+- `diaz_of_exp_eq_one`, proved by the Prove2Me contributor curiyu (8 September 2026).
 
 `e_pi_transcendence` answers a node that another Prove2Me contributor posed; its proof is this project's.
 
@@ -1297,7 +1310,7 @@ repository root, so the project path is `.`.
 | `Solution.lean` | The proved counterparts, delegating to `Diaz` |
 | `comparator.json` | The declarations Comparator compares |
 | `formalization.yaml` | Project metadata to the mathlib-initiative standard |
-| `tex/diaz-modulus.tex` | The companion note: the informal account of exactly these statements |
+| `tex/diaz-modulus.tex` | The earlier note, on the model and the negative result: the informal account of exactly these statements |
 | `LICENSE` | Apache-2.0 |
 
 The compared surface is the **axiom-free core**: `conj_eq_rho_div`,

@@ -1,6 +1,8 @@
 /-
 Mirrored from Prove2Me: `DiazModulus.diaz_of_exp_eq_one`.
 
+Proof by the Prove2Me contributor curiyu, credited in the README.
+
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.diaz_of_exp_eq_one__83e1823c.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
