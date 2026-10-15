@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 414 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 418 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -799,11 +799,11 @@ Seven nodes of 11 October 2026.
 - **Two hypotheses.** Kirby's weak Schanuel conjecture for n = 2, with Schanuel's conjecture over the kernel 2πiℚ for
   n = 1, implies Diaz's conjecture (`DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel`). The second hypothesis
   contains the algebraic independence of e and π, which is open.
-- Not found in the sources read, except the candidate statement; all short.
+- Not found in the sources read, except the candidate statement; all routine.
 
 ### Case II beyond degree one
 
-Eleven nodes of 14 October 2026, from the R12 research notes.
+Eleven nodes of 14 October 2026 and four of 15 October, from the R12 research notes.
 - **A space with no factor of degree one.** For u ∉ Q̄ and s ∈ Q̄ real with s² = uū, put F = u³/s³ + u²/s². The span
   of 1, u, ū, F, F̄ is stable under conjugation, the six products of (1, u²) and (ū, u + s, F̄) span it, and it is
   invisible to Theorem B (`DiazModulus.laurent_cubic_configuration_invisible_to_four_dimensional_extensions`). No
@@ -820,9 +820,18 @@ Eleven nodes of 14 October 2026, from the R12 research notes.
   invisible when k ≥ 3, or k = 2 and f(−λ̄) ≠ 0, and contains u² when k = 2 and f(−λ̄) = 0
   (`DiazModulus.laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions`,
   `DiazModulus.laurent_real_pencil_space_contains_square_of_root`).
+- **Orbits exchanged by conjugation, and the cyclic case.** With g = a₁/(u − a) + a₂/(u + a), |a| ≠ |u| and a₁ ≠ a₂,
+  conjugation exchanges the orbits ±a and ±s²/ā, and the span of 1, u, u⁻¹, g, ḡ is stable under conjugation,
+  carries a spanning configuration and is invisible
+  (`DiazModulus.conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions`). With v = u/s, the
+  span of 1, u, ū, G₁ = 1/(v − 1) + 2/(v + 1) and G₂ = 1/(v − 1)² + 1/(v − 1) − 2/(v + 1)² + 2/(v + 1) is stable
+  under conjugation and invisible, (1, u²) acts on G₁, G₂ as a Jordan block modulo 1, u, ū, and no configuration in
+  it has a Möbius ratio (`DiazModulus.cyclic_pair_configuration_invisible_to_four_dimensional_extensions`,
+  `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration`).
 - In the research notes only, not formalised: the general visibility criterion (W(λ, f) is visible exactly when it is
-  a complete linear system) and the normal forms of the degree-two case.
-- Not found in the sources read; all short. At a candidate they add nothing: Roy's theorem already excludes every such
+  a complete linear system) and the classification of the degree-two case into three families, two orbits fixed or
+  exchanged by conjugation and a cyclic family; each family has a formal member above.
+- Not found in the sources read; all routine. At a candidate they add nothing: Roy's theorem already excludes every such
   space.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either

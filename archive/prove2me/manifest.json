@@ -6160,5 +6160,53 @@
   "bytes": 9768,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration",
+  "theorem_id": "dfc3244d-f7c4-4044-affb-de9419ac2e1c",
+  "submission_id": "6abf9f79-9026-408d-8ca5-1946f61ce72b",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-15T11:59:42.896759+00:00",
+  "file": "DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration__6abf9f79.lean",
+  "bytes": 10175,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.cyclic_pair_space_excludes_squares_and_reciprocals",
+  "theorem_id": "bea5ddb7-bcf8-4e0a-91d4-cb4cd4c65a2b",
+  "submission_id": "9bf571b8-b674-4be5-88fa-a39d4c68e6ba",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-15T12:02:13.034859+00:00",
+  "file": "DiazModulus.cyclic_pair_space_excludes_squares_and_reciprocals__9bf571b8.lean",
+  "bytes": 11287,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions",
+  "theorem_id": "dff5b4bf-d4b1-4857-9ee9-b28491871a77",
+  "submission_id": "c55512bb-d52d-471c-a971-6e8751db19db",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-15T11:59:37.340807+00:00",
+  "file": "DiazModulus.conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions__c55512bb.lean",
+  "bytes": 10602,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.cyclic_pair_configuration_invisible_to_four_dimensional_extensions",
+  "theorem_id": "c5f1b34c-b54c-4dd5-92a5-f15bf59cfcff",
+  "submission_id": "53713363-33b4-4317-b3ec-a1e9984b360a",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-15T11:59:40.064742+00:00",
+  "file": "DiazModulus.cyclic_pair_configuration_invisible_to_four_dimensional_extensions__53713363.lean",
+  "bytes": 13998,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
