@@ -20,6 +20,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem*{theoremC}{Theorem C}
 \newtheorem*{theoremD}{Theorem D}
+\newtheorem*{theoremE}{Theorem E}
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -39,7 +40,7 @@
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 
-\title{Polynomial hulls at a Diaz candidate,\\
+\title{Polynomial and Laurent hulls at a Diaz candidate,\\
 and a barrier for generic candidates}
 \author{Research note for the \texttt{diaz-modulus-lean} project\\
 (written by Claude, an AI model, at the request of Carlo Perassi)}
@@ -54,32 +55,34 @@ algebraic modulus. A hypothetical counterexample $u$, a \emph{candidate}, certif
 the three-dimensional space $H_{0}=\Qbar+\Qbar u+\Qbar\bar u$ inside $\Lt$, the
 $\Qbar$-span of $1$ and the logarithms. Roy's strong six exponentials theorem then
 excludes a number $z$ from $\Lt$ whenever the conjugation hull
-$W_{z}=H_{0}+\Qbar z+\Qbar\bar z$ carries a $2\times3$ configuration.
+$W_{z}=H_{0}+\Qbar z+\Qbar\bar z$ carries a $2\times3$ configuration. We decide this for
+every polynomial expression $z$ in $u$ and $\bar u$.
 
-\emph{Theorem C} answers this question for every polynomial: for
-$P\in\Qbar[X]$, $W_{P(u)}$ carries a configuration if and only if $\deg P$ is $2$
-or $3$. So at a candidate $e^{\beta P(u)}$ is transcendental for every cubic and
-every quadratic $P$ and every algebraic $\beta\neq0$. In the sources the project has
-read, the cubic case was known only for $u^{3}$ and for one family. In the other
-direction, Roy's theorem
-cannot exclude any polynomial of degree at least $4$ through its hull, nor any real
-polynomial expression in $\Re u$ and $\Im u$, such as $(\Re u)^{2}$. The proof is
-new for this project. A configuration can be normalised to Laurent polynomials, and
-the orders at $0$ and at $\infty$ then pinch the supports of its products into
-$[-1,1]$.
+\emph{Theorem C} (polynomials in $u$): $W_{P(u)}$ carries a configuration if and only if
+$\deg P\in\{2,3\}$. The ``if'' half is one substitution in Diaz's Th\'eor\`eme~7(1) of
+2007, which the project has formalised. What is new is the ``only if'' half: Roy's
+theorem cannot exclude from $\Lt$, through its own hull, any polynomial in $u$ of
+degree at least $4$. The proof normalises a configuration to Laurent polynomials. The
+orders at $0$ and at $\infty$ then pinch the supports of the products into $[-1,1]$.
+
+\emph{Theorem E} (polynomials in $u$ and $\bar u$) classifies the hulls that carry a
+configuration into three classes. Class~(P) is Theorem~C. Class~(Q) is a family in the
+exponents $\pm2,\pm3$, such as $\Re(u^{3})+cu^{2}$. Its configurations have a factor
+whose involution exchanges $0$ and $\infty$, and they were not found in the project's
+notes. Class~(R) is the project's real pencil spaces. In particular, when the
+exponents stay within $\pm3$, a three-factor equation in the coefficients decides the
+question. When some exponent has absolute value at least $4$, only class~(R) remains.
+Real polynomial expressions in $\Re u$ and $\Im u$ with algebraic coefficients are
+never excluded.
 
 \emph{Theorem D} is a barrier. Adjoin to the logarithms a point $u$ of a circle of
 algebraic radius that is generic over the field they generate. The enlarged system
-still satisfies Hermite--Lindemann, Baker's theorem, Gel'fond--Schneider, the six
-exponentials theorem, Roy's strong six exponentials theorem and the four
-exponentials theorem in transcendence degree one, and it is stable under
-conjugation. Yet it contains a candidate. So Diaz's conjecture does not follow from
-these theorems used as properties of $(\cL,\Lt)$. A proof must use either an
-inhomogeneous principle (the strong four exponentials conjecture or something like
-it), or the way a genuine candidate is tied to the other logarithms. Theorem C
-measures the second option: polynomial ties give at most degree three.
+still satisfies Hermite--Lindemann, Baker, Gel'fond--Schneider, six exponentials,
+Roy's strong six exponentials and four exponentials in transcendence degree one, and
+it is stable under conjugation. Yet it contains a candidate. So Diaz's conjecture does
+not follow from these theorems used as properties of $(\cL,\Lt)$.
 
-Neither theorem proves Diaz's conjecture, and none of this is machine-checked.
+None of this proves Diaz's conjecture, and none of it is formalised.
 \end{abstract}
 
 \section{Setting}\label{sec:setting}
@@ -95,15 +98,17 @@ $|u|\in\Qbar$ and $e^{u}\in\Qbar$; Diaz's conjecture says there is none
 \]
 
 \begin{definition}
-Let $K\subseteq\C$ be a field and $V\subseteq\C$ a $K$-vector space. A \emph{$p\times q$
-configuration over $K$ in $V$} is a pair of families $x_{1},\dots,x_{p}$ and
-$y_{1},\dots,y_{q}$ in $\C$, each linearly independent over $K$, with every product
-$x_{i}y_{j}$ in $V$. Unqualified, ``configuration'' means a $2\times3$ configuration
-over $\Qbar$.
+Let $K\subseteq\Omega$ be fields and $V\subseteq\Omega$ a $K$-vector space. A
+\emph{$p\times q$ configuration over $K$ in $V$} is a pair of families $x_{1},\dots,x_{p}$
+and $y_{1},\dots,y_{q}$ in $\Omega$, each linearly independent over $K$, with every
+product $x_{i}y_{j}$ in $V$. Usually $\Omega=\C$; in Section~\ref{sec:tools},
+$\Omega=\Qbar(T)$. Unqualified, ``configuration'' means a $2\times3$ configuration over
+$\Qbar$.
 \end{definition}
 
-The only transcendence input of Sections~\ref{sec:statements}--\ref{sec:proofC} is the
-following theorem; it is proved \cite{Roy92}, but not formalised in the project.
+The only transcendence input of Sections~\ref{sec:statements}--\ref{sec:proofE} is the
+following theorem. It is proved \cite{Roy92}, but the project carries it as a
+hypothesis.
 
 \begin{theorem}[Roy's strong six exponentials theorem \cite{Roy92}]\label{thm:roy}
 There is no configuration in $\Lt$.
@@ -121,18 +126,22 @@ $z\in\Lt$, then $W_{z}\subseteq\Lt$, because $\Lt$ is a conjugation-stable $\Qba
 containing $1,u,\bar u$. Hence:
 
 \begin{quote}
-\emph{If $W_{z}$ carries a configuration, then $z\notin\Lt$ at every candidate~$u$, and
+\emph{If $W_{z}$ carries a configuration and $u$ is a candidate, then $z\notin\Lt$, and
 $e^{\beta z}$ is transcendental for every $\beta\in\Qbar^{\times}$.}
 \end{quote}
 
 In this case we say that Roy's theorem \emph{excludes $z$ through its hull}. Theorem~B
-of the project \cite[Thm.~10.6]{BP} decides this when $\dim W_{z}=4$. Let $z\notin H_{0}$
-with $\bar z\in H_{0}+\Qbar z$. Then $W_{z}$ carries a configuration exactly when
-$z\in H_{0}+\Qbar w$ for some $w\in\{u^{2},\bar u^{2}\}\cup\{1/(u-a):a\in\Qbar^{\times}\}$.
-The project also treats several families with $\dim W_{z}=5$. Its research notes
-classify the five-dimensional case, but that classification is not formalised.
+of the project \cite[Thm.~10.6]{BP} decides this when $\dim W_{z}=4$: for any
+$z\notin H_{0}$, $H_{0}+\Qbar z$ carries a configuration exactly when $z\in H_{0}+\Qbar w$
+for some $w\in\{u^{2},\bar u^{2}\}\cup\{1/(u-a):a\in\Qbar^{\times}\}$. The project also
+treats several families with $\dim W_{z}=5$. Its research notes are said to classify the
+conjugation-stable five-dimensional case with a factor of degree two (see
+Remark~\ref{rem:Qnew}). That classification is not in the repository and not
+formalised.
 
 \section{Statements}\label{sec:statements}
+
+\subsection*{Polynomials in $u$}
 
 \begin{theoremC}[Polynomial hulls]
 Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u\in\Qbar$, and let $P\in\Qbar[X]$ have degree
@@ -147,39 +156,118 @@ $(\bar u,\ u+c,\ \bar Q)$ form a configuration in $W_{P(u)}$;
 \end{enumerate}
 \end{theoremC}
 
-\begin{corollary}[Every quadratic and every cubic is excluded]\label{cor:cubic}
+\begin{corollary}[Quadratics and cubics are excluded]\label{cor:cubic}
 Let $u$ be a candidate and $P\in\Qbar[X]$ with $\deg P\in\{2,3\}$. Then
-$P(u)\notin\Lt$ and $P(\bar u)\notin\Lt$. In particular, for every
-$\beta\in\Qbar^{\times}$ the numbers $e^{\beta P(u)}$ and $e^{\beta P(\bar u)}$ are
-transcendental.
+$P(u),P(\bar u)\notin\Lt$; so $e^{\beta P(u)}$ and $e^{\beta P(\bar u)}$ are transcendental
+for every $\beta\in\Qbar^{\times}$.
 \end{corollary}
 
-For $\deg P=2$ this is Diaz's Corollaire~5(1) \cite{Dia07}; in the project's companion note
-\cite{CN} it is the corollary $u^{2}\notin\Lt$ of the multiplier module.
-For $P=X^{3}$ it is Diaz's Corollaire~5(2). The project's Theorem~10.52 \cite{BP}
-exhibits a configuration in the hull of $u^{3}/s^{3}+u^{2}/s^{2}$, $s=|u|$, which is the
-case $c=s$ of~(ii). The general cubic, $e^{\beta(u^{3}+cu^{2})}$ for arbitrary
-algebraic $c$, is to our knowledge new, but the literature was not searched
-(Section~\ref{sec:status}).
+\emph{Credit.} Corollary~\ref{cor:cubic} and parts (i)--(ii) are not new. They are one
+substitution in Diaz's Th\'eor\`eme~7(1) \cite{Dia07}. That theorem says: if $(v,\bar v)$
+and $(1,w,\bar w)$ are each free over $\Qbar$, then $v$, $vw$ and $v\bar w$ are not all in
+$\Lt$. Take $v=u$ and $w=u^{2}+cu$. Then $v\bar w=\rho\bar u+\bar c\rho\in H_{0}$, so
+$vw=Q\notin\Lt$; and $w=u+b$ gives the quadratics. The configuration of~(ii) is Diaz's
+$(v,\bar v)\otimes(1,w,\bar w)$, rescaled by $u^{\mp1}$. The project has formalised the
+theorem (\texttt{Diaz.Mirror}, \texttt{diaz\_2007\_th7}, part~1), and it also gives the
+exclusion behind the project's Theorem~10.52 \cite{BP}, the case $c=\pm|u|$. The new part
+of Theorem~C is~(iii), with its proof (Section~\ref{sec:proofC}). The case $P=X^{k}$ of~(iii)
+is the project's power hull theorem \cite[Thm.~10.14]{BP}.
 
-\begin{corollary}[Where the method stops along polynomials]\label{cor:nogo}
+\begin{corollary}[A single polynomial tie of degree at least four]\label{cor:nogo}
 Let $u\in\C\setminus\Qbar$ with $u\bar u\in\Qbar$.
 \begin{enumerate}[label=\textup{(\alph*)}]
 \item For $P\in\Qbar[X]$ of degree at least $4$ there is no configuration in $W_{P(u)}$,
 nor in $W_{P(u)}+\Qbar w_{1}+\dots+\Qbar w_{m}$ whenever $u,w_{1},\dots,w_{m}$ are
-algebraically independent over $\Qbar$.
-\item For every polynomial $G$ with real algebraic coefficients, the number
+jointly algebraically independent over $\Qbar$.
+\item For every polynomial $G$ with real \emph{algebraic} coefficients, the number
 $z=G(\Re u,\Im u)$ has no configuration in its hull $W_{z}$.
 \end{enumerate}
 \end{corollary}
 
-So at a candidate, Roy's theorem through these hulls excludes neither $u^{4}+u^{2}$ nor
-$(\Re u)^{2}$, $\Re u\cdot\Im u$, $\Re(u^{2})$ or $(\Im u)^{3}$. It does exclude $u^{2}$
-and $u^{3}+cu^{2}$.
+So at a candidate, Roy's theorem cannot exclude a single $z$ such as $u^{4}+u^{2}$,
+$(\Re u)^{2}$, $\Re u\cdot\Im u$, $\Re(u^{2})$ or $(\Im u)^{3}$ through its own hull.
+Several ties together can still be excluded. The project's Proposition~10.30 and
+Corollary~10.32 \cite{BP} show that $u^{k}$ and $u^{l}$ are not both in $\Lt$ when
+$4\le k<l$ and $l\in\{k+1,k+2,2k-1,2k,2k+1,3k\}$. For example, $u^{4},u^{5}\in\Lt$ would
+give the configuration $(1,u)\otimes(u^{-5},u^{-1},1)$. In~(b) the coefficients must be
+algebraic. Every real number is a constant polynomial, and $i/(u-s)+i/(2s)$, with
+$s=|u|$, is real and excluded by Theorem~B.
 
-\begin{theoremD}[A generic candidate satisfies the known theory]
+\subsection*{Polynomials in $u$ and $\bar u$}
+
+Put $s=|u|$, which is real algebraic, and $v=u/s$, so that $|v|=1$ and $\bar v=v^{-1}$.
+Every $z\in\Qbar[u,\bar u]$ is $L(v)$ for exactly one Laurent polynomial
+$L\in\Qbar[T,T^{-1}]$, and $\bar z=L^{\sigma}(v)$, where $L^{\sigma}(T)=\bar L(T^{-1})$. Let
+$H=\spn(T^{-1},1,T)$, so that $H(v)=H_{0}$. Let $\pi$ delete the monomials $T^{-1},1,T$,
+and put
+\[
+  M_{z}=\pi\bigl(\spn(L,L^{\sigma})\bigr),\qquad\text{so}\qquad
+  W_{z}=(H\oplus M_{z})(v),\quad \sigma(M_{z})=M_{z},\quad \dim W_{z}=3+\dim M_{z}.
+\]
+
+\begin{theoremE}[Laurent hulls]
+In this setting, $W_{z}$ carries a configuration if and only if $\dim M_{z}=2$ and $M_{z}$
+belongs to one of the following classes.
+\begin{enumerate}[label=\textup{(\Alph*)}]
+\item[(P)] $M_{z}\cap\spn(T^{2},T^{3})\neq0$; equivalently, $W_{z}=W_{P(u)}$ for some
+$P\in\Qbar[X]$ of degree $2$ or $3$ (Theorem~C).
+\item[(Q)] $M_{z}\subseteq\spn(T^{-3},T^{-2},T^{2},T^{3})$ and
+$\dim\bigl(M_{z}\cap\spn(T^{-2},T^{2})\bigr)=1$. Equivalently,
+\[
+  M_{z}=\spn\bigl(T^{-2}+eT^{2},\ \beta T^{-3}+\zeta T^{2}+eT^{3}\bigr),\qquad
+  |e|=|\beta|=1,\quad \zeta=-\beta e^{2}\bar\zeta .
+\]
+A configuration is $(1,\,T+\beta T^{-1})\otimes(1,\,T^{-1}+e\beta T,\,T^{-2}+\zeta T+eT^{2})$.
+\item[(R)] $M_{z}=\pi\bigl(\spn(g,g^{\sigma})\bigr)$ with $g=G+\kappa T^{-1}G^{\sigma}$ for
+some $G\in T\,\Qbar[T]$ of degree at least $2$ and some $|\kappa|=1$. Then $Tg=\kappa g^{\sigma}$,
+and a configuration is $(1,T)\otimes(T^{-1},1,g)$. These are the project's real pencil
+spaces \cite[Prop.~10.42, Thm.~10.43]{BP} whose data are Laurent polynomials. In terms of
+$u$: $W_{z}$ contains some $w\notin\Qbar+\Qbar\bar u$ with $uw\in\Qbar\bar w$, and
+$W_{z}\neq W_{u^{2}}$.
+\end{enumerate}
+The three classes are disjoint. When $\dim W_{z}=4$ there is never a configuration.
+\end{theoremE}
+
+\begin{corollary}[Explicit criteria]\label{cor:E}
+In the setting of Theorem~E, suppose $\dim W_{z}=5$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item If $\pi L$ has an exponent of absolute value at least $4$, then $W_{z}$ carries a
+configuration if and only if it is in class~(R).
+\item Suppose $z\equiv A\bar u^{3}+B\bar u^{2}+Cu^{2}+Du^{3}\pmod{H_{0}}$. Put
+$N=|A|^{2}-|D|^{2}$ and $\Delta=A\bar C-B\bar D$. Then $W_{z}$ is in class
+(P) iff $\Delta=0$; in class (Q) iff $N=0$ and $(A,D)\neq(0,0)$; and in class (R) iff
+$|\Delta|=|u|\,|N|\neq0$. So $W_{z}$ carries a configuration if and only if
+\[
+  N\cdot\Delta\cdot\bigl(|\Delta|^{2}-|u|^{2}N^{2}\bigr)=0 .
+\]
+\end{enumerate}
+At a candidate, every $z$ in classes (P), (Q) or (R) lies outside $\Lt$. Examples are
+$\Re(u^{3})+cu^{2}$ for $c\in\Qbar^{\times}$, which is in class (Q) with $A=D=\tfrac12$ and
+$B=0$, $C=c$; and $(u/s)^{3}+(\bar u/s)^{4}$, which is in class (R). By contrast,
+$\Re(u^{3})$ alone (the case $c=0$) is real, and by Corollary~\ref{cor:nogo}(b) it
+cannot be excluded.
+\end{corollary}
+
+\begin{remark}[Class (Q) and the project's research notes]\label{rem:Qnew}
+In class (Q) the factor $(1,T+\beta T^{-1})$ is a ratio of degree two. Its involution
+$T\mapsto\beta/T$ exchanges $0$ and $\infty$. The companion note \cite{CN} and the README
+say the conjugation-stable invisible spaces with a factor of degree two form three
+families. All three are described through the involution $u\mapsto-u$, which fixes $0$ and
+$\infty$. A (Q) space is conjugation-stable and invisible to Theorem~B. For
+$z=\Re u\,\Im u+i(\Re u)^{2}\Im u$, exact computation gives
+$\dim(W_{z}\cap T^{-2}W_{z})=1$ and $\dim(W_{z}\cap T^{-1}W_{z})=2$. So that hull has no
+factor $(1,u^{2})$ and no factor of degree one. Either the research notes include (Q)
+under another description, or their list should be checked against it. We did not see
+the notes, which are not in the repository. As exclusions at a candidate, (Q) and (R) are
+substitutions in Roy's theorem (for (Q) also in \cite[Th\'eor\`eme~4(1)]{Dia07} with
+$x=(1,(u+\beta\bar u)/s)$). What is new in Theorem~E is the ``only if'' direction.
+\end{remark}
+
+\subsection*{A barrier}
+
+\begin{theoremD}[A generic candidate satisfies (D2)--(D4)]
 Let $F$ be the subfield of $\C$ generated by $\Qbar$ and $\cL$; it is countable and stable
-under conjugation. Let $\rho>0$ be real algebraic and let $u$ be a point of the circle
+under conjugation. Let $\rho>0$ be real algebraic, and let $u$ be a point of the circle
 $|u|^{2}=\rho$ that is transcendental over $F$. Such points exist, since the circle is
 uncountable and the algebraic closure of $F$ is countable. Put
 \[
@@ -187,32 +275,32 @@ uncountable and the algebraic closure of $F$ is countable. Put
 \]
 Then:
 \begin{enumerate}[label=\textup{(D\arabic*)}]
-\item $\cL_{u}\supseteq\cL$ is a $\Q$-vector space stable under conjugation, and it contains
-$u$ and $\bar u$ with $u\notin\Qbar$ and $u\bar u=\rho\in\Qbar$; so $u$ is a candidate for
-$\cL_{u}$;
-\item \emph{(Baker)} if $\lambda_{1},\dots,\lambda_{n}\in\cL_{u}$ are linearly independent
+\item $\cL_{u}\supseteq\cL$ is a $\Q$-vector space stable under conjugation. It contains
+$u$ and $\bar u$, with $u\notin\Qbar$ and $u\bar u=\rho\in\Qbar$; so $u$ is a candidate for
+$\cL_{u}$.
+\item \emph{(Baker)} If $\lambda_{1},\dots,\lambda_{n}\in\cL_{u}$ are linearly independent
 over $\Q$, then $1,\lambda_{1},\dots,\lambda_{n}$ are linearly independent over $\Qbar$.
-In particular $\cL_{u}\cap\Qbar=\{0\}$ (Hermite--Lindemann), and $\lambda,\beta\lambda\in\cL_{u}$
-with $\lambda\neq0$ and $\beta\in\Qbar$ force $\beta\in\Q$ (Gel'fond--Schneider);
-\item \emph{(Roy)} there is no configuration in $\Lt_{u}$; and \emph{(six exponentials)}
-there is no $2\times3$ configuration over $\Q$ in $\cL_{u}$;
-\item \emph{(four exponentials in transcendence degree one)} let $N$ be a singular
-$2\times2$ matrix with non-zero entries in $\cL_{u}$ that generate a field of
+In particular $\cL_{u}\cap\Qbar=\{0\}$ (Hermite--Lindemann). Also, if
+$\lambda,\beta\lambda\in\cL_{u}$ with $\lambda\neq0$ and $\beta\in\Qbar$, then $\beta\in\Q$
+(Gel'fond--Schneider).
+\item \emph{(Roy)} There is no configuration in $\Lt_{u}$. \emph{(Six exponentials)} There
+is no $2\times3$ configuration over $\Q$ in $\cL_{u}$.
+\item \emph{(Four exponentials in transcendence degree one)} Let $N$ be a singular
+$2\times2$ matrix whose entries are non-zero, lie in $\cL_{u}$, and generate a field of
 transcendence degree at most one over $\Q$. Then the rows of $N$, or its columns, are
 linearly dependent over $\Q$.
 \end{enumerate}
 \end{theoremD}
 
-So the system $(\cL_{u},\Lt_{u})$ is conjugation-stable, satisfies every theorem in
-(D2)--(D4), and contains a candidate. These theorems are the main transcendence inputs
-of the project's unconditional results about candidates and of Diaz's papers
-\cite{Dia04,Dia07}. Statements about the values $e^{x_{i}y_{j}}$ themselves are not
-covered; Waldschmidt's theorem of 1973 is one (Remark~\ref{rem:scopeD}). Hence \emph{no
-derivation that uses (D2)--(D4) and conjugation as axioms about $(\cL,\Lt)$ can prove
-Diaz's conjecture.} The strong four exponentials conjecture fails in $(\cL_{u},\Lt_{u})$,
-as it must: the certificate $(1,u)\otimes(1,\bar u)$ is a $2\times2$ configuration in
-$\Lt_{u}$.
-
+So the system $(\cL_{u},\Lt_{u})$ is conjugation-stable, satisfies (D2)--(D4), and
+contains a candidate. Hence \emph{no derivation that uses only (D2)--(D4) and
+conjugation, as axioms about $(\cL,\Lt)$, can prove Diaz's conjecture.} These theorems
+are the main transcendence inputs of the project's unconditional results about
+candidates and of Diaz's papers \cite{Dia04,Dia07}. Theorem~D does not cover statements
+about the values $e^{x_{i}y_{j}}$ themselves, such as Waldschmidt's theorem of 1973. Nor
+does it cover the rank bounds for larger matrices (Remark~\ref{rem:scopeD}). The strong
+four exponentials conjecture fails in $(\cL_{u},\Lt_{u})$, as it must: the certificate
+$(1,u)\otimes(1,\bar u)$ is a $2\times2$ configuration in $\Lt_{u}$.
 \section{Tools}\label{sec:tools}
 
 Since $u$ is transcendental, $f\mapsto f(u)$ is an injective homomorphism from
@@ -234,8 +322,8 @@ of finite dimension. Then $\nu(V\setminus\{0\})$ has exactly $\dim V$ elements.
 The residue field of $\nu$ is $\Qbar$. If $f,g\in V$ have the same value $n$, some
 $c\in\Qbar^{\times}$ makes $\nu(f-cg)>n$. So each quotient $V_{\ge n}/V_{>n}$ of the
 filtration by values has dimension at most one, and it is non-zero exactly when $n$
-is a value. This is the valuation argument of \cite[\S7]{BSZ17}, and the project's
-Lemma~10.17 in $\Qbar[T]$.
+is a value. This is the valuation argument of \cite{BSZ17} that the project uses for
+its Lemma~10.17 in $\Qbar[T]$.
 \end{proof}
 
 For a configuration $x\otimes y$ write $\mathbf X=\spn(x_{1},x_{2})$ and
@@ -244,8 +332,8 @@ $fg$ is a combination of the $x_{i}y_{j}$, so it lies in $V$. With
 Lemma~\ref{lem:orders} this gives:
 
 \begin{lemma}[Sumsets]\label{lem:sumset}
-Let $x\otimes y$ be a configuration in a $\Qbar$-space $V\subseteq\Qbar(T)$, and let
-$\nu=\ord_{0}$ or $\ord_{\infty}$. Then $A=\nu(\mathbf X\setminus0)$ and
+Let $x\otimes y$ be a configuration over $\Qbar$ in a $\Qbar$-space $V\subseteq\Qbar(T)$,
+with $x_{i},y_{j}\in\Qbar(T)$, and let $\nu=\ord_{0}$ or $\ord_{\infty}$. Then $A=\nu(\mathbf X\setminus0)$ and
 $B=\nu(\mathbf Y\setminus0)$ have $2$ and $3$ elements, and $A+B\subseteq\nu(V\setminus0)$.
 \end{lemma}
 
@@ -300,8 +388,10 @@ The lemma was also checked by machine for every $4\le k<80$ and $2\le m\le k$.
 Write $P(u)\equiv p_{2}u^{2}+p_{3}u^{3}+\dots+p_{k}u^{k}\pmod{H_{0}}$. Conjugation fixes
 $H_{0}$, so $W_{P(u)}$ is spanned by $H_{0}$, by $P(u)$ and by its conjugate.
 
-\emph{Degree at most one.} Then $W_{P(u)}=H_{0}$ has dimension $3$. A configuration
-needs at least four dimensions, since $|A+B|\ge|A|+|B|-1=4$ in Lemma~\ref{lem:sumset}.
+\emph{Degree at most one.} Then $W_{P(u)}=H_{0}=\spn(1,T,T^{-1})(u)$ has dimension $3$.
+By Lemma~\ref{lem:normal} a configuration could be taken in $\Qbar[T,T^{-1}]$. Then
+Lemma~\ref{lem:sumset} gives at least $|A+B|\ge|A|+|B|-1=4$ orders at $0$ inside a
+three-dimensional space, which is impossible.
 
 \emph{Degree two.} Here $u^{2}\in W_{P(u)}$, because $P(u)-p_{2}u^{2}\in H_{0}$. The
 products of $(1,u)$ and $(\bar u,1,u)$ are $\bar u,1,u,\rho,u,u^{2}$. Both families are free
@@ -314,8 +404,9 @@ $\bar Q$ lie in $W_{P(u)}$. The six products of $(1,u^{2})$ and $(\bar u,u+c,\ba
   u^{2}\bar Q=u^{2}\bar u^{3}+\bar c\,u^{2}\bar u^{2}=\rho^{2}\bar u+\bar c\rho^{2},
 \]
 all in $W_{P(u)}$. The family $(1,u^{2})$ is free. So is the family
-$(\bar u,u+c,\bar Q)=(\rho u^{-1},\,u+c,\,\rho^{3}u^{-3}+\bar c\rho^{2}u^{-2})$. Its
-members have distinct orders at $u=0$: $-1$, then $0$ (or $1$ if $c=0$), then $-3$.
+$(\bar u,u+c,\bar Q)$, the value at $u$ of $(\rho T^{-1},\,T+c,\,\rho^{3}T^{-3}+\bar c\rho^{2}T^{-2})$.
+These Laurent polynomials have distinct orders at $T=0$: $-1$; then $0$, or $1$ if $c=0$;
+then $-3$. So they are independent, and evaluation at $u$ is injective.
 
 \emph{Degree at least four.} Let $\mathcal W\subseteq\Qbar[T,T^{-1}]$ be spanned by
 \[
@@ -358,11 +449,12 @@ has order $\max(A_{0}+B_{0})=2$ at $0$. This is a contradiction, and Theorem~C i
 The proof is two-sided: Lemma~\ref{lem:combinatorics} alone allows $m=2$. The extra
 step is that the orders at the two ends of a Laurent polynomial pinch its support. In the
 monomial case $P=X^{k}$, the set of orders at $0$ already fails for $k\ge4$, and the proof
-reduces to the project's power hulls \cite[Thm.~10.14]{BP}. Theorem~C thus extends that
-result from monomials to all polynomials, and adds the positive half for every cubic.
+reduces to the project's power hulls \cite[Thm.~10.14]{BP}. Theorem~C thus extends the
+negative half of that result from monomials to all polynomials. The positive half for
+cubics is Diaz's (Section~\ref{sec:statements}).
 \end{remark}
 
-\section{Proofs of the corollaries}\label{sec:cor}
+\section{Proofs of the corollaries of Theorem C}\label{sec:cor}
 
 \begin{proof}[Proof of Corollary~\ref{cor:cubic}]
 If $P(u)\in\Lt$, then $W_{P(u)}\subseteq\Lt$ (Section~\ref{sec:setting}). By Theorem~C,
@@ -393,19 +485,156 @@ $T^{-2},\dots,T^{2}$ are independent, so $c=0$, a contradiction. The case $w=\ba
 is symmetric.
 \end{proof}
 
-\begin{example}[Mixed expressions behave differently]\label{ex:width}
-For Laurent polynomials in $u$, that is for polynomials in $u$ and $\bar u$, no degree
-bound like that of Theorem~C holds. Let $s=|u|$ and
-$z=(u/s)^{3}+(\bar u/s)^{4}$. With $v=u/s$, which has modulus one, $z=v^{3}+v^{-4}$ and
-$\bar z=v^{-3}+v^{4}=vz$. So $uz=s\bar z$, and the families $(1,u)$ and $(\bar u,1,z)$ have
-products $\bar u,1,z,\rho,u,s\bar z$, all in $W_{z}$. At a candidate,
-$e^{\beta z}\notin\Qbar$ for every $\beta\in\Qbar^{\times}$, although $z$ has exponents
-from $-4$ to $3$. This is one of the project's real pencil spaces
-\cite[Prop.~10.42, Thm.~10.43]{BP}, with the Laurent polynomial
-$f=s(z+\bar z)$ and $\lambda=1$. Classifying all Laurent $z$ is the natural next case
-(Section~\ref{sec:meaning}).
-\end{example}
+\section{Proof of Theorem E}\label{sec:proofE}
 
+This proof was found in this session three times, independently. The derivations used
+different methods: valuations, the ratio $x_{2}/x_{1}$, and computation. They agree on the
+statement, and each was checked adversarially with exact computer algebra (sympy). We
+give the second in condensed form. It deserves an independent referee before anything is
+built on it. Write $W=H\oplus M$ with $M=M_{z}$, and $\mathbf X,\mathbf Y$ for the spans
+of a configuration.
+
+\emph{Step 0: reductions.}
+(a) By Lemma~\ref{lem:normal}, $\mathbf X,\mathbf Y\subseteq\Qbar[T,T^{-1}]$ with
+$\mathbf X\mathbf Y\subseteq W$.
+(b) $\dim M\le1$ carries nothing. If $M=0$, argue as for degree at most one in
+Theorem~C. If $M=\Qbar m$, Theorem~B puts $T^{2}$, $T^{-2}$ or some $1/(T-a)$ in $W$. The
+last is not a Laurent polynomial. The first two force $m\propto T^{\pm2}$, but then
+$m^{\sigma}\propto T^{\mp2}\notin\Qbar m$, against $\sigma M=M$. So $\dim M=2$.
+(c) Let $O=\ord_{0}(M\setminus0)=\{o_{1}<o_{2}\}$, with $o_{i}\notin\{-1,0,1\}$. Since $\sigma$
+exchanges $\ord_{0}$ and $-\deg$, the degrees of $M$ form $-O$. Supports in $H$ and $M$ are
+disjoint, so $\ord_{0}$ and $-\deg$ take the same five values $S=\{o_{1},o_{2},-1,0,1\}$ on
+$W\setminus0$. If $o_{1}\ge2$, then $M\subseteq T^{2}\Qbar[T]$ and
+$\sigma M\subseteq T^{-2}\Qbar[T^{-1}]$, so $M=0$; hence $o_{1}\le-2$. An element of order
+$o_{2}$ has degree in $-O$, so $o_{2}\le-o_{1}$.
+(d) \emph{Width.} If $o_{2}\le-2$, every $w\in W\setminus H$ has $\ord_{0}w\in O$ and
+$\deg w\in-O$.
+(e) \emph{The ratio has degree at most two.} Let $h=x_{2}/x_{1}$. We claim
+$[\Qbar(T):\Qbar(h)]\le2$. Suppose first the products span four dimensions (Case~I).
+Then they form a progression $b,bh,bh^{2},bh^{3}$ \cite[Lemma~10.2]{BP}. That span meets
+$H$ in dimension at least $2$, and the ratio of two independent elements of the
+intersection has degree at most $2$ in $T$ and lies in $\Qbar(h)\setminus\Qbar$.
+Otherwise the products span all of $W$ (Case~II), and \cite[Thm.~10.58]{BP} applies.
+(f) \emph{Pencils.} Write $h=p/q$ with $p,q$ coprime of degree at most $2$. At every
+$a\in\Qbar^{\times}$, $p$ or $q$ is non-zero, so replacing $(\mathbf X,\mathbf Y)$ by
+$(\spn(p,q),\,(x_{1}/q)\mathbf Y)$ keeps $\mathbf Y$ inside the Laurent polynomials. After
+shifting by a power of $T$ and a change of basis, $\spn(p,q)$ is one of the following.
+For each we list the orders at $0$ and the values of $-\deg$:
+\[
+\begin{array}{lll}
+T_{1}=\spn(1,T) & \{0,1\} & \{0,-1\}\\
+T_{2}=\spn(1,T^{2}) & \{0,2\} & \{0,-2\}\\
+T_{3}=\spn(T^{2},T+\beta),\ \beta\neq0 & \{0,2\} & \{-1,-2\}\\
+T_{4}=\spn(1,T^{2}+\alpha T),\ \alpha\neq0 & \{0,1\} & \{0,-2\}\\
+T_{5a}=\spn(T,T^{2}+\beta),\ \beta\neq0 & \{0,1\} & \{-1,-2\}\\
+T_{5b}=\spn(T^{2}+\gamma T,1+\zeta T),\ \gamma\zeta(1-\gamma\zeta)\neq0 & \{0,1\} & \{-1,-2\}
+\end{array}
+\]
+Conjugation maps a configuration in $W$ to one in $W$, and exchanges $T_{3}$ and $T_{4}$.
+A ratio of degree one means pencil $T_{1}$.
+
+\emph{Step 1: shapes.} Lemma~\ref{lem:sumset} at $0$ and at $\infty$ requires the gap $d$
+of $A_{0}$, and that of $A_{\infty}$, to occur at least three times as a difference in
+$S$. This holds at both ends with the same $S$. Counting differences, with
+$o_{1}\le-2$ and $o_{2}\le-o_{1}$, leaves the following shapes $O$. The count was checked
+by machine for $|o_{1}|\le40$.
+\begin{itemize}
+\item $\{-2,2\}$, $\{-3,2\}$, $\{-3,3\}$, and $\{-3,-2\}$.
+\item $\{-k,2\}$ with $k\ge4$; here $d=1$ and $a+B_{0}=\{-1,0,1\}$.
+\item $\{o_{1},-2\}$ with $o_{1}\le-5$; here $d=1$ and $a+B_{0}=\{-2,-1,0\}$.
+\item $\{c,c+1\}$ with $c\le-4$; here $d=1$ and $a+B_{0}=\{c,-1,0\}$.
+\item $\{-4,-2\}$; here $d=1$ with $\{-2,-1,0\}$, or $d=2$ with $\{-4,-2,-1\}$.
+\item $\{-5,-3\}$; here $d=2$.
+\end{itemize}
+
+\emph{Step 2: the two-sided pinch.} For $\{-k,2\}$ the argument of Theorem~C applies.
+Products are supported in $[-1,1]$, yet one has order $2$. Now take $\{o_{1},-2\}$, or
+$\{-4,-2\}$ with $d=1$ at both ends. Products are supported in $[-2,2]$, so they lie in
+$H\oplus(M\cap\spn(T^{-2},T^{2}))$, and they span at least four dimensions. That
+intersection is then a conjugation-stable line, $\Qbar(T^{-2}+eT^{2})$ with $e\neq0$. The
+products therefore form a configuration in a four-dimensional extension of $H$ that
+contains neither $T^{2}$ nor $T^{-2}$, against Theorem~B.
+
+\emph{Step 3: widths.} For $\{-5,-3\}$, gap $2$ at both ends forces $T_{2}$. Then
+$\mathbf Y\subseteq W$ and $T^{2}\mathbf Y\subseteq W$, so every $y\in\mathbf Y$ has degree at most
+$5-2=3$. Its $M$-part therefore lies in the line of elements of $M$ of degree at most
+$3$. Moreover $\mathbf Y\cap H$ has orders in $B_{0}\cap\{-1,0,1\}=\{-1\}$, so it has
+dimension at most one, and $\dim\mathbf Y\le2$. For $\{-4,-2\}$ with $d=2$ at $0$ (the case
+at $\infty$ is the conjugate), the pencil is $T_{2}$ or $T_{3}$. For $T_{2}$ the same
+count applies. For $T_{3}$, $B_{0}=\{-4,-2,-1\}$ and the end at $\infty$ forces
+$\deg y\le0$ on $\mathbf Y$. Then the element $y$ of order $-4$ gives $(T+\beta)y\in W$ of
+order $-4$ and degree at most $1$, against the width property.
+
+\emph{Step 4: a ratio of degree one gives (R).} Let $V_{1}=W\cap T^{-1}W\supseteq\mathbf Y$.
+Then $\sigma V_{1}=W\cap TW=TV_{1}$. If $\dim V_{1}\ge4$, its orders form an interval
+$B$ with $B+\{0,1\}\subseteq S$, so $S=[-2,2]$ and $O=\{-2,2\}$, which is (P). The other
+possibility, $[-3,1]$, puts $T^{2}$ in $M$, which is absurd. So $V_{1}=\spn(T^{-1},1,g)$
+and $W=\spn(T^{-1},1,T,g,Tg)$; otherwise Case~I contains $H$, and Theorem~B gives (P)
+again. From $\sigma V_{1}=TV_{1}$ we get $g^{\sigma}=\alpha+\beta T+\gamma Tg$. Applying
+$\sigma$ once more gives $|\gamma|=1$ and $\alpha=-\gamma\bar\beta$. Then
+$g'=g-\bar\beta T^{-1}$ satisfies $g'^{\sigma}=\gamma Tg'$. Comparing coefficients gives
+$g'\equiv G+\bar\gamma T^{-1}G^{\sigma}$ modulo $\spn(1,T^{-1})$, with $G\in T\Qbar[T]$. If
+$\deg G=1$, then $T^{2}\in M$, which is (P). Otherwise we are in (R), with $\kappa=\bar\gamma$.
+
+\emph{Step 5: the shape $\{c,c+1\}$ with $c\le-4$ is (R).} Gap $1$ at both ends forces
+$T_{1}$ or $T_{5}$. Take $T_{5}$. Then $B_{0}=\{c,-1,0\}$, and the degrees on $\mathbf Y$ are
+$\{-c-2,-1,-2\}$. The subspace of $\mathbf Y$ of degree at most $-1$ is two-dimensional,
+so it contains some $y_{1}$ of order $c$. With $p_{0}\in\mathbf X$, $p_{0}(0)\neq0$, the
+product $p_{0}y_{1}\in W$ has order $c$ and degree at most $1$, against the width property.
+So the pencil is $T_{1}$, and Step~4 applies.
+
+\emph{Step 6: the shape $\{-3,-2\}$.} Here $M\subseteq\spn(T^{\pm2},T^{\pm3})$ and
+$M\cap\spn(T^{2},T^{3})=0$.
+\begin{itemize}
+\item $T_{2}$, $T_{4}$, with $h=T^{2}+\alpha T$. Any $w=h_{0}+m$ with $m\neq0$ in $M$
+has $\deg hw\ge4$, which is outside $W$. So $\mathbf Y\subseteq H$, and
+$h\cdot\mathbf Y\subseteq W$ then forces $\mathbf Y\subseteq\Qbar T^{-1}$. The case $T_{3}$ is the
+conjugate.
+\item $T_{5b}$. Then $\mathbf Y$ is supported in $[-3,1]$. Write $n_{2}$ for the element of
+$M$ of degree $2$ with leading coefficient $1$, and $n_{-2}$ for the element of order
+$-2$ with lowest coefficient $1$. Then $(1+\zeta T)y\in H+\Qbar n_{2}$ and
+$(T^{2}+\gamma T)y\in H+\Qbar n_{-2}$. This gives six linear equations in seven unknowns.
+We checked by a Gr\"obner basis that the coefficient matrix has rank at least $5$ for
+every admissible choice of parameters. So $\dim\mathbf Y\le2$.
+\item $T_{5a}$, with $h=T+\beta T^{-1}$. For $hw$ to stay in $W$, the $M$-part of each
+$w\in\mathbf Y$ must lie in $M_{0}=M\cap\spn(T^{-2},T^{2})$. If $M_{0}=0$, then
+$\dim\mathbf Y\le1$. Otherwise $M_{0}=\Qbar(T^{-2}+eT^{2})$ with $|e|=1$. Modulo $H$,
+$h\bigl(xT^{-1}+y+zT+t(T^{-2}+eT^{2})\bigr)\equiv\beta xT^{-2}+zT^{2}+t(\beta T^{-3}+eT^{3})$.
+So $\dim\mathbf Y\ge3$ if and only if
+$M\subseteq\spn(T^{-2},T^{2},\beta T^{-3}+eT^{3})$. Conjugation-stability then gives
+$|\beta|=1$ and $\zeta=-\beta e^{2}\bar\zeta$: this is (Q).
+\item $T_{1}$ gives (R), by Step~4.
+\end{itemize}
+Conversely, let $M\subseteq\spn(T^{\pm2},T^{\pm3})$ be conjugation-stable with
+$\dim(M\cap\spn(T^{\pm2}))=1$. Then the $T^{\pm3}$-coefficients $a,d$ of a second generator
+satisfy $|a|=|d|$, and $M$ normalises to the form in (Q).
+
+\emph{Step 7: the shapes $\{-2,2\}$, $\{-3,2\}$, $\{-3,3\}$ are (P).} An element of $M$ of
+order at least $2$ has degree at most $-o_{1}\le3$. So it lies in $\spn(T^{2},T^{3})$, and
+Theorem~C gives the configurations.
+
+\emph{Configurations, and disjointness.} The configurations listed in (Q) and (R) were
+checked symbolically for general parameters: all six products lie in $W$, and both
+families are free. In (R), the identity $Tg=\kappa g^{\sigma}$ is a direct computation. On
+disjointness: (Q) has $M\cap\spn(T^{2},T^{3})=0$, so it is not (P). Its intersection
+with $\spn(T^{\pm2})$ is non-zero, while in (R) that intersection is $0$ (computed from
+$G$), so it is not (R). And (R) with $\deg G\ge2$ has shape $\{-\deg G-1,-\deg G\}$, which
+is not a (P) shape. \qed
+
+\begin{proof}[Proof of Corollary~\ref{cor:E}]
+(a) An exponent of absolute value at least $4$ in $\pi L$ gives $o_{1}\le-4$, because
+$M$ is conjugation-stable. Of the shapes in Step~1, only $\{c,c+1\}$ with $c\le-4$
+survives Steps~2 and~3, and it is (R).
+(b) In terms of $T$, let the coefficients of $\pi L$ at $T^{-3},T^{-2},T^{2},T^{3}$ be
+$a=As^{3}$, $b=Bs^{2}$, $c=Cs^{2}$ and $d=Ds^{3}$. Those of $\pi L^{\sigma}$ are
+$\bar d,\bar c,\bar b,\bar a$. A combination lies in $\spn(T^{2},T^{3})$ iff it kills
+$T^{-3}$ and $T^{-2}$, which needs $\det\begin{pmatrix}a&b\\ \bar d&\bar c\end{pmatrix}=0$,
+that is $\Delta=0$. A combination lies in $\spn(T^{\pm2})$ iff it kills $T^{\pm3}$, which
+needs $|a|^{2}-|d|^{2}=0$, that is $N=0$. For (R) the condition is $|\Delta|=s|N|\neq0$.
+This was derived by one of the three derivations and re-derived by its referee; it
+checks against $g=G+\kappa T^{-1}G^{\sigma}$ with $\deg G=2$, where $N=|g_{2}|^{2}/s^{6}$ and
+$|\Delta|=|g_{2}|^{2}/s^{5}$.
+\end{proof}
 \section{Proof of Theorem D}\label{sec:proofD}
 
 \begin{lemma}[Adjoining a generic point of a circle]\label{lem:inversion}
@@ -417,8 +646,11 @@ $V_{0}+\Qbar u+\Qbar u^{-1}$ has all six products in $V_{0}$.
 \begin{proof}
 As in Lemma~\ref{lem:normal}, we may assume $x_{i},y_{j}\in F(u)$; identify $F(u)$ with
 $F(T)$. Then $Tx_{i}y_{j}=P_{ij}(T)=m_{ij}+c_{ij}T+l_{ij}T^{2}$ with $m_{ij},l_{ij}\in\Qbar$
-and $c_{ij}\in V_{0}$. The matrix $(P_{ij})$ has rank one over $F(T)$. By Gauss's lemma,
-$P_{ij}=a_{i}b_{j}$ with $a\in F[T]^{2}$ primitive and $b\in F[T]^{3}$, all entries non-zero.
+and $c_{ij}\in V_{0}$. The matrix $(P_{ij})$ has rank one over $F(T)$. Since $F[T]$ is a
+principal ideal domain, $P_{ij}=a_{i}b_{j}$ with $a\in F[T]^{2}$ \emph{primitive}, meaning
+$\gcd(a_{1},a_{2})=1$, and $b\in F[T]^{3}$, all entries non-zero. Take $a$ proportional to a
+non-zero column and divide by the gcd; every column is then $a$ times an element of
+$F(T)$, and that element is a polynomial because $\gcd(a_{1},a_{2})=1$.
 Then $x_{i}=\kappa a_{i}$ and $y_{j}=\kappa'b_{j}$ for some $\kappa,\kappa'\in F(T)^{\times}$
 independent of $i$ and $j$. So the $a_{i}$ are linearly independent over $\Qbar$, and so
 are the $b_{j}$. Write
@@ -451,8 +683,10 @@ So the three $b_{j}$ are dependent. Every case with $\delta_{a}\ge1$ is contradi
 Take $F=\Qbar(w_{1},\dots,w_{m})$ and $V_{0}=\Qbar+\sum_{j}\Qbar w_{j}$, with
 $u,w_{1},\dots,w_{m}$ algebraically independent. Together with the separation theorem
 \cite[Thm.~10.16]{BP}, which leaves no configuration in this $V_{0}$, the lemma then
-gives Theorem~A of the project \cite[Thm.~10.1]{BP}. What is new is that $V_{0}$ may be
-any subspace of $F$, however many algebraic relations its elements satisfy.
+gives Theorem~A of the project \cite[Thm.~10.1]{BP}. The method is that of the project's
+proof of Theorem~A: factor a rank-one polynomial matrix and compare degrees. The
+separation theorem allows any $V_{0}\subseteq F$, but it needs the adjoined numbers to be
+algebraically independent over $F$, and $u,u^{-1}$ are not. The lemma does both at once.
 
 \begin{lemma}[Subsets of transcendence degree one]\label{lem:trdeg}
 In the setting of Theorem~D, let $V\subseteq\cL_{u}$ be a finite-dimensional $\Q$-subspace
@@ -526,93 +760,116 @@ By Lemma~\ref{lem:trdeg} these cases are exhaustive.
 \begin{remark}[Scope of Theorem D]\label{rem:scopeD}
 The system $(\cL_{u},\Lt_{u})$ has no exponential function. It models statements about
 membership in $\cL$ and $\Lt$, not statements about the values $e^{x_{i}y_{j}}$. One such
-statement is Waldschmidt's theorem of 1973, that two of $x_{i},y_{j},e^{x_{i}y_{j}}$ are
-algebraically independent \cite{W73}; the project uses it in its ``mixed rigidity''. A
-proof of Diaz's conjecture through such a statement is not ruled out here. It is also
-not known whether the Waldschmidt--Masser--Roy rank bounds for larger matrices hold in
-$(\cL_{u},\Lt_{u})$. If they fail there, they are an instrument that can see a generic
-candidate, and they are the natural one to try next.
+statement is Waldschmidt's theorem of 1973 \cite{W73}, which the project uses in its
+``mixed rigidity'' \cite[Thm.~7.11]{BP}. In that form, $x_{1},x_{2}$ and $y_{1},y_{2}$ are
+$\Q$-linearly independent, and $e^{x_{1}y_{2}},e^{x_{2}y_{2}}$ are algebraic. Then two of the
+eight numbers $x_{i},y_{j},e^{x_{i}y_{j}}$ are algebraically independent. A proof of Diaz's
+conjecture through such a statement is not ruled out here.
+
+Nor is it known whether Roy's rank bound for larger matrices holds in
+$(\cL_{u},\Lt_{u})$. As quoted by Maksoud \cite{Mak23} from \cite[Cor.~1]{Roy92}, it
+states: a matrix with entries in $\Lt$ has rank at least $m\theta/(1+\theta)$, where
+$\theta$ is computed from its zero blocks after changes of basis. We read Roy's paper
+only through this quotation. If the bound fails in the model, it can see a generic
+candidate. We probed it at the first open case, $u^{4}\in\Lt$
+(Section~\ref{sec:meaning}).
 \end{remark}
 
+
 \section{What this means for Diaz's conjecture}\label{sec:meaning}
+
+\paragraph{The reach of Roy's theorem through one hull.}
+Theorems~C and~E answer, for every $z$ that is a polynomial in $u$ and $\bar u$, whether
+Roy's strong six exponentials theorem can refute ``$z\in\Lt$'' at a candidate using only
+$z$, its conjugate and the certificate $H_{0}$. Every exclusion they list is a routine
+substitution, into Diaz's theorems or into Roy's. The new content is the converse. Apart
+from classes (P), (Q) and (R) nothing can be excluded this way. For a polynomial in $u$
+alone the limit is degree three, a precise form of Diaz's remark that within his
+Th\'eor\`eme~7 one cannot hope to go far \cite[p.~390]{Dia07}. This concerns \emph{one}
+hypothetical logarithm at a time. Two ties together can reach further (for example
+$u^{4}$ and $u^{5}$; Corollary~\ref{cor:nogo}). So can additional numbers that are
+algebraically dependent on $u$.
 
 \paragraph{Why every known route is conditional.}
 The project derives Diaz's conjecture from several principles: the strong four
 exponentials conjecture \cite[Conj.~11.17]{Wal00}, Waldschmidt's strong five exponentials
 conjecture, and the structural rank conjecture. Each lets algebraic constants enter the
-products. Each fails in $(\cL_{u},\Lt_{u})$, because the certificate
-$(1,u)\otimes(1,\bar u)$ violates it; that is why each can prove the conjecture. The
-theorems in (D2)--(D4) hold in $(\cL_{u},\Lt_{u})$, by Theorem~D; that is why none of
-them can. The project's earlier
-barriers say this for particular methods: indistinguishability, the dimension count, and
-generic data carrying no configuration \cite{CN}. Theorem~D says it at once for the whole
-linear and bilinear theory used so far.
+products, and each fails in $(\cL_{u},\Lt_{u})$, because the certificate
+$(1,u)\otimes(1,\bar u)$ violates it. The theorems in (D2)--(D4) hold there (Theorem~D).
+So a proof must use some property of $(\cL,\Lt)$, or of the exponential function, that
+fails in $(\cL_{u},\Lt_{u})$. Three kinds are not excluded:
+\begin{itemize}
+\item an inhomogeneous principle of the kind above;
+\item a statement about the values $e^{x_{i}y_{j}}$, such as Waldschmidt's theorem of
+1973, or Roy's rank bound for larger matrices if it fails in the model
+(Remark~\ref{rem:scopeD});
+\item the way a genuine candidate, which lies in $\cL$ and so is not generic over $F$,
+is tied to the other logarithms.
+\end{itemize}
+Under Kirby's weak Schanuel conjecture, candidates satisfy $\Im u\in\pi\Q$
+\cite[Prop.~13.20]{BP}. So $u$ is algebraic over $\Q(\pi)\subseteq F$: such candidates are
+never generic, and Theorem~D says nothing about them. On that branch the
+four exponentials theorem in transcendence degree one does give unconditional results;
+those are the project's Chapter~13. The tie to $i\pi$ lies inside $H_{0}$, so it gives
+Roy's theorem nothing new through hulls.
 
-\paragraph{What a proof must use.}
-The candidate of Theorem~D is transcendental over the field generated by all logarithms.
-A genuine candidate is not, since $u\in\cL$. So a proof that avoids inhomogeneous
-principles must use how a genuine candidate is tied to other logarithms. Kirby's weak
-Schanuel conjecture predicts a strong tie: $\Im u\in\pi\Q$, so
-$i\pi\in H_{0}$ \cite[Prop.~13.20]{BP}. But that tie is linear, and it adds nothing to the
-certificate $H_{0}$.
+\paragraph{Higher rank: a first probe.}
+Rank-one configurations cannot exclude $u^{4}$ (the power hulls). In this session we
+asked whether Roy's rank bound for larger matrices can, at rank two. The space is
+$V=\spn(u^{-4},u^{-1},1,u,u^{4})$. The question reduces by a torus argument to graded
+monomial matrices, then to a combinatorial ``colour'' model of rank-two matrices with
+proved bounds $d,l\le10$. Searched exhaustively by a SAT solver, and independently by a
+second enumeration up to $d,l\le13$ that assumes no window, the model has no solution.
+So \emph{at rank two, Roy's bound does not exclude $u^{4}$}. The same holds for the hull of
+$u^{4}+cu^{3}$. Controls behave as they should: the method finds the known configurations
+in $\spn(u^{-2},\dots,u^{2})$. Rank three and above is open. For the certificate space alone, the
+bound gives nothing at any rank. This is Roy's lemma on spaces of dimension at most
+three \cite[Lemma~12.16]{Wal00}, cited in the companion note: rank $\ge(d+l)/4\ge dl/(d+l)$.
+These results are computer-assisted, use Roy's bound in the quoted form, and are not part
+of the theorems above.
 
-\paragraph{How much a polynomial tie buys.}
-Theorem~C answers this for Roy's theorem. If a candidate had another logarithm, or
-element of $\Lt$, of the form $z=P(u)$, Roy's theorem refutes it through its hull exactly
-when $\deg P\in\{2,3\}$. Corollary~\ref{cor:nogo}(a) adds that no further numbers
-algebraically independent of $u$ can help. For polynomial ties this makes precise Diaz's
-remark that inside his Th\'eor\`eme~7 one cannot hope to go very far \cite[p.~390]{Dia07}:
-the limit is degree three, and every cubic reaches it.
-
-\paragraph{Three next steps.}
+\paragraph{Next steps.}
 \begin{enumerate}[label=\textup{(\arabic*)}]
-\item \emph{Theorem C for $\Qbar[u,\bar u]$.} For a Laurent polynomial $z$ in $u$, the
-argument of Section~\ref{sec:proofC} still applies to the two orders at $0$ of
-$\spn(z,\bar z)$ modulo $H_{0}$. Example~\ref{ex:width} shows that the answer now contains
-the real pencil spaces with Laurent data, of unbounded width. A complete list would
-settle which polynomial expressions in $u$ and $\bar u$ Roy's theorem can exclude.
-\item \emph{Higher rank.} Rank-one $2\times3$ configurations are exhausted along
-polynomials. The next instrument is the rank bound for larger matrices with entries in
-$\Lt$. A first test is whether it holds in $(\cL_{u},\Lt_{u})$
-(Remark~\ref{rem:scopeD}). If it fails there, it detects generic candidates, and
-Theorem~D does not apply to it.
-\item \emph{The real branch.} Under Kirby's conjecture the problem is whether
-$t^{2}+\pi^{2}$ can be algebraic for a real non-zero $t\in\cL$. There $u=t+i\pi$, and
-the tie to $i\pi$ already lies inside $H_{0}$, which contains $t$ and $i\pi$. So it gives
-Roy's theorem nothing new, and Theorem~C applies unchanged. Progress on that branch
-needs an input about $\pi$ beyond $i\pi\in\cL$.
+\item Settle whether class (Q) is in the project's unformalised classification
+(Remark~\ref{rem:Qnew}), and formalise Theorems~C(iii) and~E. Their inputs, Theorem~B, the
+progression lemma and the degree bound, are already formal.
+\item Extend Theorem~E from Laurent polynomials to all of $\Qbar(u)$. Poles off
+$\{0,\infty\}$ come in conjugate pairs $a$, $\rho/\bar a$, and the order and degree sets
+become one sumset condition per place.
+\item Roy's rank bound at rank three for $u^{4}$, and whether the bound holds in the
+generic model $(\cL_{u},\Lt_{u})$.
 \end{enumerate}
 
 \section{Status and sources}\label{sec:status}
 
 \begin{itemize}
-\item \emph{Proofs.} Every statement above is proved here, by hand. Two parts were also
-checked by machine: Lemma~\ref{lem:combinatorics}, exhaustively for $4\le k<80$; and the
-cubic configuration of Theorem~C(ii), numerically on $200$ random instances. Nothing
-here is formalised in Lean.
-\item \emph{Inputs.} Roy's strong six exponentials theorem \cite{Roy92}, which is proved
-but carried by the project as a hypothesis. From the project, all formalised: Theorem~B,
-the separation theorem, the four exponentials theorem in transcendence degree one,
-Baker's theorem, and the lemma on $2\times2$ matrices of linear forms.
-\item \emph{Literature.} In this session the network blocked arXiv and the authors'
-pages, so we read only the repository's own notes and the blueprint. ``New'' therefore
-means \emph{not found in the project's notes}, in the sense of the blueprint's
-Chapter~14. The first place to check is \S2 of \cite{Dia07}: Corollaire~5 and
-Th\'eor\`eme~7 for general cubics, and the remark on p.~390 for degree four.
-\item \emph{Where these would sit in Chapter~14.} Theorem~C is a candidate for the
-``not routine'' list. Its key step, normalising to Laurent polynomials and then pinching
-the supports between the orders at $0$ and at $\infty$, was not found in the project's
-notes. It is a complete classification for an infinite family, like Theorem~B. By the
-chapter's rubric, Theorem~D is probably routine, since its lemma extends the separation
-argument. Its reach is the largest of the two, because it concerns every method of a
-kind.
+\item \emph{Proofs.} Theorems~C and~D and the corollaries of C are proved here, by hand.
+The proof of Theorem~E is condensed. It was found three times independently in this
+session, each derivation checked adversarially with exact computer algebra; we re-ran
+the key symbolic step ($T_{5b}$) ourselves. Five independent referees checked
+Theorems~C and~D. They found no mathematical error, but several overclaims and two
+misattributions, all corrected in this version. Nothing here is formalised in Lean.
+\item \emph{Credit.} The exclusions of quadratics and cubics are Diaz's
+\cite[Th\'eor\`eme~7(1)]{Dia07}, formalised in the project. The real pencil class (R) is
+the project's \cite[Prop.~10.42, Thm.~10.43]{BP}. The project's Theorem~10.52, ``not found
+in the sources read'', is also one substitution in \cite[Th\'eor\`eme~7(1)]{Dia07}; its
+source line should be revisited. New, as far as the project's notes and a web search
+reach, are the ``only if'' halves of Theorems~C and~E, class (Q) as a family of hulls,
+Corollary~\ref{cor:nogo}(b), and Theorem~D.
+\item \emph{Literature.} During this session the network blocked arXiv and most author
+pages. Web search reached abstracts and quotations only. Roy's 1992 paper was read only
+through the quotation in \cite{Mak23}. No prior statement like Theorem~D was found. The
+nearest are Kirby's results on countable exponentially closed fields and Zilber's
+pseudo-exponential fields, which are different in kind.
+\item \emph{Chapter~14.} By the chapter's rubric, Theorem~C is probably routine: its
+valuation count is the method of \cite{BSZ17}, as for the project's Laurent hull theorem.
+Theorem~E is a stronger candidate for the ``not routine'' list. It is a complete
+classification, and its proof has steps not found in the sources: the shape list, the
+two-sided pinch, and the pencil analysis. Theorem~D is routine in method but broad in
+reach.
 \end{itemize}
 
 \begin{thebibliography}{BSZ17}
-
-\bibitem[Bak66]{Bak66}
-A.~Baker, \emph{Linear forms in the logarithms of algebraic numbers~I}, Mathematika
-\textbf{13} (1966), 204--216.
 
 \bibitem[BP]{BP}
 C.~Perassi et al., \emph{Transcendence theory in Lean~4: blueprint},
@@ -620,7 +877,12 @@ C.~Perassi et al., \emph{Transcendence theory in Lean~4: blueprint},
 
 \bibitem[BSZ17]{BSZ17}
 C.~Bachoc, O.~Serra and G.~Z\'emor, \emph{An analogue of Vosper's theorem for extension
-fields}, Math. Proc. Cambridge Philos. Soc. (2017); arXiv:1501.00602.
+fields}, Math. Proc. Cambridge Philos. Soc. \textbf{163} (2017), 423--452;
+arXiv:1501.00602.
+
+\bibitem[Bak66]{Bak66}
+A.~Baker, \emph{Linear forms in the logarithms of algebraic numbers~I}, Mathematika
+\textbf{13} (1966), 204--216.
 
 \bibitem[CN]{CN}
 C.~Perassi, companion note \texttt{tex/diaz\_prove2me.tex} of the repository
@@ -635,6 +897,10 @@ de valeurs de la fonction exponentielle usuelle}, J. Th\'eor. Nombres Bordeaux
 G.~Diaz, \emph{Produits et quotients de combinaisons lin\'eaires de logarithmes de
 nombres alg\'ebriques : conjectures et r\'esultats partiels}, J. Th\'eor. Nombres
 Bordeaux \textbf{19} (2007), 373--391.
+
+\bibitem[Mak23]{Mak23}
+A.~Maksoud, \emph{On the rank of Leopoldt's and Gross's regulator maps}, Doc. Math.
+\textbf{28} (2023), 1441--1471; arXiv:2201.08203.
 
 \bibitem[Roy92]{Roy92}
 D.~Roy, \emph{Matrices whose coefficients are linear forms in logarithms}, J. Number
