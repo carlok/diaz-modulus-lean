@@ -110,7 +110,7 @@ The only transcendence input of Sections~\ref{sec:statements}--\ref{sec:proofE} 
 following theorem. It is proved \cite{Roy92}, but the project carries it as a
 hypothesis.
 
-\begin{theorem}[Roy's strong six exponentials theorem \cite{Roy92}]\label{thm:roy}
+\begin{theorem}[Roy's strong six exponentials theorem {\cite[Cor.~2]{Roy92}}]\label{thm:roy}
 There is no configuration in $\Lt$.
 \end{theorem}
 
@@ -163,11 +163,13 @@ for every $\beta\in\Qbar^{\times}$.
 \end{corollary}
 
 \emph{Credit.} Corollary~\ref{cor:cubic} and parts (i)--(ii) are printed. They are one
-substitution in Diaz's Th\'eor\`eme~7(1) \cite{Dia07}. That theorem says: if $(v,\bar v)$
+substitution in Diaz's Th\'eor\`eme~7(1) \cite{Dia07}, and already in \cite[Th.~2]{Dia04},
+which contains it as the case $x=(v,\bar v)$. Th\'eor\`eme~7(1) says: if $(v,\bar v)$
 and $(1,w,\bar w)$ are each free over $\Qbar$, then $v$, $vw$ and $v\bar w$ are not all in
 $\Lt$. Take $v=u$ and $w=u^{2}+cu$. Then $v\bar w=\rho\bar u+\bar c\rho\in H_{0}$, so
 $vw=Q\notin\Lt$; and $w=u+b$ gives the quadratics. The configuration of~(ii) is Diaz's
-$(v,\bar v)\otimes(1,w,\bar w)$, rescaled by $u^{\mp1}$. The project has formalised the
+$(v,\bar v)\otimes(1,w,\bar w)$, with the first family multiplied by $u/\rho$ and the
+second by $\rho/u$. The project has formalised the
 theorem (\texttt{Diaz.Mirror}, \texttt{diaz\_2007\_th7}, part~1), and it also gives the
 exclusion behind the project's Theorem~10.52 \cite{BP}, the case $c=\pm|u|$. The part
 of Theorem~C not found in the sources read is~(iii), with its proof (Section~\ref{sec:proofC}). The case $P=X^{k}$ of~(iii)
@@ -327,7 +329,7 @@ of finite dimension. Then $\nu(V\setminus\{0\})$ has exactly $\dim V$ elements.
 The residue field of $\nu$ is $\Qbar$. If $f,g\in V$ have the same value $n$, some
 $c\in\Qbar^{\times}$ makes $\nu(f-cg)>n$. So each quotient $V_{\ge n}/V_{>n}$ of the
 filtration by values has dimension at most one, and it is non-zero exactly when $n$
-is a value. This is the valuation argument of \cite{BSZ17} that the project uses for
+is a value. This is the valuation argument of \cite[\S7, proof of Th.~33]{BSZ17} that the project uses for
 its Lemma~10.17 in $\Qbar[T]$.
 \end{proof}
 
@@ -516,7 +518,7 @@ $o_{2}$ has degree in $-O$, so $o_{2}\le-o_{1}$.
 $\deg w\in-O$.
 (e) \emph{The ratio has degree at most two.} Let $h=x_{2}/x_{1}$. We claim
 $[\Qbar(T):\Qbar(h)]\le2$. Suppose first the products span four dimensions (Case~I).
-Then they form a progression $b,bh,bh^{2},bh^{3}$ \cite[Lemma~10.2]{BP}. That span meets
+Then they form a progression $b,bh,bh^{2},bh^{3}$ \cite[Lemma~4]{BSZ17} (the project's \cite[Lemma~10.2]{BP}). That span meets
 $H$ in dimension at least $2$, and the ratio of two independent elements of the
 intersection has degree at most $2$ in $T$ and lies in $\Qbar(h)\setminus\Qbar$.
 Otherwise the products span all of $W$ (Case~II), and \cite[Thm.~10.58]{BP} applies.
@@ -772,10 +774,10 @@ eight numbers $x_{i},y_{j},e^{x_{i}y_{j}}$ are algebraically independent. A proo
 conjecture through such a statement is not ruled out here.
 
 Nor is it known whether Roy's rank bound for larger matrices holds in
-$(\cL_{u},\Lt_{u})$. As quoted by Maksoud \cite{Mak23} from \cite[Cor.~1]{Roy92}, it
-states: a matrix with entries in $\Lt$ has rank at least $m\theta/(1+\theta)$, where
-$\theta$ is computed from its zero blocks after changes of basis. We read Roy's paper
-only through this quotation. If the bound fails in the model, it can see a generic
+$(\cL_{u},\Lt_{u})$. By \cite[Cor.~1]{Roy92} (p.~38; also quoted in \cite{Mak23}), a matrix with
+entries in $\Lt$ has rank at least $m\theta/(1+\theta)$, where
+$\theta$ is computed from its zero blocks after changes of basis. This is a lower bound,
+not an exact rank. If the bound fails in the model, it can see a generic
 candidate. We probed it at the first open case, $u^{4}\in\Lt$
 (Section~\ref{sec:meaning}).
 \end{remark}
@@ -789,8 +791,8 @@ Roy's strong six exponentials theorem can refute ``$z\in\Lt$'' at a candidate us
 $z$, its conjugate and the certificate $H_{0}$. Every exclusion they list is a routine
 substitution, into Diaz's theorems or into Roy's. What was not found in the sources read is the converse. Apart
 from classes (P), (Q) and (R) nothing can be excluded this way. For a polynomial in $u$
-alone the limit is degree three, a precise form of Diaz's remark that within his
-Th\'eor\`eme~7 one cannot hope to go far \cite[p.~390]{Dia07}. This concerns \emph{one}
+alone the limit is degree three, a precise form, for one polynomial in $u$, of Diaz's remark that
+within the strong six exponentials theorem one cannot hope to go far \cite[p.~390]{Dia07}. This concerns \emph{one}
 hypothetical logarithm at a time. Two ties together can reach further (for example
 $u^{4}$ and $u^{5}$; Corollary~\ref{cor:nogo}). So can additional numbers that are
 algebraically dependent on $u$.
@@ -816,7 +818,7 @@ Under Kirby's weak Schanuel conjecture, candidates satisfy $\Im u\in\pi\Q$
 never generic, and Theorem~D says nothing about them. On that branch the
 four exponentials theorem in transcendence degree one does give unconditional results;
 those are the project's Chapter~13. The tie to $i\pi$ lies inside $H_{0}$, so it gives
-Roy's theorem nothing new through hulls.
+Roy's theorem nothing further through hulls.
 
 \paragraph{Higher rank: a first probe.}
 Rank-one configurations cannot exclude $u^{4}$ (the power hulls). In this session we
@@ -829,7 +831,7 @@ So \emph{at rank two, Roy's bound does not exclude $u^{4}$}. The same holds for 
 $u^{4}+cu^{3}$. Controls behave as they should: the method finds the known configurations
 in $\spn(u^{-2},\dots,u^{2})$. Rank three and above is open. For the certificate space alone, the
 bound gives nothing at any rank. This is Roy's lemma on spaces of dimension at most
-three \cite[Lemma~12.16]{Wal00}, cited in the companion note: rank $\ge(d+l)/4\ge dl/(d+l)$.
+three \cite[Th.~3.4]{Roy95} (also \cite[Exercise~12.10]{Wal00}): rank $\ge(d+l)/4\ge dl/(d+l)$.
 These results are computer-assisted, use Roy's bound in the quoted form, and are not part
 of the theorems above.
 
@@ -853,23 +855,35 @@ The proof of Theorem~E is condensed. It was found three times independently in t
 session, each derivation checked adversarially with exact computer algebra; we re-ran
 the key symbolic step ($T_{5b}$) ourselves. Five independent referees checked
 Theorems~C and~D. They found no mathematical error, but several overclaims and two
-misattributions, all corrected in this version. Nothing here is formalised in Lean.
+misattributions, all corrected in this version.
+\item \emph{Formalised} (16 October 2026, through Prove2Me, mirrored as \texttt{Diaz.Mirror}): Theorem~C, as
+\texttt{polynomial\_hull\_two\_by\_three\_configuration\_iff} with part~(iii) as
+\texttt{polynomial\_hull\_no\_two\_by\_three\_configuration}; Corollary~\ref{cor:nogo}(b), as
+\texttt{real\_polynomial\_hull\_no\_two\_by\_three\_configuration}; Lemma~\ref{lem:inversion}, for any subfields
+$K\subseteq F$, as \texttt{rank\_one\_config\_inverse\_adjoin}; and (D3) of Theorem~D, under Roy's theorem
+as a hypothesis, as \texttt{logAlgTilde\_adjoin\_circle\_point\_no\_two\_by\_three\_configuration}.
+The helpers are Lemma~\ref{lem:combinatorics} (\texttt{five\_point\_sumset\_rigid}), the degree half of
+Lemma~\ref{lem:orders} (\texttt{polynomial\_submodule\_degrees\_card}), the order sets of Section~\ref{sec:proofC}
+(\texttt{shifted\_polynomial\_hull\_orders}), the normalisation (\texttt{config\_shifted\_polynomial\_spans})
+and the rank-one factorisation (\texttt{rank\_one\_polynomial\_matrix\_factor}). Theorem~E and the rest of
+Theorem~D are not formalised.
 \item \emph{Credit.} The exclusions of quadratics and cubics are Diaz's
 \cite[Th\'eor\`eme~7(1)]{Dia07}, formalised in the project. The real pencil class (R) is
 the project's \cite[Prop.~10.42, Thm.~10.43]{BP}. The configuration of the project's
 Theorem~10.52 is also Diaz's \cite[Th\'eor\`eme~7(1)]{Dia07}. Its source line in the
 blueprint, the chapter of results not found in the sources, the README and version~1.29
-of the companion note now say so; only its invisibility remains ``not found''. New, as
-far as the project's notes and a web search
-reach, are the ``only if'' halves of Theorems~C and~E, class (Q) as a family of hulls,
+of the companion note now say so; only its invisibility remains ``not found''. Not found in the sources read
+(the project's notes and a web search)
+are the ``only if'' halves of Theorems~C and~E, class (Q) as a family of hulls,
 Corollary~\ref{cor:nogo}(b), and Theorem~D.
 \item \emph{Literature.} During this session the network blocked arXiv and most author
-pages. Web search reached abstracts and quotations only. Roy's 1992 paper was read only
-through the quotation in \cite{Mak23}. No prior statement like Theorem~D was found. The
+pages. Web search reached abstracts and quotations only. Roy's 1992 paper was at first read
+only through the quotation in \cite{Mak23}; its Corollary~1 has since been checked against the
+paper. No prior statement like Theorem~D was found. The
 nearest are Kirby's results on countable exponentially closed fields and Zilber's
 pseudo-exponential fields, which are different in kind.
 \item \emph{Chapter~14.} By the chapter's rubric, Theorem~C is probably routine: its
-valuation count is the method of \cite{BSZ17}, as for the project's Laurent hull theorem.
+valuation count is the method of \cite[\S7, proof of Th.~33]{BSZ17}, as for the project's Laurent hull theorem.
 Theorem~E is a stronger candidate for the ``not routine'' list. It is a complete
 classification, and its proof has steps not found in the sources: the shape list, the
 two-sided pinch, and the pencil analysis. Theorem~D is routine in method but broad in
@@ -912,6 +926,9 @@ A.~Maksoud, \emph{On the rank of Leopoldt's and Gross's regulator maps}, Doc. Ma
 \bibitem[Roy92]{Roy92}
 D.~Roy, \emph{Matrices whose coefficients are linear forms in logarithms}, J. Number
 Theory \textbf{41} (1992), 22--47.
+
+\bibitem[Roy95]{Roy95}
+D.~Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, \emph{Acta Math.} 175 (1995), 49--73.
 
 \bibitem[W73]{W73}
 M.~Waldschmidt, \emph{Solution du huiti\`eme probl\`eme de Schneider}, J. Number Theory
