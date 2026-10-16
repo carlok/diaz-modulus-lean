@@ -831,8 +831,9 @@ Eleven nodes of 14 October 2026 and four of 15 October, from the R12 research no
 - In the research notes only, not formalised: the general visibility criterion (W(λ, f) is visible exactly when it is
   a complete linear system) and the classification of the degree-two case into three families, two orbits fixed or
   exchanged by conjugation and a cyclic family; each family has a formal member above.
-- Not found in the sources read; all routine. At a candidate they add nothing: Roy's theorem already excludes every such
-  space.
+- Not found in the sources read, except the configuration of the Laurent cubic space. That configuration is Diaz's
+  Théorème 7(1) of 2007 at v = u, w = u² + su, so `F ∉ ℒ̃` at a candidate is one substitution there. All routine. At a
+  candidate they add nothing: Roy's theorem already excludes every such space.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 
