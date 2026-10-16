@@ -113,3 +113,13 @@ import Solution
 #print axioms Diaz.cyclic_pair_space_excludes_squares_and_reciprocals
 #print axioms Diaz.cyclic_pair_configuration_invisible_to_four_dimensional_extensions
 #print axioms Diaz.cyclic_pair_space_no_mobius_ratio_configuration
+#print axioms Diaz.polynomial_submodule_degrees_card
+#print axioms Diaz.five_point_sumset_rigid
+#print axioms Diaz.shifted_polynomial_hull_orders
+#print axioms Diaz.config_shifted_polynomial_spans
+#print axioms Diaz.rank_one_polynomial_matrix_factor
+#print axioms Diaz.polynomial_hull_no_two_by_three_configuration
+#print axioms Diaz.rank_one_config_inverse_adjoin
+#print axioms Diaz.polynomial_hull_two_by_three_configuration_iff
+#print axioms Diaz.real_polynomial_hull_no_two_by_three_configuration
+#print axioms Diaz.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration

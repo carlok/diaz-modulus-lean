@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 418 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 428 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -838,6 +838,28 @@ Eleven nodes of 14 October 2026 and four of 15 October, from the R12 research no
   Théorème 7(1) of 2007 at v = u (for the Laurent cubic space w = u² + su, so `F ∉ ℒ̃` at a candidate is one
   substitution there). What was not found is their invisibility and the absence of Möbius ratios. All routine. At a
   candidate they add nothing: Roy's theorem already excludes every such space.
+
+### Polynomial hulls, and a barrier
+
+Ten nodes of 16 October 2026, from a research note in this repository (`tex/diaz-theorem-c.tex`, written by Claude
+agents and refereed by agents and computer algebra; the parts below are now formal).
+- **Theorem C.** For u ∉ Q̄ with uū algebraic and P ∈ Q̄[X], the span of 1, u, ū, P(u), P(u)‾ carries a 2×3
+  configuration exactly when deg P is 2 or 3 (`DiazModulus.polynomial_hull_two_by_three_configuration_iff`). The
+  configurations are Diaz's Théorème 7(1) of 2007 (and his Théorème 2 of 2004); the case P = Xᵏ of the converse is the
+  power-hull theorem above. For deg P ≥ 4 the proof counts orders at 0 and degrees together, with
+  `DiazModulus.five_point_sumset_rigid` and `DiazModulus.polynomial_submodule_degrees_card`
+  (`DiazModulus.polynomial_hull_no_two_by_three_configuration`).
+- **Real polynomials in Re u and Im u** with algebraic coefficients carry no configuration in their hull
+  (`DiazModulus.real_polynomial_hull_no_two_by_three_configuration`, from Theorem B). So at a candidate, Roy's theorem
+  cannot exclude (Re u)² or Re u · Im u from ℒ̃ one number at a time.
+- **A barrier.** Over subfields K ⊆ F, a 2×3 configuration in V₀ + Ku + Ku⁻¹, with V₀ ⊆ F and u transcendental over
+  F, has its products in V₀ (`DiazModulus.rank_one_config_inverse_adjoin`). So, under Roy's theorem, ℒ̃ + Q̄u + Q̄ū
+  carries no configuration when uū is algebraic and u is transcendental over the field of ℒ̃
+  (`DiazModulus.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration`).
+- In the research note only, not formalised: the classification of all polynomials in u and ū (its Theorem E), and
+  the rest of its Theorem D (Baker's and Gel'fond–Schneider's theorems, the six exponentials theorem over Q and
+  the four exponentials theorem in transcendence degree one, in the same model).
+- Not found in the sources read, except the configurations of degrees 2 and 3; all routine.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

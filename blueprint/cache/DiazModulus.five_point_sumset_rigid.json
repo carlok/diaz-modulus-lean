@@ -1,0 +1,21 @@
+{
+ "theorem_id": "d4afe990-7edc-4c6f-ac8e-7c681c9585a9",
+ "theorem_name": "DiazModulus.five_point_sumset_rigid",
+ "theorem_title": "If A + B ⊆ {−k, −1, 0, 1, m} with |A| = 2, |B| = 3, k ≥ 4 and 2 ≤ m ≤ k, then m = 2 and A + B = {−1, 0, 1, 2}",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\nopen Pointwise in\ntheorem five_point_sumset_rigid (k m : ℤ) (hk : 4 ≤ k) (hm : 2 ≤ m) (hmk : m ≤ k)\n    (A B : Finset ℤ) (hA : A.card = 2) (hB : B.card = 3)\n    (hAB : A + B ⊆ ({-k, -1, 0, 1, m} : Finset ℤ)) :\n    m = 2 ∧ A + B = ({-1, 0, 1, 2} : Finset ℤ) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $k, m$ be integers with $k \\geq 4$ and $2 \\leq m \\leq k$, and let $A, B$ be finite sets of integers with $|A| = 2$, $|B| = 3$ and $A + B \\subseteq \\{-k, -1, 0, 1, m\\}$. Then $m = 2$ and $A + B = \\{-1, 0, 1, 2\\}$.\n\n**Proof.** Write $A = \\{a, a + d\\}$ with $d \\geq 1$. For each of the three $b \\in B$, $s = a + b$ and $s + d$ lie in $S$, so the difference $d$ is taken at three distinct lower ends. The positive differences of $S$ are $1, 1, 2, m - 1, m, m + 1, k - 1, k, k + 1, k + m$, and as $k - 1 \\geq 3$ only $d = 1$ with $m = 2$ occurs three times, at $s = -1, 0, 1$. So $a + B = \\{-1, 0, 1\\}$ and $A + B = \\{-1, 0, 1, 2\\}$. The hypothesis $m \\leq k$ is not used.\n\n**Novelty.** Not found in the sources read; routine.",
+ "created_at": "2026-10-16T13:58:52.321382+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Not found in the sources read. R16 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 16 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

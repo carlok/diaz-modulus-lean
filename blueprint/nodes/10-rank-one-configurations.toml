@@ -7,7 +7,7 @@ Results of the library's work on Diaz's conjecture, about the hypothesis that ra
 
 The first sections answer the question in small dimension. Generic data carry no configuration, whatever numbers are added (Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration}, called Theorem~A). The four-dimensional extensions $H_0+\Qbar z$ that carry one are exactly those containing $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ (Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff}, called Theorem~B; several titles below use that name). In the power hulls $\Qbar u^{-k}+\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{k}$ a configuration exists only for $k=2$ and $k=3$, so through these hulls Roy's theorem excludes no single power beyond $u^{3}$ at a candidate (Theorem~\ref{thm:power_hull_strong_six_exp_configuration_iff}). The sections on separation and on Laurent hulls put these results into one mechanism over any field: separation (Theorem~\ref{thm:rank_one_config_separation}), the normal form of $2\times2$ configurations (Theorem~\ref{thm:circle_point_two_by_two_normal_form}) and configurations in Laurent hulls (Theorem~\ref{thm:laurent_hull_config_iff}).
 
-The other sections are about five-dimensional spaces, where a configuration can escape the four-dimensional extensions. The section on five-dimensional extensions gives the first such spaces, $H_0+\Qbar z+\Qbar\bar z$ (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}). When the six products span only four dimensions (Case~I), the configuration is a geometric progression \cite[Lemma 4]{BSZ17}: two poles and every Möbius involution of the $u$-line give such spaces, and a progression whose ratio is rational in $u$ lies in a space that contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$, or in an involution space (Theorem~\ref{thm:progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}). When the products span the whole space (Case~II), the conjugation-stable spaces with a factor of degree one are the real pencil spaces (Theorem~\ref{thm:conj_equivariant_degree_one_space_eq_real_pencil_space}); the last section shows that a factor of degree two can occur without one of degree one (Theorems~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions} and~\ref{thm:laurent_cubic_space_no_mobius_ratio_configuration}), that no factor of higher degree can (Theorem~\ref{thm:progression_pair_span_ratio_degree_le_two}), and which real pencil spaces with Laurent data the four-dimensional extensions see (Theorem~\ref{thm:laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions} and Proposition~\ref{prop:laurent_real_pencil_space_contains_square_of_root}). It ends with a formal member of each of the three families of conjugation-stable invisible spaces with a factor of degree two that the research notes classify, for every involution of the $u$-line that commutes with conjugation: two orbits fixed by conjugation (Proposition~\ref{prop:conj_stable_two_orbit_space}), two orbits exchanged by it (Theorem~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions}, where they are $0$ and $\infty$, and Theorem~\ref{thm:conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions}), and a cyclic family (Theorem~\ref{thm:cyclic_pair_configuration_invisible_to_four_dimensional_extensions}). All the members use the involution $u\mapsto-u$, their configurations are those of \cite[Théorème 7(1)]{Dia07} at $v=u$, and the classification itself is not formalised. Chapter~\ref{chap:14-not-found-in-the-sources} says which of these results were not found in the sources read, and which are not routine.
+The other sections are about five-dimensional spaces, where a configuration can escape the four-dimensional extensions. The section on five-dimensional extensions gives the first such spaces, $H_0+\Qbar z+\Qbar\bar z$ (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}). When the six products span only four dimensions (Case~I), the configuration is a geometric progression \cite[Lemma 4]{BSZ17}: two poles and every Möbius involution of the $u$-line give such spaces, and a progression whose ratio is rational in $u$ lies in a space that contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$, or in an involution space (Theorem~\ref{thm:progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}). When the products span the whole space (Case~II), the conjugation-stable spaces with a factor of degree one are the real pencil spaces (Theorem~\ref{thm:conj_equivariant_degree_one_space_eq_real_pencil_space}); the last section shows that a factor of degree two can occur without one of degree one (Theorems~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions} and~\ref{thm:laurent_cubic_space_no_mobius_ratio_configuration}), that no factor of higher degree can (Theorem~\ref{thm:progression_pair_span_ratio_degree_le_two}), and which real pencil spaces with Laurent data the four-dimensional extensions see (Theorem~\ref{thm:laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions} and Proposition~\ref{prop:laurent_real_pencil_space_contains_square_of_root}). The section on Case II beyond degree one ends with a formal member of each of the three families of conjugation-stable invisible spaces with a factor of degree two that the research notes classify, for every involution of the $u$-line that commutes with conjugation: two orbits fixed by conjugation (Proposition~\ref{prop:conj_stable_two_orbit_space}), two orbits exchanged by it (Theorem~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions}, where they are $0$ and $\infty$, and Theorem~\ref{thm:conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions}), and a cyclic family (Theorem~\ref{thm:cyclic_pair_configuration_invisible_to_four_dimensional_extensions}). All the members use the involution $u\mapsto-u$, their configurations are those of \cite[Théorème 7(1)]{Dia07} at $v=u$, and the classification itself is not formalised. The last section is about polynomial hulls: $\Qbar+\Qbar u+\Qbar\bar u+\Qbar P(u)+\Qbar\overline{P(u)}$ carries a configuration exactly when $\deg P\in\{2,3\}$ (Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff}), real polynomials in $\operatorname{Re}u$ and $\operatorname{Im}u$ carry none (Corollary~\ref{cor:real_polynomial_hull_no_two_by_three_configuration}), and adjoining to $\widetilde{\mathcal L}$ a point of a circle that is transcendental over its field keeps Roy's theorem true (Theorem~\ref{thm:logAlgTilde_adjoin_circle_point_no_two_by_three_configuration}). Chapter~\ref{chap:14-not-found-in-the-sources} says which of these results were not found in the sources read, and which are not routine.
 '''
 
 # --- Generic data ------------------------------------------------------------------------
@@ -860,4 +860,130 @@ Let $u\in\C\setminus\Qbar$ and $s\in\Qbar$ real with $s^{2}=u\bar u$. With $v=u/
 source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
 sketch = '''
 $c=\alpha x_{1}-\gamma x_{2}$ gives $t_{j}=cy_{j}$ with $t_{j},ut_{j}\in W$; such $t$ lie in $\Qbar+\Qbar\bar u$, since multiplication by $u$ changes the sign of the ratio between the leading polar coefficients at $s$ and $-s$.
+'''
+
+# --- Polynomial hulls (R16) -------------------------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.polynomial_submodule_degrees_card"
+env = "lemma"
+section = "Polynomial hulls"
+title = 'Degrees of a space of polynomials'
+statement = '''
+Let $K$ be a field and $X\subseteq K[X]$ a finite-dimensional $K$-space. The degrees of the non-zero elements of $X$ take exactly $\dim X$ values.
+'''
+source = '''The degree form of Lemma~\ref{lem:polynomial_submodule_trailing_degrees_card}; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Induction on $\dim X$: remove the largest degree $n_{0}$ through $X\cap\ker(f\mapsto f_{n_{0}})$.
+'''
+
+[[node]]
+platform = "DiazModulus.five_point_sumset_rigid"
+env = "lemma"
+title = 'A rigid five-element set'
+statement = '''
+Let $k\geq4$, $2\leq m\leq k$, and $A,B\subseteq\Z$ with $|A|=2$, $|B|=3$ and $A+B\subseteq\{-k,-1,0,1,m\}$. Then $m=2$ and $A+B=\{-1,0,1,2\}$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$A=\{a,a+d\}$: the difference $d$ occurs at three lower ends in $S$; only $d=1$ with $m=2$ does, at $-1,0,1$.
+'''
+
+[[node]]
+platform = "DiazModulus.shifted_polynomial_hull_orders"
+env = "lemma"
+title = 'Orders and degrees of a shifted hull'
+statement = '''
+Let $2\leq m\leq k$, $Q_{1}\neq0$ with order $k+m$ at $0$ and degree $2k$, and $Q_{2}$ with $Q_{2}(0)\neq0$ and degree $k-m$. Every non-zero $f$ in the span of $X^{k-1},X^{k},X^{k+1},Q_{1},Q_{2}$ has order at $0$ in $\{0,k-1,k,k+1,k+m\}$ and degree in $\{k-m,k-1,k,k+1,2k\}$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Read the coefficients: only $Q_{2}$ has a constant term, and only $Q_{1}$ reaches degree $2k$.
+'''
+
+[[node]]
+platform = "DiazModulus.config_shifted_polynomial_spans"
+env = "lemma"
+title = 'A configuration as two spaces of polynomials'
+statement = '''
+Let $u\in\C\setminus\Qbar$, $H\subseteq\Qbar[X]$ a subspace and $N\geq0$. If a configuration $x\otimes y$ has $u^{N}x_{i}y_{j}=Q_{ij}(u)$ with $Q_{ij}\in H$, there are free $a_{1},a_{2}$, free $b_{1},b_{2},b_{3}$ and $P_{0}\neq0$ in $\Qbar[X]$ with $fg\in P_{0}H$ for $f$ in the span of the $a_{i}$ and $g$ in that of the $b_{j}$.
+'''
+source = '''Not found in the sources read in this form; it is the normalisation in the proof of Theorem~\ref{thm:laurent_hull_config_iff}; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$a_{i}=Q_{i1}$, $b_{j}=Q_{1j}$, $P_{0}=Q_{11}$; both sides of $fg=P_{0}h$ agree at the transcendental $u$.
+'''
+
+[[node]]
+platform = "DiazModulus.rank_one_polynomial_matrix_factor"
+env = "lemma"
+title = 'Rank-one polynomial matrices'
+statement = '''
+Let $F$ be a field and $P$ a $2\times3$ matrix over $F[X]$ with non-zero entries and vanishing $2\times2$ minors. Then $P_{ij}=a_{i}b_{j}$ with $a_{1},a_{2}$ coprime.
+'''
+source = '''Standard; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$a_{i}=P_{i1}/\gcd(P_{11},P_{21})$; coprimality gives $a_{1}\mid P_{1j}$.
+'''
+
+[[node]]
+platform = "DiazModulus.polynomial_hull_no_two_by_three_configuration"
+env = "theorem"
+title = 'Polynomial hulls of degree at most one or at least four'
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u\in\Qbar$. If $P\in\Qbar[X]$ has degree at most $1$ or at least $4$, then $W_{P}=\Qbar+\Qbar u+\Qbar\bar u+\Qbar P(u)+\Qbar\overline{P(u)}$ carries no $2\times3$ configuration.
+'''
+source = '''For degree at most $1$, $W_{P}$ has dimension $3$ \cite[Theorem 3.4]{Roy95}. For degree at least $4$, not found in the sources read; the method is the valuation count of \cite[\S7]{BSZ17}, at $0$ and $\infty$ together; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). The case $P=X^{k}$ is Theorem~\ref{thm:power_hull_strong_six_exp_configuration_iff}.'''
+sketch = '''
+Lemma~\ref{lem:config_shifted_polynomial_spans} with $N=\deg P$; Lemmas~\ref{lem:polynomial_submodule_trailing_degrees_card}, \ref{lem:polynomial_submodule_degrees_card}, \ref{lem:shifted_polynomial_hull_orders} and~\ref{lem:five_point_sumset_rigid} make the order sums and the degree sums $\{-1,0,1,2\}$ and $\{-2,-1,0,1\}$ after shifting; a product of order sum $2$ would have its order above its degree.
+'''
+
+[[node]]
+platform = "DiazModulus.polynomial_hull_two_by_three_configuration_iff"
+root = true
+env = "theorem"
+title = 'Polynomial hulls'
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u\in\Qbar$. For $P\in\Qbar[X]$, $W_{P}=\Qbar+\Qbar u+\Qbar\bar u+\Qbar P(u)+\Qbar\overline{P(u)}$ carries a $2\times3$ configuration if and only if $\deg P\in\{2,3\}$. So at a candidate Roy's theorem excludes $P(u)$ from $\widetilde{\mathcal L}$ through its hull exactly in degrees $2$ and $3$.
+'''
+source = '''The configurations of degrees $2$ and $3$ are \cite[Théorème 7(1)]{Dia07} at $v=u$, and already \cite[Théorème 2]{Dia04}; the converse was not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$(1,u)\otimes(\bar u,1,u)$ and $(1,u^{2})\otimes(\bar u,u+c,\bar Q)$, $Q=u^{3}+cu^{2}$; Theorem~\ref{thm:polynomial_hull_no_two_by_three_configuration}.
+'''
+
+[[node]]
+platform = "DiazModulus.real_polynomial_hull_no_two_by_three_configuration"
+root = true
+env = "corollary"
+title = 'Real polynomials in Re u and Im u'
+statement = '''
+Let $u\in\C\setminus\Qbar$ with $\rho=u\bar u\in\Qbar$. If $G\in\R[a,b]$ has algebraic coefficients and $z=G(\operatorname{Re}u,\operatorname{Im}u)$, then $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ carries no $2\times3$ configuration.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$z$ is real and a Laurent polynomial in $u$; Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff}.
+'''
+
+[[node]]
+platform = "DiazModulus.rank_one_config_inverse_adjoin"
+env = "proposition"
+title = 'Adjoining a generic point and its inverse'
+statement = '''
+Let $K\subseteq F$ be subfields of $\C$, $V_{0}\subseteq F$ a $K$-space and $u$ transcendental over $F$. Every $2\times3$ configuration over $K$ in $V_{0}+Ku+Ku^{-1}$ has its products in $V_{0}$.
+'''
+source = '''Not found in the sources read in this form; \cite[Proposition 12.2]{Wal00} treats $V_{0}=K$ without $u^{-1}$, and the factorisation is that of Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration}; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$ux_{i}y_{j}=P_{ij}(u)$ with $\deg P_{ij}\leq2$; Lemma~\ref{lem:rank_one_polynomial_matrix_factor}; the constant and $X^{2}$ coefficients lie in $K$, so a non-zero one makes $x$ or $y$ dependent; then swap $u$ and $u^{-1}$.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration"
+root = true
+env = "theorem"
+title = "A barrier for Roy's theorem"
+statement = '''
+Assume Roy's theorem: there is no $2\times3$ configuration in $\widetilde{\mathcal L}$. If $u\bar u\in\Qbar$ and $u$ is transcendental over the field generated by $\widetilde{\mathcal L}$, there is none in $\widetilde{\mathcal L}+\Qbar u+\Qbar\bar u$ either.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$\bar u=\rho u^{-1}$; Proposition~\ref{prop:rank_one_config_inverse_adjoin} with $K=\Qbar$ and $V_{0}=\widetilde{\mathcal L}$.
 '''
