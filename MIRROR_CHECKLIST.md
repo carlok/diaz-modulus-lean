@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-15): **418** of 418
+As of the latest archived submission (2026-10-16): **428** of 428
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -182,6 +182,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration` | yes | `Diaz/Mirror/circle_point_two_pole_extension_carries_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/circle_point_two_pole_extension_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.circle_points_indistinguishable` | yes | `Diaz/Mirror/circle_points_indistinguishable.lean` | done |  |
+| `DiazModulus.config_shifted_polynomial_spans` | yes | `Diaz/Mirror/config_shifted_polynomial_spans.lean` | done |  |
 | `DiazModulus.conj_eq_norm_sq_div` | yes | `Diaz/Mirror/conj_eq_norm_sq_div.lean` | done |  |
 | `DiazModulus.conj_equivariant_degree_one_space_eq_real_pencil_space` | yes | `Diaz/Mirror/conj_equivariant_degree_one_space_eq_real_pencil_space.lean` | done |  |
 | `DiazModulus.conj_pair_quadratic_relation_iff` | yes | `Diaz/Mirror/conj_pair_quadratic_relation_iff.lean` | done |  |
@@ -237,6 +238,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.exp_log_mul_log_transcendental_of_strong_five` | yes | `Diaz/Mirror/exp_log_mul_log_transcendental_of_strong_five.lean` | done |  |
 | `DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_pi_sq_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.exp_two_pi_I_mul_transcendental_of_normSq_rat` | yes | `Diaz/Mirror/exp_two_pi_I_mul_transcendental_of_normSq_rat.lean` | done |  |
+| `DiazModulus.five_point_sumset_rigid` | yes | `Diaz/Mirror/five_point_sumset_rigid.lean` | done |  |
 | `DiazModulus.four_exp_barrier_of_no_quadratic_relation` | yes | `Diaz/Mirror/four_exp_barrier_of_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.four_exponentials_trdeg_one` | yes | `Diaz/Mirror/four_exponentials_trdeg_one.lean` | done |  |
 | `DiazModulus.four_pow_hull_no_two_by_three` | yes | `Diaz/Mirror/four_pow_hull_no_two_by_three.lean` | done |  |
@@ -267,6 +269,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.laurent_real_pencil_space_contains_square_of_root` | yes | `Diaz/Mirror/laurent_real_pencil_space_contains_square_of_root.lean` | done |  |
 | `DiazModulus.laurent_real_pencil_space_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/laurent_real_pencil_space_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
+| `DiazModulus.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration` | yes | `Diaz/Mirror/logAlgTilde_adjoin_circle_point_no_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.logAlgTilde_conj_stable` | yes | `Diaz/Mirror/logAlgTilde_conj_stable.lean` | done |  |
 | `DiazModulus.logAlg_conj_stable` | yes | `Diaz/Mirror/logAlg_conj_stable.lean` | done |  |
 | `DiazModulus.log_mul_imaginary_mixed_of_trdeg_one` | yes | `Diaz/Mirror/log_mul_imaginary_mixed_of_trdeg_one.lean` | done |  |
@@ -294,6 +297,9 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.pi_sq_transcendental` | yes | `Diaz/Mirror/pi_sq_transcendental.lean` | done |  |
 | `DiazModulus.pi_sq_transcendental_of_real_gamma` | yes | `Diaz/Mirror/pi_sq_transcendental_of_real_gamma.lean` | done | vacuous: its conclusion is proved unconditionally by pi_sq_transcendental |
 | `DiazModulus.pi_transcendental` | yes | `Diaz/Mirror/pi_transcendental.lean` | done |  |
+| `DiazModulus.polynomial_hull_no_two_by_three_configuration` | yes | `Diaz/Mirror/polynomial_hull_no_two_by_three_configuration.lean` | done |  |
+| `DiazModulus.polynomial_hull_two_by_three_configuration_iff` | yes | `Diaz/Mirror/polynomial_hull_two_by_three_configuration_iff.lean` | done |  |
+| `DiazModulus.polynomial_submodule_degrees_card` | yes | `Diaz/Mirror/polynomial_submodule_degrees_card.lean` | done |  |
 | `DiazModulus.polynomial_submodule_mul_finrank_ge` | yes | `Diaz/Mirror/polynomial_submodule_mul_finrank_ge.lean` | done |  |
 | `DiazModulus.polynomial_submodule_trailing_degrees_card` | yes | `Diaz/Mirror/polynomial_submodule_trailing_degrees_card.lean` | done |  |
 | `DiazModulus.power_hull_strong_six_exp_configuration_iff` | yes | `Diaz/Mirror/power_hull_strong_six_exp_configuration_iff.lean` | done |  |
@@ -307,12 +313,15 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.quadratic_over_ratio_of_mem_progression_pair_span` | yes | `Diaz/Mirror/quadratic_over_ratio_of_mem_progression_pair_span.lean` | done |  |
 | `DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space` | yes | `Diaz/Mirror/quadratic_ratio_progression_space_eq_involution_pencil_space.lean` | done |  |
 | `DiazModulus.rank_one_config_card_le_finrank_add_one` | yes | `Diaz/Mirror/rank_one_config_card_le_finrank_add_one.lean` | done |  |
+| `DiazModulus.rank_one_config_inverse_adjoin` | yes | `Diaz/Mirror/rank_one_config_inverse_adjoin.lean` | done |  |
 | `DiazModulus.rank_one_config_separation` | yes | `Diaz/Mirror/rank_one_config_separation.lean` | done |  |
 | `DiazModulus.rank_one_config_separation_two` | yes | `Diaz/Mirror/rank_one_config_separation_two.lean` | done |  |
+| `DiazModulus.rank_one_polynomial_matrix_factor` | yes | `Diaz/Mirror/rank_one_polynomial_matrix_factor.lean` | done |  |
 | `DiazModulus.real_axis_exp_unit_circle` | yes | `Diaz/Mirror/real_axis_exp_unit_circle.lean` | done |  |
 | `DiazModulus.real_axis_root_of_unity_implies_pi_sq_rat` | yes | `Diaz/Mirror/real_axis_root_of_unity_implies_pi_sq_rat.lean` | done |  |
 | `DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |
 | `DiazModulus.real_pencil_quartic_space_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/real_pencil_quartic_space_excludes_squares_and_reciprocals.lean` | done |  |
+| `DiazModulus.real_polynomial_hull_no_two_by_three_configuration` | yes | `Diaz/Mirror/real_polynomial_hull_no_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.recip_pi_exp_axis_shape` | yes | `Diaz/Mirror/recip_pi_exp_axis_shape.lean` | done |  |
 | `DiazModulus.recip_pi_exp_value_not_root_of_unity` | yes | `Diaz/Mirror/recip_pi_exp_value_not_root_of_unity.lean` | done |  |
 | `DiazModulus.recip_pi_log_four_exp_barrier` | yes | `Diaz/Mirror/recip_pi_log_four_exp_barrier.lean` | done |  |
@@ -334,6 +343,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.s0_conj_mem` | yes | `Diaz/Mirror/s0_conj_mem.lean` | done |  |
 | `DiazModulus.s0_rat_scale_mem` | yes | `Diaz/Mirror/s0_rat_scale_mem.lean` | done |  |
 | `DiazModulus.sharp_four_and_strong_five_exponentials_of_strong_four` | yes | `Diaz/Mirror/sharp_four_and_strong_five_exponentials_of_strong_four.lean` | done |  |
+| `DiazModulus.shifted_polynomial_hull_orders` | yes | `Diaz/Mirror/shifted_polynomial_hull_orders.lean` | done |  |
 | `DiazModulus.sixExponentials_cannot_refute_candidate` | yes | `Diaz/NoGo.lean` | done |  |
 | `DiazModulus.six_exponentials` | yes | `Diaz/Mirror/six_exponentials.lean` | done |  |
 | `DiazModulus.strong_six_exponentials_iff_quotient_form` | yes | `Diaz/Mirror/strong_six_exponentials_iff_quotient_form.lean` | done |  |
