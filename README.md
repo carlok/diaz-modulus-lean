@@ -812,7 +812,8 @@ Eleven nodes of 14 October 2026 and four of 15 October, from the R12 research no
 - **Two orbits of u ↦ −u.** The span of 1, u, u⁻¹, α/(u − a) + β/(u + a), γ/(u − b) + δ/(u + b) carries a spanning
   configuration with factor (1, u²) and is invisible when α ≠ β or γ ≠ δ
   (`DiazModulus.two_orbit_configuration_invisible_to_four_dimensional_extensions`); α = β, γ = δ is the two-pole family.
-  With |a| = |b| = |u| and β/α, δ/γ real it is stable under conjugation (`DiazModulus.conj_stable_two_orbit_space`).
+  With |a| = |b| = |u| and β/α, δ/γ real it is stable under conjugation (`DiazModulus.conj_stable_two_orbit_space`),
+  and its configuration is then that of Diaz's Théorème 7(1) of 2007 at v = u.
 - **No factor of degree three or more.** If 1, u, u⁻¹ lie in the span of c, ch, ch², ck, chk with h = p(u)/q(u), then
   max(deg p, deg q) ≤ 2 (`DiazModulus.progression_pair_span_ratio_degree_le_two`, through the degree formula in
   Mathlib's proof of Lüroth's theorem).
@@ -827,12 +828,15 @@ Eleven nodes of 14 October 2026 and four of 15 October, from the R12 research no
   span of 1, u, ū, G₁ = 1/(v − 1) + 2/(v + 1) and G₂ = 1/(v − 1)² + 1/(v − 1) − 2/(v + 1)² + 2/(v + 1) is stable
   under conjugation and invisible, (1, u²) acts on G₁, G₂ as a Jordan block modulo 1, u, ū, and no configuration in
   it has a Möbius ratio (`DiazModulus.cyclic_pair_configuration_invisible_to_four_dimensional_extensions`,
-  `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration`).
+  `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration`). Both configurations are that of Diaz's
+  Théorème 7(1) at v = u, with w = ug and w = uG₂.
 - In the research notes only, not formalised: the general visibility criterion (W(λ, f) is visible exactly when it is
-  a complete linear system) and the classification of the degree-two case into three families, two orbits fixed or
-  exchanged by conjugation and a cyclic family; each family has a formal member above.
-- Not found in the sources read, except the configuration of the Laurent cubic space. That configuration is Diaz's
-  Théorème 7(1) of 2007 at v = u, w = u² + su, so `F ∉ ℒ̃` at a candidate is one substitution there. All routine. At a
+  a complete linear system) and the classification of the degree-two case into three families, for every involution
+  of the u-line that commutes with conjugation: two of its orbits fixed or exchanged by conjugation, and a cyclic
+  family. Each family has a formal member above, all for the involution u ↦ −u.
+- Not found in the sources read, except the configurations of the conjugation-stable spaces: each is that of Diaz's
+  Théorème 7(1) of 2007 at v = u (for the Laurent cubic space w = u² + su, so `F ∉ ℒ̃` at a candidate is one
+  substitution there). What was not found is their invisibility and the absence of Möbius ratios. All routine. At a
   candidate they add nothing: Roy's theorem already excludes every such space.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
