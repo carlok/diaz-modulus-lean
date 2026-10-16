@@ -60,7 +60,7 @@ every polynomial expression $z$ in $u$ and $\bar u$.
 
 \emph{Theorem C} (polynomials in $u$): $W_{P(u)}$ carries a configuration if and only if
 $\deg P\in\{2,3\}$. The ``if'' half is one substitution in Diaz's Th\'eor\`eme~7(1) of
-2007, which the project has formalised. What is new is the ``only if'' half: Roy's
+2007, which the project has formalised. What was not found in the sources read is the ``only if'' half: Roy's
 theorem cannot exclude from $\Lt$, through its own hull, any polynomial in $u$ of
 degree at least $4$. The proof normalises a configuration to Laurent polynomials. The
 orders at $0$ and at $\infty$ then pinch the supports of the products into $[-1,1]$.
@@ -162,15 +162,15 @@ $P(u),P(\bar u)\notin\Lt$; so $e^{\beta P(u)}$ and $e^{\beta P(\bar u)}$ are tra
 for every $\beta\in\Qbar^{\times}$.
 \end{corollary}
 
-\emph{Credit.} Corollary~\ref{cor:cubic} and parts (i)--(ii) are not new. They are one
+\emph{Credit.} Corollary~\ref{cor:cubic} and parts (i)--(ii) are printed. They are one
 substitution in Diaz's Th\'eor\`eme~7(1) \cite{Dia07}. That theorem says: if $(v,\bar v)$
 and $(1,w,\bar w)$ are each free over $\Qbar$, then $v$, $vw$ and $v\bar w$ are not all in
 $\Lt$. Take $v=u$ and $w=u^{2}+cu$. Then $v\bar w=\rho\bar u+\bar c\rho\in H_{0}$, so
 $vw=Q\notin\Lt$; and $w=u+b$ gives the quadratics. The configuration of~(ii) is Diaz's
 $(v,\bar v)\otimes(1,w,\bar w)$, rescaled by $u^{\mp1}$. The project has formalised the
 theorem (\texttt{Diaz.Mirror}, \texttt{diaz\_2007\_th7}, part~1), and it also gives the
-exclusion behind the project's Theorem~10.52 \cite{BP}, the case $c=\pm|u|$. The new part
-of Theorem~C is~(iii), with its proof (Section~\ref{sec:proofC}). The case $P=X^{k}$ of~(iii)
+exclusion behind the project's Theorem~10.52 \cite{BP}, the case $c=\pm|u|$. The part
+of Theorem~C not found in the sources read is~(iii), with its proof (Section~\ref{sec:proofC}). The case $P=X^{k}$ of~(iii)
 is the project's power hull theorem \cite[Thm.~10.14]{BP}.
 
 \begin{corollary}[A single polynomial tie of degree at least four]\label{cor:nogo}
@@ -250,17 +250,22 @@ cannot be excluded.
 
 \begin{remark}[Class (Q) and the project's research notes]\label{rem:Qnew}
 In class (Q) the factor $(1,T+\beta T^{-1})$ is a ratio of degree two. Its involution
-$T\mapsto\beta/T$ exchanges $0$ and $\infty$. The companion note \cite{CN} and the README
-say the conjugation-stable invisible spaces with a factor of degree two form three
-families. All three are described through the involution $u\mapsto-u$, which fixes $0$ and
-$\infty$. A (Q) space is conjugation-stable and invisible to Theorem~B. For
+$T\mapsto\beta/T$ commutes with $\sigma$, since $|\beta|=1$, and exchanges $0$ and $\infty$.
+The project's research notes classify the conjugation-stable invisible spaces with a factor of
+degree two into three families, for every such involution; the companion note \cite{CN} and the
+README give a formal member of each, all for $T\mapsto-T$. Class (Q) is the cyclic family for
+$T\mapsto\beta/T$ on its orbit $\{0,\infty\}$: with $h=T+\beta T^{-1}$,
+$\varphi_{0}=\beta^{-1}T^{-1}+eT$ and $\varphi_{1}=\zeta T$, one has
+$T^{-2}+eT^{2}\equiv\varphi_{0}h$ and $\beta T^{-3}+\zeta T^{2}+eT^{3}\equiv\varphi_{0}h^{2}+\varphi_{1}h$
+modulo $H$. The notes only sketch the local cases at $0$ and $\infty$, so for Laurent data
+Theorem~E settles a case they leave open. A (Q) space is conjugation-stable and invisible to
+Theorem~B. For
 $z=\Re u\,\Im u+i(\Re u)^{2}\Im u$, exact computation gives
 $\dim(W_{z}\cap T^{-2}W_{z})=1$ and $\dim(W_{z}\cap T^{-1}W_{z})=2$. So that hull has no
-factor $(1,u^{2})$ and no factor of degree one. Either the research notes include (Q)
-under another description, or their list should be checked against it. We did not see
-the notes, which are not in the repository. As exclusions at a candidate, (Q) and (R) are
+factor $(1,u^{2})$ and no factor of degree one. As exclusions at a candidate, (Q) and (R) are
 substitutions in Roy's theorem (for (Q) also in \cite[Th\'eor\`eme~4(1)]{Dia07} with
-$x=(1,(u+\beta\bar u)/s)$). What is new in Theorem~E is the ``only if'' direction.
+$x=(1,(u+\beta\bar u)/s)$). What was not found in the sources read is the ``only if''
+direction of Theorem~E.
 \end{remark}
 
 \subsection*{A barrier}
@@ -782,7 +787,7 @@ candidate. We probed it at the first open case, $u^{4}\in\Lt$
 Theorems~C and~E answer, for every $z$ that is a polynomial in $u$ and $\bar u$, whether
 Roy's strong six exponentials theorem can refute ``$z\in\Lt$'' at a candidate using only
 $z$, its conjugate and the certificate $H_{0}$. Every exclusion they list is a routine
-substitution, into Diaz's theorems or into Roy's. The new content is the converse. Apart
+substitution, into Diaz's theorems or into Roy's. What was not found in the sources read is the converse. Apart
 from classes (P), (Q) and (R) nothing can be excluded this way. For a polynomial in $u$
 alone the limit is degree three, a precise form of Diaz's remark that within his
 Th\'eor\`eme~7 one cannot hope to go far \cite[p.~390]{Dia07}. This concerns \emph{one}
