@@ -1,0 +1,21 @@
+{
+ "theorem_id": "d08bcf37-eb9f-4285-9ff0-4114280c0dce",
+ "theorem_name": "DiazModulus.exists_noncandidate_transcendental_on_circle",
+ "theorem_title": "Every circle of positive radius contains a point t transcendental over a given countable field, with e^t transcendental",
+ "status": "Proved",
+ "formal_statement": "open ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem exists_noncandidate_transcendental_on_circle (K : Subfield ℂ) (hK : Countable ↥K)\n    {ρ : ℝ} (hρ : 0 < ρ) :\n    ∃ t : ℂ, t * conj t = (ρ : ℂ) ∧ Transcendental (↥K) t ∧\n      Transcendental ℚ (Complex.exp t) := by sorry\n\nend DiazModulus",
+ "natural_language_statement": "**Non-candidates on every circle.**\n\nLet $K \\subseteq \\mathbb{C}$ be a countable subfield and $\\rho > 0$ real. Then some $t$ with $t\\bar t = \\rho$ is transcendental over $K$ and has $e^{t}$ transcendental.\n\nThe circle is uncountable, while the numbers algebraic over $K$ and the numbers $z$ with $e^{z}$ algebraic form countable sets.\n\nThis replaces an explicit choice such as $t = re^{i}$ on the circle of radius $r$. That choice needs $e^{i}$ to be transcendental over $K$, which is known for $K = \\overline{\\mathbb{Q}}$ but not once $\\pi \\in K$. It also leaves open whether $e^{t}$ is algebraic, which is an instance of Diaz's conjecture.\n\n**Novelty.** None claimed. Routine.",
+ "created_at": "2026-09-24T04:56:41.324987+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Carlo Perassi, companion note to https://github.com/carlok/diaz-modulus-lean, version 1.9, 25 September 2026 (GitHub release note-v1.9), Section 5, the paragraph after Theorem 5.1 (here over any countable base field). Novelty is not asserted. Formal proof: Diaz modulus mission, 24 September 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

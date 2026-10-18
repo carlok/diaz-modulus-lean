@@ -145,3 +145,6 @@ import Solution
 #print axioms Diaz.cubic_window_conj_hull_two_by_three_configuration_iff_criterion
 #print axioms Diaz.candidate_laurent_conj_hull_class_not_mem_logAlgTilde
 #print axioms Diaz.laurent_conj_hull_configuration_classes_disjoint
+#print axioms Diaz.logAlg_adjoin_circle_point_theorem_D
+#print axioms Diaz.theorem_D_barrier
+#print axioms Diaz.span_logAlg_theorem_D_properties

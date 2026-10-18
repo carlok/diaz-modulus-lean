@@ -1,0 +1,21 @@
+{
+ "theorem_id": "fd55e4d6-c196-4201-a0a2-95fbe06faf50",
+ "theorem_name": "DiazModulus.mem_logAlg_adjoin_circle_point_iff",
+ "theorem_title": "For every u ∈ ℂ, z lies in span_ℚ ℒ + ℚu + ℚū exactly when z = c + pu + qū with c ∈ ℒ and p, q ∈ ℚ, and the Q̄-span of 1 and this space is ℒ̃ + Q̄u + Q̄ū",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem mem_logAlg_adjoin_circle_point_iff\n    (u : ℂ) :\n    (∀ z : ℂ, z ∈ (Submodule.span ℚ LogAlg ⊔ Submodule.span ℚ ({u, conj u} : Set ℂ)) ↔\n      ∃ c ∈ LogAlg, ∃ p q : ℚ, z = c + (p : ℂ) * u + (q : ℂ) * conj u) ∧\n    Submodule.span Qbar (insert 1 ((Submodule.span ℚ LogAlg ⊔ Submodule.span ℚ ({u, conj u} : Set ℂ) : Submodule ℚ ℂ) : Set ℂ)) =\n      LogAlgTilde ⊔ Submodule.span Qbar ({u, conj u} : Set ℂ) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Here $\\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \\in \\mathbb{C}$ with $e^z$ algebraic), and $\\widetilde{\\mathcal{L}}$ is the $\\overline{\\mathbb{Q}}$-vector space spanned by $1$ and $\\mathcal{L}$. Let $u \\in \\mathbb{C}$ be arbitrary and $\\mathcal{L}_u = \\mathrm{span}_{\\mathbb{Q}}(\\mathcal{L}) + \\mathrm{span}_{\\mathbb{Q}}(u, \\bar u)$. Then:\n\n- $z \\in \\mathcal{L}_u$ if and only if $z = c + pu + q\\bar u$ for some $c \\in \\mathcal{L}$ and $p, q \\in \\mathbb{Q}$;\n- $\\mathrm{span}_{\\overline{\\mathbb{Q}}}(\\{1\\} \\cup \\mathcal{L}_u) = \\widetilde{\\mathcal{L}} + \\mathrm{span}_{\\overline{\\mathbb{Q}}}(u, \\bar u)$.\n\n**Proof.** $\\mathcal{L}$ is already a $\\mathbb{Q}$-subspace of $\\mathbb{C}$: it contains $0$, it is closed under addition since $e^{a+b} = e^ae^b$, and under rational multiples by `Diaz.exp_ratMul_isAlgebraic`; so by span induction $\\mathrm{span}_{\\mathbb{Q}}(\\mathcal{L}) \\subseteq \\mathcal{L}$, and membership in the sum unfolds to $z = c + pu + q\\bar u$. For the second part, $1$ and every $c + pu + q\\bar u$ lie in $\\widetilde{\\mathcal{L}} + \\mathrm{span}_{\\overline{\\mathbb{Q}}}(u, \\bar u)$, as rationals are algebraic. Conversely $\\widetilde{\\mathcal{L}} = \\mathrm{span}_{\\overline{\\mathbb{Q}}}(\\{1\\} \\cup \\mathcal{L})$ lies in $\\mathrm{span}_{\\overline{\\mathbb{Q}}}(\\{1\\} \\cup \\mathcal{L}_u)$ because $\\mathcal{L} \\subseteq \\mathcal{L}_u$, and so do $u$ and $\\bar u$, which lie in $\\mathcal{L}_u$.\n\n**Novelty.** Elementary; routine.",
+ "created_at": "2026-10-18T17:47:46.061557+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Elementary. Uses Diaz.exp_ratMul_isAlgebraic. R19 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 18 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

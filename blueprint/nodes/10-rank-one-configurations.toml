@@ -7,7 +7,7 @@ Results of the library's work on Diaz's conjecture, about the hypothesis that ra
 
 The first sections answer the question in small dimension. Generic data carry no configuration, whatever numbers are added (Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration}, called Theorem~A). The four-dimensional extensions $H_0+\Qbar z$ that carry one are exactly those containing $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ (Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff}, called Theorem~B; several titles below use that name). In the power hulls $\Qbar u^{-k}+\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{k}$ a configuration exists only for $k=2$ and $k=3$, so through these hulls Roy's theorem excludes no single power beyond $u^{3}$ at a candidate (Theorem~\ref{thm:power_hull_strong_six_exp_configuration_iff}). The sections on separation and on Laurent hulls put these results into one mechanism over any field: separation (Theorem~\ref{thm:rank_one_config_separation}), the normal form of $2\times2$ configurations (Theorem~\ref{thm:circle_point_two_by_two_normal_form}) and configurations in Laurent hulls (Theorem~\ref{thm:laurent_hull_config_iff}).
 
-The other sections are about five-dimensional spaces, where a configuration can escape the four-dimensional extensions. The section on five-dimensional extensions gives the first such spaces, $H_0+\Qbar z+\Qbar\bar z$ (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}). When the six products span only four dimensions (Case~I), the configuration is a geometric progression \cite[Lemma 4]{BSZ17}: two poles and every Möbius involution of the $u$-line give such spaces, and a progression whose ratio is rational in $u$ lies in a space that contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$, or in an involution space (Theorem~\ref{thm:progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}). When the products span the whole space (Case~II), the conjugation-stable spaces with a factor of degree one are the real pencil spaces (Theorem~\ref{thm:conj_equivariant_degree_one_space_eq_real_pencil_space}); the last section shows that a factor of degree two can occur without one of degree one (Theorems~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions} and~\ref{thm:laurent_cubic_space_no_mobius_ratio_configuration}), that no factor of higher degree can (Theorem~\ref{thm:progression_pair_span_ratio_degree_le_two}), and which real pencil spaces with Laurent data the four-dimensional extensions see (Theorem~\ref{thm:laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions} and Proposition~\ref{prop:laurent_real_pencil_space_contains_square_of_root}). The section on Case II beyond degree one ends with a formal member of each of the three families of conjugation-stable invisible spaces with a factor of degree two that the research notes classify, for every involution of the $u$-line that commutes with conjugation: two orbits fixed by conjugation (Proposition~\ref{prop:conj_stable_two_orbit_space}), two orbits exchanged by it (Theorem~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions}, where they are $0$ and $\infty$, and Theorem~\ref{thm:conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions}), and a cyclic family (Theorem~\ref{thm:cyclic_pair_configuration_invisible_to_four_dimensional_extensions}). All the members use the involution $u\mapsto-u$, their configurations are those of \cite[Théorème 7(1)]{Dia07} at $v=u$, and the classification itself is not formalised. The section on polynomial hulls finds that $\Qbar+\Qbar u+\Qbar\bar u+\Qbar P(u)+\Qbar\overline{P(u)}$ carries a configuration exactly when $\deg P\in\{2,3\}$ (Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff}), real polynomials in $\operatorname{Re}u$ and $\operatorname{Im}u$ carry none (Corollary~\ref{cor:real_polynomial_hull_no_two_by_three_configuration}), and adjoining to $\widetilde{\mathcal L}$ a point of a circle that is transcendental over its field keeps Roy's theorem true (Theorem~\ref{thm:logAlgTilde_adjoin_circle_point_no_two_by_three_configuration}). The section on degree-one spaces says when Theorem~B sees a degree-one space $\Qbar+\Qbar u+\Qbar\bar u+\Qbar g+\Qbar ug$, which always carries a configuration: exactly when $u\,R(u)\,g$ is a polynomial in $u$ of degree at most $3$ for some non-zero $R$ of degree at most $2$ (Theorem~\ref{thm:degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic}). For rational data this is a bound on degrees, which decides every pencil space $W(\lambda,f)$ with rational $f$ (Theorem~\ref{thm:rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le}). The last section classifies the conjugation hulls of the polynomials $z$ in $u$ and $\bar u$ (Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}, called Theorem~E): $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ carries a configuration exactly when it is five-dimensional and in one of three disjoint classes, (P), (Q) and (R), and for exponents within $\pm3$ the criterion is explicit in the coefficients (Corollary~\ref{cor:cubic_window_conj_hull_two_by_three_configuration_iff_criterion}). Chapter~\ref{chap:14-not-found-in-the-sources} says which of these results were not found in the sources read, and which are not routine.
+The other sections are about five-dimensional spaces, where a configuration can escape the four-dimensional extensions. The section on five-dimensional extensions gives the first such spaces, $H_0+\Qbar z+\Qbar\bar z$ (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}). When the six products span only four dimensions (Case~I), the configuration is a geometric progression \cite[Lemma 4]{BSZ17}: two poles and every Möbius involution of the $u$-line give such spaces, and a progression whose ratio is rational in $u$ lies in a space that contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$, or in an involution space (Theorem~\ref{thm:progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}). When the products span the whole space (Case~II), the conjugation-stable spaces with a factor of degree one are the real pencil spaces (Theorem~\ref{thm:conj_equivariant_degree_one_space_eq_real_pencil_space}); the last section shows that a factor of degree two can occur without one of degree one (Theorems~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions} and~\ref{thm:laurent_cubic_space_no_mobius_ratio_configuration}), that no factor of higher degree can (Theorem~\ref{thm:progression_pair_span_ratio_degree_le_two}), and which real pencil spaces with Laurent data the four-dimensional extensions see (Theorem~\ref{thm:laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions} and Proposition~\ref{prop:laurent_real_pencil_space_contains_square_of_root}). The section on Case II beyond degree one ends with a formal member of each of the three families of conjugation-stable invisible spaces with a factor of degree two that the research notes classify, for every involution of the $u$-line that commutes with conjugation: two orbits fixed by conjugation (Proposition~\ref{prop:conj_stable_two_orbit_space}), two orbits exchanged by it (Theorem~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions}, where they are $0$ and $\infty$, and Theorem~\ref{thm:conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions}), and a cyclic family (Theorem~\ref{thm:cyclic_pair_configuration_invisible_to_four_dimensional_extensions}). All the members use the involution $u\mapsto-u$, their configurations are those of \cite[Théorème 7(1)]{Dia07} at $v=u$, and the classification itself is not formalised. The section on polynomial hulls finds that $\Qbar+\Qbar u+\Qbar\bar u+\Qbar P(u)+\Qbar\overline{P(u)}$ carries a configuration exactly when $\deg P\in\{2,3\}$ (Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff}), real polynomials in $\operatorname{Re}u$ and $\operatorname{Im}u$ carry none (Corollary~\ref{cor:real_polynomial_hull_no_two_by_three_configuration}), and adjoining to $\widetilde{\mathcal L}$ a point of a circle that is transcendental over its field keeps Roy's theorem true (Theorem~\ref{thm:logAlgTilde_adjoin_circle_point_no_two_by_three_configuration}). The section on degree-one spaces says when Theorem~B sees a degree-one space $\Qbar+\Qbar u+\Qbar\bar u+\Qbar g+\Qbar ug$, which always carries a configuration: exactly when $u\,R(u)\,g$ is a polynomial in $u$ of degree at most $3$ for some non-zero $R$ of degree at most $2$ (Theorem~\ref{thm:degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic}). For rational data this is a bound on degrees, which decides every pencil space $W(\lambda,f)$ with rational $f$ (Theorem~\ref{thm:rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le}). The section on polynomials in $u$ and $\bar u$ classifies the conjugation hulls of the polynomials $z$ in $u$ and $\bar u$ (Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}, called Theorem~E): $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ carries a configuration exactly when it is five-dimensional and in one of three disjoint classes, (P), (Q) and (R), and for exponents within $\pm3$ the criterion is explicit in the coefficients (Corollary~\ref{cor:cubic_window_conj_hull_two_by_three_configuration_iff_criterion}). The last section proves the rest of Theorem~D of the research note (Theorem~\ref{thm:logAlg_adjoin_circle_point_theorem_D}): at a point $u$ of a circle transcendental over the field of $\widetilde{\mathcal L}$, the space $\mathcal L+\Q u+\Q\bar u$ has the properties of Baker, Hermite–Lindemann, Gel'fond–Schneider, six and four exponentials and (relative to $\widetilde{\mathcal L}$) Roy, so these theorems, used as properties of $(\mathcal L,\widetilde{\mathcal L})$, cannot prove Diaz's conjecture (Corollary~\ref{cor:theorem_D_barrier}). Chapter~\ref{chap:14-not-found-in-the-sources} says which of these results were not found in the sources read, and which are not routine.
 '''
 
 # --- Generic data ------------------------------------------------------------------------
@@ -1382,4 +1382,264 @@ Assume Roy's strong six exponentials theorem: there is no $2\times3$ configurati
 source = '''Each instance is a substitution in Roy's strong six exponentials theorem \cite[Corollary 2]{Roy92}; for class (Q) it is also one in \cite[Théorème 2]{Dia04}. Not found in the sources read as a family; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). It concerns candidates, so it is vacuous if Diaz's conjecture holds.'''
 sketch = '''
 Theorem~\ref{thm:hermite_lindemann_holds} gives $u\notin\Qbar$; Lemma~\ref{lem:laurent_conj_hull_class_finrank_eq_five} and Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff} put a configuration in $W$, and $z\in\widetilde{\mathcal L}$ would put $W$ in $\widetilde{\mathcal L}$ (Lemmas~\ref{lem:logAlg_conj_stable} and~\ref{lem:logAlgTilde_conj_stable}), against Roy's theorem.
+'''
+
+# --- What the classical theorems cannot refute (Theorem D) (R19) ------------------------------------
+
+[[node]]
+platform = "DiazModulus.transcendental_add_mul_add_mul_conj"
+env = "lemma"
+section = 'What the classical theorems cannot refute (Theorem D)'
+title = 'Transcendence of $a+bu+c\bar u$'
+statement = '''
+Let $F$ be a subfield of $\C$ and $u\in\C$ transcendental over $F$ with $u\bar u\in F$. If $a,b,c\in F$ and $(b,c)\neq(0,0)$, then $a+bu+c\bar u$ is transcendental over $F$.
+'''
+source = '''Standard field theory.'''
+sketch = '''
+With $e=a+bu+c\bar u$ and $\rho=u\bar u\neq0$, $u$ is a root of the non-zero polynomial $bX^{2}+(a-e)X+c\rho$ over $F(e)$; if $e$ were algebraic over $F$, so would be $u$.
+'''
+
+[[node]]
+platform = "DiazModulus.isAlgebraic_of_mem_of_isAlgebraic_adjoin_transcendental"
+env = "lemma"
+title = 'Elements of $F$ algebraic over $\Q(w)$'
+statement = '''
+Let $F$ be a subfield of $\C$, $w\in\C$ transcendental over $F$, and $z\in F$ algebraic over $\Q(w)$. Then $z$ is algebraic.
+'''
+source = '''Standard field theory.'''
+sketch = '''
+If $z$ were transcendental, $w$ would be transcendental over $\Q[z]\subseteq F$, so $(z,w)$ would be algebraically independent and $z$ transcendental over $\Q(w)$.
+'''
+
+[[node]]
+platform = "DiazModulus.isAlgebraic_of_hyperbola_pair_not_algebraicIndependent"
+env = "lemma"
+title = 'The hyperbola step'
+statement = '''
+Let $F$ be a subfield of $\C$, $u\in\C$ transcendental over $F$ with $u\bar u\in F$, and $c_1,c_2\in F$. If $c_1+u$ and $c_2+\bar u$ are algebraically dependent over $\Q$, then $c_1$ and $c_2$ are algebraic.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$e_1=c_1+u$ is transcendental (Lemma~\ref{lem:transcendental_add_mul_add_mul_conj}), so $e_2=c_2+\bar u$ is algebraic over $\Q[e_1]$ (Lemma~\ref{lem:isAlgebraic_adjoin_of_not_algebraicIndependent_pair}): $\sum_{k\leq K}g_k(e_1)e_2^{k}=0$ with $g_K(e_1)\neq0$. As $c_2u+\rho=ue_2$, $\rho=u\bar u$, the polynomial $R(T)=\sum_kg_k(c_1+T)(c_2T+\rho)^{k}T^{K-k}$ over $F$ vanishes at $u$, so $R=0$ and $R(0)=g_K(c_1)\rho^{K}=0$; the same with $\bar u$ for $c_2$.
+'''
+
+[[node]]
+platform = "DiazModulus.mem_logAlg_adjoin_circle_point_iff"
+env = "lemma"
+title = 'The space $\mathcal L_u$'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $u\in\C$ and $\mathcal L_u=\operatorname{span}_{\Q}\mathcal L+\Q u+\Q\bar u$. Then $z\in\mathcal L_u$ if and only if $z=c+pu+q\bar u$ with $c\in\mathcal L$ and $p,q\in\Q$, and the $\Qbar$-span of $1$ and $\mathcal L_u$ is $\widetilde{\mathcal L}+\Qbar u+\Qbar\bar u$. At $u=0$ the membership criterion says that $\mathcal L$ is a $\Q$-vector space, so $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$.
+'''
+source = '''Elementary.'''
+sketch = '''
+$\mathcal L$ contains $0$ and is closed under addition, as $e^{a+b}=e^{a}e^{b}$, and under rational multiples (Lemma~\ref{lem:exp_ratMul_isAlgebraic}), so $\operatorname{span}_{\Q}\mathcal L=\mathcal L$; each $\Qbar$-span contains the generators of the other.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_noncandidate_transcendental_on_circle"
+env = "lemma"
+from_lean = true
+title = 'A circle point off a countable field'
+statement = '''
+Let $K$ be a countable subfield of $\C$ and $\rho>0$ a real number. There is $t\in\C$ with $t\bar t=\rho$ that is transcendental over $K$ and has $e^{t}$ transcendental.
+'''
+source = '''Elementary: a countability argument.'''
+sketch = '''
+The points $x+i\sqrt{\rho-x^{2}}$ with $|x|<\sqrt\rho$ form an uncountable set, while the numbers algebraic over $K$, and the $t$ with $e^{t}$ algebraic (countably many translates of $2\pi i\Z$), form countable sets.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_circle_point_transcendental_over_logAlgTilde_closure"
+env = "lemma"
+title = 'A circle point transcendental over the field of $\widetilde{\mathcal L}$'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$ and $\rho>0$ a real number. Then $F$ is countable, and some $u\in\C$ with $u\bar u=\rho$ is transcendental over $F$.
+'''
+source = '''Elementary: a countability argument.'''
+sketch = '''
+$\mathcal L$ is a countable union of translates of $2\pi i\Z$, so $\widetilde{\mathcal L}$, spanned over the countable $\Qbar$, and the field it generates are countable; Lemma~\ref{lem:exists_noncandidate_transcendental_on_circle} with $K=F$.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_baker_number_field_basis"
+env = "proposition"
+title = "Baker's theorem over a number-field basis, for $\\mathcal L_u$"
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Let $K\subseteq\C$ be a number field, $(\beta_k)$ a basis of $K$ over $\Q$, and $\ell_k\in\mathcal L_u$. If $\sum_k\beta_k\ell_k$ is algebraic, then $\ell_k=0$ for every $k$.
+'''
+source = '''Restates Baker's theorem \cite{Bak66} in the form of \cite[Theorem 4.5]{Wal00} (Theorem~\ref{thm:baker_number_field_basis}), with $\mathcal L$ replaced by $\mathcal L_u$; the $\mathcal L_u$ form was not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Write $\ell_k=c_k+p_ku+q_k\bar u$ (Lemma~\ref{lem:mem_logAlg_adjoin_circle_point_iff}); Lemma~\ref{lem:transcendental_add_mul_add_mul_conj} forces $\sum_k\beta_kp_k=\sum_k\beta_kq_k=0$, so every $p_k$ and $q_k$ is $0$, and Theorem~\ref{thm:baker_number_field_basis} applies to the $c_k\in\mathcal L$.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_baker_linear_forms"
+env = "proposition"
+title = "Baker's theorem for $\\mathcal L_u$"
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Let $l_1,\dots,l_n\in\mathcal L_u$ be linearly independent over $\Q$, and let $b_0,b_1,\dots,b_n$ be algebraic numbers, not all zero. Then $b_0+\sum_{i=1}^{n}b_il_i\neq0$.
+'''
+source = '''Restates Baker's theorem \cite{Bak66}, \cite[Theorem 1.6]{Wal00} (Theorem~\ref{thm:baker_linear_forms_in_logarithms}), with $\mathcal L$ replaced by $\mathcal L_u$, derived from the form of \cite[Theorem 4.5]{Wal00} as in \cite[\S4.2.5]{Wal00}; the $\mathcal L_u$ form was not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+As in \cite[\S4.2.5]{Wal00}: write $b_j=\sum_ic_{ji}\beta_i$ in a $\Q$-basis $(\beta_i)$ of $\Q(b_1,\dots,b_n)$; Proposition~\ref{prop:logAlg_adjoin_circle_point_baker_number_field_basis} gives $\sum_jc_{ji}l_j=0$ for every $i$, so $c=0$, every $b_j=0$, and then $b_0=0$.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_hermite_lindemann_gelfond_schneider"
+env = "proposition"
+title = "Hermite–Lindemann and Gel'fond–Schneider for $\\mathcal L_u$"
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Then $0$ is the only algebraic element of $\mathcal L_u$ (Hermite–Lindemann), and if $l_0\neq0$ and $\beta l_0$ lie in $\mathcal L_u$ with $\beta$ algebraic, then $\beta\in\Q$ (Gel'fond–Schneider).
+'''
+source = '''Restates the Hermite–Lindemann theorem \cite{Her1873,Lin1882} (Theorem~\ref{thm:hermite_lindemann_holds}) and the Gel'fond–Schneider theorem \cite{Gel34,Sch34} (Theorem~\ref{thm:gelfond_schneider}), with $\mathcal L$ replaced by $\mathcal L_u$, both derived from Baker's theorem for $\mathcal L_u$; the $\mathcal L_u$ form was not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Proposition~\ref{prop:logAlg_adjoin_circle_point_baker_linear_forms} with $n=1$ and the form $-z+1\cdot z$; and with $n=2$, $b_0=0$ and the form $\beta\cdot l_0-1\cdot(\beta l_0)$, where $l_0$ and $\beta l_0$ are linearly independent over $\Q$ unless $\beta\in\Q$.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_six_exponentials"
+env = "proposition"
+title = 'The six exponentials theorem for $\mathcal L_u$'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Then there are no $x_1,x_2$, linearly independent over $\Q$, and $y_1,y_2,y_3$, linearly independent over $\Q$, with all six products $x_iy_j$ in $\mathcal L_u$.
+'''
+source = '''Restates the six exponentials theorem \cite[Ch.~II]{Lang66}, \cite{Ram68}, \cite[Theorem 1.12]{Wal00} (Theorem~\ref{thm:six_exponentials}), with $\mathcal L$ replaced by $\mathcal L_u$; the dependent cases use Baker's theorem \cite{Bak66}. The $\mathcal L_u$ form, and a route to it that avoids Roy's strong six exponentials theorem \cite{Roy92}, were not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Proposition~\ref{prop:logAlg_adjoin_circle_point_baker_linear_forms} makes both families linearly independent over $\Qbar$. As $\bar u=(u\bar u)u^{-1}$, Proposition~\ref{prop:rank_one_config_inverse_adjoin} with $K=\Qbar$ and $V_0=\widetilde{\mathcal L}$ puts the six products in $\widetilde{\mathcal L}\subseteq F$, Lemma~\ref{lem:transcendental_add_mul_add_mul_conj} then puts them in $\mathcal L$, and Theorem~\ref{thm:six_exponentials} applies. Roy's theorem is not used.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_trdeg_le_one_logAlg_part_eq_zero"
+env = "lemma"
+title = 'In transcendence degree one, ${\Q[S]}$ meets $\mathcal L$ only in $0$'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Let $S\subseteq\C$ be a set such that $\Q[S]$, the $\Q$-algebra generated by $S$, has transcendence degree at most $1$, and suppose that $c+pu+q\bar u\in\Q[S]$ for some $c\in\mathcal L$ and $p,q\in\Q$, not both zero. Then $0$ is the only element of $\mathcal L$ in $\Q[S]$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$e=c+pu+q\bar u$ is transcendental over $F$ (Lemma~\ref{lem:transcendental_add_mul_add_mul_conj}), and every element of $\Q[S]$ is algebraic over $\Q(e)$; so $w\in\mathcal L\cap\Q[S]$, which lies in $F$, is algebraic (Lemma~\ref{lem:isAlgebraic_of_mem_of_isAlgebraic_adjoin_transcendental}), and Theorem~\ref{thm:hermite_lindemann_holds} gives $w=0$.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_trdeg_le_one_hyperbola_case"
+env = "lemma"
+title = 'The hyperbola case'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Let $S\subseteq\mathcal L_u$ be such that $\Q[S]$, the $\Q$-algebra generated by $S$, has transcendence degree at most $1$, and let $c_1,c_2\in\mathcal L$ with $c_1+u$ and $c_2+\bar u$ in $\Q[S]$. Then $S\subseteq\Q u+\Q\bar u$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+The pair $(c_1+u,c_2+\bar u)$ is algebraically dependent, so $c_1,c_2$ are algebraic (Lemma~\ref{lem:isAlgebraic_of_hyperbola_pair_not_algebraicIndependent}) and $0$ (Theorem~\ref{thm:hermite_lindemann_holds}); then $u\in\Q[S]$, and Lemma~\ref{lem:logAlg_adjoin_circle_point_trdeg_le_one_logAlg_part_eq_zero} kills the part $c\in\mathcal L$ of each $z=c+pu+q\bar u\in S$ (Lemma~\ref{lem:mem_logAlg_adjoin_circle_point_iff}).
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_trdeg_le_one_trichotomy"
+env = "lemma"
+title = 'The trichotomy in transcendence degree one'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Let $S\subseteq\mathcal L_u$ be such that $\Q[S]$, the $\Q$-algebra generated by $S$, has transcendence degree at most $1$. Then $S\subseteq\mathcal L$, or $S\subseteq\Q e$ for some $e\in\C$, or $S\subseteq\Q u+\Q\bar u$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Write each $z\in S$ as $c+pu+q\bar u$ (Lemma~\ref{lem:mem_logAlg_adjoin_circle_point_iff}). If some $z_0\notin\mathcal L$ and some $z_1$ have non-parallel $(p_0,q_0)$ and $(p_1,q_1)$, two rational combinations of them are $c_1'+u$ and $c_2'+\bar u$, and Lemma~\ref{lem:logAlg_adjoin_circle_point_trdeg_le_one_hyperbola_case} applies; otherwise each $z-rz_0$, $r\in\Q$, lies in $\mathcal L\cap\Q[S]$, and Lemma~\ref{lem:logAlg_adjoin_circle_point_trdeg_le_one_logAlg_part_eq_zero} makes it $0$.
+'''
+
+[[node]]
+platform = "Transcendence.quadratic_coeffs_eq_zero_of_transcendental"
+env = "lemma"
+from_lean = true
+title = 'Quadratic relations at a transcendental number'
+statement = '''
+Let $x\in\C$ be transcendental and $c_0,c_1,c_2$ algebraic with $c_2x^{2}+c_1x+c_0=0$. Then $c_0=c_1=c_2=0$.
+'''
+source = '''Elementary.'''
+sketch = '''
+If $c_2\neq0$, $(2c_2x+c_1)^{2}=c_1^{2}-4c_2c_0$ makes $x$ algebraic; if $c_2=0\neq c_1$, so does $x=-c_0/c_1$; then $c_0=0$.
+'''
+
+[[node]]
+platform = "DiazModulus.det_zero_linear_forms_rank_one"
+env = "lemma"
+from_lean = true
+title = 'The lemma on linear forms over $\Q$'
+statement = '''
+Let $M=(L_{ij})_{i,j=1,2}$ be a matrix of linear forms $L_{ij}=\sum_{k=1}^{n}a_{ijk}X_k$ with $a_{ijk}\in\Q$. If $L_{11}L_{22}=L_{12}L_{21}$, that is $a_{11k}a_{22l}+a_{11l}a_{22k}=a_{12k}a_{21l}+a_{12l}a_{21k}$ for all $k,l$, then the rows of $M$ are linearly dependent over $\Q$, or its columns are.
+'''
+source = '''Elementary; it is the case $F=\Q$ of Lemma~\ref{lem:det_zero_linear_forms_rank_one_field}.'''
+sketch = '''
+If $L_{11}=0$, then $L_{12}L_{21}=0$, a zero row or a zero column. Otherwise, with $\alpha=a_{11k}\neq0$, $(\alpha L_{12}-a_{12k}L_{11})(\alpha L_{21}-a_{21k}L_{11})=0$, and then $\alpha L_{22}=a_{12k}L_{21}$ (the columns are proportional) or $\alpha L_{22}=a_{21k}L_{12}$ (the rows are).
+'''
+
+[[node]]
+platform = "DiazModulus.four_exp_barrier_of_no_quadratic_relation"
+env = "lemma"
+from_lean = true
+title = 'Singular matrices without a quadratic relation'
+statement = '''
+Let $e_1,\dots,e_n\in\C$ satisfy no quadratic relation over $\Q$: if $\sum_{k,l}f_{kl}e_ke_l=0$ with $f_{kl}\in\Q$, then $f_{kl}+f_{lk}=0$ for all $k,l$. Let $M=(m_{ij})_{i,j=1,2}$ with $m_{ij}=\sum_ka_{ijk}e_k$ and $a_{ijk}\in\Q$. If $\det M=0$, then the rows of $M$ are linearly dependent over $\Q$, or its columns are.
+'''
+source = '''Elementary.'''
+sketch = '''
+$\det M=\sum_{k,l}(a_{11k}a_{22l}-a_{12k}a_{21l})e_ke_l$, so the forms $L_{ij}=\sum_ka_{ijk}X_k$ satisfy $L_{11}L_{22}=L_{12}L_{21}$, and Lemma~\ref{lem:det_zero_linear_forms_rank_one} gives a rational relation between their rows or columns, which holds at $e$.
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_four_exponentials_trdeg_one"
+env = "proposition"
+title = 'Four exponentials in transcendence degree one, for $\mathcal L_u$'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Let $\ell_{11},\ell_{12},\ell_{21},\ell_{22}\in\mathcal L_u$ be non-zero with $\ell_{11}\ell_{22}=\ell_{12}\ell_{21}$ and $\trdeg_{\Q}\Q[\ell_{11},\ell_{12},\ell_{21},\ell_{22}]\leq1$. Then the two rows, or the two columns, of $\begin{pmatrix}\ell_{11}&\ell_{12}\\\ell_{21}&\ell_{22}\end{pmatrix}$ are linearly dependent over $\Q$.
+'''
+source = '''Restates the four exponentials theorem in transcendence degree one \cite[Cor.~4]{W73}, \cite[Cor.~7]{Bro74} (Theorem~\ref{thm:four_exponentials_trdeg_one}), with $\mathcal L$ replaced by $\mathcal L_u$; the $\mathcal L_u$ form was not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Lemma~\ref{lem:logAlg_adjoin_circle_point_trdeg_le_one_trichotomy}: entries in $\mathcal L$ are Theorem~\ref{thm:four_exponentials_trdeg_one}; entries on a line $\Q e$ give proportional rows; entries in $\Q u+\Q\bar u$ are Lemma~\ref{lem:four_exp_barrier_of_no_quadratic_relation} at $(u,\bar u)$, since $au^{2}+bu\bar u+c\bar u^{2}=0$, times $u^{2}$, is a quadratic relation with algebraic coefficients for the transcendental $u^{2}$ (Lemma~\ref{lem:quadratic_coeffs_eq_zero_of_transcendental}).
+'''
+
+[[node]]
+platform = "DiazModulus.logAlg_adjoin_circle_point_theorem_D"
+root = true
+env = "theorem"
+title = 'Theorem D: the classical theorems for $\mathcal L_u$'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $F$ be the field generated by $\widetilde{\mathcal L}$, let $u\in\C$ be transcendental over $F$ with $u\bar u$ algebraic, and put $\mathcal L_u=\mathcal L+\Q u+\Q\bar u$. Say that a $\Q$-vector subspace $L\subseteq\C$ has the \emph{Theorem~D properties} if, with $\widetilde L$ the $\Qbar$-span of $1$ and $L$:
+\begin{itemize}
+\item \emph{conjugation:} $\bar z\in L$ for every $z\in L$;
+\item \emph{Baker:} if $l_1,\dots,l_n\in L$ are linearly independent over $\Q$ and $b_0,b_1,\dots,b_n$ are algebraic, not all zero, then $b_0+\sum_{i=1}^{n}b_il_i\neq0$;
+\item \emph{Hermite–Lindemann:} $0$ is the only algebraic element of $L$;
+\item \emph{Gel'fond–Schneider:} if $l_0\neq0$ and $\beta l_0$ lie in $L$ and $\beta$ is algebraic, then $\beta\in\Q$;
+\item \emph{Roy, relative to $\widetilde{\mathcal L}$:} if there is no $2\times3$ configuration in $\widetilde{\mathcal L}$, there is none in $\widetilde L$;
+\item \emph{six exponentials:} there are no $x_1,x_2$, linearly independent over $\Q$, and $y_1,y_2,y_3$, linearly independent over $\Q$, with all six products $x_iy_j$ in $L$;
+\item \emph{four exponentials in transcendence degree one:} if $\ell_{11},\ell_{12},\ell_{21},\ell_{22}\in L$ are non-zero, $\ell_{11}\ell_{22}=\ell_{12}\ell_{21}$ and $\trdeg_{\Q}\Q[\ell_{11},\ell_{12},\ell_{21},\ell_{22}]\leq1$, then the rows, or the columns, of $(\ell_{ij})$ are linearly dependent over $\Q$.
+\end{itemize}
+Then $\mathcal L\subseteq\mathcal L_u$, $u\in\mathcal L_u$, $u\notin\Qbar$, $u\neq0$ and $|u|$ is algebraic, and $\mathcal L_u$ has the Theorem~D properties; for it, $\widetilde L=\widetilde{\mathcal L}+\Qbar u+\Qbar\bar u$ (Lemma~\ref{lem:mem_logAlg_adjoin_circle_point_iff}). The Roy clause is an implication, so the statement is unconditional, and $e^{u}$ is not involved.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). With $\mathcal L$ replaced by $\mathcal L_u$, each clause restates a classical theorem: Baker \cite{Bak66}, Hermite–Lindemann \cite{Her1873,Lin1882}, Gel'fond–Schneider \cite{Gel34,Sch34}, six exponentials \cite[Ch.~II]{Lang66}, \cite{Ram68}, four exponentials in transcendence degree one \cite[Cor.~4]{W73}, \cite[Cor.~7]{Bro74}, and, as an implication, Roy's strong six exponentials theorem \cite[Corollary 2]{Roy92}.'''
+sketch = '''
+$u\notin\Qbar$ as $\Qbar\subseteq F$, and $|u|^{2}=u\bar u$. Conjugation by Lemmas~\ref{lem:mem_logAlg_adjoin_circle_point_iff} and~\ref{lem:logAlg_conj_stable}; Baker, Hermite–Lindemann and Gel'fond–Schneider are Propositions~\ref{prop:logAlg_adjoin_circle_point_baker_linear_forms} and~\ref{prop:logAlg_adjoin_circle_point_hermite_lindemann_gelfond_schneider}, six and four exponentials Propositions~\ref{prop:logAlg_adjoin_circle_point_six_exponentials} and~\ref{prop:logAlg_adjoin_circle_point_four_exponentials_trdeg_one}; Roy is Theorem~\ref{thm:logAlgTilde_adjoin_circle_point_no_two_by_three_configuration}, as $\widetilde L=\widetilde{\mathcal L}+\Qbar u+\Qbar\bar u$.
+'''
+
+[[node]]
+platform = "DiazModulus.span_logAlg_theorem_D_properties"
+root = true
+env = "proposition"
+title = 'The Theorem D properties of $\mathcal L$'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. Let $L=\operatorname{span}_{\Q}\mathcal L$, which is $\mathcal L$ (Lemma~\ref{lem:mem_logAlg_adjoin_circle_point_iff}). Then Diaz's conjecture, that $e^{u}$ is transcendental for every $u\neq0$ with $|u|$ algebraic, holds if and only if no non-zero $u\in L$ has $|u|$ algebraic; and $L$ has the Theorem~D properties of Theorem~\ref{thm:logAlg_adjoin_circle_point_theorem_D}, with $\widetilde L=\widetilde{\mathcal L}$.
+'''
+source = '''Not found in the sources read as a bundle; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). The clauses are classical theorems about $\mathcal L$: Baker \cite{Bak66}, Hermite–Lindemann \cite{Her1873,Lin1882}, Gel'fond–Schneider \cite{Gel34,Sch34}, six exponentials \cite[Ch.~II]{Lang66}, \cite{Ram68} and four exponentials in transcendence degree one \cite[Cor.~4]{W73}, \cite[Cor.~7]{Bro74}; the Roy clause is relative, so Roy's theorem \cite[Corollary 2]{Roy92} is not needed.'''
+sketch = '''
+$L=\mathcal L$, so Diaz's conjecture is the contrapositive. The clauses are Lemma~\ref{lem:logAlg_conj_stable} and Theorems~\ref{thm:baker_linear_forms_in_logarithms}, \ref{thm:hermite_lindemann_holds}, \ref{thm:gelfond_schneider} (a non-rational $\beta$ would make $e^{\beta l_0}$ transcendental), \ref{thm:six_exponentials} and~\ref{thm:four_exponentials_trdeg_one}; the Roy clause holds as $\widetilde L=\widetilde{\mathcal L}$.
+'''
+
+[[node]]
+platform = "DiazModulus.theorem_D_barrier"
+root = true
+env = "corollary"
+title = 'Theorem D as a barrier'
+statement = '''
+Let $\mathcal L$ be the set of logarithms of algebraic numbers, the $z\in\C$ with $e^{z}$ algebraic, and $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and $\mathcal L$. There is a $\Q$-vector subspace $L\subseteq\C$ with $\mathcal L\subseteq L$ that has the Theorem~D properties of Theorem~\ref{thm:logAlg_adjoin_circle_point_theorem_D} and contains some $u\neq0$ with $|u|$ algebraic. So these properties, as properties of $(\mathcal L,\widetilde{\mathcal L})$, with Roy's theorem for $\widetilde{\mathcal L}$ \cite[Corollary 2]{Roy92} supplying the hypothesis of the Roy clause, do not prove Diaz's conjecture: by Proposition~\ref{prop:span_logAlg_theorem_D_properties} the conjecture says that no such $u$ lies in $\mathcal L$, and an argument from the properties alone would apply to $L$ as well. The barrier concerns membership only: $L$ comes with no exponential function, so it says nothing about arguments through the values $e^{x_iy_j}$, such as \cite{W73}, or through Roy's rank bounds for larger matrices.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}), given Theorem~\ref{thm:logAlg_adjoin_circle_point_theorem_D} and Lemma~\ref{lem:exists_circle_point_transcendental_over_logAlgTilde_closure}.'''
+sketch = '''
+Lemma~\ref{lem:exists_circle_point_transcendental_over_logAlgTilde_closure} at $\rho=1$ gives $u$ with $u\bar u=1$, transcendental over the field generated by $\widetilde{\mathcal L}$; Theorem~\ref{thm:logAlg_adjoin_circle_point_theorem_D} for $L=\mathcal L_u$.
 '''

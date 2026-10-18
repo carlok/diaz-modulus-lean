@@ -85,8 +85,7 @@ it is stable under conjugation. Yet it contains a candidate. So Diaz's conjectur
 not follow from these theorems used as properties of $(\cL,\Lt)$.
 
 None of this proves Diaz's conjecture. Theorem~C, Corollary~\ref{cor:nogo}(b), the inversion lemma and part
-(D3) of Theorem~D and Theorem~E with its corollary are formalised (Section~\ref{sec:status}); the rest of
-Theorem~D is not.
+all of Theorem~D and Theorem~E with its corollary are formalised (Section~\ref{sec:status}).
 \end{abstract}
 
 \section{Setting}\label{sec:setting}
@@ -879,7 +878,11 @@ and the rank-one factorisation (\texttt{rank\_\allowbreak{}one\_\allowbreak{}pol
 \texttt{laurent\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}large\_\allowbreak{}exponent\_\allowbreak{}configuration\_\allowbreak{}iff\_\allowbreak{}real\_\allowbreak{}pencil\_\allowbreak{}class} and (b) as
 \texttt{cubic\_\allowbreak{}window\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration\_\allowbreak{}iff\_\allowbreak{}criterion}, and the exclusion at a candidate, under
 Roy's theorem, as \texttt{candidate\_\allowbreak{}laurent\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}class\_\allowbreak{}not\_\allowbreak{}mem\_\allowbreak{}logAlgTilde} (18 October 2026, 25 results in all).
-The rest of Theorem~D is not formalised.
+The rest of Theorem~D is formal as \texttt{logAlg\_\allowbreak{}adjoin\_\allowbreak{}circle\_\allowbreak{}point\_\allowbreak{}theorem\_\allowbreak{}D}, with the reading of
+Section~\ref{sec:meaning} as \texttt{theorem\_\allowbreak{}D\_\allowbreak{}barrier} and the same properties for $\cL$ as
+\texttt{span\_\allowbreak{}logAlg\_\allowbreak{}theorem\_\allowbreak{}D\_\allowbreak{}properties} (18 October 2026, 16 results in all). Its six exponentials clause
+needs neither Roy's theorem nor Gel'fond and Schneider's: Baker's theorem for $\cL_{u}$ covers the dependent
+cases, and otherwise Lemma~\ref{lem:inversion} puts the products in $\cL$.
 \item \emph{Credit.} The exclusions of quadratics and cubics are Diaz's
 \cite[Th\'eor\`eme~7(1)]{Dia07}, formalised in the project. The real pencil class (R) is
 the project's \cite[Prop.~10.42, Thm.~10.43]{BP}, and for Laurent data \cite[Lemma~10.59, Thm.~10.60,

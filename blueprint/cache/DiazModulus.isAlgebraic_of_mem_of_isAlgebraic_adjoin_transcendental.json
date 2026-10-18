@@ -1,0 +1,21 @@
+{
+ "theorem_id": "4f4c64ae-59ba-4efa-ae91-940fc9eda9b0",
+ "theorem_name": "DiazModulus.isAlgebraic_of_mem_of_isAlgebraic_adjoin_transcendental",
+ "theorem_title": "If w is transcendental over a subfield F of ℂ, every element of F that is algebraic over ℚ(w) is algebraic over ℚ",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem isAlgebraic_of_mem_of_isAlgebraic_adjoin_transcendental\n    (F : Subfield ℂ) (w z : ℂ) (hw : Transcendental F w) (hz : z ∈ F)\n    (h : IsAlgebraic (IntermediateField.adjoin ℚ ({w} : Set ℂ)) z) :\n    IsAlgebraic ℚ z := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $F$ be a subfield of $\\mathbb{C}$, let $w \\in \\mathbb{C}$ be transcendental over $F$, and let $z \\in F$ be algebraic over the field $\\mathbb{Q}(w)$. Then $z$ is algebraic over $\\mathbb{Q}$.\n\n**Proof.** Suppose $z$ is transcendental over $\\mathbb{Q}$. Since $\\mathbb{Q}[z] \\subseteq F$, $w$ is transcendental over $\\mathbb{Q}[z]$, so the pair $(w, z)$ is algebraically independent over $\\mathbb{Q}$, and so is $(z, w)$. Read the other way round, this makes $z$ transcendental over $\\mathbb{Q}[w]$, hence over $\\mathbb{Q}(w)$, a contradiction.\n\n**Novelty.** A standard fact of field theory; routine.",
+ "created_at": "2026-10-18T17:47:18.015992+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Standard field theory. R19 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 18 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
