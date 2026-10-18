@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 434 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 459 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -856,9 +856,9 @@ agents and refereed by agents and computer algebra; the parts below are now form
   F, has its products in V₀ (`DiazModulus.rank_one_config_inverse_adjoin`). So, under Roy's theorem, ℒ̃ + Q̄u + Q̄ū
   carries no configuration when uū is algebraic and u is transcendental over the field of ℒ̃
   (`DiazModulus.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration`).
-- In the research note only, not formalised: the classification of all polynomials in u and ū (its Theorem E), and
-  the rest of its Theorem D (Baker's and Gel'fond–Schneider's theorems, the six exponentials theorem over Q and
-  the four exponentials theorem in transcendence degree one, in the same model).
+- In the research note only, not formalised: the rest of its Theorem D (Baker's and Gel'fond–Schneider's theorems,
+  the six exponentials theorem over Q and the four exponentials theorem in transcendence degree one, in the same
+  model). Its Theorem E, the classification of all polynomials in u and ū, is formal: see below.
 - Not found in the sources read, except the configurations of degrees 2 and 3; all routine.
 
 ### Which degree-one spaces Theorem B sees
@@ -877,6 +877,27 @@ completeness criterion of the research notes, stated without divisors on P¹, wh
   contains `DiazModulus.laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions`, and it does not
   need f real.
 - Not found in the sources read; all routine.
+
+### Polynomials in u and ū: Theorem E
+
+Twenty-five nodes of 18 October 2026, from the research note `tex/diaz-theorem-c.tex`, whose proof two referee agents
+checked independently before formalisation. For u ∉ Q̄ with uū algebraic, s = |u| and v = u/s, let z be any polynomial
+in u and ū with algebraic coefficients, that is, a Laurent polynomial in v, and W = span(1, u, ū, z, z̄) its hull.
+- **Theorem E.** W carries a 2×3 configuration exactly when it is five-dimensional and in one of three classes:
+  (P) it contains αu² + βu³ ≠ 0 (Theorem C's hulls); (Q) a family in the exponents ±2, ±3 with an involution
+  exchanging 0 and ∞; (R) the real pencil spaces with Laurent data of degree at least 2
+  (`DiazModulus.laurent_conj_hull_two_by_three_configuration_iff`). The classes are disjoint, and each forces
+  dimension 5.
+- **Corollary E.** If some exponent has absolute value at least 4, only (R) remains; for exponents within ±3, with
+  z ≡ Aū³ + Bū² + Cu² + Du³, N = |A|² − |D|² and Δ = AC̄ − BD̄, a configuration exists exactly when
+  NΔ(|Δ|² − |u|²N²) = 0 (`DiazModulus.cubic_window_conj_hull_two_by_three_configuration_iff_criterion`).
+- **At a candidate**, under Roy's theorem, no member of the three classes lies in ℒ̃
+  (`DiazModulus.candidate_laurent_conj_hull_class_not_mem_logAlgTilde`).
+- The formal proof goes pencil by pencil: a configuration factors through a coprime pencil of degree at most 2, one
+  width count rules out two of the four pencils, and the other two give (R) and (Q).
+- The configurations are printed or substitutions: (P) is Diaz 2007, Théorème 7(1); (Q) is the configuration of the
+  proof of Diaz 2004, Théorème 2. The "only if" half, the family (Q) and the criterion were not found in the sources
+  read; Theorem E is the third entry of the blueprint's list of results not found and not routine.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

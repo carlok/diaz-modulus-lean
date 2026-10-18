@@ -46,6 +46,7 @@ and a barrier for generic candidates}
 (written by Claude, an AI model, at the request of Carlo Perassi)}
 \date{18 October 2026}
 
+\setlength{\emergencystretch}{2em}
 \begin{document}
 \maketitle
 
@@ -84,7 +85,8 @@ it is stable under conjugation. Yet it contains a candidate. So Diaz's conjectur
 not follow from these theorems used as properties of $(\cL,\Lt)$.
 
 None of this proves Diaz's conjecture. Theorem~C, Corollary~\ref{cor:nogo}(b), the inversion lemma and part
-(D3) of Theorem~D are formalised (Section~\ref{sec:status}); Theorem~E and the rest of Theorem~D are not.
+(D3) of Theorem~D and Theorem~E with its corollary are formalised (Section~\ref{sec:status}); the rest of
+Theorem~D is not.
 \end{abstract}
 
 \section{Setting}\label{sec:setting}
@@ -502,8 +504,12 @@ is symmetric.
 This proof was found in this session three times, independently. The derivations used
 different methods: valuations, the ratio $x_{2}/x_{1}$, and computation. They agree on the
 statement, and each was checked adversarially with exact computer algebra (sympy). We
-give the second in condensed form. It deserves an independent referee before anything is
-built on it. Write $W=H\oplus M$ with $M=M_{z}$, and $\mathbf X,\mathbf Y$ for the spans
+give the second in condensed form. Two independent referees have since checked it and found no
+error; they filled six gaps of exposition (the shape list for every $o_{1}$, the list of pencils of Step~0(f), the
+reduction to the degree bound in Case~II, the case $[-3,1]$ of Step~4, the rank count that replaces the Gr\"obner
+basis of Step~6, and the converse of Corollary~\ref{cor:E}(b) for class (R)). The formal proof
+(Section~\ref{sec:status}) takes a shorter route: a configuration factors through a coprime pencil of degree at
+most $2$, one count of degrees rules out two of the four pencils, and the other two give (R) and (Q). Write $W=H\oplus M$ with $M=M_{z}$, and $\mathbf X,\mathbf Y$ for the spans
 of a configuration.
 
 \emph{Step 0: reductions.}
@@ -842,9 +848,7 @@ of the theorems above.
 
 \paragraph{Next steps.}
 \begin{enumerate}[label=\textup{(\arabic*)}]
-\item Formalise Theorem~E. Class (Q) is the cyclic family of the project's unformalised
-classification (Remark~\ref{rem:Qnew}), and Theorem~C(iii) is formal (Section~\ref{sec:status}). The
-inputs of Theorem~E, Theorem~B, the progression lemma and the degree bound, are already formal.
+\item Done: Theorem~E and Corollary~\ref{cor:E} are formal (Section~\ref{sec:status}).
 \item Extend Theorem~E from Laurent polynomials to all of $\Qbar(u)$. Poles off
 $\{0,\infty\}$ come in conjugate pairs $a$, $\rho/\bar a$, and the order and degree sets
 become one sumset condition per place.
@@ -870,8 +874,12 @@ as a hypothesis, as \texttt{logAlgTilde\_\allowbreak{}adjoin\_\allowbreak{}circl
 The helpers are Lemma~\ref{lem:combinatorics} (\texttt{five\_\allowbreak{}point\_\allowbreak{}sumset\_\allowbreak{}rigid}), the degree half of
 Lemma~\ref{lem:orders} (\texttt{polynomial\_\allowbreak{}submodule\_\allowbreak{}degrees\_\allowbreak{}card}), the order sets of Section~\ref{sec:proofC}
 (\texttt{shifted\_\allowbreak{}polynomial\_\allowbreak{}hull\_\allowbreak{}orders}), the normalisation (\texttt{config\_\allowbreak{}shifted\_\allowbreak{}polynomial\_\allowbreak{}spans})
-and the rank-one factorisation (\texttt{rank\_\allowbreak{}one\_\allowbreak{}polynomial\_\allowbreak{}matrix\_\allowbreak{}factor}). Theorem~E and the rest of
-Theorem~D are not formalised.
+and the rank-one factorisation (\texttt{rank\_\allowbreak{}one\_\allowbreak{}polynomial\_\allowbreak{}matrix\_\allowbreak{}factor}). Theorem~E is formal as
+\texttt{laurent\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration\_\allowbreak{}iff}, Corollary~\ref{cor:E}(a) as
+\texttt{laurent\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}large\_\allowbreak{}exponent\_\allowbreak{}configuration\_\allowbreak{}iff\_\allowbreak{}real\_\allowbreak{}pencil\_\allowbreak{}class} and (b) as
+\texttt{cubic\_\allowbreak{}window\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration\_\allowbreak{}iff\_\allowbreak{}criterion}, and the exclusion at a candidate, under
+Roy's theorem, as \texttt{candidate\_\allowbreak{}laurent\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}class\_\allowbreak{}not\_\allowbreak{}mem\_\allowbreak{}logAlgTilde} (18 October 2026, 25 results in all).
+The rest of Theorem~D is not formalised.
 \item \emph{Credit.} The exclusions of quadratics and cubics are Diaz's
 \cite[Th\'eor\`eme~7(1)]{Dia07}, formalised in the project. The real pencil class (R) is
 the project's \cite[Prop.~10.42, Thm.~10.43]{BP}, and for Laurent data \cite[Lemma~10.59, Thm.~10.60,
@@ -890,9 +898,9 @@ nearest are Kirby's results on countable exponentially closed fields and Zilber'
 pseudo-exponential fields, which are different in kind.
 \item \emph{Chapter~14.} By the chapter's rubric, Theorem~C is probably routine: its
 valuation count is the method of \cite[\S7, proof of Th.~33]{BSZ17}, as for the project's Laurent hull theorem.
-Theorem~E is a stronger candidate for the ``not routine'' list. It is a complete
-classification, and its proof has steps not found in the sources: the shape list, the
-two-sided pinch, and the pencil analysis. Theorem~D is routine in method but broad in
+Theorem~E is listed there, third among the results not found and not routine, after two blind referees scored it
+the same way: a complete classification, whose proof has steps not found in the sources (the shape list, the
+two-sided pinch, the pencil analysis). Theorem~C(iii) stays routine; it is Theorem~E's class (P). Theorem~D is routine in method but broad in
 reach.
 \end{itemize}
 

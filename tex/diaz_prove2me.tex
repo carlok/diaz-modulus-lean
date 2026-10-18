@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.31, 18 October 2026}
+\date{September 2026\\[2pt]\small Version 1.32, 18 October 2026}
 
 \begin{document}
 \maketitle
@@ -1377,8 +1377,8 @@ the factorisation in the proof of Theorem~\ref{thm:separation-normal}(b). All fo
 then, Roy's theorem excludes $P(u)$ from $\aLogs$ through its own hull exactly when $\deg P\in\{2,3\}$, and it excludes
 no real polynomial in $\mathrm{Re}\,u$ and $\mathrm{Im}\,u$ in that way. By~(d) it cannot refute, through
 $\aLogs+\Alg u+\Alg\bar u$, a point of a circle that is transcendental over the field of $\aLogs$. A research note in the
-repository proves more, without formalisation: which polynomials in $u$ and $\bar u$ have a configuration in their hull,
-and that such a point also satisfies Baker's and Gel'fond and Schneider's theorems, the six exponentials theorem and the
+repository proves more: which polynomials in $u$ and $\bar u$ have a configuration in their hull (formal since
+version 1.32, Proposition~\ref{prop:laurent-hulls}), and, without formalisation, that such a point also satisfies Baker's and Gel'fond and Schneider's theorems, the six exponentials theorem and the
 four exponentials theorem in transcendence degree one.
 \end{remark}
 
@@ -1417,6 +1417,53 @@ Every $W_{g}$ carries the configuration $(1,u)\otimes(\bar u,1,g)$, so (a) says 
 already sees it. Part~(a) is the completeness criterion of Remark~\ref{rem:degree-bound-visibility} stated without
 divisors on $\mathbb{P}^{1}$, which Mathlib does not have, and (c) contains that remark's statement on real Laurent
 polynomials; (c) does not need $f$ real. None of this was found in the sources read; it is routine.
+\end{remark}
+
+\begin{proposition}\label{prop:laurent-hulls}
+Let $u\notin\Alg$ with $\rho=u\bar u\in\Alg$, let $s\in\Alg$ with $s^{2}=\rho$, $v=u/s$ and $H_{0}=\Alg+\Alg u+\Alg\bar u$.
+Let $z=\sum_{|j|\leq k}c_{j}v^{j}$ with $c_{j}\in\Alg$, that is, any polynomial in $u$ and $\bar u$ with algebraic
+coefficients, and $W=H_{0}+\Alg z+\Alg\bar z$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $W$ carries a $2\times3$ configuration if and only if $\dim W=5$ and $W$ is in one of the following classes:
+(P) $W$ contains $\alpha u^{2}+\beta u^{3}\neq0$; (Q) $W=H_{0}+\Alg(\bar v^{2}+ev^{2})+\Alg(\beta\bar v^{3}+\zeta v^{2}+ev^{3})$
+with $|e|=|\beta|=1$ and $\zeta=-\beta e^{2}\bar\zeta$; (R) $W=H_{0}+\Alg g+\Alg\bar g$ with
+$g=G(v)+\kappa\,\overline{vG(v)}$, $|\kappa|=1$, $G\in\Alg[X]$, $G(0)=0$ and $\deg G\geq2$. The three classes are
+disjoint, and each forces $\dim W=5$.
+\item If $c_{j}\neq0$ for some $|j|\geq4$, then $W$ carries a configuration if and only if it is in class (R).
+\item Suppose $z\equiv A\bar u^{3}+B\bar u^{2}+Cu^{2}+Du^{3}$ modulo $H_{0}$ and $\dim W=5$, and put $N=|A|^{2}-|D|^{2}$
+and $\Delta=A\bar C-B\bar D$. Then $W$ is in class (P) if and only if $\Delta=0$, in class (Q) if and only if $N=0$
+and $(A,D)\neq(0,0)$, and in class (R) if and only if $|\Delta|=|u|\,|N|\neq0$. So $W$ carries a configuration if and
+only if $N\Delta\,(|\Delta|^{2}-|u|^{2}N^{2})=0$.
+\item If Roy's theorem holds and $u$ is a candidate, no $z$ whose hull is in one of the three classes lies in $\aLogs$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) If: in class (P), $W$ contains the hull of $\alpha u^{2}+\beta u^{3}$, which carries a configuration by
+Proposition~\ref{prop:polynomial-hull}(a); in class (Q), $(1,v+\beta\bar v)\otimes(1,\bar v+e\beta v,\bar v^{2}+\zeta v+ev^{2})$
+is one; in class (R), $(1,v)\otimes(\bar v,1,g)$ is one, since $vg=\kappa\bar g$. Only if: dimension at most $4$ is
+excluded by Theorem~\ref{thm:extension-room} and Proposition~\ref{prop:polynomial-hull}(a). If $W$ contains some
+$v^{2}P(v)\neq0$ with $P$ a polynomial, Proposition~\ref{prop:polynomial-hull}(a) gives class (P). Otherwise, multiplied by
+a power of $v$, $W$ becomes the image of polynomials $\mathrm{span}(X^{N-1},X^{N},X^{N+1})\oplus M$ with $M$ two-sided, and a
+configuration factors through a coprime pencil $(a_{0},a_{1})$ of degree at most $2$
+(Remark~\ref{rem:degree-bound-visibility}): $(1,X)$, $(1,X^{2}+\alpha X)$, $(X,X^{2}+\beta)$ or $(X+\beta,X^{2}+\gamma X)$. A
+count of degrees in $M$ rules out the second and the fourth, $(1,X)$ gives class (R) through the normal form of
+Proposition~\ref{prop:real-pencil}(ii), and $(X,X^{2}+\beta)$ gives class (Q). (b) and (c) compare coefficients in the
+basis $v^{-3},\dots,v^{3}$. (d) If $z\in\aLogs$, conjugation-stability puts $W$ in $\aLogs$, which then carries the
+configuration of (a), against Roy's theorem.
+\end{proof}
+
+\begin{remark}\label{rem:laurent-hulls-credit}
+This is Theorem~E of the research note on polynomial hulls in the repository. Two referee agents checked its condensed
+proof independently and filled six expository gaps before it was formalised; the formal proof takes the pencil route
+above, which is shorter than the note's analysis of shapes. The configurations are printed or substitutions: class (P)
+is \cite[Th\'eor\`eme~7(1)]{diaz-2007}, the configuration of class (Q) is the one of the proof of
+\cite[Th\'eor\`eme~2]{diaz-2004} at $x=(1,(u+\beta\bar u)/s)$, and class (R) is Proposition~\ref{prop:real-pencil}. Class
+(Q) is the cyclic family of Remark~\ref{rem:degree-bound-visibility} for the involution $v\mapsto\beta/v$ at the orbit
+$\{0,\infty\}$, together with one progression point. Part~(d) is one substitution in Roy's theorem for each $z$, and
+vacuous if Diaz's conjecture holds. The ``only if'' half of~(a), the family (Q) and the criterion of~(c) were not found
+in the sources read; the method is partly that of~\cite[\S7 and Lemma~4]{bachoc-serra-zemor}. The companion blueprint
+lists~(a) among its results not found in the sources read and not routine.
 \end{remark}
 
 \subsection*{A decomposition that returns to its start}
@@ -2154,7 +2201,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.31 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.32 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2232,8 +2279,10 @@ $\mathrm{Re}\,u$ and $\mathrm{Im}\,u$, and adjoining a generic point of a circle
 (Remark~\ref{rem:polynomial-hull-credit}).
 Version 1.31 adds, on 18 October 2026, Proposition~\ref{prop:degree-one-visibility}: which degree-one spaces
 Theorem~\ref{thm:extension-room} sees, by degrees for rational data (Remark~\ref{rem:degree-one-visibility-credit}).
+Version 1.32 adds, on 18 October 2026, Proposition~\ref{prop:laurent-hulls}: which polynomials in $u$ and $\bar u$ have a
+configuration in their hull, three disjoint classes, and an explicit criterion (Remark~\ref{rem:laurent-hulls-credit}).
 Every row of the table below was checked against the platform by script on 18 October 2026, and
-the mirrored project held all 434 proved results of the development at that date.
+the mirrored project held all 459 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2296,6 +2345,7 @@ Thm~\ref{thm:separation-normal} & Proved & \nolinkurl{DiazModulus.rank_one_confi
 Prop~\ref{prop:laurent} & Proved & \nolinkurl{DiazModulus.laurent_hull_config_iff}, \nolinkurl{DiazModulus.two_sumset_iff_difference_count}, \nolinkurl{DiazModulus.power_pair_difference_count_iff}, \nolinkurl{DiazModulus.power_pair_hull_two_by_three_iff}, \nolinkurl{DiazModulus.four_pow_hull_no_two_by_three}, \nolinkurl{DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.two_by_two_config_critical_progression} \\
 Prop~\ref{prop:polynomial-hull} & Proved & \nolinkurl{DiazModulus.polynomial_submodule_degrees_card}, \nolinkurl{DiazModulus.five_point_sumset_rigid}, \nolinkurl{DiazModulus.shifted_polynomial_hull_orders}, \nolinkurl{DiazModulus.config_shifted_polynomial_spans}, \nolinkurl{DiazModulus.polynomial_hull_no_two_by_three_configuration}, \nolinkurl{DiazModulus.polynomial_hull_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.real_polynomial_hull_no_two_by_three_configuration}, \nolinkurl{DiazModulus.rank_one_polynomial_matrix_factor}, \nolinkurl{DiazModulus.rank_one_config_inverse_adjoin}, \nolinkurl{DiazModulus.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration} \\
 Prop~\ref{prop:degree-one-visibility} & Proved & \nolinkurl{DiazModulus.coprime_fraction_cubic_over_quadratic_iff_natDegree_le}, \nolinkurl{DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal}, \nolinkurl{DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic}, \nolinkurl{DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic}, \nolinkurl{DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le}, \nolinkurl{DiazModulus.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le} \\
+Prop~\ref{prop:laurent-hulls} & Proved & \nolinkurl{DiazModulus.laurent_conj_hull_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.laurent_conj_hull_large_exponent_configuration_iff_real_pencil_class}, \nolinkurl{DiazModulus.cubic_window_conj_hull_two_by_three_configuration_iff_criterion}, \nolinkurl{DiazModulus.candidate_laurent_conj_hull_class_not_mem_logAlgTilde}, and 21 supporting results \\
 Prop~\ref{prop:two-pole} & Proved & \nolinkurl{DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde} \\
 Rem~\ref{rem:weak-schanuel} & Proved & \nolinkurl{DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_iff_single_relation_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel} \\
 Thm~\ref{thm:involution} & Proved & \nolinkurl{DiazModulus.involution_pencil_space_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions} \\

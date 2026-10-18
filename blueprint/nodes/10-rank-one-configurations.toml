@@ -7,7 +7,7 @@ Results of the library's work on Diaz's conjecture, about the hypothesis that ra
 
 The first sections answer the question in small dimension. Generic data carry no configuration, whatever numbers are added (Theorem~\ref{thm:generic_circle_point_no_two_by_three_configuration}, called Theorem~A). The four-dimensional extensions $H_0+\Qbar z$ that carry one are exactly those containing $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ (Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff}, called Theorem~B; several titles below use that name). In the power hulls $\Qbar u^{-k}+\Qbar u^{-1}+\Qbar+\Qbar u+\Qbar u^{k}$ a configuration exists only for $k=2$ and $k=3$, so through these hulls Roy's theorem excludes no single power beyond $u^{3}$ at a candidate (Theorem~\ref{thm:power_hull_strong_six_exp_configuration_iff}). The sections on separation and on Laurent hulls put these results into one mechanism over any field: separation (Theorem~\ref{thm:rank_one_config_separation}), the normal form of $2\times2$ configurations (Theorem~\ref{thm:circle_point_two_by_two_normal_form}) and configurations in Laurent hulls (Theorem~\ref{thm:laurent_hull_config_iff}).
 
-The other sections are about five-dimensional spaces, where a configuration can escape the four-dimensional extensions. The section on five-dimensional extensions gives the first such spaces, $H_0+\Qbar z+\Qbar\bar z$ (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}). When the six products span only four dimensions (Case~I), the configuration is a geometric progression \cite[Lemma 4]{BSZ17}: two poles and every Möbius involution of the $u$-line give such spaces, and a progression whose ratio is rational in $u$ lies in a space that contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$, or in an involution space (Theorem~\ref{thm:progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}). When the products span the whole space (Case~II), the conjugation-stable spaces with a factor of degree one are the real pencil spaces (Theorem~\ref{thm:conj_equivariant_degree_one_space_eq_real_pencil_space}); the last section shows that a factor of degree two can occur without one of degree one (Theorems~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions} and~\ref{thm:laurent_cubic_space_no_mobius_ratio_configuration}), that no factor of higher degree can (Theorem~\ref{thm:progression_pair_span_ratio_degree_le_two}), and which real pencil spaces with Laurent data the four-dimensional extensions see (Theorem~\ref{thm:laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions} and Proposition~\ref{prop:laurent_real_pencil_space_contains_square_of_root}). The section on Case II beyond degree one ends with a formal member of each of the three families of conjugation-stable invisible spaces with a factor of degree two that the research notes classify, for every involution of the $u$-line that commutes with conjugation: two orbits fixed by conjugation (Proposition~\ref{prop:conj_stable_two_orbit_space}), two orbits exchanged by it (Theorem~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions}, where they are $0$ and $\infty$, and Theorem~\ref{thm:conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions}), and a cyclic family (Theorem~\ref{thm:cyclic_pair_configuration_invisible_to_four_dimensional_extensions}). All the members use the involution $u\mapsto-u$, their configurations are those of \cite[Théorème 7(1)]{Dia07} at $v=u$, and the classification itself is not formalised. The section on polynomial hulls finds that $\Qbar+\Qbar u+\Qbar\bar u+\Qbar P(u)+\Qbar\overline{P(u)}$ carries a configuration exactly when $\deg P\in\{2,3\}$ (Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff}), real polynomials in $\operatorname{Re}u$ and $\operatorname{Im}u$ carry none (Corollary~\ref{cor:real_polynomial_hull_no_two_by_three_configuration}), and adjoining to $\widetilde{\mathcal L}$ a point of a circle that is transcendental over its field keeps Roy's theorem true (Theorem~\ref{thm:logAlgTilde_adjoin_circle_point_no_two_by_three_configuration}). The last section says when Theorem~B sees a degree-one space $\Qbar+\Qbar u+\Qbar\bar u+\Qbar g+\Qbar ug$, which always carries a configuration: exactly when $u\,R(u)\,g$ is a polynomial in $u$ of degree at most $3$ for some non-zero $R$ of degree at most $2$ (Theorem~\ref{thm:degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic}). For rational data this is a bound on degrees, which decides every pencil space $W(\lambda,f)$ with rational $f$ (Theorem~\ref{thm:rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le}). Chapter~\ref{chap:14-not-found-in-the-sources} says which of these results were not found in the sources read, and which are not routine.
+The other sections are about five-dimensional spaces, where a configuration can escape the four-dimensional extensions. The section on five-dimensional extensions gives the first such spaces, $H_0+\Qbar z+\Qbar\bar z$ (Theorem~\ref{thm:circle_point_conjugate_pair_configuration_invisible_to_four_dimensional_extensions}). When the six products span only four dimensions (Case~I), the configuration is a geometric progression \cite[Lemma 4]{BSZ17}: two poles and every Möbius involution of the $u$-line give such spaces, and a progression whose ratio is rational in $u$ lies in a space that contains $u^{2}$, $u^{-2}$ or some $1/(u-b)$, or in an involution space (Theorem~\ref{thm:progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space}). When the products span the whole space (Case~II), the conjugation-stable spaces with a factor of degree one are the real pencil spaces (Theorem~\ref{thm:conj_equivariant_degree_one_space_eq_real_pencil_space}); the last section shows that a factor of degree two can occur without one of degree one (Theorems~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions} and~\ref{thm:laurent_cubic_space_no_mobius_ratio_configuration}), that no factor of higher degree can (Theorem~\ref{thm:progression_pair_span_ratio_degree_le_two}), and which real pencil spaces with Laurent data the four-dimensional extensions see (Theorem~\ref{thm:laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions} and Proposition~\ref{prop:laurent_real_pencil_space_contains_square_of_root}). The section on Case II beyond degree one ends with a formal member of each of the three families of conjugation-stable invisible spaces with a factor of degree two that the research notes classify, for every involution of the $u$-line that commutes with conjugation: two orbits fixed by conjugation (Proposition~\ref{prop:conj_stable_two_orbit_space}), two orbits exchanged by it (Theorem~\ref{thm:laurent_cubic_configuration_invisible_to_four_dimensional_extensions}, where they are $0$ and $\infty$, and Theorem~\ref{thm:conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions}), and a cyclic family (Theorem~\ref{thm:cyclic_pair_configuration_invisible_to_four_dimensional_extensions}). All the members use the involution $u\mapsto-u$, their configurations are those of \cite[Théorème 7(1)]{Dia07} at $v=u$, and the classification itself is not formalised. The section on polynomial hulls finds that $\Qbar+\Qbar u+\Qbar\bar u+\Qbar P(u)+\Qbar\overline{P(u)}$ carries a configuration exactly when $\deg P\in\{2,3\}$ (Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff}), real polynomials in $\operatorname{Re}u$ and $\operatorname{Im}u$ carry none (Corollary~\ref{cor:real_polynomial_hull_no_two_by_three_configuration}), and adjoining to $\widetilde{\mathcal L}$ a point of a circle that is transcendental over its field keeps Roy's theorem true (Theorem~\ref{thm:logAlgTilde_adjoin_circle_point_no_two_by_three_configuration}). The section on degree-one spaces says when Theorem~B sees a degree-one space $\Qbar+\Qbar u+\Qbar\bar u+\Qbar g+\Qbar ug$, which always carries a configuration: exactly when $u\,R(u)\,g$ is a polynomial in $u$ of degree at most $3$ for some non-zero $R$ of degree at most $2$ (Theorem~\ref{thm:degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic}). For rational data this is a bound on degrees, which decides every pencil space $W(\lambda,f)$ with rational $f$ (Theorem~\ref{thm:rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le}). The last section classifies the conjugation hulls of the polynomials $z$ in $u$ and $\bar u$ (Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}, called Theorem~E): $\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ carries a configuration exactly when it is five-dimensional and in one of three disjoint classes, (P), (Q) and (R), and for exponents within $\pm3$ the criterion is explicit in the coefficients (Corollary~\ref{cor:cubic_window_conj_hull_two_by_three_configuration_iff_criterion}). Chapter~\ref{chap:14-not-found-in-the-sources} says which of these results were not found in the sources read, and which are not routine.
 '''
 
 # --- Generic data ------------------------------------------------------------------------
@@ -1063,4 +1063,323 @@ Let $u\in\C\setminus\Qbar$, $s\in\Qbar$ with $s^{2}=u\bar u$, and $\lambda\in\Qb
 source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). For real $f$ these are the real pencil spaces of Proposition~\ref{prop:conj_stable_real_pencil_space_carries_two_by_three_configuration}; for Laurent $f$ the criterion contains Theorem~\ref{thm:laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions}.'''
 sketch = '''
 With $g=f/(s+\lambda u)$, $W(\lambda,f)=W_{g}$; reduce $P/(Q\cdot(s+\lambda X))$, cancelling $X+s\bar\lambda$ when $P(-s\bar\lambda)=0$, and apply Corollary~\ref{cor:rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le}.
+'''
+
+# --- Polynomials in u and u-bar (Theorem E) (R18) ------------------------------------------------
+
+[[node]]
+platform = "DiazModulus.coprime_pencil_of_degree_le_two_normal_form"
+env = "lemma"
+section = 'Polynomials in $u$ and $\bar u$ (Theorem E)'
+title = 'Coprime pencils of degree at most two'
+statement = '''
+Let $K$ be a field and $a_0,a_1\in K[X]$ coprime with $1\leq\max(\deg a_0,\deg a_1)\leq2$. Then $Ka_0+Ka_1=Kp+Kq$ for a pair $(p,q)$ of one of the forms $(1,X)$; $(1,X^{2}+\alpha X)$ with $\alpha\in K$; $(X,X^{2}+\beta)$ with $\beta\neq0$; $(X+\beta,X^{2}+\gamma X)$ with $\beta\neq0$ and $\gamma\neq\beta$.
+'''
+source = '''Elementary; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Without $X^{2}$ terms the plane is $K+KX$. Otherwise it contains a monic $X^{2}+dX+e$ and a non-zero $r$ of degree at most $1$; $r$ constant, $r\in KX$ and $r\in K(X+\beta)$ with $\beta\neq0$ give the other three forms, the inequalities because $X$, resp. $X+\beta$, is not a common factor.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_window_factor_in_hull_plus_min_degree_line"
+env = "lemma"
+title = 'A degree count in a window'
+statement = '''
+Let $K$ be a field, $N\geq0$, $H_N=KX^{N-1}+KX^{N}+KX^{N+1}\subseteq K[X]$ (with $N-1$ read as $0$ when $N=0$), and $M\subseteq K[X]$ a subspace of dimension $2$ whose non-zero elements all have degree at least $N+2$. Then $M$ has a non-zero element $n$ of least degree such that, for all $p,q,y\in K[X]$ with $\deg p<\deg q$: if $py$ and $qy$ lie in $H_N+M$, then $py\in H_N+Kn$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). The degree count is in the manner of the valuation argument of \cite[\S7, proof of Theorem 33]{BSZ17}.'''
+sketch = '''
+Write $py=h+m$ and $qy=h'+m'$ with $h,h'\in H_N$ and $m,m'\in M$. If $m\neq0$, then $\deg m=\deg py<\deg qy=\deg m'$, so $m,m'$ span $M$, and the minimality of $\deg n$ in $n=am+bm'$ forces $b=0$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_window_quadratic_pencils_carry_no_three_factors"
+env = "lemma"
+title = 'Two pencils with no three free factors'
+statement = '''
+Let $K$ be a field, $N\geq0$, $H_N=KX^{N-1}+KX^{N}+KX^{N+1}\subseteq K[X]$, and $M\subseteq K[X]$ a subspace of dimension $2$ such that every non-zero $f\in M$ has $\ord f+2\leq N$ and $\deg f\geq N+2$, where $\ord f$ is the order of $f$ at $0$ (its trailing degree); call such an $M$ two-sided. Put $W=H_N+M$. There are no $\alpha\in K$ and free $b_0,b_1,b_2\in K[X]$ with $b_j\in W$ and $(X^{2}+\alpha X)b_j\in W$ for all $j$; and there are no $\beta,\gamma\in K$ with $\beta\neq0$ and free $b_0,b_1,b_2\in K[X]$ with $(X+\beta)b_j\in W$ and $(X^{2}+\gamma X)b_j\in W$ for all $j$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+For the pencil $(p,q)$, Lemma~\ref{lem:laurent_window_factor_in_hull_plus_min_degree_line} puts $Y=\sum_jKpb_j$ in $H_N+Kn$, so $\dim(Y\cap H_N)\geq2$. But $py\in H_N$ forces $X^{N-1}\mid y$, then $qy\in H_N$ by the order bound, and $\deg q=2$ leaves $y\in KX^{N-1}$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_window_degree_one_pencil_factor_space"
+env = "lemma"
+title = 'Three factors for the pencil $(1,X)$'
+statement = '''
+Let $K$ be a field, $N\geq0$, $H_N=KX^{N-1}+KX^{N}+KX^{N+1}\subseteq K[X]$, and $M\subseteq K[X]$ a subspace of dimension $2$ such that every non-zero $f\in M$ has $\ord f+2\leq N$ and $\deg f\geq N+2$, where $\ord f$ is the order of $f$ at $0$ (its trailing degree). Put $W=H_N+M$, and suppose there are free $b_0,b_1,b_2\in K[X]$ with $b_j\in W$ and $Xb_j\in W$ for all $j$. Then there is $G\in W$ with $XG\in W$ such that every $F\in W$ with $XF\in W$ lies in $KX^{N-1}+KX^{N}+KG$, and $W=H_N+KG+KXG$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Kill the coefficients of $X^{N-1}$ and $X^{N}$ in a combination $G$ of the $b_j$. Lemma~\ref{lem:laurent_window_factor_in_hull_plus_min_degree_line} with $(p,q)=(1,X)$ puts every such $F$ in $H_N+Kn$, with no $X^{N+1}$ term when $F\in H_N$; and $n$ and the $M$-part of $XG$ span $M$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_window_involution_pencil_normal_form"
+env = "lemma"
+title = 'Three factors for the pencil $(X,X^{2}+\beta)$'
+statement = '''
+Let $K$ be a field, $N\geq3$, $H_N=KX^{N-1}+KX^{N}+KX^{N+1}\subseteq K[X]$, and $M\subseteq K[X]$ a subspace of dimension $2$ such that no element of $M$ has a term in $X^{N-1}$, $X^{N}$ or $X^{N+1}$, and every non-zero $f\in M$ has $\ord f+2\leq N$ and $\deg f\geq N+2$, where $\ord f$ is the order of $f$ at $0$ (its trailing degree). Put $W=H_N+M$, let $\beta\in K$ be non-zero, and suppose there are free $b_0,b_1,b_2\in K[X]$ with $Xb_j\in W$ and $(X^{2}+\beta)b_j\in W$ for all $j$. Then there are $e,\zeta\in K$ with $e\neq0$ and $M=K(X^{N-2}+eX^{N+2})+K(\beta X^{N-3}+\zeta X^{N+2}+eX^{N+3})$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Lemma~\ref{lem:laurent_window_factor_in_hull_plus_min_degree_line} with $(p,q)=(X,X^{2}+\beta)$. Killing two coefficients in a combination $y$ of the $b_j$ gives $y=aX^{N-2}+cX^{N}$, hence $X^{N-2}+eX^{N+2}\in M$; killing two others gives $y=sX^{N-3}+cX^{N}+seX^{N+1}$, hence the second generator.
+'''
+
+[[node]]
+platform = "DiazModulus.config_shifted_coprime_polynomial_factors"
+env = "lemma"
+title = 'A configuration factors through a coprime pair'
+statement = '''
+Let $u\in\C\setminus\Qbar$, $H\subseteq\Qbar[X]$ a subspace and $N\geq0$. Let $x_0,x_1\in\C$ be free over $\Qbar$, and $y_0,y_1,y_2\in\C$ too, such that for all $i,j$ there is $Q_{ij}\in H$ with $Q_{ij}(u)=u^{N}x_iy_j$. Then there are coprime $a_0,a_1\in\Qbar[X]$ and free $b_0,b_1,b_2\in\Qbar[X]$ with $a_ib_j\in H$ for all $i,j$ and $x_1a_0(u)=x_0a_1(u)$.
+'''
+source = '''Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). It is the normalisation of Lemma~\ref{lem:config_shifted_polynomial_spans}, sharpened by Lemma~\ref{lem:rank_one_polynomial_matrix_factor}.'''
+sketch = '''
+Evaluation at $u$ is injective, so the $2\times2$ minors of $(Q_{ij})$, which vanish at $u$, vanish; Lemma~\ref{lem:rank_one_polynomial_matrix_factor} gives $Q_{ij}=a_ib_j$, and $b_j(u)$ is a fixed non-zero multiple of $y_j$.
+'''
+
+[[node]]
+platform = "DiazModulus.two_by_three_configuration_ratio_degree_le_two"
+env = "lemma"
+title = 'The ratio of a configuration has degree at most two'
+statement = '''
+Let $u\in\C\setminus\Qbar$ and $W\subseteq\C$ a $\Qbar$-space of dimension at most $5$ containing $1$, $u$ and $u^{-1}$. Let $x_0,x_1$ be free over $\Qbar$, and $y_0,y_1,y_2$ too, with all six $x_iy_j$ in $W$, and let $p,q\in\Qbar[X]$ be coprime with $\max(\deg p,\deg q)\geq1$ and $x_1q(u)=x_0p(u)$. Then $\max(\deg p,\deg q)\leq2$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). When the six products span four dimensions, the step to a progression $t,th,th^{2},th^{3}$ is \cite[Lemma 4]{BSZ17}.'''
+sketch = '''
+With $h=p(u)/q(u)$ and $Y'=\sum_j\Qbar x_0y_j$, $Y'\cap hY'\neq0$. If $Y'+hY'$ contains $1,u,u^{-1}$, Theorem~\ref{thm:progression_pair_span_ratio_degree_le_two} applies; otherwise $Y'+hY'$ is spanned by a progression $t,th,th^{2},th^{3}$, and Lemma~\ref{lem:progression_space_ratio_degree_le_two} applies.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_twisted_symmetric_normal_form"
+env = "lemma"
+title = 'Twisted-symmetric Laurent polynomials'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $N\geq0$, $F\in\Qbar[X]$ and $g=F(v)/v^{N}$, and let $\gamma\in\Qbar$ with $\gamma\bar\gamma=1$ and $\bar g=\gamma vg$. Then there is $G\in\Qbar[X]$ with $G(0)=0$ and $g-\bigl(G(v)+\bar\gamma\,\overline{vG(v)}\bigr)\in\Qbar+\Qbar\bar v$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Divide $F=A+X^{N}B$ with $\deg A<N$ and put $G=B-B(0)$. As $\bar v=1/v$, $\overline{A(v)/v^{N}}$ is the value of a reflected polynomial, and comparing degrees in $\bar g=\gamma vg$, cleared at the transcendental $v$, gives $\overline{A(v)/v^{N}}=\gamma vG(v)+\gamma B(0)v$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_involution_space_conj_stable_constraints"
+env = "lemma"
+title = 'Conjugation-stable involution spaces'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $e,\beta,\zeta\in\Qbar$ with $\beta\neq0$, and suppose that $S=\Qbar+\Qbar v+\Qbar\bar v+\Qbar(\bar v^{2}+ev^{2})+\Qbar(\beta\bar v^{3}+\zeta v^{2}+ev^{3})$ is stable under complex conjugation. Then $e\bar e=\beta\bar\beta=1$ and $\zeta=-\beta e^{2}\bar\zeta$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Write $\bar n_0$ and $\bar n_1$, for $n_0=\bar v^{2}+ev^{2}$ and $n_1=\beta\bar v^{3}+\zeta v^{2}+ev^{3}$, in the five generators, multiply by $v^{3}$, and compare the coefficients at $v^{\pm3}$ and $v^{\pm2}$ at the transcendental $v$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_involution_space_carries_two_by_three_configuration"
+env = "lemma"
+title = 'The configuration of the involution spaces'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $e,\beta,\zeta\in\Qbar$ be arbitrary and $S=\Qbar+\Qbar v+\Qbar\bar v+\Qbar(\bar v^{2}+ev^{2})+\Qbar(\beta\bar v^{3}+\zeta v^{2}+ev^{3})$. Then $1,v+\beta\bar v$ are free over $\Qbar$, so are $1,\bar v+e\beta v,\bar v^{2}+\zeta v+ev^{2}$, and the six products of a member of the first family with a member of the second lie in $S$. With $v=u/s$ these are the configurations of class (Q) in Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}.
+'''
+source = '''In print: for $v=u/s$, $e\bar e=\beta\bar\beta=1$ and $\zeta=-\beta e^{2}\bar\zeta$, it is the configuration $x\otimes(1,y,\bar y)$ to which the proof of \cite[Théorème 2]{Dia04} applies the strong six exponentials theorem, at $x=(1,(u+\beta\bar u)/s)$; also \cite[Théorème 4(1)]{Dia07}. Here $e,\beta,\zeta$ are arbitrary.'''
+sketch = '''
+Using only $v\bar v=1$, each product is an explicit combination of the generators, for instance $(v+\beta\bar v)(\bar v+e\beta v)=\beta(\bar v^{2}+ev^{2})+1+e\beta^{2}$; both families are free because a relation, cleared by $v$ or $v^{2}$, is a polynomial identity at the transcendental $v$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_real_pencil_normal_form_carries_two_by_three_configuration"
+env = "lemma"
+title = 'The configuration of the real pencil normal form'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $\kappa\in\Qbar$ with $\kappa\bar\kappa=1$, $G\in\Qbar[X]$ with $\deg G\geq1$, and $g=G(v)+\kappa\,\overline{vG(v)}$. Then $1,v$ are free over $\Qbar$, so are $\bar v,1,g$, and the six products of a member of $(1,v)$ with a member of $(\bar v,1,g)$ lie in $\Qbar+\Qbar v+\Qbar\bar v+\Qbar g+\Qbar\bar g$.
+'''
+source = '''Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). It is the configuration of Proposition~\ref{prop:conj_stable_real_pencil_space_carries_two_by_three_configuration}, written for Laurent data.'''
+sketch = '''
+The products are $\bar v,1,g,1,v$ and $vg=\kappa\bar g$. For freeness, $v^{n}\overline{G(v)}$, $n=\deg G$, is the value of a reflected polynomial, so the coefficient of $X^{2n+1}$ in a relation cleared by $v^{n+1}$ is the coordinate of $g$ times the leading coefficient of $G$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_with_polynomial_part_configuration_class"
+env = "lemma"
+title = 'Hulls with a polynomial part'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $z\in\C$ and $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z+\Qbar\bar z$. If $v^{2}P(v)\in W$ for some non-zero $P\in\Qbar[X]$, and $W$ carries a $2\times3$ configuration, then $\alpha v^{2}+\beta v^{3}\in W$ for some $\alpha,\beta\in\Qbar$, not both zero.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}), as a consequence of Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff}.'''
+sketch = '''
+The hull of $A=v^{2}P(v)$ lies in $W$ and is five-dimensional (the coefficient of $X^{2d+4}$, $d=\deg P$, in a cleared relation), so it is $W$; Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff} at $u:=v$ gives $\deg X^{2}P\in\{2,3\}$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_finrank_le_four_no_two_by_three_configuration"
+env = "lemma"
+title = 'Hulls of dimension at most four'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $k\geq0$, let $c_j\in\Qbar$ for $j\in\Z$, and put $z=\sum_{j=-k}^{k}c_jv^{j}$ and $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z+\Qbar\bar z$. If $\dim W\leq4$, then $W$ carries no $2\times3$ configuration.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}), as a consequence of Theorems~\ref{thm:circle_point_extension_two_by_three_configuration_iff} and~\ref{thm:polynomial_hull_no_two_by_three_configuration}.'''
+sketch = '''
+If $z\in\Qbar+\Qbar v+\Qbar\bar v$, Theorem~\ref{thm:polynomial_hull_no_two_by_three_configuration} at $P=0$. Otherwise $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z$, and Theorem~\ref{thm:circle_point_extension_two_by_three_configuration_iff} would give $z\equiv\delta w$ with $\delta\neq0$ and $w=v^{2}$, $\bar v^{2}$ or $1/(v-a)$, $a\neq0$: $\bar z\in W$ excludes the first two, and the Laurent form of $z$ the third.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_shifted_polynomial_model"
+env = "lemma"
+title = 'The shifted polynomial model'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $k\geq0$, let $c_j\in\Qbar$ for $j\in\Z$, and put $z=\sum_{j=-k}^{k}c_jv^{j}$ and $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z+\Qbar\bar z$. Suppose $\dim W=5$ and $W$ contains no $v^{2}P(v)$ with $P\in\Qbar[X]$ non-zero. Then there are $N\geq3$ and a subspace $M\subseteq\Qbar[X]$ of dimension $2$ such that, with $H_N=\Qbar X^{N-1}+\Qbar X^{N}+\Qbar X^{N+1}$: no element of $M$ has a term in $X^{N-1}$, $X^{N}$ or $X^{N+1}$; every non-zero $f\in M$ has $\ord f+2\leq N$ and $\deg f\geq N+2$, where $\ord f$ is the order of $f$ at $0$ (its trailing degree); a polynomial $F\in\Qbar[X]$ has $F(v)/v^{N}\in W$ if and only if $F\in H_N+M$; and every $w\in W$ is $F(v)/v^{N}$ for some $F\in H_N+M$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$N=k+3$ and the injective map $F\mapsto F(v)/v^{N}$; $M$ is spanned by the polynomials of $z$ and $\bar z$ with their coefficients at $N-1,N,N+1$ deleted, and an element of $M$ breaking a bound would give a non-zero $v^{2}P(v)$ in $W$, directly or after conjugation.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_degree_one_conj_stable_space_real_pencil_normal_form"
+env = "proposition"
+title = 'Conjugation-stable degree-one Laurent spaces'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $N\geq0$, $F\in\Qbar[X]$ and $g=F(v)/v^{N}$. Suppose $1,v,\bar v,g,vg$ are free over $\Qbar$ and $\bar g\in\Qbar+\Qbar v+\Qbar vg$, and let $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar g+\Qbar vg$. Then there are $\kappa\in\Qbar$ with $\kappa\bar\kappa=1$ and $G\in\Qbar[X]$ with $G(0)=0$ such that $\deg G\geq2$ or $v^{2}\in W$, and $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar h+\Qbar\bar h$ for $h=G(v)+\kappa\,\overline{vG(v)}$.
+'''
+source = '''Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). It is the Laurent form of Theorem~\ref{thm:conj_equivariant_degree_one_space_eq_real_pencil_space}.'''
+sketch = '''
+Conjugating $\bar g=a+bv+c\,vg$ twice gives $c\bar c=1$ and $a=-c\bar b$; then $g-\bar b\bar v$ satisfies Lemma~\ref{lem:laurent_conj_twisted_symmetric_normal_form} with $\gamma=c$, and $vh=\kappa\bar h$, $\kappa=\bar c$, exchanges the two spanning families; $\deg G\leq1$ puts $v^{2}$ in $W$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_without_polynomial_part_configuration_classes"
+env = "proposition"
+title = 'Hulls without a polynomial part'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $k\geq0$, let $c_j\in\Qbar$ for $j\in\Z$, and put $z=\sum_{j=-k}^{k}c_jv^{j}$ and $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z+\Qbar\bar z$. Suppose $\dim W=5$, $W$ contains no $v^{2}P(v)$ with $P\in\Qbar[X]$ non-zero, and $W$ carries a $2\times3$ configuration. Then $W$ is in one of the two classes
+\begin{enumerate}
+\item[(Q)] $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar(\bar v^{2}+ev^{2})+\Qbar(\beta\bar v^{3}+\zeta v^{2}+ev^{3})$ for some $e,\beta,\zeta\in\Qbar$ with $e\bar e=\beta\bar\beta=1$ and $\zeta=-\beta e^{2}\bar\zeta$;
+\item[(R)] $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar g+\Qbar\bar g$ with $g=G(v)+\kappa\,\overline{vG(v)}$, for some $\kappa\in\Qbar$ with $\kappa\bar\kappa=1$ and some $G\in\Qbar[X]$ with $G(0)=0$ and $\deg G\geq2$.
+\end{enumerate}
+'''
+source = '''Not found in the sources read; it is most of the ``only if'' half of Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}, and given the lemmas above it is routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Lemmas~\ref{lem:laurent_conj_hull_shifted_polynomial_model} and~\ref{lem:config_shifted_coprime_polynomial_factors} give a coprime pencil, of degree at most $2$ by Lemma~\ref{lem:two_by_three_configuration_ratio_degree_le_two}, so one of the four of Lemma~\ref{lem:coprime_pencil_of_degree_le_two_normal_form}. Lemma~\ref{lem:laurent_window_quadratic_pencils_carry_no_three_factors} excludes two; $(1,X)$ gives (R) by Lemma~\ref{lem:laurent_window_degree_one_pencil_factor_space} and Proposition~\ref{prop:laurent_degree_one_conj_stable_space_real_pencil_normal_form}, and $(X,X^{2}+\beta)$ gives (Q) by Lemmas~\ref{lem:laurent_window_involution_pencil_normal_form} and~\ref{lem:laurent_involution_space_conj_stable_constraints}.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_two_by_three_configuration_iff"
+root = true
+novelty = "not-routine"
+env = "theorem"
+title = 'Conjugation hulls of polynomials in $u$ and $\bar u$'
+statement = '''
+Let $u\in\C\setminus\Qbar$ and $s\in\Qbar$ with $s^{2}=u\bar u$ (so $s=\pm|u|$ is real), and put $v=u/s$, so that $\bar v=1/v$. Let $k\geq0$, let $c_j\in\Qbar$ for $j\in\Z$, and put $z=\sum_{j=-k}^{k}c_jv^{j}$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$. Then $W$ carries a $2\times3$ configuration if and only if $\dim W=5$ and $W$ is in one of the following classes:
+\begin{enumerate}
+\item[(P)] $\alpha u^{2}+\beta u^{3}\in W$ for some $\alpha,\beta\in\Qbar$, not both zero;
+\item[(Q)] $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar(\bar v^{2}+ev^{2})+\Qbar(\beta\bar v^{3}+\zeta v^{2}+ev^{3})$ for some $e,\beta,\zeta\in\Qbar$ with $e\bar e=\beta\bar\beta=1$ and $\zeta=-\beta e^{2}\bar\zeta$;
+\item[(R)] $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar g+\Qbar\bar g$ with $g=G(v)+\kappa\,\overline{vG(v)}$, for some $\kappa\in\Qbar$ with $\kappa\bar\kappa=1$ and some $G\in\Qbar[X]$ with $G(0)=0$ and $\deg G\geq2$.
+\end{enumerate}
+Since $u=sv$ and $\bar u=s\bar v$, the numbers $z$ are exactly the polynomials in $u$ and $\bar u$ with algebraic coefficients, $W$ is the conjugation hull of $z$, and $\Qbar+\Qbar u+\Qbar\bar u=\Qbar+\Qbar v+\Qbar\bar v$. The three classes are pairwise disjoint (Proposition~\ref{prop:laurent_conj_hull_configuration_classes_disjoint}), and each forces $\dim W=5$ (Lemma~\ref{lem:laurent_conj_hull_class_finrank_eq_five}).
+'''
+source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). The ``only if'' half, the classification, was not found in the sources read; its method is partly that of \cite[\S7 and Lemma 4]{BSZ17}. The ``if'' half consists of printed configurations or substitutions in them: class (P) is \cite[Théorème 7(1)]{Dia07}, already in \cite[Théorème 2]{Dia04}; class (Q) is the configuration of the proof of \cite[Théorème 2]{Dia04} at $x=(1,(u+\beta\bar u)/s)$, also \cite[Théorème 4(1)]{Dia07}; class (R) consists of the real pencil spaces of Proposition~\ref{prop:conj_stable_real_pencil_space_carries_two_by_three_configuration}.'''
+sketch = '''
+With $v=u/s$ every space moves between $u$ and $v$. Only if: Lemma~\ref{lem:laurent_conj_hull_finrank_le_four_no_two_by_three_configuration} gives $\dim W=5$; then Lemma~\ref{lem:laurent_conj_hull_with_polynomial_part_configuration_class} gives (P) when $W$ contains a non-zero $v^{2}P(v)$, and Proposition~\ref{prop:laurent_conj_hull_without_polynomial_part_configuration_classes} gives (Q) or (R) otherwise. If: in class (P), $W$ contains the hull of $\alpha u^{2}+\beta u^{3}$, which carries a configuration by Theorem~\ref{thm:polynomial_hull_two_by_three_configuration_iff}; (Q) and (R) carry those of Lemmas~\ref{lem:laurent_involution_space_carries_two_by_three_configuration} and~\ref{lem:laurent_real_pencil_normal_form_carries_two_by_three_configuration}.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_configuration_classes_disjoint"
+root = true
+env = "proposition"
+title = 'The three classes are disjoint'
+statement = '''
+Let $u\in\C\setminus\Qbar$ and $s\in\Qbar$ with $s^{2}=u\bar u$ (so $s=\pm|u|$ is real), and put $v=u/s$, so that $\bar v=1/v$. For every $\Qbar$-subspace $W\subseteq\C$, no two of the conditions (P), (Q) and (R) of Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff} hold.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Relations in $v$ and $1/v$ clear to polynomial identities at the transcendental $v$: the coefficients at $1,v,v^{5},v^{6}$ separate (P) from (Q); for (R), with $H(v)=v^{n}\overline{G(v)}$, $n=\deg G$, and $H(0)\neq0$, evaluation at $0$ kills the coordinates of $g$ and $\bar g$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_class_finrank_eq_five"
+env = "lemma"
+title = 'The classes are five-dimensional'
+statement = '''
+Let $u\in\C\setminus\Qbar$ and $s\in\Qbar$ with $s^{2}=u\bar u$ (so $s=\pm|u|$ is real), and put $v=u/s$, so that $\bar v=1/v$. Let $k\geq0$, let $c_j\in\C$ for $j\in\Z$ (they need not be algebraic), and put $z=\sum_{j=-k}^{k}c_jv^{j}$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$. If $W$ is in one of the classes (P), (Q) and (R) of Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}, then $\dim W=5$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+In (P), $W$ contains $m=\alpha u^{2}+\beta u^{3}$ and $\bar m$, and $1,u,\bar u,m,\bar m$ are free (clear by $v^{3}$); in (Q) the generators are free in the same way, as $\beta\neq0$; in (R), with $H(v)=v^{n}\overline{G(v)}$ and $H(0)\neq0$, evaluation at $0$ of a cleared relation kills the coordinates of $g$ and $\bar g$.
+'''
+
+[[node]]
+platform = "DiazModulus.laurent_conj_hull_large_exponent_configuration_iff_real_pencil_class"
+root = true
+env = "corollary"
+title = 'Corollary E(a): exponents of absolute value at least four'
+statement = '''
+Let $u\in\C\setminus\Qbar$ and $s\in\Qbar$ with $s^{2}=u\bar u$ (so $s=\pm|u|$ is real), and put $v=u/s$, so that $\bar v=1/v$. Let $k\geq0$, let $c_j\in\Qbar$ for $j\in\Z$, and put $z=\sum_{j=-k}^{k}c_jv^{j}$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$. If $c_j\neq0$ for some $j$ with $4\leq|j|\leq k$, then $W$ carries a $2\times3$ configuration if and only if $W$ is in class (R) of Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}), given Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}.'''
+sketch = '''
+If: Lemma~\ref{lem:laurent_conj_hull_class_finrank_eq_five} and Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}. Only if: in (Q), and in (P), where the hull of $\alpha u^{2}+\beta u^{3}$ is five-dimensional by the same lemma and so equals $W$, $z$ lies in $\sum_{|j|\leq3}\Qbar v^{j}$, so $c_j=0$ for $|j|\geq4$.
+'''
+
+[[node]]
+platform = "DiazModulus.cubic_window_hull_polynomial_class_iff"
+env = "lemma"
+title = 'The polynomial class of a cubic window'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $a,b,c,d\in\Qbar$ and $z\in\C$ with $z-(a\bar v^{3}+b\bar v^{2}+cv^{2}+dv^{3})\in\Qbar+\Qbar v+\Qbar\bar v$, and let $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z+\Qbar\bar z$ have dimension $5$. Then $\alpha v^{2}+\beta v^{3}\in W$ for some $\alpha,\beta\in\Qbar$, not both zero, if and only if $a\bar c-b\bar d=0$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+$W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar m+\Qbar\bar m$ with $m=a\bar v^{3}+b\bar v^{2}+cv^{2}+dv^{3}$; an element $x_0+x_1v+x_2\bar v+xm+y\bar m$ lies in $\Qbar v^{2}+\Qbar v^{3}$ only if $xa+y\bar d=xb+y\bar c=0$, and Cramer's rule; conversely take $(x,y)=(\bar d,-a)$, or $(\bar c,-b)$ when $a=d=0$.
+'''
+
+[[node]]
+platform = "DiazModulus.cubic_window_hull_involution_class_iff"
+env = "lemma"
+title = 'The involution class of a cubic window'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $a,b,c,d\in\Qbar$ and $z\in\C$ with $z-(a\bar v^{3}+b\bar v^{2}+cv^{2}+dv^{3})\in\Qbar+\Qbar v+\Qbar\bar v$, and let $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z+\Qbar\bar z$ have dimension $5$. Then $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar(\bar v^{2}+ev^{2})+\Qbar(\beta\bar v^{3}+\zeta v^{2}+ev^{3})$ for some $e,\beta,\zeta\in\Qbar$ with $e\bar e=\beta\bar\beta=1$ and $\zeta=-\beta e^{2}\bar\zeta$ if and only if $a\bar a-d\bar d=0$ and $(a,d)\neq(0,0)$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+The coefficients of $\bar v^{3}$ and $v^{3}$ in $m$ give $a=x\beta$ and $d=xe$. Conversely, $p_{12}=a\bar c-b\bar d$ and $p_{13}=a\bar b-c\bar d$ are non-zero, $e=p_{13}/p_{12}$, $\beta=ea/d$ and $\zeta=e(c-be)/d$ give the normal form, and Lemma~\ref{lem:laurent_involution_space_conj_stable_constraints} the constraints.
+'''
+
+[[node]]
+platform = "DiazModulus.cubic_window_hull_real_pencil_class_iff"
+env = "lemma"
+title = 'The real pencil class of a cubic window'
+statement = '''
+Let $v\in\C\setminus\Qbar$ with $v\bar v=1$. Let $a,b,c,d\in\Qbar$ and $z\in\C$ with $z-(a\bar v^{3}+b\bar v^{2}+cv^{2}+dv^{3})\in\Qbar+\Qbar v+\Qbar\bar v$, and let $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar z+\Qbar\bar z$, of any dimension. Then $W=\Qbar+\Qbar v+\Qbar\bar v+\Qbar g+\Qbar\bar g$ with $g=G(v)+\kappa\,\overline{vG(v)}$, for some $\kappa\in\Qbar$ with $\kappa\bar\kappa=1$ and some $G\in\Qbar[X]$ with $G(0)=0$ and $\deg G\geq2$, if and only if $|a\bar c-b\bar d|^{2}=(a\bar a-d\bar d)^{2}$ and $a\bar a-d\bar d\neq0$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Clearing $g\in W$ at the transcendental $v$ makes $G$ a cubic with $f_{3}=0$, $f_{-3}=\kappa\bar f_{2}$ and $f_{2}\neq0$, where $f_{j}$ are the coefficients of the part of $g$ outside $\Qbar+\Qbar v+\Qbar\bar v$; the Plücker identities then give $p_{14}=a\bar a-d\bar d\neq0$ and $p_{12}\bar p_{12}=p_{14}^{2}$, $p_{12}=a\bar c-b\bar d$. Conversely $\kappa=p_{14}/p_{12}$ and $G=G_{1}X+\bar p_{12}X^{2}$.
+'''
+
+[[node]]
+platform = "DiazModulus.cubic_window_conj_hull_two_by_three_configuration_iff_criterion"
+root = true
+env = "corollary"
+title = 'Corollary E(b): exponents within $\pm3$'
+statement = '''
+Let $u\in\C\setminus\Qbar$ and $s\in\Qbar$ with $s^{2}=u\bar u$ (so $s=\pm|u|$ is real), and put $v=u/s$, so that $\bar v=1/v$. Let $A,B,C,D\in\Qbar$, let $z\in\C$ with $z-(A\bar u^{3}+B\bar u^{2}+Cu^{2}+Du^{3})\in\Qbar+\Qbar u+\Qbar\bar u$, and let $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$ have dimension $5$. Put $\Delta=A\bar C-B\bar D$ and $N=A\bar A-D\bar D$. Then, for the classes (P), (Q) and (R) of Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}: $W$ is in (P) if and only if $\Delta=0$; in (Q) if and only if $N=0$ and $(A,D)\neq(0,0)$; in (R) if and only if $|\Delta|^{2}=s^{2}N^{2}$ and $N\neq0$. So $W$ carries a $2\times3$ configuration if and only if $N\Delta\,(|\Delta|^{2}-s^{2}N^{2})=0$, where $s^{2}=|u|^{2}$.
+'''
+source = '''Not found in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}), given Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}.'''
+sketch = '''
+With $a=As^{3}$, $b=Bs^{2}$, $c=Cs^{2}$, $d=Ds^{3}$, $z\equiv a\bar v^{3}+b\bar v^{2}+cv^{2}+dv^{3}$, $a\bar c-b\bar d=s^{5}\Delta$ and $a\bar a-d\bar d=s^{6}N$. Lemmas~\ref{lem:cubic_window_hull_polynomial_class_iff}, \ref{lem:cubic_window_hull_involution_class_iff} and~\ref{lem:cubic_window_hull_real_pencil_class_iff} give the classes, and Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff} at $k=3$ the configuration, since $A=D=0$ forces $\Delta=0$.
+'''
+
+[[node]]
+platform = "DiazModulus.candidate_laurent_conj_hull_class_not_mem_logAlgTilde"
+root = true
+env = "corollary"
+title = 'The three classes at a candidate'
+statement = '''
+Assume Roy's strong six exponentials theorem: there is no $2\times3$ configuration in $\widetilde{\mathcal L}$, the $\Qbar$-span of $1$ and the logarithms of algebraic numbers. Let $u$ be a candidate: $u\neq0$, $|u|$ algebraic and $e^{u}$ algebraic. Let $s\in\Qbar$ with $s^{2}=u\bar u$, put $v=u/s$, let $k\geq0$ and $c_j\in\Qbar$ for $j\in\Z$, and put $z=\sum_{j=-k}^{k}c_jv^{j}$ and $W=\Qbar+\Qbar u+\Qbar\bar u+\Qbar z+\Qbar\bar z$. If $W$ is in one of the classes (P), (Q) and (R) of Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff}, then $z\notin\widetilde{\mathcal L}$.
+'''
+source = '''Each instance is a substitution in Roy's strong six exponentials theorem \cite[Corollary 2]{Roy92}; for class (Q) it is also one in \cite[Théorème 2]{Dia04}. Not found in the sources read as a family; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). It concerns candidates, so it is vacuous if Diaz's conjecture holds.'''
+sketch = '''
+Theorem~\ref{thm:hermite_lindemann_holds} gives $u\notin\Qbar$; Lemma~\ref{lem:laurent_conj_hull_class_finrank_eq_five} and Theorem~\ref{thm:laurent_conj_hull_two_by_three_configuration_iff} put a configuration in $W$, and $z\in\widetilde{\mathcal L}$ would put $W$ in $\widetilde{\mathcal L}$ (Lemmas~\ref{lem:logAlg_conj_stable} and~\ref{lem:logAlgTilde_conj_stable}), against Roy's theorem.
 '''

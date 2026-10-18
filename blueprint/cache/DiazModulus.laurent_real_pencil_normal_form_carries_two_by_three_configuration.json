@@ -1,0 +1,21 @@
+{
+ "theorem_id": "6739af20-d128-4b91-9ac4-b1591ec8bf80",
+ "theorem_name": "DiazModulus.laurent_real_pencil_normal_form_carries_two_by_three_configuration",
+ "theorem_title": "For g = G(v) + κ · conj(v G(v)) with |κ| = 1 and deg G ≥ 1, (1, v) and (v̄, 1, g) form a 2×3 configuration in span(1, v, v̄, g, ḡ)",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem laurent_real_pencil_normal_form_carries_two_by_three_configuration\n    (v : ℂ) (hv : v ∉ Qbar) (hv1 : v * conj v = 1)\n    (κ : ℂ) (hκ : κ ∈ Qbar) (hκ1 : κ * conj κ = 1) (G : Polynomial ↥Qbar) (hG : 1 ≤ G.natDegree) :\n    LinearIndependent (↥Qbar) ![1, v] ∧\n      LinearIndependent (↥Qbar) ![conj v, 1, Polynomial.aeval v G + κ * conj (v * Polynomial.aeval v G)] ∧\n      ∀ i j, ![1, v] i * ![conj v, 1, Polynomial.aeval v G + κ * conj (v * Polynomial.aeval v G)] j ∈\n        Submodule.span Qbar ({1, v, conj v, Polynomial.aeval v G + κ * conj (v * Polynomial.aeval v G), conj (Polynomial.aeval v G + κ * conj (v * Polynomial.aeval v G))} : Set ℂ) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $v \\in \\mathbb{C} \\setminus \\overline{\\mathbb{Q}}$ with $v\\bar v = 1$. Let $\\kappa \\in \\overline{\\mathbb{Q}}$ with $\\kappa\\bar\\kappa = 1$, let $G \\in \\overline{\\mathbb{Q}}[X]$ with $\\deg G \\geq 1$, and put $g = G(v) + \\kappa\\,\\overline{vG(v)}$. Then $1, v$ are linearly independent over $\\overline{\\mathbb{Q}}$, so are $\\bar v, 1, g$, and each of the six products of a member of $(1, v)$ with a member of $(\\bar v, 1, g)$ lies in $\\mathrm{span}_{\\overline{\\mathbb{Q}}}(1, v, \\bar v, g, \\bar g)$.\n\n**Proof.** The products are $\\bar v, 1, g$, $v\\bar v = 1$, $v$ and $vg = \\kappa\\bar g$, the last identity using only $v\\bar v = 1$ and $\\kappa\\bar\\kappa = 1$. The family $(1, v)$ is free as $v \\notin \\overline{\\mathbb{Q}}$. For $(\\bar v, 1, g)$, with $n = \\deg G$, $v^n\\overline{G(v)}$ is the value at $v$ of the reflected conjugate polynomial, of degree at most $n$, so a relation $g_0\\bar v + g_1 + g_2g = 0$ times $v^{n+1}$ is a polynomial identity at the transcendental $v$ whose coefficient at $X^{2n+1}$ is $g_2$ times the leading coefficient of $G$. So $g_2 = 0$, and then $g_0\\bar v + g_1 = 0$ gives $g_0 = g_1 = 0$.\n\n**Novelty.** Not found in the sources read in this form; routine. It is the configuration of `DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration`, written for Laurent data.",
+ "created_at": "2026-10-18T14:28:42.808784+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Not found in the sources read in this form; the configuration of DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration, for Laurent data. R18 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 18 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
