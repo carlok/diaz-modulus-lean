@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.30, 16 October 2026}
+\date{September 2026\\[2pt]\small Version 1.31, 18 October 2026}
 
 \begin{document}
 \maketitle
@@ -1080,11 +1080,12 @@ L\"uroth's theorem; that a configuration whose products span $W$ gives this shap
 real Laurent polynomial $f=\sum_{|j|\leq k}c_{j}(u/s)^{j}$, $W(\lambda,f)$ is invisible to
 Theorem~\ref{thm:extension-room} when $k\geq3$, or $k=2$ and $f(-\bar\lambda)\neq0$, and contains $u^{2}$ and $\bar u^{2}$
 when $k=2$ and $f(-\bar\lambda)=0$ (formal); so the example of Proposition~\ref{prop:real-pencil}(iii) is the generic
-case and $(u/s-s/u)^{2}$ a visible one. For general $f$, $W(\lambda,f)$ is visible exactly when it is a complete
-linear system, and the conjugation-stable invisible spaces with a factor of degree two form three families,
+case and $(u/s-s/u)^{2}$ a visible one. For rational $f$, $W(\lambda,f)$ is visible exactly when a bound on the
+degrees of $f$ holds (Proposition~\ref{prop:degree-one-visibility}, formal; in the research notes, exactly when it
+is a complete linear system). The conjugation-stable invisible spaces with a factor of degree two form three families,
 for every involution of the $u$-line that commutes with conjugation: two of its orbits fixed by conjugation, two
-orbits exchanged by it, and a cyclic family, in which the factor acts modulo $H_{0}$ as a Jordan block. These two
-statements are proved in the research notes and are not formalised. Each family has a formal member in
+orbits exchanged by it, and a cyclic family, in which the factor acts modulo $H_{0}$ as a Jordan block. This
+classification is proved in the research notes and is not formalised. Each family has a formal member in
 Proposition~\ref{prop:beyond-degree-one}, all for the involution $u\mapsto-u$: (ii) in its conjugation-stable case
 for the first, (i) (orbits $0$ and $\infty$) and (iii) for the second, (iv) for the third. Their configurations are
 printed. Rescaled by $u^{\mp1}$, each is the configuration $(v,\bar v)\otimes(1,w,\bar w)$
@@ -1379,6 +1380,43 @@ $\aLogs+\Alg u+\Alg\bar u$, a point of a circle that is transcendental over the 
 repository proves more, without formalisation: which polynomials in $u$ and $\bar u$ have a configuration in their hull,
 and that such a point also satisfies Baker's and Gel'fond and Schneider's theorems, the six exponentials theorem and the
 four exponentials theorem in transcendence degree one.
+\end{remark}
+
+\begin{proposition}\label{prop:degree-one-visibility}
+Let $u\notin\Alg$ with $\rho=u\bar u\in\Alg$ and $H_{0}=\Alg+\Alg u+\Alg\bar u$. Call a space $W\supseteq H_{0}$
+\emph{visible} if some $w\in W\setminus H_{0}$ makes $H_{0}+\Alg w$ carry a $2\times3$ configuration, that is, if
+Theorem~\ref{thm:extension-room} sees it through a four-dimensional subspace. Let $g\in\C$ with $1,u,\bar u,g,ug$ free,
+and $W_{g}=H_{0}+\Alg g+\Alg ug$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $W_{g}$ is visible if and only if $u\,R(u)\,g=N(u)$ for some $R,N\in\Alg[X]$ with $R\neq0$, $\deg R\leq2$ and
+$\deg N\leq3$.
+\item If $g=P(u)/Q(u)$ with $P,Q\in\Alg[X]$ coprime, $W_{g}$ is visible if and only if
+$\max(\deg P,\deg Q)\leq2+[Q(0)=0]$.
+\item Let $s\in\Alg$ with $s^{2}=\rho$ and $\lambda\in\Alg$ with $\lambda\bar\lambda=1$. If $f=P(u)/Q(u)$ with $P,Q$
+coprime and $1,u,\bar u,f,f/(s+\lambda u)$ are free, then $H_{0}+\Alg f+\Alg f/(s+\lambda u)$ is visible if and only if
+$\max(\deg P,\deg Q+1)\leq2+[Q(0)=0]+[P(-s\bar\lambda)=0]$.
+\end{enumerate}
+Here $[\,\cdot\,]$ is $1$ when the condition holds and $0$ otherwise.
+\end{proposition}
+
+\begin{proof}
+(a) By Theorem~\ref{thm:extension-room}, $H_{0}+\Alg w$ with $w\notin H_{0}$ carries a configuration exactly when it
+contains $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ with $a\in\Alg^{\times}$; by exchange such an element then lies in
+$W_{g}$, and it is not in $H_{0}$. If $W_{g}$ contains one, write it in the basis $1,u,\bar u,g,ug$, replace $\bar u$ by
+$\rho/u$ and clear denominators. Conversely, $M\mapsto M(u)/(uR(u))$ maps the polynomials of degree below $5$ onto
+$W_{g}$, since the five generators are images and $\dim W_{g}=5$; then $u^{2}$, $\bar u^{2}$ or $1/(u-b)$, for a root
+$b$ of $R$, is an image.
+(b) As $u$ is transcendental, the condition of (a) reads $XRP=NQ$ in $\Alg[X]$. Then $Q\mid XR$, and comparing degrees
+gives the bound, with one more when $X\mid Q$.
+(c) With $g=f/(s+\lambda u)$ one has $f=sg+\lambda ug$, so the space is $W_{g}$. Reduce $P/(Q\cdot(s+\lambda X))$,
+cancelling $X+s\bar\lambda$ when $P(-s\bar\lambda)=0$, and apply (b).
+\end{proof}
+
+\begin{remark}\label{rem:degree-one-visibility-credit}
+Every $W_{g}$ carries the configuration $(1,u)\otimes(\bar u,1,g)$, so (a) says when Theorem~\ref{thm:extension-room}
+already sees it. Part~(a) is the completeness criterion of Remark~\ref{rem:degree-bound-visibility} stated without
+divisors on $\mathbb{P}^{1}$, which Mathlib does not have, and (c) contains that remark's statement on real Laurent
+polynomials; (c) does not need $f$ real. None of this was found in the sources read; it is routine.
 \end{remark}
 
 \subsection*{A decomposition that returns to its start}
@@ -2116,7 +2154,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.30 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.31 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2192,8 +2230,10 @@ involution of the $u$-line that commutes with conjugation, not only for $u\mapst
 Version 1.30 adds, on 16 October 2026, Proposition~\ref{prop:polynomial-hull}: polynomial hulls, real polynomials in
 $\mathrm{Re}\,u$ and $\mathrm{Im}\,u$, and adjoining a generic point of a circle
 (Remark~\ref{rem:polynomial-hull-credit}).
-Every row of the table below was checked against the platform by script on 16 October 2026, and
-the mirrored project held all 428 proved results of the development at that date.
+Version 1.31 adds, on 18 October 2026, Proposition~\ref{prop:degree-one-visibility}: which degree-one spaces
+Theorem~\ref{thm:extension-room} sees, by degrees for rational data (Remark~\ref{rem:degree-one-visibility-credit}).
+Every row of the table below was checked against the platform by script on 18 October 2026, and
+the mirrored project held all 434 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2255,6 +2295,7 @@ Prop~\ref{prop:conjugate-pair} & Proved & \nolinkurl{DiazModulus.circle_point_co
 Thm~\ref{thm:separation-normal} & Proved & \nolinkurl{DiazModulus.rank_one_config_separation_two}, \nolinkurl{DiazModulus.rank_one_config_separation}, \nolinkurl{DiazModulus.polynomial_submodule_trailing_degrees_card}, \nolinkurl{DiazModulus.polynomial_submodule_mul_finrank_ge}, \nolinkurl{DiazModulus.rank_one_config_card_le_finrank_add_one}, \nolinkurl{DiazModulus.circle_point_config_card_le_four}, \nolinkurl{DiazModulus.circle_point_two_by_two_normal_form}, \nolinkurl{DiazModulus.generic_circle_point_config_is_two_by_two}, \nolinkurl{DiazModulus.circle_point_config_constant_matrix_det_ne_zero}, \nolinkurl{DiazModulus.algebraic_mem_span_logAlg_eq_zero}, \nolinkurl{DiazModulus.candidate_two_by_two_config_entry_not_mem_span_logAlg} \\
 Prop~\ref{prop:laurent} & Proved & \nolinkurl{DiazModulus.laurent_hull_config_iff}, \nolinkurl{DiazModulus.two_sumset_iff_difference_count}, \nolinkurl{DiazModulus.power_pair_difference_count_iff}, \nolinkurl{DiazModulus.power_pair_hull_two_by_three_iff}, \nolinkurl{DiazModulus.four_pow_hull_no_two_by_three}, \nolinkurl{DiazModulus.candidate_power_pair_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.two_by_two_config_critical_progression} \\
 Prop~\ref{prop:polynomial-hull} & Proved & \nolinkurl{DiazModulus.polynomial_submodule_degrees_card}, \nolinkurl{DiazModulus.five_point_sumset_rigid}, \nolinkurl{DiazModulus.shifted_polynomial_hull_orders}, \nolinkurl{DiazModulus.config_shifted_polynomial_spans}, \nolinkurl{DiazModulus.polynomial_hull_no_two_by_three_configuration}, \nolinkurl{DiazModulus.polynomial_hull_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.real_polynomial_hull_no_two_by_three_configuration}, \nolinkurl{DiazModulus.rank_one_polynomial_matrix_factor}, \nolinkurl{DiazModulus.rank_one_config_inverse_adjoin}, \nolinkurl{DiazModulus.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration} \\
+Prop~\ref{prop:degree-one-visibility} & Proved & \nolinkurl{DiazModulus.coprime_fraction_cubic_over_quadratic_iff_natDegree_le}, \nolinkurl{DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal}, \nolinkurl{DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic}, \nolinkurl{DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic}, \nolinkurl{DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le}, \nolinkurl{DiazModulus.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le} \\
 Prop~\ref{prop:two-pole} & Proved & \nolinkurl{DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde} \\
 Rem~\ref{rem:weak-schanuel} & Proved & \nolinkurl{DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_iff_single_relation_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel} \\
 Thm~\ref{thm:involution} & Proved & \nolinkurl{DiazModulus.involution_pencil_space_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions} \\

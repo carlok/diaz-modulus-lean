@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-16): **428** of 428
+As of the latest archived submission (2026-10-18): **434** of 434
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -191,10 +191,14 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.conj_stable_real_pencil_space_carries_two_by_three_configuration` | yes | `Diaz/Mirror/conj_stable_real_pencil_space_carries_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.conj_stable_two_orbit_space` | yes | `Diaz/Mirror/conj_stable_two_orbit_space.lean` | done |  |
 | `DiazModulus.conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/conj_swapped_two_orbit_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |
+| `DiazModulus.coprime_fraction_cubic_over_quadratic_iff_natDegree_le` | yes | `Diaz/Mirror/coprime_fraction_cubic_over_quadratic_iff_natDegree_le.lean` | done |  |
 | `DiazModulus.cubic_product_eq_square_normal_form` | yes | `Diaz/Mirror/cubic_product_eq_square_normal_form.lean` | done |  |
 | `DiazModulus.cyclic_pair_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/cyclic_pair_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |
 | `DiazModulus.cyclic_pair_space_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/cyclic_pair_space_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration` | yes | `Diaz/Mirror/cyclic_pair_space_no_mobius_ratio_configuration.lean` | done |  |
+| `DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal` | yes | `Diaz/Mirror/degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal.lean` | done |  |
+| `DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic` | yes | `Diaz/Mirror/degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic.lean` | done |  |
+| `DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic` | yes | `Diaz/Mirror/degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic.lean` | done |  |
 | `DiazModulus.det_linear_forms_isotropic` | yes | `Diaz/Mirror/det_linear_forms_isotropic.lean` | done |  |
 | `DiazModulus.det_zero_linear_forms_rank_one` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one.lean` | done |  |
 | `DiazModulus.det_zero_linear_forms_rank_one_field` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one_field.lean` | done |  |
@@ -317,6 +321,8 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.rank_one_config_separation` | yes | `Diaz/Mirror/rank_one_config_separation.lean` | done |  |
 | `DiazModulus.rank_one_config_separation_two` | yes | `Diaz/Mirror/rank_one_config_separation_two.lean` | done |  |
 | `DiazModulus.rank_one_polynomial_matrix_factor` | yes | `Diaz/Mirror/rank_one_polynomial_matrix_factor.lean` | done |  |
+| `DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le` | yes | `Diaz/Mirror/rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le.lean` | done |  |
+| `DiazModulus.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le` | yes | `Diaz/Mirror/rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le.lean` | done |  |
 | `DiazModulus.real_axis_exp_unit_circle` | yes | `Diaz/Mirror/real_axis_exp_unit_circle.lean` | done |  |
 | `DiazModulus.real_axis_root_of_unity_implies_pi_sq_rat` | yes | `Diaz/Mirror/real_axis_root_of_unity_implies_pi_sq_rat.lean` | done |  |
 | `DiazModulus.real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/real_pencil_quartic_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |

@@ -6328,5 +6328,77 @@
   "bytes": 3780,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal",
+  "theorem_id": "068f43ed-72e8-4dc9-923c-0826ccb40c16",
+  "submission_id": "8945f4c9-0e7f-4001-b797-fbd538ded9da",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-18T09:52:01.036473+00:00",
+  "file": "DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal__8945f4c9.lean",
+  "bytes": 4942,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic",
+  "theorem_id": "3e585daf-cd25-4a89-9ca4-22937d777548",
+  "submission_id": "2dc9a83f-9d83-45fe-b680-ce251fec6ca1",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-18T09:52:03.74808+00:00",
+  "file": "DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic__2dc9a83f.lean",
+  "bytes": 7487,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic",
+  "theorem_id": "336fccae-dfef-4261-869c-ee51119f346a",
+  "submission_id": "4bd63c92-a863-4a66-a0c3-fb89dbc8ab68",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-18T09:49:59.681555+00:00",
+  "file": "DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic__4bd63c92.lean",
+  "bytes": 8107,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.coprime_fraction_cubic_over_quadratic_iff_natDegree_le",
+  "theorem_id": "f12b2e43-ef74-4656-83cb-a6a1cb11cd44",
+  "submission_id": "92394820-f568-4612-a3b9-95ead2a2350d",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-18T09:49:57.019813+00:00",
+  "file": "DiazModulus.coprime_fraction_cubic_over_quadratic_iff_natDegree_le__92394820.lean",
+  "bytes": 3323,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le",
+  "theorem_id": "71a0fb2b-3d61-4ec6-8a95-d5486e5a2a16",
+  "submission_id": "3f5a5786-4fbc-45b7-80af-c47edc74b930",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-18T09:47:58.065739+00:00",
+  "file": "DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le__3f5a5786.lean",
+  "bytes": 3661,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le",
+  "theorem_id": "a8617db8-73ad-43a6-b2ea-6e244b7e3b1e",
+  "submission_id": "37b50aa2-d4e7-49b4-8f08-2872268df809",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-18T09:45:55.907111+00:00",
+  "file": "DiazModulus.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le__37b50aa2.lean",
+  "bytes": 8994,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

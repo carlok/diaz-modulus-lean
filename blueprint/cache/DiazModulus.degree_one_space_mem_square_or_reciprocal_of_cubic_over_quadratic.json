@@ -1,0 +1,21 @@
+{
+ "theorem_id": "3e585daf-cd25-4a89-9ca4-22937d777548",
+ "theorem_name": "DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic",
+ "theorem_title": "If 1, u, ū, g, ug are free and u·R(u)·g = N(u) with R ≠ 0, deg R ≤ 2, deg N ≤ 3, their span contains u², ū² or some 1/(u − a)",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\nopen Polynomial in\ntheorem degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic\n    (u g : ℂ) (hu : u ∉ Qbar) (hρ : IsAlgebraic ℚ (u * conj u))\n    (hind : LinearIndependent (↥Qbar) ![1, u, conj u, g, u * g])\n    (R N : (↥Qbar)[X]) (hR : R ≠ 0) (hRd : R.natDegree ≤ 2) (hNd : N.natDegree ≤ 3)\n    (hRN : u * aeval u R * g = aeval u N) :\n    u ^ 2 ∈ Submodule.span Qbar ({1, u, conj u, g, u * g} : Set ℂ) ∨\n      conj u ^ 2 ∈ Submodule.span Qbar ({1, u, conj u, g, u * g} : Set ℂ) ∨\n      ∃ a ∈ Qbar, a ≠ 0 ∧ (u - a)⁻¹ ∈ Submodule.span Qbar ({1, u, conj u, g, u * g} : Set ℂ) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $u \\in \\mathbb{C} \\setminus \\overline{\\mathbb{Q}}$ with $\\rho = u\\bar u$ algebraic (so $\\bar u = \\rho/u$). Let $g \\in \\mathbb{C}$ with $1, u, \\bar u, g, ug$ free over $\\overline{\\mathbb{Q}}$, and suppose $u\\,R(u)\\,g = N(u)$ for some $R, N \\in \\overline{\\mathbb{Q}}[X]$ with $R \\neq 0$, $\\deg R \\leq 2$ and $\\deg N \\leq 3$. Then $W_g = \\mathrm{span}_{\\overline{\\mathbb{Q}}}(1, u, \\bar u, g, ug)$ contains $u^2$, $\\bar u^2$ or some $1/(u - a)$ with $a \\in \\overline{\\mathbb{Q}}^\\times$.\n\n**Proof.** Put $D = uR(u) \\neq 0$ and $\\varphi(M) = M(u)/D$, a $\\overline{\\mathbb{Q}}$-linear map on $\\overline{\\mathbb{Q}}[X]$. The generators $1, u, \\bar u, g, ug$ are $\\varphi(XR), \\varphi(X^2R), \\varphi(\\rho R), \\varphi(N), \\varphi(XN)$, all of degree at most $4$, so $W_g$ lies in the image of the polynomials of degree below $5$, of dimension at most $5$. As $\\dim W_g = 5$, the two are equal. If $\\deg R \\leq 1$ then $u^2 = \\varphi(X^3R)$; if $R(0) = 0$, $R = XR_1$ and $\\bar u^2 = \\varphi(\\rho^2R_1)$; otherwise $R$ has a root $b \\in \\overline{\\mathbb{Q}}^\\times$, $R = (X - b)R_1$ and $1/(u - b) = \\varphi(XR_1)$.\n\n**Novelty.** Not found in the sources read; routine.",
+ "created_at": "2026-10-18T09:45:12.605935+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Not found in the sources read. R17 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 18 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

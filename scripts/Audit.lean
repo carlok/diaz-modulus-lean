@@ -1,13 +1,27 @@
 /-
 Axiom audit of the headline results: the theorems `README.md` presents under
-"What is proved", "Four exponentials in transcendence degree one" and "What is
-assumed", and the Palomar surface in `Solution.lean`.
+"The classical theorems", "What is proved", "Four exponentials in transcendence
+degree one" and "What is assumed", and the Palomar surface in `Solution.lean`.
 
 `scripts/check_axioms.py` runs this file and fails unless every theorem below
 depends on `propext`, `Classical.choice` and `Quot.sound` only.
 -/
 import Diaz
 import Solution
+
+-- The classical theorems (README table); the five already listed further down
+-- (`hermite_lindemann`, `four_exponentials_trdeg_one`, Baker, the Cartesian
+-- Schwarz lemma and Schneider–Lang) are not repeated.
+#print axioms linearIndependent_exp
+#print axioms algebraicIndependent_exp
+#print axioms GelfondSchneider.gelfond_schneider
+#print axioms Diaz.six_exponentials
+#print axioms Diaz.two_algebraically_independent_of_exp_column
+#print axioms Transcendence.exp_e_or_exp_e_sq_transcendental
+#print axioms Diaz.transcendence_criterion
+#print axioms Diaz.expPoly_zero_count
+#print axioms Transcendence.singular_matrix_subspace_annihilating_pair
+#print axioms Diaz.e_pi_transcendence
 
 #print axioms Diaz.conj_eq_rho_div
 #print axioms Diaz.conj_mem_hull
@@ -123,3 +137,6 @@ import Solution
 #print axioms Diaz.polynomial_hull_two_by_three_configuration_iff
 #print axioms Diaz.real_polynomial_hull_no_two_by_three_configuration
 #print axioms Diaz.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration
+#print axioms Diaz.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic
+#print axioms Diaz.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le
+#print axioms Diaz.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le

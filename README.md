@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 428 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 434 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -860,6 +860,23 @@ agents and refereed by agents and computer algebra; the parts below are now form
   the rest of its Theorem D (Baker's and Gel'fond–Schneider's theorems, the six exponentials theorem over Q and
   the four exponentials theorem in transcendence degree one, in the same model).
 - Not found in the sources read, except the configurations of degrees 2 and 3; all routine.
+
+### Which degree-one spaces Theorem B sees
+
+Six nodes of 18 October 2026. A degree-one space W_g = span(1, u, ū, g, ug) always carries the configuration
+(1, u) ⊗ (ū, 1, g). Theorem B sees it through a four-dimensional subspace exactly when u·R(u)·g = N(u) for some
+R ≠ 0 of degree at most 2 and N of degree at most 3
+(`DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic`). This is the
+completeness criterion of the research notes, stated without divisors on P¹, which Mathlib does not have.
+- **Rational data.** For g = P(u)/Q(u) in lowest terms, W_g is visible exactly when
+  max(deg P, deg Q) ≤ 2 + [Q(0) = 0]
+  (`DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le`).
+- **Pencil spaces.** For W(λ, f) = span(1, u, ū, f, f/(s + λu)) with |λ| = 1 and f = P(u)/Q(u), the bound is
+  max(deg P, deg Q + 1) ≤ 2 + [Q(0) = 0] + [P(−sλ̄) = 0]
+  (`DiazModulus.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le`). For Laurent f it
+  contains `DiazModulus.laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions`, and it does not
+  need f real.
+- Not found in the sources read; all routine.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

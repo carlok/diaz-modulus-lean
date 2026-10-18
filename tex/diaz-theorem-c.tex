@@ -44,7 +44,7 @@
 and a barrier for generic candidates}
 \author{Research note for the \texttt{diaz-modulus-lean} project\\
 (written by Claude, an AI model, at the request of Carlo Perassi)}
-\date{15 October 2026}
+\date{18 October 2026}
 
 \begin{document}
 \maketitle
@@ -68,8 +68,9 @@ orders at $0$ and at $\infty$ then pinch the supports of the products into $[-1,
 \emph{Theorem E} (polynomials in $u$ and $\bar u$) classifies the hulls that carry a
 configuration into three classes. Class~(P) is Theorem~C. Class~(Q) is a family in the
 exponents $\pm2,\pm3$, such as $\Re(u^{3})+cu^{2}$. Its configurations have a factor
-whose involution exchanges $0$ and $\infty$, and they were not found in the project's
-notes. Class~(R) is the project's real pencil spaces. In particular, when the
+whose involution exchanges $0$ and $\infty$. They are configurations of Diaz's
+Th\'eor\`eme~2 of 2004, and the family is the cyclic family of the project's research notes
+for that involution, which the notes only sketch. Class~(R) is the project's real pencil spaces. In particular, when the
 exponents stay within $\pm3$, a three-factor equation in the coefficients decides the
 question. When some exponent has absolute value at least $4$, only class~(R) remains.
 Real polynomial expressions in $\Re u$ and $\Im u$ with algebraic coefficients are
@@ -82,7 +83,8 @@ Roy's strong six exponentials and four exponentials in transcendence degree one,
 it is stable under conjugation. Yet it contains a candidate. So Diaz's conjecture does
 not follow from these theorems used as properties of $(\cL,\Lt)$.
 
-None of this proves Diaz's conjecture, and none of it is formalised.
+None of this proves Diaz's conjecture. Theorem~C, Corollary~\ref{cor:nogo}(b), the inversion lemma and part
+(D3) of Theorem~D are formalised (Section~\ref{sec:status}); Theorem~E and the rest of Theorem~D are not.
 \end{abstract}
 
 \section{Setting}\label{sec:setting}
@@ -259,14 +261,17 @@ README give a formal member of each, all for $T\mapsto-T$. Class (Q) is the cycl
 $T\mapsto\beta/T$ on its orbit $\{0,\infty\}$: with $h=T+\beta T^{-1}$,
 $\varphi_{0}=\beta^{-1}T^{-1}+eT$ and $\varphi_{1}=\zeta T$, one has
 $T^{-2}+eT^{2}\equiv\varphi_{0}h$ and $\beta T^{-3}+\zeta T^{2}+eT^{3}\equiv\varphi_{0}h^{2}+\varphi_{1}h$
-modulo $H$. The notes only sketch the local cases at $0$ and $\infty$, so for Laurent data
-Theorem~E settles a case they leave open. A (Q) space is conjugation-stable and invisible to
+modulo $H$. Its point $\zeta=0$, $e=\beta^{-2}$, where $M_{z}=\pi\,\spn(h^{2},h^{3})$ and the configuration is a
+progression, is the involution space of \cite[Prop.~10.38, Thm.~10.40]{BP} for the pencil $(T^{2}+\beta,T)$.
+The notes only sketch the local cases at $0$ and $\infty$. Theorem~E settles that case: such a space has no
+factor of degree one and a single involution, and all its spaces have Laurent data. A (Q) space is conjugation-stable and invisible to
 Theorem~B. For
 $z=\Re u\,\Im u+i(\Re u)^{2}\Im u$, exact computation gives
 $\dim(W_{z}\cap T^{-2}W_{z})=1$ and $\dim(W_{z}\cap T^{-1}W_{z})=2$. So that hull has no
 factor $(1,u^{2})$ and no factor of degree one. As exclusions at a candidate, (Q) and (R) are
-substitutions in Roy's theorem (for (Q) also in \cite[Th\'eor\`eme~4(1)]{Dia07} with
-$x=(1,(u+\beta\bar u)/s)$). What was not found in the sources read is the ``only if''
+substitutions in Roy's theorem. For (Q) they are also substitutions in \cite[Th\'eor\`eme~2]{Dia04}, the case
+$x_{1}/\bar x_{1},x_{2}/\bar x_{2}\in\Qbar$, and in \cite[Th\'eor\`eme~4(1)]{Dia07}, both with
+$x=(1,(u+\beta\bar u)/s)$, for which $x_{2}/\bar x_{2}=\beta$. What was not found in the sources read is the ``only if''
 direction of Theorem~E.
 \end{remark}
 
@@ -837,9 +842,9 @@ of the theorems above.
 
 \paragraph{Next steps.}
 \begin{enumerate}[label=\textup{(\arabic*)}]
-\item Settle whether class (Q) is in the project's unformalised classification
-(Remark~\ref{rem:Qnew}), and formalise Theorems~C(iii) and~E. Their inputs, Theorem~B, the
-progression lemma and the degree bound, are already formal.
+\item Formalise Theorem~E. Class (Q) is the cyclic family of the project's unformalised
+classification (Remark~\ref{rem:Qnew}), and Theorem~C(iii) is formal (Section~\ref{sec:status}). The
+inputs of Theorem~E, Theorem~B, the progression lemma and the degree bound, are already formal.
 \item Extend Theorem~E from Laurent polynomials to all of $\Qbar(u)$. Poles off
 $\{0,\infty\}$ come in conjugate pairs $a$, $\rho/\bar a$, and the order and degree sets
 become one sumset condition per place.
@@ -857,25 +862,26 @@ the key symbolic step ($T_{5b}$) ourselves. Five independent referees checked
 Theorems~C and~D. They found no mathematical error, but several overclaims and two
 misattributions, all corrected in this version.
 \item \emph{Formalised} (16 October 2026, through Prove2Me, mirrored as \texttt{Diaz.Mirror}): Theorem~C, as
-\texttt{polynomial\_hull\_two\_by\_three\_configuration\_iff} with part~(iii) as
-\texttt{polynomial\_hull\_no\_two\_by\_three\_configuration}; Corollary~\ref{cor:nogo}(b), as
-\texttt{real\_polynomial\_hull\_no\_two\_by\_three\_configuration}; Lemma~\ref{lem:inversion}, for any subfields
-$K\subseteq F$, as \texttt{rank\_one\_config\_inverse\_adjoin}; and (D3) of Theorem~D, under Roy's theorem
-as a hypothesis, as \texttt{logAlgTilde\_adjoin\_circle\_point\_no\_two\_by\_three\_configuration}.
-The helpers are Lemma~\ref{lem:combinatorics} (\texttt{five\_point\_sumset\_rigid}), the degree half of
-Lemma~\ref{lem:orders} (\texttt{polynomial\_submodule\_degrees\_card}), the order sets of Section~\ref{sec:proofC}
-(\texttt{shifted\_polynomial\_hull\_orders}), the normalisation (\texttt{config\_shifted\_polynomial\_spans})
-and the rank-one factorisation (\texttt{rank\_one\_polynomial\_matrix\_factor}). Theorem~E and the rest of
+\texttt{polynomial\_\allowbreak{}hull\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration\_\allowbreak{}iff} with part~(iii) as
+\texttt{polynomial\_\allowbreak{}hull\_\allowbreak{}no\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration}; Corollary~\ref{cor:nogo}(b), as
+\texttt{real\_\allowbreak{}polynomial\_\allowbreak{}hull\_\allowbreak{}no\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration}; Lemma~\ref{lem:inversion}, for any subfields
+$K\subseteq F$, as \texttt{rank\_\allowbreak{}one\_\allowbreak{}config\_\allowbreak{}inverse\_\allowbreak{}adjoin}; and (D3) of Theorem~D, under Roy's theorem
+as a hypothesis, as \texttt{logAlgTilde\_\allowbreak{}adjoin\_\allowbreak{}circle\_\allowbreak{}point\_\allowbreak{}no\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration}.
+The helpers are Lemma~\ref{lem:combinatorics} (\texttt{five\_\allowbreak{}point\_\allowbreak{}sumset\_\allowbreak{}rigid}), the degree half of
+Lemma~\ref{lem:orders} (\texttt{polynomial\_\allowbreak{}submodule\_\allowbreak{}degrees\_\allowbreak{}card}), the order sets of Section~\ref{sec:proofC}
+(\texttt{shifted\_\allowbreak{}polynomial\_\allowbreak{}hull\_\allowbreak{}orders}), the normalisation (\texttt{config\_\allowbreak{}shifted\_\allowbreak{}polynomial\_\allowbreak{}spans})
+and the rank-one factorisation (\texttt{rank\_\allowbreak{}one\_\allowbreak{}polynomial\_\allowbreak{}matrix\_\allowbreak{}factor}). Theorem~E and the rest of
 Theorem~D are not formalised.
 \item \emph{Credit.} The exclusions of quadratics and cubics are Diaz's
 \cite[Th\'eor\`eme~7(1)]{Dia07}, formalised in the project. The real pencil class (R) is
-the project's \cite[Prop.~10.42, Thm.~10.43]{BP}. The configuration of the project's
+the project's \cite[Prop.~10.42, Thm.~10.43]{BP}, and for Laurent data \cite[Lemma~10.59, Thm.~10.60,
+Prop.~10.61]{BP}. The configuration of the project's
 Theorem~10.52 is also Diaz's \cite[Th\'eor\`eme~7(1)]{Dia07}. Its source line in the
 blueprint, the chapter of results not found in the sources, the README and version~1.29
 of the companion note now say so; only its invisibility remains ``not found''. Not found in the sources read
 (the project's notes and a web search)
-are the ``only if'' halves of Theorems~C and~E, class (Q) as a family of hulls,
-Corollary~\ref{cor:nogo}(b), and Theorem~D.
+are the ``only if'' halves of Theorems~C and~E, class (Q) as a family of hulls (its configurations are
+\cite[Th\'eor\`eme~2]{Dia04}), Corollary~\ref{cor:E}, Corollary~\ref{cor:nogo}(b), and Theorem~D.
 \item \emph{Literature.} During this session the network blocked arXiv and most author
 pages. Web search reached abstracts and quotations only. Roy's 1992 paper was at first read
 only through the quotation in \cite{Mak23}; its Corollary~1 has since been checked against the
@@ -894,7 +900,7 @@ reach.
 
 \bibitem[BP]{BP}
 C.~Perassi et al., \emph{Transcendence theory in Lean~4: blueprint},
-\url{https://carlok.github.io/diaz-modulus-lean/}; numbering as of 15 October 2026.
+\url{https://carlok.github.io/diaz-modulus-lean/}; numbering as of 18 October 2026.
 
 \bibitem[BSZ17]{BSZ17}
 C.~Bachoc, O.~Serra and G.~Z\'emor, \emph{An analogue of Vosper's theorem for extension
