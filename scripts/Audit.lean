@@ -148,3 +148,8 @@ import Solution
 #print axioms Diaz.logAlg_adjoin_circle_point_theorem_D
 #print axioms Diaz.theorem_D_barrier
 #print axioms Diaz.span_logAlg_theorem_D_properties
+#print axioms Diaz.degree_two_configuration_normal_form
+#print axioms Diaz.rational_space_two_by_three_configuration_iff
+#print axioms Diaz.rational_conj_hull_two_by_three_configuration_iff
+#print axioms Diaz.conj_hull_finrank_four_two_by_three_configuration_iff
+#print axioms Diaz.conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space

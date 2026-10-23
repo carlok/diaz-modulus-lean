@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.33, 18 October 2026}
+\date{September 2026\\[2pt]\small Version 1.34, 23 October 2026}
 
 \begin{document}
 \maketitle
@@ -1085,7 +1085,9 @@ degrees of $f$ holds (Proposition~\ref{prop:degree-one-visibility}, formal; in t
 is a complete linear system). The conjugation-stable invisible spaces with a factor of degree two form three families,
 for every involution of the $u$-line that commutes with conjugation: two of its orbits fixed by conjugation, two
 orbits exchanged by it, and a cyclic family, in which the factor acts modulo $H_{0}$ as a Jordan block. This
-classification is proved in the research notes and is not formalised. Each family has a formal member in
+classification is proved in the research notes. Without conjugation, its normal form for a ratio of degree two is
+formal since version 1.34 (Proposition~\ref{prop:rational-hulls}(a)); the three conjugation-stable families, for a
+general involution, are not formalised. Each family has a formal member in
 Proposition~\ref{prop:beyond-degree-one}, all for the involution $u\mapsto-u$: (ii) in its conjugation-stable case
 for the first, (i) (orbits $0$ and $\infty$) and (iii) for the second, (iv) for the third. Their configurations are
 printed. Rescaled by $u^{\mp1}$, each is the configuration $(v,\bar v)\otimes(1,w,\bar w)$
@@ -1506,6 +1508,81 @@ one of Waldschmidt and Brownawell, and Roy's theorem~\cite{roy-1992}. Part~(c) i
 Section~\ref{sec:map}: these theorems, used as properties of $(\Logs,\aLogs)$ together with conjugation, cannot prove
 Diaz's conjecture. It concerns membership in $\Logs$ only, not the exponential function. None of this was found in the
 sources read; it is routine.
+\end{remark}
+
+\begin{proposition}\label{prop:rational-hulls}
+Let $u\notin\Alg$, and let $W\subseteq\C$ be a five-dimensional $\Alg$-space containing $1$, $u$ and $u^{-1}$; spans
+are over $\Alg$. Say that $W$ satisfies (D1) if $t_{j},ut_{j}\in W$ for some $\Alg$-independent $t_{1},t_{2},t_{3}$;
+(D2a) if
+\[
+  W=\mathrm{span}\Bigl(1,u,u^{-1},\frac{Q(u)S_{1}(u)}{uP(u)},\frac{P(u)S_{2}(u)}{uQ(u)}\Bigr);
+\]
+and (D2b) if
+\[
+  W=\mathrm{span}\Bigl(1,u,u^{-1},\frac{Q(u)S_{1}(u)}{uP(u)},
+  \frac{Q(u)\bigl(Q(u)S_{1}(u)+P(u)S_{2}(u)\bigr)}{uP(u)^{2}}\Bigr);
+\]
+in both cases for some $P,Q,S_{1},S_{2}\in\Alg[X]$ with $P,Q$ coprime, $\max(\deg P,\deg Q)=2$ and
+$\deg S_{1},\deg S_{2}\le2$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item If $W$ carries a $2\times3$ configuration with $x_{2}q(u)=x_{1}p(u)$, where $p,q\in\Alg[X]$ are coprime and
+$\max(\deg p,\deg q)=2$, then $W$ satisfies (D1), (D2a) or (D2b). No rationality of $W$ is assumed.
+\item If $W\subseteq\Alg(u)$, then $W$ carries a $2\times3$ configuration if and only if it satisfies (D1), (D2a) or
+(D2b).
+\item Suppose $\rho=u\bar u\in\Alg$, let $z\in\Alg(u)$ and $W_{z}=\mathrm{span}(1,u,\bar u,z,\bar z)$. Then $W_{z}$
+carries a $2\times3$ configuration if and only if either $\dim W_{z}=4$ and $z\in\mathrm{span}(1,u,\bar u,1/(u-a))$
+for some $a\in\Alg$ with $a\bar a=\rho$, or $\dim W_{z}=5$ and $W_{z}$ satisfies (D1), (D2a) or (D2b).
+\item $W$ satisfies (D1) if and only if it contains $u^{2}$, $u^{-2}$ or some $1/(u-a)$ with $a\in\Alg^{\times}$, or
+$W=\mathrm{span}(1,u,u^{-1},g,ug)$ for some $g$ with these five numbers free. If $W$ satisfies (D1) and is stable
+under conjugation, and $s\in\Alg$ is real with $s^{2}=u\bar u$, then $W$ contains $u^{2}$, $\bar u^{2}$ or some
+$1/(u-a)$ with $a\in\Alg^{\times}$, or it is one of the spaces $W(\lambda,f)$ of Proposition~\ref{prop:real-pencil}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Put $h=p(u)/q(u)$ and $J=p'q-pq'$. The resultant of $p$ and $q$ is non-zero, so $q$, $p$ and $J$ span the
+polynomials of degree at most~$2$, and $1$ and $J(u)/q(u)$ are free over $\Alg(h)$. Hence, for distinct
+$\lambda_{1},\lambda_{2},\lambda_{3}\in\Alg$ and pairs $(\alpha_{i},\beta_{i})\neq(0,0)$, the fractions
+$q(u)(\alpha_{i}q(u)+\beta_{i}J(u))/(u(p(u)-\lambda_{i}q(u)))$ are free modulo $\mathrm{span}(1,u,u^{-1})$, and for some
+$\lambda\in\{0,1,2\}$ no such fraction lies in $W$. For that $\lambda$ and $k=q(u)/(p(u)-\lambda q(u))$, the numbers
+$(h-\lambda)x_{1}y_{j}$ give $W=\mathrm{span}(1,u,u^{-1},g_{1},g_{2})$ with $kg_{1},kg_{2}\in W$. Multiplication by $k$
+modulo $\mathrm{span}(1,u,u^{-1})$ is then a $2\times2$ matrix over $\Alg$: scalar, with two eigenvalues, or one Jordan
+block. After a M\"obius change of the pencil $(q,p-\lambda q)$, the three cases are (D1), (D2a) and (D2b).
+(b) A configuration in $W\subseteq\Alg(u)$ has a ratio $x_{2}/x_{1}=p(u)/q(u)$ in lowest terms with
+$1\le\max(\deg p,\deg q)\le2$ (Remark~\ref{rem:degree-bound-visibility}). Degree one gives (D1) with
+$t_{j}=x_{1}y_{j}/q(u)$, and degree two is~(a). Conversely, (D1) gives the configuration $(1,u)\otimes t$; and if
+$g_{1},g_{2}$ are the last two generators in (D2a), resp. (D2b), then $(1,P(u)/Q(u))$ and
+$(Q(u)/u,S_{2}(u)/u,g_{1})$, resp. $(Q(u)/u,g_{1},g_{2})$, form one.
+(c) $W_{z}$ contains $u^{-1}=\bar u/\rho$, is stable under conjugation, and lies in $\Alg(u)$, which conjugation maps
+into itself; and $3\le\dim W_{z}\le5$. In dimension $3$, $W_{z}=\mathrm{span}(1,u,\bar u)$ carries no $2\times3$
+configuration (Theorem~\ref{thm:separation-normal}(b)). In dimension $4$, $W_{z}=H_{0}+\Alg z$ with
+$H_{0}=\Alg+\Alg u+\Alg\bar u$, and Theorem~\ref{thm:extension-room} applies: conjugation-stability excludes $u^{2}$
+and $\bar u^{2}$, and allows $1/(u-a)$ exactly when $a\bar a=\rho$. Dimension $5$ is~(b).
+(d) If all $t_{j}$ lie in $\mathrm{span}(1,u,u^{-1})$, then $u^{2}\in W$. Otherwise take $g=t_{j}$ outside it: if some
+$(u-c)g$ with $c\in\Alg$ lies in $\mathrm{span}(1,u,u^{-1})$, then $W$ contains $u^{-2}$ or $1/(u-c)$; if none does,
+$1,u,u^{-1},g,ug$ are free and span $W$. Each alternative gives such $t_{j}$. If $W$ is also invisible and stable
+under conjugation, then $\{w\in W:uw\in W\}=\mathrm{span}(1,u^{-1},g)$ contains $u^{-1}\bar g$, so
+$\bar g\in\mathrm{span}(1,u,ug)$, and Proposition~\ref{prop:real-pencil}(ii) applies.
+\end{proof}
+
+\begin{remark}\label{rem:rational-hulls-credit}
+Part~(c) asks the question of Proposition~\ref{prop:laurent-hulls} for every $z$ rational in $u$, the next step that
+the research note on polynomial hulls in the repository proposes; it builds on Theorem~\ref{thm:extension-room}, which
+holds for every complex $z$. For Laurent $z$, that its answer gives back the classes (P), (Q) and (R) was checked by
+exact computation on random data, not proved, and the criteria of Proposition~\ref{prop:laurent-hulls}(b) and~(c) do
+not follow from it. Part~(a) is Theorem~2 of the research notes, proved there with vector bundles on
+$\mathbb{P}^{1}$; (D2a) and (D2b) are their two-orbit and cyclic normal forms after a change of coordinate, and the
+proof above uses linear algebra only. When the six products span only four dimensions, the configuration is a
+progression by~\cite[Lemma~4]{bachoc-serra-zemor}; (a) does not need that case. The configuration in dimension~$4$ is
+printed: rescaled, it is that of~\cite[Th\'eor\`eme~7(1)]{diaz-2007} at $v=1/(u-a)$, and at a candidate the
+exclusion of $1/(u-a)$ from $\aLogs$ is~\cite[Corollaire~5(4)]{diaz-2007}. The other exclusions that (c) gives at a
+candidate are one substitution each in Roy's theorem~\cite{roy-1992} and are not stated formally. The second half
+of~(d) is the conjugation-stable refinement of the research notes, through Proposition~\ref{prop:real-pencil}(ii).
+Outside the research notes, (a) was not found in the sources read, and neither were the ``only if'' halves of (b)
+and~(c); no source on scrolls or on rank-two vector bundles on $\mathbb{P}^{1}$ was among them, and a printed form of
+the bundle statement may exist. The rest is routine. The three conjugation-stable families of
+Remark~\ref{rem:degree-bound-visibility}, for a general involution, remain in the research notes. The companion
+blueprint lists (a)--(c) as one entry, fourth among its results not found in the sources read and not routine.
 \end{remark}
 
 \subsection*{A decomposition that returns to its start}
@@ -2243,7 +2320,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.33 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.34 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2326,8 +2403,12 @@ configuration in their hull, three disjoint classes, and an explicit criterion (
 Version 1.33 adds, on 18 October 2026, Proposition~\ref{prop:theorem-D}: at a point of a circle transcendental over the
 field of $\aLogs$, $\Logs+\Q u+\Q\bar u$ satisfies the classical theorems, so they cannot prove the conjecture
 (Remark~\ref{rem:theorem-D-credit}).
-Every row of the table below was checked against the platform by script on 18 October 2026, and
-the mirrored project held all 475 proved results of the development at that date.
+Version 1.34 adds, on 23 October 2026, Proposition~\ref{prop:rational-hulls}: which conjugation hulls of a number rational in
+$u$ carry a configuration, through a normal form of the configurations whose ratio has degree two
+(Remark~\ref{rem:rational-hulls-credit}); Remark~\ref{rem:degree-bound-visibility} now says which part of the
+degree-two classification is formal.
+Every row of the table below was checked against the platform by script on 23 October 2026, and
+the mirrored project held all 497 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2392,6 +2473,7 @@ Prop~\ref{prop:polynomial-hull} & Proved & \nolinkurl{DiazModulus.polynomial_sub
 Prop~\ref{prop:degree-one-visibility} & Proved & \nolinkurl{DiazModulus.coprime_fraction_cubic_over_quadratic_iff_natDegree_le}, \nolinkurl{DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal}, \nolinkurl{DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic}, \nolinkurl{DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic}, \nolinkurl{DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le}, \nolinkurl{DiazModulus.rational_pencil_space_visible_to_four_dimensional_extensions_iff_natDegree_le} \\
 Prop~\ref{prop:laurent-hulls} & Proved & \nolinkurl{DiazModulus.laurent_conj_hull_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.laurent_conj_hull_large_exponent_configuration_iff_real_pencil_class}, \nolinkurl{DiazModulus.cubic_window_conj_hull_two_by_three_configuration_iff_criterion}, \nolinkurl{DiazModulus.candidate_laurent_conj_hull_class_not_mem_logAlgTilde}, and 21 supporting results \\
 Prop~\ref{prop:theorem-D} & Proved & \nolinkurl{DiazModulus.logAlg_adjoin_circle_point_theorem_D}, \nolinkurl{DiazModulus.theorem_D_barrier}, \nolinkurl{DiazModulus.span_logAlg_theorem_D_properties}, and 13 supporting results \\
+Prop~\ref{prop:rational-hulls} & Proved & \nolinkurl{DiazModulus.rational_conj_hull_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.rational_space_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.degree_two_configuration_normal_form}, \nolinkurl{DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space}, \nolinkurl{DiazModulus.conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space}, and 17 supporting results \\
 Prop~\ref{prop:two-pole} & Proved & \nolinkurl{DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde} \\
 Rem~\ref{rem:weak-schanuel} & Proved & \nolinkurl{DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_iff_single_relation_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel} \\
 Thm~\ref{thm:involution} & Proved & \nolinkurl{DiazModulus.involution_pencil_space_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions} \\

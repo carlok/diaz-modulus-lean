@@ -1,0 +1,21 @@
+{
+ "theorem_id": "b442a6ed-6d2d-437a-aeaf-a697bfa9a130",
+ "theorem_name": "DiazModulus.coprime_pencil_mobius",
+ "theorem_title": "An invertible change of basis of a coprime pencil of maximal degree 2 is again coprime of maximal degree 2",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\nopen Polynomial in\ntheorem coprime_pencil_mobius {K : Type*} [Field K] (p q : K[X]) (hcop : IsCoprime p q)\n    (hdeg : max p.natDegree q.natDegree = 2) (a b c d : K) (had : a * d - b * c ≠ 0) :\n    IsCoprime (C a * p + C b * q) (C c * p + C d * q) ∧\n      max (C a * p + C b * q).natDegree (C c * p + C d * q).natDegree = 2 := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $K$ be a field, let $p, q \\in K[X]$ be coprime with $\\max(\\deg p, \\deg q) = 2$, and let $a, b, c, d \\in K$ with $ad - bc \\neq 0$. Then $ap + bq$ and $cp + dq$ are coprime, and $\\max(\\deg(ap + bq), \\deg(cp + dq)) = 2$.\n\n**Proof.** Put $D = ad - bc$. Inverting the change of basis gives $p = D^{-1}(d(ap + bq) - b(cp + dq))$ and $q = D^{-1}(a(cp + dq) - c(ap + bq))$. Coprimality: from a Bézout identity $xp + yq = 1$, $D^{-1}(dx - cy)(ap + bq) + D^{-1}(ay - bx)(cp + dq) = xp + yq = 1$. Degree: $ap + bq$ and $cp + dq$ have degree at most $2$, as combinations of $p$ and $q$; if both had degree at most $1$, so would $p$ and $q$, by the inversion formulas, against $\\max(\\deg p, \\deg q) = 2$.\n\n**Novelty.** Standard linear algebra; routine.",
+ "created_at": "2026-10-23T07:19:24.596456+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Standard linear algebra. R20 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 23 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

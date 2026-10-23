@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 475 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 497 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -830,10 +830,11 @@ Eleven nodes of 14 October 2026 and four of 15 October, from the R12 research no
   it has a Möbius ratio (`DiazModulus.cyclic_pair_configuration_invisible_to_four_dimensional_extensions`,
   `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration`). Both configurations are that of Diaz's
   Théorème 7(1) at v = u, with w = ug and w = uG₂.
-- In the research notes only, not formalised: the general visibility criterion (W(λ, f) is visible exactly when it is
-  a complete linear system) and the classification of the degree-two case into three families, for every involution
-  of the u-line that commutes with conjugation: two of its orbits fixed or exchanged by conjugation, and a cyclic
-  family. Each family has a formal member above, all for the involution u ↦ −u.
+- The classification of the degree-two case is formal without conjugation, as Theorem NF below, and the visibility
+  criterion in the form of "Which degree-one spaces Theorem B sees". In the research notes only, not formalised: the
+  three conjugation-stable families of the degree-two case, for every involution of the u-line that commutes with
+  conjugation: two of its orbits fixed or exchanged by conjugation, and a cyclic family. Each family has a formal
+  member above, all for the involution u ↦ −u.
 - Not found in the sources read, except the configurations of the conjugation-stable spaces: each is that of Diaz's
   Théorème 7(1) of 2007 at v = u (for the Laurent cubic space w = u² + su, so `F ∉ ℒ̃` at a candidate is one
   substitution there). What was not found is their invisibility and the absence of Möbius ratios. All routine. At a
@@ -916,6 +917,40 @@ field is countable. Put ℒ_u = ℒ + ℚu + ℚū.
 - The six exponentials clause needs neither Roy's theorem nor Gel'fond–Schneider: Baker's theorem for ℒ_u covers
   the dependent cases, and otherwise the inversion lemma above puts the products in ℒ.
 - Each clause restates a classical theorem with ℒ replaced by ℒ_u; not found in the sources read; routine.
+
+### Rational functions of u: Theorem F
+
+Twenty-two nodes of 23 October 2026. They take up next step (2) of the research note `tex/diaz-theorem-c.tex`:
+Theorem E's question for every z rational in u. Let u ∉ Q̄, and let W be a five-dimensional space containing 1, u and
+u⁻¹. Say that W satisfies (D1) if t_j and u·t_j lie in W for three independent t_j; (D2a, two-orbit) if
+W = span(1, u, u⁻¹, Q(u)S₁(u)/(uP(u)), P(u)S₂(u)/(uQ(u))); and (D2b, cyclic) if
+W = span(1, u, u⁻¹, Q(u)S₁(u)/(uP(u)), Q(u)(Q(u)S₁(u) + P(u)S₂(u))/(uP(u)²)); here P, Q are coprime with
+max(deg P, deg Q) = 2, and deg S₁, deg S₂ ≤ 2.
+- **Theorem NF** (`DiazModulus.degree_two_configuration_normal_form`). If W carries a 2×3 configuration whose ratio
+  x₂/x₁ is p(u)/q(u), with p, q coprime and max(deg p, deg q) = 2, then W satisfies (D1), (D2a) or (D2b). W is not
+  assumed to lie in Q̄(u). The proof is elementary: the resultant of the pencil is non-zero, so 1 and J(u)/q(u), for
+  the Wronskian J, are free over Q̄(p(u)/q(u)); at most two values of λ are bad; and multiplication by
+  q(u)/(p(u) − λq(u)) modulo span(1, u, u⁻¹) is a 2×2 matrix over Q̄, scalar, with two eigenvalues, or one Jordan
+  block. The statement is Theorem 2 of the R12 research notes, proved there with vector bundles on P¹.
+- **Theorem F** (`DiazModulus.rational_conj_hull_two_by_three_configuration_iff`). Let uū be algebraic and z ∈ Q̄(u).
+  The hull W_z = span(1, u, ū, z, z̄) carries a 2×3 configuration exactly when either dim W_z = 4 and
+  z ∈ span(1, u, ū, 1/(u − a)) for some algebraic a with aā = uū, or dim W_z = 5 and W_z satisfies (D1), (D2a) or
+  (D2b). In dimension 5 conjugation plays no part: a five-dimensional W ⊆ Q̄(u) containing 1, u and u⁻¹ carries one
+  exactly when it satisfies (D1), (D2a) or (D2b) (`DiazModulus.rational_space_two_by_three_configuration_iff`).
+- **The degree-one case.** W satisfies (D1) exactly when it contains u², u⁻² or some 1/(u − a) with a ≠ 0, so that
+  Theorem B sees it, or W = span(1, u, u⁻¹, g, ug)
+  (`DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space`). If W is also stable under conjugation, it
+  is visible or a real pencil space W(λ, f)
+  (`DiazModulus.conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space`).
+- Theorem F builds on Theorem B. For Laurent z, that it gives back Theorem E's classes was checked by exact
+  computation, not proved, and Theorem E's explicit criteria do not follow from it. No exclusion at a candidate is
+  stated formally in this round; each would be one substitution in Roy's theorem.
+- The four-dimensional configuration is printed: rescaled, it is Diaz's Théorème 7(1) of 2007 at v = 1/(u − a), and
+  its exclusion at a candidate is his Corollaire 5(4). When the six products span only four dimensions, the
+  configuration is a progression by Bachoc–Serra–Zémor (2017, Lemma 4). The "only if" half of Theorem F and the
+  proof of Theorem NF without vector bundles were not found in the sources read; no source on scrolls or on
+  rank-two bundles on P¹ was among them. Theorem F with its key step Theorem NF is the fourth entry of the
+  blueprint's list of results not found and not routine.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

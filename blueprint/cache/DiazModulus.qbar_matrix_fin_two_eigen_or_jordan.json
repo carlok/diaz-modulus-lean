@@ -1,0 +1,21 @@
+{
+ "theorem_id": "412a8540-a8bd-488e-b600-30595d6b20a3",
+ "theorem_name": "DiazModulus.qbar_matrix_fin_two_eigen_or_jordan",
+ "theorem_title": "Every 2×2 matrix over Q̄ is scalar, has two distinct eigenvalues with an eigenbasis, or has a Jordan basis",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem qbar_matrix_fin_two_eigen_or_jordan (M : Matrix (Fin 2) (Fin 2) ↥Qbar) :\n    (∃ c : ↥Qbar, M = c • (1 : Matrix (Fin 2) (Fin 2) ↥Qbar)) ∨\n    (∃ (v w : Fin 2 → ↥Qbar) (c₁ c₂ : ↥Qbar), c₁ ≠ c₂ ∧ LinearIndependent (↥Qbar) ![v, w] ∧\n        M.mulVec v = c₁ • v ∧ M.mulVec w = c₂ • w) ∨\n    (∃ (v w : Fin 2 → ↥Qbar) (c : ↥Qbar), LinearIndependent (↥Qbar) ![v, w] ∧\n        M.mulVec v = c • v ∧ M.mulVec w = c • w + v) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $M$ be a $2 \\times 2$ matrix with entries in the field $\\overline{\\mathbb{Q}}$ of algebraic numbers in $\\mathbb{C}$, acting on column vectors in $\\overline{\\mathbb{Q}}^2$. Then one of the following holds:\n\n- $M = cI$ for some $c \\in \\overline{\\mathbb{Q}}$;\n- there are linearly independent $v, w \\in \\overline{\\mathbb{Q}}^2$ and $c_1 \\neq c_2$ in $\\overline{\\mathbb{Q}}$ with $Mv = c_1v$ and $Mw = c_2w$;\n- there are linearly independent $v, w \\in \\overline{\\mathbb{Q}}^2$ and $c \\in \\overline{\\mathbb{Q}}$ with $Mv = cv$ and $Mw = cw + v$.\n\n**Proof.** Write $M$ with rows $(a, b)$ and $(c, d)$; two vectors $(x, y)$, $(x', y')$ are linearly independent as soon as $xy' - yx' \\neq 0$. If $b = c = 0$: when $a = d$, $M = aI$; otherwise $(1, 0)$ and $(0, 1)$ are eigenvectors for $a \\neq d$. If $b = 0$ and $c \\neq 0$: when $a = d$, $v = (0, c)$ and $w = (1, 0)$ satisfy $Mv = av$ and $Mw = aw + v$; otherwise $(0, 1)$ and $(a - d, c)$ are eigenvectors for $d$ and $a$. If $b \\neq 0$, take a root $l \\in \\overline{\\mathbb{Q}}$ of $t^2 - (a + d)t + (ad - bc)$: a complex square root $s$ of the discriminant is algebraic over $\\mathbb{Q}$, as its square is, so $s \\in \\overline{\\mathbb{Q}}$ and $l = (a + d + s)/2$. The other root is $m = a + d - l$. If $l \\neq m$, $(b, l - a)$ and $(b, m - a)$ are eigenvectors for $l$ and $m$, with determinant $b(m - l) \\neq 0$; if $l = m$, $v = (b, l - a)$ and $w = (0, 1)$ satisfy $Mv = lv$ and $Mw = lw + v$. No algebraic-closedness instance for $\\overline{\\mathbb{Q}}$ is used.\n\n**Novelty.** Standard linear algebra; routine.",
+ "created_at": "2026-10-23T07:19:36.72743+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Standard linear algebra: the Jordan form of a 2×2 matrix over an algebraically closed field. R20 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 23 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

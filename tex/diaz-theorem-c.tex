@@ -44,7 +44,7 @@
 and a barrier for generic candidates}
 \author{Research note for the \texttt{diaz-modulus-lean} project\\
 (written by Claude, an AI model, at the request of Carlo Perassi)}
-\date{18 October 2026}
+\date{18 October 2026; updated 23 October 2026}
 
 \setlength{\emergencystretch}{2em}
 \begin{document}
@@ -84,8 +84,9 @@ Roy's strong six exponentials and four exponentials in transcendence degree one,
 it is stable under conjugation. Yet it contains a candidate. So Diaz's conjecture does
 not follow from these theorems used as properties of $(\cL,\Lt)$.
 
-None of this proves Diaz's conjecture. Theorem~C, Corollary~\ref{cor:nogo}(b), the inversion lemma and part
-all of Theorem~D and Theorem~E with its corollary are formalised (Section~\ref{sec:status}).
+None of this proves Diaz's conjecture. Theorem~C, Corollary~\ref{cor:nogo}(b), the inversion lemma,
+all of Theorem~D and Theorem~E with its corollary are formalised, and so is the answer to Theorem~E's question for
+every $z\in\Qbar(u)$ (Section~\ref{sec:status}).
 \end{abstract}
 
 \section{Setting}\label{sec:setting}
@@ -137,10 +138,11 @@ In this case we say that Roy's theorem \emph{excludes $z$ through its hull}. The
 of the project \cite[Thm.~10.6]{BP} decides this when $\dim W_{z}=4$: for any
 $z\notin H_{0}$, $H_{0}+\Qbar z$ carries a configuration exactly when $z\in H_{0}+\Qbar w$
 for some $w\in\{u^{2},\bar u^{2}\}\cup\{1/(u-a):a\in\Qbar^{\times}\}$. The project also
-treats several families with $\dim W_{z}=5$. Its research notes are said to classify the
-conjugation-stable five-dimensional case with a factor of degree two (see
-Remark~\ref{rem:Qnew}). That classification is not in the repository and not
-formalised.
+treats several families with $\dim W_{z}=5$. Its research notes, which are not in the repository, classify the
+conjugation-stable five-dimensional case with a factor of degree two, with vector bundles on $\mathbb{P}^{1}$ (see
+Remark~\ref{rem:Qnew}). Their normal form for a ratio of degree two, which does not involve conjugation, is now
+formal without bundles, and with it the answer for every $z\in\Qbar(u)$ (Section~\ref{sec:status}). The explicit
+conjugation-stable families of the notes, for a general involution, are not formalised.
 
 \section{Statements}\label{sec:statements}
 
@@ -258,7 +260,9 @@ In class (Q) the factor $(1,T+\beta T^{-1})$ is a ratio of degree two. Its invol
 $T\mapsto\beta/T$ commutes with $\sigma$, since $|\beta|=1$, and exchanges $0$ and $\infty$.
 The project's research notes classify the conjugation-stable invisible spaces with a factor of
 degree two into three families, for every such involution; the companion note \cite{CN} and the
-README give a formal member of each, all for $T\mapsto-T$. Class (Q) is the cyclic family for
+README give a formal member of each, all for $T\mapsto-T$. Only the normal form behind this classification, which
+does not involve conjugation, is formal (Section~\ref{sec:status}); the three families are not. Class (Q) is the
+cyclic family for
 $T\mapsto\beta/T$ on its orbit $\{0,\infty\}$: with $h=T+\beta T^{-1}$,
 $\varphi_{0}=\beta^{-1}T^{-1}+eT$ and $\varphi_{1}=\zeta T$, one has
 $T^{-2}+eT^{2}\equiv\varphi_{0}h$ and $\beta T^{-3}+\zeta T^{2}+eT^{3}\equiv\varphi_{0}h^{2}+\varphi_{1}h$
@@ -848,9 +852,11 @@ of the theorems above.
 \paragraph{Next steps.}
 \begin{enumerate}[label=\textup{(\arabic*)}]
 \item Done: Theorem~E and Corollary~\ref{cor:E} are formal (Section~\ref{sec:status}).
-\item Extend Theorem~E from Laurent polynomials to all of $\Qbar(u)$. Poles off
-$\{0,\infty\}$ come in conjugate pairs $a$, $\rho/\bar a$, and the order and degree sets
-become one sumset condition per place.
+\item Done: Theorem~E's question is answered for all of $\Qbar(u)$, as the project's Theorem~F (formal,
+23 October 2026; Section~\ref{sec:status}). The route is not the one sketched here, one sumset condition per
+place, but a normal form of the configurations whose ratio has degree two. For Laurent $z$, that Theorem~F gives
+back the classes of Theorem~E was checked by exact computation, not proved, and Corollary~\ref{cor:E} does not
+follow from it.
 \item Roy's rank bound at rank three for $u^{4}$, and whether the bound holds in the
 generic model $(\cL_{u},\Lt_{u})$.
 \end{enumerate}
@@ -883,6 +889,18 @@ Section~\ref{sec:meaning} as \texttt{theorem\_\allowbreak{}D\_\allowbreak{}barri
 \texttt{span\_\allowbreak{}logAlg\_\allowbreak{}theorem\_\allowbreak{}D\_\allowbreak{}properties} (18 October 2026, 16 results in all). Its six exponentials clause
 needs neither Roy's theorem nor Gel'fond and Schneider's: Baker's theorem for $\cL_{u}$ covers the dependent
 cases, and otherwise Lemma~\ref{lem:inversion} puts the products in $\cL$.
+Theorem~E's question for every $z\in\Qbar(u)$ is formal as the project's Theorem~F,
+\texttt{rational\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration\_\allowbreak{}iff}: $W_{z}$ carries a configuration exactly when
+$\dim W_{z}=4$ and $z\in\spn(1,u,\bar u,1/(u-a))$ with $a\bar a=\rho$, or $\dim W_{z}=5$ and $W_{z}$ has one of
+three shapes (degree one, two-orbit, cyclic). In dimension five conjugation plays no part (\texttt{rational\_\allowbreak{}space\_\allowbreak{}two\_\allowbreak{}by\_\allowbreak{}three\_\allowbreak{}configuration\_\allowbreak{}iff}),
+and the key step is a normal form of the configurations whose ratio has degree two, the statement of Theorem~2 of
+the research notes proved without vector bundles (Theorem~NF, \texttt{degree\_\allowbreak{}two\_\allowbreak{}configuration\_\allowbreak{}normal\_\allowbreak{}form});
+the degree-one shape is described by \texttt{degree\_\allowbreak{}one\_\allowbreak{}multiplier\_\allowbreak{}space\_\allowbreak{}visible\_\allowbreak{}or\_\allowbreak{}degree\_\allowbreak{}one\_\allowbreak{}space}, and \texttt{conj\_\allowbreak{}stable\_\allowbreak{}degree\_\allowbreak{}one\_\allowbreak{}multiplier\_\allowbreak{}space\_\allowbreak{}visible\_\allowbreak{}or\_\allowbreak{}real\_\allowbreak{}pencil\_\allowbreak{}space}
+refines it under conjugation (23 October 2026, 22 results in all). So Theorem~E's statement that no four-dimensional hull
+carries a configuration is special to Laurent $z$. For Laurent $z$, that Theorem~F gives back the classes (P), (Q) and (R)
+was checked by exact computation, not proved; Corollary~\ref{cor:E} does not follow from it; no exclusion at a
+candidate is stated formally; and the explicit conjugation-stable families of the research notes, for a general
+involution, are not formal.
 \item \emph{Credit.} The exclusions of quadratics and cubics are Diaz's
 \cite[Th\'eor\`eme~7(1)]{Dia07}, formalised in the project. The real pencil class (R) is
 the project's \cite[Prop.~10.42, Thm.~10.43]{BP}, and for Laurent data \cite[Lemma~10.59, Thm.~10.60,
@@ -892,7 +910,10 @@ blueprint, the chapter of results not found in the sources, the README and versi
 of the companion note now say so; only its invisibility remains ``not found''. Not found in the sources read
 (the project's notes and a web search)
 are the ``only if'' halves of Theorems~C and~E, class (Q) as a family of hulls (its configurations are
-\cite[Th\'eor\`eme~2]{Dia04}), Corollary~\ref{cor:E}, Corollary~\ref{cor:nogo}(b), and Theorem~D.
+\cite[Th\'eor\`eme~2]{Dia04}), Corollary~\ref{cor:E}, Corollary~\ref{cor:nogo}(b), and Theorem~D; and, outside the research
+notes, Theorem~NF and the ``only if'' half of Theorem~F. Theorem~F's four-dimensional configuration is
+\cite[Th\'eor\`eme~7(1)]{Dia07} at $v=1/(u-a)$, with the exclusion in \cite[Corollaire~5(4)]{Dia07}; when the six
+products span only four dimensions, a configuration is a progression by \cite[Lemma~4]{BSZ17}.
 \item \emph{Literature.} During this session the network blocked arXiv and most author
 pages. Web search reached abstracts and quotations only. Roy's 1992 paper was at first read
 only through the quotation in \cite{Mak23}; its Corollary~1 has since been checked against the
@@ -904,7 +925,9 @@ valuation count is the method of \cite[\S7, proof of Th.~33]{BSZ17}, as for the 
 Theorem~E is listed there, third among the results not found and not routine, after two blind referees scored it
 the same way: a complete classification, whose proof has steps not found in the sources (the shape list, the
 two-sided pinch, the pencil analysis). Theorem~C(iii) stays routine; it is Theorem~E's class (P). Theorem~D is routine in method but broad in
-reach.
+reach. Theorem~F with its key step Theorem~NF is listed fourth, below Theorem~E. Its weakest point is that
+no source on scrolls or on rank-two vector bundles on $\mathbb{P}^{1}$ was read; a printed form of the bundle
+statement may exist.
 \end{itemize}
 
 \begin{thebibliography}{BSZ17}
