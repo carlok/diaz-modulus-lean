@@ -153,3 +153,6 @@ import Solution
 #print axioms Diaz.rational_conj_hull_two_by_three_configuration_iff
 #print axioms Diaz.conj_hull_finrank_four_two_by_three_configuration_iff
 #print axioms Diaz.conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space
+#print axioms Diaz.laurent_conj_hull_configuration_shape_iff_class
+#print axioms Diaz.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde
+#print axioms Diaz.degree_two_configuration_multiplier_space_eq

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.involution_pencil_space_excludes_squares_an
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals__7a74631c.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -69,7 +72,7 @@ theorem quad_eval {q : (↥Qbar)[X]} (hq : q.natDegree ≤ 2) (z : ℂ) :
 theorem res_ne {a₀ a₁ a₂ b₀ b₁ b₂ : ↥Qbar} (ha : (a₂ : ℂ) ≠ 0)
     (h : ∀ z, qv a₀ a₁ a₂ z = 0 → qv b₀ b₁ b₂ z ≠ 0) : Dc a₀ a₁ a₂ b₀ b₁ b₂ ≠ 0 := by
   obtain ⟨x, hx⟩ := exists_quadratic_eq_zero (b := (a₁ : ℂ)) (c := (a₀ : ℂ)) ha
-    (IsAlgClosed.exists_eq_mul_self _)
+    (IsAlgClosed.isSquare _)
   obtain ⟨x₂, hx₂⟩ : ∃ x₂ : ℂ, (a₂ : ℂ) * x₂ = -a₁ - a₂ * x :=
     ⟨-a₁ / a₂ - x, by field_simp⟩
   have h1 : qv a₀ a₁ a₂ x = 0 := by simp only [qv]; linear_combination hx

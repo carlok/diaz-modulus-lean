@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.conj_stable_degree_one_multiplier_space_vis
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space__5f97e79e.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -62,7 +65,7 @@ theorem conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space_mem
 
 /-- Every quadratic `X² − pX − q` over `Q̄` has a root in `Q̄`. -/
 theorem root2 (p q : ↥Qbar) : ∃ c : ↥Qbar, (c : ℂ) * c = p * c + q := by
-  obtain ⟨d, hd⟩ := IsAlgClosed.exists_eq_mul_self ((p : ℂ) ^ 2 + 4 * q)
+  obtain ⟨d, hd⟩ := IsAlgClosed.isSquare ((p : ℂ) ^ 2 + 4 * q)
   have h4 : (4 : ℂ) ∈ Qbar := by simp
   have h2 : (2 : ℂ) ∈ Qbar := by simp
   have hdQ : d ∈ Qbar := by

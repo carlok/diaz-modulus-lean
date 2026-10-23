@@ -1,5 +1,5 @@
 # References for \cite in the node files. `label` is what the citation shows.
-# Every entry is taken from the source line of a Prove2Me page.
+# Every entry is taken from the source line of a Prove2Me page, except the last four (see the comment there).
 
 [[reference]]
 key = "Bak66"
@@ -170,3 +170,27 @@ text = '''C.~Bachoc, O.~Serra and G.~Zémor, An analogue of Vosper's theorem for
 key = "Kir18"
 label = "Kir18"
 text = '''J.~Kirby, Variants of Schanuel's conjecture, arXiv:1801.08765 (2018).'''
+
+# The four below are cited only by Chapter 14 (round R21a, research/RF_BUNDLE_CHECK.md); they are taken from the
+# sources themselves (research/L1_CANDIDATES.md), not from a page. Reid's page range in the Park City volume was not
+# verified, so it is omitted.
+
+[[reference]]
+key = "Rei97"
+label = "Rei97"
+text = '''M.~Reid, Chapters on algebraic surfaces, in \emph{Complex Algebraic Geometry}, IAS/Park City Math. Ser.~3, AMS, 1997; arXiv:alg-geom/9602006.'''
+
+[[reference]]
+key = "Wes24"
+label = "Wes24"
+text = '''M.~Wessel, On Freiman's theorem in a function field setting, arXiv:2405.10724, 2024.'''
+
+[[reference]]
+key = "CZ24"
+label = "CZ24"
+text = '''A.~Couvreur and G.~Zémor, Freiman's $3k-4$ theorem for function fields, arXiv:2408.00183, 2024.'''
+
+[[reference]]
+key = "BCZ18"
+label = "BCZ18"
+text = '''C.~Bachoc, A.~Couvreur and G.~Zémor, Towards a function field version of Freiman's theorem, \emph{Algebraic Combinatorics} 1 (2018), 501--521; arXiv:1709.00087.'''

@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-23): **497** of 497
+As of the latest archived submission (2026-10-23): **503** of 503
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -164,6 +164,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.candidate_product_relation_trivial` | yes | `Diaz/Mirror/candidate_product_relation_trivial.lean` | done |  |
 | `DiazModulus.candidate_qbar_independent_one_u_conj` | yes | `Diaz/Mirror/candidate_qbar_independent_one_u_conj.lean` | done |  |
 | `DiazModulus.candidate_quotient_rigid` | yes | `Diaz/Mirror/candidate_quotient_rigid.lean` | done |  |
+| `DiazModulus.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_rational_conj_hull_criterion_not_mem_logAlgTilde.lean` | done |  |
 | `DiazModulus.candidate_re_transcendental` | yes | `Diaz/Kernel.lean` | done |  |
 | `DiazModulus.candidate_real_pencil_not_both_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_real_pencil_not_both_mem_logAlgTilde.lean` | done |  |
 | `DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde` | yes | `Diaz/Mirror/candidate_sum_div_sq_sub_not_mem_logAlgTilde.lean` | done |  |
@@ -211,6 +212,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic` | yes | `Diaz/Mirror/degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic.lean` | done |  |
 | `DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic` | yes | `Diaz/Mirror/degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic.lean` | done |  |
 | `DiazModulus.degree_two_configuration_multiplier_complement` | yes | `Diaz/Mirror/degree_two_configuration_multiplier_complement.lean` | done |  |
+| `DiazModulus.degree_two_configuration_multiplier_space_eq` | yes | `Diaz/Mirror/degree_two_configuration_multiplier_space_eq.lean` | done |  |
 | `DiazModulus.degree_two_configuration_normal_form` | yes | `Diaz/Mirror/degree_two_configuration_normal_form.lean` | done |  |
 | `DiazModulus.det_linear_forms_isotropic` | yes | `Diaz/Mirror/det_linear_forms_isotropic.lean` | done |  |
 | `DiazModulus.det_zero_linear_forms_rank_one` | yes | `Diaz/Mirror/det_zero_linear_forms_rank_one.lean` | done |  |
@@ -283,6 +285,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.laurent_case_two_configuration_invisible` | yes | `Diaz/Mirror/laurent_case_two_configuration_invisible.lean` | done |  |
 | `DiazModulus.laurent_conj_hull_class_finrank_eq_five` | yes | `Diaz/Mirror/laurent_conj_hull_class_finrank_eq_five.lean` | done |  |
 | `DiazModulus.laurent_conj_hull_configuration_classes_disjoint` | yes | `Diaz/Mirror/laurent_conj_hull_configuration_classes_disjoint.lean` | done |  |
+| `DiazModulus.laurent_conj_hull_configuration_shape_iff_class` | yes | `Diaz/Mirror/laurent_conj_hull_configuration_shape_iff_class.lean` | done |  |
 | `DiazModulus.laurent_conj_hull_finrank_le_four_no_two_by_three_configuration` | yes | `Diaz/Mirror/laurent_conj_hull_finrank_le_four_no_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.laurent_conj_hull_large_exponent_configuration_iff_real_pencil_class` | yes | `Diaz/Mirror/laurent_conj_hull_large_exponent_configuration_iff_real_pencil_class.lean` | done |  |
 | `DiazModulus.laurent_conj_hull_shifted_polynomial_model` | yes | `Diaz/Mirror/laurent_conj_hull_shifted_polynomial_model.lean` | done |  |
@@ -295,8 +298,11 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.laurent_cubic_space_no_mobius_ratio_configuration` | yes | `Diaz/Mirror/laurent_cubic_space_no_mobius_ratio_configuration.lean` | done |  |
 | `DiazModulus.laurent_degree_one_conj_stable_space_real_pencil_normal_form` | yes | `Diaz/Mirror/laurent_degree_one_conj_stable_space_real_pencil_normal_form.lean` | done |  |
 | `DiazModulus.laurent_hull_config_iff` | yes | `Diaz/Mirror/laurent_hull_config_iff.lean` | done |  |
+| `DiazModulus.laurent_involution_class_space_cyclic_form` | yes | `Diaz/Mirror/laurent_involution_class_space_cyclic_form.lean` | done |  |
 | `DiazModulus.laurent_involution_space_carries_two_by_three_configuration` | yes | `Diaz/Mirror/laurent_involution_space_carries_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.laurent_involution_space_conj_stable_constraints` | yes | `Diaz/Mirror/laurent_involution_space_conj_stable_constraints.lean` | done |  |
+| `DiazModulus.laurent_polynomial_class_conj_hull_two_orbit_form` | yes | `Diaz/Mirror/laurent_polynomial_class_conj_hull_two_orbit_form.lean` | done |  |
+| `DiazModulus.laurent_real_pencil_class_space_u_multiplier_triple` | yes | `Diaz/Mirror/laurent_real_pencil_class_space_u_multiplier_triple.lean` | done |  |
 | `DiazModulus.laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions` | yes | `Diaz/Mirror/laurent_real_pencil_configuration_invisible_to_four_dimensional_extensions.lean` | done |  |
 | `DiazModulus.laurent_real_pencil_normal_form_carries_two_by_three_configuration` | yes | `Diaz/Mirror/laurent_real_pencil_normal_form_carries_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.laurent_real_pencil_space_contains_square_of_root` | yes | `Diaz/Mirror/laurent_real_pencil_space_contains_square_of_root.lean` | done |  |

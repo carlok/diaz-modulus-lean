@@ -7156,5 +7156,77 @@
   "bytes": 6644,
   "imports_children": false,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.degree_two_configuration_multiplier_space_eq",
+  "theorem_id": "aa3a8cfe-98e6-4cfa-a672-a4a36d8ff7fc",
+  "submission_id": "57502ae4-6354-4c7b-a4bd-d4c1d2e2b6f9",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-23T11:55:53.930058+00:00",
+  "file": "DiazModulus.degree_two_configuration_multiplier_space_eq__57502ae4.lean",
+  "bytes": 15804,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde",
+  "theorem_id": "33dd25ff-3644-4181-b5b2-9c9796bc19be",
+  "submission_id": "d0664da0-0ac6-450d-960a-75e240fe4c66",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-23T11:55:51.057077+00:00",
+  "file": "DiazModulus.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde__d0664da0.lean",
+  "bytes": 3951,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.laurent_polynomial_class_conj_hull_two_orbit_form",
+  "theorem_id": "aa05d508-a30f-4f4c-9fe6-893fbb763388",
+  "submission_id": "95457c97-8dc6-424e-8278-a68ebe8443dc",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-23T11:56:01.977122+00:00",
+  "file": "DiazModulus.laurent_polynomial_class_conj_hull_two_orbit_form__95457c97.lean",
+  "bytes": 11612,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.laurent_real_pencil_class_space_u_multiplier_triple",
+  "theorem_id": "bf190dc0-3812-4920-8dcc-4e8e2e6fa6a6",
+  "submission_id": "aad9b506-db47-45ba-bd07-7309ce488925",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-23T11:56:04.841046+00:00",
+  "file": "DiazModulus.laurent_real_pencil_class_space_u_multiplier_triple__aad9b506.lean",
+  "bytes": 6098,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.laurent_involution_class_space_cyclic_form",
+  "theorem_id": "00e48e2c-49f1-4fe9-822b-495d0b8e830a",
+  "submission_id": "ea8d2797-0473-40df-93a6-371a270f4c9b",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-23T11:55:59.237759+00:00",
+  "file": "DiazModulus.laurent_involution_class_space_cyclic_form__ea8d2797.lean",
+  "bytes": 8503,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.laurent_conj_hull_configuration_shape_iff_class",
+  "theorem_id": "0e35095f-1635-43b5-b8be-fb64c275ee02",
+  "submission_id": "8469b233-3a01-4d7d-9d9a-0c55cf632c60",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-23T11:55:56.562222+00:00",
+  "file": "DiazModulus.laurent_conj_hull_configuration_shape_iff_class__8469b233.lean",
+  "bytes": 5445,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

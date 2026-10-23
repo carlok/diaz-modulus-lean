@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 497 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 503 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -942,15 +942,28 @@ max(deg P, deg Q) = 2, and deg S₁, deg S₂ ≤ 2.
   (`DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space`). If W is also stable under conjugation, it
   is visible or a real pencil space W(λ, f)
   (`DiazModulus.conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space`).
-- Theorem F builds on Theorem B. For Laurent z, that it gives back Theorem E's classes was checked by exact
-  computation, not proved, and Theorem E's explicit criteria do not follow from it. No exclusion at a candidate is
-  stated formally in this round; each would be one substitution in Roy's theorem.
+- Theorem F builds on Theorem B. Six more nodes of 23 October 2026 settle what it left open; all six are routine, and
+  none was found in the sources read:
+- **Agreement with Theorem E** (`DiazModulus.laurent_conj_hull_configuration_shape_iff_class`): for Laurent z with
+  dim W_z = 5, W_z satisfies (D1), (D2a) or (D2b) exactly when it is in class (P), (Q) or (R). The proof goes through
+  Theorem E, so Theorem E's explicit criteria still do not follow from Theorem F.
+- **(P) is two-orbit** (`DiazModulus.laurent_polynomial_class_conj_hull_two_orbit_form`): a hull of class (P) is the
+  (D2a) space of the pencil (X², 1).
+- **(Q) is cyclic** (`DiazModulus.laurent_involution_class_space_cyclic_form`): the span of class (Q) is the (D2b) space
+  of the pencil (sX, X² + βs²), where s² = uū.
+- **(R) is degree one** (`DiazModulus.laurent_real_pencil_class_space_u_multiplier_triple`): in a hull of class (R),
+  (u⁻¹, 1, g) is a free triple whose u-multiple stays in the hull, so (D1) holds.
+- **Uniqueness in Theorem NF** (`DiazModulus.degree_two_configuration_multiplier_space_eq`): for the ratio
+  h = x₂/x₁ = p(u)/q(u), the f ∈ W with hf ∈ W are exactly x₁·span(y), so the span depends only on W and h.
+- **At a candidate** (`DiazModulus.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde`): under Roy's theorem,
+  no z ∈ Q̄(u) whose hull meets Theorem F's criterion lies in ℒ̃; each instance is one substitution in Roy's theorem.
 - The four-dimensional configuration is printed: rescaled, it is Diaz's Théorème 7(1) of 2007 at v = 1/(u − a), and
   its exclusion at a candidate is his Corollaire 5(4). When the six products span only four dimensions, the
   configuration is a progression by Bachoc–Serra–Zémor (2017, Lemma 4). The "only if" half of Theorem F and the
-  proof of Theorem NF without vector bundles were not found in the sources read; no source on scrolls or on
-  rank-two bundles on P¹ was among them. Theorem F with its key step Theorem NF is the fourth entry of the
-  blueprint's list of results not found and not routine.
+  proof of Theorem NF without vector bundles were not found in the sources read. Of the literature on scrolls and
+  rank-two bundles on P¹ only a textbook chapter was read (Reid, Chapters on algebraic surfaces, Ch. 2): it prints the
+  ingredients of the bundle proof but not the three shapes. Theorem F with its key step Theorem NF is the fourth entry
+  of the blueprint's list of results not found and not routine.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 

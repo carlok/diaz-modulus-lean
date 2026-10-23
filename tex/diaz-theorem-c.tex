@@ -837,13 +837,17 @@ Roy's theorem nothing further through hulls.
 \paragraph{Higher rank: a first probe.}
 Rank-one configurations cannot exclude $u^{4}$ (the power hulls). In this session we
 asked whether Roy's rank bound for larger matrices can, at rank two. The space is
-$V=\spn(u^{-4},u^{-1},1,u,u^{4})$. The question reduces by a torus argument to graded
-monomial matrices, then to a combinatorial ``colour'' model of rank-two matrices with
-proved bounds $d,l\le10$. Searched exhaustively by a SAT solver, and independently by a
-second enumeration up to $d,l\le13$ that assumes no window, the model has no solution.
-So \emph{at rank two, Roy's bound does not exclude $u^{4}$}. The same holds for the hull of
-$u^{4}+cu^{3}$. Controls behave as they should: the method finds the known configurations
-in $\spn(u^{-2},\dots,u^{2})$. Rank three and above is open. For the certificate space alone, the
+$V=\spn(u^{-4},u^{-1},1,u,u^{4})$. For graded monomial matrices the question becomes a
+combinatorial ``colour'' model of rank-two matrices with proved bounds $d,l\le10$. Searched
+exhaustively by a SAT solver, and independently by a second enumeration up to $d,l\le13$ that
+assumes no window, the model has no solution. So \emph{no graded matrix of rank two over $V$
+breaks Roy's bound}; the same holds for the hull of $u^{4}+cu^{3}$. Whether a matrix that is not
+graded can is open: degenerating a matrix to a graded one can create zero blocks, so the
+reduction to graded matrices needs an argument that is not written out here (corrected on
+23 October 2026; an earlier version claimed the reduction). Controls behave as they should: the
+method finds the known configurations in $\spn(u^{-2},\dots,u^{2})$. At rank three a search of
+small windows found no graded matrix that breaks the bound; rank three is open. For the
+certificate space alone, the
 bound gives nothing at any rank. This is Roy's lemma on spaces of dimension at most
 three \cite[Th.~3.4]{Roy95} (also \cite[Exercise~12.10]{Wal00}): rank $\ge(d+l)/4\ge dl/(d+l)$.
 These results are computer-assisted, use Roy's bound in the quoted form, and are not part
@@ -854,11 +858,12 @@ of the theorems above.
 \item Done: Theorem~E and Corollary~\ref{cor:E} are formal (Section~\ref{sec:status}).
 \item Done: Theorem~E's question is answered for all of $\Qbar(u)$, as the project's Theorem~F (formal,
 23 October 2026; Section~\ref{sec:status}). The route is not the one sketched here, one sumset condition per
-place, but a normal form of the configurations whose ratio has degree two. For Laurent $z$, that Theorem~F gives
-back the classes of Theorem~E was checked by exact computation, not proved, and Corollary~\ref{cor:E} does not
-follow from it.
-\item Roy's rank bound at rank three for $u^{4}$, and whether the bound holds in the
-generic model $(\cL_{u},\Lt_{u})$.
+place, but a normal form of the configurations whose ratio has degree two. For Laurent $z$, Theorem~F gives back
+the classes of Theorem~E; this is now proved (Section~\ref{sec:status}), through Theorem~E itself, so
+Corollary~\ref{cor:E} still does not follow from Theorem~F.
+\item Roy's rank bound for $u^{4}$: a reduction from all matrices to graded ones (needed
+already at rank two), rank three, and whether the bound holds in the generic model
+$(\cL_{u},\Lt_{u})$.
 \end{enumerate}
 
 \section{Status and sources}\label{sec:status}
@@ -897,10 +902,18 @@ and the key step is a normal form of the configurations whose ratio has degree t
 the research notes proved without vector bundles (Theorem~NF, \texttt{degree\_\allowbreak{}two\_\allowbreak{}configuration\_\allowbreak{}normal\_\allowbreak{}form});
 the degree-one shape is described by \texttt{degree\_\allowbreak{}one\_\allowbreak{}multiplier\_\allowbreak{}space\_\allowbreak{}visible\_\allowbreak{}or\_\allowbreak{}degree\_\allowbreak{}one\_\allowbreak{}space}, and \texttt{conj\_\allowbreak{}stable\_\allowbreak{}degree\_\allowbreak{}one\_\allowbreak{}multiplier\_\allowbreak{}space\_\allowbreak{}visible\_\allowbreak{}or\_\allowbreak{}real\_\allowbreak{}pencil\_\allowbreak{}space}
 refines it under conjugation (23 October 2026, 22 results in all). So Theorem~E's statement that no four-dimensional hull
-carries a configuration is special to Laurent $z$. For Laurent $z$, that Theorem~F gives back the classes (P), (Q) and (R)
-was checked by exact computation, not proved; Corollary~\ref{cor:E} does not follow from it; no exclusion at a
-candidate is stated formally; and the explicit conjugation-stable families of the research notes, for a general
-involution, are not formal.
+carries a configuration is special to Laurent $z$. For Laurent $z$ with $\dim W_{z}=5$, the three shapes are exactly the classes (P), (Q) and (R):
+\texttt{laurent\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}configuration\_\allowbreak{}shape\_\allowbreak{}iff\_\allowbreak{}class}, a corollary of Theorems~E and~F, with the explicit
+maps \texttt{laurent\_\allowbreak{}polynomial\_\allowbreak{}class\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}two\_\allowbreak{}orbit\_\allowbreak{}form} ((P) is two-orbit),
+\texttt{laurent\_\allowbreak{}involution\_\allowbreak{}class\_\allowbreak{}space\_\allowbreak{}cyclic\_\allowbreak{}form} ((Q) is cyclic) and
+\texttt{laurent\_\allowbreak{}real\_\allowbreak{}pencil\_\allowbreak{}class\_\allowbreak{}space\_\allowbreak{}u\_\allowbreak{}multiplier\_\allowbreak{}triple} ((R) has the degree-one shape). As the
+proof goes through Theorem~E, Corollary~\ref{cor:E} still does not follow from Theorem~F. For a configuration in a
+five-dimensional $W\supseteq\spn(1,u,u^{-1})$ whose ratio $h=x_{2}/x_{1}$ has degree two in $u$, the products
+$x_{1}y_{j}$ span exactly $\{f\in W:hf\in W\}$ (\texttt{degree\_\allowbreak{}two\_\allowbreak{}configuration\_\allowbreak{}multiplier\_\allowbreak{}space\_\allowbreak{}eq});
+and at a candidate, under Roy's theorem, no $z\in\Qbar(u)$ whose hull meets Theorem~F's criterion lies in $\Lt$
+(\texttt{candidate\_\allowbreak{}rational\_\allowbreak{}conj\_\allowbreak{}hull\_\allowbreak{}criterion\_\allowbreak{}not\_\allowbreak{}mem\_\allowbreak{}logAlgTilde}; 23 October 2026, 6 results
+in all). The explicit conjugation-stable families of the research notes, for a general involution, are not
+formal.
 \item \emph{Credit.} The exclusions of quadratics and cubics are Diaz's
 \cite[Th\'eor\`eme~7(1)]{Dia07}, formalised in the project. The real pencil class (R) is
 the project's \cite[Prop.~10.42, Thm.~10.43]{BP}, and for Laurent data \cite[Lemma~10.59, Thm.~10.60,
@@ -913,7 +926,8 @@ are the ``only if'' halves of Theorems~C and~E, class (Q) as a family of hulls (
 \cite[Th\'eor\`eme~2]{Dia04}), Corollary~\ref{cor:E}, Corollary~\ref{cor:nogo}(b), and Theorem~D; and, outside the research
 notes, Theorem~NF and the ``only if'' half of Theorem~F. Theorem~F's four-dimensional configuration is
 \cite[Th\'eor\`eme~7(1)]{Dia07} at $v=1/(u-a)$, with the exclusion in \cite[Corollaire~5(4)]{Dia07}; when the six
-products span only four dimensions, a configuration is a progression by \cite[Lemma~4]{BSZ17}.
+products span only four dimensions, a configuration is a progression by \cite[Lemma~4]{BSZ17}. The six results that
+close Theorem~F's caveats (23 October 2026, above) are routine and were not found in the sources read.
 \item \emph{Literature.} During this session the network blocked arXiv and most author
 pages. Web search reached abstracts and quotations only. Roy's 1992 paper was at first read
 only through the quotation in \cite{Mak23}; its Corollary~1 has since been checked against the
@@ -926,8 +940,9 @@ Theorem~E is listed there, third among the results not found and not routine, af
 the same way: a complete classification, whose proof has steps not found in the sources (the shape list, the
 two-sided pinch, the pencil analysis). Theorem~C(iii) stays routine; it is Theorem~E's class (P). Theorem~D is routine in method but broad in
 reach. Theorem~F with its key step Theorem~NF is listed fourth, below Theorem~E. Its weakest point is that
-no source on scrolls or on rank-two vector bundles on $\mathbb{P}^{1}$ was read; a printed form of the bundle
-statement may exist.
+the specialist literature on scrolls was not read: a textbook account (Reid's \emph{Chapters on algebraic
+surfaces}, Ch.~2) prints every ingredient of the bundle proof but not the three shapes, and the function-field
+analogues of Freiman's $3k-4$ theorem give only a containment of these spaces in Riemann--Roch spaces.
 \end{itemize}
 
 \begin{thebibliography}{BSZ17}
