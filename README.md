@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 529 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 559 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -681,6 +681,39 @@ theorem; they are not restated. They are `candidate_multiplier_module`,
 Clean room: the agents that designed and wrote these 26 proofs did not open any other formalisation of Roy's theorem.
 The 26 modules have 4,159 lines in `Diaz/Mirror/`; three are over 300: `interp_det_upper` (454),
 `interp_det_liouville` (395) and `op_entry_denom_house` (357).
+
+**The Hilbert side of `hME`.** Thirty more nodes of 29 October 2026 prove the Hilbert-function half of `hME`, at
+finite level: inequalities between dimensions of boxes of polynomials, with no Hilbert polynomials. They are
+finite-level forms of DALAG Ch. 5 and 8 (chapter 8 is by D. Roy), all routine. The vocabulary is
+`Diaz/HilbertBox.lean`, the platform's definition `DiazHilbertBox` carried verbatim (archived as
+`archive/prove2me/Def_DiazHilbertBox.lean`): the Hilbert function `boxHilb F I T = dim_K image(F_T → S/I)` of a
+filtration, the boxes, the torus ideal (YᵢZᵢ − 1)ᵢ, and the proposition `UnmixedHeight`.
+
+- **The hypothesis hU.** `UnmixedHeight S` is Macaulay's unmixedness in the form the chain consumes: for every weakly
+  regular sequence of `S`, every associated prime of the quotient has height at most its length. Like `hME`, it is
+  a `def` of a proposition, not an axiom, and it is not proved here. The chain bound and the Hilbert side take it
+  as the explicit argument `hU`.
+- **The headline.** `DiazModulus.torus_hilbert_side` (milestone): on the boxes of `hME`, in K[X, Y, Z] modulo the
+  torus ideal of 𝔾ₐ^{A₀} × 𝔾ₘ^{A₁}, λ·2^{r(r−1)/2} ≤ 2^{rd} D₀^{d₀} (2D₁)^{d₁}, under `hU`; with
+  `le_hME_constant` (milestone) this is the constant of `hME`.
+- **Hilbert functions of filtrations**: `boxHilb_add_finrank_inf` (rank–nullity), `boxHilb_mono`, `boxHilb_anti`,
+  `card_le_boxHilb_of_linearIndependent`, `exists_boxHilb_family` (milestone), `boxHilb_map_algEquiv`,
+  `sum_boxHilb_le_boxHilb_iInf` (DALAG Ex. 8.5(a)) and `exists_card_mul_boxHilb_le_translates` (milestone).
+- **The chain bound** (DALAG Th. 8.4 and 8.8, at finite level): `boxHilb_sup_span_add_le` (Lemma 8.5),
+  `nat_telescope_step`, `nat_telescope_iter`, `exists_mem_forall_notMem_of_not_subset`,
+  `exists_mem_isSMulRegular_of_associatedPrimes`, `isSMulRegular_quotient_of_isWeaklyRegular_append`,
+  `exists_isWeaklyRegular_append_of_height` (under `hU`), `boxHilb_chain_bound` and `boxHilb_le_of_height` (under
+  `hU`). An infinite field is assumed only where prime avoidance needs it.
+- **The torus model**: `restrictSupport_block_filtration`, `torus_reduce_mem_restrictSupport` and
+  `torus_reduced_inf_eq_bot` (together: reduced monomials are a basis modulo the torus ideal, over any field),
+  `boxHilb_torusIdeal` (the exact count), `isWeaklyRegular_torusList` (the generators are weakly regular),
+  `exists_translation_algEquiv` (milestone; translations act by automorphisms) and `torus_coeff_poly` (milestone).
+- **The Hilbert side**: `le_of_forall_mul_pow_le`, `box_ray_upper_bound`, `box_ray_lower_bound` (milestone),
+  `boxHilb_hilbert_side` (under `hU`), `torus_hilbert_side` and `le_hME_constant`.
+
+Not proved: `hU`, for polynomial rings over a field (round C1.2), and the multiplicity side of `hME` with the
+assembly of `hME` from its two sides (round C1.3). So `hME` is still a hypothesis, and Roy's theorem is still proved
+here only under it. The 30 modules have 2,326 lines in `Diaz/Mirror/`; none is over 200.
 
 ### Consequences of Roy's strong six exponentials theorem
 
@@ -1358,7 +1391,8 @@ It no longer declares anything as an axiom.
 
 A hypothesis is not an axiom. `MultiplicityEstimateElem` (`Diaz/MultiplicityEstimate.lean`), like the conjectures
 above, is a `def` of a proposition; the results that need it take it as the argument `hME`, so `#print axioms` lists
-only the three axioms for them too.
+only the three axioms for them too. The same holds for `UnmixedHeight` (`Diaz/HilbertBox.lean`), the argument `hU` of
+the Hilbert side of `hME`.
 
 Gelfond–Schneider is proved too: `GelfondSchneider.gelfond_schneider` in
 `Diaz/Mirror/gelfond_schneider.lean`. For a non-zero
@@ -1403,6 +1437,9 @@ The five exponentials theorem, not formalised, already gives one of `2^π`, `3^�
 Stated plainly, because an adversarial audit found these and a reader
 should not have to.
 
+- **The multiplicity estimate `hME` is not proved**, so Roy's strong six exponentials theorem holds here only
+  under it ("Roy's theorem from a multiplicity estimate"). Its Hilbert side is proved, under the unmixedness
+  hypothesis `hU`, which is not proved either; nor is its multiplicity side.
 - **Rank and structural rank are not formalized.** Only the
   matrix-coefficient third of "every assertion transfers" is proved. The
   accompanying note says so explicitly rather than claiming the whole

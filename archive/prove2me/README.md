@@ -18,6 +18,11 @@ proved outright.
 that day take, ending in `DiazModulus.strong_six_exponentials`. It is a proposition, not a
 theorem, and nothing proves it; the library carries it in `Diaz/MultiplicityEstimate.lean`.
 
+`Def_DiazHilbertBox.lean` is the platform's definition `DiazHilbertBox` (29 October 2026),
+verbatim: the vocabulary of the Hilbert-function layer of `hME` (`boxHilb`, the boxes, the torus
+ideal) and the proposition `UnmixedHeight`, which the proofs of that layer that need it take as
+the hypothesis `hU`; nothing proves it. The library carries it in `Diaz/HilbertBox.lean`.
+
 These files are the platform's record, kept here so that no proof exists only
 on the platform. They are **not** part of the Lean library and are not built:
 they target the platform's Mathlib revision and import its per-node modules

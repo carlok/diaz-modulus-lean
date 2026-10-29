@@ -9,7 +9,9 @@ In this chapter $x=(x_1,\dots,x_d)$ and $y=(y_1,\dots,y_l)$ are families of comp
 \[ F_p(z)=\sum_{\lambda\in\{0,\dots,L-1\}^{d}}p_\lambda\,e^{\langle\lambda,x\rangle z}. \]
 A number field $K$ is a subfield of $\C$ of finite degree over $\Q$.
 
-The last three sections prove Roy's strong six exponentials theorem \cite[Corollary 2]{Roy92}, \cite[Corollary 11.16]{Wal00} (Theorem~\ref{thm:strong_six_exponentials}): if $x_1,x_2$ are linearly independent over $\Qbar$ and $y_1,y_2,y_3$ are linearly independent over $\Qbar$, at least one of the six products $x_iy_j$ lies outside $\widetilde{\mathcal L}$, the $\Qbar$-span of $1$ and the logarithms of algebraic numbers. The theorem is classical, and the proof follows Waldschmidt's book \cite{Wal00}, called DALAG in the statements: the interpolation determinant, the linear subgroup theorem \cite[Theorem 11.21]{Wal00} (Theorem~\ref{thm:linear_subgroup_transcendence}), and Roy's map $\Upsilon$ \cite[\S11.6.2]{Wal00}. It is proved from one explicit hypothesis, \texttt{hME} (the Lean proposition \texttt{Diaz.MultiplicityEstimateElem}): the case $G^-=\{e\}$ of the multiplicity estimate \cite[Theorem 8.1]{Wal00}, after Philippon \cite{Phi86}, for $G=\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$, written in coordinates. The hypothesis is stated in full in Theorem~\ref{thm:linear_subgroup_transcendence}. It is not proved in the library, and neither is its derivation from Theorem 8.1; a check of the statement against Theorem 8.1, with exact computation on small cases, found no counterexample. So these sections prove Roy's theorem only under \texttt{hME}. In the library, \texttt{Diaz.strongSixExponentials\_of\_multiplicityEstimateElem} restates the conclusion as the proposition \texttt{Diaz.StrongSixExponentials}, so that every result that takes Roy's theorem as a hypothesis holds under \texttt{hME} instead (Chapter~\ref{chap:10-rank-one-configurations} has many).
+Three sections prove Roy's strong six exponentials theorem \cite[Corollary 2]{Roy92}, \cite[Corollary 11.16]{Wal00} (Theorem~\ref{thm:strong_six_exponentials}): if $x_1,x_2$ are linearly independent over $\Qbar$ and $y_1,y_2,y_3$ are linearly independent over $\Qbar$, at least one of the six products $x_iy_j$ lies outside $\widetilde{\mathcal L}$, the $\Qbar$-span of $1$ and the logarithms of algebraic numbers. The theorem is classical, and the proof follows Waldschmidt's book \cite{Wal00}, called DALAG in the statements: the interpolation determinant, the linear subgroup theorem \cite[Theorem 11.21]{Wal00} (Theorem~\ref{thm:linear_subgroup_transcendence}), and Roy's map $\Upsilon$ \cite[\S11.6.2]{Wal00}. It is proved from one explicit hypothesis, \texttt{hME} (the Lean proposition \texttt{Diaz.MultiplicityEstimateElem}): the case $G^-=\{e\}$ of the multiplicity estimate \cite[Theorem 8.1]{Wal00}, after Philippon \cite{Phi86}, for $G=\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$, written in coordinates. The hypothesis is stated in full in Theorem~\ref{thm:linear_subgroup_transcendence}. It is not proved in the library, and neither is its derivation from Theorem 8.1; a check of the statement against Theorem 8.1, with exact computation on small cases, found no counterexample. So these sections prove Roy's theorem only under \texttt{hME}. In the library, \texttt{Diaz.strongSixExponentials\_of\_multiplicityEstimateElem} restates the conclusion as the proposition \texttt{Diaz.StrongSixExponentials}, so that every result that takes Roy's theorem as a hypothesis holds under \texttt{hME} instead (Chapter~\ref{chap:10-rank-one-configurations} has many).
+
+The last three sections prove the Hilbert-function half of \texttt{hME}, at finite level: inequalities between dimensions of boxes of polynomials, with no Hilbert polynomials. They follow \cite[Chapters 5 and 8]{Wal00} (Chapter 8 is by D.~Roy): the Hilbert function $h_I(T)$ of a filtration (DALAG's $H(I;T)$), the chain bound \cite[Theorems 8.4 and 8.8]{Wal00} at finite level (Proposition~\ref{prop:boxHilb_le_of_height}), the model of $\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$ inside $K[X,Y,Z]$, and the Hilbert side of the proof of \cite[Theorem 8.1]{Wal00} for $G^-=\{e\}$ on the boxes of \texttt{hME} (Theorem~\ref{thm:torus_hilbert_side}). The names \texttt{boxHilb}, \texttt{blockBox}, \texttt{torusBox}, \texttt{torusIdeal}, \texttt{torusList}, \texttt{torusReduced}, \texttt{boxD}, \texttt{torusCoeffPoly}, \texttt{torusPoint} and \texttt{UnmixedHeight} in the statements are those of the library file \texttt{Diaz/HilbertBox.lean} (on Prove2Me, the published definition \texttt{DiazHilbertBox}). The chain bound and the Hilbert side take one explicit hypothesis, \texttt{hU : UnmixedHeight}: Macaulay's unmixedness, in the form that for every weakly regular sequence $r_1,\dots,r_k$ of the ring, every associated prime of the quotient by $(r_1,\dots,r_k)$ has height at most $k$ \cite[\S8.2.1]{Wal00}. It is not proved in the library. Neither is the multiplicity side of \texttt{hME}, nor its assembly, so \texttt{hME} itself remains a hypothesis. These results are routine finite-level forms of the book's.
 '''
 
 [[node]]
@@ -382,7 +384,7 @@ Let $\Upsilon : \C^2 \times \C^{m \times 2} \to \C^2$ be the linear map $\Upsilo
 '''
 source = '''The setting of \cite[\S11.6.2]{Wal00}, after \cite{Roy92}. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
 sketch = '''
-The multiplicative condition reads $e^{\Psi(s)_k} = 1$ for the $\C$-linear map $\Psi(z)_k = \sum_i \varphi_{k,i} \sum_p z_p \eta''_{p,i}$, so the relation set is a subgroup $A \subseteq \Z^{m \times 3}$ with $\Psi(A) \subseteq 2\pi i\,\Z^q$. $\Psi$ is injective on $A$: if $\Psi(s) = 0$ then $\zeta = \sum_p s_p \eta_p \in V' \times L_1$, and $\Upsilon(\zeta) = (\sum_{a,j} s_{a,j}\omega_a y_j)\,x$ lies in $T \cap \mathbb{C}x = \{0\}$; as $x \neq 0$ the coefficient vanishes, and $s = 0$ by Lemma~\ref{lem:sse_independence_facts}. Then Lemma~\ref{lem:rank_le_of_injOn_lattice} bounds $\rho$ by $\dim\mathrm{range}\,\Psi \leq \dim\mathrm{range}\,\Phi = 2m - \dim L_1$, where $\Phi(v)_k = \sum_i \varphi_{k,i} v_i$ has kernel $L_1$.
+The multiplicative condition reads $e^{\Psi(s)_k} = 1$ for the $\C$-linear map $\Psi$ with $\Psi(z)_k = \sum_i \varphi_{k,i} \sum_p z_p \eta''_{p,i}$, so the relation set is a subgroup $A \subseteq \Z^{m \times 3}$ with $\Psi(A) \subseteq 2\pi i\,\Z^q$. $\Psi$ is injective on $A$: if $\Psi(s) = 0$ then $\zeta = \sum_p s_p \eta_p \in V' \times L_1$, and $\Upsilon(\zeta) = (\sum_{a,j} s_{a,j}\omega_a y_j)\,x$ lies in $T \cap \mathbb{C}x = \{0\}$; as $x \neq 0$ the coefficient vanishes, and $s = 0$ by Lemma~\ref{lem:sse_independence_facts}. Then Lemma~\ref{lem:rank_le_of_injOn_lattice} bounds $\rho$ by $\dim\mathrm{range}\,\Psi \leq \dim\mathrm{range}\,\Phi = 2m - \dim L_1$, where $\Phi(v)_k = \sum_i \varphi_{k,i} v_i$ has kernel $L_1$.
 '''
 
 [[node]]
@@ -418,4 +420,379 @@ This is Roy's strong six exponentials theorem, the case $d = 2$, $\ell = 3$ of D
 source = '''Roy's strong six exponentials theorem: \cite{Roy92}, Cor. 2; \cite[Cor.~11.16]{Wal00} (\S11.6.1; this node is its case $d=2$, $\ell=3$), through Th. 11.21 (\S11.7.1). The multiplicity estimate (\cite[Th.~8.1]{Wal00}, \S8.1; \cite{Phi86}) is carried as the explicit hypothesis \texttt{hME}, the definition \texttt{MultiplicityEstimateElem}, and is not proved in this library.'''
 sketch = '''
 Suppose $x_i y_j \in \widetilde{\mathcal L}$ for all $i, j$. Lemma~\ref{lem:exists_sse_lifts} gives $m \geq 1$, a $\Q$-free algebraic $\omega$ and lifts $\eta_{a,j} \in \Qbar^2 \times \mathcal{L}^{m \times 2}$ with $\Upsilon(\eta_{a,j}) = \omega_a y_j x$, where $\Upsilon(u, v)_i = u_i + \sum_k \omega_k v_{k,i}$. Apply Theorem~\ref{thm:linear_subgroup_transcendence} (DALAG Th. 11.21) in $G = \mathbb{G}_a^2 \times \mathbb{G}_m^{2m}$ with $V = \Upsilon^{-1}(\mathbb{C}x)$, of dimension $2m + 1$ by Lemma~\ref{lem:sse_setup} (so $d - n = 1$), the algebraic spanning family $(-\omega_k e_i, e_{k,i})$ of $\ker\Upsilon$ (Lemma~\ref{lem:sse_setup}) and the lifts $\eta$. It returns $(V', \varphi, L_1, \ell)$ with $\ell < d'$ and $3m - \rho + d'_1 \leq 2m(d' - \ell)$. By Lemma~\ref{lem:sse_tangent_count}, $d' - \ell = \delta = 2 - \dim T$ for $T = \Upsilon(V' \times L_1)$, so $\delta \geq 1$. If $T \subseteq \mathbb{C}x$, Lemma~\ref{lem:sse_relRank_rational} gives $L_1 = 0$ and $\rho = 0$, so $5m \leq 2m\delta \leq 4m$. Otherwise $\dim T = 1$ and $T \cap \mathbb{C}x = 0$, and Lemma~\ref{lem:sse_relRank_generic} gives $\rho \leq 2m - \dim L_1$, so $3m \leq 2m$. Both contradict $m \geq 1$.
+'''
+
+# --- The Hilbert side of the multiplicity estimate (C1.1, 29 October 2026) ----------------------------
+
+# --- Hilbert functions of filtrations ----------------------------------------
+[[node]]
+platform = "DiazModulus.boxHilb_add_finrank_inf"
+section = "Towards the multiplicity estimate: Hilbert functions of filtrations"
+env = "lemma"
+title = 'Rank–nullity for the Hilbert function'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that every $F_T$ is finite-dimensional. Then for every ideal $I$ of $S$ and every $T \in \N^B$, $h_I(T) + \dim_K (F_T \cap I) = \dim_K F_T$. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Linear algebra (rank–nullity). The Hilbert function $H(I; T)$ is that of \cite[\S8.2.2]{Wal00} (p. 235; Chapter 8 is by D. Roy), here for an abstract filtration and at finite level.'''
+sketch = '''
+Restrict the quotient map $q : S \to S/I$, as a $K$-linear map, to $F_T$. Its range is $q(F_T)$, of dimension $h_I(T)$, and its kernel is $F_T \cap I$; rank–nullity gives the identity.
+'''
+
+[[node]]
+platform = "DiazModulus.boxHilb_mono"
+env = "lemma"
+title = 'The Hilbert function is monotone in the degree'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that $F$ is monotone ($T \le T'$ coordinatewise implies $F_T \subseteq F_{T'}$) and that every $F_T$ is finite-dimensional. Then for every ideal $I$ of $S$ and all $T \le T'$ in $\N^B$ (coordinatewise), $h_I(T) \le h_I(T')$. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Linear algebra. The Hilbert function is that of \cite[\S8.2.2]{Wal00} (p. 235; Chapter 8 is by D. Roy).'''
+sketch = '''
+$F_T \subseteq F_{T'}$, so the image of $F_T$ in $S/I$ lies in the image of $F_{T'}$, which is finite-dimensional; dimension is monotone on subspaces of a finite-dimensional space.
+'''
+
+[[node]]
+platform = "DiazModulus.boxHilb_anti"
+env = "lemma"
+title = 'The Hilbert function is antitone in the ideal'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that every $F_T$ is finite-dimensional. Then for all ideals $I \subseteq J$ of $S$ and every $T \in \N^B$, $h_J(T) \le h_I(T)$. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Linear algebra. Compare \cite[Exercise 8.3]{Wal00} (p. 248; Chapter 8 is by D. Roy), the corresponding inequality for the normalised leading coefficient of ideals of the same rank.'''
+sketch = '''
+Since $I \subseteq J$, the quotient map $S \to S/J$ factors through $S/I$, so the image of $F_T$ in $S/J$ is the image under a linear map of its image in $S/I$, which is finite-dimensional; a linear map does not raise dimension.
+'''
+
+[[node]]
+platform = "DiazModulus.card_le_boxHilb_of_linearIndependent"
+env = "lemma"
+title = 'Families independent modulo an ideal'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that every $F_T$ is finite-dimensional. Let $I$ be an ideal of $S$, $T \in \N^B$, and let $e_i$ ($i \in \iota$, $\iota$ finite) be elements of $F_T$ whose classes in $S/I$ are linearly independent over $K$. Then $|\iota| \le h_I(T)$. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Linear algebra. The Hilbert function is that of \cite[\S8.2.2]{Wal00} (p. 235; Chapter 8 is by D. Roy).'''
+sketch = '''
+The classes of the $e_i$ lie in the image $W$ of $F_T$ in $S/I$ and are independent there; $W$ is finite-dimensional of dimension $h_I(T)$, and an independent family in it has at most $\dim W$ members.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_boxHilb_family"
+root = true
+env = "lemma"
+title = 'A basis of the image modulo an ideal'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that every $F_T$ is finite-dimensional. Then for every ideal $I$ of $S$ and every $T \in \N^B$ there are $N = h_I(T)$ elements $e_1, \dots, e_N$ of $F_T$ whose classes in $S/I$ are linearly independent over $K$, such that every $x \in F_T$ is congruent modulo $I$ to an element of the $K$-span of $e_1, \dots, e_N$ (for $N = 0$ the family is empty and $F_T \subseteq I$). For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Linear algebra. Compare the subspace E of dimension $H(J; D_0, D)$ in the proof of \cite[Th.~8.18]{Wal00} (\S8.3.3, p. 245; Chapter 8 is by D. Roy).'''
+sketch = '''
+Take a basis $b_1, \dots, b_N$ of the image $W$ of $F_T$ in $S/I$ and lift each $b_i$ to some $e_i \in F_T$. The classes of the $e_i$ are the $b_i$, hence independent, and the image of the span of the $e_i$ is the span of the $b_i$, which is $W$; so each $x \in F_T$ has the class of some $y$ in that span, that is, $x - y \in I$.
+'''
+
+[[node]]
+platform = "DiazModulus.boxHilb_map_algEquiv"
+env = "lemma"
+title = 'Automorphisms that preserve the filtration'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Let $\sigma$ be a $K$-algebra automorphism of $S$, $I$ an ideal of $S$ and $T \in \N^B$ with $\sigma(F_T) = F_T$. Then $h_{\sigma(I)}(T) = h_I(T)$, where $\sigma(I)$ is the image ideal. No finiteness hypothesis is needed (a \texttt{Module.finrank} of an infinite-dimensional space is $0$ on both sides). For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Linear algebra. Used for translates as in \cite[\S5.3.2]{Wal00} (Chapter 5 is by D. Roy), at finite level.'''
+sketch = '''
+$\sigma$ induces a $K$-algebra isomorphism $\varphi : S/I \to S/\sigma(I)$ with $\varphi \circ q_I = q_{\sigma(I)} \circ \sigma$. Since $\sigma(F_T) = F_T$, the image of $F_T$ in $S/\sigma(I)$ is $\varphi$ of its image in $S/I$, and a linear isomorphism preserves the dimension of a subspace.
+'''
+
+[[node]]
+platform = "DiazModulus.sum_boxHilb_le_boxHilb_iInf"
+env = "lemma"
+title = 'Separators and the Hilbert function of an intersection'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that $F$ is multiplicative ($a \in F_T$ and $b \in F_U$ imply $ab \in F_{T+U}$) and that every $F_T$ is finite-dimensional. Let $\iota$ be a finite type, and for $i \in \iota$ let $I_i$ be an ideal of $S$ and $P_i \in S$; let $C, T \in \N^B$. Assume that $P_i \in F_C$, that $P_i \in I_j$ whenever $j \ne i$, and that $a P_i \in I_i$ implies $a \in I_i$ for every $a \in S$. Then $\sum_i h_{I_i}(T) \le h_{\bigcap_i I_i}(T + C)$ (for $\iota$ empty the intersection is $S$ and both sides are $0$). For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''\cite[Exercise 8.5(a)]{Wal00} (pp. 248–249; Chapter 8 is by D. Roy), the injective map $A\mapsto\sum_i A_iP_i$, here for an abstract filtration and with the separators as hypotheses.'''
+sketch = '''
+For each $i$ lift a basis of the image of $F_T$ in $S/I_i$ to elements $e_{i,k} \in F_T$, $k < h_{I_i}(T)$. The products $e_{i,k} P_i$ lie in $F_{T+C}$ and are independent modulo $\bigcap_j I_j$: if $\sum g_{i,k} e_{i,k} P_i \in \bigcap_j I_j$, then for each $j$ the terms with $i \ne j$ lie in $I_j$, so $(\sum_k g_{j,k} e_{j,k}) P_j \in I_j$, hence $\sum_k g_{j,k} e_{j,k} \in I_j$ and all $g_{j,k} = 0$. There are $\sum_i h_{I_i}(T)$ of them, and Lemma~\ref{lem:card_le_boxHilb_of_linearIndependent} concludes.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_card_mul_boxHilb_le_translates"
+root = true
+env = "proposition"
+title = 'Comaximal translates of an ideal'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that $F$ is monotone ($T \le T'$ coordinatewise implies $F_T \subseteq F_{T'}$), that $F$ is multiplicative ($a \in F_T$ and $b \in F_U$ imply $ab \in F_{T+U}$), that every $F_T$ is finite-dimensional and that $F$ is exhaustive (every element of $S$ lies in some $F_T$). Let $\iota$ be a finite type with $N$ elements, $H$ an ideal of $S$ and $\sigma_i$ ($i \in \iota$) $K$-algebra automorphisms of $S$ with $\sigma_i(F_T) = F_T$ for every $i$ and every $T$, such that $\sigma_i(H) + \sigma_j(H) = S$ whenever $i \ne j$. Then there is $C \in \N^B$ such that $N\,h_H(T) \le h_{\bigcap_i \sigma_i(H)}(T + C)$ for every $T \in \N^B$. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Finite-level form of one inequality of \cite[Lemma 5.10]{Wal00} (\S5.3.2, p. 160; Chapter 5 is by D. Roy), as used in \S8.4.1 (pp. 245–247; Chapter 8 is by D. Roy); the separators are the Chinese remainder theorem. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Write $J_i = \sigma_i(H)$. For $i \ne j$, comaximality gives $x + y = 1$ with $x \in J_i$, $y \in J_j$, so $q_{ij} = y \in J_j$ is $\equiv 1$ modulo $J_i$; then $P_i = \prod_{j \ne i} q_{ij}$ lies in every $J_j$ with $j \ne i$ and is $\equiv 1$ modulo $J_i$, so $a P_i \in J_i$ forces $a \in J_i$. Each $P_i$ lies in some $F_{T_i}$ (exhaustion), hence in $F_C$ with $C = \sum_i T_i$. Lemma~\ref{lem:sum_boxHilb_le_boxHilb_iInf} gives $\sum_i h_{J_i}(T) \le h_{\bigcap J_i}(T + C)$, and $h_{J_i}(T) = h_H(T)$ by Lemma~\ref{lem:boxHilb_map_algEquiv}. The shift $C$ depends only on the separators.
+'''
+
+# --- the chain bound under unmixedness ----------------------------------------
+[[node]]
+platform = "DiazModulus.boxHilb_sup_span_add_le"
+section = "Towards the multiplicity estimate: the chain bound under unmixedness"
+env = "lemma"
+title = 'Cutting by a regular element'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that $F$ is multiplicative ($a \in F_T$ and $b \in F_U$ imply $ab \in F_{T+U}$) and that every $F_T$ is finite-dimensional. Let $I$ be an ideal of $S$, $D, T \in \N^B$, and $P \in F_D$ a nonzerodivisor on $S/I$ (multiplication by $P$ on $S/I$ is injective). Then $h_{I+(P)}(T+D) + h_I(T) \le h_I(T+D)$, where $I + (P)$ is the ideal generated by $I$ and $P$. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''DALAG, the proof of Lemma 8.5 (\S8.2.3, pp. 236–237; Chapter 8 is by D. Roy), the inequality before the passage to the limit; compare the proof of Lemma 5.4 (\S5.2.4, p. 154; Chapter 5 is by D. Roy).'''
+sketch = '''
+Work in $S/I$. Let $W$ be the image of $F_{T+D}$ (dimension $h_I(T+D)$) and $W_T$ that of $F_T$ (dimension $h_I(T)$). The image of $F_{T+D}$ in $S/(I+(P))$ is the image of $W$ under the factor map $g$. Multiplication by $P$ is injective on $S/I$, so $P\,W_T$ has dimension $h_I(T)$; it lies in $W$ because $F_T F_D \subseteq F_{T+D}$, and $g$ kills it. Rank–nullity for $g$ on $W$ gives $\dim g(W) + \dim P\,W_T \le \dim W$.
+'''
+
+[[node]]
+platform = "DiazModulus.nat_telescope_step"
+env = "lemma"
+title = 'One telescoping step'
+statement = '''
+Let $f, g : \N \to \N$ with $g$ monotone and $g(v+1) + f(v) \le f(v+1)$ for every $v \in \N$. Then $u\,g(u) \le f(2u)$ for every $u \in \N$.
+'''
+source = '''Elementary. It replaces the limit argument at the end of the proof of \cite[Lemma 5.4]{Wal00} (\S5.2.4, pp. 154–155; Chapter 5 is by D. Roy), which the proof of Lemma 8.5 repeats. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+By induction on $k$, $f(u) + k\,g(u) \le f(u+k)$: each step adds $g(u+k+1) \ge g(u)$. Take $k = u$.
+'''
+
+[[node]]
+platform = "DiazModulus.nat_telescope_iter"
+env = "lemma"
+title = 'Iterated telescoping'
+statement = '''
+Let $f_0, f_1, f_2, \dots$ be functions $\N \to \N$ and $j \in \N$. Assume that for every $k < j$ the function $f_{k+1}$ is monotone and $f_{k+1}(v+1) + f_k(v) \le f_k(v+1)$ for every $v \in \N$. Then $2^{j(j-1)/2} u^j f_j(u) \le f_0(2^j u)$ for every $u \in \N$ (the exponent $j(j-1)/2$ is an integer, and $0$ for $j = 0$).
+'''
+source = '''Elementary. A finite-level replacement for the limits in the proofs of \cite[Lemma 5.4]{Wal00} (\S5.2.4; Chapter 5 is by D. Roy) and Th. 8.4 (\S8.2.3, pp. 236–238; Chapter 8 is by D. Roy). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Induction on $j$, for all $u$ at once; for $j = 0$ both sides are $f_0(u)$. For $j + 1$, Lemma~\ref{lem:nat_telescope_step} with $f = f_j$, $g = f_{j+1}$ gives $u\,f_{j+1}(u) \le f_j(2u)$, and the induction hypothesis at $2u$ gives $2^{j(j-1)/2} (2u)^j f_j(2u) \le f_0(2^{j+1} u)$. Multiply the step by $2^{j(j-1)/2} 2^j u^j$ and use $j(j-1)/2 + j = (j+1)j/2$.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_mem_forall_notMem_of_not_subset"
+env = "lemma"
+title = 'Prime avoidance for subspaces'
+statement = '''
+Let $K$ be an infinite field, $S$ a commutative $K$-algebra, $V$ a $K$-subspace of $S$ and $\mathcal{P}$ a finite set of ideals of $S$ (not necessarily prime) such that $V \not\subseteq p$ for every $p \in \mathcal{P}$. Then some $x \in V$ lies in no $p \in \mathcal{P}$.
+'''
+source = '''Classical (avoidance over an infinite field). Compare the choice of $P_{k+1}$ in the proof of \cite[Th.~8.4]{Wal00} (\S8.2.3, pp. 237–238; Chapter 8 is by D. Roy).'''
+sketch = '''
+For each $p \in \mathcal{P}$, $V \cap p$ is a $K$-subspace of $V$, proper since $V \not\subseteq p$. A vector space over an infinite field is not a finite union of proper subspaces, so some $x \in V$ lies in no $V \cap p$.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_mem_isSMulRegular_of_associatedPrimes"
+env = "lemma"
+title = 'A regular element in a subspace'
+statement = '''
+Let $K$ be an infinite field, $S$ a commutative Noetherian $K$-algebra, $M$ a finitely generated $S$-module and $V$ a $K$-subspace of $S$ contained in no associated prime of $M$. Then $V$ contains an element $x$ that is regular on $M$ (multiplication by $x$ on $M$ is injective).
+'''
+source = '''Classical commutative algebra (associated primes and zero divisors). Used as in the proof of \cite[Th.~8.4]{Wal00} (\S8.2.3, pp. 237–238; Chapter 8 is by D. Roy).'''
+sketch = '''
+$M$ has finitely many associated primes, so Lemma~\ref{lem:exists_mem_forall_notMem_of_not_subset} gives $x \in V$ outside all of them. Over a Noetherian ring the union of the associated primes of $M$ is the set of non-regular elements on $M$, so $x$ is $M$-regular.
+'''
+
+[[node]]
+platform = "DiazModulus.isSMulRegular_quotient_of_isWeaklyRegular_append"
+env = "lemma"
+title = 'Regular sequences, read in turn'
+statement = '''
+Let $S$ be a commutative ring, $ps_0$ a finite list of elements of $S$ and $P_0, \dots, P_{r-1} \in S$, and assume that the list $ps_0$ followed by $P_0, \dots, P_{r-1}$ is weakly regular on $S$. Then for every $k < r$, $P_k$ is a nonzerodivisor on $S/((ps_0) + (P_j : j < k))$. A list is weakly regular on $S$ when each entry is a nonzerodivisor on the quotient of $S$ by the ideal generated by the earlier entries (Mathlib's \texttt{IsWeaklyRegular}; the final quotient may be zero). For a list $ps_0$, $(ps_0)$ is the ideal generated by its entries and $|ps_0|$ its length.
+'''
+source = '''Classical commutative algebra (regular sequences); a reformulation of the definition.'''
+sketch = '''
+This is the definition of weak regularity read at the position $|ps_0| + k$: the entry there is $P_k$, and the ideal generated by the earlier entries is $(ps_0) + (P_j : j < k)$. Mathlib states regularity on the quotient module $S/(I \cdot S)$, and $I \cdot S = I$ for an ideal.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_isWeaklyRegular_append_of_height"
+env = "lemma"
+title = 'Extending a regular sequence under unmixedness'
+statement = '''
+Let $K$ be an infinite field and $S$ a commutative Noetherian $K$-algebra with \texttt{hU : UnmixedHeight S}. Let $ps_0$ be a weakly regular list on $S$, $V$ a $K$-subspace of $S$ and $r \in \N$, and assume that every prime ideal $p$ of $S$ containing $(ps_0) + (V)$ has height at least $|ps_0| + r$ (a vacuous hypothesis when $(ps_0) + (V) = S$). Then there is a list $rs$ of $r$ elements of $V$ such that $ps_0$ followed by $rs$ is weakly regular on $S$. A list is weakly regular on $S$ when each entry is a nonzerodivisor on the quotient of $S$ by the ideal generated by the earlier entries (Mathlib's \texttt{IsWeaklyRegular}; the final quotient may be zero). For a list $ps_0$, $(ps_0)$ is the ideal generated by its entries and $|ps_0|$ its length. Heights of prime ideals are taken in $\N \cup \{\infty\}$, and $(V)$ is the ideal generated by $V$. The hypothesis \texttt{hU : UnmixedHeight S} is assumed here, not proved: it says that for every weakly regular sequence $r_1, \dots, r_k$ of the ring, every associated prime of the quotient by $(r_1, \dots, r_k)$ has height at most $k$. For polynomial rings over a field it follows from Macaulay's unmixedness theorem (DALAG \S8.2.1); it is not proved in the library.
+'''
+source = '''DALAG, the proof of Th. 8.4 (\S8.2.3, pp. 237–238; Chapter 8 is by D. Roy), with Macaulay's unmixedness theorem (\S8.2.1, p. 235) taken as the hypothesis UnmixedHeight.'''
+sketch = '''
+Induction on the length $m \le r$ of $rs$. Let $L = ps_0$ followed by $rs$ be weakly regular, with $m < r$. Every associated prime $p$ of $S/(L)$ contains $(L) \supseteq (ps_0)$, and \texttt{hU} bounds its height by $|ps_0| + m$; if $V \subseteq p$, the height hypothesis would give $|ps_0| + r \le |ps_0| + m$, so $V \not\subseteq p$. Lemma~\ref{lem:exists_mem_isSMulRegular_of_associatedPrimes}, applied to the finite module $S/(L)$, gives $x \in V$ regular on $S/(L)$, and $L$ followed by $x$ is weakly regular. If $S/(L) = 0$ there is no associated prime and the step is the same.
+'''
+
+[[node]]
+platform = "DiazModulus.boxHilb_chain_bound"
+env = "proposition"
+title = 'The regular chain bound'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that $F$ is monotone ($T \le T'$ coordinatewise implies $F_T \subseteq F_{T'}$), that $F$ is multiplicative ($a \in F_T$ and $b \in F_U$ imply $ab \in F_{T+U}$) and that every $F_T$ is finite-dimensional. Let $I$ be an ideal of $S$, $D \in \N^B$, $r \in \N$ and $P_0, \dots, P_{r-1} \in F_D$ such that each $P_k$ is a nonzerodivisor on $S/(I + (P_j : j < k))$. Then for every $u \in \N$, $2^{r(r-1)/2} u^r h_{I + (P_0, \dots, P_{r-1})}(uD) \le h_I(2^r u D)$, where $uD$ is the coordinatewise multiple. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$).
+'''
+source = '''Finite-level form of \cite[Th.~8.4]{Wal00} and its proof through Lemma 8.5 (\S8.2.3, pp. 236–238; Chapter 8 is by D. Roy). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Put $I_k = I + (P_j : j < k)$ and $f_k(v) = h_{I_k}(vD)$. Each $f_{k+1}$ is monotone (Lemma~\ref{lem:boxHilb_mono}), and for $k < r$, Lemma~\ref{lem:boxHilb_sup_span_add_le} with $T = vD$ gives $f_{k+1}(v+1) + f_k(v) \le f_k(v+1)$, since $(v+1)D = vD + D$. The iterated telescope Lemma~\ref{lem:nat_telescope_iter} with $j = r$ gives $2^{r(r-1)/2} u^r f_r(u) \le f_0(2^r u)$, which is the claim.
+'''
+
+[[node]]
+platform = "DiazModulus.boxHilb_le_of_height"
+env = "proposition"
+title = 'The chain bound from heights, under unmixedness'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that $K$ is infinite, $S$ is Noetherian, $F$ is monotone ($T \le T'$ coordinatewise implies $F_T \subseteq F_{T'}$), $F$ is multiplicative ($a \in F_T$ and $b \in F_U$ imply $ab \in F_{T+U}$) and every $F_T$ is finite-dimensional, and let \texttt{hU : UnmixedHeight S}. Let $ps_0$ be a weakly regular list on $S$, $D \in \N^B$, $V$ a $K$-subspace of $S$ with $V \subseteq F_D$, and $r \in \N$, and assume that every prime ideal of $S$ containing $(ps_0) + (V)$ has height at least $|ps_0| + r$. Then for every $u \in \N$, $2^{r(r-1)/2} u^r h_{(ps_0)+(V)}(uD) \le h_{(ps_0)}(2^r u D)$. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$). A list is weakly regular on $S$ when each entry is a nonzerodivisor on the quotient of $S$ by the ideal generated by the earlier entries (Mathlib's \texttt{IsWeaklyRegular}; the final quotient may be zero). For a list $ps_0$, $(ps_0)$ is the ideal generated by its entries and $|ps_0|$ its length. Heights of prime ideals are taken in $\N \cup \{\infty\}$, and $(V)$ is the ideal generated by $V$. The hypothesis \texttt{hU : UnmixedHeight S} is assumed here, not proved: it says that for every weakly regular sequence $r_1, \dots, r_k$ of the ring, every associated prime of the quotient by $(r_1, \dots, r_k)$ has height at most $k$. For polynomial rings over a field it follows from Macaulay's unmixedness theorem (DALAG \S8.2.1); it is not proved in the library.
+'''
+source = '''Finite-level form of \cite[Th.~8.8]{Wal00} (\S8.3.1, p. 239) and Th. 8.4 (\S8.2.3, p. 236), the step that gives (8.21) in \S8.4.1 (p. 246); Chapter 8 is by D. Roy. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Lemma~\ref{lem:exists_isWeaklyRegular_append_of_height} gives $r$ elements $P_0, \dots, P_{r-1}$ of $V$ such that $ps_0$ followed by them is weakly regular, and Lemma~\ref{lem:isSMulRegular_quotient_of_isWeaklyRegular_append} turns this into the chain condition: $P_k$ is regular on $S/((ps_0) + (P_j : j < k))$. Each $P_k \in V \subseteq F_D$, so Proposition~\ref{prop:boxHilb_chain_bound} gives $2^{r(r-1)/2} u^r h_{(ps_0)+(P)}(uD) \le h_{(ps_0)}(2^r uD)$. Finally $(ps_0) + (P) \subseteq (ps_0) + (V)$, and the Hilbert function is antitone in the ideal (Lemma~\ref{lem:boxHilb_anti}).
+'''
+
+# --- the torus model and the Hilbert side ----------------------------------------
+[[node]]
+platform = "DiazModulus.restrictSupport_block_filtration"
+section = "Towards the multiplicity estimate: the torus model and the Hilbert side"
+env = "lemma"
+title = 'Block boxes form a filtration'
+statement = '''
+Let $K$ be a field, $\sigma$ a finite type, $\iota$ a type and $\beta : \sigma \to \iota$ a map grouping the variables of $K[X_s : s \in \sigma]$ into blocks. For $T \in \N^\iota$ let $B_T$ be \texttt{blockBox K $\beta$ T}, the span of the monomials $X^m$ whose degree in each block, $\sum_{\beta(s) = b} m_s$, is at most $T_b$. Then (i) $fg \in B_{T+T'}$ whenever $f \in B_T$ and $g \in B_{T'}$; (ii) every $B_T$ is finite-dimensional over $K$; (iii) every polynomial lies in some $B_T$.
+'''
+source = '''Classical. The multidegree filtration of \cite[\S8.2.2]{Wal00} (p. 235; Chapter 8 is by D. Roy), for an arbitrary partition of the variables.'''
+sketch = '''
+(i) The exponents of $fg$ are sums of exponents of $f$ and of $g$, and block degrees add. (ii) Every exponent $m$ of $B_T$ has $m_s \le T_{\beta(s)}$, so the admissible exponents form a finite set, and the monomials are a basis. (iii) Take $T_b$ to be the sum over the exponents of $f$ of their degrees in block $b$.
+'''
+
+[[node]]
+platform = "DiazModulus.torus_reduce_mem_restrictSupport"
+env = "lemma"
+title = 'Reduction modulo the torus ideal'
+statement = '''
+Let $K$ be a field and $A_0, A_1$ types, and let $K[X, Y, Z]$ be the polynomial ring over $K$ in the variables $X_h$ ($h \in A_0$) and $Y_i, Z_i$ ($i \in A_1$). The per-coordinate box \texttt{torusBox K A$_0$ A$_1$ T}, for $T \in \N^{A_0 \sqcup A_1}$, is the span of the monomials $X^a Y^b Z^c$ with $a_h \le T_h$ for every $h$ and $b_i + c_i \le T_i$ for every $i$; $J_0 = (Y_i Z_i - 1)_{i \in A_1}$ is the torus ideal \texttt{torusIdeal K A$_0$ A$_1$}, the kernel of $K[X, Y, Z] \to K[\mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}]$; a monomial $X^a Y^b Z^c$ is reduced when $\min(b_i, c_i) = 0$ for every $i$ (\texttt{torusReduced}). Then for every $T \in \N^{A_0 \sqcup A_1}$ and every $f$ in the box $T$ there is a $K$-linear combination $g$ of reduced monomials, also in the box $T$, with $f - g \in J_0$.
+'''
+source = '''Classical (normal forms modulo $YZ-1$). The ring $K[X, Y, Z]$ and its ideal are those of \cite[\S8.3.1]{Wal00} (Chapter 8 is by D. Roy), for K[G].'''
+sketch = '''
+The reduced form of $X^a Y^b Z^c$ replaces each pair $(b_i, c_i)$ by $(\max(b_i - c_i, 0), \max(c_i - b_i, 0))$; it is reduced, it is coordinatewise below the original exponent, so it stays in the box, and it does not change when $b_i$ and $c_i$ both go up by one. By strong induction on the degree every monomial is congruent to its reduced form modulo $J_0$, since $X^{m'} Y_i Z_i - X^{m'} = X^{m'} (Y_i Z_i - 1)$. Take for $g$ the image of $f$ under $X^m \mapsto X^{\mathrm{red}(m)}$.
+'''
+
+[[node]]
+platform = "DiazModulus.torus_reduced_inf_eq_bot"
+env = "lemma"
+title = 'Reduced monomials are independent modulo the torus ideal'
+statement = '''
+Let $K$ be a field and $A_0, A_1$ types, and let $K[X, Y, Z]$ be the polynomial ring over $K$ in the variables $X_h$ ($h \in A_0$) and $Y_i, Z_i$ ($i \in A_1$). The per-coordinate box \texttt{torusBox K A$_0$ A$_1$ T}, for $T \in \N^{A_0 \sqcup A_1}$, is the span of the monomials $X^a Y^b Z^c$ with $a_h \le T_h$ for every $h$ and $b_i + c_i \le T_i$ for every $i$; $J_0 = (Y_i Z_i - 1)_{i \in A_1}$ is the torus ideal \texttt{torusIdeal K A$_0$ A$_1$}, the kernel of $K[X, Y, Z] \to K[\mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}]$; a monomial $X^a Y^b Z^c$ is reduced when $\min(b_i, c_i) = 0$ for every $i$ (\texttt{torusReduced}). Then the $K$-span of the reduced monomials meets $J_0$ only in $0$. No hypothesis on $K$ is needed.
+'''
+source = '''Classical (normal forms modulo $YZ-1$). The ring $K[X, Y, Z]$ and its ideal are those of \cite[\S8.3.1]{Wal00} (Chapter 8 is by D. Roy), for K[G].'''
+sketch = '''
+Let $\rho$ be the $K$-linear map $X^m \mapsto X^{\mathrm{red}(m)}$, with the reduced form of the previous node. Since $\mathrm{red}$ does not change when $b_i$ and $c_i$ both go up by one, $\rho(q\,Y_i Z_i) = \rho(q)$ for every $q$, so $\rho$ vanishes on $J_0$; and $\rho$ is the identity on combinations of reduced monomials. So a reduced combination in $J_0$ equals its image under $\rho$, which is $0$.
+'''
+
+[[node]]
+platform = "DiazModulus.boxHilb_torusIdeal"
+env = "proposition"
+title = 'The Hilbert function of the torus ideal'
+statement = '''
+Let $K$ be a field and $A_0, A_1$ types, and let $K[X, Y, Z]$ be the polynomial ring over $K$ in the variables $X_h$ ($h \in A_0$) and $Y_i, Z_i$ ($i \in A_1$). The per-coordinate box \texttt{torusBox K A$_0$ A$_1$ T}, for $T \in \N^{A_0 \sqcup A_1}$, is the span of the monomials $X^a Y^b Z^c$ with $a_h \le T_h$ for every $h$ and $b_i + c_i \le T_i$ for every $i$; $J_0 = (Y_i Z_i - 1)_{i \in A_1}$ is the torus ideal \texttt{torusIdeal K A$_0$ A$_1$}, the kernel of $K[X, Y, Z] \to K[\mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}]$; a monomial $X^a Y^b Z^c$ is reduced when $\min(b_i, c_i) = 0$ for every $i$ (\texttt{torusReduced}). Assume that $A_0$ and $A_1$ are finite. Then for every $T \in \N^{A_0 \sqcup A_1}$, $h_{J_0}(T) = \prod_{h \in A_0} (T_h + 1) \cdot \prod_{i \in A_1} (2T_i + 1)$, where $h_{J_0}(T)$ is \texttt{boxHilb (torusBox K A$_0$ A$_1$) (torusIdeal K A$_0$ A$_1$) T}, the dimension of the image of the box $T$ in $K[X, Y, Z]/J_0$.
+'''
+source = '''Compare \cite[Prop.~5.7]{Wal00} (\S5.3.1, p. 159; Chapter 5 is by D. Roy), the case G* = G, there with the total degree in the additive variables; the passage to $K[X, Y, Z]$ is that of \S8.3.1 (Chapter 8 is by D. Roy). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Let $\mathcal{B}$ be the box (finite-dimensional by Lemma~\ref{lem:restrictSupport_block_filtration}) and $R$ the span of the reduced monomials. By Lemma~\ref{lem:torus_reduce_mem_restrictSupport}, $\mathcal{B} = (\mathcal{B} \cap R) + (\mathcal{B} \cap J_0)$, and by Lemma~\ref{lem:torus_reduced_inf_eq_bot} the two pieces meet in $0$; with Lemma~\ref{lem:boxHilb_add_finrank_inf}, $h_{J_0}(T) = \dim (\mathcal{B} \cap R)$, the number of reduced exponents in the box. These are $X^a Y^b Z^c$ with $a_h \le T_h$, $b_i + c_i \le T_i$ and $\min(b_i, c_i) = 0$, and $(b_i, c_i) \mapsto T_i + b_i - c_i$ is a bijection onto $\{0, \dots, 2T_i\}$.
+'''
+
+[[node]]
+platform = "DiazModulus.isWeaklyRegular_torusList"
+env = "lemma"
+title = 'The torus generators form a regular sequence'
+statement = '''
+Let $K$ be a field and $A_0, A_1$ types, and let $K[X, Y, Z]$ be the polynomial ring over $K$ in the variables $X_h$ ($h \in A_0$) and $Y_i, Z_i$ ($i \in A_1$). The per-coordinate box \texttt{torusBox K A$_0$ A$_1$ T}, for $T \in \N^{A_0 \sqcup A_1}$, is the span of the monomials $X^a Y^b Z^c$ with $a_h \le T_h$ for every $h$ and $b_i + c_i \le T_i$ for every $i$; $J_0 = (Y_i Z_i - 1)_{i \in A_1}$ is the torus ideal \texttt{torusIdeal K A$_0$ A$_1$}, the kernel of $K[X, Y, Z] \to K[\mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}]$; a monomial $X^a Y^b Z^c$ is reduced when $\min(b_i, c_i) = 0$ for every $i$ (\texttt{torusReduced}). Assume that $A_1$ is finite. Then the list \texttt{torusList K A$_0$ A$_1$} of the generators $Y_i Z_i - 1$ of $J_0$, one for each $i \in A_1$, is a weakly regular sequence in $K[X, Y, Z]$. A list is weakly regular on $S$ when each entry is a nonzerodivisor on the quotient of $S$ by the ideal generated by the earlier entries (Mathlib's \texttt{IsWeaklyRegular}; the final quotient may be zero). For a list $ps_0$, $(ps_0)$ is the ideal generated by its entries and $|ps_0|$ its length.
+'''
+source = '''Classical commutative algebra. Compare \cite[Lemma 8.7]{Wal00} (\S8.3.1; Chapter 8 is by D. Roy), which shows that the ideals of algebraic subgroups in $K[X, Y, Z]$ are complete intersections.'''
+sketch = '''
+It suffices that $f_j = Y_j Z_j - 1$ is a nonzerodivisor modulo $I = (f_i : i \in s)$ for every $j$ and every set $s$ of indices not containing $j$. Separating the variables $Y_j, Z_j$ from the others writes $K[X, Y, Z]$ as $S[Y_j, Z_j]$, with $I = I_0 \cdot S[Y_j, Z_j]$ for an ideal $I_0$ of $S$, so the quotient is $(S/I_0)[Y_j, Z_j]$. There $Y_j Z_j - 1$ has constant coefficient $-1$, a unit, so it is a unit of the power series ring and hence a nonzerodivisor of the polynomial ring.
+'''
+
+[[node]]
+platform = "DiazModulus.exists_translation_algEquiv"
+root = true
+env = "lemma"
+title = 'Translations act by automorphisms'
+statement = '''
+Let $K$ be a field and $A_0, A_1$ types, and let $K[X, Y, Z]$ be the polynomial ring over $K$ in the variables $X_h$ ($h \in A_0$) and $Y_i, Z_i$ ($i \in A_1$). The per-coordinate box \texttt{torusBox K A$_0$ A$_1$ T}, for $T \in \N^{A_0 \sqcup A_1}$, is the span of the monomials $X^a Y^b Z^c$ with $a_h \le T_h$ for every $h$ and $b_i + c_i \le T_i$ for every $i$; $J_0 = (Y_i Z_i - 1)_{i \in A_1}$ is the torus ideal \texttt{torusIdeal K A$_0$ A$_1$}, the kernel of $K[X, Y, Z] \to K[\mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}]$; a monomial $X^a Y^b Z^c$ is reduced when $\min(b_i, c_i) = 0$ for every $i$ (\texttt{torusReduced}). Let $x \in K^{A_0}$ and $y \in (K^\times)^{A_1}$. Then there is a $K$-algebra automorphism $e$ of $K[X, Y, Z]$ with $e(X_h) = X_h + x_h$, $e(Y_i) = y_i Y_i$ and $e(Z_i) = y_i^{-1} Z_i$, which maps every per-coordinate box onto itself and maps $J_0$ onto itself ($e(J_0) = J_0$).
+'''
+source = '''Classical. Translations of \cite[\S5.3.2]{Wal00} (Chapter 5 is by D. Roy), written on $K[X, Y, Z]$ as in \S8.3.1 (Chapter 8 is by D. Roy).'''
+sketch = '''
+Define $e$ on the variables and its inverse by $X_h \mapsto X_h - x_h$, $Y_i \mapsto y_i^{-1} Y_i$, $Z_i \mapsto y_i Z_i$. Each sends a monomial $X^m$ into the span of the monomials with exponent $\le m$; every box is a lower set of exponents, so it is mapped into itself by both, hence onto itself. Finally $e(Y_i Z_i - 1) = y_i y_i^{-1} Y_i Z_i - 1 = Y_i Z_i - 1$.
+'''
+
+[[node]]
+platform = "DiazModulus.torus_coeff_poly"
+root = true
+env = "lemma"
+title = 'The polynomial of a coefficient vector'
+statement = '''
+Let $K$ be a field and $A_0, A_1$ types, and let $K[X, Y, Z]$ be the polynomial ring over $K$ in the variables $X_h$ ($h \in A_0$) and $Y_i, Z_i$ ($i \in A_1$). The per-coordinate box \texttt{torusBox K A$_0$ A$_1$ T}, for $T \in \N^{A_0 \sqcup A_1}$, is the span of the monomials $X^a Y^b Z^c$ with $a_h \le T_h$ for every $h$ and $b_i + c_i \le T_i$ for every $i$; $J_0 = (Y_i Z_i - 1)_{i \in A_1}$ is the torus ideal \texttt{torusIdeal K A$_0$ A$_1$}, the kernel of $K[X, Y, Z] \to K[\mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}]$; a monomial $X^a Y^b Z^c$ is reduced when $\min(b_i, c_i) = 0$ for every $i$ (\texttt{torusReduced}). Assume that $A_0$ and $A_1$ are finite, let $D_0, D_1 \in \N$, and let $c$ be a family of elements of $K$ indexed by the pairs $(\tau, s)$ with $\tau \in \{0, \dots, D_0\}^{A_0}$ and $s \in \{0, \dots, 2D_1\}^{A_1}$. Let $P_c$ be \texttt{torusCoeffPoly D$_0$ D$_1$ c}, that is $P_c = \sum_{\tau, s} c_{\tau,s}\, X^\tau \prod_i Y_i^{(s_i - D_1)_+} Z_i^{(D_1 - s_i)_+}$, with $(\cdot)_+$ the positive part. Then (i) $P_c$ lies in the box \texttt{boxD A$_0$ A$_1$ D$_0$ D$_1$} ($X_h$-degree at most $D_0$, $\deg_{Y_i} + \deg_{Z_i}$ at most $D_1$); (ii) if $c \ne 0$ then $P_c \notin J_0$; (iii) for every $x \in K^{A_0}$ and $y \in (K^\times)^{A_1}$, the value of $P_c$ at the point \texttt{torusPoint x y} $= (x, y, y^{-1})$ is $\sum_{\tau, s} c_{\tau,s} \prod_h x_h^{\tau_h} \prod_i y_i^{s_i - D_1}$, with the integer exponents $s_i - D_1 \in \{-D_1, \dots, D_1\}$.
+'''
+source = '''The polynomials $P=\sum c\,X^\tau Y^t$ of \cite[Th.~8.1]{Wal00} (\S8.1, p. 232; Chapter 8 is by D. Roy), for $G=\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$, written in $K[X, Y, Z]$ as in \S8.3.1. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+(i) Each monomial of $P_c$ has $X_h$-degree $\tau_h \le D_0$ and $(Y_i, Z_i)$-degree $(s_i - D_1)_+ + (D_1 - s_i)_+ = |s_i - D_1| \le D_1$. (ii) The monomials of $P_c$ are reduced, since one of the two positive parts vanishes, and distinct $(\tau, s)$ give distinct monomials, since $s_i = D_1 + (s_i - D_1)_+ - (D_1 - s_i)_+$; so if $P_c \in J_0$, Lemma~\ref{lem:torus_reduced_inf_eq_bot} gives $P_c = 0$ and every $c_{\tau,s}$, a coefficient of $P_c$, is $0$. (iii) Evaluation is a ring map, and $y_i^{(s_i - D_1)_+} (y_i^{-1})^{(D_1 - s_i)_+} = y_i^{s_i - D_1}$.
+'''
+
+[[node]]
+platform = "DiazModulus.le_of_forall_mul_pow_le"
+env = "lemma"
+title = 'Extracting a leading coefficient'
+statement = '''
+Let $a, b, c, n \in \N$. If $a u^n \le b (u + c)^n$ for every integer $u \ge 1$, then $a \le b$.
+'''
+source = '''Elementary. A replacement for the limits defining the normalised leading coefficient in \cite[\S8.2.2]{Wal00} (p. 235; Chapter 8 is by D. Roy).'''
+sketch = '''
+Dividing by $u^n$ gives $a \le b (1 + c/u)^n$ for every $u \ge 1$; as $u \to \infty$ the right side tends to $b$, and a bound that holds eventually passes to the limit.
+'''
+
+[[node]]
+platform = "DiazModulus.box_ray_upper_bound"
+env = "lemma"
+title = 'Box counts along a ray: an upper bound'
+statement = '''
+Let $A_0, A_1$ be finite types with $d_0$ and $d_1$ elements, $D_0, D_1 \ge 1$ and $v \in \N$. Then $(vD_0 + 1)^{d_0} (2vD_1 + 1)^{d_1} \le (v+1)^{d_0+d_1} D_0^{d_0} (2D_1)^{d_1}$ (the left side is written in Lean as a product of constant factors over $A_0$ and over $A_1$).
+'''
+source = '''Elementary. The number of monomials of the box $(vD_0; vD_1)$, compare \cite[Prop.~5.7]{Wal00} (\S5.3.1, p. 159; Chapter 5 is by D. Roy).'''
+sketch = '''
+Since $D_0, D_1 \ge 1$, $vD_0 + 1 \le (v+1) D_0$ and $2vD_1 + 1 \le (v+1)(2D_1)$; take powers and regroup the factors $v + 1$.
+'''
+
+[[node]]
+platform = "DiazModulus.box_ray_lower_bound"
+root = true
+env = "lemma"
+title = 'Box counts along a ray: a lower bound'
+statement = '''
+Let $H$ and $J$ be finite sets (of elements of arbitrary types) and $D_0, D_1, u \in \N$. Then $u^{|H|+|J|} D_0^{|H|} D_1^{|J|} \le (uD_0 + 1)^{|H|} (2uD_1 + 1)^{|J|}$ (the right side is written in Lean as a product of constant factors over $H$ and over $J$). No hypothesis is needed.
+'''
+source = '''Elementary. A partial count of the box $(uD_0; uD_1)$, compare \cite[Prop.~5.7]{Wal00} (\S5.3.1, p. 159; Chapter 5 is by D. Roy).'''
+sketch = '''
+The left side is $(uD_0)^{|H|} (uD_1)^{|J|}$, and $uD_0 \le uD_0 + 1$, $uD_1 \le 2uD_1 + 1$; take powers and multiply.
+'''
+
+[[node]]
+platform = "DiazModulus.boxHilb_hilbert_side"
+env = "proposition"
+title = 'The Hilbert side, abstract form'
+statement = '''
+Let $K$ be a field, $S$ a commutative $K$-algebra, $B$ a type, and $F$ a family of $K$-subspaces $F_T$ of $S$ indexed by $T \in \N^B$ (a filtration, on which only the hypotheses listed are assumed). Assume that $K$ is infinite, $S$ is Noetherian, $B$ is finite, $F$ is monotone ($T \le T'$ coordinatewise implies $F_T \subseteq F_{T'}$), $F$ is multiplicative ($a \in F_T$ and $b \in F_U$ imply $ab \in F_{T+U}$) and every $F_T$ is finite-dimensional, and let \texttt{hU : UnmixedHeight S}. Let $ps_0$ be a weakly regular list on $S$, $D \in \N^B$ with $D_b \ge 1$ for every $b$, $V$ a $K$-subspace of $S$ with $V \subseteq F_D$, and $r, n \in \N$; assume that every prime ideal of $S$ containing $(ps_0) + (V)$ has height at least $|ps_0| + r$. Let $\kappa \in \N$ with $h_{(ps_0)}(vD) \le \kappa (v+1)^n$ for every $v \in \N$, and let $\lambda \in \N$ and $C \in \N^B$ with $\lambda u^{n-r} \le h_{(ps_0)+(V)}(uD + C)$ for every integer $u \ge 1$, where $n - r$ is truncated at $0$. Then $\lambda\, 2^{r(r-1)/2} \le \kappa\, 2^{rn}$. No condition $r \le n$ is assumed. For an ideal $I$ of $S$, $h_I(T)$ is \texttt{boxHilb F I T}, the dimension over $K$ of the image of $F_T$ in $S/I$ (DALAG's $H(I; T)$). A list is weakly regular on $S$ when each entry is a nonzerodivisor on the quotient of $S$ by the ideal generated by the earlier entries (Mathlib's \texttt{IsWeaklyRegular}; the final quotient may be zero). For a list $ps_0$, $(ps_0)$ is the ideal generated by its entries and $|ps_0|$ its length. Heights of prime ideals are taken in $\N \cup \{\infty\}$, and $(V)$ is the ideal generated by $V$. The hypothesis \texttt{hU : UnmixedHeight S} is assumed here, not proved: it says that for every weakly regular sequence $r_1, \dots, r_k$ of the ring, every associated prime of the quotient by $(r_1, \dots, r_k)$ has height at most $k$. For polynomial rings over a field it follows from Macaulay's unmixedness theorem (DALAG \S8.2.1); it is not proved in the library.
+'''
+source = '''Finite-level form of the comparison of Hilbert functions in \cite[\S8.4.1]{Wal00} (pp. 245–247; Chapter 8 is by D. Roy), the proof of Th. 8.1 for $G^-=\{e\}$, through (8.21). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Let $I = (ps_0)$, $I' = (ps_0) + (V)$ and $j = \max_b C_b$. Since $D \ge 1$, $uD + C \le wD$ with $w = u + j$, so by Lemma~\ref{lem:boxHilb_mono} $\lambda u^{n-r} \le h_{I'}(wD)$. Proposition~\ref{prop:boxHilb_le_of_height} at $w$ and the upper bound give $2^{r(r-1)/2} w^r h_{I'}(wD) \le h_I(2^r w D) \le \kappa (2^r w + 1)^n$. For $u \ge 1$, $u^n \le u^{n-r} w^r$ for every $r$ (if $r > n$ then $u^{n-r} = 1$ and $u^n \le u^r$), and $2^r w + 1 \le 2^r (w + 1)$, so $\lambda\, 2^{r(r-1)/2} u^n \le \kappa\, 2^{rn} (u + j + 1)^n$ for all $u \ge 1$, and Lemma~\ref{lem:le_of_forall_mul_pow_le} concludes.
+'''
+
+[[node]]
+platform = "DiazModulus.torus_hilbert_side"
+root = true
+env = "theorem"
+title = 'The Hilbert side of the multiplicity estimate'
+statement = '''
+Let $K$ be a field and $A_0, A_1$ types, and let $K[X, Y, Z]$ be the polynomial ring over $K$ in the variables $X_h$ ($h \in A_0$) and $Y_i, Z_i$ ($i \in A_1$). The per-coordinate box \texttt{torusBox K A$_0$ A$_1$ T}, for $T \in \N^{A_0 \sqcup A_1}$, is the span of the monomials $X^a Y^b Z^c$ with $a_h \le T_h$ for every $h$ and $b_i + c_i \le T_i$ for every $i$; $J_0 = (Y_i Z_i - 1)_{i \in A_1}$ is the torus ideal \texttt{torusIdeal K A$_0$ A$_1$}, the kernel of $K[X, Y, Z] \to K[\mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}]$; a monomial $X^a Y^b Z^c$ is reduced when $\min(b_i, c_i) = 0$ for every $i$ (\texttt{torusReduced}). Assume that $K$ is infinite and that $A_0, A_1$ are finite, with $d_0$ and $d_1$ elements, and put $d = d_0 + d_1$; let \texttt{hU : UnmixedHeight K[X, Y, Z]}. Let $D_0, D_1 \ge 1$, let $V$ be a $K$-subspace of the box \texttt{boxD A$_0$ A$_1$ D$_0$ D$_1$} ($X_h$-degree at most $D_0$, $\deg_{Y_i} + \deg_{Z_i}$ at most $D_1$), and $r \in \N$; assume that every prime ideal of $K[X, Y, Z]$ containing $J_0 + (V)$ has height at least $d_1 + r$. Let $\lambda \in \N$ and $C \in \N^{A_0 \sqcup A_1}$ with $\lambda u^{d-r} \le h_{J_0 + (V)}(uD + C)$ for every integer $u \ge 1$, where $D$ is the multidegree equal to $D_0$ on $A_0$ and $D_1$ on $A_1$, $h$ is the Hilbert function of the per-coordinate boxes and $d - r$ is truncated at $0$. Then $\lambda\, 2^{r(r-1)/2} \le 2^{rd} D_0^{d_0} (2D_1)^{d_1}$. No condition $r \le d$ is assumed. Heights of prime ideals are taken in $\N \cup \{\infty\}$, and $(V)$ is the ideal generated by $V$. The hypothesis \texttt{hU : UnmixedHeight K[X, Y, Z]} is assumed here, not proved: it says that for every weakly regular sequence $r_1, \dots, r_k$ of the ring, every associated prime of the quotient by $(r_1, \dots, r_k)$ has height at most $k$. For polynomial rings over a field it follows from Macaulay's unmixedness theorem (DALAG \S8.2.1); it is not proved in the library.
+'''
+source = '''Finite-level form of the comparison of Hilbert functions in \cite[\S8.4.1]{Wal00} (pp. 245–247; Chapter 8 is by D. Roy), for $G=\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$ through $K[X, Y, Z]$ (\S8.3.1). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+Apply Proposition~\ref{prop:boxHilb_hilbert_side} to $S = K[X, Y, Z]$ with the boxes as filtration (monotone by \texttt{Diaz.blockBox\_mono}, multiplicative and finite-dimensional by Lemma~\ref{lem:restrictSupport_block_filtration}), the base list of the generators $Y_i Z_i - 1$ (weakly regular by Lemma~\ref{lem:isWeaklyRegular_torusList}, of length $d_1$, generating $J_0$), the ray $D \ge 1$ and $n = d$. The upper count $h_{J_0}(vD) = (vD_0 + 1)^{d_0} (2vD_1 + 1)^{d_1}$ is Proposition~\ref{prop:boxHilb_torusIdeal}, and Lemma~\ref{lem:box_ray_upper_bound} bounds it by $\kappa (v+1)^d$ with $\kappa = D_0^{d_0} (2D_1)^{d_1}$.
+'''
+
+[[node]]
+platform = "DiazModulus.le_hME_constant"
+root = true
+env = "lemma"
+title = 'The constant of the multiplicity estimate'
+statement = '''
+Let $\lambda, r, d_0, d_1, D_0, D_1 \in \N$ and $d = d_0 + d_1$. If $\lambda\, 2^{r(r-1)/2} \le 2^{rd} D_0^{d_0} (2D_1)^{d_1}$, then $\lambda \le 2^{d(d+1)/2}\, d!\, 2^{d_1} d_0^{d_0} \cdot D_0^{d_0} D_1^{d_1}$, with $0^0 = 1$ (the exponents $r(r-1)/2$ and $d(d+1)/2$ are integers). For $d_0 = |A_0|$ and $d_1 = |A_1|$ the factor $2^{d(d+1)/2}\, d!\, 2^{d_1} d_0^{d_0}$ is the constant $K_d$ of the hypothesis \texttt{hME} (the proposition \texttt{Diaz.MultiplicityEstimateElem} of the library), the elementary multiplicity estimate.
+'''
+source = '''Elementary. The constant is that of the elementary multiplicity estimate, the case $G^-=\{e\}$ of \cite[Th.~8.1]{Wal00} (\S8.1, p. 232; Chapter 8 is by D. Roy), in coordinates. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).'''
+sketch = '''
+For every $r$, $rd \le d(d+1)/2 + r(r-1)/2$, since $d(d+1) + r(r-1) - 2rd = (d - r)(d - r + 1) \ge 0$. So $2^{rd} \le 2^{d(d+1)/2} 2^{r(r-1)/2}$, and cancelling $2^{r(r-1)/2}$ gives $\lambda \le 2^{d(d+1)/2} 2^{d_1} D_0^{d_0} D_1^{d_1}$; the factors $d!$ and $d_0^{d_0}$ are at least $1$.
 '''

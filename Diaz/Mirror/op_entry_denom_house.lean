@@ -148,7 +148,7 @@ lemma op_coeff (c1 : ι₀ → K) (c : K) (P : MvPolynomial ι₀ K) (ν : ι₀
       Module.End K (MvPolynomial ι₀ K)) P).coeff ν
       = ∑ h, c1 h * (P.coeff (ν + Finsupp.single h 1) * ((ν h : K) + 1))
         + c * P.coeff ν := by
-  simp [LinearMap.add_apply, MvPolynomial.coeff_sum, MvPolynomial.coeff_pderiv]
+  simp [LinearMap.add_apply, MvPolynomial.coeff_pderiv]
 
 lemma prod_X_pow_eq (τ : ι₀ → ℕ) :
     (∏ h, MvPolynomial.X h ^ τ h : MvPolynomial ι₀ K)

@@ -1,0 +1,115 @@
+/-
+Mirrored from Prove2Me: `DiazModulus.torus_reduced_inf_eq_bot`.
+
+Ported mechanically from the accepted submission archived as
+`archive/prove2me/DiazModulus.torus_reduced_inf_eq_bot__27188bef.lean`. Statement and proof are the platform's; only
+imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
+-/
+import Mathlib
+import Diaz.HilbertBox
+
+namespace Diaz
+
+open Complex ComplexConjugate
+
+/-! # Reduced combinations meet the torus ideal only in 0
+
+Write a monomial of `K[X, Y, Z]` as `X^a Y^b Z^c`. Its reduced form `torus_reduced_inf_eq_bot_red m` replaces, for every
+`i`, the pair `(b_i, c_i)` by `(b_i − c_i, c_i − b_i)` (truncated subtraction), and leaves the
+`X`-exponents alone. It is reduced, it fixes reduced exponents, and it is unchanged when
+`b_i` and `c_i` both go up by one.
+
+Let `ρ` be the `K`-linear map `monomial m c ↦ monomial (torus_reduced_inf_eq_bot_red m) c` (`AddMonoidAlgebra.mapDomainLinearMap`). The
+last property says `ρ (q · Y_i Z_i) = ρ q` for every `q` (check it on monomials), hence
+`ρ (q · (Y_i Z_i − 1)) = 0`, and `ρ` vanishes on the torus ideal
+(`Finsupp.mem_ideal_span_range_iff_exists_finsupp`). On a combination of reduced monomials `ρ`
+is the identity (`MvPolynomial.as_sum`). So a reduced combination in the ideal equals its
+image under `ρ`, which is `0`. The argument is purely combinatorial: K is any field. -/
+
+namespace C11_T3
+open MvPolynomial
+
+variable {A₀ A₁ : Type*}
+
+/-- The `Y`/`Z` torus_reduced_inf_eq_bot_partner exponent that `torus_reduced_inf_eq_bot_red` subtracts (none for the `X` variables). -/
+def torus_reduced_inf_eq_bot_partner (m : A₀ ⊕ (A₁ × Bool) →₀ ℕ) (v : A₀ ⊕ (A₁ × Bool)) : ℕ :=
+  Sum.elim (fun _ => 0) (fun q : A₁ × Bool => m (Sum.inr (q.1, !q.2))) v
+
+/-- The reduced form of an exponent: `(a, b, c) ↦ (a, b − c, c − b)`. -/
+noncomputable def torus_reduced_inf_eq_bot_red (m : A₀ ⊕ (A₁ × Bool) →₀ ℕ) : A₀ ⊕ (A₁ × Bool) →₀ ℕ :=
+  Finsupp.ofSupportFinite (fun v => m v - torus_reduced_inf_eq_bot_partner m v)
+    (m.support.finite_toSet.subset fun v hv => by
+      simp only [Function.mem_support, ne_eq, Finset.mem_coe, Finsupp.mem_support_iff] at hv ⊢
+      intro h0
+      exact hv (by rw [h0, Nat.zero_sub]))
+
+theorem torus_reduced_inf_eq_bot_red_apply (m : A₀ ⊕ (A₁ × Bool) →₀ ℕ) (v : A₀ ⊕ (A₁ × Bool)) :
+    torus_reduced_inf_eq_bot_red m v = m v - torus_reduced_inf_eq_bot_partner m v := rfl
+
+theorem red_eq_self {m : A₀ ⊕ (A₁ × Bool) →₀ ℕ} (hm : m ∈ torusReduced A₀ A₁) : torus_reduced_inf_eq_bot_red m = m := by
+  ext v
+  rcases v with h | ⟨i, b⟩
+  · simp [torus_reduced_inf_eq_bot_red_apply, torus_reduced_inf_eq_bot_partner]
+  · have := hm i
+    cases b <;> simp only [torus_reduced_inf_eq_bot_red_apply, torus_reduced_inf_eq_bot_partner, Sum.elim_inr, Bool.not_true, Bool.not_false] <;>
+      omega
+
+theorem torus_reduced_inf_eq_bot_red_add_pair (m : A₀ ⊕ (A₁ × Bool) →₀ ℕ) (i : A₁) :
+    torus_reduced_inf_eq_bot_red (m + Finsupp.single (Sum.inr (i, true)) 1 + Finsupp.single (Sum.inr (i, false)) 1)
+      = torus_reduced_inf_eq_bot_red m := by
+  classical
+  ext v
+  rcases v with h | ⟨j, b⟩
+  · simp [torus_reduced_inf_eq_bot_red_apply, torus_reduced_inf_eq_bot_partner]
+  · by_cases hj : j = i
+    · subst hj
+      cases b <;> simp [torus_reduced_inf_eq_bot_red_apply, torus_reduced_inf_eq_bot_partner, Finsupp.single_apply]
+    · simp [torus_reduced_inf_eq_bot_red_apply, torus_reduced_inf_eq_bot_partner, Finsupp.single_apply, Ne.symm hj]
+
+/-- The reduction map `monomial m c ↦ monomial (torus_reduced_inf_eq_bot_red m) c`. -/
+noncomputable def rho (K : Type*) [Field K] :
+    MvPolynomial (A₀ ⊕ (A₁ × Bool)) K →ₗ[K] MvPolynomial (A₀ ⊕ (A₁ × Bool)) K :=
+  AddMonoidAlgebra.mapDomainLinearMap K K torus_reduced_inf_eq_bot_red
+
+theorem rho_monomial (K : Type*) [Field K] (m : A₀ ⊕ (A₁ × Bool) →₀ ℕ) (c : K) :
+    rho K (monomial m c) = monomial (torus_reduced_inf_eq_bot_red m) c :=
+  AddMonoidAlgebra.mapDomainLinearMap_single _ _ _
+
+theorem rho_mul_pair (K : Type*) [Field K] (i : A₁) (q : MvPolynomial (A₀ ⊕ (A₁ × Bool)) K) :
+    rho K (q * (X (Sum.inr (i, true)) * X (Sum.inr (i, false)))) = rho K q := by
+  induction q using MvPolynomial.induction_on' with
+  | monomial m c =>
+    rw [X, X, ← mul_assoc, monomial_mul_monomial, monomial_mul_monomial, mul_one, mul_one, rho_monomial,
+      rho_monomial, torus_reduced_inf_eq_bot_red_add_pair]
+  | add p q hp hq => rw [add_mul, map_add, map_add, hp, hq]
+
+theorem rho_eq_zero_of_mem (K : Type*) [Field K] {p : MvPolynomial (A₀ ⊕ (A₁ × Bool)) K}
+    (hp : p ∈ torusIdeal K A₀ A₁) : rho K p = 0 := by
+  obtain ⟨c, rfl⟩ := Finsupp.mem_ideal_span_range_iff_exists_finsupp.mp hp
+  rw [Finsupp.sum, map_sum]
+  refine Finset.sum_eq_zero fun i _ => ?_
+  rw [mul_sub, mul_one, map_sub, rho_mul_pair, sub_self]
+
+theorem rho_eq_self (K : Type*) [Field K] {p : MvPolynomial (A₀ ⊕ (A₁ × Bool)) K}
+    (hp : p ∈ restrictSupport K (torusReduced A₀ A₁)) : rho K p = p := by
+  calc rho K p = ∑ m ∈ p.support, rho K (monomial m (p.coeff m)) := by
+        rw [← map_sum, ← p.as_sum]
+    _ = ∑ m ∈ p.support, monomial m (p.coeff m) :=
+        Finset.sum_congr rfl fun m hm => by rw [rho_monomial, red_eq_self (hp hm)]
+    _ = p := p.as_sum.symm
+
+end C11_T3
+
+open C11_T3 in
+theorem torus_reduced_inf_eq_bot {K A₀ A₁ : Type*} [Field K] :
+    MvPolynomial.restrictSupport K (torusReduced A₀ A₁)
+      ⊓ Submodule.restrictScalars K (torusIdeal K A₀ A₁) = ⊥ := by
+  rw [Submodule.eq_bot_iff]
+  intro p hp
+  rw [Submodule.mem_inf, Submodule.restrictScalars_mem] at hp
+  rw [← rho_eq_self K hp.1, rho_eq_zero_of_mem K hp.2]
+
+end Diaz

@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.36, 29 October 2026}
+\date{September 2026\\[2pt]\small Version 1.37, 29 October 2026}
 
 \begin{document}
 \maketitle
@@ -129,9 +129,20 @@ results take it as a hypothesis. Since version 1.36 it is machine-checked too, b
 hypothesis $(\mathrm{ME})$: the case $G^{-}=\{e\}$, $G^{+}=G$ of the multiplicity estimate~\cite[Theorem~8.1]{waldschmidt-book}
 of Philippon~\cite{philippon-1986}, for $G=\mathbb{G}_{a}^{A_{0}}\times\mathbb{G}_{m}^{A_{1}}$, written in coordinates.
 The formal proof derives Roy's theorem from $(\mathrm{ME})$ along~\cite[\S\S11.6--11.7]{waldschmidt-book}, through
-the linear subgroup theorem~\cite[Theorem~11.21]{waldschmidt-book}; $(\mathrm{ME})$ itself remains unproved formally,
-and so does its derivation from Theorem~8.1. Every result below that is machine-checked with Roy's theorem as a
-hypothesis therefore holds, formally, under $(\mathrm{ME})$ alone.
+the linear subgroup theorem~\cite[Theorem~11.21]{waldschmidt-book}; $(\mathrm{ME})$ itself remains unproved formally
+(but see below), and so does its derivation from Theorem~8.1. Every result below that is machine-checked with
+Roy's theorem as a hypothesis therefore holds, formally, under $(\mathrm{ME})$ alone.
+
+Since version 1.37 the Hilbert-function half of $(\mathrm{ME})$ is machine-checked as well, at finite level, with
+inequalities between dimensions of boxes of polynomials and no Hilbert polynomials, under one further explicit
+hypothesis $(\mathrm{U})$: Macaulay's unmixedness, in the form that for every weakly regular sequence of the ring,
+every associated prime of the quotient has height at most its length~\cite[\S8.2.1]{waldschmidt-book}. It covers
+the chain bound~\cite[Theorem~8.8]{waldschmidt-book} at finite level, the model of
+$\mathbb{G}_{a}^{A_{0}}\times\mathbb{G}_{m}^{A_{1}}$ inside $K[X,Y,Z]$ (the torus ideal, its reduced monomials and
+its translations), and the Hilbert side of~\cite[Proposition~5.14]{waldschmidt-book} on the boxes of
+$(\mathrm{ME})$. These are routine finite-level forms of Chapters~5 and~8 of~\cite{waldschmidt-book} (Chapter~8 is by D.~Roy).
+$(\mathrm{U})$ is not proved formally, and neither is the multiplicity side of $(\mathrm{ME})$, so $(\mathrm{ME})$ remains
+a hypothesis.
 
 \begin{conjecture}[Strong four exponentials]\label{conj:sfe}
 Let $x_{1},x_{2}$ be linearly independent over $\Alg$ and let $y_{1},y_{2}$ be linearly
@@ -2358,7 +2369,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.36 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.37 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2452,8 +2463,11 @@ which version 1.34 had checked by computation only, is proved, and which source 
 Version 1.36 records, on 29 October 2026, that Roy's strong six exponentials theorem is machine-checked from one
 explicit hypothesis, the multiplicity estimate $(\mathrm{ME})$ of Section~\ref{sec:setting}, which is not proved
 formally; the passages that said Roy's theorem has no formal proof now say so.
+Version 1.37 records, on 29 October 2026, that the Hilbert-function half of $(\mathrm{ME})$ is machine-checked at
+finite level, under Macaulay's unmixedness $(\mathrm{U})$ as an explicit hypothesis (Section~\ref{sec:setting});
+$(\mathrm{U})$ and the multiplicity side of $(\mathrm{ME})$ are not proved formally.
 Every row of the table below was checked against the platform by script on 29 October 2026, and
-the mirrored project held all 529 proved results of the development at that date.
+the mirrored project held all 559 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2575,6 +2589,7 @@ Thm~\ref{thm:multiplier} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_
 Cor.~\ref{cor:square} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 \S\ref{sec:setting}, Roy's theorem from $(\mathrm{ME})$ & Proved & \nolinkurl{DiazModulus.strong_six_exponentials}, \nolinkurl{DiazModulus.linear_subgroup_transcendence} \\
+\S\ref{sec:setting}, the Hilbert side of $(\mathrm{ME})$ under $(\mathrm{U})$ & Proved & \nolinkurl{DiazModulus.torus_hilbert_side}, \nolinkurl{DiazModulus.boxHilb_le_of_height} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

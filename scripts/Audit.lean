@@ -162,3 +162,10 @@ import Solution
 #print axioms Diaz.strongSixExponentials_of_multiplicityEstimateElem
 #print axioms Diaz.strong_six_exponentials
 #print axioms Diaz.linear_subgroup_transcendence
+
+-- The Hilbert side of the multiplicity estimate (C1.1, 29 October 2026): the chain bound
+-- (DALAG Th. 8.8 at finite level), the Hilbert side on hME's boxes, and the translates bound.
+-- Unmixedness `hU : UnmixedHeight _` is a hypothesis of the chain bound and of the Hilbert side.
+#print axioms Diaz.boxHilb_le_of_height
+#print axioms Diaz.torus_hilbert_side
+#print axioms Diaz.exists_card_mul_boxHilb_le_translates

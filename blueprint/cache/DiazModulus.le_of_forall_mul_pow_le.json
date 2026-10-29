@@ -1,0 +1,22 @@
+{
+ "theorem_id": "57d72586-7ca5-42f3-b81f-16330c9c5034",
+ "theorem_name": "DiazModulus.le_of_forall_mul_pow_le",
+ "theorem_title": "Leading-coefficient extraction: if $a u^n \\le b (u + c)^n$ for every integer $u \\ge 1$, then $a \\le b$",
+ "status": "Proved",
+ "formal_statement": "namespace DiazModulus\n\ntheorem le_of_forall_mul_pow_le (a b c n : ℕ) (h : ∀ u : ℕ, 1 ≤ u → a * u ^ n ≤ b * (u + c) ^ n) :\n    a ≤ b := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $a, b, c, n \\in \\mathbb{N}$. If $a u^n \\le b (u + c)^n$ for every integer $u \\ge 1$, then $a \\le b$.\n\n**Proof.** Dividing by $u^n$ gives $a \\le b (1 + c/u)^n$ for every $u \\ge 1$; as $u \\to \\infty$ the right side tends to $b$, and a bound that holds eventually passes to the limit.\n\n**Novelty.** Classical; routine formalisation. It stands in for the leading-coefficient limits of DALAG §8.2.2 (p. 235) and of the proof of Th. 8.18 (p. 245).",
+ "created_at": "2026-10-29T08:04:48.803722+00:00",
+ "tags": [
+  "commutative-algebra",
+  "diaz-modulus-lean",
+  "hilbert-function",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Elementary. A replacement for the limits defining the normalised leading coefficient in M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, §8.2.2 (p. 235; Chapter 8 is by D. Roy). C1.1 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 29 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
