@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.37, 29 October 2026}
+\date{September 2026\\[2pt]\small Version 1.38, 29 October 2026}
 
 \begin{document}
 \maketitle
@@ -141,8 +141,13 @@ the chain bound~\cite[Theorem~8.8]{waldschmidt-book} at finite level, the model 
 $\mathbb{G}_{a}^{A_{0}}\times\mathbb{G}_{m}^{A_{1}}$ inside $K[X,Y,Z]$ (the torus ideal, its reduced monomials and
 its translations), and the Hilbert side of~\cite[Proposition~5.14]{waldschmidt-book} on the boxes of
 $(\mathrm{ME})$. These are routine finite-level forms of Chapters~5 and~8 of~\cite{waldschmidt-book} (Chapter~8 is by D.~Roy).
-$(\mathrm{U})$ is not proved formally, and neither is the multiplicity side of $(\mathrm{ME})$, so $(\mathrm{ME})$ remains
-a hypothesis.
+Since version 1.38 $(\mathrm{U})$ is machine-checked as well for the polynomial rings $K[X_\sigma]$, $K$
+algebraically closed and $\sigma$ finite: the inequality half of Macaulay's unmixedness
+theorem~\cite{macaulay-1916}, \cite[Theorem~2.1.6]{bruns-herzog}, proved locally with regular sequences and Rees'
+characterisation of them through $\mathrm{Ext}$. Since $K[X,Y,Z]$ above is such a ring, the Hilbert side of
+$(\mathrm{ME})$ holds formally over $\mathbb{C}$ without $(\mathrm{U})$. This is a routine formalisation of a classical
+theorem. The multiplicity side of $(\mathrm{ME})$, and the assembly of $(\mathrm{ME})$ from its two sides, are not proved
+formally, so $(\mathrm{ME})$ remains a hypothesis.
 
 \begin{conjecture}[Strong four exponentials]\label{conj:sfe}
 Let $x_{1},x_{2}$ be linearly independent over $\Alg$ and let $y_{1},y_{2}$ be linearly
@@ -2326,6 +2331,10 @@ Cambridge Univ. Press, 1988, 375--398.
 Groups}, Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2000.
 \bibitem{philippon-1986} P.~Philippon, \emph{Lemmes de z\'eros dans les groupes alg\'ebriques
 commutatifs}, Bull. Soc. Math. France \textbf{114} (1986), 355--383.
+\bibitem{macaulay-1916} F.~S.~Macaulay, \emph{The Algebraic Theory of Modular Systems}, Cambridge University
+Press, 1916.
+\bibitem{bruns-herzog} W.~Bruns and J.~Herzog, \emph{Cohen--Macaulay Rings}, Cambridge Studies in Advanced
+Mathematics \textbf{39}, Cambridge University Press, 1993.
 \bibitem{waldschmidt-2005a} M.~Waldschmidt, \emph{Variations on the six exponentials theorem}, in
 \emph{Algebra and Number Theory} (R.~Tandon, ed.), Hindustan Book Agency, 2005.
 \bibitem{waldschmidt-2005b} M.~Waldschmidt, \emph{Further variations on the six exponentials
@@ -2369,7 +2378,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.37 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.38 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2466,8 +2475,11 @@ formally; the passages that said Roy's theorem has no formal proof now say so.
 Version 1.37 records, on 29 October 2026, that the Hilbert-function half of $(\mathrm{ME})$ is machine-checked at
 finite level, under Macaulay's unmixedness $(\mathrm{U})$ as an explicit hypothesis (Section~\ref{sec:setting});
 $(\mathrm{U})$ and the multiplicity side of $(\mathrm{ME})$ are not proved formally.
+Version 1.38 records, on 29 October 2026, that $(\mathrm{U})$ is machine-checked for polynomial rings over an
+algebraically closed field, so that the Hilbert side of $(\mathrm{ME})$ holds formally over $\mathbb{C}$ without
+$(\mathrm{U})$ (Section~\ref{sec:setting}); the multiplicity side of $(\mathrm{ME})$ is not proved formally.
 Every row of the table below was checked against the platform by script on 29 October 2026, and
-the mirrored project held all 559 proved results of the development at that date.
+the mirrored project held all 564 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2590,6 +2602,7 @@ Cor.~\ref{cor:square} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_mod
 Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_module} \\
 \S\ref{sec:setting}, Roy's theorem from $(\mathrm{ME})$ & Proved & \nolinkurl{DiazModulus.strong_six_exponentials}, \nolinkurl{DiazModulus.linear_subgroup_transcendence} \\
 \S\ref{sec:setting}, the Hilbert side of $(\mathrm{ME})$ under $(\mathrm{U})$ & Proved & \nolinkurl{DiazModulus.torus_hilbert_side}, \nolinkurl{DiazModulus.boxHilb_le_of_height} \\
+\S\ref{sec:setting}, $(\mathrm{U})$ for polynomial rings & Proved & \nolinkurl{DiazModulus.unmixedHeight_mvPolynomial} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

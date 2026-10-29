@@ -7900,5 +7900,65 @@
   "bytes": 2748,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.unmixedHeight_mvPolynomial",
+  "theorem_id": "2e8fa4bf-b790-4b5b-b6ab-724ef34ed11a",
+  "submission_id": "276d4a67-1aea-4177-ae2a-f4bbf777da34",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-29T18:17:42.129414+00:00",
+  "file": "DiazModulus.unmixedHeight_mvPolynomial__276d4a67.lean",
+  "bytes": 5184,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.length_le_ringKrullDim_quotient_of_mem_associatedPrimes",
+  "theorem_id": "88516bfe-6134-4889-b5bc-dfbf91d7b394",
+  "submission_id": "8d51a7bd-fbf6-4738-89d1-e9e31cb027fa",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-29T18:21:31.422486+00:00",
+  "file": "DiazModulus.length_le_ringKrullDim_quotient_of_mem_associatedPrimes__8d51a7bd.lean",
+  "bytes": 6164,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.height_le_length_of_mem_associatedPrimes",
+  "theorem_id": "41574d7f-9b5f-4a02-962e-a12b5d3ce2bf",
+  "submission_id": "e45b8203-3032-4749-a1b3-1fd0abcb7392",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-29T18:19:25.515736+00:00",
+  "file": "DiazModulus.height_le_length_of_mem_associatedPrimes__e45b8203.lean",
+  "bytes": 4368,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.exists_isWeaklyRegular_vanishing",
+  "theorem_id": "0c231382-03f3-4bbb-9364-30ec18f5a859",
+  "submission_id": "57e88ed5-ebf5-453f-a57c-e9d01f1eb7d8",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-29T18:19:22.73249+00:00",
+  "file": "DiazModulus.exists_isWeaklyRegular_vanishing__57e88ed5.lean",
+  "bytes": 4340,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.exists_isRegular_quotient_ofList",
+  "theorem_id": "eab071ec-106a-4101-b73a-f7722bd91591",
+  "submission_id": "d927deab-7e9a-4d1e-9ee1-dbfd54bad20c",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-10-29T18:21:28.644946+00:00",
+  "file": "DiazModulus.exists_isRegular_quotient_ofList__d927deab.lean",
+  "bytes": 6495,
+  "imports_children": false,
+  "redacted_comments": false
  }
 ]

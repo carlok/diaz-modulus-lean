@@ -199,3 +199,18 @@ text = '''C.~Bachoc, A.~Couvreur and G.~Zémor, Towards a function field version
 key = "Phi86"
 label = "Phi86"
 text = '''P.~Philippon, Lemmes de z\'eros dans les groupes alg\'ebriques commutatifs, \emph{Bull. Soc. Math. France} 114 (1986), 355--383.'''
+
+[[reference]]
+key = "Mac16"
+label = "Mac16"
+text = '''F.~S.~Macaulay, \emph{The Algebraic Theory of Modular Systems}, Cambridge University Press, 1916.'''
+
+[[reference]]
+key = "BH93"
+label = "BH93"
+text = '''W.~Bruns and J.~Herzog, \emph{Cohen--Macaulay Rings}, Cambridge Studies in Advanced Mathematics 39, Cambridge University Press, 1993.'''
+
+[[reference]]
+key = "Mat86"
+label = "Mat86"
+text = '''H.~Matsumura, \emph{Commutative Ring Theory}, Cambridge Studies in Advanced Mathematics 8, Cambridge University Press, 1986.'''

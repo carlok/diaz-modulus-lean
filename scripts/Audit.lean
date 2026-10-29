@@ -169,3 +169,9 @@ import Solution
 #print axioms Diaz.boxHilb_le_of_height
 #print axioms Diaz.torus_hilbert_side
 #print axioms Diaz.exists_card_mul_boxHilb_le_translates
+
+-- Macaulay's unmixedness for polynomial rings (C1.2, 29 October 2026): `UnmixedHeight (MvPolynomial σ K)` for K
+-- algebraically closed and σ finite, the inequality half (Macaulay 1916; Bruns–Herzog Th. 2.1.6), and the Hilbert
+-- side of the multiplicity estimate over ℂ with `hU` supplied by it.
+#print axioms Diaz.unmixedHeight_mvPolynomial
+#print axioms Diaz.torus_hilbert_side_complex

@@ -8,8 +8,10 @@ rewritten (`DiazModulus` to `Diaz`); the definitions and lemmas are the platform
 
 It is the vocabulary of round C1.1, the finite-level Hilbert-function layer of the elementary
 multiplicity estimate `hME` (`Diaz.MultiplicityEstimate`). `UnmixedHeight` is Macaulay's
-unmixedness in the form C1.1 consumes. It is a proposition: nothing in the library proves it,
-and the ported C1.1 results that need it take it as the explicit hypothesis `hU`.
+unmixedness in the form C1.1 consumes. It is a proposition, and the ported C1.1 results that
+need it take it as the explicit hypothesis `hU`. The ported C1.2 node `Diaz.unmixedHeight_mvPolynomial`
+proves it for polynomial rings over an algebraically closed field, and `Diaz/HilbertSide.lean`
+uses that to state the Hilbert side over `ℂ` without `hU`.
 -/
 import Mathlib
 

@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-10-29): **559** of 559
+As of the latest archived submission (2026-10-29): **564** of 564
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -264,7 +264,9 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.exists_card_mul_boxHilb_le_translates` | yes | `Diaz/Mirror/exists_card_mul_boxHilb_le_translates.lean` | done |  |
 | `DiazModulus.exists_circle_point_transcendental_over_logAlgTilde_closure` | yes | `Diaz/Mirror/exists_circle_point_transcendental_over_logAlgTilde_closure.lean` | done |  |
 | `DiazModulus.exists_coord_complement` | yes | `Diaz/Mirror/exists_coord_complement.lean` | done |  |
+| `DiazModulus.exists_isRegular_quotient_ofList` | yes | `Diaz/Mirror/exists_isRegular_quotient_ofList.lean` | done |  |
 | `DiazModulus.exists_isWeaklyRegular_append_of_height` | yes | `Diaz/Mirror/exists_isWeaklyRegular_append_of_height.lean` | done |  |
+| `DiazModulus.exists_isWeaklyRegular_vanishing` | yes | `Diaz/Mirror/exists_isWeaklyRegular_vanishing.lean` | done |  |
 | `DiazModulus.exists_mem_forall_notMem_of_not_subset` | yes | `Diaz/Mirror/exists_mem_forall_notMem_of_not_subset.lean` | done |  |
 | `DiazModulus.exists_mem_isSMulRegular_of_associatedPrimes` | yes | `Diaz/Mirror/exists_mem_isSMulRegular_of_associatedPrimes.lean` | done |  |
 | `DiazModulus.exists_ne_zero_mulVec_eq_zero_of_minors` | yes | `Diaz/Mirror/exists_ne_zero_mulVec_eq_zero_of_minors.lean` | done |  |
@@ -295,6 +297,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.generic_qbar_homogeneous_four_exp_barrier` | yes | `Diaz/Mirror/generic_qbar_homogeneous_four_exp_barrier.lean` | done |  |
 | `DiazModulus.generic_quadratic_relation_is_norm` | yes | `Diaz/Mirror/generic_quadratic_relation_is_norm.lean` | done |  |
 | `DiazModulus.geometric_triple_not_logs` | yes | `Diaz/Mirror/geometric_triple_not_logs.lean` | done |  |
+| `DiazModulus.height_le_length_of_mem_associatedPrimes` | yes | `Diaz/Mirror/height_le_length_of_mem_associatedPrimes.lean` | done |  |
 | `DiazModulus.hermite_lindemann_holds` | yes | `Diaz/HermiteLindemann.lean` | done |  |
 | `DiazModulus.imag_axis_div_normalisation` | yes | `Diaz/Mirror/imag_axis_div_normalisation.lean` | done |  |
 | `DiazModulus.intMatrix_ker_facts` | yes | `Diaz/Mirror/intMatrix_ker_facts.lean` | done |  |
@@ -345,6 +348,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.le_hME_constant` | yes | `Diaz/Mirror/le_hME_constant.lean` | done |  |
 | `DiazModulus.le_of_forall_mul_pow_le` | yes | `Diaz/Mirror/le_of_forall_mul_pow_le.lean` | done |  |
 | `DiazModulus.leaf_iff_one` | yes | `Diaz/Quantisation.lean` | done |  |
+| `DiazModulus.length_le_ringKrullDim_quotient_of_mem_associatedPrimes` | yes | `Diaz/Mirror/length_le_ringKrullDim_quotient_of_mem_associatedPrimes.lean` | done |  |
 | `DiazModulus.linear_subgroup_transcendence` | yes | `Diaz/Mirror/linear_subgroup_transcendence.lean` | done |  |
 | `DiazModulus.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration` | yes | `Diaz/Mirror/logAlgTilde_adjoin_circle_point_no_two_by_three_configuration.lean` | done |  |
 | `DiazModulus.logAlgTilde_conj_stable` | yes | `Diaz/Mirror/logAlgTilde_conj_stable.lean` | done |  |
@@ -488,6 +492,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.two_pow_log_three_or_three_pow_log_two` | yes | `Diaz/Mirror/two_pow_log_three_or_three_pow_log_two.lean` | done |  |
 | `DiazModulus.two_sumset_iff_difference_count` | yes | `Diaz/Mirror/two_sumset_iff_difference_count.lean` | done |  |
 | `DiazModulus.two_three_five_pow_pi_transcendental` | yes | `Diaz/Mirror/two_three_five_pow_pi_transcendental.lean` | done |  |
+| `DiazModulus.unmixedHeight_mvPolynomial` | yes | `Diaz/Mirror/unmixedHeight_mvPolynomial.lean` | done |  |
 | `FourExp.aux_linear_system` | yes | `Diaz/Mirror/aux_linear_system.lean` | done |  |
 | `FourExp.aux_linear_system_column` | yes | `Diaz/Mirror/aux_linear_system_column.lean` | done |  |
 | `FourExp.auxiliary_construction` | yes | `Diaz/Mirror/auxiliary_construction.lean` | done |  |

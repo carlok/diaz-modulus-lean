@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 559 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 564 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -691,11 +691,12 @@ filtration, the boxes, the torus ideal (YᵢZᵢ − 1)ᵢ, and the proposition 
 
 - **The hypothesis hU.** `UnmixedHeight S` is Macaulay's unmixedness in the form the chain consumes: for every weakly
   regular sequence of `S`, every associated prime of the quotient has height at most its length. Like `hME`, it is
-  a `def` of a proposition, not an axiom, and it is not proved here. The chain bound and the Hilbert side take it
-  as the explicit argument `hU`.
+  a `def` of a proposition, not an axiom. The chain bound and the Hilbert side take it as the explicit argument
+  `hU`, and it is proved for polynomial rings over an algebraically closed field (below).
 - **The headline.** `DiazModulus.torus_hilbert_side` (milestone): on the boxes of `hME`, in K[X, Y, Z] modulo the
   torus ideal of 𝔾ₐ^{A₀} × 𝔾ₘ^{A₁}, λ·2^{r(r−1)/2} ≤ 2^{rd} D₀^{d₀} (2D₁)^{d₁}, under `hU`; with
-  `le_hME_constant` (milestone) this is the constant of `hME`.
+  `le_hME_constant` (milestone) this is the constant of `hME`. Over ℂ it holds without `hU`:
+  `Diaz.torus_hilbert_side_complex` (below).
 - **Hilbert functions of filtrations**: `boxHilb_add_finrank_inf` (rank–nullity), `boxHilb_mono`, `boxHilb_anti`,
   `card_le_boxHilb_of_linearIndependent`, `exists_boxHilb_family` (milestone), `boxHilb_map_algEquiv`,
   `sum_boxHilb_le_boxHilb_iInf` (DALAG Ex. 8.5(a)) and `exists_card_mul_boxHilb_le_translates` (milestone).
@@ -711,9 +712,31 @@ filtration, the boxes, the torus ideal (YᵢZᵢ − 1)ᵢ, and the proposition 
 - **The Hilbert side**: `le_of_forall_mul_pow_le`, `box_ray_upper_bound`, `box_ray_lower_bound` (milestone),
   `boxHilb_hilbert_side` (under `hU`), `torus_hilbert_side` and `le_hME_constant`.
 
-Not proved: `hU`, for polynomial rings over a field (round C1.2), and the multiplicity side of `hME` with the
-assembly of `hME` from its two sides (round C1.3). So `hME` is still a hypothesis, and Roy's theorem is still proved
-here only under it. The 30 modules have 2,326 lines in `Diaz/Mirror/`; none is over 200.
+The 30 modules have 2,326 lines in `Diaz/Mirror/`; none is over 200.
+
+**Unmixedness for polynomial rings.** Five more nodes of 29 October 2026 prove `hU` for polynomial rings over an
+algebraically closed field. `DiazModulus.unmixedHeight_mvPolynomial` (milestone; `[IsAlgClosed K] [Finite σ]`) is
+`UnmixedHeight (MvPolynomial σ K)`: the inequality half of Macaulay's unmixedness theorem for K[X_σ] (Macaulay 1916;
+Bruns–Herzog, *Cohen–Macaulay Rings*, Th. 2.1.6). The theorem is classical, and this is a formalisation of its known
+proof; the reverse inequality is not stated. The route is local and uses regular sequences only, with Rees' theorem
+from Mathlib (`ModuleCat.exists_isRegular_tfae`) as the one tool of depth theory:
+
+- `length_le_ringKrullDim_quotient_of_mem_associatedPrimes` (Matsumura Th. 17.2, for regular sequences): in a
+  Noetherian local ring, a weakly regular sequence in the maximal ideal is no longer than dim A/𝔭 for every
+  associated prime 𝔭.
+- `exists_isRegular_quotient_ofList` (Rees' theorem and the long exact Ext sequence): cutting by a weakly regular
+  sequence `ps` shortens a regular sequence in the maximal ideal by at most the length of `ps`.
+- `height_le_length_of_mem_associatedPrimes`: the local form of the unmixedness theorem, for a local ring with a
+  regular sequence as long as its dimension.
+- `exists_isWeaklyRegular_vanishing`: the Xᵢ − aᵢ form a weakly regular sequence in R[X_σ].
+- `unmixedHeight_mvPolynomial`: localise at a maximal ideal, which by the Nullstellensatz is the ideal of a point.
+- **The bridge.** `Diaz.torus_hilbert_side_complex` (`Diaz/HilbertSide.lean`) is `torus_hilbert_side` for K = ℂ with
+  `hU` supplied by `unmixedHeight_mvPolynomial`: the Hilbert side of `hME` over ℂ holds without `hU`. Its other
+  inputs, the height bound `hH` and the lower bound `hlow`, are what the multiplicity side has to supply.
+
+Not proved: the multiplicity side of `hME`, and the assembly of `hME` from its two sides (round C1.3). So `hME` is
+still a hypothesis, and Roy's theorem is still proved here only under it. The 5 modules have 563 lines in
+`Diaz/Mirror/`.
 
 ### Consequences of Roy's strong six exponentials theorem
 
@@ -1392,7 +1415,8 @@ It no longer declares anything as an axiom.
 A hypothesis is not an axiom. `MultiplicityEstimateElem` (`Diaz/MultiplicityEstimate.lean`), like the conjectures
 above, is a `def` of a proposition; the results that need it take it as the argument `hME`, so `#print axioms` lists
 only the three axioms for them too. The same holds for `UnmixedHeight` (`Diaz/HilbertBox.lean`), the argument `hU` of
-the Hilbert side of `hME`.
+the Hilbert side of `hME`; `DiazModulus.unmixedHeight_mvPolynomial` proves it for polynomial rings over an
+algebraically closed field.
 
 Gelfond–Schneider is proved too: `GelfondSchneider.gelfond_schneider` in
 `Diaz/Mirror/gelfond_schneider.lean`. For a non-zero
@@ -1438,8 +1462,10 @@ Stated plainly, because an adversarial audit found these and a reader
 should not have to.
 
 - **The multiplicity estimate `hME` is not proved**, so Roy's strong six exponentials theorem holds here only
-  under it ("Roy's theorem from a multiplicity estimate"). Its Hilbert side is proved, under the unmixedness
-  hypothesis `hU`, which is not proved either; nor is its multiplicity side.
+  under it ("Roy's theorem from a multiplicity estimate"). Its Hilbert side is proved under the unmixedness
+  hypothesis `hU`, and `hU` is proved for polynomial rings over an algebraically closed field, so over ℂ the
+  Hilbert side holds without `hU` (`Diaz.torus_hilbert_side_complex`). Its multiplicity side, and the assembly
+  of `hME` from its two sides, are not proved.
 - **Rank and structural rank are not formalized.** Only the
   matrix-coefficient third of "every assertion transfers" is proved. The
   accompanying note says so explicitly rather than claiming the whole

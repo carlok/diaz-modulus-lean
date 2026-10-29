@@ -518,3 +518,8 @@ import Diaz.Mirror.isWeaklyRegular_torusList
 import Diaz.Mirror.le_hME_constant
 import Diaz.Mirror.torus_coeff_poly
 import Diaz.Mirror.torus_hilbert_side
+import Diaz.Mirror.length_le_ringKrullDim_quotient_of_mem_associatedPrimes
+import Diaz.Mirror.exists_isRegular_quotient_ofList
+import Diaz.Mirror.height_le_length_of_mem_associatedPrimes
+import Diaz.Mirror.exists_isWeaklyRegular_vanishing
+import Diaz.Mirror.unmixedHeight_mvPolynomial
