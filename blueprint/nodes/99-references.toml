@@ -194,3 +194,8 @@ text = '''A.~Couvreur and G.~Zémor, Freiman's $3k-4$ theorem for function field
 key = "BCZ18"
 label = "BCZ18"
 text = '''C.~Bachoc, A.~Couvreur and G.~Zémor, Towards a function field version of Freiman's theorem, \emph{Algebraic Combinatorics} 1 (2018), 501--521; arXiv:1709.00087.'''
+
+[[reference]]
+key = "Phi86"
+label = "Phi86"
+text = '''P.~Philippon, Lemmes de z\'eros dans les groupes alg\'ebriques commutatifs, \emph{Bull. Soc. Math. France} 114 (1986), 355--383.'''

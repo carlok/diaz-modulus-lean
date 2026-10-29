@@ -1,0 +1,21 @@
+{
+ "theorem_id": "f8cad530-fd5e-456d-b852-fe30cba35757",
+ "theorem_name": "DiazModulus.exists_ne_zero_mulVec_eq_zero_of_minors",
+ "theorem_title": "If every maximal square minor of a matrix over a field vanishes, the matrix has a nonzero kernel vector",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem exists_ne_zero_mulVec_eq_zero_of_minors {K ρ γ : Type*} [Field K] [Fintype ρ] [Fintype γ] [DecidableEq γ]\n    (M : Matrix ρ γ K) (hM : ∀ f : γ → ρ, (M.submatrix f id).det = 0) :\n    ∃ c : γ → K, c ≠ 0 ∧ M.mulVec c = 0 := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $M$ be a $\\rho \\times \\gamma$ matrix over a field, with $\\rho, \\gamma$ finite. If every square minor $\\det(M_{f(\\mu), \\mu'})_{\\mu, \\mu' \\in \\gamma}$, for $f : \\gamma \\to \\rho$, is $0$, then $Mc = 0$ for some $c \\neq 0$.\n\n**Proof.** Otherwise $c \\mapsto Mc$ is injective, so $M$ has rank $|\\gamma|$ and its rows span a space of dimension $|\\gamma|$. Some linearly independent family of rows has the same span, hence $|\\gamma|$ members; indexing it by $\\gamma$ gives $f$ whose square submatrix has independent rows, hence a non-zero determinant.\n\n**Novelty.** Classical; routine formalisation. Linear algebra.",
+ "created_at": "2026-10-29T06:05:13.106233+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Classical linear algebra. C1.4 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 29 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

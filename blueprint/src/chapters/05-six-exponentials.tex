@@ -9,6 +9,8 @@ In this chapter $x=(x_1,\dots,x_d)$ and $y=(y_1,\dots,y_l)$ are families of comp
 \[ F_p(z)=\sum_{\lambda\in\{0,\dots,L-1\}^{d}}p_\lambda\,e^{\langle\lambda,x\rangle z}. \]
 A number field $K$ is a subfield of $\C$ of finite degree over $\Q$.
 
+The last three sections prove Roy's strong six exponentials theorem \cite[Corollary 2]{Roy92}, \cite[Corollary 11.16]{Wal00} (Theorem~\ref{thm:strong_six_exponentials}): if $x_1,x_2$ are linearly independent over $\Qbar$ and $y_1,y_2,y_3$ are linearly independent over $\Qbar$, at least one of the six products $x_iy_j$ lies outside $\widetilde{\mathcal L}$, the $\Qbar$-span of $1$ and the logarithms of algebraic numbers. The theorem is classical, and the proof follows Waldschmidt's book \cite{Wal00}, called DALAG in the statements: the interpolation determinant, the linear subgroup theorem \cite[Theorem 11.21]{Wal00} (Theorem~\ref{thm:linear_subgroup_transcendence}), and Roy's map $\Upsilon$ \cite[\S11.6.2]{Wal00}. It is proved from one explicit hypothesis, \texttt{hME} (the Lean proposition \texttt{Diaz.MultiplicityEstimateElem}): the case $G^-=\{e\}$ of the multiplicity estimate \cite[Theorem 8.1]{Wal00}, after Philippon \cite{Phi86}, for $G=\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$, written in coordinates. The hypothesis is stated in full in Theorem~\ref{thm:linear_subgroup_transcendence}. It is not proved in the library, and neither is its derivation from Theorem 8.1; a check of the statement against Theorem 8.1, with exact computation on small cases, found no counterexample. So these sections prove Roy's theorem only under \texttt{hME}. In the library, \texttt{Diaz.strongSixExponentials\_of\_multiplicityEstimateElem} restates the conclusion as the proposition \texttt{Diaz.StrongSixExponentials}, so that every result that takes Roy's theorem as a hypothesis holds under \texttt{hME} instead (Chapter~\ref{chap:10-rank-one-configurations} has many).
+
 % Prove2Me: SX.exists_aux_expSum -- https://prove2.me/theorems/f0a028dd-7409-4134-b87b-24b2921be5ae
 \begin{lemma}[The auxiliary function]
 \label{lem:exists_aux_expSum}
@@ -87,4 +89,434 @@ Let $x_1,x_2$ be complex numbers linearly independent over $\Q$, and let $y_1,y_
 \leanok
 \uses{thm:six_exponentials_of_numberField}
 Finitely many algebraic numbers lie in one number field; apply Theorem~\ref{thm:six_exponentials_of_numberField} with $(d,l)=(2,3)$.
+\end{proof}
+
+\section{Roy's theorem from a multiplicity estimate: the interpolation determinant}
+
+% Prove2Me: DiazModulus.thetaN_ge_mul_sub -- https://prove2.me/theorems/daa369ed-f5d2-4cdc-ac1e-bbaea498db12
+\begin{lemma}[A lower bound for $\Theta_n(L)$]
+\label{lem:thetaN_ge_mul_sub}
+\lean{Diaz.thetaN_ge_mul_sub}
+\leanok
+Let $n \geq 1$ and $L, A \in \N$. Then $A\,(L - A^n) \leq \Theta_n(L)$, where $\Theta_n(L)$ is the least value of $\sum_l |\kappa'(l)|$ over the injective maps $\kappa' : \{1, \dots, L\} \to \N^n$, with $|\cdot|$ the total degree of a multi-index ($0$ if there is no such map), and $L - A^n$ is truncated at $0$.
+
+{\small\emph{Source:} The function $\Theta_n(L)$ is that of \cite[\S6.2.2]{Wal00}; compare Lemma 6.5 (\S6.2.3) there. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+For $n \geq 1$ the map $l \mapsto (l, \dots, l)$ is injective, so it suffices to bound every admissible sum from below. Fix an injective $\kappa'$. At most $A^n$ indices $l$ have $\kappa'(l)$ in the box $\{0, \dots, A - 1\}^n$, as $\kappa'$ maps them injectively into it; every other $l$ has a coordinate $\geq A$, hence degree $\geq A$. So the total degree is at least $A$ times the number of indices outside the box, which is at least $L - A^n$.
+\end{proof}
+
+% Prove2Me: DiazModulus.iteratedDeriv_det_eq_sum -- https://prove2.me/theorems/4b91dc89-dfa7-42b9-a1d1-a34ab9e6a9eb
+\begin{lemma}[The Leibniz rule for a determinant]
+\label{lem:iteratedDeriv_det_eq_sum}
+\lean{Diaz.iteratedDeriv_det_eq_sum}
+\leanok
+Let $g_{l\mu}$ ($l, \mu \in \{1, \dots, L\}$) be entire functions, $j \in \N$ and $z \in \C$. Then the $j$-th derivative of $x \mapsto \det(g_{l\mu}(x))$ at $z$ is $\sum_q \frac{j!}{\prod_\mu q_\mu!} \det(g_{l\mu}^{(q_\mu)}(z))$, the sum over the $q \in \N^L$ with $\sum_\mu q_\mu = j$: column $\mu$ is differentiated $q_\mu$ times.
+
+{\small\emph{Source:} Classical (the Leibniz rule for products). Used for \cite[Lemma 9.2.]{Wal00}}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Expand the determinant over permutations. By linearity it suffices to differentiate a product $\prod_\mu h_\mu$ of entire functions; the general Leibniz rule $(\prod_\mu h_\mu)^{(j)} = \sum_{\sum q = j} \binom{j}{q} \prod_\mu h_\mu^{(q_\mu)}$ is proved by induction on $L$, splitting off the factor $\mu = 0$, applying the binomial Leibniz rule and the induction hypothesis, and reindexing the double sum through $q \mapsto (q_0, (q_1, \dots))$, with $\binom{j}{(i, q')} = \binom{i + |q'|}{i}\binom{|q'|}{q'}$. Exchanging the sums over permutations and over $q$ gives the statement.
+\end{proof}
+
+% Prove2Me: DiazModulus.iteratedDeriv_iteratedFDeriv_line -- https://prove2.me/theorems/1795bb3b-5045-45c2-85f0-bd8a8edd03de
+\begin{lemma}[Derivatives along a line]
+\label{lem:iteratedDeriv_iteratedFDeriv_line}
+\lean{Diaz.iteratedDeriv_iteratedFDeriv_line}
+\leanok
+Let $f$ be an entire function on $\C^n$, $\zeta \in \C^n$, $\sigma, q \in \N$ and $v_1, \dots, v_\sigma \in \C^n$. Then the $q$-th derivative at $z = 0$ of $z \mapsto D^\sigma f(z\zeta)(v_1, \dots, v_\sigma)$ is $D^{\sigma + q} f(0)(v_1, \dots, v_\sigma, \zeta, \dots, \zeta)$, with $q$ copies of $\zeta$.
+
+{\small\emph{Source:} Classical (chain rule and symmetry of derivatives). Used for \cite[Lemma 9.2.]{Wal00}}
+\end{lemma}
+
+\begin{proof}
+\leanok
+The identity holds at every $z$. For one derivative, the chain rule for $z \mapsto z\zeta$, whose derivative is $\zeta$, gives $D^{N+1} f(z\zeta)(\zeta, w)$, since evaluation at a fixed tuple is a continuous linear map. Induction on $q$ puts each further $\zeta$ in front of the arguments, while the statement has it at the end; the two agree by the symmetry of iterated derivatives of a smooth function.
+\end{proof}
+
+% Prove2Me: DiazModulus.interpolation_det_order -- https://prove2.me/theorems/ffb77b9a-aa9e-479d-9430-515df7bded64
+\begin{lemma}[The order of an interpolation determinant at the origin]
+\label{lem:interpolation_det_order}
+\lean{Diaz.interpolation_det_order}
+\leanok
+Let $f_1, \dots, f_L$ be entire functions on $\C^n$, and for $\mu = 1, \dots, L$ let $\zeta_\mu \in \C^n$, $\sigma_\mu \in \N$ and $v_\mu \in (\C^n)^{\sigma_\mu}$. Then $\Delta(z) = \det(D^{\sigma_\mu} f_l(z\zeta_\mu)(v_\mu))_{l,\mu}$ vanishes at $z = 0$ to order at least $\Theta_n(L) - \sum_\mu \sigma_\mu$; precisely, $\Theta_n(L) \leq \mathrm{ord}_0 \Delta + \sum_\mu \sigma_\mu$ in $\N \cup \{\infty\}$. Here $\Theta_n(L)$ is the least value of $\sum_l |\kappa'(l)|$ over the injective maps $\kappa' : \{1, \dots, L\} \to \N^n$, with $|\cdot|$ the total degree of a multi-index ($0$ if there is no such map).
+
+{\small\emph{Source:} \cite[Lemma 9.2.]{Wal00}}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:iteratedDeriv_det_eq_sum,lem:iteratedDeriv_iteratedFDeriv_line}
+$\Delta$ is entire, so it suffices that $\Delta^{(j)}(0) = 0$ when $j + \sum_\mu \sigma_\mu < \Theta_n(L)$. By the Leibniz rule for determinants (Lemma~\ref{lem:iteratedDeriv_det_eq_sum}) $\Delta^{(j)}(0)$ is a combination of determinants whose column $\mu$ is differentiated $q_\mu$ times, $\sum q_\mu = j$, and by Lemma~\ref{lem:iteratedDeriv_iteratedFDeriv_line} each entry is $D^{m_\mu} f_l(0)$ at a tuple of vectors, with $m_\mu = \sigma_\mu + q_\mu$ and $\sum m_\mu < \Theta_n(L)$. Expanding the vectors in the standard basis and using multilinearity, the determinant is a sum of determinants indexed by choices of basis vectors; for each choice let $\kappa'(\mu)$ count how often each basis vector occurs in column $\mu$, a multi-index of degree $m_\mu$. If $\kappa'$ is injective then $\Theta_n(L) \leq \sum m_\mu$, which is excluded; otherwise two columns are equal, by the symmetry of iterated derivatives, and the determinant vanishes.
+\end{proof}
+
+% Prove2Me: DiazModulus.schwarz_order_at_zero -- https://prove2.me/theorems/34d20ddf-feb5-411f-b55c-5c6370721211
+\begin{lemma}[A Schwarz lemma at one zero]
+\label{lem:schwarz_order_at_zero}
+\lean{Diaz.schwarz_order_at_zero}
+\leanok
+Let $F$ be an entire function with a zero of order at least $T$ at $0$, let $R \geq 1$, and suppose $|F(z)| \leq B$ whenever $|z| = R$. Then $|F(1)| \leq R^{-T} B$.
+
+{\small\emph{Source:} Schwarz's lemma: \cite[Lemma 2.4.]{Wal00}}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Write $F(z) = z^T g(z)$ near $0$ with $g$ analytic there. Then $G(z) = F(z)/z^T$, extended by $g(0)$ at $0$, is entire, and $|G(z)| \leq B/R^T$ on $|z| = R$. The maximum modulus principle on the disc $|z| \leq R$ gives $|G(1)| \leq B/R^T$, as $R \geq 1$, and $G(1) = F(1)$.
+\end{proof}
+
+% Prove2Me: DiazModulus.iteratedFDeriv_expMono_eq_op -- https://prove2.me/theorems/ce3bf9db-7b3c-4b45-b64f-04682aa0512a
+\begin{lemma}[Derivatives of exponential monomials]
+\label{lem:iteratedFDeriv_expMono_eq_op}
+\lean{Diaz.iteratedFDeriv_expMono_eq_op}
+\leanok
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). Let $\tau \in \N^{\iota_0}$, $t \in \Z^{\iota_1}$, $p$ a point, and $f(z) = z'^\tau e^{\langle t, z'' \rangle}$, where $z'^\tau = \prod_h z_h'^{\tau_h}$ and $\langle t, z'' \rangle = \sum_i t_i z''_i$. Then for $k_1, \dots, k_r \in \kappa_0$, $D^r f(p)(w_{k_1}, \dots, w_{k_r}) = (\mathrm{Op}^t_{w,k} X^\tau)(p')\, e^{\langle t, p'' \rangle}$.
+
+{\small\emph{Source:} Classical; the invariant derivations $D_w$ of \cite[\S8.1]{Wal00} and \S8.3.2 (Lemma 8.11), as used in Step 3 of the proof of Th. 11.21 (\S11.7.1).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+For a polynomial $Q$ put $G_Q(z) = Q(z') e^{\langle t, z'' \rangle}$. The product rule and the derivative of polynomial evaluation (by induction on $Q$) give $DG_Q(z)\,v = G_{\mathrm{Op}^t_v Q}(z)$. Then induct on $r$ for all $Q$ at once: the $(r+1)$-st derivative is the $r$-th derivative of $DG_Q$ evaluated at the last direction, and evaluation at a fixed vector commutes with iterated derivatives, which gives the $r$-th derivative of $G_{\mathrm{Op}^t_{w_{k_{r+1}}} Q}$. Take $Q = X^\tau$.
+\end{proof}
+
+% Prove2Me: DiazModulus.op_monomial_eval_norm_le -- https://prove2.me/theorems/14b1d3e4-359d-4d09-a28b-cc0b8ad2e84d
+\begin{lemma}[A size bound for the derivation operators]
+\label{lem:op_monomial_eval_norm_le}
+\lean{Diaz.op_monomial_eval_norm_le}
+\leanok
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). Here the weights $t \in \C^{\iota_1}$ may be complex. Suppose every coordinate of every $w_k$ has absolute value at most $H$, with $H \geq 0$; every coordinate of $p \in \C^{\iota_0}$ has absolute value at most $P$, with $P \geq 1$; and $\sum_i |t_i| \leq t_b$. Then for $r \in \N$, $k_1, \dots, k_r \in \kappa_0$ and $\tau \in \N^{\iota_0}$, $|(\mathrm{Op}^t_{w,k} X^\tau)(p)| \leq (H(|\tau| + t_b + 1))^r P^{|\tau|}$, where $|\tau| = \sum_h \tau_h$.
+
+{\small\emph{Source:} An elementary estimate for Step 4 of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+By induction on $r$, for all exponents at once, peeling off the last operator. One operator sends $X^s$ to $\sum_h w'_h s_h X^{s - e_h} + c X^s$ with $|c| = |\sum_i w''_i t_i| \leq H t_b$. The remaining operators are linear, so the induction hypothesis bounds each term; $s - e_h$ lies below $s$, and $P \geq 1$, $H \geq 0$ make the bound increase with $|s|$. Summing gives $H(|s| + t_b)B \leq H(|s| + t_b + 1)B$. The base case is $|p^s| \leq P^{|s|}$.
+\end{proof}
+
+% Prove2Me: DiazModulus.op_entry_denom_house -- https://prove2.me/theorems/46d03092-306b-4869-a2f5-389771912c55
+\begin{lemma}[Denominators and houses of the interpolation entries]
+\label{lem:op_entry_denom_house}
+\lean{Diaz.op_entry_denom_house}
+\leanok
+Let $K$ be a number field, $\iota_0, \iota_1, \kappa_0, \kappa_1$ finite, $w_k \in K^{\iota_0} \times K^{\iota_1}$ ($k \in \kappa_0$), $u_j \in K^{\iota_0}$ and $a_{ji} \in K$ ($j \in \kappa_1$, $i \in \iota_1$), and define $\mathrm{Op}^t_{w,k}$ as for complex points. There are a non-zero algebraic integer $b \in K$ and $H \geq 1$ such that for all $r$, $k_1, \dots, k_r \in \kappa_0$, $s \in \Z^{\kappa_1}$, $\tau \in \N^{\iota_0}$ and $t \in \Z^{\iota_1}$, with $E = r + |\tau| + (\sum_i |t_i|)(\sum_j |s_j|)$ and $e = (\mathrm{Op}^t_{w,k} X^\tau)(\sum_j s_j u_j) \cdot \prod_i (\prod_j a_{ji}^{s_j})^{t_i}$, the number $b^E e$ is an algebraic integer whose house (the largest absolute value of a conjugate) is at most $H^E (|\tau| + \sum_i |t_i| + 1)^r (\sum_j |s_j| + 1)^{|\tau|}$.
+
+{\small\emph{Source:} Bookkeeping for Liouville's inequality in Step 5 of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1). Liouville's inequality: \cite[\S3.5]{Wal00} (cf. Exercise 3.8, Prop. 13.8, cited in Step 5). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:exists_denom_house_monomial_le}
+The data (the coordinates of the $w_k$ and $u_j$, the $a_{ji}$ and their inverses) form one finite family, and Lemma~\ref{lem:exists_denom_house_monomial_le} gives a common denominator $b$ and a bound $H_0$ for their houses. Say $x$ has property $Q(n, B)$ if $b^n x$ is integral of house at most $H_0^n B$; it is stable under sums, products (adding the $n$), integer multiples and raising $n$. By induction on the operators, every coefficient of $\mathrm{Op}^t_{w,k} X^\tau$ has $Q(r, ((|\iota_0| + 1)(|\tau| + |t| + 1))^r)$, with support below $\tau$; evaluation at $\sum_j s_j u_j$ costs $(|s| + 1)$ per degree, over at most $2^{|\tau|}$ monomials; and the product of the $a_{ji}^{s_j t_i}$ has $Q(|t||s|, 1)$. The constants are absorbed into $H = 2H_0(|\iota_0| + 1)$.
+\end{proof}
+
+% Prove2Me: DiazModulus.interp_det_upper -- https://prove2.me/theorems/11e02366-e4b6-4621-b2df-0982b561d6ab
+\begin{proposition}[The interpolation determinant: the analytic upper bound]
+\label{prop:interp_det_upper}
+\lean{Diaz.interp_det_upper}
+\leanok
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). For $T_0, T_1 \geq 1$ the columns are the $\lambda = (\tau, t)$ with $\tau \in \{0, \dots, T_0\}^{\iota_0}$ and $t \in \{-T_1, \dots, T_1\}^{\iota_1}$; there are $L = (T_0 + 1)^{|\iota_0|}(2T_1 + 1)^{|\iota_1|}$ of them. Given $u_j \in \C^{\iota_0}$ and $a_{ji} \in \C$ ($j \in \kappa_1$, $i \in \iota_1$), the entry at a row datum $(r, k, s)$ ($r \in \N$, $k_1, \dots, k_r \in \kappa_0$, $s \in \Z^{\kappa_1}$) and a column $(\tau, t)$ is $E_{(r,k,s),(\tau,t)} = (\mathrm{Op}^t_{w,k} X^\tau)(\sum_j s_j u_j) \cdot \prod_i (\prod_j a_{ji}^{s_j})^{t_i}$. In the entries, $u_j = \eta'_j$ and $a_{ji} = e^{\eta''_{j,i}}$, for points $\eta_j = (\eta'_j, \eta''_j)$. Let $V \subseteq \C^{\iota_0} \times \C^{\iota_1}$ be a subspace of dimension $n$ containing every $w_k$ ($k \in \kappa_0$) and every $\eta_j$ ($j \in \kappa_1$). Then there is $C > 0$ such that, for all $T_0, T_1 \geq 1$ and $N_0, N_1 \in \N$, and for every choice of $L$ row data $(r_\lambda, k_\lambda, s_\lambda)$, one for each column $\lambda$, with $r_\lambda \leq N_0$ and $|s_{\lambda,j}| \leq N_1$, the determinant $\Delta$ of the $L \times L$ matrix $(E_{(r_\lambda, k_\lambda, s_\lambda), \lambda'})_{\lambda, \lambda'}$ satisfies $|\Delta| \leq \exp(-(\Theta_n(L) - L N_0) + C L \Xi)$, with $\Xi = N_0 \log(T_0 + T_1 + 2) + T_0 \log(N_1 + 2) + T_1(N_1 + 1)$ and $\Theta_n(L)$ is the least value of $\sum_l |\kappa'(l)|$ over the injective maps $\kappa' : \{1, \dots, L\} \to \N^n$, with $|\cdot|$ the total degree of a multi-index ($0$ if there is no such map).
+
+{\small\emph{Source:} Step 4 (upper bound) of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1); compare Lemma 9.2; Schwarz's lemma is Lemma 2.4.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{lem:interpolation_det_order,lem:schwarz_order_at_zero,lem:iteratedFDeriv_expMono_eq_op,lem:op_monomial_eval_norm_le}
+Fix a basis of $V$ and let $\psi : \C^n \to V$ be the coordinate map. Each column gives the entire function $f_\lambda \circ \psi$, $f_\lambda(z) = z'^\tau e^{\langle t, z'' \rangle}$, and each row the point $\psi^{-1}(\sum_j s_j \eta_j)$ and the directions $\psi^{-1}(w_k)$. By Lemma~\ref{lem:iteratedFDeriv_expMono_eq_op} the entries of $F(z) = \det(D^{r}(f \circ \psi)(z\zeta)(v))$ are the polynomial parts at $zp'$ times $e^{z\langle t, p'' \rangle}$, so $F(1) = \Delta$ up to transposition. Lemma~\ref{lem:interpolation_det_order} (DALAG Lemma 9.2) gives $\mathrm{ord}_0 F \geq \Theta_n(L) - L N_0$, and Lemma~\ref{lem:schwarz_order_at_zero} (Schwarz) with $R = e$ gives $|\Delta| \leq e^{-\mathrm{ord}} \sup_{|z| = e} |F|$. On $|z| = e$ each entry is at most $e^\beta$, by Lemma~\ref{lem:op_monomial_eval_norm_le} for the polynomial part and $|e^u| \leq e^{|u|}$, so $|F| \leq L!\, e^{L\beta}$; finally $\log L + \beta \leq K\Xi$ is elementary.
+\end{proof}
+
+% Prove2Me: DiazModulus.interp_det_liouville -- https://prove2.me/theorems/d32f85c5-8ba3-4c11-9122-06ad008d1c02
+\begin{proposition}[The interpolation determinant: Liouville's lower bound]
+\label{prop:interp_det_liouville}
+\lean{Diaz.interp_det_liouville}
+\leanok
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). For $T_0, T_1 \geq 1$ the columns are the $\lambda = (\tau, t)$ with $\tau \in \{0, \dots, T_0\}^{\iota_0}$ and $t \in \{-T_1, \dots, T_1\}^{\iota_1}$; there are $L = (T_0 + 1)^{|\iota_0|}(2T_1 + 1)^{|\iota_1|}$ of them. Given $u_j \in \C^{\iota_0}$ and $a_{ji} \in \C$ ($j \in \kappa_1$, $i \in \iota_1$), the entry at a row datum $(r, k, s)$ ($r \in \N$, $k_1, \dots, k_r \in \kappa_0$, $s \in \Z^{\kappa_1}$) and a column $(\tau, t)$ is $E_{(r,k,s),(\tau,t)} = (\mathrm{Op}^t_{w,k} X^\tau)(\sum_j s_j u_j) \cdot \prod_i (\prod_j a_{ji}^{s_j})^{t_i}$. In the entries, $u_j = \eta'_j$ and $a_{ji} = e^{\eta''_{j,i}}$, for points $\eta_j = (\eta'_j, \eta''_j)$. Suppose the coordinates of the $w_k$ and of the $\eta'_j$ are algebraic and every $\eta''_{j,i}$ lies in $\mathcal{L}$. Then there is $C > 0$ such that, for all $T_0, T_1 \geq 1$ and $N_0, N_1 \in \N$, and for every choice of $L$ row data $(r_\lambda, k_\lambda, s_\lambda)$, one for each column $\lambda$, with $r_\lambda \leq N_0$ and $|s_{\lambda,j}| \leq N_1$, the determinant $\Delta$ of the $L \times L$ matrix $(E_{(r_\lambda, k_\lambda, s_\lambda), \lambda'})_{\lambda, \lambda'}$ satisfies $\log |\Delta| \geq -C L \Xi$ whenever $\Delta \neq 0$, with $\Xi = N_0 \log(T_0 + T_1 + 2) + T_0 \log(N_1 + 2) + T_1(N_1 + 1)$.
+
+{\small\emph{Source:} Step 5 (Liouville's inequality) of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1). Liouville's inequality: \cite[\S3.5]{Wal00} (cf. Exercise 3.8, Prop. 13.8, cited in Step 5).}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{lem:op_entry_denom_house,lem:liouville_house}
+All data are algebraic, so they lie in a number field $F \subseteq \C$, and $\Delta$ is the image of the determinant of the same matrix over $F$. Lemma~\ref{lem:op_entry_denom_house} gives $b$ and $H$; with a uniform exponent $E^* = N_0 + |\iota_0| T_0 + |\iota_1| T_1 |\kappa_1| N_1$ every entry of $b^{E^*} M_F$ is integral of bounded house, so $\alpha = \det(b^{E^*} M_F)$ is a non-zero algebraic integer of house at most $L!\, B^L$. Liouville's inequality (Lemma~\ref{lem:liouville_house}) gives $1 \leq H'^{E^* L} |\Delta| (L!\, B^L)^{[F:\Q] - 1}$; taking logarithms and using $\log L! \leq L \log L$ and elementary bounds gives $\log |\Delta| \geq -CL\Xi$.
+\end{proof}
+
+% Prove2Me: DiazModulus.exists_ne_zero_mulVec_eq_zero_of_minors -- https://prove2.me/theorems/f8cad530-fd5e-456d-b852-fe30cba35757
+\begin{lemma}[A kernel vector from vanishing minors]
+\label{lem:exists_ne_zero_mulVec_eq_zero_of_minors}
+\lean{Diaz.exists_ne_zero_mulVec_eq_zero_of_minors}
+\leanok
+Let $M$ be a $\rho \times \gamma$ matrix over a field, with $\rho, \gamma$ finite. If every square minor $\det(M_{f(\mu), \mu'})_{\mu, \mu' \in \gamma}$, for $f : \gamma \to \rho$, is $0$, then $Mc = 0$ for some $c \neq 0$.
+
+{\small\emph{Source:} Classical linear algebra.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Otherwise $c \mapsto Mc$ is injective, so $M$ has rank $|\gamma|$ and its rows span a space of dimension $|\gamma|$. Some linearly independent family of rows has the same span, hence $|\gamma|$ members; indexing it by $\gamma$ gives $f$ whose square submatrix has independent rows, hence a non-zero determinant.
+\end{proof}
+
+% Prove2Me: DiazModulus.interp_kernel -- https://prove2.me/theorems/e68feeba-df9e-4502-b32e-53bb00f34e14
+\begin{proposition}[The interpolation matrix has a kernel vector]
+\label{prop:interp_kernel}
+\lean{Diaz.interp_kernel}
+\leanok
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). For $T_0, T_1 \geq 1$ the columns are the $\lambda = (\tau, t)$ with $\tau \in \{0, \dots, T_0\}^{\iota_0}$ and $t \in \{-T_1, \dots, T_1\}^{\iota_1}$; there are $L = (T_0 + 1)^{|\iota_0|}(2T_1 + 1)^{|\iota_1|}$ of them. Given $u_j \in \C^{\iota_0}$ and $a_{ji} \in \C$ ($j \in \kappa_1$, $i \in \iota_1$), the entry at a row datum $(r, k, s)$ ($r \in \N$, $k_1, \dots, k_r \in \kappa_0$, $s \in \Z^{\kappa_1}$) and a column $(\tau, t)$ is $E_{(r,k,s),(\tau,t)} = (\mathrm{Op}^t_{w,k} X^\tau)(\sum_j s_j u_j) \cdot \prod_i (\prod_j a_{ji}^{s_j})^{t_i}$. In the entries, $u_j = \eta'_j$ and $a_{ji} = e^{\eta''_{j,i}}$, for points $\eta_j = (\eta'_j, \eta''_j)$. Let $V \subseteq \C^{\iota_0} \times \C^{\iota_1}$ be a subspace of dimension $n \geq 1$ containing every $w_k$ and every $\eta_j$, and suppose the coordinates of the $w_k$ and of the $\eta'_j$ are algebraic and every $\eta''_{j,i}$ lies in $\mathcal{L}$. Then there is $C > 0$ such that, for all $T_0, T_1 \geq 1$ and $N_0, N_1 \in \N$ with $C \Xi \leq L^{1/n}$, where $\Xi = N_0 \log(T_0 + T_1 + 2) + T_0 \log(N_1 + 2) + T_1(N_1 + 1)$, some non-zero vector $c$ on the columns satisfies $\sum_\lambda c_\lambda E_{(r,k,s),\lambda} = 0$ for every $r \leq N_0$, every $k_1, \dots, k_r$ and every $s$ with $|s_j| \leq N_1$. This is the premise of the multiplicity estimate.
+
+{\small\emph{Source:} Steps 3–5 of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1).}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{lem:thetaN_ge_mul_sub,prop:interp_det_upper,prop:interp_det_liouville,lem:exists_ne_zero_mulVec_eq_zero_of_minors}
+Index the rows by the finite set of row data with $r \leq N_0$ and $|s_j| \leq N_1$. If some maximal minor $\Delta$ were non-zero, Proposition~\ref{prop:interp_det_liouville} would give $\log |\Delta| \geq -C_{10} L \Xi$ and Proposition~\ref{prop:interp_det_upper} $|\Delta| \leq \exp(-(\Theta_n(L) - LN_0) + C_9 L \Xi)$, so $\Theta_n(L) \leq LN_0 + (C_9 + C_{10}) L \Xi$. With $A = \lfloor L^{1/n}/2 \rfloor$, $2A^n \leq L$, and Lemma~\ref{lem:thetaN_ge_mul_sub} gives $AL \leq 2\Theta_n(L)$; as $1 \leq \Xi$ and $N_0 \leq \Xi$, the hypothesis with $C = 8 + 4(C_9 + C_{10})$ excludes this. So every maximal minor vanishes, and Lemma~\ref{lem:exists_ne_zero_mulVec_eq_zero_of_minors} gives the kernel vector.
+\end{proof}
+
+\section{Roy's theorem from a multiplicity estimate: the linear subgroup theorem}
+
+% Prove2Me: DiazModulus.exists_coord_complement -- https://prove2.me/theorems/3af86371-8ee2-4e34-a167-2d87b6f03bd2
+\begin{lemma}[A coordinate complement of the span of integer vectors]
+\label{lem:exists_coord_complement}
+\lean{Diaz.exists_coord_complement}
+\leanok
+Let $N$ be a finite set and $A \subseteq \Z^N$, and let $S \subseteq \Q^N$ be the $\Q$-span of $A$. There is $J \subseteq N$ with $|J| + \dim_{\Q} S = |N|$ such that the only vector of $S$ vanishing outside $J$ is $0$.
+
+{\small\emph{Source:} Classical linear algebra.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+The images of the standard basis vectors span $\Q^N / S$; some injectively indexed subfamily $e_j$, $j \in J$, maps to a basis, so $|J| = |N| - \dim S$. If $v \in S$ vanishes outside $J$, then $v = \sum_{j \in J} v_j e_j$ maps to $0$, so every $v_j$ is $0$ by independence.
+\end{proof}
+
+% Prove2Me: DiazModulus.obstruction_1123 -- https://prove2.me/theorems/c4059dcd-6fdd-408a-b55c-d042b962fca3
+\begin{proposition}[The obstruction given by the multiplicity estimate]
+\label{prop:obstruction_1123}
+\lean{Diaz.obstruction_1123}
+\leanok
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). For $T_0, T_1 \geq 1$ the columns are the $\lambda = (\tau, t)$ with $\tau \in \{0, \dots, T_0\}^{\iota_0}$ and $t \in \{-T_1, \dots, T_1\}^{\iota_1}$; there are $L = (T_0 + 1)^{|\iota_0|}(2T_1 + 1)^{|\iota_1|}$ of them. Given $u_j \in \C^{\iota_0}$ and $a_{ji} \in \C$ ($j \in \kappa_1$, $i \in \iota_1$), the entry at a row datum $(r, k, s)$ ($r \in \N$, $k_1, \dots, k_r \in \kappa_0$, $s \in \Z^{\kappa_1}$) and a column $(\tau, t)$ is $E_{(r,k,s),(\tau,t)} = (\mathrm{Op}^t_{w,k} X^\tau)(\sum_j s_j u_j) \cdot \prod_i (\prod_j a_{ji}^{s_j})^{t_i}$.
+
+The hypothesis \texttt{hME} is the proposition \texttt{Diaz.MultiplicityEstimateElem} of the library (on Prove2Me, the published definition \texttt{MultiplicityEstimateElem}), a proposition that is assumed here, not proved. It is an elementary form of Philippon's multiplicity estimate: the case $G^- = \{e\}$, $G^+ = G$ of DALAG Th. 8.1 (\S8.1) for $G = \mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}$, written in coordinates. It says: let $A_0, A_1, B_0, B_1$ be finite, $d = |A_0| + |A_1|$, $w_b \in \C^{A_0} \times \C^{A_1}$ ($b \in B_0$), $u_j \in \C^{A_0}$ and non-zero $a_{ji} \in \C$ ($j \in B_1$, $i \in A_1$), $D_0, D_1 \geq 1$, $M_0, M_1 \in \N$, and $c \neq 0$ a vector on the box of the $(\tau, t)$ with $\tau_h \leq D_0$ and $|t_i| \leq D_1$. If $\sum_\lambda c_\lambda E_{(r,k,s),\lambda} = 0$ for every $r \leq dM_0$, every $k_1, \dots, k_r \in B_0$ and every $s$ with $|s_j| \leq dM_1$ (the entries $E$ are those defined above, with $A_0, A_1, B_0, B_1$ for $\iota_0, \iota_1, \kappa_0, \kappa_1$ and $D_0, D_1$ for $T_0, T_1$), then there are a subspace $V \subseteq \C^{A_0}$, integer vectors $\varphi_1, \dots, \varphi_q \in \Z^{A_1}$ with common complex kernel $L_1$, and $\ell$ with $\ell + \dim(W \cap (V \times L_1)) = \dim W$, $W$ the span of the $w_b$, such that $\dim V + \dim L_1 < d$ and every set $R$ of vectors $s$ with $|s_j| \leq M_1$, pairwise incongruent modulo $(V, \varphi)$, has $\binom{M_0 + \ell}{\ell}\, |R|\, D_0^{\dim V} D_1^{\dim L_1} \leq K_d\, D_0^{|A_0|} D_1^{|A_1|}$, with $K_d = 2^{d(d+1)/2}\, d!\, 2^{|A_1|}\, |A_0|^{|A_0|}$; two vectors $s, s' \in \Z^{B_1}$ are congruent modulo $(V, \varphi)$ when $\sum_j (s_j - s'_j) u_j \in V$ and $\prod_i (\prod_j a_{ji}^{s_j - s'_j})^{\varphi_{k,i}} = 1$ for every $k$.
+
+Let $w_k$ ($k \in \kappa_0$), $u_j \in \C^{\iota_0}$ and non-zero $a_{ji}$ ($j \in \kappa_1$) be given, $T_0, T_1 \geq 1$, $S_0, S_1 \in \N$, $d = |\iota_0| + |\iota_1|$, and $c \neq 0$ a vector on the columns with $\sum_\lambda c_\lambda E_{(r,k,s),\lambda} = 0$ for every $r \leq dS_0$, every $k$ and every $s$ with $|s_j| \leq dS_1$. Assume \texttt{hME}. Then there are $V \subseteq \C^{\iota_0}$, $\varphi_1, \dots, \varphi_q \in \Z^{\iota_1}$ with common complex kernel $L_1$, and $\ell$ with $\ell + \dim(W \cap (V \times L_1)) = \dim W$ ($W$ the span of the $w_k$) and $\dim V + \dim L_1 < d$, such that $(S_0 + 1)^\ell (2S_1 + 1)^{\lambda'} T_0^{\dim V} T_1^{\dim L_1} \leq \ell!\, K_d\, T_0^{|\iota_0|} T_1^{|\iota_1|}$, where $\lambda' = |\kappa_1| - \rho$, the relation rank $\rho$ is the dimension of the $\Q$-span of the set of $s \in \Z^{\kappa_1}$ congruent to $0$ modulo $(V, \varphi)$, two vectors $s, s' \in \Z^{\kappa_1}$ are congruent modulo $(V, \varphi)$ when $\sum_j (s_j - s'_j) u_j \in V$ and $\prod_i (\prod_j a_{ji}^{s_j - s'_j})^{\varphi_{k,i}} = 1$ for every $k$, and $K_d$ is as in \texttt{hME} with $A_0 = \iota_0$, $A_1 = \iota_1$.
+
+{\small\emph{Source:} Step 6 of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1), with the multiplicity estimate (\cite[Th.~8.1]{Wal00}; \cite{Phi86}) carried as the explicit hypothesis \texttt{hME}, the definition \texttt{MultiplicityEstimateElem}.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{lem:exists_coord_complement}
+Apply \texttt{hME} to $c$ at $(D_0, D_1, M_0, M_1) = (T_0, T_1, S_0, S_1)$; its premise is the hypothesis on $c$. It gives $(V, \varphi, L_1, \ell)$ and a bound for every set $R$ of pairwise incongruent vectors in the box $|s_j| \leq S_1$. By Lemma~\ref{lem:exists_coord_complement} the $\Q$-span of the vectors congruent to $0$ has a coordinate complement $J$ with $|J| = |\kappa_1| - \rho$. Take for $R$ the box on $J$ (zero off $J$): it has $(2S_1 + 1)^{|J|}$ points, and two of its points that are congruent differ by a vector of that span supported on $J$, hence are equal. Finally $(S_0 + 1)^\ell \leq \ell! \binom{S_0 + \ell}{\ell}$, and multiplying the bound by $\ell!$ concludes.
+\end{proof}
+
+% Prove2Me: DiazModulus.params_1122_eventually -- https://prove2.me/theorems/fa8ebde9-b3cf-4212-a192-c25f8fe6294f
+\begin{lemma}[The parameters satisfy the constraint for large $S_1$]
+\label{lem:params_1122_eventually}
+\lean{Diaz.params_1122_eventually}
+\leanok
+Let $d_0, d_1, n \in \N$ with $1 \leq n < d = d_0 + d_1$ and $d_0 \leq n$, let $C > 0$ and $\nu > (d_0 + n)/(d - n)$. For $S_1 \in \N$ put $S_0 = \lfloor S_1^{d_1/(d - n)} (\log S_1)^\nu \rfloor$, $T_0 = \lfloor S_0 / \log S_1 \rfloor$ and $T_1 = \lfloor S_0 / S_1 \rfloor$. Then for all large $S_1$: $T_0 \geq 2$, $T_1 \geq 2$, and $C(S_0 \log(T_0 + T_1 + 2) + T_0 \log(S_1 + 2) + T_1(S_1 + 1)) \leq ((T_0 + 1)^{d_0} (2T_1 + 1)^{d_1})^{1/n}$.
+
+{\small\emph{Source:} Step 7 (choice of parameters, condition (11.22)) of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Write $x = S_1$, $\Lambda = \log x$, $e = d_1/(d - n) \geq 1$ and $F = x^e \Lambda^\nu$. As $\nu > 0$ and $e \geq 1$, $F/x \geq \Lambda^\nu \to \infty$, so the floors give $T_0 \geq F/(2\Lambda)$, $T_1 \geq F/(2x)$, both $\geq 2$, and $T_0 \leq F/\Lambda$, $T_1 \leq F/x$. The left side is at most $K F \Lambda$ with $K = C(6 + e + \nu)$, and the right side at least $((F/(2\Lambda))^{d_0} (F/x)^{d_1})^{1/n}$. Comparing logarithms, with $\log F = e\Lambda + \nu \log\Lambda$, the coefficient of $\Lambda$ is $(e(d - n) - d_1)/n = 0$ and that of $\log\Lambda$ is $((d - n)\nu - d_0 - n)/n > 0$, so the inequality holds once $\log\log x$ is large.
+\end{proof}
+
+% Prove2Me: DiazModulus.params_exponents -- https://prove2.me/theorems/2de60bd7-dc9d-48ef-909e-5d1905d00cd5
+\begin{lemma}[The exponents of the obstruction]
+\label{lem:params_exponents}
+\lean{Diaz.params_exponents}
+\leanok
+Let $d_0, d_1, n \in \N$ with $n < d = d_0 + d_1$ and $d_0 \leq n$, let $\nu > 0$, $c_8 \in \R$, and $a, b, c_0, c_1 \in \N$ with $c_0 + c_1 \geq 1$ and $a \leq c_0 + c_1$. For $S_1 \in \N$ put $S_0 = \lfloor S_1^{d_1/(d - n)} (\log S_1)^\nu \rfloor$, $T_0 = \lfloor S_0 / \log S_1 \rfloor$ and $T_1 = \lfloor S_0 / S_1 \rfloor$. Suppose that for infinitely many $S_1$, $\lfloor S_0/d \rfloor^a \lfloor S_1/d \rfloor^b \leq c_8 T_0^{c_0} T_1^{c_1}$ (an inequality of the shape (11.23)). Then $a < c_0 + c_1$ and $(b + c_1)(d - n) \leq d_1(c_0 + c_1 - a)$.
+
+{\small\emph{Source:} Step 7 (from (11.23) to the conclusion) of the proof of \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+With $x = S_1$, $\Lambda = \log x$, $e = d_1/(d - n)$ and $F = x^e\Lambda^\nu$, for large $x$ the left side is at least $(F/(2d))^a (x/(2d))^b$ and the right side at most $\max(c_8, 1) (F/\Lambda)^{c_0} (F/x)^{c_1}$. The logarithm of their ratio is $-g\Lambda - h\log\Lambda - \mathrm{const}$ with $g = e(c_0 + c_1 - a) - c_1 - b$ and $h = \nu(c_0 + c_1 - a) - c_0$. If the conclusion fails, then $g < 0$, or $g = 0$ and $h = -c_0 < 0$ (when $a = c_0 + c_1$ and $b = c_1 = 0$). In both cases the left side exceeds the right side for all large $S_1$, against the hypothesis.
+\end{proof}
+
+% Prove2Me: DiazModulus.linear_subgroup_transcendence -- https://prove2.me/theorems/199ac749-9921-49a0-880f-5264eee8ee59
+\begin{theorem}[The linear subgroup theorem, from the multiplicity estimate]
+\label{thm:linear_subgroup_transcendence}
+\lean{Diaz.linear_subgroup_transcendence}
+\leanok
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). For $T_0, T_1 \geq 1$ the columns are the $\lambda = (\tau, t)$ with $\tau \in \{0, \dots, T_0\}^{\iota_0}$ and $t \in \{-T_1, \dots, T_1\}^{\iota_1}$; there are $L = (T_0 + 1)^{|\iota_0|}(2T_1 + 1)^{|\iota_1|}$ of them. Given $u_j \in \C^{\iota_0}$ and $a_{ji} \in \C$ ($j \in \kappa_1$, $i \in \iota_1$), the entry at a row datum $(r, k, s)$ ($r \in \N$, $k_1, \dots, k_r \in \kappa_0$, $s \in \Z^{\kappa_1}$) and a column $(\tau, t)$ is $E_{(r,k,s),(\tau,t)} = (\mathrm{Op}^t_{w,k} X^\tau)(\sum_j s_j u_j) \cdot \prod_i (\prod_j a_{ji}^{s_j})^{t_i}$.
+
+The hypothesis \texttt{hME} is the proposition \texttt{Diaz.MultiplicityEstimateElem} of the library (on Prove2Me, the published definition \texttt{MultiplicityEstimateElem}), a proposition that is assumed here, not proved. It is an elementary form of Philippon's multiplicity estimate: the case $G^- = \{e\}$, $G^+ = G$ of DALAG Th. 8.1 (\S8.1) for $G = \mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}$, written in coordinates. It says: let $A_0, A_1, B_0, B_1$ be finite, $d = |A_0| + |A_1|$, $w_b \in \C^{A_0} \times \C^{A_1}$ ($b \in B_0$), $u_j \in \C^{A_0}$ and non-zero $a_{ji} \in \C$ ($j \in B_1$, $i \in A_1$), $D_0, D_1 \geq 1$, $M_0, M_1 \in \N$, and $c \neq 0$ a vector on the box of the $(\tau, t)$ with $\tau_h \leq D_0$ and $|t_i| \leq D_1$. If $\sum_\lambda c_\lambda E_{(r,k,s),\lambda} = 0$ for every $r \leq dM_0$, every $k_1, \dots, k_r \in B_0$ and every $s$ with $|s_j| \leq dM_1$ (the entries $E$ are those defined above, with $A_0, A_1, B_0, B_1$ for $\iota_0, \iota_1, \kappa_0, \kappa_1$ and $D_0, D_1$ for $T_0, T_1$), then there are a subspace $V \subseteq \C^{A_0}$, integer vectors $\varphi_1, \dots, \varphi_q \in \Z^{A_1}$ with common complex kernel $L_1$, and $\ell$ with $\ell + \dim(W \cap (V \times L_1)) = \dim W$, $W$ the span of the $w_b$, such that $\dim V + \dim L_1 < d$ and every set $R$ of vectors $s$ with $|s_j| \leq M_1$, pairwise incongruent modulo $(V, \varphi)$, has $\binom{M_0 + \ell}{\ell}\, |R|\, D_0^{\dim V} D_1^{\dim L_1} \leq K_d\, D_0^{|A_0|} D_1^{|A_1|}$, with $K_d = 2^{d(d+1)/2}\, d!\, 2^{|A_1|}\, |A_0|^{|A_0|}$; two vectors $s, s' \in \Z^{B_1}$ are congruent modulo $(V, \varphi)$ when $\sum_j (s_j - s'_j) u_j \in V$ and $\prod_i (\prod_j a_{ji}^{s_j - s'_j})^{\varphi_{k,i}} = 1$ for every $k$.
+
+Let $d_0 = |\iota_0|$, $d_1 = |\iota_1|$, $d = d_0 + d_1$, and let $V \subseteq \C^{\iota_0} \times \C^{\iota_1}$ be a subspace of dimension $n$ with $1 \leq n < d$ and $d_0 \leq n$. Let $w_k \in V$ ($k \in \kappa_0$) and $\eta_j \in V$ ($j \in \kappa_1$), and suppose the coordinates of the $w_k$ and of the $\eta'_j$ are algebraic and every $\eta''_{j,i}$ lies in $\mathcal{L}$. Assume \texttt{hME}. Then there are a subspace $V' \subseteq \C^{\iota_0}$, $\varphi_1, \dots, \varphi_q \in \Z^{\iota_1}$ with common complex kernel $L_1$, and $\ell$ with $\ell + \dim(W \cap (V' \times L_1)) = \dim W$, $W$ the span of the $w_k$, such that $\ell < d'$ and $(\lambda' + d'_1)(d - n) \leq d_1(d' - \ell)$. Here $d'_0 = d_0 - \dim V'$, $d'_1 = d_1 - \dim L_1$, $d' = d'_0 + d'_1$, $\lambda' = |\kappa_1| - \rho$, and $\rho$ is the dimension of the $\Q$-span of the set of $s \in \Z^{\kappa_1}$ with $\sum_j s_j \eta'_j \in V'$ and $\prod_i (\prod_j e^{s_j \eta''_{j,i}})^{\varphi_{k,i}} = 1$ for every $k$.
+
+This is DALAG Th. 11.21 in the case $d_0 \leq n$, with $W$ the span of algebraic vectors and the obstruction subgroup recorded as $(V', \varphi)$.
+
+{\small\emph{Source:} \cite[Th.~11.21]{Wal00} (the linear subgroup theorem; proof in \S11.7.1), case $d_0\leq n$, Steps 2–7; the multiplicity estimate (\cite[Th.~8.1]{Wal00}; \cite{Phi86}) is carried as the explicit hypothesis \texttt{hME}, the definition \texttt{MultiplicityEstimateElem}.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{prop:interp_kernel,prop:obstruction_1123,lem:params_1122_eventually,lem:params_exponents}
+Proposition~\ref{prop:interp_kernel} gives a constant $C$. Fix $\nu = (d_0 + n)/(d - n) + 1$ and the curve of Lemma~\ref{lem:params_1122_eventually}: $S_0 = \lfloor S_1^{d_1/(d - n)} (\log S_1)^\nu \rfloor$, $T_0 = \lfloor S_0/\log S_1 \rfloor$, $T_1 = \lfloor S_0/S_1 \rfloor$. For all large $S_1$, Lemma~\ref{lem:params_1122_eventually} gives $T_0, T_1 \geq 2$ and the constraint of Proposition~\ref{prop:interp_kernel} at $(N_0, N_1) = (S_0, S_1)$, so Proposition~\ref{prop:interp_kernel} yields $c \neq 0$ whose vanishing covers the premise of Proposition~\ref{prop:obstruction_1123} at $(\lfloor S_0/d \rfloor, \lfloor S_1/d \rfloor)$. Proposition~\ref{prop:obstruction_1123} returns $(V', \varphi, L_1, \ell)$ with $(\lfloor S_0/d \rfloor + 1)^\ell (2\lfloor S_1/d \rfloor + 1)^{\lambda'} T_0^{\dim V'} T_1^{\dim L_1} \leq \ell!\, K_d\, T_0^{d_0} T_1^{d_1}$; cancelling gives (11.23) with exponents $(\ell, \lambda', d'_0, d'_1)$, and $\ell \leq d'$. These four numbers range over a finite set, so one tuple occurs for infinitely many $S_1$, and Lemma~\ref{lem:params_exponents} applied to it gives $\ell < d'$ and $(\lambda' + d'_1)(d - n) \leq d_1(d' - \ell)$.
+\end{proof}
+
+\section{Roy's theorem from a multiplicity estimate: Roy's argument}
+
+% Prove2Me: DiazModulus.exists_sse_lifts -- https://prove2.me/theorems/f65b3969-fbab-4f51-8ecd-e780dc59a4bf
+\begin{lemma}[Restriction of scalars]
+\label{lem:exists_sse_lifts}
+\lean{Diaz.exists_sse_lifts}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \in \C$ with $e^z$ algebraic), and $\widetilde{\mathcal L}$ is the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$. Let $\Upsilon : \C^2 \times \C^{m \times 2} \to \C^2$ be the linear map $\Upsilon(u, v)_i = u_i + \sum_{k=1}^m \omega_k v_{k,i}$ (Roy's map, DALAG \S11.6.2). Let $x \in \C^2$ and $y \in \C^3$ with $x_i y_j \in \widetilde{\mathcal L}$ for all $i, j$. Then there are $m \geq 1$, $\omega_1, \dots, \omega_m \in \Qbar$ linearly independent over $\Q$, and $\eta_{a,j} = (\eta'_{a,j}, \eta''_{a,j}) \in \Qbar^2 \times \mathcal{L}^{m \times 2}$ ($a \leq m$, $j \leq 3$) with $\Upsilon(\eta_{a,j}) = \omega_a y_j x$.
+
+{\small\emph{Source:} \cite[\S11.6.2]{Wal00} (the map $\Upsilon$ and the basis $\omega$ of a number field), after \cite{Roy92}.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:exp_ratMul_isAlgebraic}
+Write each $x_i y_j$ as a finite sum $\sum_l f_l g_l$ with $f_l \in \Qbar$ and $g_l \in \{1\} \cup \mathcal{L}$. Let $K = \Q(\text{all } f_l)$, a number field, and $\omega$ a $\Q$-basis of $K$. For $c \in K$ and $g \in \{1\} \cup \mathcal{L}$, $cg$ has the shape $u + \sum_k \omega_k v_k$ with $u \in \Qbar$, $v_k \in \mathcal{L}$: take $u = c$ if $g = 1$, and otherwise $c = \sum_k r_k\omega_k$ with $r_k \in \Q$ and $v_k = r_k g \in \mathcal{L}$ (Lemma~\ref{lem:exp_ratMul_isAlgebraic}). As $\mathcal{L}$ contains $0$ and is closed under addition, the shape survives finite sums; applied to $\omega_a x_i y_j$ it gives $\eta_{a,j}$.
+\end{proof}
+
+% Prove2Me: DiazModulus.sse_independence_facts -- https://prove2.me/theorems/b00a4cdc-6cac-45d5-b48f-7f603bed33eb
+\begin{lemma}[Two independence facts]
+\label{lem:sse_independence_facts}
+\lean{Diaz.sse_independence_facts}
+\leanok
+Let $\omega_1, \dots, \omega_m \in \Qbar$ be linearly independent over $\Q$, and let $x \in \C^2$ and $y \in \C^3$ each be linearly independent over $\Qbar$ (the algebraic numbers). Then:
+
+- if $s \in \Z^{m \times 3}$ and $\sum_{a,j} s_{a,j}\,\omega_a y_j = 0$, then $s = 0$;
+- if $\beta \neq 0$, $v \in \Qbar^2$, $c \in \C$ and $c x_i = \beta v_i$ for $i = 1, 2$, then $c = 0$.
+
+{\small\emph{Source:} Elementary. Part (1) is used where \cite[\S11.6.2]{Wal00}, appeals to Baker's theorem (Lemma 11.18 (4)). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+(1) Group the sum by $j$: the coefficient $\sum_a s_{a,j}\omega_a$ of $y_j$ is algebraic, so the $\Qbar$-independence of $y$ makes it $0$, and the $\Q$-independence of $\omega$ makes every $s_{a,j}$ zero. (2) If $c \neq 0$, multiplying $v_2 x_1 - v_1 x_2$ by $c$ gives $0$, so $v_2 x_1 - v_1 x_2 = 0$ and the $\Qbar$-independence of $x$ forces $v = 0$; then $cx_1 = 0$, so $x_1 = 0$, which an independent family excludes.
+\end{proof}
+
+% Prove2Me: DiazModulus.intMatrix_ker_facts -- https://prove2.me/theorems/5f163845-60a4-459a-9c9b-5127854e0b73
+\begin{lemma}[Integer matrices with no rational kernel]
+\label{lem:intMatrix_ker_facts}
+\lean{Diaz.intMatrix_ker_facts}
+\leanok
+Let $\iota$ be finite and $\varphi_1, \dots, \varphi_q \in \Z^\iota$, and suppose the only $v \in \Q^\iota$ with $\langle \varphi_k, v \rangle = 0$ for all $k$ is $0$. Then the only such $v \in \C^\iota$ is $0$; and if $z \in \C^\iota$ has $\langle \varphi_k, z \rangle \in 2\pi i \Z$ for every $k$, then $z \in 2\pi i\,\Q^\iota$.
+
+{\small\emph{Source:} Classical linear algebra.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+The map $v \mapsto (\langle \varphi_k, v \rangle)_k$ from $\Q^\iota$ to $\Q^q$ is injective, so it has a rational left inverse $B$, with $\sum_k B_{ik}\varphi_{k,j} = \delta_{ij}$; the identity persists over $\C$. So $w_i = \sum_k B_{ik} \langle \varphi_k, w \rangle$ for every complex $w$: this gives $w = 0$ when every $\langle \varphi_k, w \rangle$ is $0$, and $z_i = 2\pi i \sum_k B_{ik} e_k$ with $e_k \in \Z$ when $\langle \varphi_k, z \rangle = 2\pi i e_k$.
+\end{proof}
+
+% Prove2Me: DiazModulus.rank_le_of_injOn_lattice -- https://prove2.me/theorems/d4c0e8c9-6f34-4871-94b9-e5cd88406c24
+\begin{lemma}[The rank of a lattice on which a linear map is injective]
+\label{lem:rank_le_of_injOn_lattice}
+\lean{Diaz.rank_le_of_injOn_lattice}
+\leanok
+Let $N$ be finite, $\Psi : \C^N \to \C^q$ a $\C$-linear map, and $A \subseteq \Z^N$ a subgroup with $\Psi(A) \subseteq 2\pi i\,\Z^q$ and $\Psi(s) \neq 0$ for every non-zero $s \in A$. Then the dimension of the $\Q$-span of $A$ is at most the dimension of the range of $\Psi$.
+
+{\small\emph{Source:} Elementary. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Pick a $\Q$-basis of the span of $A$ inside $A$, elements $s_b$, with $\Psi(s_b) = 2\pi i e_b$, $e_b \in \Z^q$. It suffices that the $\Psi(s_b)$ are $\C$-independent. A complex relation among them is a complex kernel vector of the integer matrix $(e_b)$, and such a matrix has none once it has no rational one (the left-inverse argument of Lemma~\ref{lem:intMatrix_ker_facts}). A rational kernel vector $c$, cleared of denominators to $Dc_b \in \Z$, gives $s = \sum_b Dc_b s_b \in A$ with $\Psi(s) = 0$, so $s = 0$, and the independence of the basis gives $c = 0$.
+\end{proof}
+
+% Prove2Me: DiazModulus.sse_setup -- https://prove2.me/theorems/2ae6222d-959b-44c9-8ca2-e0294415f3dd
+\begin{lemma}[Roy's map: the subspace and its kernel]
+\label{lem:sse_setup}
+\lean{Diaz.sse_setup}
+\leanok
+Let $m \in \N$, $\omega \in \C^m$ and $x \in \C^2$ with $x \neq 0$. Let $\Upsilon : \C^2 \times \C^{m \times 2} \to \C^2$ be the linear map $\Upsilon(u, v)_i = u_i + \sum_{k=1}^m \omega_k v_{k,i}$ (Roy's map, DALAG \S11.6.2). Then $\Upsilon^{-1}(\mathbb{C}x)$ has dimension $2m + 1$, and $\ker\Upsilon$ is spanned by the vectors $b_{k,i} = (-\omega_k e_i, e_{k,i})$ ($k \leq m$, $i = 1, 2$), where $e_i$ and $e_{k,i}$ are standard basis vectors.
+
+{\small\emph{Source:} \cite[\S11.6.2]{Wal00}, Lemma 11.18 (1)–(2), after \cite{Roy92}.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+$\Upsilon$ is surjective, as $\Upsilon(u, 0) = u$. Composed with the quotient map $\C^2 \to \C^2/\mathbb{C}x$, of dimension $1$ as $x \neq 0$, it is a surjection with kernel $\Upsilon^{-1}(\mathbb{C}x)$, and rank–nullity on a domain of dimension $2 + 2m$ gives $2m + 1$. Each $b_{k,i}$ lies in $\ker\Upsilon$, and every $z \in \ker\Upsilon$ equals $\sum_p z''_p b_p$, since $z'_i = -\sum_k \omega_k z''_{k,i}$ on the kernel.
+\end{proof}
+
+% Prove2Me: DiazModulus.sse_tangent_count -- https://prove2.me/theorems/30f0e241-a932-496b-8bb1-74ed52232a27
+\begin{lemma}[The tangent count]
+\label{lem:sse_tangent_count}
+\lean{Diaz.sse_tangent_count}
+\leanok
+Let $m \in \N$ and $\omega \in \C^m$. Let $\Upsilon : \C^2 \times \C^{m \times 2} \to \C^2$ be the linear map $\Upsilon(u, v)_i = u_i + \sum_{k=1}^m \omega_k v_{k,i}$ (Roy's map, DALAG \S11.6.2). Let $V' \subseteq \C^2$ and $L_1 \subseteq \C^{m \times 2}$ be subspaces, $T = \Upsilon(V' \times L_1)$, and $\ell \in \N$ with $\ell + \dim(\ker\Upsilon \cap (V' \times L_1)) = \dim\ker\Upsilon$. Then $\dim\ker\Upsilon = 2m$, $\ell + (2 - \dim T) = (2 - \dim V') + (2m - \dim L_1)$, and $\dim V' \leq \dim T$.
+
+{\small\emph{Source:} A dimension count in the setting of \cite[\S11.6.2]{Wal00} (compare Lemma 11.18 (3)). Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+$\Upsilon$ is surjective, so $\dim\ker\Upsilon = 2m$. Rank–nullity for $\Upsilon$ restricted to $P = V' \times L_1$ gives $\dim V' + \dim L_1 = \dim T + \dim(\ker\Upsilon \cap P)$, and the identity follows by integer arithmetic from the hypothesis and $\dim T, \dim V' \leq 2$, $\dim L_1 \leq 2m$. Finally $V' \subseteq T$, since $\Upsilon(u, 0) = u$ and $(u, 0) \in P$ for $u \in V'$.
+\end{proof}
+
+% Prove2Me: DiazModulus.sse_relRank_generic -- https://prove2.me/theorems/680eec15-bfe6-4464-8aca-966afa092877
+\begin{lemma}[The relation rank when the tangent space meets the line only in zero]
+\label{lem:sse_relRank_generic}
+\lean{Diaz.sse_relRank_generic}
+\leanok
+Let $\Upsilon : \C^2 \times \C^{m \times 2} \to \C^2$ be the linear map $\Upsilon(u, v)_i = u_i + \sum_{k=1}^m \omega_k v_{k,i}$ (Roy's map, DALAG \S11.6.2). Let $\omega_1, \dots, \omega_m \in \Qbar$ be linearly independent over $\Q$, let $x \in \C^2$ and $y \in \C^3$ each be linearly independent over $\Qbar$, and let $\eta_{a,j} = (\eta'_{a,j}, \eta''_{a,j}) \in \C^2 \times \C^{m \times 2}$ ($a \leq m$, $j \leq 3$) with $\Upsilon(\eta_{a,j}) = \omega_a y_j x$. Let $V' \subseteq \C^2$ be a subspace, $\varphi_1, \dots, \varphi_q \in \Z^{m \times 2}$ with common complex kernel $L_1$, and $T = \Upsilon(V' \times L_1)$. Let $\rho$ be the dimension of the $\Q$-span of the set of $s \in \Z^{m \times 3}$ with $\sum_p s_p \eta'_p \in V'$ and $\prod_i (\prod_p e^{s_p \eta''_{p,i}})^{\varphi_{k,i}} = 1$ for every $k$. Suppose $T \cap \mathbb{C}x = \{0\}$. Then $\rho \leq 2m - \dim L_1$.
+
+{\small\emph{Source:} The setting of \cite[\S11.6.2]{Wal00}, after \cite{Roy92}. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:sse_independence_facts,lem:rank_le_of_injOn_lattice}
+The multiplicative condition reads $e^{\Psi(s)_k} = 1$ for the $\C$-linear map $\Psi(z)_k = \sum_i \varphi_{k,i} \sum_p z_p \eta''_{p,i}$, so the relation set is a subgroup $A \subseteq \Z^{m \times 3}$ with $\Psi(A) \subseteq 2\pi i\,\Z^q$. $\Psi$ is injective on $A$: if $\Psi(s) = 0$ then $\zeta = \sum_p s_p \eta_p \in V' \times L_1$, and $\Upsilon(\zeta) = (\sum_{a,j} s_{a,j}\omega_a y_j)\,x$ lies in $T \cap \mathbb{C}x = \{0\}$; as $x \neq 0$ the coefficient vanishes, and $s = 0$ by Lemma~\ref{lem:sse_independence_facts}. Then Lemma~\ref{lem:rank_le_of_injOn_lattice} bounds $\rho$ by $\dim\mathrm{range}\,\Psi \leq \dim\mathrm{range}\,\Phi = 2m - \dim L_1$, where $\Phi(v)_k = \sum_i \varphi_{k,i} v_i$ has kernel $L_1$.
+\end{proof}
+
+% Prove2Me: DiazModulus.sse_relRank_rational -- https://prove2.me/theorems/50fd1088-39a5-474b-8a6f-60025f716af3
+\begin{lemma}[The relation rank when the tangent space lies in the line]
+\label{lem:sse_relRank_rational}
+\lean{Diaz.sse_relRank_rational}
+\leanok
+Let $\Upsilon : \C^2 \times \C^{m \times 2} \to \C^2$ be the linear map $\Upsilon(u, v)_i = u_i + \sum_{k=1}^m \omega_k v_{k,i}$ (Roy's map, DALAG \S11.6.2). Let $\omega_1, \dots, \omega_m \in \Qbar$ be linearly independent over $\Q$, let $x \in \C^2$ and $y \in \C^3$ each be linearly independent over $\Qbar$, and let $\eta_{a,j} = (\eta'_{a,j}, \eta''_{a,j}) \in \C^2 \times \C^{m \times 2}$ ($a \leq m$, $j \leq 3$) with $\Upsilon(\eta_{a,j}) = \omega_a y_j x$. Suppose moreover $\eta'_{a,j} \in \Qbar^2$ for all $a, j$. Let $V' \subseteq \C^2$ be a subspace, $\varphi_1, \dots, \varphi_q \in \Z^{m \times 2}$ with common complex kernel $L_1$, and $T = \Upsilon(V' \times L_1)$. Let $\rho$ be the dimension of the $\Q$-span of the set of $s \in \Z^{m \times 3}$ with $\sum_p s_p \eta'_p \in V'$ and $\prod_i (\prod_p e^{s_p \eta''_{p,i}})^{\varphi_{k,i}} = 1$ for every $k$. Suppose $T \subseteq \mathbb{C}x$. Then $L_1 = \{0\}$ and $\rho = 0$.
+
+$V'$ is any subspace; it need not be defined over $\Qbar$.
+
+{\small\emph{Source:} The setting of \cite[\S11.6.2]{Wal00}, after \cite{Roy92}. Not found in the sources read in this form; routine (Chapter~\ref{chap:14-not-found-in-the-sources}).}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:sse_independence_facts,lem:intMatrix_ker_facts}
+$L_1 = 0$: if $v \in \Q^{m \times 2}$ has $\langle \varphi_k, v \rangle = 0$ for all $k$, then $\Upsilon(0, v) \in T \subseteq \mathbb{C}x$ is algebraic, so it is $0$ by Lemma~\ref{lem:sse_independence_facts} (with $\beta = 1$), and $\sum_k \omega_k v_{k,i} = 0$ gives $v = 0$. So $\varphi$ has no rational kernel, hence no complex kernel (Lemma~\ref{lem:intMatrix_ker_facts}). Next, for $s$ in the relation set, $z = \sum_p s_p \eta''_p$ has $\langle \varphi_k, z \rangle \in 2\pi i\,\Z$, so $z = 2\pi i\,r$ with $r$ rational (Lemma~\ref{lem:intMatrix_ker_facts}). The vector $\sum_p s_p \eta'_p$ lies in $V' \subseteq T \subseteq \mathbb{C}x$ and is algebraic, so it is $0$. Then $(\sum_{a,j} s_{a,j}\omega_a y_j)\,x = \Upsilon(\sum_p s_p\eta_p) = 2\pi i\,(\sum_k \omega_k r_{k,i})_i$, an algebraic vector times $2\pi i \neq 0$, so the coefficient is $0$ and $s = 0$ (Lemma~\ref{lem:sse_independence_facts}). The relation set is $\{0\}$.
+\end{proof}
+
+% Prove2Me: DiazModulus.strong_six_exponentials -- https://prove2.me/theorems/bec66d28-1e35-4a81-bc07-151c0be6d3b6
+\begin{theorem}[Roy's strong six exponentials theorem, from the multiplicity estimate]
+\label{thm:strong_six_exponentials}
+\lean{Diaz.strong_six_exponentials}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \in \C$ with $e^z$ algebraic), and $\widetilde{\mathcal L}$ is the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$.
+
+Points are $p = (p', p'') \in \C^{\iota_0} \times \C^{\iota_1}$ for finite index sets $\iota_0, \iota_1$. For $w = (w', w'')$ and a weight vector $t$ on $\iota_1$, $\mathrm{Op}^t_w$ is the operator $\sum_{h \in \iota_0} w'_h\,\partial/\partial X_h + \sum_{i \in \iota_1} w''_i t_i$ on polynomials in the $X_h$ ($h \in \iota_0$), and for vectors $w_k$ ($k \in \kappa_0$) and $k_1, \dots, k_r \in \kappa_0$, $\mathrm{Op}^t_{w,k} = \mathrm{Op}^t_{w_{k_1}} \cdots \mathrm{Op}^t_{w_{k_r}}$ (the factors commute). For $T_0, T_1 \geq 1$ the columns are the $\lambda = (\tau, t)$ with $\tau \in \{0, \dots, T_0\}^{\iota_0}$ and $t \in \{-T_1, \dots, T_1\}^{\iota_1}$; there are $L = (T_0 + 1)^{|\iota_0|}(2T_1 + 1)^{|\iota_1|}$ of them. Given $u_j \in \C^{\iota_0}$ and $a_{ji} \in \C$ ($j \in \kappa_1$, $i \in \iota_1$), the entry at a row datum $(r, k, s)$ ($r \in \N$, $k_1, \dots, k_r \in \kappa_0$, $s \in \Z^{\kappa_1}$) and a column $(\tau, t)$ is $E_{(r,k,s),(\tau,t)} = (\mathrm{Op}^t_{w,k} X^\tau)(\sum_j s_j u_j) \cdot \prod_i (\prod_j a_{ji}^{s_j})^{t_i}$.
+
+The hypothesis \texttt{hME} is the proposition \texttt{Diaz.MultiplicityEstimateElem} of the library (on Prove2Me, the published definition \texttt{MultiplicityEstimateElem}), a proposition that is assumed here, not proved. It is an elementary form of Philippon's multiplicity estimate: the case $G^- = \{e\}$, $G^+ = G$ of DALAG Th. 8.1 (\S8.1) for $G = \mathbb{G}_a^{A_0} \times \mathbb{G}_m^{A_1}$, written in coordinates. It says: let $A_0, A_1, B_0, B_1$ be finite, $d = |A_0| + |A_1|$, $w_b \in \C^{A_0} \times \C^{A_1}$ ($b \in B_0$), $u_j \in \C^{A_0}$ and non-zero $a_{ji} \in \C$ ($j \in B_1$, $i \in A_1$), $D_0, D_1 \geq 1$, $M_0, M_1 \in \N$, and $c \neq 0$ a vector on the box of the $(\tau, t)$ with $\tau_h \leq D_0$ and $|t_i| \leq D_1$. If $\sum_\lambda c_\lambda E_{(r,k,s),\lambda} = 0$ for every $r \leq dM_0$, every $k_1, \dots, k_r \in B_0$ and every $s$ with $|s_j| \leq dM_1$ (the entries $E$ are those defined above, with $A_0, A_1, B_0, B_1$ for $\iota_0, \iota_1, \kappa_0, \kappa_1$ and $D_0, D_1$ for $T_0, T_1$), then there are a subspace $V \subseteq \C^{A_0}$, integer vectors $\varphi_1, \dots, \varphi_q \in \Z^{A_1}$ with common complex kernel $L_1$, and $\ell$ with $\ell + \dim(W \cap (V \times L_1)) = \dim W$, $W$ the span of the $w_b$, such that $\dim V + \dim L_1 < d$ and every set $R$ of vectors $s$ with $|s_j| \leq M_1$, pairwise incongruent modulo $(V, \varphi)$, has $\binom{M_0 + \ell}{\ell}\, |R|\, D_0^{\dim V} D_1^{\dim L_1} \leq K_d\, D_0^{|A_0|} D_1^{|A_1|}$, with $K_d = 2^{d(d+1)/2}\, d!\, 2^{|A_1|}\, |A_0|^{|A_0|}$; two vectors $s, s' \in \Z^{B_1}$ are congruent modulo $(V, \varphi)$ when $\sum_j (s_j - s'_j) u_j \in V$ and $\prod_i (\prod_j a_{ji}^{s_j - s'_j})^{\varphi_{k,i}} = 1$ for every $k$.
+
+Assume \texttt{hME}. Let $x \in \C^2$ and $y \in \C^3$ each be linearly independent over $\Qbar$. Then $x_i y_j \notin \widetilde{\mathcal L}$ for some $i, j$.
+
+This is Roy's strong six exponentials theorem, the case $d = 2$, $\ell = 3$ of DALAG Cor. 11.16 (\S11.6.1), conditional on \texttt{hME}. \texttt{hME} is carried as an explicit hypothesis and is not proved here. It is intended as the case $G^- = \{e\}$ of DALAG Th. 8.1 (Philippon's multiplicity estimate); that derivation is not proved formally here. A separate check of the statement against Th. 8.1, including exact computation on small cases, found no counterexample.
+
+{\small\emph{Source:} Roy's strong six exponentials theorem: \cite{Roy92}, Cor. 2; \cite[Cor.~11.16]{Wal00} (\S11.6.1; this node is its case $d=2$, $\ell=3$), through Th. 11.21 (\S11.7.1). The multiplicity estimate (\cite[Th.~8.1]{Wal00}, \S8.1; \cite{Phi86}) is carried as the explicit hypothesis \texttt{hME}, the definition \texttt{MultiplicityEstimateElem}, and is not proved in this library.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:exists_sse_lifts,lem:sse_setup,lem:sse_tangent_count,lem:sse_relRank_generic,lem:sse_relRank_rational,thm:linear_subgroup_transcendence}
+Suppose $x_i y_j \in \widetilde{\mathcal L}$ for all $i, j$. Lemma~\ref{lem:exists_sse_lifts} gives $m \geq 1$, a $\Q$-free algebraic $\omega$ and lifts $\eta_{a,j} \in \Qbar^2 \times \mathcal{L}^{m \times 2}$ with $\Upsilon(\eta_{a,j}) = \omega_a y_j x$, where $\Upsilon(u, v)_i = u_i + \sum_k \omega_k v_{k,i}$. Apply Theorem~\ref{thm:linear_subgroup_transcendence} (DALAG Th. 11.21) in $G = \mathbb{G}_a^2 \times \mathbb{G}_m^{2m}$ with $V = \Upsilon^{-1}(\mathbb{C}x)$, of dimension $2m + 1$ by Lemma~\ref{lem:sse_setup} (so $d - n = 1$), the algebraic spanning family $(-\omega_k e_i, e_{k,i})$ of $\ker\Upsilon$ (Lemma~\ref{lem:sse_setup}) and the lifts $\eta$. It returns $(V', \varphi, L_1, \ell)$ with $\ell < d'$ and $3m - \rho + d'_1 \leq 2m(d' - \ell)$. By Lemma~\ref{lem:sse_tangent_count}, $d' - \ell = \delta = 2 - \dim T$ for $T = \Upsilon(V' \times L_1)$, so $\delta \geq 1$. If $T \subseteq \mathbb{C}x$, Lemma~\ref{lem:sse_relRank_rational} gives $L_1 = 0$ and $\rho = 0$, so $5m \leq 2m\delta \leq 4m$. Otherwise $\dim T = 1$ and $T \cap \mathbb{C}x = 0$, and Lemma~\ref{lem:sse_relRank_generic} gives $\rho \leq 2m - \dim L_1$, so $3m \leq 2m$. Both contradict $m \geq 1$.
 \end{proof}

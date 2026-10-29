@@ -1,0 +1,21 @@
+{
+ "theorem_id": "4b91dc89-dfa7-42b9-a1d1-a34ab9e6a9eb",
+ "theorem_name": "DiazModulus.iteratedDeriv_det_eq_sum",
+ "theorem_title": "Leibniz rule for a determinant of entire functions: its $j$-th derivative is a multinomial sum of determinants whose column $\\mu$ is differentiated $q_\\mu$ times",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem iteratedDeriv_det_eq_sum {L : ℕ} (g : Fin L → Fin L → ℂ → ℂ) (hg : ∀ l μ, Differentiable ℂ (g l μ))\n    (j : ℕ) (z : ℂ) :\n    iteratedDeriv j (fun x => (Matrix.of fun l μ => g l μ x).det) z =\n      ∑ q ∈ Finset.Nat.antidiagonalTuple L j, (Nat.multinomial Finset.univ q : ℂ) *\n        (Matrix.of fun l μ => iteratedDeriv (q μ) (g l μ) z).det := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $g_{l\\mu}$ ($l, \\mu \\in \\{1, \\dots, L\\}$) be entire functions, $j \\in \\mathbb{N}$ and $z \\in \\mathbb{C}$. Then the $j$-th derivative of $x \\mapsto \\det(g_{l\\mu}(x))$ at $z$ is $\\sum_q \\frac{j!}{\\prod_\\mu q_\\mu!} \\det(g_{l\\mu}^{(q_\\mu)}(z))$, the sum over the $q \\in \\mathbb{N}^L$ with $\\sum_\\mu q_\\mu = j$: column $\\mu$ is differentiated $q_\\mu$ times.\n\n**Proof.** Expand the determinant over permutations. By linearity it suffices to differentiate a product $\\prod_\\mu h_\\mu$ of entire functions; the general Leibniz rule $(\\prod_\\mu h_\\mu)^{(j)} = \\sum_{\\sum q = j} \\binom{j}{q} \\prod_\\mu h_\\mu^{(q_\\mu)}$ is proved by induction on $L$, splitting off the factor $\\mu = 0$, applying the binomial Leibniz rule and the induction hypothesis, and reindexing the double sum through $q \\mapsto (q_0, (q_1, \\dots))$, with $\\binom{j}{(i, q')} = \\binom{i + |q'|}{i}\\binom{|q'|}{q'}$. Exchanging the sums over permutations and over $q$ gives the statement.\n\n**Novelty.** Classical; routine formalisation. The Leibniz rule, applied column by column; it is used in the proof of DALAG Lemma 9.2.",
+ "created_at": "2026-10-29T06:05:32.191987+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Classical (the Leibniz rule for products). Used for M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, Lemma 9.2. C1.4 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 29 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

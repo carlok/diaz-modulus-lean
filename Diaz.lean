@@ -20,3 +20,4 @@ import Diaz.P21P
 import Diaz.Fibre
 import Diaz.Palomar
 import Diaz.Mirror
+import Diaz.StrongSixExponentials

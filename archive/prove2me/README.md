@@ -13,6 +13,11 @@ here too, marked `dependency_of` in the manifest, together with `Def_SX.lean`, t
 definitions they are stated in. All four are Proved, so the Diaz result they support is
 proved outright.
 
+`Def_MultiplicityEstimateElem.lean` is the platform's definition `MultiplicityEstimateElem`
+(29 October 2026), verbatim: the multiplicity-estimate hypothesis `hME` that three proofs of
+that day take, ending in `DiazModulus.strong_six_exponentials`. It is a proposition, not a
+theorem, and nothing proves it; the library carries it in `Diaz/MultiplicityEstimate.lean`.
+
 These files are the platform's record, kept here so that no proof exists only
 on the platform. They are **not** part of the Lean library and are not built:
 they target the platform's Mathlib revision and import its per-node modules

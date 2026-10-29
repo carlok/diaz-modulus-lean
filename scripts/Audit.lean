@@ -156,3 +156,9 @@ import Solution
 #print axioms Diaz.laurent_conj_hull_configuration_shape_iff_class
 #print axioms Diaz.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde
 #print axioms Diaz.degree_two_configuration_multiplier_space_eq
+
+-- Roy's strong six exponentials theorem from the multiplicity estimate `hME` (C1.4, 29 October 2026):
+-- the README table row, the headline node and the linear subgroup theorem. `hME` is a hypothesis.
+#print axioms Diaz.strongSixExponentials_of_multiplicityEstimateElem
+#print axioms Diaz.strong_six_exponentials
+#print axioms Diaz.linear_subgroup_transcendence
