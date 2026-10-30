@@ -1,0 +1,22 @@
+{
+ "theorem_id": "551961c0-ca96-4eb9-a47d-8e80ffd49852",
+ "theorem_name": "DiazModulus.exists_coordinate_section_mul",
+ "theorem_title": "A subgroup $\\Phi \\le \\mathbb{Z}^{A_1}$ has a coordinate set $J$ with $\\Phi \\cap \\mathbb{Z}^J = 0$ and triangular rows $\\psi_i \\in \\Phi$, $i \\notin J$; their common kernel has dimension $|J|$",
+ "status": "Proved",
+ "formal_statement": "namespace DiazModulus\n\ntheorem exists_coordinate_section_mul {A₁ : Type*} [Fintype A₁] (Φ : AddSubgroup (A₁ → ℤ)) :\n    ∃ (J : Finset A₁) (ψ : A₁ → A₁ → ℤ), (∀ φ ∈ Φ, (∀ i ∉ J, φ i = 0) → φ = 0) ∧ (∀ i, ψ i ∈ Φ) ∧\n      (∀ i ∈ J, ψ i = 0) ∧ (∀ i ∉ J, ψ i i ≠ 0 ∧ ∀ i' ∉ J, i' ≠ i → ψ i i' = 0) ∧\n      ∀ L : Submodule ℂ (A₁ → ℂ), (∀ v, v ∈ L ↔ ∀ i, ∑ i', (ψ i i' : ℂ) * v i' = 0) → Module.finrank ℂ ↥L = J.card := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $A_1$ be a finite type and $\\Phi$ a subgroup of $\\mathbb{Z}^{A_1}$. Then there are $J \\subseteq A_1$ and $\\psi_i \\in \\Phi$ ($i \\in A_1$) such that the only element of $\\Phi$ vanishing off $J$ is $0$, $\\psi_i = 0$ for $i \\in J$, $\\psi_{i,i} \\ne 0$ and $\\psi_{i,i'} = 0$ for $i, i' \\notin J$, $i' \\ne i$, and every complex subspace $L \\subseteq \\mathbb{C}^{A_1}$ with $L = \\{v : \\sum_{i'} \\psi_{i,i'} v_{i'} = 0 \\text{ for every } i\\}$ has $\\dim L = |J|$.\n\n**Proof.** Take $J$ of largest size with $\\Phi \\cap \\mathbb{Z}^J = 0$. For $i \\notin J$ maximality gives a non-zero $\\psi_i \\in \\Phi$ supported on $J \\cup \\{i\\}$, with $\\psi_{i,i} \\ne 0$. The system is triangular off $J$, so restriction to $J$ is a linear bijection from $L$ onto $\\mathbb{C}^J$.\n\n**Novelty.** Classical; routine formalisation.",
+ "created_at": "2026-10-30T09:51:49.660917+00:00",
+ "tags": [
+  "commutative-algebra",
+  "diaz-modulus-lean",
+  "multiplicity-estimate",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Classical: a maximal coordinate set avoiding a lattice, and the triangular system it gives. C1.3 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 30 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

@@ -22,3 +22,5 @@ import Diaz.Palomar
 import Diaz.Mirror
 import Diaz.StrongSixExponentials
 import Diaz.HilbertSide
+import Diaz.Multiplicity
+import Diaz.RoyUnconditional

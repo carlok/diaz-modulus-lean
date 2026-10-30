@@ -6,11 +6,13 @@ Mirrored from Prove2Me: the definition `MultiplicityEstimateElem` (theorem id
 `archive/prove2me/Def_MultiplicityEstimateElem.lean`. Only the import and the namespace were
 rewritten (`DiazModulus` to `Diaz`); the definition is the platform's, byte for byte.
 
-It is a proposition, not a theorem: the case `G⁻ = {e}` of the multiplicity estimate of
-DALAG Th. 8.1, written in coordinates. Nothing in the library proves it. The ported
-proof of Roy's strong six exponentials theorem, `Diaz.strong_six_exponentials`, and its two
-steps that use it (`Diaz.obstruction_1123`, `Diaz.linear_subgroup_transcendence`) take it as
-the explicit hypothesis `hME`.
+It is a proposition: the case `G⁻ = {e}` of the multiplicity estimate of DALAG Th. 8.1,
+written in coordinates. The ported proof of Roy's strong six exponentials theorem,
+`Diaz.strong_six_exponentials`, and its two steps that use it (`Diaz.obstruction_1123`,
+`Diaz.linear_subgroup_transcendence`) take it as the explicit hypothesis `hME`. The ported
+C1.3 node `Diaz.multiplicityEstimateElem` proves it (its vocabulary is `Diaz/Multiplicity.lean`),
+so `Diaz.strongSixExponentials` (`Diaz/StrongSixExponentials.lean`) holds with no hypothesis.
+The docstring of the definition below is the platform's, written before that proof.
 -/
 import Mathlib
 

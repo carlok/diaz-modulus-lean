@@ -1,0 +1,22 @@
+{
+ "theorem_id": "99c3ca4b-6a3b-4c5e-abfb-d64b1eff67d2",
+ "theorem_name": "DiazModulus.eval_eq_zero_on_span_of_addSubgroup",
+ "theorem_title": "A complex polynomial vanishing on an additive subgroup $\\Lambda$ of $\\mathbb{C}^{A_0}$ vanishes on its $\\mathbb{C}$-span",
+ "status": "Proved",
+ "formal_statement": "namespace DiazModulus\n\ntheorem eval_eq_zero_on_span_of_addSubgroup {A₀ : Type*} (Λ : AddSubgroup (A₀ → ℂ)) (F : MvPolynomial A₀ ℂ)\n    (hF : ∀ x ∈ Λ, MvPolynomial.eval x F = 0) :\n    ∀ x ∈ Submodule.span ℂ (Λ : Set (A₀ → ℂ)), MvPolynomial.eval x F = 0 := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $A_0$ be a type, $\\Lambda$ an additive subgroup of $\\mathbb{C}^{A_0}$ and $F \\in \\mathbb{C}[X_{A_0}]$ a polynomial vanishing at every point of $\\Lambda$. Then $F$ vanishes at every point of the complex span of $\\Lambda$.\n\n**Proof.** For $z = \\sum_{i < n} c_i x_i$ with $x_i \\in \\Lambda$, induction on $n$ for every base point $y \\in \\Lambda$: the one-variable polynomial $t \\mapsto F(y + r + t x_0)$ vanishes at every integer, hence identically.\n\n**Novelty.** Classical; routine formalisation.",
+ "created_at": "2026-10-30T09:51:34.234224+00:00",
+ "tags": [
+  "commutative-algebra",
+  "diaz-modulus-lean",
+  "multiplicity-estimate",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Classical: a polynomial vanishing on infinitely many points of a line vanishes on the line. C1.3 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 30 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

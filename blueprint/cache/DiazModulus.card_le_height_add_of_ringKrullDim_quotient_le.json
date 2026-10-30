@@ -1,0 +1,22 @@
+{
+ "theorem_id": "a3fb62f7-ccde-4779-9de3-1c0d753149b6",
+ "theorem_name": "DiazModulus.card_le_height_add_of_ringKrullDim_quotient_le",
+ "theorem_title": "For a prime $\\mathfrak{p}$ of $K[X_\\sigma]$, $K$ algebraically closed and $\\sigma$ finite: $\\dim K[X_\\sigma]/\\mathfrak{p} \\le e$ implies $|\\sigma| \\le \\mathrm{ht}\\,\\mathfrak{p} + e$",
+ "status": "Proved",
+ "formal_statement": "namespace DiazModulus\n\ntheorem card_le_height_add_of_ringKrullDim_quotient_le {σ K : Type*} [Field K] [IsAlgClosed K] [Finite σ]\n    (𝔭 : Ideal (MvPolynomial σ K)) (h𝔭 : 𝔭.IsPrime) (e : ℕ)\n    (he : ringKrullDim (MvPolynomial σ K ⧸ 𝔭) ≤ e) :\n    (Nat.card σ : ℕ∞) ≤ 𝔭.height + e := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $K$ be an algebraically closed field, $\\sigma$ a finite type and $\\mathfrak{p}$ a prime ideal of $K[X_\\sigma]$ (`MvPolynomial σ K`) with $\\dim K[X_\\sigma]/\\mathfrak{p} \\le e$ for some $e \\in \\mathbb{N}$. Then $|\\sigma| \\le \\operatorname{ht}\\mathfrak{p} + e$. Krull dimensions take values in $\\{-\\infty\\} \\cup \\mathbb{N} \\cup \\{\\infty\\}$ and heights in $\\mathbb{N} \\cup \\{\\infty\\}$.\n\n**Proof.** Localise at a maximal ideal $\\mathfrak{m} = (X - a) \\supseteq \\mathfrak{p}$, where `DiazModulus.exists_isWeaklyRegular_vanishing` gives a regular sequence of length $|\\sigma|$. A maximal weakly regular list $ps$ inside $\\mathfrak{p}$ has length at most $\\operatorname{ht}\\mathfrak{p}$ and $\\mathfrak{p}$ lies in an associated prime $\\mathfrak{q}$ of the quotient by $ps$; then `DiazModulus.exists_isRegular_quotient_ofList` and `DiazModulus.length_le_ringKrullDim_quotient_of_mem_associatedPrimes` give $|\\sigma| \\le |ps| + \\dim A/\\mathfrak{q} \\le \\operatorname{ht}\\mathfrak{p} + e$.\n\n**Novelty.** Classical; routine formalisation. Only the inequality is stated.",
+ "created_at": "2026-10-30T09:51:23.507988+00:00",
+ "tags": [
+  "commutative-algebra",
+  "diaz-modulus-lean",
+  "multiplicity-estimate",
+  "transcendence"
+ ],
+ "preamble": "import Mathlib",
+ "source": "Classical dimension theory of polynomial rings over a field: $\\operatorname{ht}\\mathfrak{p} + \\dim K[X_\\sigma]/\\mathfrak{p} = |\\sigma|$; compare H. Matsumura, Commutative Ring Theory, Cambridge Studies in Advanced Mathematics 8, Cambridge University Press, §17. Uses `DiazModulus.exists_isRegular_quotient_ofList`, `DiazModulus.exists_isWeaklyRegular_vanishing` and `DiazModulus.length_le_ringKrullDim_quotient_of_mem_associatedPrimes`. C1.3 of the Diaz modulus mission. Formal proof: Diaz modulus mission, 30 October 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

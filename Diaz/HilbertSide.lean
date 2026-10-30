@@ -10,8 +10,8 @@ algebraically closed field `K` and finite `σ`: the inequality half of Macaulay'
 theorem for polynomial rings (Macaulay 1916; Bruns–Herzog, *Cohen–Macaulay rings*, Th. 2.1.6),
 which is classical. This file only passes the second to the first, for `K = ℂ`.
 
-The multiplicity side of `hME`, and the assembly of `hME` from its two sides, are not proved
-here, so `hME` remains a hypothesis.
+The multiplicity side of `hME`, and the assembly of `hME` from its two sides, are the mirrored
+C1.3 nodes; they end in `Diaz.multiplicityEstimateElem`, which proves `hME`.
 -/
 import Mathlib
 import Diaz.HilbertBox

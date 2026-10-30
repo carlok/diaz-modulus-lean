@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 564 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 596 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -35,7 +35,7 @@ checked and ranks those that are not routine; in the dependency graph they have 
 | `e^{bℓ}` is transcendental for algebraic irrational `b` and a non-zero logarithm `ℓ` | Gel'fond 1934, Schneider 1934 | `GelfondSchneider.gelfond_schneider` | restructured from M. Karatarakis and F. Wiedijk |
 | `e^π` is transcendental | Gel'fond 1929 | `Diaz.e_pi_transcendence` | this project (the node was posed by another Prove2Me contributor) |
 | the six exponentials theorem | Lang 1965–66, Ramachandra 1968 | `Diaz.six_exponentials` | this project |
-| Roy's strong six exponentials theorem: for `x₁, x₂` and `y₁, y₂, y₃` free over Q̄, some `xᵢyⱼ` is not in `ℒ̃` | Roy 1992, Cor. 2; DALAG Cor. 11.16, via Th. 11.21 | `Diaz.strongSixExponentials_of_multiplicityEstimateElem` | this project, from the hypothesis `hME`, which is not proved |
+| Roy's strong six exponentials theorem: for `x₁, x₂` and `y₁, y₂, y₃` free over Q̄, some `xᵢyⱼ` is not in `ℒ̃` | Roy 1992, Cor. 2; DALAG Cor. 11.16, via Th. 11.21 | `Diaz.strongSixExponentials` | this project, with no hypothesis, through an elementary case of the multiplicity estimate (DALAG Th. 8.1) |
 | the four exponentials theorem in transcendence degree one | Waldschmidt 1973, Brownawell 1974 | `Diaz.four_exponentials_trdeg_one` | this project |
 | two of `xᵢ, yⱼ, e^{xᵢyⱼ}` are algebraically independent when one column is algebraic | Waldschmidt 1973, Brownawell 1974 | `Diaz.two_algebraically_independent_of_exp_column` | this project |
 | one of `e^e`, `e^{e²}` is transcendental (Schneider's eighth problem) | Waldschmidt 1973, Brownawell 1974 | `Transcendence.exp_e_or_exp_e_sq_transcendental` | this project |
@@ -47,11 +47,12 @@ checked and ranks those that are not routine; in the dependency graph they have 
 
 Some results carry a conjecture as an explicit hypothesis: Schanuel's conjecture; the strong four, sharp four and
 strong five exponentials conjectures; Waldschmidt's 2×2 determinant conjecture; the case n = 2 of Kirby's weak
-Schanuel conjecture; and the case n = 1 of Schanuel's conjecture over the kernel. Others carry Roy's strong six
-exponentials theorem, which is proved in the literature. Here it is proved from one explicit hypothesis, `hME`, an
-elementary case of the multiplicity estimate (DALAG Th. 8.1), which is not proved; see "Roy's theorem from a
-multiplicity estimate". Each is a hypothesis of the statement that uses it, named in that statement's section below,
-so the library still assumes only Lean's three axioms ("What is assumed").
+Schanuel conjecture; and the case n = 1 of Schanuel's conjecture over the kernel. Each is a hypothesis of the
+statement that uses it, named in that statement's section below, so the library still assumes only Lean's three
+axioms ("What is assumed"). Others carry Roy's strong six exponentials theorem, which is proved in the literature,
+as the hypothesis `hSSE`. It is proved here too, with no hypothesis, through an elementary case of the multiplicity
+estimate (DALAG Th. 8.1) that is proved as well, and `Diaz/RoyUnconditional.lean` restates each of those results
+without `hSSE`; see "Roy's theorem from a multiplicity estimate".
 
 Names are the library's own; `MIRROR_CHECKLIST.md` maps each to its name on Prove2Me.
 
@@ -645,10 +646,10 @@ this is a formalisation of its known proof.
 
 - **The hypothesis.** `MultiplicityEstimateElem` is the case G⁻ = {e}, G⁺ = G of the multiplicity estimate of DALAG
   Th. 8.1 (Philippon 1986), for G = 𝔾ₐ^{A₀} × 𝔾ₘ^{A₁}, written in coordinates. It is a `def` of a proposition, not an
-  axiom, and it is not proved here; neither is its derivation from Th. 8.1. A separate check of the statement against
-  Th. 8.1, with exact computation on small cases, found no counterexample. So Roy's theorem is proved here only
-  under `hME`. On Prove2Me it is the published definition `MultiplicityEstimateElem`, archived as
-  `archive/prove2me/Def_MultiplicityEstimateElem.lean`.
+  axiom. These 26 nodes take it as the explicit hypothesis `hME`, and the 32 nodes of "The multiplicity side, and
+  `hME` itself" below prove it directly (`Diaz.multiplicityEstimateElem`); Th. 8.1 in general is not formalised. So
+  Roy's theorem holds here with no hypothesis. On Prove2Me it is the published definition
+  `MultiplicityEstimateElem`, archived as `archive/prove2me/Def_MultiplicityEstimateElem.lean`.
 - **The headline.** `DiazModulus.strong_six_exponentials` (milestone): under `hME`, for `x₁, x₂` and `y₁, y₂, y₃`
   free over Q̄, some `xᵢyⱼ` is not in `ℒ̃`. `DiazModulus.linear_subgroup_transcendence` (milestone) is DALAG Th. 11.21
   in the case d₀ ≤ n, under `hME`.
@@ -665,8 +666,8 @@ this is a formalisation of its known proof.
 - **The bridge.** `Diaz.strongSixExponentials_of_multiplicityEstimateElem : MultiplicityEstimateElem →
   StrongSixExponentials` (`Diaz/StrongSixExponentials.lean`) restates the headline in the library's name.
 
-So the declarations that carry Roy's theorem as the hypothesis `hSSE` are now conditional on `hME` instead of Roy's
-theorem; they are not restated. They are `candidate_multiplier_module`,
+So the declarations that carry Roy's theorem as the hypothesis `hSSE` hold with no hypothesis; each is restated
+without it in `Diaz/RoyUnconditional.lean` (below). They are `candidate_multiplier_module`,
 `algebraic_modulus_log_multiplier_rational`, `candidate_cube_and_axis_multiple_not_mem_logAlgTilde`,
 `candidate_div_sq_sub_not_mem_logAlgTilde`, `candidate_laurent_conj_hull_class_not_mem_logAlgTilde`,
 `candidate_power_pair_not_both_mem_logAlgTilde`, `candidate_rational_conj_hull_criterion_not_mem_logAlgTilde`,
@@ -678,7 +679,8 @@ theorem; they are not restated. They are `candidate_multiplier_module`,
 `strong_six_exponentials_iff_quotient_form` makes equivalent: `nonreal_two_point_fibre_pi_sq`, and
 `diaz_2007_cor2_P1`, stated over any subfield K, of which the case K = Q̄ follows.
 
-Clean room: the agents that designed and wrote these 26 proofs did not open any other formalisation of Roy's theorem.
+Clean room: the agents that designed and wrote these 26 proofs worked under the rule that no agent was to open another
+formalisation of Roy's theorem.
 The 26 modules have 4,159 lines in `Diaz/Mirror/`; three are over 300: `interp_det_upper` (454),
 `interp_det_liouville` (395) and `op_entry_denom_house` (357).
 
@@ -734,16 +736,53 @@ from Mathlib (`ModuleCat.exists_isRegular_tfae`) as the one tool of depth theory
   `hU` supplied by `unmixedHeight_mvPolynomial`: the Hilbert side of `hME` over ℂ holds without `hU`. Its other
   inputs, the height bound `hH` and the lower bound `hlow`, are what the multiplicity side has to supply.
 
-Not proved: the multiplicity side of `hME`, and the assembly of `hME` from its two sides (round C1.3). So `hME` is
-still a hypothesis, and Roy's theorem is still proved here only under it. The 5 modules have 563 lines in
-`Diaz/Mirror/`.
+The 5 modules have 563 lines in `Diaz/Mirror/`.
+
+**The multiplicity side, and `hME` itself.** Thirty-two nodes of 30 October 2026 prove `hME`.
+`DiazModulus.multiplicityEstimateElem` (milestone) is `MultiplicityEstimateElem`: the case G⁻ = {e}, G⁺ = G of
+DALAG Th. 8.1 for G = 𝔾ₐ^{A₀} × 𝔾ₘ^{A₁} over ℂ, written in coordinates. For G⁻ = {e} and finite Σ, DALAG notes
+that Th. 8.1 is a special case of Philippon 1986, Th. 2.1. The proof is that of DALAG §8.4 (chapter 8 is by D. Roy),
+at finite level and through elementary arguments. The theorem is classical, and this is a formalisation of its known
+proof. The vocabulary is `Diaz/Multiplicity.lean`, the platform's definition `DiazMultiplicity` carried verbatim
+(archived as `archive/prove2me/Def_DiazMultiplicity.lean`): the group `TorusGroup`, its invariant derivations
+`torusDeriv`, the translations `torusTransl`, the ideal `torusVanishing S` of a set of points and the zero set
+`torusZero I` of an ideal, the stabiliser `torusStab`, and the section ideals and obstruction spans of DALAG §8.4.1.
+
+- **Zero sets and heights on the torus**: `isPrime_iInf_ker_eval_of_analytic`, `le_height_torusVanishing`,
+  `torusVanishing_univ`, `torusVanishing_torusZero` (the Nullstellensatz on the torus), `torusTransl_algEquiv`,
+  `ringKrullDim_quotient_sectionIdeal_le` and `card_le_height_add_of_ringKrullDim_quotient_le`.
+- **Characters and subgroups**: `eval_eq_zero_of_sum_mul_char` (Dedekind's lemma with polynomial coefficients),
+  `eval_eq_zero_on_span_of_addSubgroup`, `exists_coordinate_section_add`, `exists_coordinate_section_mul`,
+  `linearIndependent_on_subgroup` and `torusStab_subgroup`.
+- **Invariant derivations** (DALAG Lemma 8.11): `torusDeriv_mem_torusBox`, `torusDeriv_torusTransl`,
+  `eval_torusDerivList_torusCoeffPoly`, `eval_torusDerivList_eq_zero` and `vanishOrd_ideal`.
+- **Tangent duals and Wüstholz's argument** (Lemmas 8.14–8.16 and (8.20)): `exists_tangent_dual`,
+  `exists_tangent_dual_cosets`, `derivation_pow_mul_mem`, `card_multiIndex` and `wustholz_le_boxHilb`.
+- **The obstruction** (§8.4.1): `exists_chain_prime`, `obstructionSpan_vanishOrd`,
+  `exists_le_translate_of_le_torusVanishing`, `le_height_obstruction`, `le_boxHilb_torusVanishing_subgroup`,
+  `hlow_le_boxHilb` and `exists_obstruction`. Then `multiplicityEstimateElem` compares the lower bound with the
+  Hilbert side (`torus_hilbert_side`, with `unmixedHeight_mvPolynomial`) through `le_hME_constant`.
+- **The headline.** `DiazModulus.strong_six_exponentials_unconditional` (milestone): Roy's strong six exponentials
+  theorem with no hypothesis, `strong_six_exponentials` applied to `multiplicityEstimateElem`.
+- **The bridges.** `Diaz.strongSixExponentials : StrongSixExponentials` (`Diaz/StrongSixExponentials.lean`) is
+  `strongSixExponentials_of_multiplicityEstimateElem multiplicityEstimateElem`. `Diaz/RoyUnconditional.lean` gives
+  each of the 25 declarations above that take `hSSE` a corollary `<name>_unconditional`, with the same binders and
+  conclusion and no `hSSE`; where Baker's theorem `hB` or Hermite–Lindemann `hHL` is a hypothesis too, it is
+  supplied as well (`baker_two_logs`, `hermite_lindemann_holds`). The two statements of the quotient form over a
+  general space `aLog` are specialised to `aLog = ℒ̃`.
+
+So Roy's strong six exponentials theorem is machine-checked in the library with no hypothesis, from four rounds of
+October 2026: C1.4 (Roy's theorem from `hME`), C1.1 (the Hilbert side of `hME`), C1.2 (unmixedness for polynomial
+rings) and C1.3 (the multiplicity side and `hME`), 93 nodes in all. The agents that designed and wrote the 32 proofs
+of C1.3 worked under a clean-room rule: no agent was to open another formalisation of the theorem. The 32 modules
+have 4,270 lines in `Diaz/Mirror/`; the largest has 251.
 
 ### Consequences of Roy's strong six exponentials theorem
 
 Ten nodes of 1 October 2026 carry Roy's strong six exponentials theorem as the hypothesis `hSSE` (later rounds added more), in the form of
 `candidate_multiplier_module`: if `x₁, x₂` and `y₁, y₂, y₃` are linearly independent over `Q̄`, one of
-the six products `xᵢyⱼ` is not in `ℒ̃`. Every statement was read on the page first. Since 29 October 2026 they hold
-under the hypothesis `hME` of the previous section instead.
+the six products `xᵢyⱼ` is not in `ℒ̃`. Every statement was read on the page first. Since 30 October 2026 they hold
+with no hypothesis: `Diaz/RoyUnconditional.lean` states each as `<name>_unconditional`.
 
 - `DiazModulus.strong_six_exponentials_iff_quotient_form` — Diaz 2007, Théorème 3: the theorem is
   equivalent to its four-logarithm quotient form. No hypothesis; it also connects the two forms in
@@ -1414,9 +1453,10 @@ It no longer declares anything as an axiom.
 
 A hypothesis is not an axiom. `MultiplicityEstimateElem` (`Diaz/MultiplicityEstimate.lean`), like the conjectures
 above, is a `def` of a proposition; the results that need it take it as the argument `hME`, so `#print axioms` lists
-only the three axioms for them too. The same holds for `UnmixedHeight` (`Diaz/HilbertBox.lean`), the argument `hU` of
-the Hilbert side of `hME`; `DiazModulus.unmixedHeight_mvPolynomial` proves it for polynomial rings over an
-algebraically closed field.
+only the three axioms for them too. Unlike the conjectures, it is proved: `Diaz.multiplicityEstimateElem`. The same
+holds for `UnmixedHeight` (`Diaz/HilbertBox.lean`), the argument `hU` of the Hilbert side of `hME`, which
+`DiazModulus.unmixedHeight_mvPolynomial` proves for polynomial rings over an algebraically closed field. So neither is
+assumed by Roy's strong six exponentials theorem, `Diaz.strongSixExponentials`.
 
 Gelfond–Schneider is proved too: `GelfondSchneider.gelfond_schneider` in
 `Diaz/Mirror/gelfond_schneider.lean`. For a non-zero
@@ -1461,11 +1501,6 @@ The five exponentials theorem, not formalised, already gives one of `2^π`, `3^�
 Stated plainly, because an adversarial audit found these and a reader
 should not have to.
 
-- **The multiplicity estimate `hME` is not proved**, so Roy's strong six exponentials theorem holds here only
-  under it ("Roy's theorem from a multiplicity estimate"). Its Hilbert side is proved under the unmixedness
-  hypothesis `hU`, and `hU` is proved for polynomial rings over an algebraically closed field, so over ℂ the
-  Hilbert side holds without `hU` (`Diaz.torus_hilbert_side_complex`). Its multiplicity side, and the assembly
-  of `hME` from its two sides, are not proved.
 - **Rank and structural rank are not formalized.** Only the
   matrix-coefficient third of "every assertion transfers" is proved. The
   accompanying note says so explicitly rather than claiming the whole

@@ -175,3 +175,38 @@ import Solution
 -- side of the multiplicity estimate over ℂ with `hU` supplied by it.
 #print axioms Diaz.unmixedHeight_mvPolynomial
 #print axioms Diaz.torus_hilbert_side_complex
+
+-- The multiplicity estimate (C1.3, 30 October 2026): `hME`, the case G⁻ = {e} of DALAG Th. 8.1 for 𝔾ₐ^{A₀} × 𝔾ₘ^{A₁}
+-- over ℂ in coordinates (the proof of DALAG §8.4 at finite level), and Roy's strong six exponentials theorem with no
+-- hypothesis, as the platform node and as the library's proposition.
+#print axioms Diaz.multiplicityEstimateElem
+#print axioms Diaz.strong_six_exponentials_unconditional
+#print axioms Diaz.strongSixExponentials
+-- The results that took Roy's theorem as the hypothesis `hSSE`, with no hypothesis (Diaz/RoyUnconditional.lean).
+#print axioms Diaz.span_insert_one_exp_mem_Qbar_eq_logAlgTilde
+#print axioms Diaz.strong_six_exponentials_quotient_form_unconditional
+#print axioms Diaz.diaz_2007_cor2_P1_unconditional
+#print axioms Diaz.nonreal_two_point_fibre_pi_sq_unconditional
+#print axioms Diaz.algebraic_modulus_log_multiplier_rational_unconditional
+#print axioms Diaz.candidate_cube_and_axis_multiple_not_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_div_sq_sub_not_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_laurent_conj_hull_class_not_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_power_pair_not_both_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_real_pencil_not_both_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_sum_div_sq_sub_not_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_two_pole_not_both_mem_logAlgTilde_unconditional
+#print axioms Diaz.diaz_2007_cor1_PQ_unconditional
+#print axioms Diaz.diaz_2007_cor2_P_consequences_unconditional
+#print axioms Diaz.diaz_2007_cor3_Q_unconditional
+#print axioms Diaz.diaz_2007_cor4_unconditional
+#print axioms Diaz.diaz_2007_cor5_unconditional
+#print axioms Diaz.diaz_2007_cor6_unconditional
+#print axioms Diaz.diaz_2007_cor7_unconditional
+#print axioms Diaz.diaz_2007_th4_unconditional
+#print axioms Diaz.diaz_2007_th5_unconditional
+#print axioms Diaz.diaz_2007_th6_unconditional
+#print axioms Diaz.diaz_2007_th7_unconditional
+#print axioms Diaz.logAlgTilde_adjoin_circle_point_no_two_by_three_configuration_unconditional
+#print axioms Diaz.pi_powers_not_both_mem_logAlgTilde_unconditional
+#print axioms Diaz.candidate_multiplier_module_unconditional
