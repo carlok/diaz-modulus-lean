@@ -795,7 +795,7 @@ Three nodes of 1 November 2026. All three are classical results, formalised rout
   algebraic `β ≠ 0`, one of `e^{βλ₀λ₁}`, `e^{(βλ₀)²λ₁}` is transcendental: DALAG Exercise 11.8(b), p. 415; at
   `λ₀ = λ₁ = log 2`, `β = 1` it is Exercise 11.8(c), one of `2^{log 2}`, `2^{(log 2)²}`.
 
-The two corollaries are not members of the Prove2Me mission; the theorem is (milestone 173). The 3 modules have 238
+All three are milestones of the Prove2Me mission: 173 for the theorem, 181 and 182 for the corollaries. The 3 modules have 238
 lines in `Diaz/Mirror/`. The sharp six exponentials theorem (Waldschmidt 1988, Cor. 2.1) is not formalised.
 
 ### Consequences of Roy's strong six exponentials theorem
@@ -1164,8 +1164,10 @@ H₀ = span(1, u, u⁻¹) makes H₀ + Q̄w carry a 2×3 configuration.
 
 The questions, and proofs of them through orders of poles, are the research notes' (rounds R12 and R20). The formal
 proofs run on divisibility of binary forms instead of orders of poles. No novelty is claimed: all seventeen are
-routine. The check of these results against the literature on products of spaces (Bachoc–Serra–Zémor) and the
-geometry of the scroll S(1, 2) is still owed. The 17 modules have 2,805 lines in `Diaz/Mirror/`; the largest,
+routine. Checked on 1 November 2026 against the literature on products of spaces (Bachoc–Serra–Zémor 2017,
+Bachoc–Couvreur–Zémor 2018, Couvreur–Zémor 2024, Wessel 2024) and Reid's notes on the cubic scroll S(1, 2): the
+criterion and Q1.5–Q1.7 were not found in the sources read; Eisenbud–Harris 1987 and Eisenbud's *Geometry of
+Syzygies*, Ch. 6, were not read. The 17 modules have 2,805 lines in `Diaz/Mirror/`; the largest,
 `invisible_cyclic_space_configuration_ratio_mobius`, has 304.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
