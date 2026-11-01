@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 616 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 618 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -538,7 +538,8 @@ The theorem has consequences beyond that case, all in `Diaz/Mirror/`:
 - `log_pair_rigid_of_trdeg_one` — two non-zero logarithms `u, v` with
   `|u|²/|v|²` rational, and `u, ū, v, v̄` of transcendence degree at most one,
   satisfy `v ∈ ℚu ∪ ℚū`. For `K = Q̄` this is an unconditional and stronger form
-  of the conditional `quadric_trdeg_two`.
+  of the conditional `quadric_trdeg_two`; `quadric_trdeg_two_alg` (milestone 183)
+  states that form, with `quadric_trdeg_two`'s hypothesis `hIU` dropped.
 - `candidate_monomial_not_log` — for a candidate `u`, `e^{c u^k}` is
   transcendental when `k ≥ 2` and `|c|²|u|^{2(k−1)}` is rational. One example
   is `e^{u²/|u|}`. It is the unconditional part of the exclusion
@@ -1325,7 +1326,9 @@ Known results, now machine-checked:
 - `exp_abs_transcendental_of_conj_algebraic` — for a non-real logarithm `λ` with
   `λ̄` algebraic over `ℚ[λ]`, `e^{|λ|}` is transcendental (Diaz 1997, Prop. 2;
   Roy–Waldschmidt 1997, Cor. 7.4). At `λ = iπ` it gives `e^π`. It is the
-  unconditional form of `Diaz.log_modulus_forces_independence`.
+  unconditional form of `Diaz.log_modulus_forces_independence`, which
+  `log_modulus_forces_independence_alg` (milestone 184) states with that node's
+  hypothesis `hMaster` dropped.
 - `exp_abs_log_two_add_i_pi_transcendental` — if `log 2` is algebraic over
   `ℚ(π)`, then `exp √((log 2)² + π²)` is transcendental (Roy–Waldschmidt's
   example, 1997, p. 792).

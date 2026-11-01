@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.40, 1 November 2026}
+\date{September 2026\\[2pt]\small Version 1.41, 1 November 2026}
 
 \begin{document}
 \maketitle
@@ -1710,8 +1710,9 @@ Questions Q1.4--Q1.7, and proofs of them through orders of poles, are the resear
 The formal proofs run on divisibility of binary forms instead. When $\rho\in\Alg$, (a) says that separated means
 invisible, so (b)--(d) are the research notes' statements for invisible spaces, at every position of the orbits:
 a zero at $0$ or $\infty$, a double zero (a ramified orbit), and $P$ or $Q$ constant. No novelty is claimed: all of it
-is routine. The comparison with the literature on products of spaces~\cite{bachoc-serra-zemor} and with the geometry
-of the scroll $S(1,2)$ is still owed.
+is routine. Checked against the literature on products of spaces (\cite{bachoc-serra-zemor}; Bachoc--Couvreur--Z\'emor 2018,
+Couvreur--Z\'emor 2024, Wessel 2024) and Reid's notes on the cubic scroll $S(1,2)$, none of (a)--(d) was found in
+the sources read; Eisenbud--Harris 1987 and Eisenbud's \emph{Geometry of Syzygies}, Chapter~6, were not read.
 \end{remark}
 
 \subsection*{A decomposition that returns to its start}
@@ -2456,7 +2457,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.40 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.41 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2564,7 +2565,8 @@ Version 1.40 adds, on 1 November 2026, the five exponentials theorem and two of 
 from Roy's theorem and Baker's (Section~\ref{sec:setting}), and Proposition~\ref{prop:invisible-degree-two}, the
 answers to the research notes' questions Q1.4--Q1.7 on degree-two spaces.
 The rows of the table below were checked against the platform by script on 30 October 2026, and the rows added
-in version 1.40 on 1 November 2026; the mirrored project held all 616 proved results of the development at that date.
+in version 1.40 on 1 November 2026. Version 1.41 records the literature check of
+Remark~\ref{rem:invisible-degree-two-credit}; the mirrored project then held all 618 proved results of the development.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its

@@ -73,6 +73,38 @@ Let $u,v\in\mathcal L\setminus\{0\}$ with $|u|^{2}/|v|^{2}\in\Q$ and $\operatorn
 With $c=|u|^{2}/|v|^{2}$, the matrix $\begin{pmatrix}u&v\\c\bar v&\bar u\end{pmatrix}$ has non-zero entries in $\mathcal L$ and determinant $|u|^{2}-c|v|^{2}=0$. By Theorem~\ref{thm:four_exponentials_trdeg_one}, a column relation gives $v\in\Q u$ and a row relation $v\in\Q\bar u$.
 \end{proof}
 
+% Prove2Me: DiazModulus.quadric_trdeg_two_alg -- https://prove2.me/theorems/a68b73cd-4b25-421f-98fe-0973b0a91588
+\begin{corollary}[Independent conjugates with moduli in a rational ratio]
+\label{cor:quadric_trdeg_two_alg}
+\lean{Diaz.quadric_trdeg_two_alg}
+\leanok
+Let $u,v\in\mathcal L$ with $|v|^{2}=m\,|u|^{2}$ for some $m\in\Q^{\times}$, and with $u,\bar u,v,\bar v$ linearly independent over $\Q$. Then $\operatorname{trdeg}_{\Q}\Q(u,\bar u,v,\bar v)\ge2$.
+
+{\small\emph{Source:} The case of \cite[Th\'eor\`eme 0.2]{RW97} used by the legacy node \texttt{Diaz.quadric\_trdeg\_two}, which carries that theorem as a hypothesis: its quadric $mX_1X_2-X_3X_4$ is a $2\times2$ determinant, so the four exponentials theorem in transcendence degree one \cite[Theorem 1]{RW95} suffices.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:log_pair_rigid_of_trdeg_one}
+If the transcendence degree were at most one, Theorem~\ref{thm:log_pair_rigid_of_trdeg_one} with $|u|^{2}/|v|^{2}=m^{-1}$ would give $v\in\Q u\cup\Q\bar u$, a non-trivial $\Q$-linear relation among $u,\bar u,v,\bar v$.
+\end{proof}
+
+% Prove2Me: DiazModulus.log_modulus_forces_independence_alg -- https://prove2.me/theorems/e0acdbfe-3627-4cbe-ba9a-63c8b63f2636
+\begin{corollary}[A non-real logarithm whose modulus is a logarithm]
+\label{cor:log_modulus_forces_independence_alg}
+\lean{Diaz.log_modulus_forces_independence_alg}
+\leanok
+Let $\lambda\in\mathcal L$ be non-real with $|\lambda|\in\mathcal L$. Then $\operatorname{trdeg}_{\Q}\Q(\lambda,\bar\lambda,|\lambda|)\ge2$.
+
+{\small\emph{Source:} \cite[Exercise 15.16(c)]{Wal00}, after \cite[Proposition 2]{Dia97}.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:log_pair_rigid_of_trdeg_one}
+Apply Theorem~\ref{thm:log_pair_rigid_of_trdeg_one} to $u=\lambda$ and $v=|\lambda|$, whose squared moduli are equal. If the transcendence degree were at most one, then $|\lambda|\in\Q\lambda\cup\Q\bar\lambda$ with a non-zero rational factor, and taking imaginary parts would make $\lambda$ real.
+\end{proof}
+
 % Prove2Me: DiazModulus.nongeneric_rational_modulus_orbit -- https://prove2.me/theorems/f22d3ed4-1827-4b5f-8ec8-cdecb9e3147a
 \begin{corollary}[Rational moduli over the field of pi]
 \label{cor:nongeneric_rational_modulus_orbit}

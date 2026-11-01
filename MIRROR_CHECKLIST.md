@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-11-01): **616** of 616
+As of the latest archived submission (2026-11-01): **618** of 618
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -395,6 +395,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.logAlg_adjoin_circle_point_trdeg_le_one_logAlg_part_eq_zero` | yes | `Diaz/Mirror/logAlg_adjoin_circle_point_trdeg_le_one_logAlg_part_eq_zero.lean` | done |  |
 | `DiazModulus.logAlg_adjoin_circle_point_trdeg_le_one_trichotomy` | yes | `Diaz/Mirror/logAlg_adjoin_circle_point_trdeg_le_one_trichotomy.lean` | done |  |
 | `DiazModulus.logAlg_conj_stable` | yes | `Diaz/Mirror/logAlg_conj_stable.lean` | done |  |
+| `DiazModulus.log_modulus_forces_independence_alg` | yes | `Diaz/Mirror/log_modulus_forces_independence_alg.lean` | done |  |
 | `DiazModulus.log_mul_imaginary_mixed_of_trdeg_one` | yes | `Diaz/Mirror/log_mul_imaginary_mixed_of_trdeg_one.lean` | done |  |
 | `DiazModulus.log_mul_real_trichotomy_of_trdeg_one` | yes | `Diaz/Mirror/log_mul_real_trichotomy_of_trdeg_one.lean` | done |  |
 | `DiazModulus.log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq` | yes | `Diaz/Mirror/log_pair_algebraicIndependent_of_mul_eq_rat_pi_sq.lean` | done |  |
@@ -459,6 +460,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.quadratic_ratio_wronskian_free` | yes | `Diaz/Mirror/quadratic_ratio_wronskian_free.lean` | done |  |
 | `DiazModulus.quadratic_space_mem_iff_numerator` | yes | `Diaz/Mirror/quadratic_space_mem_iff_numerator.lean` | done |  |
 | `DiazModulus.quadratic_two_orbit_space_carries_two_by_three_configuration` | yes | `Diaz/Mirror/quadratic_two_orbit_space_carries_two_by_three_configuration.lean` | done |  |
+| `DiazModulus.quadric_trdeg_two_alg` | yes | `Diaz/Mirror/quadric_trdeg_two_alg.lean` | done |  |
 | `DiazModulus.rank_le_of_injOn_lattice` | yes | `Diaz/Mirror/rank_le_of_injOn_lattice.lean` | done |  |
 | `DiazModulus.rank_one_config_card_le_finrank_add_one` | yes | `Diaz/Mirror/rank_one_config_card_le_finrank_add_one.lean` | done |  |
 | `DiazModulus.rank_one_config_inverse_adjoin` | yes | `Diaz/Mirror/rank_one_config_inverse_adjoin.lean` | done |  |

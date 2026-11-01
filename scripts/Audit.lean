@@ -220,3 +220,5 @@ import Solution
 #print axioms Diaz.five_exponentials
 #print axioms Diaz.two_pow_pi_or_three_pow_pi_transcendental
 #print axioms Diaz.exp_mul_or_exp_sq_mul_transcendental
+#print axioms Diaz.quadric_trdeg_two_alg
+#print axioms Diaz.log_modulus_forces_independence_alg

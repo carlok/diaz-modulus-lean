@@ -132,6 +132,11 @@ label = "Fis01"
 text = '''S.~Fischler, Orbits under algebraic groups and logarithms of algebraic numbers, \emph{Acta Arith.} 100 (2001), 167--187.'''
 
 [[reference]]
+key = "Dia97"
+label = "Dia97"
+text = '''G.~Diaz, La conjecture des quatre exponentielles et les conjectures de D.~Bertrand sur la fonction modulaire, \emph{J. Théor. Nombres Bordeaux} 9 (1997), 229--245.'''
+
+[[reference]]
 key = "Dia07"
 label = "Dia07"
 text = '''G.~Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, \emph{J. Théor. Nombres Bordeaux} 19 (2007), 373--391.'''

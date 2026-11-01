@@ -8584,5 +8584,29 @@
   "bytes": 10745,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.log_modulus_forces_independence_alg",
+  "theorem_id": "e0acdbfe-3627-4cbe-ba9a-63c8b63f2636",
+  "submission_id": "6c1a7ae3-b0b2-4c98-aa2c-c36f3467f1d7",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-01T12:53:11.311369+00:00",
+  "file": "DiazModulus.log_modulus_forces_independence_alg__6c1a7ae3.lean",
+  "bytes": 2090,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.quadric_trdeg_two_alg",
+  "theorem_id": "a68b73cd-4b25-421f-98fe-0973b0a91588",
+  "submission_id": "c7845cce-b224-4ee0-b6b9-15224db10e24",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-01T12:53:14.055221+00:00",
+  "file": "DiazModulus.quadric_trdeg_two_alg__c7845cce.lean",
+  "bytes": 2068,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]
