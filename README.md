@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 596 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 616 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -36,6 +36,7 @@ checked and ranks those that are not routine; in the dependency graph they have 
 | `e^π` is transcendental | Gel'fond 1929 | `Diaz.e_pi_transcendence` | this project (the node was posed by another Prove2Me contributor) |
 | the six exponentials theorem | Lang 1965–66, Ramachandra 1968 | `Diaz.six_exponentials` | this project |
 | Roy's strong six exponentials theorem: for `x₁, x₂` and `y₁, y₂, y₃` free over Q̄, some `xᵢyⱼ` is not in `ℒ̃` | Roy 1992, Cor. 2; DALAG Cor. 11.16, via Th. 11.21 | `Diaz.strongSixExponentials` | this project, with no hypothesis, through an elementary case of the multiplicity estimate (DALAG Th. 8.1) |
+| the five exponentials theorem: for `x₀, x₁` and `y₀, y₁` free over ℚ and algebraic `η ≠ 0`, one of `e^{xᵢyⱼ}`, `e^{ηx₁/x₀}` is transcendental | Waldschmidt 1988, Cor. 2.2; DALAG §11.3.3 | `Diaz.five_exponentials` | this project, from Roy's theorem and Baker's, as in DALAG (Remark after Cor. 11.16) |
 | the four exponentials theorem in transcendence degree one | Waldschmidt 1973, Brownawell 1974 | `Diaz.four_exponentials_trdeg_one` | this project |
 | two of `xᵢ, yⱼ, e^{xᵢyⱼ}` are algebraically independent when one column is algebraic | Waldschmidt 1973, Brownawell 1974 | `Diaz.two_algebraically_independent_of_exp_column` | this project |
 | one of `e^e`, `e^{e²}` is transcendental (Schneider's eighth problem) | Waldschmidt 1973, Brownawell 1974 | `Transcendence.exp_e_or_exp_e_sq_transcendental` | this project |
@@ -777,6 +778,26 @@ rings) and C1.3 (the multiplicity side and `hME`), 93 nodes in all. The agents t
 of C1.3 worked under a clean-room rule: no agent was to open another formalisation of the theorem. The 32 modules
 have 4,270 lines in `Diaz/Mirror/`; the largest has 251.
 
+### The five exponentials theorem
+
+Three nodes of 1 November 2026. All three are classical results, formalised routinely.
+
+- `DiazModulus.five_exponentials` (milestone) — Waldschmidt's five exponentials theorem (1988, Cor. 2.2, p. 378;
+  DALAG §11.3.3, Example 1): if `x₀, x₁` are linearly independent over ℚ, `y₀, y₁` too, and `η ≠ 0` is algebraic,
+  one of `e^{x₀y₀}`, `e^{x₀y₁}`, `e^{x₁y₀}`, `e^{x₁y₁}`, `e^{ηx₁/x₀}` is transcendental. The proof is DALAG's Remark
+  after Cor. 11.16 (p. 399): Baker's theorem (`Transcendence.baker_linear_forms_in_logarithms`) turns ℚ-independence
+  into Q̄-independence, with `y₂ = η/x₀` as the third column, and Roy's strong six exponentials theorem
+  (`Diaz.strongSixExponentials`, above) concludes.
+- `DiazModulus.two_pow_pi_or_three_pow_pi_transcendental` — one of `2^π`, `3^π` is transcendental: Waldschmidt's
+  statement (2.2.3) (1988, p. 379) at t = π, β = i. It strengthens `two_three_five_pow_pi_transcendental`, the
+  instance of the six exponentials theorem with `2^π`, `3^π`, `5^π`.
+- `DiazModulus.exp_mul_or_exp_sq_mul_transcendental` — for non-zero logarithms `λ₀, λ₁` of algebraic numbers and
+  algebraic `β ≠ 0`, one of `e^{βλ₀λ₁}`, `e^{(βλ₀)²λ₁}` is transcendental: DALAG Exercise 11.8(b), p. 415; at
+  `λ₀ = λ₁ = log 2`, `β = 1` it is Exercise 11.8(c), one of `2^{log 2}`, `2^{(log 2)²}`.
+
+The two corollaries are not members of the Prove2Me mission; the theorem is (milestone 173). The 3 modules have 238
+lines in `Diaz/Mirror/`. The sharp six exponentials theorem (Waldschmidt 1988, Cor. 2.1) is not formalised.
+
 ### Consequences of Roy's strong six exponentials theorem
 
 Ten nodes of 1 October 2026 carry Roy's strong six exponentials theorem as the hypothesis `hSSE` (later rounds added more), in the form of
@@ -1108,6 +1129,44 @@ max(deg P, deg Q) = 2, and deg S₁, deg S₂ ≤ 2.
   rank-two bundles on P¹ only a textbook chapter was read (Reid, Chapters on algebraic surfaces, Ch. 2): it prints the
   ingredients of the bundle proof but not the three shapes. Theorem F with its key step Theorem NF is the fourth entry
   of the blueprint's list of results not found and not routine.
+
+### Invisible degree-two spaces: Q1.4–Q1.7
+
+Seventeen nodes of 1 November 2026 answer four questions of the R12 research notes about the two-orbit (D2a) and
+cyclic (D2b) shapes of Theorem NF. In both, P, Q are coprime with max(deg P, deg Q) = 2 and deg S₁, deg S₂ ≤ 2. Say
+that P and S have a common zero on the projective line if they are not coprime or their coefficients of X² both
+vanish (a common zero at ∞). "Visible" means visible to the four-dimensional extensions: some w ∈ W outside
+H₀ = span(1, u, u⁻¹) makes H₀ + Q̄w carry a 2×3 configuration.
+
+- **Q1.4, visibility** (`DiazModulus.two_orbit_space_visible_to_four_dimensional_extensions_iff_common_zero`,
+  `DiazModulus.cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero`; milestones): for uū algebraic and
+  dim W = 5, a two-orbit space is visible exactly when P and S₁, or Q and S₂, have a common zero on the projective
+  line; a cyclic space, exactly when P and S₁ do. Visibility means containing u², u⁻² or some 1/(u − a) with a ≠ 0
+  (`visible_to_four_dimensional_extensions_iff_visible_element_mem`, a restatement of Theorem B); the scalar shape is
+  always visible (`scalar_quadratic_space_visible_element_mem`).
+- **Q1.5, no degree one** (`DiazModulus.invisible_two_orbit_space_u_multiplier_space_eq`,
+  `DiazModulus.invisible_cyclic_space_u_multiplier_space_eq`; milestones): with no common zero, W has dimension 5 and
+  the f with f, uf ∈ W are exactly span(1, u⁻¹), so (D1) fails. No hypothesis on uū is needed.
+- **Q1.6, the involution is unique** (`DiazModulus.invisible_two_orbit_space_configuration_ratio_mobius`,
+  `DiazModulus.invisible_cyclic_space_configuration_ratio_mobius`; milestones): with no common zero, every
+  configuration in W has ratio x₁/x₀ a Möbius function of P(u)/Q(u), at every position of the orbits, ramified
+  orbits included. Without the hypothesis it fails: span(u⁻², u⁻¹, 1, u, u²) carries ratios u² − u and u²,
+  neither a Möbius function of the other.
+- **Q1.7, conjugation** (`DiazModulus.conj_stable_invisible_quadratic_space_conj_ratio_mobius`; milestone): if such
+  a W is stable under complex conjugation σ, the conjugate of P(u)/Q(u) is a Möbius function of P(u)/Q(u), that is,
+  στσ = τ.
+- The tools: `binary_quadratic_dvd_of_coprime_mul_eq` (Euclid's lemma for binary forms, with formal degrees, so that
+  a zero at ∞ counts), `quadratic_space_mem_iff_numerator`,
+  `u_multiplier_space_le_span_no_degree_one_no_visible_element`,
+  `quadratic_fraction_extension_visible_element_mem_of_common_zero`, `degree_two_configuration_pencil_normal_form`
+  (Theorem NF with the configuration's own pencil kept), `configuration_ratio_quadratic_of_not_degree_one`,
+  `invisible_two_orbit_space_pole_pencil` and `invisible_cyclic_space_pole_pencil`.
+
+The questions, and proofs of them through orders of poles, are the research notes' (rounds R12 and R20). The formal
+proofs run on divisibility of binary forms instead of orders of poles. No novelty is claimed: all seventeen are
+routine. The check of these results against the literature on products of spaces (Bachoc–Serra–Zémor) and the
+geometry of the scroll S(1, 2) is still owed. The 17 modules have 2,805 lines in `Diaz/Mirror/`; the largest,
+`invisible_cyclic_space_configuration_ratio_mobius`, has 304.
 
 ### The Matrix Coefficient Conjecture sees nothing homogeneous either
 
@@ -1493,8 +1552,9 @@ rational line, lying on an axis), `recip_pi_not_log_real_or_imag` (the two halve
 fail), and `pi_log_two_or_pi_log_three_transcendental`. The first three are Diaz's Théorèmes 4
 and 5 (J. Théor. Nombres Bordeaux 16, 2004) at `v = −1/π`. The six exponentials theorem gives
 `two_three_five_pow_pi_transcendental`: at least one of `2^π`, `3^π`, `5^π` is transcendental.
-The five exponentials theorem, not formalised, already gives one of `2^π`, `3^π` (Waldschmidt,
-*New Advances in Transcendence Theory*, 1988, (2.2.3)).
+The five exponentials theorem gives one of `2^π`, `3^π` (Waldschmidt,
+*New Advances in Transcendence Theory*, 1988, (2.2.3)): `two_pow_pi_or_three_pow_pi_transcendental`
+("The five exponentials theorem").
 
 ## What is *not* proved
 

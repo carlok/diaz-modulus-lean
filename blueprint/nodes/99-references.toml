@@ -1,5 +1,5 @@
 # References for \cite in the node files. `label` is what the citation shows.
-# Every entry is taken from the source line of a Prove2Me page, except the last four (see the comment there).
+# Every entry is taken from the source line of a Prove2Me page, except the four after the comment on Chapter 14 (see the comment there).
 
 [[reference]]
 key = "Bak66"
@@ -170,6 +170,11 @@ text = '''C.~Bachoc, O.~Serra and G.~Zémor, An analogue of Vosper's theorem for
 key = "Kir18"
 label = "Kir18"
 text = '''J.~Kirby, Variants of Schanuel's conjecture, arXiv:1801.08765 (2018).'''
+
+[[reference]]
+key = "Wal88"
+label = "Wal88"
+text = '''M.~Waldschmidt, On the transcendence methods of Gel'fond and Schneider in several variables, in \emph{New Advances in Transcendence Theory} (Durham, 1986), Cambridge University Press, 1988, 375--398.'''
 
 # The four below are cited only by Chapter 14 (round R21a, research/RF_BUNDLE_CHECK.md); they are taken from the
 # sources themselves (research/L1_CANDIDATES.md), not from a page. Reid's page range in the Park City volume was not

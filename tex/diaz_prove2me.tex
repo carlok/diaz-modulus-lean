@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.39, 30 October 2026}
+\date{September 2026\\[2pt]\small Version 1.40, 1 November 2026}
 
 \begin{document}
 \maketitle
@@ -153,6 +153,17 @@ subgroups, its invariant derivations, the tangent duals of~\cite[Lemmas~8.14--8.
 W\"ustholz's argument, and the descent to an obstruction subgroup. For $G^{-}=\{e\}$ the multiplicity
 estimate is a case of~\cite[Theorem~2.1]{philippon-1986}. These are routine formalisations of classical
 proofs, and with them Roy's strong six exponentials theorem is machine-checked with no hypothesis.
+
+Since version 1.40 Waldschmidt's five exponentials theorem~\cite[Corollary~2.2]{waldschmidt-1988},
+\cite[\S11.3.3]{waldschmidt-book} is machine-checked as well: if $x_{1},x_{2}$ are linearly independent over $\Q$,
+$y_{1},y_{2}$ too, and $\eta\neq0$ is algebraic, then one of $\e^{x_{i}y_{j}}$ ($i,j\in\{1,2\}$) and
+$\e^{\eta x_{2}/x_{1}}$ is transcendental. The formal proof is that of~\cite[Remark after Corollary~11.16]{waldschmidt-book}:
+Baker's theorem turns linear independence over $\Q$ into linear independence over $\Alg$, with $y_{3}=\eta/x_{1}$ as a
+third column, and Roy's theorem concludes. Two printed consequences are machine-checked with it: one of $2^{\pi}$
+and $3^{\pi}$ is transcendental~\cite[(2.2.3)]{waldschmidt-1988}; and for non-zero $\lambda_{1},\lambda_{2}\in\Logs$
+and algebraic $\beta\neq0$, one of $\e^{\beta\lambda_{1}\lambda_{2}}$ and $\e^{(\beta\lambda_{1})^{2}\lambda_{2}}$
+is~\cite[Exercise~11.8(b)]{waldschmidt-book}. These are routine formalisations of classical results. The sharp six
+exponentials theorem~\cite[Corollary~2.1]{waldschmidt-1988} is not formalised.
 
 \begin{conjecture}[Strong four exponentials]\label{conj:sfe}
 Let $x_{1},x_{2}$ be linearly independent over $\Alg$ and let $y_{1},y_{2}$ be linearly
@@ -829,7 +840,7 @@ $2^{\pi}$, $3^{\pi}$, $5^{\pi}$ is transcendental; and for $\Q$-independent
 $\lambda,\mu\in\Logs$, at least one of $\e^{\lambda^{2}/\mu}$ and $\e^{\mu^{2}/\lambda}$ is, so that
 one of $2^{\log_{3}2}$ and $3^{\log_{2}3}$ is. Both are known in stronger forms: the five
 exponentials theorem already gives one of $2^{\pi}$ and $3^{\pi}$~\cite[(2.2.3)]{waldschmidt-1988},
-and the second statement is the $\Q$-linear form of~\cite[Corollaire~4(3)]{diaz-2007}, whose
+machine-checked since version 1.40 (Section~\ref{sec:setting}), and the second statement is the $\Q$-linear form of~\cite[Corollaire~4(3)]{diaz-2007}, whose
 $\aLogs$ form, a consequence of Roy's strong six exponentials theorem (Section~\ref{sec:outside}), is
 machine-checked as well. The room can
 also come from a second candidate:
@@ -1640,6 +1651,69 @@ Remark~\ref{rem:degree-bound-visibility}, for a general involution, remain in th
 blueprint lists (a)--(c) as one entry, fourth among its results not found in the sources read and not routine.
 \end{remark}
 
+The research notes ask four further questions about the shapes (D2a) and (D2b), their Q1.4--Q1.7. Say that
+$P,S\in\Alg[X]$ of degree at most $2$ have a \emph{common zero on the projective line} if they are not coprime or
+their coefficients of $X^{2}$ both vanish (a common zero at $\infty$, reading them as binary forms of degree~$2$).
+With $P,Q,S_{1},S_{2}$ as in Proposition~\ref{prop:rational-hulls}, let $W_{A}$ and $W_{B}$ be the spans of (D2a)
+and (D2b), and call $W_{A}$ \emph{separated} if neither $P,S_{1}$ nor $Q,S_{2}$ have a common zero on the projective
+line, and $W_{B}$ separated if $P,S_{1}$ have none. In the language of the research notes the zero sets of $P$ and
+$Q$ are the orbits of an involution $\tau$ of the $u$-line, which exchanges the points of each fibre of $P/Q$.
+
+\begin{proposition}\label{prop:invisible-degree-two}
+Let $u\notin\Alg$, $H_{0}=\mathrm{span}(1,u,u^{-1})$, and let $W$ be $W_{A}$ or $W_{B}$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item \textup{(Q1.4)} Suppose $\rho=u\bar u\in\Alg$ and $\dim W=5$. Then $W$ is visible, in the sense of
+Proposition~\ref{prop:degree-one-visibility}, if and only if it is not separated, if and only if it contains $u^{2}$,
+$u^{-2}$ or some $1/(u-a)$ with $a\in\Alg^{\times}$. A space containing $H_{0}$ and every $Q(u)R(u)/(uP(u))$ with
+$\deg R\le2$ (the scalar case of the proof of Proposition~\ref{prop:rational-hulls}(a)) is always visible.
+\item \textup{(Q1.5)} If $W$ is separated, then $\dim W=5$ and the $f\in\C$ with $f\in W$ and $uf\in W$ are exactly
+those of $\mathrm{span}(1,u^{-1})$; so $W$ does not satisfy (D1).
+\item \textup{(Q1.6)} If $W$ is separated, every $2\times3$ configuration in $W$ has
+$x_{2}\bigl(cP(u)+dQ(u)\bigr)=x_{1}\bigl(aP(u)+bQ(u)\bigr)$ for some $a,b,c,d\in\Alg$ with $ad-bc\neq0$: its ratio is
+a M\"obius function of $P(u)/Q(u)$, and the involution $\tau$ is unique.
+\item \textup{(Q1.7)} If $W$ is separated and stable under complex conjugation, then $\overline{P(u)/Q(u)}$ is a
+M\"obius function of $P(u)/Q(u)$; in the notation of the research notes, $\sigma\tau\sigma=\tau$.
+\end{enumerate}
+Parts (b)--(d) need no hypothesis on $u\bar u$. Separation is needed in (c) and~(d): the space
+$\Alg u^{-2}+\Alg u^{-1}+\Alg+\Alg u+\Alg u^{2}$, which is $W_{A}$ for $P=X^{2}-X$, $Q=1$, $S_{1}=X-1$, $S_{2}=X$, carries
+configurations with ratios $u^{2}-u$ and $u^{2}$, neither a M\"obius function of the other, and for $u\bar u=1$ it is
+stable under conjugation while $\overline{u^{2}-u}=u^{-2}-u^{-1}$ is not a M\"obius function of $u^{2}-u$.
+\end{proposition}
+
+\begin{proof}
+Everything runs on one fact about binary forms: if $P$ is coprime to $F$, $P$ and $F$ do not both vanish at
+$\infty$ (with $\deg F$ read as $d$), and $FL=PB$ with $\deg L\le e$ and $\deg B\le d+e-2$, then $L=PL_{0}$ with
+$\deg L_{0}\le e-2$; for $e<2$, $L=0$. Clearing the denominators $uPQ$, resp.\ $uP^{2}$, turns membership in $W_{A}$,
+resp.\ $W_{B}$, into a polynomial identity. (b) For $W_{A}$: if $PQA+Q^{2}S_{1}L_{1}+P^{2}S_{2}L_{2}=0$ with
+$\deg L_{i}\le e\le1$ and $\deg A\le2+e$, the fact at $P$ (with $F=Q^{2}S_{1}$, $d=6$) and at $Q$ gives
+$L_{1}=L_{2}=0$; separation is what makes it apply. With $e=0$ this is $\dim W_{A}=5$; with $e=1$, applied to the
+numerators of $f$ and $uf$, it gives $f\in\mathrm{span}(1,u^{-1})$. For $W_{B}$ the fact is used twice at $P$.
+Three free $t_{j}$ cannot lie in $\mathrm{span}(1,u^{-1})$, and each of $u^{2}$, $u^{-2}$, $1/(u-a)$ in $W$ would give an
+$f\notin\mathrm{span}(1,u^{-1})$ with $f,uf\in W$. (a) Under $\rho\in\Alg$, $H_{0}=\Alg+\Alg u+\Alg\bar u$, and
+Theorem~\ref{thm:extension-room} says that $W$ is visible exactly when it contains $u^{2}$, $u^{-2}$ ($=\rho^{-2}\bar u^{2}$)
+or some $1/(u-a)$, $a\neq0$. A common zero of $P$ and $S_{1}$, after cancelling it, writes $Q(u)S_{1}(u)/(uP(u))$ as a
+non-zero multiple of one of these plus an element of $H_{0}$, by partial fractions; so does a common zero of $Q$ and
+$S_{2}$. Conversely, a separated $W$ contains none of them, by~(b). In the scalar case choose $S$ with a common zero
+with $P$. (c) By~(b) and Remark~\ref{rem:degree-bound-visibility}, the ratio is $p(u)/q(u)$ of degree exactly~$2$,
+and the proof of Proposition~\ref{prop:rational-hulls}(a), keeping the pencil, writes $W$ in one of the three shapes for
+a pencil $(P',Q')$ that is an invertible combination of $(p,q)$. In the scalar shape $W$ would contain $u^{2}$,
+$u^{-2}$ or some $1/(u-a)$, against~(b).
+In the other two, the generators of the second normal form have their poles off $H_{0}$ on the zeros of $P'$ and
+$Q'$, and the fact about binary forms shows that the only quadratic pole sets $W$ meets beyond $H_{0}$ are the zero
+sets of $P$ and $Q$ (of $P$ alone for $W_{B}$); comparing the two normal forms then makes $(P',Q')$ an invertible
+combination of $(P,Q)$. (d) $W$ carries the configuration with $x=(1,P(u)/Q(u))$ of
+Proposition~\ref{prop:rational-hulls}(b); conjugating it gives another configuration in $W$, and~(c) applies to it.
+\end{proof}
+
+\begin{remark}\label{rem:invisible-degree-two-credit}
+Questions Q1.4--Q1.7, and proofs of them through orders of poles, are the research notes' (rounds R12 and R20).
+The formal proofs run on divisibility of binary forms instead. When $\rho\in\Alg$, (a) says that separated means
+invisible, so (b)--(d) are the research notes' statements for invisible spaces, at every position of the orbits:
+a zero at $0$ or $\infty$, a double zero (a ramified orbit), and $P$ or $Q$ constant. No novelty is claimed: all of it
+is routine. The comparison with the literature on products of spaces~\cite{bachoc-serra-zemor} and with the geometry
+of the scroll $S(1,2)$ is still owed.
+\end{remark}
+
 \subsection*{A decomposition that returns to its start}
 
 Splitting the conjecture into cases produces statements that are formally weaker, and it is
@@ -2382,7 +2456,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.39 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.40 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2486,8 +2560,11 @@ Version 1.39 records, on 30 October 2026, that $(\mathrm{ME})$ is machine-checke
 assembly included, so that Roy's strong six exponentials theorem is machine-checked with no hypothesis
 (Section~\ref{sec:setting}); the results machine-checked with Roy's theorem as a hypothesis now hold
 formally without it.
-Every row of the table below was checked against the platform by script on 30 October 2026, and
-the mirrored project held all 596 proved results of the development at that date.
+Version 1.40 adds, on 1 November 2026, the five exponentials theorem and two of its printed consequences, machine-checked
+from Roy's theorem and Baker's (Section~\ref{sec:setting}), and Proposition~\ref{prop:invisible-degree-two}, the
+answers to the research notes' questions Q1.4--Q1.7 on degree-two spaces.
+The rows of the table below were checked against the platform by script on 30 October 2026, and the rows added
+in version 1.40 on 1 November 2026; the mirrored project held all 616 proved results of the development at that date.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2557,6 +2634,10 @@ Prop~\ref{prop:laurent-hulls} & Proved & \nolinkurl{DiazModulus.laurent_conj_hul
 Prop~\ref{prop:theorem-D} & Proved & \nolinkurl{DiazModulus.logAlg_adjoin_circle_point_theorem_D}, \nolinkurl{DiazModulus.theorem_D_barrier}, \nolinkurl{DiazModulus.span_logAlg_theorem_D_properties}, and 13 supporting results \\
 Prop~\ref{prop:rational-hulls} & Proved & \nolinkurl{DiazModulus.rational_conj_hull_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.rational_space_two_by_three_configuration_iff}, \nolinkurl{DiazModulus.degree_two_configuration_normal_form}, \nolinkurl{DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space}, \nolinkurl{DiazModulus.conj_stable_degree_one_multiplier_space_visible_or_real_pencil_space}, and 17 supporting results \\
 Prop~\ref{prop:rational-hulls}(e), (f), Rem~\ref{rem:rational-hulls-credit} & Proved & \nolinkurl{DiazModulus.laurent_conj_hull_configuration_shape_iff_class}, \nolinkurl{DiazModulus.laurent_polynomial_class_conj_hull_two_orbit_form}, \nolinkurl{DiazModulus.laurent_involution_class_space_cyclic_form}, \nolinkurl{DiazModulus.laurent_real_pencil_class_space_u_multiplier_triple}, \nolinkurl{DiazModulus.degree_two_configuration_multiplier_space_eq}, \nolinkurl{DiazModulus.candidate_rational_conj_hull_criterion_not_mem_logAlgTilde} \\
+Prop~\ref{prop:invisible-degree-two}(a) & Proved & \nolinkurl{DiazModulus.two_orbit_space_visible_to_four_dimensional_extensions_iff_common_zero}, \nolinkurl{DiazModulus.cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero}, \nolinkurl{DiazModulus.visible_to_four_dimensional_extensions_iff_visible_element_mem}, \nolinkurl{DiazModulus.scalar_quadratic_space_visible_element_mem} \\
+Prop~\ref{prop:invisible-degree-two}(b) & Proved & \nolinkurl{DiazModulus.invisible_two_orbit_space_u_multiplier_space_eq}, \nolinkurl{DiazModulus.invisible_cyclic_space_u_multiplier_space_eq} \\
+Prop~\ref{prop:invisible-degree-two}(c) & Proved & \nolinkurl{DiazModulus.invisible_two_orbit_space_configuration_ratio_mobius}, \nolinkurl{DiazModulus.invisible_cyclic_space_configuration_ratio_mobius} \\
+Prop~\ref{prop:invisible-degree-two}(d) & Proved & \nolinkurl{DiazModulus.conj_stable_invisible_quadratic_space_conj_ratio_mobius} \\
 Prop~\ref{prop:two-pole} & Proved & \nolinkurl{DiazModulus.circle_point_two_pole_extension_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.circle_point_two_pole_extension_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.circle_point_two_pole_configuration_invisible_to_four_dimensional_extensions}, \nolinkurl{DiazModulus.candidate_two_pole_not_both_mem_logAlgTilde}, \nolinkurl{DiazModulus.candidate_sum_div_sq_sub_not_mem_logAlgTilde} \\
 Rem~\ref{rem:weak-schanuel} & Proved & \nolinkurl{DiazModulus.candidate_im_mem_pi_rat_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_iff_single_relation_of_weak_schanuel}, \nolinkurl{DiazModulus.diaz_of_weak_schanuel_and_kernel_schanuel} \\
 Thm~\ref{thm:involution} & Proved & \nolinkurl{DiazModulus.involution_pencil_space_carries_two_by_three_configuration}, \nolinkurl{DiazModulus.involution_pencil_space_excludes_squares_and_reciprocals}, \nolinkurl{DiazModulus.involution_pencil_configuration_invisible_to_four_dimensional_extensions} \\
@@ -2616,6 +2697,7 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 \S\ref{sec:setting}, $(\mathrm{U})$ for polynomial rings & Proved & \nolinkurl{DiazModulus.unmixedHeight_mvPolynomial} \\
 \S\ref{sec:setting}, $(\mathrm{ME})$ & Proved & \nolinkurl{DiazModulus.multiplicityEstimateElem} \\
 \S\ref{sec:setting}, Roy's theorem & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_unconditional} \\
+\S\ref{sec:setting}, five exponentials & Proved & \nolinkurl{DiazModulus.five_exponentials}, \nolinkurl{DiazModulus.two_pow_pi_or_three_pow_pi_transcendental}, \nolinkurl{DiazModulus.exp_mul_or_exp_sq_mul_transcendental} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

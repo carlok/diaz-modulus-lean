@@ -7,6 +7,8 @@ Baker's theorem in its qualitative, inhomogeneous form (Theorem~\ref{thm:baker_l
 
 Step~5 of the book's \S4.6 needed a repair: vanishing to a given order in each coordinate does not survive the change of variables that the proof makes, while vanishing to a given total order does; only the constants change. No new mathematics is claimed.
 
+The last section derives Waldschmidt's five exponentials theorem \cite[Cor.~2.2]{Wal88}, \cite[\S11.3.3]{Wal00} (Theorem~\ref{thm:five_exponentials}) from Roy's strong six exponentials theorem (Theorem~\ref{thm:strong_six_exponentials_unconditional}) and Baker's theorem, as in \cite[Remark after Cor.~11.16]{Wal00}, with two of its printed consequences: one of $2^{\pi}$, $3^{\pi}$ is transcendental \cite[(2.2.3)]{Wal88} (Corollary~\ref{cor:two_pow_pi_or_three_pow_pi_transcendental}), and \cite[Exercise 11.8(b)]{Wal00} (Corollary~\ref{cor:exp_mul_or_exp_sq_mul_transcendental}). All three are classical, and formalised routinely.
+
 \textbf{Notation.} $\iota$ is a finite set, $n=|\iota|$ unless said otherwise, and $\C^{\iota}$ carries the sup norm, so that its closed balls are polydiscs. For $w,z\in\C^{\iota}$, $\langle w,z\rangle=\sum_\nu w_\nu z_\nu$. For a function $F$ on $\C^{\iota}$ and a list $L=(L(0),\dots,L(k-1))$ of $k$ coordinate directions,
 \[ D_LF(z)=D^{k}F(z)\bigl(e_{L(0)},\dots,e_{L(k-1)}\bigr), \]
 where $D^{k}F$ is the $k$-th Fréchet derivative and $e_\nu$ are the coordinate vectors; every derivative of $F$ of total order $k$ vanishes at $z$ when $D^{k}F(z)=0$. Given $x_1,\dots,x_{d_1}\in\C^{\iota}$, $k_0\in\iota$ and integers $T_0,T_1\ge0$, the exponential monomials are $z_{k_0}^{\tau}e^{\langle t_1x_1+\dots+t_{d_1}x_{d_1},\,z\rangle}$ for $0\le\tau\le T_0$ and $t\in\{0,\dots,T_1\}^{d_1}$, and for coefficients $p=(p_{\tau,t})$
@@ -346,4 +348,48 @@ Let $x$ and $y$ be logarithms of algebraic numbers, linearly independent over $\
 source = '''Baker \cite{Bak66}; the proof follows \cite[Chapter~4]{Wal00}, after Bertrand--Masser \cite{BM80} and Masser \cite{Mas81}.'''
 sketch = '''
 If $ax+by=\beta$ were algebraic, Theorem~\ref{thm:baker_linear_forms_in_logarithms} with $\beta_0=-\beta$, $\beta_1=a$ and $\beta_2=b$ would fail.
+'''
+
+# --- C2: the five exponentials theorem and two corollaries (1 November 2026) ------------------------
+
+[[node]]
+platform = "DiazModulus.five_exponentials"
+section = "The five exponentials theorem"
+root = true
+env = "theorem"
+title = "The five exponentials theorem"
+statement = '''
+Let $x_0,x_1\in\C$ be linearly independent over $\Q$, let $y_0,y_1\in\C$ be linearly independent over $\Q$, and let $\eta\neq0$ be algebraic. Then at least one of the five numbers
+\[ e^{x_0y_0},\qquad e^{x_0y_1},\qquad e^{x_1y_0},\qquad e^{x_1y_1},\qquad e^{\eta x_1/x_0} \]
+is transcendental ($x_0\neq0$ by independence, so the quotient is defined). The sources number from $1$: the fifth number is $e^{\eta x_2/x_1}$ in \cite[Cor.~2.2]{Wal88} and $e^{\gamma x_1/x_2}$ in \cite[\S11.3.3, Example 1]{Wal00}, the same statement after exchanging the two $x$.
+'''
+source = '''Waldschmidt \cite[Cor.~2.2, p.~378]{Wal88}; \cite[\S11.3.3, Example 1, p.~385]{Wal00}. The proof is that of \cite[Remark after Cor.~11.16, p.~399]{Wal00}: from Roy's strong six exponentials theorem \cite[Corollary 2]{Roy92}, \cite[Cor.~11.16]{Wal00} (Theorem~\ref{thm:strong_six_exponentials_unconditional}) and Baker's theorem \cite{Bak66} (Theorem~\ref{thm:baker_linear_forms_in_logarithms}). Classical; routine formalisation.'''
+sketch = '''
+Suppose the five numbers are algebraic, and put $y_2=\eta/x_0$. The products $x_0y_0$ and $x_1y_0$ are logarithms of algebraic numbers, linearly independent over $\Q$ as $y_0\neq0$; so a relation $g_0x_0+g_1x_1=0$ over $\Qbar$, multiplied by $y_0$, is killed by Baker's theorem, and $x_0,x_1$ are linearly independent over $\Qbar$. A relation $g_0y_0+g_1y_1+g_2y_2=0$ over $\Qbar$, multiplied by $x_0$, reads $g_2\eta+g_0(x_0y_0)+g_1(x_0y_1)=0$, and Baker's theorem with the constant term $g_2\eta$ gives $g=0$, as $\eta\neq0$. The six products $x_iy_j$ lie in $\widetilde{\mathcal L}$: four are logarithms, $x_0y_2=\eta$ is algebraic, and $x_1y_2=\eta x_1/x_0$ is a logarithm. Theorem~\ref{thm:strong_six_exponentials_unconditional} forbids this.
+'''
+
+[[node]]
+platform = "DiazModulus.two_pow_pi_or_three_pow_pi_transcendental"
+root = true
+env = "corollary"
+title = 'At least one of $2^{\pi}$ and $3^{\pi}$ is transcendental'
+statement = '''
+At least one of the real numbers $2^{\pi}$ and $3^{\pi}$ is transcendental. It strengthens the instance of the six exponentials theorem (Theorem~\ref{thm:six_exponentials}) that one of $2^{\pi}$, $3^{\pi}$, $5^{\pi}$ is transcendental, which the library proves as \texttt{two\_three\_five\_pow\_pi\_transcendental}.
+'''
+source = '''Waldschmidt \cite[(2.2.3), p.~379]{Wal88}, at $t=\pi$, $\beta=i$ ($e^{i\pi}=-1$), from the five exponentials theorem (\cite[Cor.~2.2]{Wal88}). Classical; routine formalisation.'''
+sketch = '''
+Apply Theorem~\ref{thm:five_exponentials} to $x=(1,\pi)$, $y=(\log2,\log3)$ and $\eta=i$. The five numbers are $2$, $3$, $2^{\pi}$, $3^{\pi}$ and $e^{i\pi}=-1$, so $2^{\pi}$ and $3^{\pi}$ are not both algebraic. $x$ is free over $\Q$ because $\pi$ is irrational; $y$ is, because $(p/q)\log2=\log3$ with positive integers $p,q$ would give $2^{p}=3^{q}$, and $3^{q}$ is odd.
+'''
+
+[[node]]
+platform = "DiazModulus.exp_mul_or_exp_sq_mul_transcendental"
+root = true
+env = "corollary"
+title = 'One of $e^{\beta\lambda_0\lambda_1}$ and $e^{(\beta\lambda_0)^{2}\lambda_1}$ is transcendental'
+statement = '''
+Let $\lambda_0,\lambda_1$ be non-zero logarithms of algebraic numbers, and let $\beta\neq0$ be algebraic. Then at least one of $e^{\beta\lambda_0\lambda_1}$ and $e^{(\beta\lambda_0)^{2}\lambda_1}$ is transcendental. At $\lambda_0=\lambda_1=\log2$ and $\beta=1$: one of $2^{\log2}$ and $2^{(\log2)^{2}}$ is transcendental.
+'''
+source = '''\cite[Exercise 11.8(b), p.~415]{Wal00}; the instance at $\lambda_0=\lambda_1=\log2$, $\beta=1$ is Exercise 11.8(c). Classical; routine formalisation.'''
+sketch = '''
+Apply Theorem~\ref{thm:five_exponentials} to $x=(1,\beta\lambda_0)$, $y=(\lambda_1,\beta\lambda_0\lambda_1)$ and $\eta=\beta^{-1}$. The five numbers are $e^{\lambda_1}$, $e^{\beta\lambda_0\lambda_1}$ (twice), $e^{(\beta\lambda_0)^{2}\lambda_1}$ and $e^{\lambda_0}$, and the outer two are algebraic. Both $x$ and $y=\lambda_1x$ are free over $\Q$: $\beta\lambda_0\in\Q$ would make $\lambda_0$ a non-zero algebraic number with $e^{\lambda_0}$ algebraic, against Theorem~\ref{thm:hermite_lindemann_holds}.
 '''
