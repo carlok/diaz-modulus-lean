@@ -44,7 +44,7 @@
 and a barrier for generic candidates}
 \author{Research note for the \texttt{diaz-modulus-lean} project\\
 (written by Claude, an AI model, at the request of Carlo Perassi)}
-\date{18 October 2026; updated 23 October 2026}
+\date{18 October 2026; updated 2 November 2026}
 
 \setlength{\emergencystretch}{2em}
 \begin{document}
@@ -834,24 +834,50 @@ four exponentials theorem in transcendence degree one does give unconditional re
 those are the project's Chapter~13. The tie to $i\pi$ lies inside $H_{0}$, so it gives
 Roy's theorem nothing further through hulls.
 
-\paragraph{Higher rank: a first probe.}
-Rank-one configurations cannot exclude $u^{4}$ (the power hulls). In this session we
-asked whether Roy's rank bound for larger matrices can, at rank two. The space is
-$V=\spn(u^{-4},u^{-1},1,u,u^{4})$. For graded monomial matrices the question becomes a
-combinatorial ``colour'' model of rank-two matrices with proved bounds $d,l\le10$. Searched
-exhaustively by a SAT solver, and independently by a second enumeration up to $d,l\le13$ that
-assumes no window, the model has no solution. So \emph{no graded matrix of rank two over $V$
-breaks Roy's bound}; the same holds for the hull of $u^{4}+cu^{3}$. Whether a matrix that is not
-graded can is open: degenerating a matrix to a graded one can create zero blocks, so the
-reduction to graded matrices needs an argument that is not written out here (corrected on
-23 October 2026; an earlier version claimed the reduction). Controls behave as they should: the
-method finds the known configurations in $\spn(u^{-2},\dots,u^{2})$. At rank three a search of
-small windows found no graded matrix that breaks the bound; rank three is open. For the
-certificate space alone, the
-bound gives nothing at any rank. This is Roy's lemma on spaces of dimension at most
-three \cite[Th.~3.4]{Roy95} (also \cite[Exercise~12.10]{Wal00}): rank $\ge(d+l)/4\ge dl/(d+l)$.
-These results are computer-assisted, use Roy's bound in the quoted form, and are not part
-of the theorems above.
+\paragraph{Higher rank: a reduction and a barrier.}
+Rank-one configurations cannot exclude $u^{4}$ (the power hulls). We asked whether Roy's rank
+bound for larger matrices can. Write $V_{\Sigma}=\spn(T^{s}:s\in\Sigma)$ for a finite set of
+integers $\Sigma$, and $V=V_{\{-4,-1,0,1,4\}}$, which is the hull of $u^{4}$ at $T=u$. A matrix is \emph{graded} if each entry is a constant times
+$T^{a_{i}+b_{j}}$.
+
+\emph{The reduction.} If a matrix over $V_{\Sigma}$ breaks Roy's bound, so does a graded stable
+matrix over $V_{\Sigma}$ of no larger size and rank. Degenerating the matrix itself can create
+zero blocks, so the limit is taken instead in the projective moduli space of semistable
+Kronecker modules \cite{Kin94,MFK}: a fixed point of the torus that scales $T$, on the image of
+the rank locus, is represented by a direct sum of stable modules, each of them graded.
+Non-semistable matrices are first split along a block of minimal ratio, an induction modelled on
+Roy's proof of \cite[Th.~5]{Roy92}. This supplies the argument that an earlier version of this note claimed and
+did not write out (corrected on 23 October 2026).
+
+\emph{The barrier.} If every non-zero difference of $\Sigma$ has at most two representations,
+no matrix of rank at most two over $V_{\Sigma}$ breaks the bound; otherwise a $2\times3$ matrix
+of rank one does \cite[Cor.~2]{Roy92}. A count on incidences in $\mathbb{P}^{2}$ then shows that
+\emph{no matrix of rank at most three over $V$ breaks Roy's bound}, for any size, graded or not.
+So Roy's bound at rank at most three cannot exclude $u^{4}$ through its hull. Rank four is open.
+The graded case has two further checks: a SAT search over the whole proved range $d,l\le15$,
+under two solvers, and a separate enumeration up to $d=8$. Both find no such matrix, and both
+find the known failures in $\spn(T^{-2},\dots,T^{2})$.
+
+\emph{Other spaces.} The same holds for the hull of $u^{4}+cu^{3}$, $c\neq0$, modelled by
+$\spn(1,T,T^{-1},T^{4}+cT^{3},T^{-4}+c'T^{-3})$ for any $c'$, although its initial space
+$V_{\{-4,-1,0,1,3\}}$ does carry a failure at rank three: an explicit $5\times8$ matrix, the only
+graded stable one with $d\le l$, up to changes of basis and shifts of weights. It does not lift: in a
+suitable basis, a $4\times4$ minor of a lift is $2w^{2}D$ with $w=T^{3}+T^{4}/c$ and $D\equiv-4T^{2}$ modulo $w$. Allowing
+free entries, one indeterminate for each further logarithm, gives no failure at rank at most
+three either, for $V$ and for the certificate space. That concerns the rank over $\Qbar(T,x)$,
+not actual logarithms, so it does not answer the question of Remark~\ref{rem:scopeD}. For the
+certificate space alone, the bound gives nothing at any rank. This is Roy's lemma on spaces of
+dimension at most three \cite[Th.~3.4]{Roy95} (also \cite[Exercise~12.10]{Wal00}): rank
+$\ge(d+l)/4\ge dl/(d+l)$.
+
+These results use Roy's bound in the quoted form, are not formal, and are not part of the theorems
+above. The rank-three and hull statements are computer-assisted. Full proofs and the scripts are in
+the companion note \texttt{tex/diaz-roy-rank-three.tex} and \texttt{scripts/roy\_rank/}. Each part
+was read by one independent referee agent, and the whole note by a further one who saw only that note;
+they found no error in a theorem. The statements were
+not found in the sources read, which did not include Roy's papers of 1989 and 1990 or Atkinson and
+Lloyd's of 1980, and the reduction assembles standard parts. The good-quotient property of \cite{MFK}
+was checked only through later papers.
 
 \paragraph{Next steps.}
 \begin{enumerate}[label=\textup{(\arabic*)}]
@@ -861,9 +887,9 @@ of the theorems above.
 place, but a normal form of the configurations whose ratio has degree two. For Laurent $z$, Theorem~F gives back
 the classes of Theorem~E; this is now proved (Section~\ref{sec:status}), through Theorem~E itself, so
 Corollary~\ref{cor:E} still does not follow from Theorem~F.
-\item Roy's rank bound for $u^{4}$: a reduction from all matrices to graded ones (needed
-already at rank two), rank three, and whether the bound holds in the generic model
-$(\cL_{u},\Lt_{u})$.
+\item Roy's rank bound for $u^{4}$: rank four, and whether the bound holds in the generic model
+$(\cL_{u},\Lt_{u})$, where only $T$ can be scaled and the reduction above does not apply to the
+logarithms. The reduction and rank at most three are done (Higher rank, above; not formal).
 \end{enumerate}
 
 \section{Status and sources}\label{sec:status}
@@ -974,9 +1000,16 @@ G.~Diaz, \emph{Produits et quotients de combinaisons lin\'eaires de logarithmes 
 nombres alg\'ebriques : conjectures et r\'esultats partiels}, J. Th\'eor. Nombres
 Bordeaux \textbf{19} (2007), 373--391.
 
+\bibitem[Kin94]{Kin94}
+A.~D.~King, \emph{Moduli of representations of finite dimensional algebras}, Quart. J. Math.
+Oxford (2) \textbf{45} (1994), 515--530.
+
 \bibitem[Mak23]{Mak23}
 A.~Maksoud, \emph{On the rank of Leopoldt's and Gross's regulator maps}, Doc. Math.
 \textbf{28} (2023), 1441--1471; arXiv:2201.08203.
+
+\bibitem[MFK]{MFK}
+D.~Mumford, J.~Fogarty, F.~Kirwan, \emph{Geometric Invariant Theory}, 3rd ed., Springer, 1994.
 
 \bibitem[Roy92]{Roy92}
 D.~Roy, \emph{Matrices whose coefficients are linear forms in logarithms}, J. Number

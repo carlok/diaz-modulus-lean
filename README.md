@@ -398,6 +398,13 @@ last section; version 1.26 (14 October 2026) reduces every branch to two. The ol
 `tex/diaz-modulus.tex` is a different and earlier note, about the model and the
 negative result, and is not superseded by it.
 
+`tex/diaz-roy-rank-three.tex` (2 November 2026, written by Claude) is a separate
+research note and is not formal: none of it is in the Lean library. It shows that
+Roy's rank bound at rank at most three cannot exclude u⁴ or u⁴ + cu³ through their
+hulls. That is a barrier on one method, not progress on the conjecture. Its rank-three
+and hull theorems are computer-assisted, with the scripts in `scripts/roy_rank/`. Its
+statements were not found in the sources read, and the note lists what those were.
+
 ## Backup of the Prove2Me nodes
 
 Prove2Me holds the proofs; this repository is where they are kept. Anything

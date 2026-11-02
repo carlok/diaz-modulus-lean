@@ -1,0 +1,774 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\setlist{leftmargin=2em,itemsep=0.25ex,topsep=0.5ex}
+\hypersetup{hidelinks}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{remark}[lemma]{Remark}
+\newtheorem{example}[lemma]{Example}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Qbar}{\overline{\mathbb{Q}}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\Lt}{\widetilde{\mathcal{L}}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\Tor}{\mathbb{T}}
+\newcommand{\Gm}{\mathbb{G}_{m}}
+\newcommand{\Aff}{\mathbb{A}^{1}}
+\newcommand{\Rep}{\mathrm{Rep}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\vth}{\vartheta}
+\newcommand{\Bud}{\operatorname{Bud}}
+\newcommand{\Ann}{\operatorname{Ann}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\In}{\operatorname{in}}
+\newcommand{\Iz}{I_{0}}
+\newcommand{\Ii}{I_{\infty}}
+\newcommand{\free}{\mathrm{free}}
+\newcommand{\scr}[1]{\nolinkurl{#1}}
+
+\title{Roy's rank bound at low rank over monomial spaces\\
+and hulls at a Diaz candidate}
+\author{Research note for the \texttt{diaz-modulus-lean} project\\
+(written by Claude, an AI model, at the request of Carlo Perassi)}
+\date{2 November 2026}
+
+\setlength{\emergencystretch}{2em}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Roy's Corollary~1 of 1992 bounds from below the rank of a matrix whose entries are linear forms in logarithms, in terms of
+its zero blocks. A matrix over a space of Laurent polynomials in $T$ that broke this inequality would, at $T=u$,
+exclude a number from the $\Qbar$-span $\Lt$ of $1$ and the logarithms at any counterexample $u$ to Diaz's conjecture.
+We show that this does not happen at rank at most three for the spaces $\spn(T^{-4},T^{-1},1,T,T^{4})$ and
+$\spn(1,T,T^{-1},T^{4}+cT^{3},T^{-4}+c'T^{-3})$, which model the conjugation hulls of $u^{4}$ and $u^{4}+cu^{3}$. For the former, and for
+$\spn(T^{-1},1,T)$, it also does not happen at structural rank at most three after adding free entries. The tools are a reduction to graded stable
+matrices, through the moduli of Kronecker modules, followed by counts of incidences in $\mathbb{P}^{2}$. The rank-three theorem and the hull theorem are computer-assisted: they rest on finite exact computations, including for the hull an exhaustive scan, and the scripts are in the repository. This is a barrier
+on one method at rank at most three. It is no progress on Diaz's conjecture. Nothing here is formal.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+Write $\Qbar$ for the algebraic numbers, $\cL=\{\lambda\in\C:e^{\lambda}\in\Qbar\}$ and $\Lt=\Qbar+\Qbar\cL$. A
+\emph{candidate} is a $u\neq0$ with $|u|\in\Qbar$ and $e^{u}\in\Qbar$; Diaz's conjecture says there is none \cite[\S5.1]{Dia04}.
+A candidate is transcendental, with $\rho:=u\bar u\in\Qbar$ and $\bar u=\rho/u$. The conjugation hull of a number $z$ is
+$W_{z}=H_{0}+\Qbar z+\Qbar\bar z$, where $H_{0}=\Qbar+\Qbar u+\Qbar\bar u$ \cite{TC}. If $z\in\Lt$ then $W_{z}\subseteq\Lt$.
+
+Roy's Corollary~1 \cite[p.~38]{Roy92} says: a matrix with entries in $\Lt$ has rank $n\ge d\vth/(1+\vth)$, where $d$ is its
+number of rows and $\vth$ is computed from its zero blocks (Section~\ref{sec:roy}). So a matrix over $W_{z}$ that breaks the
+inequality would prove $z\notin\Lt$ at every candidate. At $T=u$ the hull of $u^{4}$ is the image of
+$V_{S}=\spn(T^{s}:s\in S)$, with $S=\{-4,-1,0,1,4\}$. Substituting $T\mapsto u$ keeps the rank, since $u$ is transcendental, and keeps the zero blocks, since $1,u^{\pm1},u^{\pm4}$ are
+$\Qbar$-independent. So a matrix over $V_{S}$ that breaks the inequality would give $u^{4}\notin\Lt$. The question studied here is whether such a matrix exists at low rank.
+
+\paragraph{What is proved.}
+\begin{itemize}
+\item \textbf{Theorem~\ref{thm:reduction}.} For a finite $\Sigma\subset\Z^{r}$: if a matrix over $V_{\Sigma}$ breaks the
+inequality, so does a graded stable matrix over $V_{\Sigma}$ of no larger size and rank.
+\item \textbf{Theorem~\ref{thm:ranktwo}.} If every non-zero difference of $\Sigma$ has at most two representations, no matrix
+of rank at most two over $V_{\Sigma}$ breaks it. Otherwise a $2\times3$ matrix of rank one does.
+\item \textbf{Theorem~\ref{thm:rankthree}.} No matrix of rank at most three over $V_{S}$ breaks it, for any size. The proof is computer-assisted: a case analysis by hand, with the budgets $B_{k}$ and one weight check by exhaustive computation.
+\item \textbf{Theorem~\ref{thm:free}.} The same holds at structural rank at most three after adding free entries, for $S$ and for
+$S_{1}=\{-1,0,1\}$. Here rank means rank over $\Qbar(T,x)$. The proof reruns that of Theorem~\ref{thm:rankthree}, with the same kind of computation.
+\item \textbf{Theorem~\ref{thm:hull}.} No matrix of rank at most three over $V(c,c')=\spn(1,T,T^{-1},T^{4}+cT^{3},T^{-4}+c'T^{-3})$
+breaks it, for any $c,c'\in\Qbar$, although the initial space $V_{\{-4,-1,0,1,3\}}$ carries an explicit $5\times8$ failure. The proof is computer-assisted: a classification over the initial space rests on an exhaustive scan at $d=5,6$, and an arc argument uses a tangent-space table computed exactly. The final certificate is by hand.
+\end{itemize}
+
+\paragraph{What this is not.} These results cover rank at most three, and only these spaces: in that range Roy's Cor.~1 cannot exclude $u^{4}$ or $u^{4}+cu^{3}$ through the hull. Rank four is open, so they do not show that the method stops there. They exclude nothing, and
+they do not move Diaz's conjecture. For a matrix over the hull alone, the rank at $T=u$ equals the formal rank, since $u$ is transcendental. With further logarithms as entries, the rank at the actual numbers may be smaller than the rank over $\Qbar(T,x)$, which is all Theorem~\ref{thm:free} sees. So the
+question of Remark~7.3 of the Theorem~C note \cite{TC} (\texttt{tex/diaz-theorem-c.tex}) remains open (Section~\ref{sec:checks}). Nothing in this note is formal: no statement here has
+been checked by a proof assistant. Steps that depend on a machine are labelled as such. Their scripts are in the folder
+\scr{scripts/roy_rank/} of the repository, and script names below are relative to that folder.
+
+\section{Roy's bound in terms of sub-pairs}\label{sec:roy}
+
+Let $\Lambda=\Z^{r}$, $F=\operatorname{Frac}\Qbar[\Lambda]$, and write $\tau^{\sigma}$ for the monomials. For finite
+$\Sigma\subset\Lambda$ put $V_{\Sigma}=\spn_{\Qbar}(\tau^{\sigma}:\sigma\in\Sigma)$. For $r=1$ we write $T$ for $\tau$. Throughout,
+\[
+  S=\{-4,-1,0,1,4\},\ \  S_{1}=\{-1,0,1\},\ \  S_{2}=\{-2,\dots,2\},\ \  \Iz=\{-4,-1,0,1,3\},\ \  \Ii=-\Iz.
+\]
+
+A $d\times l$ matrix over $V_{\Sigma}$ is a tuple of constant matrices, $M=\sum_{\sigma}\tau^{\sigma}M_{\sigma}$. It is a
+\emph{Kronecker module}: linear maps $M_{\sigma}:A\to B$, with $A=\Qbar^{l}$ and $B=\Qbar^{d}$. Its rank is the rank over $F$.
+
+A \emph{sub-pair} is a pair $(C,E)$ with $C\subseteq A$, $E\subseteq B$ and $M_{\sigma}(C)\subseteq E$ for all $\sigma$. It is the
+same thing as a \emph{zero block} $(R,C)$ with $R=E^{\perp}$: since the $\tau^{\sigma}$ are $\Qbar$-independent, $r^{\mathsf T}Mc=0$
+means $r^{\mathsf T}M_{\sigma}c=0$ for every $\sigma$.
+
+Roy's number \cite[p.~37]{Roy92} is the minimum of $l'/d'$ over $0<d'\le d$, $0\le l'\le l$ for which there are
+$P,Q$ invertible over $\Qbar$ with $PMQ=\bigl(\begin{smallmatrix}M'&0\\N&M''\end{smallmatrix}\bigr)$, where $M'$ has size $d'\times l'$.
+In terms of sub-pairs, with $d'=d-\dim E$, $l'=l-\dim C$, $M'=(A/C\to B/E)$ and $M''=(C\to E)$:
+\[
+  \vth(M)=\min\Bigl\{\frac{l-\dim C}{d-\dim E}:(C,E)\text{ a sub-pair},\ E\neq B\Bigr\}\ \le\ \frac{l}{d}.
+\]
+We call $M'$ the \emph{quotient} and $M''$ the \emph{sub}. Cor.~1 of \cite{Roy92}, p.~38, reads $n\ge d\vth/(1+\vth)$ for a matrix
+of rank $n$ with entries in $\Lt$. We say that a matrix $M$ over any $V$ \emph{fails} if it does not satisfy this inequality:
+\[
+  (d-n)\,\vth(M)>n,\ \text{ equivalently }\ (d-n)(l-\dim C)>n\dim R\ \text{ for all zero blocks with }R\neq0. \tag{$\star$}
+\]
+
+\begin{definition}
+$M$ is \emph{semistable} if $\vth(M)=l/d$, that is, $l\dim E\ge d\dim C$ for all sub-pairs. It is \emph{stable} if this inequality is
+strict for all sub-pairs other than $(0,0)$ and $(A,B)$. These are King's $\theta$-semistability and $\theta$-stability
+\cite[Def.~1.1, p.~516]{Kin94} for $\theta(c,e)=le-dc$ on the quiver with two vertices and arrows $\Sigma$. The transpose of a stable matrix is
+stable, since $(C,E)\mapsto(E^{\perp},C^{\perp})$ preserves $\theta$.
+\end{definition}
+
+\begin{definition}
+$M$ is \emph{graded} if $M_{ij}=c_{ij}\tau^{a_{i}+b_{j}}$ with $a_{i},b_{j}\in\Lambda$, $c_{ij}\in\Qbar$, and $c_{ij}=0$ unless
+$a_{i}+b_{j}\in\Sigma$. Then $M=D_{a}(c_{ij})D_{b}$ with invertible diagonal $D_{a},D_{b}$, so $\rk_{F}M=\rk_{\Qbar}(c_{ij})$.
+\end{definition}
+
+\paragraph{Elementary facts.}
+\begin{enumerate}[label=(\alph*)]
+\item Quotients of $M$ have $\vth\ge\vth(M)$, because a quotient of a quotient is a quotient.
+\item If $PMQ=\bigl(\begin{smallmatrix}M'&0\\N&M''\end{smallmatrix}\bigr)$, then $\rk M\ge\rk M'+\rk M''$: take rows and columns giving
+non-singular minors of the two blocks; the resulting minor is block triangular.
+\item $\vth(M_{1}\oplus M_{2})=\min(\vth(M_{1}),\vth(M_{2}))$, with $\vth=+\infty$ for a module with $B=0$. Let $Y$ be a quotient of
+the sum with non-zero target, $Y_{1}$ the image of $M_{1}$ in $Y$. Then $Y_{1}$ is a quotient of $M_{1}$ and $Y/Y_{1}$ of $M_{2}$. Dimensions
+add, so the ratio of $Y$ is a mediant of their ratios; and if $Y_{1}$ has zero target, the ratio of $Y$ is at least that of $Y/Y_{1}$, and
+symmetrically. This gives $\ge$. For $\le$ use $C=C_{1}\oplus A_{2}$, $E=E_{1}\oplus B_{2}$.
+\item $\vth(M)>0$ implies that the rows are $\Qbar$-free: $r^{\mathsf T}M=0$ gives the sub-pair $(A,r^{\perp})$ of ratio $0$. A semistable $M$ with
+$d>0$ has free columns: $Mc=0$ gives the sub-pair $(\langle c\rangle,0)$, and $l\cdot0\ge d\cdot1$ is false. So a stable $M$ with $d,l>0$ has free
+rows and columns.
+\item Failure implies $\vth>0$, because $n\ge0$.
+\item For fixed dimensions the set of $M$ with a sub-pair of those dimensions is closed, since Grassmannians are projective. So
+$\{\vth\le r\}$ is closed, and $\vth$ is lower semicontinuous on tuples $(M_{\sigma})$.
+\end{enumerate}
+
+\paragraph{Classes.} Let $N$ be graded with free rows and columns, of rank $n$, and write $c_{ij}=x_{i}\cdot y_{j}$ with
+$x_{i},y_{j}\in\Qbar^{n}$. A \emph{row class} is the set of rows of one weight $a$; put $P_{a}=\spn(x_{i}:a_{i}=a)$. A
+\emph{column class} is the set of columns of one weight $b$; put $Q_{b}=\spn(y_{j}:b_{j}=b)$. Freeness gives that $\dim P_{a}$ and $\dim Q_{b}$ are
+the class sizes: if $\sum r_{i}x_{i}=0$ over one class, then $\sum r_{i}N_{ij}=\tau^{a+b_{j}}(\sum r_{i}x_{i})\cdot y_{j}=0$. If $x\in P_{a}$, $y\in Q_{b}$ and
+$x\cdot y\neq0$, then $a+b\in\Sigma$. Conversely $P_{a}\perp Q_{b}$ whenever $a+b\notin\Sigma$. In the counts of Sections~\ref{sec:rankthree}--\ref{sec:hull},
+``columns'' means column classes: the common columns of two rows are column classes, and each counts once whatever its dimension.
+
+For a subspace $U\subseteq\Qbar^{n}$ put $r(U)=\sum_{a}\dim(P_{a}\cap U)$ and $c(U)=\sum_{b}\dim(Q_{b}\cap U^{\perp})$. These give a zero
+block of dimensions $r(U)$, $c(U)$.
+
+\begin{lemma}\label{lem:gradedblocks}
+For $N$ as above, $\vth(N)=\min\{(l-c(U))/r(U):r(U)>0\}$.
+\end{lemma}
+
+\begin{proof}
+The torus $\Hom(\Lambda,\Gm)$ acts on zero blocks through $D_{a}(t),D_{b}(t)$ and keeps their dimensions. Zero blocks of fixed dimensions form a
+projective invariant variety, so by Borel's fixed point theorem it has a homogeneous point $R=\bigoplus R_{a}$, $C=\bigoplus C_{b}$. By freeness,
+$R_{a}$ embeds in $P_{a}$ and $C_{b}$ in $Q_{b}$. With $U=\sum R_{a}$ we get $R_{a}\subseteq P_{a}\cap U$ and $C_{b}\subseteq Q_{b}\cap U^{\perp}$, so the
+ratio of $U$ is at most that of $(R,C)$.
+\end{proof}
+
+\section{Theorem 1: the reduction to graded stable matrices}\label{sec:reduction}
+
+\begin{theorem}\label{thm:reduction}
+Let $\Sigma\subset\Z^{r}$ be finite, and $M$ a matrix over $V_{\Sigma}$, of size $d\times l$ and rank $n$, with $\vth(M)>0$ and free columns.
+Then there are graded stable matrices $N_{1},\dots,N_{k}$ over $V_{\Sigma}$, of sizes $d_{i}\times l_{i}$ and ranks $n_{i}$, with $\sum d_{i}=d$,
+$\sum l_{i}=l$, $\sum n_{i}\le n$ and $l_{i}/d_{i}\ge\vth(M)$. In particular $N=\bigoplus N_{i}$ is graded, of the same size, with $\rk N\le n$
+and $\vth(N)\ge\vth(M)$.
+\end{theorem}
+
+\begin{corollary}\label{cor:reduction}
+If a matrix $M$ over $V_{\Sigma}$ fails, then $N$ as above, with the common kernel of $M$ added back as zero columns, fails, and some $N_{i}$ fails.
+Since $N_{i}$ is stable, $\vth(N_{i})=l_{i}/d_{i}$, and failure of $N_{i}$ is the symmetric inequality
+$(d_{i}-n_{i})(l_{i}-n_{i})>n_{i}^{2}$. So $N_{i}^{\mathsf T}$ fails too.
+\end{corollary}
+
+\begin{proof}
+Let $K$ be the common kernel of the $M_{\sigma}$. For a sub-pair $(C,E)$, also $(C+K,E)$ is a sub-pair, with no larger ratio, so removing $K$ changes
+neither $n$ nor $\vth$. If nothing remains, then $\vth=0$ and $M$ does not fail. Put $\vth=\vth(M)>0$. Then
+$\sum_{i}[(d_{i}-n_{i})\vth-n_{i}]=(d-\sum n_{i})\vth-\sum n_{i}\ge(d-n)\vth-n>0$. So some $i$ has $(d_{i}-n_{i})\vth>n_{i}$, and then $d_{i}>n_{i}$.
+As $l_{i}/d_{i}\ge\vth$, also $(d_{i}-n_{i})l_{i}/d_{i}>n_{i}$, and expanding gives the displayed inequality. The claim on $N$ follows from (c).
+\end{proof}
+
+\subsection{Cited facts}\label{sec:cited}
+
+Let $k=\Qbar$, $\Rep=(\mathrm{Mat}_{d\times l})^{\Sigma}$, and $G=\GL_{d}\times\GL_{l}$ acting by $(g,h)\cdot(M_{\sigma})=(gM_{\sigma}h^{-1})$. Let $\Tor=\Hom(\Lambda,\Gm)$
+act by $(t\cdot M)_{\sigma}=t^{\sigma}M_{\sigma}$; this commutes with $G$. Put $(l_{0},d_{0})=(l,d)/\gcd(l,d)$, $\chi(g,h)=\det(g)^{l_{0}}\det(h)^{-d_{0}}$, which is trivial on the
+scalars $(\lambda,\lambda)$, and $R=\bigoplus_{m\ge0}k[\Rep]^{G,\chi^{m}}$.
+
+\begin{enumerate}[label=(F\arabic*)]
+\item \emph{King, semistability.} $M$ is $\chi$-semistable, meaning that some relative invariant of weight $\chi^{m}$, $m\ge1$, does not vanish at $M$
+\cite[Def.~2.1(i), p.~517]{Kin94}, if and only if $M$ is $\theta$-semistable \cite[Prop.~3.1, p.~521]{Kin94}. The sign agrees with
+\cite[Def.~1.1, p.~516; pp.~517, 520]{Kin94}: $B$ is at the head of each arrow and $A$ at the tail, so $\theta_{B}=l_{0}$, $\theta_{A}=-d_{0}$.
+\item \emph{King, closed orbits.} A $\theta$-semistable $M$ has an orbit closed in $\Rep^{ss}$ if and only if it is a direct sum of $\theta$-stable modules
+\cite[Prop.~3.2(i), p.~522]{Kin94}. Summands have $\theta=0$, so $l_{i}/d_{i}=l/d$, with $d_{i},l_{i}>0$. Two semistable modules are identified in the quotient if and only if they have
+filtrations with $\theta$-stable quotients and the same associated graded \cite[Prop.~3.2(ii)]{Kin94}.
+\item \emph{King, projectivity.} $\Mm=\Proj R$ is projective over $\operatorname{Spec}k[\Rep]^{G}$ \cite[p.~518]{Kin94}. Here $k[\Rep]^{G}=\Qbar$: if $f$ is invariant, then
+$f(\lambda M)=f(M)$ for scalars $\lambda$ in $\GL_{d}$, so $f$ is constant.
+\item \emph{Good quotient.} $\pi:\Rep^{ss}\to\Mm$ is a good quotient \cite[Th.~1.10]{MFK} (or \cite[Th.~3.21]{New}): the image of a closed $G$-invariant set is closed, and each fibre has a unique
+closed orbit. \textbf{This was checked only through later papers}, which state it with these references (\cite{Ar15}, \S3.1.2; \cite{Ar23}, \S2), not in the books.
+King states the unique closed orbit \cite[p.~518]{Kin94}, but not the closed-image property.
+\item \emph{Borel's fixed point theorem} for a torus acting on a projective variety.
+\item \emph{Maximal tori.} If $H\to\Tor$ is a surjection of linear algebraic groups, a single maximal torus of $H$ surjects onto $\Tor$. Directly: the image of $H^{\circ}$ is closed of
+finite index in the connected group $\Tor$, so $H^{\circ}$ surjects. Semisimple parts map to semisimple parts, so the semisimple elements of $H^{\circ}$ surject. Each lies in a maximal torus,
+the maximal tori are conjugate, and $\Tor$ is commutative, so all maximal tori have the same image.
+\end{enumerate}
+
+King's paper has no torus acting on the arrows, so the following is not a citation. For $t\in\Tor$, the action on $\Rep$ is an automorphism commuting with $G$ and keeping
+sub-pair dimensions. So it preserves $\Rep^{ss}$, closed orbits and each graded piece of $R$. It acts rationally on each piece, so it acts on $\Mm$, and $\pi$ is equivariant.
+
+\subsection{The semistable case}\label{sec:semistable}
+
+Let $M$ be semistable, with $d,l>0$ and rank at most $n$. Let $X_{n}\subset\Rep$ be the set where all $(n+1)$-minors of $\sum\tau^{\sigma}M_{\sigma}$ vanish identically. It is closed and $G$-invariant,
+and it is $\Tor$-invariant because $t$ acts through the $\Qbar$-automorphism $\tau^{\sigma}\mapsto t^{\sigma}\tau^{\sigma}$ of $\Qbar[\Lambda]$.
+
+\begin{enumerate}[label=\arabic*.]
+\item By (F4), $\pi(X_{n}^{ss})$ is closed. It is $\Tor$-invariant and contains $\pi(M)$. So the closure of $\Tor\cdot\pi(M)$ is a projective $\Tor$-variety inside it, and by (F5) it has a fixed point $y$.
+\item $\pi^{-1}(y)\cap X_{n}^{ss}$ is non-empty, closed and $G$-invariant, so it contains an orbit $G\cdot N$ closed in $\Rep^{ss}$. Thus $N$ is semistable, $\rk N\le n$, and by (F2) $N$ is a direct
+sum of stable modules with $l_{i}/d_{i}=l/d$.
+\item For $t\in\Tor$: $t\cdot N$ is again in a closed orbit and $\pi(t\cdot N)=t\cdot y=y$, so $t\cdot N\in G\cdot N$ by (F4). Hence the closed subgroup
+$H=\{(g,h,t):t\cdot((g,h)\cdot N)=N\}\subset G\times\Tor$ surjects onto $\Tor$.
+\item By (F6) a maximal torus $T_{H}$ of $H$ surjects onto $\Tor$ via some $p$, so $p^{*}:\Lambda\to X^{*}(T_{H})$ is injective. Change bases so that $T_{H}$ acts diagonally on $\Qbar^{d}$ and $\Qbar^{l}$, with
+characters $\alpha_{i}$ and $\beta_{j}$. The fixing condition reads: $(N_{\sigma})_{ij}\neq0$ implies $p^{*}(\sigma)+\alpha_{i}-\beta_{j}=0$. Choose a $\Q$-linear retraction $\psi$ of $p^{*}$ and put
+$a_{i}=-\psi(\alpha_{i})$, $b_{j}=\psi(\beta_{j})$ in $\Lambda_{\Q}$. Then $(N_{\sigma})_{ij}\neq0$ implies $a_{i}+b_{j}=\sigma$. So each entry of $N$ is a single monomial, with exponent $a_{i}+b_{j}$.
+\item \emph{Integrality.} In the bipartite graph of non-zero entries, $a_{i}+b_{j}\in\Lambda$ along edges. On each connected component shift $a$ by $+q$ and $b$ by $-q$ so that one vertex has integral
+weight; integrality propagates along edges. Entries do not change, and non-edges carry $c_{ij}=0$. So $N$ is graded.
+\item \emph{Each summand is graded.} Stable modules are indecomposable, so by Krull--Schmidt each $t$ permutes the finite set of isomorphism classes of stable summands. The stabiliser of a class is
+the image of an algebraic group, hence closed, of finite index in the connected group $\Tor$, so it is all of $\Tor$. Apply steps 3--5 to each summand. Rank is additive on direct sums, and
+base change on each summand stays in $G\cdot N$. \qed
+\end{enumerate}
+
+Steps 3--6 follow the localisation of Weist \cite[Th.~3.6, Th.~3.8]{Wei13}, which identifies torus fixed points in moduli of stable representations with stable representations of a covering
+quiver. That is an analogue, not a citation: Weist uses the full torus $(\C^{*})^{Q_{1}}$ and the stable locus. Here the rank locus is invariant only under the smaller $\Tor$, and $N$ is polystable.
+
+\subsection{The general case}\label{sec:general}
+
+Induct on $d+l$. The induction is modelled on Roy's proof of \cite[Th.~5, pp.~39--40]{Roy92}, who minimises $\dim t(U)/d'$ over rational surjections $t$ where we minimise $l'/d'$; in the language of quiver moduli, it takes the last quotient of a
+Harder--Narasimhan filtration \cite[Prop.~2.5]{Rei03}.
+
+If $M$ is semistable, use Section~\ref{sec:semistable}. Otherwise $\vth=\vth(M)<l/d$. Choose a sub-pair $(C,E)$ attaining $\vth$, with quotient $M'$ and sub $M''$.
+\begin{itemize}
+\item $M'$ is semistable of ratio $\vth$, by (a). Also $l'>0$ since $\vth>0$. So $M'$ has free columns, by (d).
+\item $E\neq0$: otherwise $C$ lies in the common kernel, so $C=0$ by free columns, and $(C,E)=(0,0)$ has ratio $l/d\neq\vth$.
+\item $\vth(M'')\ge\vth$. Suppose $(C_{1},E_{1})$ is a sub-pair of $M''$ with $E_{1}\neq E$ and $\dim C-\dim C_{1}<\vth(\dim E-\dim E_{1})$. It is also a sub-pair of $M$. Adding
+$l-\dim C=\vth(d-\dim E)$ gives $l-\dim C_{1}<\vth(d-\dim E_{1})$, against the minimality of $\vth$. Taking $(C_{1},E_{1})=(0,0)$ also shows $C\neq0$, since $\vth>0$.
+\item $M''$ has free columns, being a restriction of $M$. Both $M'$ and $M''$ are smaller than $M$.
+\end{itemize}
+Apply induction to both, and use (b) for the ranks. All ratios that occur are at least $\vth$. \qed
+
+\subsection{Why the limit is taken in the moduli space}\label{sec:example}
+
+The naive limit keeps the basis fixed and takes entrywise initial forms. It can create zero blocks, and failure is an open condition, so it need not survive such a limit. The limit in $\Mm$ corresponds to
+a change of basis that depends on $t$.
+
+\begin{example}
+Let $M=\bigl(\begin{smallmatrix}1&T\\1&T+1\end{smallmatrix}\bigr)$, $\Sigma=\{0,1\}$, $\det M=1$. The top form in $T$ is $\bigl(\begin{smallmatrix}0&T\\0&T\end{smallmatrix}\bigr)$, which has a zero column and is not semistable. A row
+operation gives $\bigl(\begin{smallmatrix}1&T\\0&1\end{smallmatrix}\bigr)$. Conjugating $t\cdot\bigl(\begin{smallmatrix}1&T\\0&1\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&tT\\0&1\end{smallmatrix}\bigr)$ by $\operatorname{diag}(1,t^{2})$ gives
+$\bigl(\begin{smallmatrix}1&T/t\\0&1\end{smallmatrix}\bigr)$, which tends to the identity as $t\to\infty$. More directly: $M$ has the sub-pair $(\langle e_{1}\rangle,\langle(1,1)\rangle)$, with stable factors $(1)$ and $(1)$ at $\sigma=0$, so by (F2) $\pi(M)=\pi(I)$, which is
+already $\Tor$-fixed.
+\end{example}
+
+\begin{example}
+Let $\Sigma=\{-1,0,1\}$, and let $M$ have rows $(T-1,T^{-1},T^{-1}+1)$, $(T^{-1}-1+T,T^{-1},T^{-1}+1)$, $(0,1-T^{-1},T-T^{-1})$. Write $R_{i}$ for its rows and $c_{j}$ for its columns. The operations $R_{2}-R_{1}$, $R_{3}+R_{1}$ and $c_{3}-c_{2}$ give
+\[
+\begin{pmatrix}T^{-1}&0&0\\T-1&T^{-1}&1\\T-1&1&T\end{pmatrix},
+\]
+with rows in the order $R_{2}-R_{1}$, $R_{1}$, $R_{3}+R_{1}$. So $M$ has a sub-pair with quotient $(T^{-1})$ and sub $B=\bigl(\begin{smallmatrix}T^{-1}&1\\1&T\end{smallmatrix}\bigr)$. Both are stable: in $B$ the three coefficient matrices send any non-zero vector onto a spanning set of $\Qbar^{2}$. Both have ratio $1$, and rank $1$. So $M$ has rank $2$. Also $\vth(M)=1$: as in (c), a quotient of $M$ is built from a quotient of $B$ and a quotient of $(T^{-1})$, so its ratio is at least $1$, and $\vth\le l/d=1$. The entrywise lowest-order form has the sub-pair $C=\langle(0,1,-1),(0,1,0)\rangle$, $E=\langle(1,1,-1)\rangle$, of ratio $1/2$. The matrix promised by Theorem~\ref{thm:reduction} is
+$(T^{-1})\oplus B$, of size $3\times3$, rank $2$, $\vth=1$, and by (F2) it has the same image in the quotient as $M$.
+\end{example}
+
+\subsection{Spaces that are not monomial}\label{sec:nonmonomial}
+
+Let $V\subset\Qbar[T,T^{-1}]$ have a basis $v_{e}$ with distinct lowest orders $o_{e}$, and let $\In_{0}(V)=\spn(T^{o_{e}})$. Put $v_{e}^{(t)}(T)=t^{-o_{e}}v_{e}(tT)$, which is polynomial in $t$ with limit $c_{e}T^{o_{e}}$, $c_{e}\neq0$. Let
+$\Rep=(\mathrm{Mat}_{d\times l})^{\{e\}}$, and let $\Gm$ act by $t\bullet(N_{e})=(t^{o_{e}}N_{e})$. A matrix over $V$ is a tuple $M=\sum v_{e}M_{e}$. Sub-pairs and $\vth$ depend only on the tuple, because the $v_{e}$ are independent. Note
+$M(tT)=\sum v_{e}^{(t)}\,t^{o_{e}}M_{e}$.
+
+\begin{proposition}\label{prop:nonmonomial}
+Let $M$ over $V$ have rank $n$, $\vth(M)>0$ and free columns. Then the conclusion of Theorem~\ref{thm:reduction} holds with graded stable $N_{i}$ over $\In_{0}(V)$. If $M$ is semistable, then $N=\bigoplus N_{i}$ represents
+$\lim_{t\to0}t\bullet\pi(M)$, up to the scalars $c_{e}$. So no failure over $\In_{0}(V)$ implies no failure over $V$, and the same holds at $T=\infty$, by $T\mapsto1/T$.
+\end{proposition}
+
+\begin{proof}
+In Section~\ref{sec:semistable} replace $X_{n}$ by the closed set $Y=\{(t,N):\rk\sum v_{e}^{(t)}N_{e}\le n\}\subset\Aff\times\Rep$, which contains $(t,t\bullet M)$ for $t\neq0$. Four points are used.
+\begin{enumerate}[label=(\arabic*)]
+\item $\Aff\times\Rep^{ss}\to\Aff\times\Mm$ is a good quotient, being the base change of (F4) along the flat map $\Aff\times\Mm\to\Mm$, which preserves good quotients. So the image of $Y^{ss}$ is closed.
+\item $y=\lim_{t\to0}t\bullet\pi(M)$ exists since $\Mm$ is projective, and it is fixed by $\Gm$, as a limit of a one-parameter orbit. The fibre over $(0,y)$ of the image of $Y^{ss}$ contains $(0,N)$ with $G\cdot N$ closed and
+$\rk\sum c_{e}T^{o_{e}}N_{e}\le n$. Steps 3--6 of Section~\ref{sec:semistable} apply to the action $\bullet$.
+\item Replace $N_{e}$ by $\hat N_{e}=c_{e}N_{e}$, which has the same sub-pairs, to land on $\spn(T^{o_{e}})$.
+\item Section~\ref{sec:general} reruns verbatim on the coefficient tuple. \qedhere
+\end{enumerate}
+\end{proof}
+
+The converse is not claimed, and it is false: see Section~\ref{sec:hull}.
+
+\section{Rank two: Theorem 2}\label{sec:ranktwo}
+
+\textbf{Property (P).} Every non-zero $\delta$ has at most $2$ representations $\delta=\sigma-\sigma'$ with $\sigma,\sigma'\in\Sigma$.
+
+(P) says that there are no sets $A,B\subset\Lambda$ with $|A|=2$, $|B|=3$, $A+B\subset\Sigma$. Consequently:
+
+\textbf{(T)} If $A,B$ are non-empty and $A+B\subset\Sigma$, then $|A|=1$, or $|B|=1$, or $|A|=|B|=2$.
+
+\begin{theorem}\label{thm:ranktwo}
+If $\Sigma$ has \textup{(P)}, every matrix over $V_{\Sigma}$ of rank at most $2$ satisfies Roy's inequality. If $\Sigma$ does not have \textup{(P)}, a $2\times3$ matrix of rank $1$ fails it: rows $\{a,a+\delta\}$, columns the three representations.
+\end{theorem}
+
+The failing half is \cite[Cor.~2, p.~38]{Roy92}, restated at p.~23 there: with rows of weights $0,\delta$ and three columns, the matrix has rank $1$ and $\vth=3/2$, since $(r_{1}+r_{2}\tau^{\delta})\tau^{b_{k}}$ has no $\Qbar$-kernel, so $(d-n)\vth=3/2>1$.
+
+\begin{proof}[Proof of the main half]
+If not, Corollary~\ref{cor:reduction} gives a graded stable $N$ of rank $n$ with $(d-n)(l-n)>n^{2}$. Transposing keeps $\Sigma$, so take $d\le l$. By (d) the rows and columns are free, so $n\in\{1,2\}$, in the notation of the Classes paragraph.
+
+\emph{Rank one.} $(d-1)(l-1)>1$ and $d\le l$ give $d\ge2$, $l\ge3$. All $x_{i},y_{j}\neq0$, so all entries are non-zero. Rows of equal weight would be proportional, contradicting freeness, so row weights are distinct, and likewise column
+weights. So $A+B\subset\Sigma$ with $|A|\ge2$, $|B|\ge3$, against (T).
+
+\emph{Rank two.} For a point $p\subset\Qbar^{2}$ let $A(p)=\{a:p\subset P_{a}\}$, $x_{p}=|A(p)|$, $B'(p)=\{b:Q_{b}\not\subset p^{\perp}\}$, $\beta_{p}=\sum_{b}\dim(Q_{b}\cap p^{\perp})$. Then:
+\begin{itemize}
+\item $|B'(p)|=l-\beta_{p}$, since $\dim Q_{b}-\dim(Q_{b}\cap p^{\perp})\in\{0,1\}$; and $A(p)+B'(p)\subset\Sigma$.
+\item With $B(p)=\{b:Q_{b}\cap p^{\perp}\neq0\}$ and $A'(p)=\{a:P_{a}\neq p\}$: $|B(p)|=\beta_{p}$, $|A'(p)|=d-x_{p}$, and $A'(p)+B(p)\subset\Sigma$, because in $\Qbar^{2}$ a non-zero element of $p^{\perp}$ annihilates only $p$.
+\item If $x_{p}\ge1$, the zero block with row part $\bigoplus_{a\in A(p)}p$ and column part $\bigoplus(Q_{b}\cap p^{\perp})$ gives the sub-pair $(C,R^{\perp})$ of dimensions $\beta_{p}$ and $d-x_{p}$. It is proper and non-zero, since $x_{p}=d$ would put all rows
+in $p$ and give rank $1$. Stability $l(d-x_{p})>d\beta_{p}$ reads
+\begin{equation}\label{eq:dagger}
+d(l-\beta_{p})>l\,x_{p}. \tag{$\dagger$}
+\end{equation}
+\end{itemize}
+
+\emph{Sizes.} $(d-2)(l-2)>4$ and $d\le l$ give $d\ge3$ and $l\ge5$; and $d=3$ gives $l\ge7$.
+
+\emph{Step 1: $x_{p}\le1$ for all $p$.} If $x_{p}\ge2$, (T) gives $l-\beta_{p}\le2$. But ($\dagger$) and $l\ge d$ give $l-\beta_{p}>x_{p}\ge2$.
+
+\emph{Step 2.} So no row class has dimension $2$: with $d\ge3$ there is another row class, whose point lies in it, and then $x_{p}\ge2$. So all row classes are points, with distinct points $p_{1},\dots,p_{d}$ and distinct weights $a_{i}$.
+
+\emph{Step 3.} $A'(p_{i})$ consists of all other weights, so $|A'(p_{i})|=d-1\ge2$. Write $\beta_{i}=\beta_{p_{i}}$. By (T): $\beta_{i}\le2$ if $d=3$, and $\beta_{i}\le1$ if $d\ge4$.
+
+\emph{Step 4.} For $i\neq j$: $|B'(p_{i})\cap B'(p_{j})|\ge(l-\beta_{i})+(l-\beta_{j})-\#\{\text{column classes}\}\ge l-\beta_{i}-\beta_{j}$. Also $\{a_{i},a_{j}\}+(B'(p_{i})\cap B'(p_{j}))\subset\Sigma$, so this size is at most $2$ by (P). But $d=3$ gives $7-4=3$, and $d\ge4$ gives $5-2=3$. Contradiction.
+\end{proof}
+
+\begin{corollary}\label{cor:ranktwo}
+The sets $S$, $\Iz$ and $\Ii$ all have \textup{(P)}. For $S$: $\delta=1,3,4,5$ have $2$ representations and $\delta=2,8$ have $1$. For $\Iz$: $\delta=1,2,3,4$ have $2$ and $\delta=5,7$ have $1$; and $\Ii=-\Iz$.
+So no matrix of rank at most $2$ over $V_{S}$ fails, for any size, graded or not. By Proposition~\ref{prop:nonmonomial} the same holds over $V(c,c')$ for all $c,c'$, whose lowest-order set is $S$ or $\Iz$. The control $S_{2}$ violates \textup{(P)}, and $S_{1}$ has it.
+\end{corollary}
+
+The shape of the result: for monomial spaces, a failure at rank $2$ forces a failure at rank $1$.
+
+\section{Rank three: Theorem 3}\label{sec:rankthree}
+
+\subsection{(P) is not enough}\label{sec:fivebyeight}
+
+Take the points $p_{0}=(0,0,1)$, $p_{1}=(1,0,1)$, $p_{2}=(2,0,1)$, $p_{3}=(0,1,1)$, $p_{4}=(0,2,1)$ in $\mathbb{P}^{2}$, as the rows $x_{i}$. As columns take linear forms whose kernels are: the line $y=0$ twice, the line $x=0$ twice, and the four lines $p_{1}p_{3}$, $p_{1}p_{4}$, $p_{2}p_{3}$,
+$p_{2}p_{4}$. With generic integer weights the $5\times8$ graded matrix has rank $3$ and its support $\Sigma$ has $20$ elements, one for each non-zero entry. By Lemma~\ref{lem:gradedblocks} and the following count, $\vth=8/5$: a point has $r\le1$, $c\le4$; a line has $(r,c)$ at most
+$(3,2)$, or $(2,1)$, or $(1,1)$; the whole space has $(5,0)$. So $(d-3)\vth=16/5>3$ and the matrix fails, while $(d-3)(l-3)=10>9$.
+
+That the weights can be chosen so that $\Sigma$ has (P), with exact rank $3$, is an exact computation (scripts \scr{math/sanity.py}, part 2, which prints the weights, and \scr{referee_b/exact.py}, with other weights). So Theorem~\ref{thm:rankthree} has to use more of $S$ than (P).
+
+\subsection{The budget}
+
+Let $c(\delta)=|S\cap(S+\delta)|$. For a finite set $A$ of integers let $\Bud(A)=\sum_{\{a,a'\}\subset A}c(a-a')$, and $B_{k}=\max_{|A|=k}\Bud(A)$. By exhaustive computation over sorted gaps (scripts \scr{math/finite_checks.py}, \scr{referee_b/finite_b.py}; gaps above the span of $S$ have no cross pairs and can be shrunk): $c(\delta)=2$ for $|\delta|\in D=\{1,3,4,5\}$, $c(\delta)=1$ for $|\delta|\in\{2,8\}$, and $c(\delta)=0$ for other $\delta\neq0$;
+\[
+  B_{4}=12,\quad B_{5}=18,\quad B_{6}=26,\quad B_{7}=35.
+\]
+Always $B_{k}\le k(k-1)$, by (P).
+
+\begin{theorem}\label{thm:rankthree}
+No matrix of rank at most $3$ over $V_{S}$ fails Roy's Cor.~1, for any size.
+\end{theorem}
+
+\subsection{Set-up}
+
+By Corollaries~\ref{cor:reduction} and~\ref{cor:ranktwo}, suppose $N$ is graded, stable, of rank $3$, with $(d-3)(l-3)>9$. Transpose so that $d\le l$. The smallest $l$ for $d=4,5,6,7$ is $13,8,7,7$, and $l\ge d$ afterwards. Use classes $P_{a}\subseteq\Qbar^{3}$, $Q_{b}\subseteq(\Qbar^{3})^{*}$. Recall that ``columns'' in these counts means column classes.
+
+For a point $p$ take $x_{p},A(p),B'(p),\beta_{p}$ as in Section~\ref{sec:ranktwo}. Again $|B'(p)|=l-\beta_{p}$, $A(p)+B'(p)\subset S$, and $(\dagger)$ holds when $x_{p}\ge1$: if $x_{p}=d$, all rows lie on $p$ and the rank is $1$. For a plane $W\subset\Qbar^{3}$, a ``line'' in $\mathbb{P}^{2}$, with $W^{\perp}=\langle\varphi\rangle$, put $r_{W}=\sum_{a}\dim(P_{a}\cap W)$, $u_{W}=\#\{a:P_{a}\not\subset W\}=d-r_{W}$, $c_{W}=\#\{b:\varphi\in Q_{b}\}$. Then $\{a:P_{a}\not\subset W\}+\{b:\varphi\in Q_{b}\}\subset S$.
+
+\emph{Step 1: $x_{p}\le1$.} As in Section~\ref{sec:ranktwo}: $x_{p}\ge2$ gives $l-\beta_{p}\le2$ by (T), but $l-\beta_{p}>x_{p}\ge2$ by $(\dagger)$. Hence row classes meet trivially. Since $d\ge4$ there is no $3$-dimensional row class, and there is at most one $2$-dimensional row class $L$, because two planes meet. Write $\eta=1$ if $L$ exists, and $\eta=0$ otherwise. The other row classes are $k=d-2\eta$ points $p_{i}\notin L$, with distinct weights.
+
+\emph{Step 2: for all $W$ with $r_{W}\ge1$, $r_{W}\le2+2d/l$.} The zero block $(\bigoplus(P_{a}\cap W),\bigoplus(Q_{b}\cap W^{\perp}))$ has a quotient $N'$ with $r_{W}$ rows. It has the same $M_{\sigma}$-structure, so it is a matrix over $V_{S}$; its rank $n'$ is at most $2$, since the pairing factors through $W$; and $\vth(N')\ge l/d$ by (a). By Theorem~\ref{thm:ranktwo} it does not fail: $(r_{W}-n')\vth(N')\le n'$, so $(r_{W}-2)\,l/d\le2$.
+
+\emph{Step 3: the budget.} Choose a row list $I$: the points $p_{i}$, plus one generic $q\in L$ if $\eta=1$. Generic means: $q$ lies on no column line except $L$, and is no point of a point class below. Let $\rho=|I|=k+\eta$. The weights in $I$ are distinct. For a column class $b$ let $A_{b}=\{i\in I:Q_{b}\not\subset p_{i}^{\perp}\}$. A pair $i\neq j$ in $A_{b}$ means $b\in B'(p_{i})\cap B'(p_{j})\subset(S-a_{i})\cap(S-a_{j})$, a set of size $c(a_{i}-a_{j})$. Summing over pairs,
+\begin{equation}\label{eq:budget}
+\sum_{b}\binom{|A_{b}|}{2}\le B_{\rho}. \tag{$\ddagger$}
+\end{equation}
+A column class counts once in \eqref{eq:budget}, whatever its dimension. We call $\binom{|A_{b}|}{2}$ its \emph{cost}. A column class of dimension $1$ is a line $\ell=\ker\varphi$, of dimension $2$ a point class at $m$, with $Q_{b}=m^{\perp}$, and of dimension $3$ a full class.
+
+\subsection{Case $d=4$}
+
+Then $l\ge13$, so $r_{W}\le2$ by Step 2. $\eta=1$ is impossible: the line through the two other points would have $r_{W}=3$. So there are $4$ points, no three collinear. A line class has $|A_{b}|\ge2$, cost at least $1$, dimension $1$. A point class has $|A_{b}|\ge3$, cost at least $3$, dimension $2$. A full class has cost $6$, dimension $3$. So dimension is at most cost in every case, and $l\le12$ by \eqref{eq:budget}. Contradiction.
+
+\subsection{Case $d=5$}
+
+Then $l\ge8$, so $r_{W}\le3$ and $u_{W}\ge2$. By (T): $c_{W}\le2$ if $r_{W}=3$, and $c_{W}\le1$ if $r_{W}\le2$.
+
+\emph{$\eta=0$.} Five rows, $B_{5}=18$. A line class through exactly $3$ rows costs $1$. Every other class costs at least $3$ per dimension: a line through $2$ rows costs $3$; a line through at most $1$ row at least $6$; a point class at a row $6$, for dimension $2$; another point class $10$, for dimension $2$; a full class $10$, for dimension $3$. Let $c_{3}$ be the number of line classes through $3$ rows. Then $3l-2c_{3}\le18$. Five points carry at most two $3$-lines, each with at most two classes, so $c_{3}\le4$. Hence $l=8$ and $c_{3}\ge3$, so the rows are $p_{0},p_{1},p_{2}$ on $W_{1}$ and $p_{0},p_{3},p_{4}$ on $W_{2}$, and all rows lie on $W_{1}\cup W_{2}$.
+
+\begin{itemize}
+\item $c_{3}=4$, with each $W_{i}$ carrying $2$ line classes. A point class at a row, or a full class, would give $c_{W_{i}}\ge3$ for some $i$. The remaining $4$ dimensions cost at most $14$. A point class off the rows ($10+6$) and a line through at most $1$ row ($6+9$) are too expensive. So there are exactly the $4$ lines through $2$ rows, each once. This is the configuration of Section~\ref{sec:fivebyeight}. Each of the pairs $(p_{0},p_{i})$, $(p_{1},p_{2})$, $(p_{3},p_{4})$ then has $2$ common columns, so with $a_{0}=0$, all of $a_{i}$ $(i\ge1)$, $a_{1}-a_{2}$, $a_{3}-a_{4}$ lie in $\pm D$. \emph{By exhaustive computation} (scripts \scr{math/finite_checks.py}, \scr{referee_b/finite_b.py}), all $304$ such row tuples admit no assignment of $8$ distinct column weights: in $288$ of them a side line has no weight at all, and in the other $16$ all four side lines are forced to $b=0$. Contradiction.
+\item $c_{3}=3$, say $W_{1}$ has $2$ line classes and $W_{2}$ one. The budget left is $15$, for $5$ dimensions, so all of them cost exactly $3$ per dimension: they are lines through $2$ rows, of which there are at most $4$, or point classes at a row. A point class at a row of $W_{1}$ gives $c_{W_{1}}=3$. At most one point class lies on $W_{2}$, say at $p_{3}$, and then the lines $p_{1}p_{3},p_{2}p_{3}$ would have $c_{W}=2$ with $r_{W}=2$. So only $2+2=4$ dimensions are available. With no point class, the $4$ lines give $4$ dimensions as well. Either way fewer than $5$. Contradiction.
+\end{itemize}
+
+\emph{$\eta=1$.} The rows are $L,p_{1},p_{2},p_{3}$, $\rho=4$, $B_{4}=12$. The $p_{i}$ are not collinear, else $r_{W}=4$. The sides $s_{ij}=p_{i}p_{j}$ have $r_{W}=3$, so $c_{W}\le2$. Every other $W$ has $c_{W}\le1$. Costs: a line class on a side $1$ (here $A_{b}=\{q,p_{k}\}$); the line $L$ costs $3$; a line through one $p_{i}$ costs $3$; a line through none $6$; a point class at $p_{i}$ costs $3$, for dimension $2$; another point class $6$, for dimension $2$; a full class $6$, for dimension $3$.
+\begin{itemize}
+\item A full class forces $c_{W}\ge1$ everywhere. Hence there are no line classes off the sides, at most one on each side, and no point classes, because a non-side $W$ through $m$ would have $c_{W}=2$. So $l\le6$, against $l\ge8$. Two full classes are impossible.
+\item Otherwise let $\pi$ be the number of $p_{i}$ carrying a point class, at most one each, because a non-side $W$ through it would otherwise have $c_{W}=2$. A point class at $p_{i}$ contains the form of each of the two sides through $p_{i}$, so the number $s$ of line classes on the sides satisfies $s\le6-2\pi$. As $l\ge8$, the total cost is at least $3\pi+s+3(8-2\pi-s)=24-3\pi-2s\ge24-3\pi-2(6-2\pi)=12+\pi$. So $\pi=0$, $s=6$, and the cost is exactly $12$. Then each pair has exactly $2$ common columns. The doubled side $s_{ij}$ already gives $(q,p_{k})$ two common columns. So a further class may not contain $q$ together with a $p_{k}$: only the line $L$ qualifies, and $c_{L}\le1$. That is $7$ dimensions, not $8$. Contradiction.
+\end{itemize}
+
+\subsection{Case $d\ge6$}\label{sec:dsix}
+
+Step 2 gives $r_{W}\le3$ if $d=6$ (as $l\ge7$), and $r_{W}\le4$ if $d\ge7$. So $u_{W}\ge3$ always, and (T) gives $c_{W}\le1$ for all $W$. So column classes meet trivially. There is no $3$-dimensional column class and at most one $2$-dimensional column class. Write $\varepsilon=1$ if it exists, at the point $m$, and $\varepsilon=0$ otherwise. The other $l-2\varepsilon$ column classes are lines, on distinct lines, none through $m$. Two rows lie on at most one column line.
+
+Let $\alpha_{\rho}=\min_{s}\bigl[\binom{\rho-s}{2}+\binom{s}{2}\bigr]$: $\alpha_{5}=4$, $\alpha_{6}=6$, $\alpha_{7}=9$, $\alpha_{8}=12$, and $\alpha_{\rho}\ge\rho(\rho-2)/4$. A line $\ell$ meeting $I$ in $s_{\ell}$ points has cost $\binom{\rho-s_{\ell}}{2}$, and $\sum_{\ell}\binom{s_{\ell}}{2}$ is at most the number of pairs of points of $I$ that can lie on a common column line.
+
+\emph{$\eta=\varepsilon=0$.} $\alpha_{d}\,l\le\sum_{\ell}\bigl[\binom{d-s_{\ell}}{2}+\binom{s_{\ell}}{2}\bigr]\le B_{d}+\binom{d}{2}$. For $d=6$: $6l\le41$. For $d=7$: $9l\le56$. For $d\ge8$, with $l\ge d$ and $B_{d}\le d(d-1)$: $\alpha_{d}\,d\le\tfrac32d(d-1)$, which is impossible, since it gives $d^{2}-8d+6\le0$. All contradict $l\ge\max(7,d)$.
+
+\emph{$\eta=0$, $\varepsilon=1$.} If $m$ is a row, the lines avoid it, and the $m$-class costs $\binom{d-1}{2}$, which offsets the lines' pair count $\binom{d-1}{2}$. If $m$ is not a row, the $m$-class costs $\binom{d}{2}$, which again offsets it. Either way $\alpha_{d}(l-2)\le B_{d}$. For $d=6$: $30\le26$. For $d=7$: $45\le35$. For $d\ge8$: $\alpha_{d}(d-2)>d(d-1)\ge B_{d}$. Contradiction.
+
+\emph{$\eta=1$.} Now $\rho=d-1$, with $k=d-2$ points. The point $q$ lies on no column line except possibly $L$, so the lines other than $L$ have pair count at most $\binom{k}{2}$. If $L$ is a column line, it costs $\binom{k}{2}$, since it kills $q$ and no $p_{i}$. The $m$-class, if any, costs at least $\binom{k}{2}$. Writing out \eqref{eq:budget} gives these lower bounds for the cost, computed at the smallest $l$ (namely $7,7,8$):
+\begin{center}
+\begin{tabular}{lcccc}
+case & bound & $d=6$ & $d=7$ & $d=8$\\\hline
+$\varepsilon=0$, $L$ a column line & $\alpha_{\rho}(l-1)$ & $24$ & $36$ & $63$\\
+$\varepsilon=0$, $L$ not & $\alpha_{\rho}l-\binom{k}{2}$ & $22$ & $32$ & $57$\\
+$\varepsilon=1$, $L$ a column line & $\alpha_{\rho}(l-3)+\binom{k}{2}$ & $22$ & $34$ & $60$\\
+$\varepsilon=1$, $L$ not & $\alpha_{\rho}(l-2)$ & $20$ & $30$ & $54$\\\hline
+budget $B_{\rho}$ & & $B_{5}=18$ & $B_{6}=26$ & $B_{7}=35$
+\end{tabular}
+\end{center}
+All exceed the budget. For $d\ge9$ (so $\rho\ge8$) use $B_{\rho}\le\rho(\rho-1)$, $\alpha_{\rho}\ge\rho(\rho-2)/4$ and $l\ge d$. This ends the proof of Theorem~\ref{thm:rankthree}. \qed
+
+\medskip
+The cost tables and the numerical inequalities of the case $d\ge6$, and the bound $3l-2c_{3}\le18$ at $d=5$, are recomputed by \scr{math/finite_checks.py} and, from separate formulas and up to $d=2000$, by \scr{referee_b/ineq.py}. Neither script checks the arithmetic $14$ and $15$ in the case $d=5$, $\eta=0$, or $24-3\pi-2s\ge12+\pi$ in the case $d=5$, $\eta=1$: those are by hand. The proof uses from $S$ only: (P), $B_{4}\le12$, $B_{5}\le18$, $B_{6}\le26$, $B_{7}\le41$ (the value $35$ is not needed), and the weight check for the $5\times8$ configuration. Over $\Iz$ one has $B_{5}=20$ and $B_{6}=29$, so the same count does not close there. Section~\ref{sec:hull} shows that this is not an accident of the count.
+
+\section{Free entries: Theorem 4}\label{sec:free}
+
+At a candidate with $u^{4}\in\Lt$, a matrix may also use further logarithms. By Baker's theorem \cite{Bak66} these behave as free entries $x_{k}$ as far as zero blocks are concerned, once they are $\Q$-independent of the logarithms already involved. For rank they need not: see Section~\ref{sec:scope}. The model is $\Sigma_{\free}=S\times\{0\}\sqcup\{e_{1},\dots,e_{m}\}\subset\Z^{1+m}$, with $\tau^{e_{k}}=x_{k}$, so that $V_{\Sigma_{\free}}=V_{S}\oplus\spn(x_{k})$. Theorem~\ref{thm:reduction} applies, and rank means \emph{structural rank}, the rank over $\Qbar(T,x)$.
+
+A graded matrix has row weights $(a^{0},h)$, with $h\in\Z^{m}$ the \emph{sheet}, and column weights $(b^{0},-h')$. A pair in the same sheet is allowed if and only if $a^{0}+b^{0}\in S$, giving an entry $cT^{s}$. A pair with $h-h'=e_{k}$ is allowed if and only if $a^{0}+b^{0}=0$, giving an entry $cx_{k}$.
+
+\begin{lemma}\label{lem:free}
+$\Sigma_{\free}$ has \textup{(P)} whenever $S$ does. Differences in $\Z\times\{0\}$ are represented only inside $S\times\{0\}$, and every other difference has exactly one representation. Hence two rows in different sheets share at most one allowed column, and two rows in one sheet share at most $c(\delta)$ columns, all of them in that sheet.
+\end{lemma}
+
+\begin{theorem}\label{thm:free}
+For $S$ and for $S_{1}$: no matrix over $V_{S}\oplus\spn(x_{k})$, respectively $V_{S_{1}}\oplus\spn(x_{k})$, of structural rank at most $3$ fails.
+\end{theorem}
+
+\begin{proof}
+Rank at most $2$ is Theorem~\ref{thm:ranktwo} with Lemma~\ref{lem:free}. For rank $3$ the \emph{statement} of Theorem~\ref{thm:rankthree} does not suffice: rerun its \emph{proof} with one budget replaced. Its other uses of $S$ are (T) and Theorem~\ref{thm:ranktwo}, which need only (P). By Lemma~\ref{lem:free} the budget of a row list is at most
+$B^{\free}_{\rho}=\max$ over partitions into sheets of $\bigl(\sum B_{\text{part}}+\#\{\text{cross pairs}\}\bigr)$. By exact computation (scripts \scr{math/finite_checks.py}, \scr{referee_b/finite_b.py}): for $S$, $B^{\free}_{k}=B_{k}$ for $k\le8$, one sheet being best. For $S_{1}$, $B^{\free}_{k}=8,13,19,25$ for $k=4,5,6,7$. Also $B^{\free}_{k}\le k(k-1)$ by (P). All numerical inequalities still hold (same scripts).
+
+The proof uses nothing else from $S$ except the $5\times8$ configuration. There the pairs $(p_{0},p_{i})$, $(p_{1},p_{2})$, $(p_{3},p_{4})$ have $2$ common columns, so by Lemma~\ref{lem:free} all rows are in one sheet. Each column allows at least $2$ rows, so all columns are in that sheet. So no free entry occurs, and the check for $S$ alone applies. For $S_{1}$ the configuration is already excluded by the count, $16>13$.
+\end{proof}
+
+\begin{remark}[Structural failures]\label{rem:gtwo}
+Theorem~\ref{thm:free} closes one route at low rank. Call a matrix with entries in $\Qbar+\Qbar T+\Qbar T^{-1}+\sum\Qbar x_{k}$ that fails a \emph{structural failure}, and suppose one exists. Let $u$ be a candidate and choose logarithms $\ell_{k}$ such that $u,\bar u,\ell_{1},\dots,\ell_{m}$ are $\Q$-independent; $u,\bar u$ are themselves independent, since $\bar u=ru$ with $r\in\Q$ would give $u^{2}=\rho/r\in\Qbar$. Substitute $x\mapsto\ell$, $T\mapsto u$, so $T^{-1}\mapsto\bar u/\rho$. The entries lie in $\Lt$, the rank can only drop, and Baker's theorem keeps the zero blocks. Failure at rank $n$ implies failure at any smaller rank. So Roy's Cor.~1 would fail in $\Lt$, and no candidate would exist. By Theorem~\ref{thm:free} this cannot be triggered at structural rank at most $3$; it would need rank at least $4$.
+\end{remark}
+
+\paragraph{Removal of free entries: partial results.} Whether free entries can be removed at every rank is not proved. Two partial results hold. \emph{Rows that carry rank:} if deleting a row of $M$ lowers the rank by one, the remaining matrix still fails. Indeed $d-n$ is unchanged, deleting a row is the quotient by $(0,\langle e\rangle)$ so $\vth$ does not drop, and $n-1<n$. A row of distinct free indeterminates is of this type, because failure forces $n<dl/(d+l)<l$. \emph{Collapse:} let $N$ be graded over $\Sigma_{\free}$ and take a linear $\phi:\Z^{1+m}\to\Z$ with $\phi|_{S}=\mathrm{id}$ and $\phi(e_{k})=\sigma_{k}\in S$. The same constant matrix with weights $\phi(a_{i}),\phi(b_{j})$ is graded over $S$ alone, with the same rank. If $\phi$ is injective on the row weights and on the column weights, the classes and hence $(\star)$ are unchanged, and the free entries are gone.
+
+This stops at collisions: $\phi$ can use only $|S|$ values, and when two row classes collide, further zero blocks can appear. Removal for $S_{1}$ at all ranks would say that no structural failure exists at all, since $S_{1}$ alone has none: \cite[Th.~3.4]{Roy95} gives $4n\ge d+l$ for free rows and columns, hence $n(d+l)\ge dl$, which excludes a stable failure. So it is at least as hard as that question.
+
+\section{The hull of $u^{4}+cu^{3}$}\label{sec:hull}
+
+\subsection{The model}
+
+Let $z=u^{4}+cu^{3}$ with $c\in\Qbar$. As in \cite{TC}, $W_{z}=H_{0}+\Qbar z+\Qbar\bar z$. Since $\bar z=\rho^{4}u^{-4}+\bar c\rho^{3}u^{-3}=\rho^{4}(u^{-4}+(\bar c/\rho)u^{-3})$, the hull is the image under $T\mapsto u$ of
+\[
+  V(c,c')=\spn(1,T,T^{-1},T^{4}+cT^{3},T^{-4}+c'T^{-3}),\qquad c'=\bar c/\rho .
+\]
+We prove the statement for all $c,c'\in\Qbar$. For $c,c'\neq0$ the lowest-order set is $\Iz$ and the highest-order set is $\Ii$. By $T\mapsto1/T$, $V(c,c')$ goes to $V(c',c)$.
+
+\begin{theorem}\label{thm:hull}
+No matrix over $V(c,c')$ of rank at most $3$ fails, for any $c,c'\in\Qbar$.
+\end{theorem}
+
+\subsection{The failure over the initial space}
+
+Let row weights be $a=(0,1,2,3,4)$ and column weights $b=(-5,-4,-3,-2,-1,-1,0,1)$, and let
+\[
+M_{0}=\begin{pmatrix}
+0&-T^{-4}&0&0&T^{-1}&0&-1&T\\
+T^{-4}&0&0&-\tfrac12T^{-1}&0&1&-T&0\\
+0&0&T^{-1}&1&2T&0&0&2T^{3}\\
+0&-2T^{-1}&-1&-T&0&0&-2T^{3}&0\\
+2T^{-1}&2&T&0&0&2T^{3}&0&0
+\end{pmatrix}.
+\]
+By exact computation (scripts \scr{referee_b/in0_hit.py}, \scr{referee_c/c1_m0.py}; with Lemma~\ref{lem:gradedblocks}): $M_{0}$ is graded over $\Iz$, of rank $3$, with free rows and columns, stable, with $\vth=8/5$ and $(d-n)\vth=16/5>3$. The rows have the geometry of Section~\ref{sec:fivebyeight}, with two $3$-lines, rows of weight $0,2,3$ and rows of weight $1,3,4$, meeting at the row of weight $3$. The columns differ: the weight $-1$ class has dimension $2$, a point class at the shared row, and there is one line class on each $3$-line and the four side lines. Its cost is $2+6+12=20=B_{5}(\Iz)$, above the budget $18$ of $S$. Negating weights gives a failure over $\Ii$.
+
+So the hypothesis of Proposition~\ref{prop:nonmonomial} is false at both ends, and degeneration alone cannot settle $V(c,c')$ at rank three. We write $C_{0}$ for the matrix of constants of $M_{0}$, so $M_{0}=D_{a}C_{0}D_{b}$.
+
+\subsection{Classification over $\Iz$}
+
+$\Iz$ has (P): $c(\delta)=2$ for $\delta=1,2,3,4$ and $c(\delta)=1$ for $\delta=5,7$. So Theorem~\ref{thm:ranktwo}, (T), and Steps 1--3 of Section~\ref{sec:rankthree} hold verbatim, since they use only (P). The budgets, by exhaustive computation (scripts \scr{hull/budget_in0.py}, \scr{referee_c/c3_budget.py}), are $B_{4},\dots,B_{9}=12,20,29,38,48,58$.
+
+\begin{proposition}\label{prop:classification}
+Let $N$ be graded over $\Iz$, stable, of rank $3$, with $d\le l$ and $(d-3)(l-3)>9$. Then $d=5$, $l=8$, and $N\in G\cdot M_{0}$.
+\end{proposition}
+
+\begin{proof}
+\emph{$d=4$.} $l\le B_{4}=12$ against $l\ge13$, as in Section~\ref{sec:rankthree}.
+
+\emph{$d=5,6$: by exhaustive computation.} Two scripts written independently of each other, \scr{hull/scan_in0.py} and \scr{referee_c/c2_scan.py}, do the following. Stable modules are indecomposable, so the bipartite graph is connected, and consecutive distinct row weights differ by at most the span $7$. By Step 1 at most one weight is repeated, and it is then the row class $L$. For each sorted row-weight tuple with least weight $0$, and each abstract linear space on the labelled points (a set of long lines, pairwise meeting in at most one point), including non-realisable ones, form the maximal matrix $N^{\max}$: the rows are as in $N$, and for each integer $b$, $Q_{b}=\Ann(Z_{b})$, where $Z_{b}$ is the set of rows with $a_{i}+b\notin\Iz$. So the $b$-class is full if $Z_{b}$ is empty, a point class if $Z_{b}$ is one point, a line class if $Z_{b}$ lies on a line, and empty otherwise.
+
+$N$ is a column restriction of $N^{\max}$, because its $Q_{b}$ lies in $\Ann(Z_{b})$ by forced orthogonality. If $(R,C)$ is a zero block of $N^{\max}$, then $(R,C\cap A_{N})$ is a zero block of $N$, where $A_{N}$ is the column space of $N$, and $l-\dim(C\cap A_{N})\le l^{\max}-\dim C$. So $\vth(N^{\max})\ge\vth(N)$, and $\rk N^{\max}\le3$. Hence a failing $N$ makes $N^{\max}$ pass every test $(d-3)(l^{\max}-\dim C)>3\dim R$ on a genuine zero block $(R,C)$.
+
+The tests. In \scr{hull/scan_in0.py} a tuple has $\rho=d-\eta$ distinct weights, one of them marked as the weight of $L$ if $\eta=1$, and the linear space is on the $k=d-2\eta$ points off $L$; a line other than $L$ meets $L$ in one point, which adds $\eta$ to its $r$. In the notation of Lemma~\ref{lem:gradedblocks}, the script tests: the whole space; each long line and each line through two points; each point $p_{i}$; a generic line through $p_{i}$; a generic line; and, if $\eta=1$, the line $L$ and a point of $L$, counted on the fullest column line in the best case. It also requires $l^{\max}\ge d$. In \scr{referee_c/c2_scan.py} a repeated weight is a pair of consecutive labelled rows, and the linear space is on all $d$ labelled rows. It requires $l^{\max}\ge l_{\min}(d)$ and tests every coordinate subset of rows, with $U$ its span and $c(U)$ computed from the ranks of $Z_{b}\cup R$; and, for a repeated weight, the zero block of $(\dagger)$ at each row on the line of the pair, a row subset that is not coordinate.
+
+Tuples: $3\,773$ at $d=5$ and $28\,812$ at $d=6$. Result: $0$ hits at $d=6$, and exactly one at $d=5$: weights $0,1,2,3,4$, lines $\{0,2,3\},\{1,3,4\}$, $l=8$, with column classes of weights $-5,-4,-3,-2,-1$ (dimension $2$), $0,1$. A third scan (\scr{referee_b/attack.py}) reports the same counts of tuples and hits. At $d=6$ the count below leaves two cases open ($42\le44$ and $20\le20$), so $d=6$ rests on these scans.
+
+\emph{$d\ge7$: the count.} The six cases of Section~\ref{sec:dsix} give, at the smallest $l$:
+\begin{center}
+\begin{tabular}{lcccccc|ccc}
+ & $\eta{=}\varepsilon{=}0$ & $\eta{=}0,\varepsilon{=}1$ & \multicolumn{4}{c|}{$\eta=1$} & \multicolumn{3}{c}{budgets}\\\hline
+$d=7$ & $63$ & $45$ & $36$ & $32$ & $34$ & $30$ & $59$ & $38$ & $29$\\
+$d=8$ & $96$ & $72$ & $63$ & $57$ & $60$ & $54$ & $76$ & $48$ & $38$
+\end{tabular}
+\end{center}
+where the budgets are $B_{d}+\binom{d}{2}$, $B_{d}$, $B_{d-1}$. All are excluded; the last entry for $d=7$ by one. For $d\ge8$ in general the inequalities of Section~\ref{sec:dsix} use only $B_{k}\le k(k-1)$, $\alpha_{\rho}\ge\rho(\rho-2)/4$ and $l\ge d$. The program \scr{referee_c/c3_budget.py} confirms the exclusion for $d=9,\dots,59$.
+
+\emph{Uniqueness.} $(d-3)(l-3)>9$ at $d=5$ forces $l\ge8$, and $N^{\max}$ has $l=8$, so $N=N^{\max}$, as columns are free. The rows of weight $0,2,1,4$ form a projective frame, and the row of weight $3$ is the meet of the two lines, so the row geometry has no moduli. Columns are the forced annihilators.
+\end{proof}
+
+\subsection{The family and the tangent space}
+
+Let $c\neq0$, $a=1/c$, $b=c'$ (from here on $a$ and $b$ denote these two numbers; the weights are named $a_{i}$, $b_{j}$). Let $v_{e}^{(\varepsilon)}$, $e\in\Iz$, be $T^{-1},1,T$ for $e=-1,0,1$, and $v_{3}^{(\varepsilon)}=T^{3}+a\varepsilon T^{4}$, $v_{-4}^{(\varepsilon)}=T^{-4}+b\varepsilon T^{-3}$. Then $V_{1}=V(c,c')$, since $T^{3}+aT^{4}=(T^{4}+cT^{3})/c$. Note $v_{e}^{(\varepsilon)}(\lambda T)=\lambda^{e}v_{e}^{(\lambda\varepsilon)}(T)$. Let $\Rep$ be the space of tuples $(N_{e})_{e\in\Iz}$ of $5\times8$ matrices, of dimension $200$, and
+\[
+Y=\{(\varepsilon,N)\in\Aff\times\Rep:\rk\sum_{e}v_{e}^{(\varepsilon)}N_{e}\le3\}.
+\]
+Let $\varrho(\lambda)(\varepsilon,N)=(\lambda\varepsilon,N')$ with $N'_{e,ij}=\lambda^{e-a_{i}-b_{j}}N_{e,ij}$. Call $k=e-a_{i}-b_{j}$ the \emph{grade} of the coordinate $N_{e,ij}$. The action $\varrho$ preserves $Y$ by the identity above, and it fixes $(0,M_{0})$. For a $4\times4$ minor with rows $I$, columns $J$, $\mathrm{minor}(N')(T)=\lambda^{-\sum_{I}a_{i}-\sum_{J}b_{j}}\mathrm{minor}(N)(\lambda T)$, so the $T^{m}$-coefficients of minors are $\varrho$-eigenfunctions.
+
+\emph{The tangent table (by exact computation; scripts \scr{hull/first_order.py}, \scr{referee_c/c1_m0.py}).} Let $L,R$ be left and right kernels of $M_{0}$ over $\Qbar(T)$, read off from those of $C_{0}$, of dimensions $2$ and $5$. The tangent condition to the rank-$3$ locus at $M_{0}$, $L\,\delta M\,R=0$, splits by grade:
+\begin{center}
+\begin{tabular}{l|ccccccccc}
+grade $k$ & $\pm8$ & $\pm7$ & $\pm6$ & $\pm5$ & $\pm4$ & $\pm3$ & $\pm2$ & $\pm1$ & $0$\\\hline
+dim tangent & $0$ & $0$ & $1$ & $2$ & $5$ & $7$ & $10$ & $12$ & $14$
+\end{tabular}
+\end{center}
+The total is $88=25+64-1$, the dimension of the $G$-orbit of $M_{0}$, whose stabiliser consists of the scalars because $M_{0}$ is stable. The same computations give the gauge dimension in each grade, and the two agree. So \emph{every tangent vector of the rank-$3$ locus at $M_{0}$ is tangent to the orbit}: $M_{0}$ is rigid.
+
+\subsection{The arc argument}
+
+\begin{lemma}\label{lem:arc}
+Let $M$ over $V_{1}$ have rank at most $3$, be stable, and suppose that $\lim_{t\to0}t\bullet\pi(M)=[M_{0}]$ in the sense of Proposition~\ref{prop:nonmonomial}. Then there is a matrix $M^{*}=\sum v_{e}^{(1)}M^{*}_{e}$ over $V_{1}$ of rank at most $3$ in \emph{positive-grade form}: the coordinates of grade $k\le0$ of $M^{*}$ equal those of $M_{0}$.
+\end{lemma}
+
+\begin{proof}
+\emph{Arc.} Let $Z$ be the closure in $\Aff\times\Rep^{ss}$ of the orbit of $(1,M)$ under $G\times\Gm$. By (F4), after the base change of Proposition~\ref{prop:nonmonomial}, its image in $\Aff\times\Mm$ is closed, so it contains $(0,[M_{0}])$. The fibre $\pi^{-1}[M_{0}]$ equals $G\cdot M_{0}$: any $N$ in the fibre has $M_{0}$ in its orbit closure, so $N$ is stable by openness of stability, and stable orbits are closed. So $(0,M_{0})\in Z$. By curve selection there is $(\varepsilon(s),N(s))\in Y(\Qbar[[s]])$ with $N(0)=M_{0}$, $\varepsilon(0)=0$, $\varepsilon\not\equiv0$. Ramification does no harm.
+
+\emph{Gauge.} Let $W$ be a graded complement of the tangent space $\mathfrak g\cdot M_{0}$ in $\Rep$, of dimension $112=200-88$. Order by order, there is $g(s)\in G(\Qbar[[s]])$ with $g(0)=1$ and $g(s)\cdot N(s)=M_{0}+w(s)$, $w(s)\in W[[s]]$, $w(0)=0$.
+
+\emph{Curve.} The differential of the minors at the origin is $(\varepsilon,w)\mapsto L(\sum_{e}T^{e}w_{e}+\varepsilon f_{1})R$, where $f_{1}=\partial_{\varepsilon}\sum v_{e}^{(\varepsilon)}(M_{0})_{e}$. It is injective in $w$, because tangent equals gauge in every grade. Pick $\dim W$ of the $T^{m}$-coefficients of minors with independent $w$-differentials; they are $\varrho$-eigenfunctions. The formal implicit function theorem gives a $\varrho$-invariant curve $w=\varphi(\varepsilon)$ in the slice, and $w(s)=\varphi(\varepsilon(s))$ by uniqueness.
+
+\emph{Homogeneity.} $\varrho$-stability means $\varphi(\lambda\varepsilon)=\varrho(\lambda)\varphi(\varepsilon)$. So the component of grade $k$ is $\varphi_{k}=c_{k}\varepsilon^{k}$ for $k\ge1$, with $c_{k}$ constant, and $\varphi_{k}=0$ for $k\le0$. Only finitely many grades occur.
+
+\emph{Rescale.} Over the field $\Qbar((s))$, apply $\varrho(\varepsilon(s)^{-1})$ to $(\varepsilon(s),M_{0}+\varphi(\varepsilon(s)))\in Y$. This gives $(1,M^{*})\in Y$, with $M^{*}=M_{0}+\sum_{k\ge1}c_{k}$. Its entries lie in $\Qbar(T)$, so the rank bound holds over $\Qbar(T)$, and $M^{*}$ has the stated form.
+\end{proof}
+
+Only the rank and the form of $M^{*}$ are used below; no statement about the relation of $M$ to $M^{*}$ is needed.
+
+A machine check of the same conclusion, with all $200$ coordinates free, negative grades included (script \scr{referee_c/c6_arc.py}, modulo a prime, with a random solution at each order): the linear operator has rank $112$ at every order; for $a\neq0$ ($5$ pairs $(a,b)$), orders $1,2$ are consistent and order $3$ is inconsistent; for $a=0$ ($3$ values of $b$), it is consistent through order $4$.
+
+\subsection{The certificate}
+
+\begin{lemma}\label{lem:certificate}
+If a matrix over $V_{1}$ has rank at most $3$ and is in positive-grade form, then $a=0$.
+\end{lemma}
+
+\begin{proof}
+Put $w=T^{3}+aT^{4}$. Use rows of weight $0,2,3,4$ and columns of weight $-1,-1,0,1$, and let $s=a_{i}+b_{j}$. An entry is $\sum_{e}N_{e,ij}v_{e}^{(1)}$, in which only $e\ge s$ occurs, and $N_{s,ij}$ is the entry of $C_{0}$. So: entries with $s\ge4$ vanish; those with $s=3$ are $C_{0}$-constants times $w$; those with $s=2$ are multiples of $w$; those with $s=1$ are a $C_{0}$-constant times $T$ plus a multiple of $w$; those with $s=0$ are a $C_{0}$-constant plus multiples of $T$ and of $w$; those with $s=-1$ are a $C_{0}$-constant times $T^{-1}$ plus multiples of $1,T,w$. The basis element $v_{-4}^{(1)}$ never occurs, so $b$ cannot appear. Therefore the block is
+\[
+\begin{pmatrix}
+A & A_{2} & \Gamma & E\\
+D_{1} & r_{6}w & \gamma w & 2w\\
+\alpha w & \alpha_{2}w & -2w & 0\\
+0 & 2w & 0 & 0
+\end{pmatrix},
+\qquad
+\begin{aligned}
+A&=T^{-1}+p+qT+rw, & \Gamma&=-1+q_{3}T+r_{3}w,\\
+E&=T+\kappa w, & D_{1}&=2T+r_{5}w,
+\end{aligned}
+\]
+with all letters constants, and $A_{2}$ a combination of $1,T,w$. Expanding along the last row, then along the third row of the remaining $3\times3$ block,
+\[
+\det=2w^{2}D,\qquad D=\alpha(2w\Gamma-\gamma wE)+2(2wA-ED_{1}).
+\]
+In $\Qbar[T,T^{-1}]$, since $E\equiv T$ and $D_{1}\equiv2T$ modulo $w$, we get $D\equiv-4T^{2}\pmod w$. Rank at most $3$ forces $D=0$, so $w$ divides $T^{2}$, so $1+aT$ is a unit in $\Qbar[T,T^{-1}]$, so $a=0$.
+\end{proof}
+
+The script \scr{hull/hand_check.py} confirms the expansion symbolically, in the truncated form $aE_{4}-E_{5}-a^{2}E_{3}=-2a^{3}$, where $E_{n}$ is the coefficient of $T^{n}$ in $\det/(4w^{2})$, identically in all the letters. A second, gauge-free elimination (\scr{hull/schur_check.py}) makes every positive-grade coefficient an indeterminate and finds, after grades $1$ and $2$, leftovers at grade $3$ that are exact constants times $a^{3}$. So the lift of $M_{0}$ is unobstructed at grades $1$ and $2$, and obstructed at grade $3$ (also \scr{hull/m0_lift.py}).
+
+\emph{Why, in terms of quadrics.} The block $\bigl(\begin{smallmatrix}T^{-1}&T\\T&T^{3}\end{smallmatrix}\bigr)$ of $M_{0}$ uses the relation $T\cdot T=T^{-1}\cdot T^{3}$. Let $I_{2}(V)=\ker(\mathrm{Sym}^{2}V\to\Qbar(T))$. Then $\dim I_{2}=3$ for $V_{\Iz}$, and $\dim I_{2}=2$ for $V(c,c')$ with basis $1\cdot1-T\cdot T^{-1}$ and $v_{3}v_{4}-(cc'+1)\cdot1-c'T-cT^{-1}$, where $v_{3}=T^{4}+cT^{3}$, $v_{4}=T^{-4}+c'T^{-3}$ (by exact computation, \scr{hull/quadrics.py}). Directly, from the top: $T^{8}$ kills $v_{3}^{2}$, $T^{5}$ kills $v_{3}T$, $T^{4}$ kills $v_{3}\cdot1$, and $T^{3}$ kills $v_{3}T^{-1}$. So no relation of $I_{2}(V(c,c'))$ contains $T^{-1}v_{3}$.
+
+\subsection{Proof of Theorem 5}
+
+If $c=c'=0$ this is Theorem~\ref{thm:rankthree}. If $c=0\neq c'$, apply $T\mapsto1/T$. So let $c\neq0$, with $c'$ arbitrary, $a=1/c$, $b=c'$.
+
+Suppose $M$ over $V(c,c')$ fails, with rank at most $3$. Remove dependent columns. The filtration of Section~\ref{sec:general} and Jordan--H\"older for semistable modules give stable factors over $V(c,c')$ of ratios at least $\vth(M)$, with $\sum n_{i}\le n$ by (b). The count in Corollary~\ref{cor:reduction} gives a stable failing factor. Rank at most $2$ is excluded by Corollary~\ref{cor:ranktwo}. So we may assume $M$ stable of rank $3$; transposing, $d\le l$.
+
+Proposition~\ref{prop:nonmonomial} gives a graded polystable $N$ over $\Iz$, of the same size, with rank at most $3$, representing the limit. Some summand fails, by the same count, so it has rank $3$. Other summands would have rank $0$; a stable module of rank $0$ is $1\times0$ or $0\times1$, since $(\langle c\rangle,0)$ destabilises otherwise, of ratio $0$ or $\infty$, not $l/d$. So $N$ is stable. By Proposition~\ref{prop:classification}, $N\in G\cdot M_{0}$ with $d=5$, $l=8$. Lemma~\ref{lem:arc} gives $M^{*}$, and Lemma~\ref{lem:certificate} gives $a=0$, which is impossible. \qed
+
+\subsection{The case $c=\infty$}\label{sec:cinfinity}
+
+The space $V''_{b}=\spn(1,T,T^{-1},T^{3},T^{-4}+bT^{-3})$, the case $a=0$, is not in the family $V(c,c')$, since $T^{3}\notin V(c,c')$. It carries an explicit failure:
+\[
+M_{1}=M_{0}\cdot\operatorname{diag}(1+bT,1+bT,1,1,1,1,1,1).
+\]
+Its entries lie in $V''_{b}$, and it has rank $3$ (multiplying a column by a non-zero element of $\Qbar(T)$ keeps the rank), with all $4\times4$ minors zero. Next, $\vth(M_{1})\ge8/5$ by (f), since the coefficient tuple of $M_{1}$ in the basis of $V''_{b}$ tends to that of $M_{0}$ under $\varrho$, and $\vth\le l/d=8/5$. So $\vth(M_{1})=8/5$ and $M_{1}$ fails. Machine checks agree: for $b=1,-3$, \scr{hull/vpp_control.py} (entries and rank exact; sampled row subspaces modulo a prime for $\vth$), and for $b=1,-3,5/7$, \scr{referee_c/c4_m1.py} (rank exact; a blow-up determinant modulo a prime for semistability).
+
+\emph{One line.} For $c\neq0$, $T^{4}+cT^{3}=T^{3}(T+c)$ vanishes at $T=-c\neq0$, where $T$ does not, so $w\mid T^{2}$ fails. At $c=\infty$, $T^{3}$ vanishes only where $T$ does, and the relation $T^{-1}\cdot T^{3}=T\cdot T$ survives.
+
+\section{Checks and scope}\label{sec:checks}
+
+The proofs above do not depend on the runs of this section, apart from the finite checks named in them. The runs are evidence of a different kind. Their scripts are in \scr{scripts/roy_rank/}, whose README records the arguments of each run.
+
+\subsection{The SAT search}
+
+\emph{Scope.} Graded matrices over $V_{S}$, rank $3$: all $d=4,\dots,15$, $l\le15$, row weights in $0,\dots,116$ (window $117$). Rank $2$: all $d=3,\dots,10$, $l\le10$, window $77$. Rank $1$: by exhaustive enumeration. The bounds are proved: a basis of $r$ rows embeds the columns into $V_{S}^{r}$, so $d,l\le15$; the occupied weights are the union of the row weights $a_{i}$ and the numbers $b'_{j}=-b_{j}$, an allowed pair has $a_{i}-b'_{j}\in S$, and if two consecutive occupied weights differ by at least $5$, no allowed pair crosses, and the right part can be shifted to make the gap $4$. Both orientations are covered, because $M^{\mathsf T}$ is itself graded over $S$.
+
+\emph{Result.} All rank-$3$ and rank-$2$ instances are UNSAT under both kissat 4.0.4 and cadical 3.0.1: $24$ runs at rank $3$, with $717$\,s and $798$\,s of CPU. The agent that ran the search was not told about the proofs, and the main run assumes only the size bounds, the gap rule and reflection. With reflection and the gap rule off and $l\le30$, $d=4,6,8,10,13,15$ stay UNSAT.
+
+\emph{Soundness.} The encoding (\scr{search/encode.py}) is a relaxation: every graded failure in scope satisfies it. SAT answers are realised and rechecked by a verifier (\scr{search/verify_exact.py}) that shares no code with the encoder and uses two tests: a finite list of subspaces, complete by a profile argument (a point's profile depends only on which named flats contain it, and a line's on which named points lie on it), and a blow-up certificate. One DRAT proof ($d=4$, window $117$) was verified by a forward RUP checker written for this (\scr{search/check_rup.py}), the empty clause being derived after $173\,877$ of $520\,597$ additions. That proof file is not distributed. The command in the README regenerates it byte for byte, with cadical's option \texttt{--check}; without that option cadical writes a different proof, verified at $173\,841$ of $520\,525$.
+
+\emph{Controls.} $S_{2}$ at rank $3$: all $134$ models found were confirmed by the verifier ($128$ from \scr{search/s2_models.py}, $6$ from \scr{search/controls.py}). $S_{1}$: UNSAT. Three sets near $S$: $9$ of $9$ SAT instances confirmed. Encoder against failures it did not produce: $47$ hand-built failures all SAT and $103$ non-failures all UNSAT (\scr{search/test_inject.py}); $101$ and $58$ normalised failures in two layouts, all SAT (\scr{search/test_inject2.py}); rank $2$ against an exhaustive search sharing no code, $550$ instances, no disagreement (\scr{search/test_brute_r2.py}).
+
+\emph{What it does not establish.} It says nothing about non-graded matrices; that step is Theorem~\ref{thm:reduction} alone. It rests on the solvers and on the encoder, which is argued and tested, not machine-proved.
+
+\emph{Structural probe.} A narrower search with free entries gave $297$ of $297$ UNSAT for $S_{1}$ and $70$ of $70$ for $S$ (scripts \scr{search/probe_c.py}, \scr{search/probe_c2.py}, \scr{search/probe_c3.py}, \scr{search/probe_c4.py}). The two longer scripts were stopped by hand at a time limit, so these counts are those of the original logs. Its scope: graded, $x$'s at weight $0$ only, bounded sizes and windows, and only matrices with a factorisation over $\Qbar+\sum\Qbar x_{k}$ whose coefficient vectors are termwise orthogonal. It excludes cancellation and spaces of bounded rank that do not factor this way. It is narrower than Theorem~\ref{thm:free}.
+
+\subsection{Two enumerations}
+
+Referees A, B, C are the three referee agents of Section~\ref{sec:status}.
+
+\emph{Over $S$} (\scr{referee_b/attack.py}, by referee B, who did not see the SAT results). For fixed rows the best columns are forced, and adding columns never hurts $(\star)$, so each $d$ covers every $l$. Search space: sorted row-weight tuples with consecutive gaps at most the span of the set ($8$ for $S$), with, if $\eta=1$, a choice of which weight is $L$; and all linear spaces generated by the forced collinearities. For $S$ and $S_{1}$, which equal their negatives, tuples are taken modulo the reflection $a\mapsto-a$: at $d=4$ over $S$ there are $396$ reflected row configurations against $704$. $\Iz$ is not reflected, and the mirror case is $\Ii$. It assumes: stable, $d\le l$, and Step~1. It does not use the cost tables, $(\ddagger)$ or Step~2. The row for $d=8$ uses the script's fourth argument, $8$, which skips tuples whose upper bound for $l$ is below $8$, as $l\ge d$ allows; without it the count is $21\,052\,569$ structures.
+\begin{center}
+\begin{tabular}{lllll}
+Set & $d$ & Row configurations & Structures tested & Hits\\\hline
+$S$ & $4$ & $396$ & $1\,428$ & $0$\\
+$S$ & $5$ & $3\,232$ & $23\,688$ & $0$\\
+$S$ & $6$ & $27\,040$ & $218\,131$ & $0$\\
+$S$ & $7$ & $231\,168$ & $1\,911\,442$ & $0$\\
+$S$ & $8$ & $1\,969\,920$ & $17\,401\,711$ & $0$\\
+$\Iz$ & $5$ & $3\,773$ & $29\,628$ & $1$\\
+$\Iz$ & $4,6,7$ & $490$, $28\,812$, $218\,491$ & $1\,686$, $239\,876$, $1\,839\,016$ & $0$\\
+$S_{1}$ & $4$--$7$ & $15$, $34$, $70$, $156$ & $0$, $113$, $295$, $558$ & $0$
+\end{tabular}
+\end{center}
+Controls: the $\Sigma$ of Section~\ref{sec:fivebyeight} gives exactly its configuration; the intervals $\{-4,\dots,4\}$, $\{-3,\dots,3\}$, $\{-2,\dots,2\}$ give $2223$, $482$ and $34$ hits at $d=5$. It says nothing for $d\ge9$.
+
+\emph{Over $\Iz$} (\scr{hull/scan_in0.py}, \scr{referee_c/c2_scan.py}). The two were written separately; the second, by referee C, also reaches $d=7$: $218\,491$ tuples, $8\,389$ linear spaces, $0$ hits. Over $S$ at $d=5,6$ it gives $0$ hits, and over $\Ii$ a mirror hit at $d=5$ and $0$ at $d=6$. A trap there: testing only coordinate row subsets leaves $54$ false hits at $d=5$, all with a third row on $L$; they die under the non-coordinate block of $(\dagger)$.
+
+\subsection{Tests of Theorem 1, and of the hull}
+
+These tests were run by referee A; the scripts are in \scr{referee_a/}. Their seeds and time budgets were not recorded, so a rerun gives other counts of the same kind. $\vth$ was bounded below by a blow-up rank and above by explicit sub-pairs, and rank was computed by random evaluation modulo a prime.
+\begin{itemize}
+\item Rank at most $2$ (\scr{referee_a/sample_nongraded.py}): $2\,963$ sampled non-graded matrices with $\vth>0$, $9$ sets $\Sigma$, $d\le5$, $l\le8$: none had $\vth$ above the exhaustive graded maximum, and $2\,612$ had equality.
+\item Theorem~\ref{thm:ranktwo} (\scr{referee_a/thm2_exhaust.py}): exhaustively over graded configurations with weights in $[0,14]$ and $d\le6$, $548\,590$ configurations for each of $S$, $\Iz$, $\Ii$, $S_{1}$ gave no failure, and the control $S_{2}$ gave $336$.
+\item Rank $3$ (\scr{referee_a/rank3_search.py}): a search for the promised graded matrix, $290$ matrices, $7$ sets $\Sigma$, $d\le5$, $l\le7$: found in $290$ of $290$.
+\item Spaces $V(c,c)$, $c\in\{1,2,-1,3\}$, rank at most $2$ (\scr{referee_a/sample_hull.py}): $4\,341$ matrices, no violation and no failure.
+\end{itemize}
+These sample small sizes. They support the theorem but do not prove it.
+
+\emph{A direct search over $V(c,c')$} (\scr{referee_c/c5_direct.c}, by referee C, modulo $2^{31}-1$), in a normal form, with entries from a list of monomials times $1$, $1+aT$, $1/(1+aT)$, $1+bT$, $1/(1+bT)$. At $d=5$, with three coefficients $1,-1,2$ tried for the entries of the second normal-form row (the argument NGRID${}=3$; the README lists the arguments of each run), it found no semistable candidate for $(c,c')=(1,0)$ ($2362$ of $2362$ initial choices), $(1/2,1)$ ($960$ of $5441$) and $(2,3)$ ($971$ of $5429$). The controls find candidates: over $\Iz$, all $512$ initial choices give $120$, $409$ and $874$ candidates at NGRID${}=1,2,3$; over $V''_{3}$, at NGRID${}=3$, the initial $2031$ of $2589$ choices give $8\,580$. These counts depend on NGRID and on where the run stopped, so they are not comparable across spaces. They show only that the search can detect a failure where one exists. The $d=4$ pattern gave nothing anywhere, and $d=6$ was not searched. This is a limited search and proves nothing.
+
+\emph{Controls for the lift} (\scr{hull/controls.py}), which were not rechecked by a referee: spaces where $M_{0}$ must lift show no obstruction through the grades tested; rank-one spaces behave as expected.
+
+\subsection{Scope warning}\label{sec:scope}
+
+\emph{Matrices over the hull alone.} A matrix over $V_{S}$ or $V(c,c')$ has entries in $\Qbar[T,T^{-1}]$. Since $u$ is transcendental, its rank at $T=u$ equals its rank over $\Qbar(T)$, and the basis stays $\Qbar$-independent, so the zero blocks are the same. So Theorems~\ref{thm:rankthree} and~\ref{thm:hull} are statements about actual matrices over $W_{u^{4}}$ and over $W_{z}$, $z=u^{4}+cu^{3}$, for any transcendental $u$ with $u\bar u\in\Qbar$.
+
+\emph{Matrices with further logarithms.} Theorem~\ref{thm:free} is about rank over $\Qbar(T,x)$. At a candidate, the numbers $u$ and $\ell_{k}$ may satisfy algebraic relations, and the rank of $M(u,\ell)$ may then be below the structural rank, since specialisation only lowers rank. Roy's bound would apply to a matrix of that smaller rank, with the same zero blocks. So:
+\begin{itemize}
+\item \emph{proved:} no matrix over $W_{u^{4}}$ or $W_{z}$ of rank at most $3$ fails, and no matrix over $V_{S}\oplus\spn(x_{k})$ or $V_{S_{1}}\oplus\spn(x_{k})$ of structural rank at most $3$ fails;
+\item \emph{not proved:} anything about a matrix with other logarithms as entries, whose actual rank is at most $3$ and whose structural rank is larger.
+\end{itemize}
+In the generic model $(\cL_{u},\Lt_{u})$ of \cite{TC}, a matrix has the form $L+C_{0}+uA+u^{-1}B$, where $L$ has entries in $\Qbar\cL$, so the entries of $L$ are actual logarithms, with actual ranks, and not indeterminates. Only $T$ can be scaled, not the logarithms, so Theorem~\ref{thm:reduction} yields $T$-graded matrices only, and the class analysis does not apply. The question of Remark~7.3 of the Theorem~C note \cite{TC} (\texttt{tex/diaz-theorem-c.tex}), whether Roy's rank bound for larger matrices holds in $(\cL_{u},\Lt_{u})$, remains open. Rank four is open, for $S$ and for the hull.
+
+\section{Status and sources}\label{sec:status}
+
+\paragraph{Status.} The note has had two reads. In the earlier one, each part of the underlying work was read by one independent referee agent, who rederived it: Sections~\ref{sec:roy}--\ref{sec:ranktwo} by referee A, Sections~\ref{sec:rankthree}--\ref{sec:free} by referee B, Section~\ref{sec:hull} by referee C. They found no error affecting a statement, and their repairs are merged into the text above. In the later one, a reader who saw only this note and its scripts found no error in a theorem and two slips in the examples of Section~\ref{sec:example}, now corrected, together with gaps in exposition and in the record of the runs, now repaired. Referee A rederived Theorem~\ref{thm:reduction} with the facts of Section~\ref{sec:cited} as cited, and rederived several of those facts; referees B and C used Theorem~\ref{thm:reduction} and Section~\ref{sec:nonmonomial} without rechecking them. The direct argument in (F6) was supplied by the literature check and not by a referee. Nothing here has been peer reviewed, and nothing is formal.
+
+\textbf{The good-quotient property (F4) was checked only through later papers}, not in \cite{MFK} or \cite{New}. King's facts (F1)--(F3) were read on the page. Citations were checked by a separate literature-check agent.
+
+\paragraph{Priority.} Theorem~\ref{thm:reduction} and its use on a rank locus, the main half of Theorem~\ref{thm:ranktwo}, and Theorems~\ref{thm:rankthree}--\ref{thm:hull} were \emph{not found in the sources read}. That carries limited weight.
+
+\emph{Read, at the depth stated:} Roy 1992 \cite{Roy92}: pp.~22--23, 25--27, 32--34, 37--43. Roy 1995 \cite{Roy95}: \S\S1 and 3. Waldschmidt \cite{Wal00}, Ch.~12: \S12.1 and parts of \S\S12.2--12.4, Exercises 12.1--12.12. King \cite{Kin94}: \S\S1--4 and 6, \S5 skimmed. Eisenbud--Harris \cite{EH88}: all. Fortin--Reutenauer \cite{FR04}: all. Weist \cite{Wei13}: \S2, \S\S3.1--3.2 and a word search. Reineke \cite{Rei03}: pp.~4--6 and a word search. Maksoud \cite{Mak23}: the start of \S1, \S2.2 and a word search. Parts of twelve arXiv papers in HTML, including \cite{Ar15,Ar23,Rei08}; further papers on spaces of bounded rank; and a word search for the relevant terms in the transcendence papers at hand, many of them OCR text, which is weak evidence. Web searches for the statements were few and thin; there was no citation tracing of \cite{Roy92}.
+
+\emph{Not read:} Roy's papers of 1989 and 1990 \cite{Roy89,Roy90}, known here only through what \cite{Wal00} reports; Atkinson--Lloyd \cite{AL80}, known only through later restatements; the GIT book \cite{MFK} and Newstead's book \cite{New}. The two papers of Roy are the works most likely to matter.
+
+\paragraph{What is standard.} Theorem~\ref{thm:reduction} assembles known tools: King's moduli of representations \cite{Kin94}, the localisation at torus fixed points of Weist \cite{Wei13} and Reineke \cite[\S7]{Rei08}, and a Harder--Narasimhan step \cite{Rei03}, whose shape is also that of Roy's induction in \cite[Th.~5]{Roy92}. It may well be known to specialists in another form. Weist and Reineke use the full torus and no rank locus, and King has no torus on the arrows. The failing half of Theorem~\ref{thm:ranktwo} is \cite[Cor.~2]{Roy92}. For $S_{1}$ without free entries, the absence of failures follows at every rank from \cite[Th.~3.4]{Roy95}. The classifications of spaces of matrices of low rank \cite{EH88} treat independent variables, where the rank is the largest rank in the span; this differs from the present setting, in which monomials are dependent.
+
+\begin{thebibliography}{Kin94}
+
+\bibitem[AL80]{AL80}
+M.~D.~Atkinson and S.~Lloyd, \emph{Large spaces of matrices of bounded rank}, Quart. J. Math. \textbf{31} (1980), 253--262.
+
+\bibitem[Bak66]{Bak66}
+A.~Baker, \emph{Linear forms in the logarithms of algebraic numbers~I}, Mathematika \textbf{13} (1966), 204--216.
+
+\bibitem[BDHK15]{Ar15}
+G.~B\'erczi, B.~Doran, T.~Hawes, F.~Kirwan, \emph{Constructing quotients of algebraic varieties by linear algebraic group actions}, arXiv:1512.02997; read in an HTML rendering, \S\S2.2 and 3.1.2.
+
+\bibitem[Dia04]{Dia04}
+G.~Diaz, \emph{Utilisation de la conjugaison complexe dans l'\'etude de la transcendance de valeurs de la fonction exponentielle usuelle}, J. Th\'eor. Nombres Bordeaux \textbf{16} (2004), 535--553.
+
+\bibitem[EH88]{EH88}
+D.~Eisenbud and J.~Harris, \emph{Vector spaces of matrices of low rank}, Adv. Math. \textbf{70} (1988), 135--155.
+
+\bibitem[FR04]{FR04}
+M.~Fortin and C.~Reutenauer, \emph{Commutative/noncommutative rank of linear matrices and subspaces of matrices of low rank}, S\'em. Lothar. Combin. \textbf{52} (2004), Art.~B52f.
+
+\bibitem[Hos23]{Ar23}
+V.~Hoskins, \emph{Moduli spaces and geometric invariant theory: old and new perspectives}, arXiv:2302.14499; read in an HTML rendering, \S2.
+
+\bibitem[Kin94]{Kin94}
+A.~D.~King, \emph{Moduli of representations of finite dimensional algebras}, Quart. J. Math. Oxford (2) \textbf{45} (1994), 515--530.
+
+\bibitem[Mak23]{Mak23}
+A.~Maksoud, \emph{On the rank of Leopoldt's and Gross's regulator maps}, Doc. Math. \textbf{28} (2023), 1441--1471; arXiv:2201.08203.
+
+\bibitem[MFK]{MFK}
+D.~Mumford, J.~Fogarty, F.~Kirwan, \emph{Geometric Invariant Theory}, 3rd ed., Springer, 1994.
+
+\bibitem[New]{New}
+P.~Newstead, \emph{Introduction to moduli problems and orbit spaces} (book; not read, cited through later papers).
+
+\bibitem[Rei03]{Rei03}
+M.~Reineke, \emph{The Harder--Narasimhan system in quantum groups and cohomology of quiver moduli}, Invent. Math. \textbf{152} (2003), 349--368; arXiv:math/0204059.
+
+\bibitem[Rei08]{Rei08}
+M.~Reineke, \emph{Moduli of representations of quivers}, arXiv:0802.2147, read in an HTML rendering, \S\S3 and 7.
+
+\bibitem[Roy89]{Roy89}
+D.~Roy, \emph{Sur la conjecture de Schanuel pour les logarithmes de nombres alg\'ebriques}, Groupe d'\'Etude sur les Probl\`emes Diophantiens 1988--89, Publ. Math. Univ. P. et M. Curie \textbf{90}, no.~6.
+
+\bibitem[Roy90]{Roy90}
+D.~Roy, \emph{Matrices dont les coefficients sont des formes lin\'eaires}, S\'em. Th\'eorie des Nombres Paris 1987--88, Progr. Math. \textbf{81} (1990), 273--281.
+
+\bibitem[Roy92]{Roy92}
+D.~Roy, \emph{Matrices whose coefficients are linear forms in logarithms}, J. Number Theory \textbf{41} (1992), 22--47.
+
+\bibitem[Roy95]{Roy95}
+D.~Roy, \emph{Points whose coordinates are logarithms of algebraic numbers on algebraic varieties}, Acta Math. \textbf{175} (1995), 49--73.
+
+\bibitem[TC]{TC}
+Research note \emph{Polynomial and Laurent hulls at a Diaz candidate, and a barrier for generic candidates}, file \texttt{tex/diaz-theorem-c.tex} of the repository \texttt{carlok/diaz-modulus-lean}.
+
+\bibitem[Wal00]{Wal00}
+M.~Waldschmidt, \emph{Diophantine Approximation on Linear Algebraic Groups}, Grundlehren der mathematischen Wissenschaften \textbf{326}, Springer, 2000.
+
+\bibitem[Wei13]{Wei13}
+T.~Weist, \emph{Localization in quiver moduli spaces}, Represent. Theory \textbf{17} (2013), 382--425; arXiv:0903.5442.
+
+\end{thebibliography}
+
+\end{document}
