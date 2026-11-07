@@ -12,8 +12,10 @@ standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
 shared tools stated for general use, and with the size of every proof kept down. See "Proof engineering".
 
-No new transcendence theorem is claimed. The classical results are attributed below, and so are the Lean
-proofs written by others. The results about Diaz's conjecture are mostly negative: they show which methods
+No new transcendence theorem is claimed. The library does have results of its own:
+[chapter 14 of the blueprint](https://carlok.github.io/diaz-modulus-lean/chap-14-not-found-in-the-sources.html)
+lists those not found in the sources read and ranks the ones that are not routine. Not found is not a claim
+that they are new. The classical results are attributed below, and so are the Lean proofs written by others. The results about Diaz's conjecture are mostly negative: they show which methods
 cannot settle it.
 
 ## The classical theorems
@@ -25,7 +27,7 @@ a circle (Theorems A and B below, the power and Laurent hulls, separation, and t
 progression spaces classified and configurations up to degree two), the dichotomy for Li₂(1/2), quadratic relations
 near a point of a circle, and consequences in transcendence degree one, with results from the author's unpublished
 manuscript and reductions under Kirby's weak Schanuel conjecture.
-Its chapter "Results not found in the sources read" lists the blueprint's results not found in the literature
+Its chapter ["Results not found in the sources read"](https://carlok.github.io/diaz-modulus-lean/chap-14-not-found-in-the-sources.html) lists the blueprint's results not found in the literature
 checked and ranks those that are not routine; in the dependency graph they have a double border.
 
 | Result | Due to | Lean name | Lean proof |
