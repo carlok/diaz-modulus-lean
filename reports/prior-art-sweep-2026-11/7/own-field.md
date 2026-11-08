@@ -1,0 +1,118 @@
+# Entry 7, strategy: own-field
+
+## Target, as restated by the searcher
+
+Let K be a subfield of C and u a number transcendental over K with rho = u*conj(u) in K, so that H = K + Ku + K conj(u) is a 3-dimensional K-space and conj(u) = rho/u. (1) If x1,x2 and y1,y2 are each K-independent and all four products x_i y_j lie in H, then there are mu != 0 and invertible P,Q over K with x_i = mu(P_i1 + P_i2 u) and y_j = mu^{-1}(Q_1j + Q_2j conj(u)). So all such 2x2 rank-one configurations form one GL2(K) x GL2(K) orbit, that of (1,u) tensor (1,conj u). (2) The constant terms c_ij, defined by x_i y_j - c_ij in Ku + K conj(u), form an invertible matrix, so no configuration lies in Ku + K conj(u) + Kw_1 + ... + Kw_m. (3) If u is a candidate (|u| and e^u algebraic) with u,w_1,...,w_m algebraically independent, then in every such configuration over Qbar, each row and column has an entry outside Qbar L, where L is the logarithms of algebraic numbers. (4) If u and i*pi are algebraically independent, every algebraic quadratic form vanishing at (1,u,conj u,i*pi) is a multiple of X1X2 - rho X0^2. (5) H = [[u,r],[r,conj u]] with u not in K and u conj(u) = r^2 has w^T H v != 0 for all non-zero w,v in K^2. (6) If A,B,C are 2x2 over K with det(A + uB + conj(u)C) = 0, then det(xA + yB + zC) = c(yz - rho x^2) for some c in K. Wanted: a printed statement or derivation of the classification and these corollaries, independent of the Diaz-modulus repository.
+
+## Leads
+
+### Lead 1: analogue only
+
+- **Citation:** S. Dasgupta, M. Kakde, Ranks of matrices of logarithms of algebraic numbers II: the Matrix Coefficient Conjecture, arXiv:2408.08178 (2024); Zbl 1586.11077 (2026)
+- **Location:** Conjecture 1.2 and the n = 2 remark, p. 2; Theorem 2.2 (proof credited to Roy) and the closing remark of section 2, pp. 3-4
+- **Quote:** the direct generalization of Conjecture 1.2 to Q + L should hold as well
+- **Link:** https://arxiv.org/abs/2408.08178
+- **Relation:** Not a find, and it does not imply the target: the paper never considers conj(u), H or K + Ku + K conj(u). It is the closest printed home for part (5), which no cited source line mentions. Its concept 'det M = 0 implies a vanishing coefficient w^T M v' is exactly what part (5) negates. My own translation, not in the paper: H = (u,r)^T (1, r/u), so w^T H v = (w1 u + w2 r)(v1 + v2 r/u), and this vanishes only if u is in K. A candidate with rational modulus would therefore put H in M2(Q + L) with det 0 and no rational vanishing coefficient, contradicting the Q + L generalization they say should hold. The paper states n = 2 only as 'easy to show', over Q, for matrices of logarithms, without proof. Theorem 2.2, by contraposition, gives only that the K-span of A,B,C contains an invertible matrix when no common (w,v) exists, that is c != 0 in part (6). It does not give the form yz - rho x^2.
+
+### Lead 2: analogue only
+
+- **Citation:** D. Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, Acta Math. 175 (1995), 49-73
+- **Location:** Section 3.2, Theorem 3.4 and first paragraph of its proof, pp. 65-66 (p. 66 is one page past the passage the target names)
+- **Quote:** the dimension over Q of the set of all t
+- **Link:** https://projecteuclid.org/download/pdf_1/euclid.acta/1485890866
+- **Relation:** For L0 of dimension 3 over Qbar and L1 of dimension 2, the proof asserts dim{t : tL1 in L0} <= 2 (the scan's Q is presumably Qbar; I did not check the page image). In the target's terms, a 2x2 configuration has Y equal to the whole of {t : tX in H}, so Y is determined by X. This is a dimension bound and uniqueness only: it does not say which X occur, gives no orbit, and does not reach constant terms, quadratic relations or the pencil. Theorem 3.4 itself only gives 4r >= d + l.
+
+### Lead 3: analogue only
+
+- **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000; statement credited there to D. Roy 1989, Lemme
+- **Location:** Proposition 12.4, section 12.1 (with its use in Exercise 12.10, p. 443)
+- **Quote:** any d × ℓ matrix with entries in En is k-equivalent to a block matrix
+- **Link:** https://www.imj-prg.fr/~michel.waldschmidt/
+- **Relation:** A printed GL x GL normal form over k for matrices with entries in a flag E1 in E2 in E3, valid for arbitrary k-independent generators. It ignores rank one and any relation such as u conj(u) = rho, so it gives a triangular block shape and not a single orbit or invertibility of the constant-term matrix. Applying it to H does not reach parts (1) or (2) without the argument the target supplies.
+
+## Notes
+
+**Result: no find.** I found no printed statement of the one-orbit classification, of the invertible constant-term matrix, of the candidate corollary, of the "only the norm form" relation for (1,u,ū,iπ), or of the singular-pencil statement. The three leads are analogues, labelled as such. None implies a part of the target without my own translation, and that translation is the proof itself.
+
+**Time.** Started 13:16 by `date`; last checked 13:27. The search was stopped well inside the box because the free indexes were exhausted, not because every avenue closed.
+
+**What each source says relative to the target**
+
+- **DALAG p. 431** (named by the target): gives the model E = ku + kux + kux², shows it violates the four-exponentials type property, and cites "Proposition 2 of [Roy 1989]". It shows the configuration exists, not that it is unique.
+- **Fischler 2001, p. 186:** credits [8] = Roy 1989, Proposition 2, for the impossibility of deriving the V(2,2) and T(2,2) conjectures "algebraically". This suggests Proposition 2 is a non-derivability statement about geometric progressions and not a classification. I could not read Roy 1989, so this is inference, but it lowers the odds that the unread item is a find. Someone with library access should still check it.
+- **Fischler, Lemma 6.1 and Theorem 6.4:** rank-one 2×q matrices with geometric-progression entries, and v = a(f₁ + tf₂) in a rational 2-plane. Same shape, but over ℒ and with no classification inside a fixed 3-space.
+- **Roy 1995 §3.2:** the rank method cannot exclude points of xy = z². Theorem 3.4 gives 4r ≥ d + l, and its proof gives the bound in my second lead. No normal form.
+- **Roy 1992, Corollaries 1 and 2:** rank bounds. The rank-one computation θ(M) = l/d uses only independence of rows and columns.
+- **DALAG Proposition 12.25 and Lemma 12.26** (from Roy–Waldschmidt 1997): the easy case Q = X₁X₄ − X₂X₃ is the link between determinants and quadratic relations, but only for the trivial conclusion when rank exceeds half the structural rank. Nothing describes the quadratic forms vanishing at a point of a conic. The target's part (4) is the vanishing ideal of a parametrised cone, which transcendence papers do not state because it is immediate.
+- **Dasgupta–Kakde:** see the first lead. The new observation is that the target's "no vanishing coefficient" is the negation of their Matrix Coefficient Conjecture shape. The source line for that statement cites only Roy 1995 and Fischler, so it may be worth adding "compare Dasgupta–Kakde" as context. That would be a pointer, not prior art.
+- **Diaz 2004, Diaz 2007, Waldschmidt 2005:** I read only parts of these (see the read and screened lists). In those parts they use conjugation to produce configurations and apply Roy's theorem. I saw no classification of 2×2 configurations.
+
+**Own remark (not from any source).** The general form behind the DALAG example is one line. If x₁,x₂ and y₁,y₂ are independent with all four products in a space of dimension at most 3, put t = x₂/x₁ and s = y₂/y₁. A relation among 1, t, s, ts makes s a Möbius function of t over k, so X = b(k + kt) and Y = c(k + kt). I did not find this printed in the transcendence sources reached. It is consistent with the "routine" class: authors may not state it because it is immediate, so a lack of a printed statement in this field is weak evidence of novelty. The algebra literature on products of subspaces was not my strategy and I did not search it.
+
+**Could not settle**
+
+1. Contents of Roy 1989 and Roy 1990 (see inaccessible).
+2. Recent arXiv preprints: the arXiv API returned 429 throughout and OpenAlex's budget was exhausted, so this rests on zbMATH, which indexes arXiv, and on web search. The sweep is thinner for 2024–2026 than for the older literature.
+3. Semantic Scholar's citer lookup failed for Roy 1995 (404) and returned irrelevant results for Roy–Waldschmidt 1997, so forward citations of those two were not checked.
+
+**Tool note.** Python urllib failed certificate verification here. I used the sandbox's JavaScript fetch instead and did not disable verification. No email or personal detail was sent to any API, and no paywall was bypassed.
+
+**Sources (web search)**: [Dasgupta–Kakde](https://arxiv.org/abs/2408.08178), [Dasgupta I](https://arxiv.org/abs/2303.02037), [Diaz 2004](https://www.numdam.org/item/JTNB_2004__16_3_535_0), [Diaz 1997](https://numdam.org/item/JTNB_1997__9_1_229_0/), [Diaz 2007](https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf), [Waldschmidt DION 2005](https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf), [Open Diophantine Problems](https://arxiv.org/abs/math/0312440), [Massold](https://arxiv.org/abs/2506.01123), [Roy–Waldschmidt 1997](https://www.numdam.org/item/ASENS_1997_4_30_6_753_0).
+
+## Read
+
+- Dasgupta-Kakde 2024, Ranks of matrices of logarithms II (local copy and ar5iv HTML, used to confirm the bars in Q and Qbar) — https://arxiv.org/abs/2408.08178: Section 1; section 2 including Theorem 2.2 and the closing remarks on Q + L
+- Dasgupta 2023, Ranks of matrices of logarithms I (local copy) — https://arxiv.org/abs/2303.02037: Section 4 opening: Conjecture 4.1, Theorem 4.2, the 3x3 example of singular matrices
+- Roy 1995, Acta Math. 175 (local copy) — https://projecteuclid.org/download/pdf_1/euclid.acta/1485890866: Section 3.2 and Theorem 3.4 up to the block reduction; reference list
+- Roy 1992, J. Number Theory 41 (local copy): Introduction end; section 4, Corollaries 1 and 2 with the theta(M) computation for rank-one matrices
+- Waldschmidt, DALAG 2000 (local copy): Pages 431 (Lemmas 12.15, 12.16 and the ku + kux + kux^2 motivation), Proposition 12.4, Exercises 12.7-12.12 (p. 443), section 12.5 opening with Proposition 12.25 and Lemma 12.26, section 15.3.4
+- Fischler 2001, Acta Arith. 100 (local copy): Section 6: Lemma 6.1, end of the proof of Theorem 6.4, the two N.B. remarks on p. 186, reference list
+- Diaz 2007, JTNB 19 (local copy): Section 2 opening: Theorem 3 (versions 1-3) and start of Corollary 1. Grep for matrices and conjugates elsewhere
+- Diaz 1997, JTNB 9 (local copy): Abstract, section 1, and the conjugate-numbers passage around p. 237
+- Roy-Waldschmidt 1997, Ann. Sci. ENS 30 (local copy): Remark after Corollary 7.1 region, 'Autres conséquences' and Corollary 7.2 only
+- Waldschmidt, Bourbaki 824 (local copy): The four exponentials passage and Diaz's three open problems
+- Waldschmidt, Proc. CNTA 1991 (local copy): Passage around Theorem 9 on Roy's [R1] only
+
+## Screened only
+
+- Massold 2025, Transcendence degrees of fields generated by exponentials of products (abstract) — https://arxiv.org/abs/2506.01123
+- Roy 1990, Matrices dont les coefficients sont des formes lineaires, judged from the zbMATH review Zbl 0712.11042 only (normal form (A B; C 0) for algebraically independent generators; full text inaccessible)
+- Diaz 2007, zbMATH review Zbl 1163.11055
+- Waldschmidt 2023, The four exponentials problem and Schanuel's conjecture, zbMATH review Zbl 1543.11060
+- Waldschmidt, The role of complex conjugation in transcendental number theory (grep for rank and matrix only) — https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf
+- Diaz 2004, Utilisation de la conjugaison complexe, JTNB 16 (grep for matrice and rang: only the auxiliary interpolation matrix appears) — https://www.numdam.org/item/JTNB_2004__16_3_535_0
+- Butler 2017, A Diophantine approach to the three and four exponentials conjectures (title)
+- Momot 2010, Density of rational points on commutative group varieties and small transcendence degree (title) — https://arxiv.org/abs/1011.3368
+- Li 2021, Four exponentials conjecture of Drinfeld modules (title; function-field analogue)
+- Waldschmidt 1993, Transcendental numbers and functions of several variables (title)
+- Waldschmidt, Open Diophantine Problems (grep only) — https://arxiv.org/abs/math/0312440
+- Semantic Scholar citers of Diaz 2004 and Diaz 2007: Butler, Momot, Waldschmidt surveys only, nothing on the 2x2 classification
+- Wikipedia, Four exponentials conjecture (secondary, screened only) — https://wikipedia.com/wiki/Four_exponentials_conjecture
+
+## Inaccessible
+
+- D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algebriques, Groupe d'etude sur les problemes diophantiens 1988-89, Publ. Math. Univ. Paris VI 90: Not on any free index I tried and no PDF found; the uOttawa directory and publications page returned 404. This is the most useful unread item: DALAG p. 431 points to its Proposition 2 beside the ku + kux + kux^2 example.
+- D. Roy, Matrices dont les coefficients sont des formes lineaires, Sem. Theorie des Nombres Paris 1987-88, Progress in Math. 81 (1990), 273-281 — 10.1007/978-1-4612-3460-9_13: Springer paywall; the page served a client challenge, which I did not get around.
+- OpenAlex API: 429: the free daily budget for this network was exhausted. It asked for an API key tied to an email address, which the rules exclude, so it was not used.
+- arXiv query API: 429 on every query, so full-text arXiv title and abstract sweeps did not run. Covered in part by zbMATH (which indexes arXiv) and web search.
+
+## Queries
+
+- web: Diaz conjugaison complexe transcendance valeurs fonction exponentielle module d'un logarithme matrice 2x2
+- web: Roy matrices coefficients linear forms in logarithms rank one 2x2 quadratic relation xy=z^2
+- web: Waldschmidt complex conjugation |log alpha| matrix (1,u; conj u,|u|^2) rank one
+- web: Diaz conjecture e^{|log alpha|} strong four exponentials 2020-2026
+- web: Roy 'Sur la conjecture de Schanuel pour les logarithmes' (twice, with publication-list variant)
+- web: matrices dont les coefficients sont des logarithmes rang un exponentielles module d'un logarithme
+- web: singular 2x2 linear forms logarithms three-dimensional subspace products of two-dimensional subspaces conic
+- web: rank one x_i y_j homography four exponentials quadratic relation |lambda|^2 algebraic
+- web: Diaz 'produits et quotients de combinaisons lineaires de logarithmes' later work
+- web: 'quatre exponentielles' homographie sous-espace de dimension 3 de rang 1
+- web: Further variations six exponentials t, t^2, three-dimensional
+- web: products of subspaces Kneser dimension in transcendence and Schanuel literature
+- web (extended): logarithm with algebraic modulus, lambda conj(lambda) algebraic, Schanuel consequence
+- zbMATH ti: four exponentials, quatre exponentielles, six exponentials, six exponentielles, structural rank, matrices of logarithms, produits de logarithmes, products of logarithms, quadratic relations, conjugaison complexe, complex conjugation, modulus and logarithm, rank and logarithms, coefficient conjecture
+- zbMATH au: Diaz, Guy; Roy, Damien 1989-1993
+- zbMATH ab: four/six exponentials, quatre exponentielles, structural rank, strong four, logarithms of algebraic numbers with matrix / complex conjugation / absolute value / quadratic, Diaz in 11J81, rank one, Schanuel and matrices
+- Semantic Scholar citations: Diaz 2004, Diaz 2007, Roy-Waldschmidt 1997
+- local library grep: pencil, faisceau, conique, quadrique, xy = z, norm form, homograph, ku + kux, dimension 3, rank one, Roy 1989

@@ -1,0 +1,143 @@
+{
+ "target": "Let u be a complex number that is not algebraic (so transcendental over Q̄), with ρ = uū algebraic, so ū = ρ/u. Let a₁ ≠ a₂ be non-zero algebraic numbers, z_i = u/(u² − a_i), H₀ = Q̄ + Q̄u + Q̄ū and W = H₀ + Q̄z₁ + Q̄z₂, a 5-dimensional Q̄-space of rational functions of u. Claim (a): there are Q̄-independent x₁, x₂ and Q̄-independent y₁, y₂, y₃ in ℂ with all six products x_i y_j in W. Claim (b): for every w in W outside H₀, the 4-dimensional space H₀ + Q̄w contains no such 2 × 3 product family. Nothing is assumed about z₁, z₂ being conjugate. So the pair of poles produces a 2 × 3 configuration that cannot be seen by adjoining any single element to H₀.",
+ "leads": [
+  {
+   "citation": "C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452; arXiv:1501.00602v2. DOI 10.1017/S0305004117000044.",
+   "location": "Theorem 33 (section 7, arXiv v2 pp. 25-26), with Theorem 2 (p. 2). Journal numbering not checked.",
+   "quote": "Let F be an algebraically closed field and let L/F be a non-trivial extension",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "relation": "implies",
+   "derivation": "The translation is mine; the paper never mentions this setting, and Theorem 33 yields claim (b) only. Take F = Q̄, L = ℂ. Suppose X, Y have dimensions 2, 3 and XY ⊂ T = H₀ + Q̄w. T is 4-dimensional, so Theorem 2 gives dim XY = 4 = 2 + 3 − 1 and XY = T. Theorem 33 gives X = g⟨1,a⟩, Y = g′⟨1,a,a²⟩, so T = s⟨1,a,a²,a³⟩ with s = gg′. Then a is a ratio of elements of T, so a ∈ Q̄(u). Since 1, u ∈ T, u is a ratio of two cubics in a, so u ∈ Q̄(a). Hence Q̄(a) = Q̄(u), a is Möbius in u, and 1 = sP(a) with deg P ≤ 3. So all of T = {R(a)/P(a)} has at most 3 distinct poles on P¹. But u, 1/u and w give poles at ∞, 0 and ±√a_i for some i with non-zero coefficient: at least 4 points. Contradiction. Claim (a) is a direct identity: x = (1, u⁻²), y = (u, z₁, z₂), using z_i/u² = (z_i − 1/u)/a_i and 1/u = ū/ρ."
+  },
+  {
+   "citation": "C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018), no. 4, 501-521. DOI 10.5802/alco.19.",
+   "location": "Introduction (linear Vosper over algebraically closed K); Theorem 5.3; Theorem 6.1 (Mumford's product formula for Riemann-Roch spaces).",
+   "quote": "a linear version of Vosper's Theorem can be derived from an addition theorem",
+   "link": "https://doi.org/10.5802/alco.19",
+   "relation": "analogue only",
+   "derivation": "Reaches only the existence half. In t = u², Theorem 6.1 with g = 0 gives L((0))·L((a₁)+(a₂)) = L((0)+(a₁)+(a₂)), and multiplying by u gives the configuration of claim (a). Its Vosper statement, Theorem 5.3, is symmetric (S² only), so it does not give claim (b), which needs the unsymmetric 2 × 3 case. For (b) use Bachoc-Serra-Zémor."
+  },
+  {
+   "citation": "G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007). DOI 10.5802/jtnb.592.",
+   "location": "Corollaire 5(4), p. 384; Théorème 7(2), p. 390 (page inferred from running heads).",
+   "quote": "Soient u ∈ C\\Q et v ∈ C\\{0}",
+   "link": "https://doi.org/10.5802/jtnb.592",
+   "relation": "analogue only",
+   "derivation": "Corollaire 5(4) excludes {1/λ, 1/(λ+α)} from ℒ̃ using a 2 × 3 family with two poles, the same mechanism as claim (a), but with no invisibility statement and a different pair of functions. Théorème 7(2) excludes {v, vu, vu², vu³}, which by Bachoc-Serra-Zémor Theorem 33 is the shape of every 2 × 3 configuration in a 4-dimensional space. Diaz does not state that classification, nor anything about H₀ + Q̄w."
+  }
+ ],
+ "read": [
+  {
+   "source": "Bachoc, Serra, Zémor 2017 (arXiv v2, local copy in sources/others)",
+   "sections": "Introduction with Theorems 1-3; section 7 with Theorems 33-34 and the proof of 33; closing remarks including the open question for general base fields",
+   "link": "https://arxiv.org/abs/1501.00602"
+  },
+  {
+   "source": "Bachoc, Couvreur, Zémor 2018 (open-access PDF)",
+   "sections": "Introduction (Vosper and Freiman discussion); Theorem 5.3 and its proof; Theorem 6.1 and the genus 0 remark after it",
+   "link": "https://doi.org/10.5802/alco.19"
+  },
+  {
+   "source": "Diaz 2007 (local copy)",
+   "sections": "Theorem 3; Corollaires 4 and 5 with proofs; Théorème 7; section 2.4; references",
+   "link": "https://doi.org/10.5802/jtnb.592"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Diaz 2004, Utilisation de la conjugaison complexe, JTNB 16 (local): theorem and conjecture headings only; no keyword hits for rational functions",
+   "link": "https://doi.org/10.5802/jtnb.459"
+  },
+  {
+   "source": "Waldschmidt, The role of complex conjugation in transcendental number theory (local): headings only"
+  },
+  {
+   "source": "Roy, Matrices whose coefficients are linear forms in logarithms, JNT 41 (1992) (local): keyword lines around Corollary 2",
+   "link": "https://doi.org/10.1016/0022-314X(92)90081-Y"
+  },
+  {
+   "source": "Local keyword grep over DALAG, Open Diophantine Problems, and the Roy and Diaz folders for Vosper, Kneser, Cauchy-Davenport, twisted cubic, rational normal, geometric progression: only Roy 2004 hits, on convex bodies, unrelated"
+  },
+  {
+   "source": "Butler, A Diophantine approach to the three and four exponentials conjectures, Ramanujan J. (title only; OpenCitations citer of Diaz 2004)",
+   "link": "https://doi.org/10.1007/s11139-015-9728-2"
+  },
+  {
+   "source": "Waldschmidt, An introduction to the strategy of transcendence proofs, arXiv:2610.39810 (abstract and keyword grep; post-5 October; survey, no conjugation or configuration content)",
+   "link": "https://arxiv.org/abs/2610.39810"
+  },
+  {
+   "source": "Cano, Gusevskii, López-Flores, Spectral Fields and Unitary Descent, arXiv:2611.00456 (abstract; post-5 October; Hermitian groups, unrelated)",
+   "link": "https://arxiv.org/abs/2611.00456"
+  },
+  {
+   "source": "Wessel, On Freiman's Theorem in a function field setting, arXiv:2405.10724 (abstract and keyword grep; symmetric case dim S² = 2 dim S + 1)",
+   "link": "https://arxiv.org/abs/2405.10724"
+  },
+  {
+   "source": "Aliabadi, Losonczy, Matchings and product growth in modular abelian independence groups, arXiv:2608.18340 (abstract)",
+   "link": "https://arxiv.org/abs/2608.18340"
+  },
+  {
+   "source": "Wang, Tang, A generalization of Vosper's theorem, Chin. Ann. Math. Ser. B (2024) (title only)",
+   "link": "https://doi.org/10.1007/s11401-024-0038-0"
+  },
+  {
+   "source": "Bachoc, Serra, Zémor, Revisiting Kneser's theorem for field extensions, Combinatorica (title only)",
+   "link": "https://doi.org/10.1007/s00493-016-3529-0"
+  },
+  {
+   "source": "OpenCitations citers of Bachoc-Serra-Zémor, 36 works (DOI list; 16 titles looked up via Crossref, all coding theory, Sidon spaces or linear sets except Wang-Tang above; the rest unchecked)"
+  },
+  {
+   "source": "OpenCitations citers of Roy 1992, 17 works (titles looked up for five: Maksoud 2023, 2024, 2025; Betina-Dimitrov 2021; Calegari-Mazur 2008; all p-adic regulators or deformations, unrelated)"
+  },
+  {
+   "source": "Prasad, Some questions on Diophantine approximation, real and p-adics, Proc. Indian Acad. Sci. (2026) (title only)"
+  },
+  {
+   "source": "Dasgupta, Kakde, Ranks of matrices of logarithms of algebraic numbers II, Adv. Math. (2026) (title only)"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "OpenAlex API",
+   "why": "429: the free daily budget for this IP is used up. No key used. Citers were taken from OpenCitations and zbMATH Open instead."
+  },
+  {
+   "source": "Semantic Scholar API",
+   "why": "429 on every attempt."
+  },
+  {
+   "source": "arXiv export API",
+   "why": "429; individual arxiv.org abs and pdf pages worked, so arXiv-wide listing searches went through zbMATH's arXiv records instead."
+  },
+  {
+   "source": "Bachoc-Serra-Zémor, journal version at Cambridge",
+   "doi_or_link": "https://doi.org/10.1017/S0305004117000044",
+   "why": "Not tried; read arXiv v2, so theorem numbers and pages in print are unconfirmed."
+  },
+  {
+   "source": "Mumford, Varieties defined by quadratic equations (1970), Theorem 6",
+   "why": "Not opened; known only as quoted in Bachoc-Couvreur-Zémor Theorem 6.1."
+  }
+ ],
+ "queries": [
+  "zbMATH au:Diaz, Guy",
+  "zbMATH ti:\"six exponentials\"; any:\"six exponentials theorem\"; ab:\"six exponentials\"; any:\"strong six exponentials\"",
+  "zbMATH any:\"four exponentials\" & py:2018-2026",
+  "zbMATH any:\"complex conjugation\" & any:transcendence; any:\"linear forms in logarithms\" & any:\"complex conjugation\"",
+  "zbMATH any:\"logarithms of algebraic numbers\" & any:modulus & py:2015-2026; any:\"structural rank\" & any:logarithms",
+  "zbMATH cc:11J81 & py:2026; cc:11J86 & py:2026",
+  "zbMATH au:Waldschmidt, Michel & py:2020-2026; au:Roy, Damien & any:logarithms",
+  "zbMATH ti:Vosper; any:Vosper & py:2017-2026; any:Kneser & any:extension & any:subspaces; ti:\"function field\" & ti:Freiman",
+  "zbMATH any:Hou & any:Leung & any:Xiang & py:2015-2026; any:\"Cauchy-Davenport\" & any:linear & any:extension & py:2015-2026",
+  "OpenCitations citations of 10.5802/jtnb.459, 10.5802/jtnb.592, 10.1017/s0305004117000044, 10.1016/0022-314x(92)90081-y",
+  "WebSearch: Diaz conjecture |u| algebraic and e^u algebraic implies u=0 complex conjugation six exponentials 2026 preprint",
+  "WebSearch: function field Vosper theorem subspaces dim ST = dim S + dim T - 1 geometric progression bases algebraically closed in F rational function field",
+  "WebSearch: Vosper linear analogue product of subspaces rational function field algebraically closed critical pair Riemann-Roch 2025 2026 arXiv",
+  "WebSearch: arXiv 2026 transcendence complex conjugation strong six exponentials Roy matrix linear forms in logarithms algebraic modulus",
+  "Local grep of sources/ for Vosper, Kneser, Cauchy-Davenport, twisted cubic, rational normal, geometric progression, rational function"
+ ],
+ "notes": "**Result.** No printed text states the entry, and the \"not found\" for the explicit statement survives. But the entry follows from a printed theorem by a short translation of my own, which fits its \"routine\" class.\n\n**The lead.** Bachoc-Serra-Zémor, Theorem 33 with Theorem 2, gives the only non-trivial step. Over an algebraically closed base field, a pair S, T with dim ST = dim S + dim T − 1 and both dimensions at least 2 has bases in geometric progression.\n\n- It applies directly with F = Q̄, L = ℂ.\n- So every 2 × 3 configuration in a 4-dimensional space T has the form T = s⟨1,a,a²,a³⟩.\n- If 1, u ∈ T ⊂ Q̄(u), then a is Möbius in u and T has at most 3 distinct poles on P¹.\n- H₀ + Q̄w has at least 4: ∞, 0 and at least two of ±√a_i. That is claim (b). The case of w with a single pole is included.\n- Claim (a) is the identity z_i/u² = (z_i − 1/u)/a_i with x = (1, u⁻²), y = (u, z₁, z₂). In t = u², this is L(D₁)L(D₂) = L(D₁+D₂) in genus 0.\n\n**Independent check of the step used**, so a verifier need not trust the valuation proof. Let X = ⟨f,g⟩, r = g/f.\n\n1. r ∉ Q̄, and Q̄ is algebraically closed, so r is transcendental and Y ≠ rY. Hence dim(Y + rY) ≥ 4.\n2. Equality gives dim(Y ∩ rY) = 2. Put Y₁ = Y ∩ r⁻¹Y, of dimension 2.\n3. Y₁ and rY₁ are 2-dimensional inside the 3-dimensional Y, so they share some t = rt′ with t′ ∈ Y₁, t ≠ 0.\n4. Then t′, rt′, r²t′ ∈ Y and are independent, so Y = t′⟨1,r,r²⟩.\n\nI did this by hand. sympy was not available, so nothing was machine-checked.\n\n**Honest limits on \"implies\".**\n\n- Theorem 33 does not mention poles, circles or H₀.\n- The pole count and the reduction to Q̄(u) are my translation.\n- Claim (a) does not come from Theorem 33; it is a one-line identity.\n- The paper is already in the local library at sources/others/, though the entry's source line does not name it.\n- The theorem is a 2017 statement in additive combinatorics, unconnected to the transcendence literature. A local grep found no Vosper, Kneser or Cauchy-Davenport mention in the Diaz or Roy folders, DALAG or ODP.\n- Only a 2 × 3 case on a 4-dimensional space is used.\n\n**Citation trail on the transcendence side.**\n\n- OpenCitations lists two citers of Diaz 2004 (Diaz 2007, Butler) and none of Diaz 2007, though that index is thin for this journal.\n- Roy 1992's citers are mostly p-adic regulator papers.\n- zbMATH's 2026 listings under 11J81 were looked through (first 30 of 51), and 11J86 only cursorily (first 20 of 64). The only post-5 October items that surfaced on topic were Waldschmidt's strategy survey (arXiv:2610.39810), which has no relevant content, and Cano et al. (arXiv:2611.00456), which is unrelated.\n- I found no new paper on Diaz's conjecture or on configurations in ℒ̃ after 5 October 2026.\n- Diaz 2007 Cor. 5(4) and Th. 7(2) are the closest in spirit, and I record them as analogues. Cor. 5(4) shows the two-pole mechanism and Th. 7(2) the geometric shape, but neither has an invisibility statement.\n\n**Citation trail on the additive-combinatorics side.**\n\n- Of 36 OpenCitations citers of Bachoc-Serra-Zémor, I looked up 16 titles: nearly all concern finite-field coding or Sidon spaces, plus Wang-Tang. The other 20 are unchecked by title; those seen were finite-field work, away from algebraically closed bases.\n- Bachoc-Couvreur-Zémor and Wessel treat the symmetric S² problem.\n\n**Not settled.**\n\n- Forward citations were incomplete: OpenAlex and Semantic Scholar were both rate-limited, and OpenCitations and zbMATH have gaps for JTNB and for recent arXiv items. A later run with OpenAlex budget should repeat the citers of Diaz 2004 and 2007.\n- I did not look for the classical algebraic-geometry form, where a 1-generic 2 × 3 matrix of linear forms in 4 variables gives a twisted cubic (Eisenbud's determinantal work, Hopf-Castelnuovo lemmas). It probably gives the same structural step with older attribution, but it is unverified and so is not listed as a lead.\n- Journal page numbers for Theorem 33 are unconfirmed; I read arXiv v2.\n- The OCR of Diaz 2007 drops the bar on Q̄. I read Q as Q̄ from context and did not check it against the page image.\n\nClock: started 13:25, last checked 13:30 CET on 2026-11-08, about 5 minutes by that reading and well inside the box."
+}

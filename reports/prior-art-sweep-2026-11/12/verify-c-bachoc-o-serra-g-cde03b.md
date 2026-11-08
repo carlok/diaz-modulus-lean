@@ -1,0 +1,13 @@
+# Entry 12, verification: C. Bachoc, O. Serra, G.
+
+- **Source read:** Bachoc, Serra, Zémor, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452, doi 10.1017/s0305004117000044 (Crossref); read arXiv:1501.00602v2 PDF, https://arxiv.org/pdf/1501.00602; same theorem lines in local copy sources/others/bachoc-serra-zemor-2017-vosper-extension-fields.txt
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** analogue only
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** dimST ≥ min{dimL, dimS + dimT − 1}
+
+**Hypotheses.** Field: general L/F with F algebraically closed in L; F=Q̄, L=ℂ fits. Printed bound has min{dim L, ...}, harmless as dim L is infinite. Location: Theorem 2 is in Section 1, not Section 2; Lemma 4 is in Section 2. Credit to Eliahou-Lecouvey Theorem 6.2 is printed. Dimension: matches for dim ST=4 only; no result for dim ST=5. Conjugation: absent (no occurrence of conjugation, logarithms or Diaz in the local copy). Genericity: none needed, but no W, H₀, circle point or invisibility appears. Relation label: a general tool, not a statement about these spaces; it yields the invisibility clauses only with my added argument, and not the degree-one clause.
+
+**Explanation.** Both statements are there; the target is not. My derivation of invisibility (hand-checked only): V=H₀+Q̄w has dimension 4; V⊇ST with S=x(1,a). So dim AT=4 by Theorem 2, and Lemma 4 gives T=g(1,a,a²), V=h⟨1,a,a²,a³⟩. Then a∈Q̄(u). 1∈V gives V⊂Q̄(a), and u∈V gives Q̄(a)=Q̄(u), so a is Möbius. Hence V={q/P: deg q≤3}; u,1/u∈V force P=u·r, deg r≤1. So w≡u², u⁻², or 1/(u−c) modulo H₀. Modulo H₀, nonzero elements of each W have two finite poles, a double pole pair, or order 3 at 0 or ∞; none matches. This step is mine, using ū=ρ/u, not the source's. Not obtained: the no-Möbius-ratio theorem. There dim ST can be 5, where Theorem 2 and Lemma 4 give nothing; I did not prove it. Conjugation stability and spanning are also not in the source.

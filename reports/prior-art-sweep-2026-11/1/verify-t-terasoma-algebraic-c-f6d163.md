@@ -13,4 +13,4 @@
 
 None of this bears on the target. The paper has no products of subspaces, no 2 × 3 configurations of numbers, no point of a circle, no classification of z by u^2, ū^2 or 1/(u-a), and no degree count making u a Möbius function of a ratio. A keyword search of the whole text for progression, Möbius, Vosper, Bachoc, conjugate and logarithm found nothing. 'Configuration' appears only for points and hyperplanes.
 
-Limits: I read Section 4.1 closely, through pdftotext with slightly garbled matrices, and searched the rest by keyword without reading it line by line. I also kept a temporary text copy in /private/tmp, outside the mktemp folder, and deleted it with that folder. Verdict: not a find for Theorem B's converse.
+Limits: I read Section 4.1 closely, through pdftotext with slightly garbled matrices, and searched the rest by keyword without reading it line by line. I also kept a temporary text copy in (temp path), outside the mktemp folder, and deleted it with that folder. Verdict: not a find for Theorem B's converse.

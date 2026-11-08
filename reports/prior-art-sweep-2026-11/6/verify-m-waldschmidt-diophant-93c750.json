@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "implies",
+ "hypotheses": "Field: the book takes any field K and any subfield k (p. 418), so it is broader than the target's \"Q̄\". Rename: book k = target F, or target K when F = K. Dimension: Lemma 12.16 / Ex. 12.10 (p. 431, p. 443) hold for any E with dim ≤ 3 over any k. Roy Th. 3.4 is the same bound in his own setting. Conjugation: absent from the book. It is not needed, since ū = ρ/u puts H₀ in F = Q̄(u). Genericity: the book needs independence over k, and the target's w's over F are exactly that with k = F. Mismatch: the target's configuration is independent only over a smaller K, not over F. The derivation handles that gap. Pages checked: p. 419, 418, 424, 431, 443; p. 424 also on the page image.",
+ "covers_part_not_found": false,
+ "passage": "\"E = k + E0 satisfies Property\" (DALAG, Remark, p. 424)",
+ "source_read": "Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Springer 2000, https://doi.org/10.1007/978-3-662-11569-5, read in local dalag.txt/dalag.pdf. Also Roy, Acta Math. 175 (1995), Th. 3.4, local copy.",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "Citation accurate, but separation with K ⊊ F is not printed, so the part not found stays unprinted. Still, the Remark at k = F implies it.\n\nDerivation. Let M = (x_i y_j), rank 1, entries in E = F + ΣFw_l. By the Remark over F, PMQ = [[a,B],[C,0]], a ≠ 0. Rank 1 forces c_i b_j = 0, so C = 0 or B = 0. Hence one family, say x, is x·a_i with a_i ∈ F and a_i K-independent (p ≥ 2).\n\nWrite xy_j = f_j + Σg_{jl}w_l over F. Since a_i xy_j ∈ V₀ + ΣKw_l and 1, w_l are F-independent, a_i g_{jl} ∈ K for all i. If g_{jl} ≠ 0, a₁, a₂ are K-dependent; so g = 0. Thus x_i y_j ∈ F ∩ (V₀ + ΣKw_l) = V₀.\n\nTheorem A: take F = Q̄(u), V₀ = H₀, dim ≤ 3. Ex. 12.10 gives 1 ≥ (d+ℓ)/4, excluding 2×3.\n\nSo \"case V₀ = K = Q̄\" undersells the source. Routine class confirmed."
+}

@@ -1,0 +1,180 @@
+{
+ "target": "Let u be transcendental with u·ū = ρ algebraic, so ū = ρ/u and H₀ = Q̄ + Q̄u + Q̄u⁻¹ sits in the rational function field Q̄(u), with conjugation acting on it. A 2×3 configuration in a Q̄-space V is a 2-dimensional A and a 3-dimensional B with AB ⊆ V. Target (i), invisibility: for two specific conjugation-stable 5-dimensional spaces W = H₀ + (two more functions), no 4-dimensional H₀ + Q̄w ⊆ W with w ∉ H₀ contains such a product. The first space has g = a₁/(u−a) + a₂/(u+a) together with ḡ. The second, the cyclic space, has G₁, G₂ with poles at u = ±s, where s² = ρ. Target (ii), cyclic space only: no configuration in W has x₂/x₁ a Möbius function of u. Geometric form: W gives a rational curve in P⁴. A spanning configuration puts it on a cubic scroll S(1,2) as the rank-one locus of a 1-generic 2×3 matrix. A 4-dimensional extension with a configuration is a projection from a point of the line dual to H₀ onto a (covered) twisted cubic. Target (ii) says the curve is not a unisecant section of a scroll whose rulings cut a degree-one pencil. The configurations themselves are printed and do not count.",
+ "leads": [
+  {
+   "citation": "C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452 (arXiv:1501.00602). Theorem 2 there is credited to Eliahou-Lecouvey.",
+   "location": "Theorem 2 (dim ST >= dim S + dim T - 1 when F is algebraically closed in L) and Lemma 4, Section 2 (arXiv numbering; also checked in the local copy)",
+   "quote": "there exists g ∈ S such that {g, ga, ..., ga^(s−1)} is a basis for S",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "relation": "implies",
+   "derivation": "Own translation; reaches the invisibility part only, not the cyclic space's missing degree-one factor. Neither the spaces nor the classification below are printed. Take F = Q̄, L = ℂ, and suppose V = H₀ + Q̄w carries a configuration. Rescale to A = ⟨1,a⟩ and S = x₁B. Then Theorem 2 gives dim AS = 4, so AS = V, and Lemma 4 gives V = g⟨1,a,a²,a³⟩ with g, a ∈ Q̄(u). Since 1, u ∈ V, u lies in Q̄(a), so a is Möbius in u and V = c·P₃(u), where P₃ is the polynomials of degree at most 3. From 1, u, 1/u ∈ V, 1/c = u(αu+β). So V is H₀ plus one of u², u⁻², 1/(u−b) with b ≠ 0: every class of V outside H₀ has polar part beyond H₀ at one point only. In the swapped W, λg + μḡ has simple poles at ±a or ±ρ/ā (four distinct points, as aā ≠ ρ and aā > 0). In the cyclic W, λG₁ + μG₂ has poles at both ±s. So no such V lies in W. The derivation is by hand and has not been refereed."
+  },
+  {
+   "citation": "A. Alzati, R. Re, PGL(2) actions on Grassmannians and projective construction of rational curves with given restricted tangent bundle, J. Pure Appl. Algebra 219 (2015), 1320-1335 (arXiv:1405.2753).",
+   "location": "Theorem 1 (numerical type via Kronecker normal form), Theorem 3 (splitting type), Introduction",
+   "quote": "consider the GL(2)-invariant contraction map",
+   "link": "https://arxiv.org/abs/1405.2753",
+   "relation": "analogue only",
+   "derivation": "The closest framework for the absence of a degree-one factor, but it does not reach it. Clear denominators so W becomes a 5-dimensional W̃ inside the binary sextics, and let T be its 2-dimensional annihilator. All Möbius pencils give the same pencil of linear forms, so by my own translation a Möbius-ratio configuration exists iff dim ∂T ≤ 3, i.e. iff T's numerical type differs from (-1,0,0). The paper classifies T but says nothing about this T. The rank must be computed directly, and that computation does not use the theorem. My exact-arithmetic check at s = 1 gives dim ∂T = 4, so no such configuration, which agrees with the target."
+  },
+  {
+   "citation": "C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018), 501-521.",
+   "location": "Introduction",
+   "quote": "A particularly simple case for which a linear version of Vosper's Theorem",
+   "link": "https://alco.centre-mersenne.org/articles/10.5802/alco.19/",
+   "relation": "analogue only",
+   "derivation": "Confirms that the algebraically closed base case gives geometric progressions, by a valuation argument. Its results are for S = T, and it does not treat the spaces or the H₀-containing extensions of the target."
+  },
+  {
+   "citation": "A. Gimigliano, M. Idà, On parameterizations of plane rational curves and their syzygies, Math. Nachr. (arXiv:1507.02227); journal details not checked.",
+   "location": "Proposition 2.1",
+   "quote": "contained in a rational normal surface S",
+   "link": "https://arxiv.org/abs/1507.02227",
+   "relation": "analogue only",
+   "derivation": "Links a curve being unisecant to the fibres of a scroll to its splitting type, for plane projections. This is the same geometry as a factor of degree one, but it says nothing about the spaces W or about invisibility."
+  },
+  {
+   "citation": "J. Jung, H. Moon, E. Park, On the rank index of projective curves of almost minimal degree, arXiv:2411.17494v2.",
+   "location": "Theorem 1.1",
+   "quote": "rank-index(C) ≤ 4",
+   "link": "https://arxiv.org/abs/2411.17494",
+   "relation": "analogue only",
+   "derivation": "Treats projections of a rational normal curve from one point, degree r+1 in P^r. The target's curve has degree 6 in P⁴, a projection from a line, and the invisibility question is not addressed. Rank-index language does not translate into the target."
+  }
+ ],
+ "read": [
+  {
+   "source": "Bachoc-Serra-Zémor, Vosper analogue (arXiv and local copy)",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "sections": "Introduction, Theorems 2-3, Lemma 4, concluding comments excerpt"
+  },
+  {
+   "source": "Bachoc-Couvreur-Zémor 2018",
+   "link": "https://alco.centre-mersenne.org/item/10.5802/alco.19.pdf",
+   "sections": "Introduction, Vosper passages"
+  },
+  {
+   "source": "Couvreur-Zémor, Freiman's 3k-4 theorem for function fields (local copy)",
+   "link": "https://arxiv.org/abs/2408.00183",
+   "sections": "Abstract, introduction through Theorem 1 statement opening"
+  },
+  {
+   "source": "Alzati-Re 2015",
+   "link": "https://arxiv.org/abs/1405.2753",
+   "sections": "Introduction, Theorem 1 and Theorem 3 statements"
+  },
+  {
+   "source": "Jung-Moon-Park",
+   "link": "https://arxiv.org/abs/2411.17494",
+   "sections": "Abstract, Theorem 1.1, remark on the unique scroll containing C"
+  },
+  {
+   "source": "Gimigliano-Idà",
+   "link": "https://arxiv.org/abs/1507.02227",
+   "sections": "Paper outline, Proposition 2.1"
+  },
+  {
+   "source": "Diaz 2007, J. Théor. Nombres Bordeaux 19 (local text)",
+   "sections": "Théorème 7 and its proof, closing section 2.4"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Waldschmidt 2005, role of complex conjugation (local): keyword scan for rational functions, involutions, Möbius, subspaces; no hits"
+  },
+  {
+   "source": "Waldschmidt 2005, variations and further variations on six exponentials (local): same keyword scan, no hits"
+  },
+  {
+   "source": "Diaz 2004, conjugaison complexe (local): same keyword scan, no hits"
+  },
+  {
+   "source": "Roy 1992, matrices of linear forms in logarithms (local): same keyword scan, no hits"
+  },
+  {
+   "source": "Kirby, variants of Schanuel (local): same keyword scan, no hits"
+  },
+  {
+   "source": "Fischler 2001, orbits and logarithms (local): keyword scan, only a generic vector-space definition"
+  },
+  {
+   "source": "Reid, Chapters on algebraic surfaces, ch. 2 (local): contents and chapter opening only"
+  },
+  {
+   "source": "Mirandola-Zémor, Critical pairs for the product Singleton bound",
+   "link": "https://arxiv.org/abs/1501.06419"
+  },
+  {
+   "source": "Beck-Lecouvey, Additive combinatorics methods in associative algebras",
+   "link": "https://cml.centre-mersenne.org/articles/10.5802/cml.34"
+  },
+  {
+   "source": "Han-Lee-Moon-Park, Rank 3 quadratic generators of Veronese embeddings",
+   "link": "https://arxiv.org/abs/2001.06687"
+  },
+  {
+   "source": "Eisenbud-Popescu, Last syzygies of 1-generic spaces",
+   "link": "https://arxiv.org/abs/math/0307361"
+  },
+  {
+   "source": "von Bothmer, Generic syzygy schemes",
+   "link": "https://arxiv.org/abs/math/0403432"
+  },
+  {
+   "source": "Rational-curve and cubic-scroll lemma in Curves of small degree on cubic threefolds",
+   "link": "https://arxiv.org/abs/math/0202067"
+  },
+  {
+   "source": "Cox et al., Strata of rational space curves",
+   "link": "https://ar5iv.arxiv.org/html/1408.2816"
+  },
+  {
+   "source": "High dimensional Riemann-Roch spaces in linear spaces with small squares",
+   "link": "https://arxiv.org/abs/2609.06822"
+  },
+  {
+   "source": "The Exponential World",
+   "link": "https://arxiv.org/abs/2105.05809"
+  },
+  {
+   "source": "Eisenbud, The Geometry of Syzygies, table of contents only (ch. 6, A2H)"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "D. Eisenbud, Linear sections of determinantal varieties, Amer. J. Math. 110 (1988)",
+   "why": "No open copy surfaced and I treated it as paywalled, so I did not try to open it. Would give the 1-generic normal form, which is background only."
+  },
+  {
+   "source": "D. Eisenbud, J. Harris, On varieties of minimal degree (a centennial account), Proc. Sympos. Pure Math. 46 (1987)",
+   "why": "The searches returned only citing papers; no primary copy opened."
+  },
+  {
+   "source": "zbMATH Open API, arXiv API, OpenAlex API",
+   "why": "zbMATH failed on an SSL certificate error. arXiv and OpenAlex returned HTTP 429. The index queries are therefore missing and coverage rests on web search."
+  }
+ ],
+ "queries": [
+  "Vosper theorem function field algebraically closed base dim AB = dim A + dim B - 1 geometric progression subspaces",
+  "rational curves on cubic scroll S(1,2) in P^4 projection to twisted cubic 2x3 matrix linear forms one-generic quadrics rank 4",
+  "rank 3 quadrics containing rational curve projection of rational normal curve rank index Park Moon Han",
+  "Diaz produits et quotients de combinaisons linéaires de logarithmes conjugaison configuration 2x3",
+  "subspaces of rational functions product of 2- and 3-dimensional space, Lüroth, Hopf lemma equality case, involution of P^1",
+  "Kronecker normal form 2x3 one-generic matrix, twisted cubic, scroll, Eisenbud linear sections",
+  "linear spaces of rational functions, rank-one multiplication kernel, one-variable classification, Möbius",
+  "Schanuel consequence, algebraic modulus, e^u algebraic, Ax-type reduction, rational functions of u, conjugation",
+  "rational curve on scroll, pencil, involution, degree two map, degree 6 in P^4, syzygy scheme",
+  "Alzati Re PGL(2) actions on Grassmannians, restricted tangent bundle",
+  "Beck Lecouvey additive combinatorics associative algebras Vosper",
+  "Eisenbud Harris varieties of minimal degree, Kronecker pencil, curves on scrolls",
+  "subspace of binary forms, product with linear forms, moving lines, mu-basis, degree 6 in P^4, splitting type",
+  "Mirandola Zémor critical pairs, linear Vosper for codes, Reed-Solomon classification",
+  "Geometry of Syzygies, 1-generic 2x3, Kronecker normal form",
+  "Riemann-Roch subspace of k(t) containing 1, t, 1/t, involution t to -t, product dimension",
+  "tensor C^2⊗C^3⊗C^5, rational curve in P^4 on cubic scroll",
+  "base-point-free pencil trick, incomplete linear series on P^1",
+  "Ramachandra Diaz conjugation, strong six exponentials, {v, vu, vū}, rational functions of u",
+  "Waldschmidt role of complex conjugation, algebraic modulus, Diaz conjecture"
+ ],
+ "notes": "## Outcome\nNo source states the target. One printed lemma gives a short proof of the **invisibility** part through my own translation. The absence of a degree-one factor is reached only by a direct rank computation.\n\n## Invisibility: the route\nBachoc-Serra-Zémor's Lemma 4 applies with F = Q̄ and L = ℂ, since Theorem 2 forces dim AS = 4. So any 4-dimensional space carrying a 2×3 configuration is c⟨1,a,a²,a³⟩. If it contains H₀, then a is Möbius in u and the space is one of:\n- H₀ + Q̄u²\n- H₀ + Q̄u⁻²\n- H₀ + Q̄/(u−b), with b ≠ 0\n\nThis classification is not printed anywhere I read, and neither are the target spaces. A pole count then excludes these from W, because every nonzero class of W modulo H₀ has poles at two or more points. The same count handles the rest of the entry:\n- two-orbit spaces: poles at ±a or ±b, given nonzero coefficients;\n- Laurent cubic: a pole of order 3 at ∞ or at 0.\n\nI label this \"implies\" because the derivation reaches the conclusion, but the find is a tool plus about ten lines of mine. It is not a published statement of the result. It fits the entry's \"routine\" class. The local library already holds this paper, so the authors may know the tool. The hypothesis a₁ ≠ a₂ plays no role in invisibility; it only separates the non-progression case.\n\nDiaz 2007 Théorème 7(2), read, has the same progression shape {v, vu, vu², vu³}, which is what these extensions look like. It is an exclusion from ℒ̃ and says nothing about invisibility, so it is not listed as a lead.\n\n## Degree-one factor: the route\nFor a Möbius a, all pencils ⟨1,a⟩ clear to the same space of linear forms. A configuration with Möbius ratio therefore exists iff {r of degree ≤ 5 : r, ur ∈ W̃} has dimension ≥ 3. That is the same as dim ∂(W̃^⊥) ≤ 3 in Alzati-Re's contraction language.\n\nExact rational arithmetic at s = 1 gives dimension 2 for the cyclic space, which agrees with the target. Scaling v = u/s reduces general s to this case. The same run gave dimension 2 for one swapped instance (a=2, a₁=1, a₂=3, s=1), though the target claims nothing there.\n\nA later line of that script crashed with an assertion when testing whether (1,u²) is a factor for the swapped instance. The cause is that u²ḡ leaves the degree-≤6 numerators, so (1,u²) is not a factor there. The target's swapped configuration is stated differently, so this does not contradict it. The check that (1,u²) times (ū, G₁, G₂) lies in W at s = 1 returned true.\n\n## What the translations gave\n- **Field-extension products:** the right tool, but always general statements, and symmetric S = T beyond the critical case (Bachoc-Couvreur-Zémor, Couvreur-Zémor).\n- **Scrolls and 1-generic matrices:** the dictionary holds, with 4, 5, 6 independent forms in a 2×3 matrix giving the twisted cubic, S(1,2), P¹×P². This is my background knowledge, not verified against a primary source. No paper found treats rational sextics in P⁴ on S(1,2) with a prescribed conic sub-series.\n- **Rank-3 quadrics and rank index:** nothing relevant to this question. Jung-Moon-Park covers projection from a point only.\n- **Riemann-Roch, Lüroth, Möbius involutions:** Lüroth enters only as the degree step in my derivation. No statement about ⟨1,t,1/t⟩ under t → −t was found.\n- **Schanuel and Ax:** nothing relevant; the target is purely about function spaces.\n\n## Not settled\n- API coverage is missing: arXiv, OpenAlex and zbMATH all failed, so a paper reachable only through those indexes could have been missed.\n- Eisenbud 1988 and Eisenbud-Harris 1987 were not read. Neither is expected to mention these spaces.\n- The derivation above should be checked by a verifier. Only the rank calculation was machine-checked, and the pole counts were done by hand.\n- Stopped at about 15:50 by my estimate, well inside the time box; the last clock reading was 15:44. Further queries were returning the same papers."
+}

@@ -1,0 +1,13 @@
+# Entry 6, verification: M. Waldschmidt, Diophant
+
+- **Source read:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer 2000, local PDF sources/waldschmidt/dalag.pdf. Page images read: pp. 419, 421, 422, 424, 431, 443 (PDF +20); text layer for pp. 418, 426 and the bibliography.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "yields a more general result where the xi are not assumed to be algebraically independent"
+
+**Hypotheses.** Field: Prop 12.4 holds for any k in K (section convention, p. 418), so book k = target K, book K = C. Dimension: x_1..x_n are k-independent and finite; V_0 must be cut to a finite-dimensional part, which is harmless. Algebraic independence: absent from 12.4. It is the target's own hypothesis and enters only in my derivation. Conjugation: not in the source; ū = ρ/u only places ū in F = Q̄(u). Genericity: 12.4 needs none. Exercise 12.10 (p. 443) is a bound only, for dim_k E ≤ 3, set as an exercise with a hint and no printed proof. As stated for arbitrary k it is false. Counterexample: k = Q, E = K = Q(θ), θ³ = 2, x = (1,θ), y = (1,θ,θ²) gives rank 1 < 5/4. So k needs to be algebraically closed in K (or similar). At k = Q̄ it is fine, so Theorem A goes through. For general K, the p+q ≤ 4 corollary should not rest on the exercise. A degree argument works instead: scale into K(u), then X ⊂ L(A), Y ⊂ L(B), A+B ≤ (0)+(∞), genus 0. p. 422 also misprints "rank r_1 − 1"; it should be r_1. Roy 1989 itself was not read.
+
+**Explanation.** Prop 12.4 is present with arbitrary k, but it is a normal form; separation is not printed. Derivation: let M = (x_i y_j), rank 1, with rows and columns K-independent. Take the sequence e_1..e_s (basis of a finite part of V_0), w_1..w_m, with n = s+m. Let R = F(w_1..w_{m-1}), which contains E_{n-1}; w_m is transcendental over R. In PMQ, suppose r_1 ≥ 2: the leading 2×2 minor has degree 2 in w_m, so it is nonzero, a contradiction. Suppose r_1 = 1, with a = PMQ(1,1) outside R and every other entry in R. Vanishing minors a·m_ij = m_i1·m_1j force m_ij = 0 for i,j ≥ 2 and m_i1·m_1j = 0. So either all columns j ≥ 2 vanish or all rows i ≥ 2 vanish, contradicting independence with p,q ≥ 2. Hence r_1 = 0, the entries lie in E_{n-1}, and we descend m times to V_0. Theorem A: take F = Q̄(u), V_0 = H₀; the configuration lands in H₀, dimension ≤ 3, and Exercise 12.10 gives 1 ≥ 5/4, a contradiction. Conclusion: the target is a short corollary, consistent with its routine class, but not printed. Only the first induction step of 12.4 is used.

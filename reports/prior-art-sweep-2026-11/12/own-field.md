@@ -1,0 +1,99 @@
+# Entry 12, strategy: own-field
+
+## Target, as restated by the searcher
+
+Work in the field Q̄(u), with u transcendental and uū = s² algebraic, so that ū = s²/u is a rational function of u. Put H₀ = Q̄ + Q̄u + Q̄ū. A 2×3 configuration in a Q̄-space V is a pair of Q̄-independent families (x₁,x₂), (y₁,y₂,y₃) with every product x_i y_j in V. The part not found has three pieces.
+
+(a) Take the conjugation-stable 5-dimensional space W = H₀ + Q̄g + Q̄ḡ, with g = a₁/(u−a) + a₂/(u+a), a₁ ≠ a₂, aā ≠ s². Conjugation swaps the two orbits ±a and ±s²/ā of u ↦ −u. No 4-dimensional H₀ + Q̄w ⊂ W with w ∉ H₀ carries a configuration.
+
+(b) Take the conjugation-stable W = H₀ + Q̄G₁ + Q̄G₂, with G₁, G₂ the explicit functions having poles at v = ±1, where v = u/s, and multiplication by (1,u²) acting on G₁,G₂ modulo H₀ as a Jordan block. The same absence of 4-dimensional extensions holds.
+
+(c) For that cyclic W, no configuration has x₂/x₁ a Möbius function (αu+β)/(γu+δ) of degree one in u.
+
+The configurations themselves are printed, as Diaz 2007 Th. 7(1) at v = u after rescaling, and do not count. Only these negative statements about which subspaces of W carry a configuration are sought. They are pure algebra in Q̄(u), with no transcendence input.
+
+## Leads
+
+### Lead 1: analogue only
+
+- **Citation:** G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007), 373–391
+- **Location:** §2.4 'En forme de bilan', p. 390
+- **Quote:** on ne peut pas espérer aller très loin
+- **Link:** https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf
+- **Relation:** A general, unquantified remark that staying within Roy's strong six exponentials theorem has limited reach. It names no space, no extension H₀ + Q̄w and no non-existence statement, so it does not reach any part of the target. This is the nearest printed sentiment, not a find.
+
+## Notes
+
+**Result: no find.** The authors' "not found" stands within this strategy (transcendence, logarithms). The single lead is an analogue only and reaches no part of the target.
+
+**Clock.** Started 15:38, stopped around 15:50, well inside the time box. I stopped because the citation graph is small and the searches had saturated, not because time ran out.
+
+**What the core sources say**
+- **Diaz 2007.** It only produces families and excludes them from L̃. Th. 4 is x₂/x₁ ∈ L̃. Cor. 4 and 5 include {1/λ, 1/(λ+α)}. Th. 5 and 6 treat {v, vu, vu²}. Th. 7 treats (1,u,ū)⊗(v,v̄) and (1,u,u²)⊗(v,vu). Each proof is one application of Roy's theorem. Nothing asks which subspace of a given space carries a configuration, and no fixed 4- or 5-dimensional space of rational functions in u appears. §2.1's closing question (how to keep only λ² or |λ|) and §2.4's remark are the nearest in spirit, and neither is a statement about spaces.
+- **Diaz 2004.** §5 poses C(|u|) and asks about method, including whether z ↦ z̄ can be used. It closes by saying four-exponentials-type problems resist. It proves no negative statement about configurations.
+- **Waldschmidt (Role, Variations).** These give further consequences of Roy, such as Th. 2.11 and its corollaries and the 2×3 minors statement, again as exclusions. Nothing on Jordan blocks, orbits of u ↦ −u, or degree-one ratios.
+- **Roy 1992 and the structural rank material.** These give lower bounds on the rank of a given matrix with entries in L̃. They say nothing about rank-one patterns inside a given space of rational functions. Their direction is the opposite of the target, which is about what cannot be built, and it involves no logarithms at all.
+- **Forward citations.** Semantic Scholar lists 8 citers of Diaz 2004: Butler (two records), Momot, Waldschmidt (four items), and Diaz 2007. It lists one citer of Diaz 2007, Waldschmidt's role paper. OpenAlex gives 9 and 0. Those not read in full were screened and none works in this algebraic setting. The citation indexes are thin for this area, so this is not proof of absence.
+- **Excluded hits.** The extended search returned the excluded repository and platform pages. I ignored them and used nothing from them.
+
+**Why a find is unlikely here (my own reasoning, not from a source).** The target contains no transcendence: with ū = s²/u, it is a statement about Q̄-subspaces of Q̄(u). A transcendence author has no reason to state it, because a space that carries no configuration yields no theorem. If it is printed anywhere, the natural home is algebra, namely products of subspaces of small dimension in function fields. A 4-dimensional space holding a 2×3 configuration has the minimal product dimension 2+3−1, so Vosper-type results would be the tool, and they would suggest progressions x(1,t,t²,t³). I did not prove that step here, and Bachoc–Serra–Zémor treats prime extensions of finite fields, not Q̄(u), so it is at most an analogue. This is outside the assigned strategy. Other searchers should check it, specifically function-field analogues of Vosper and Freiman (for example Bachoc–Couvreur–Zémor, whom I recall but did not check) and classical work on spaces of rational functions or linear series.
+
+**Not settled**
+- arXiv API was rate-limited throughout, so full-text arXiv coverage rests on WebSearch.
+- Roy 1990 is paywalled and unread.
+- The local Further Variations text is unreadable, and pdftotext gave no usable layer. Its content is known only through Waldschmidt's summary in the role paper. A look at the page images would close this, though the summary suggests it is unrelated.
+- Waldschmidt's DALAG was only keyword-searched, for conjugation. Diaz 2004 points to its pp. 15, 399 and 614 and Exercise 15.16, which I did not read directly; they concern conjectures with moduli, so a bearing on the target is unlikely.
+- OCR on Diaz 2004 is poor. The statements above were read through garbling but not checked against page images. Nothing here relies on exact formulas from it.
+
+## Read
+
+- Diaz 2007, JTNB 19, 373–391 (local full text) — https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf: Th. 4 with proof; Cor. 4 end and Cor. 5 with Examples 1–4; §2.2 Cor. 6, Th. 5; §2.3 Th. 6, Th. 7 with proofs; §2.4 bilan. §§1 and 2.1 (Cor. 1–3) checked only by statement headings and keyword search
+- Diaz 2004, Utilisation de la conjugaison complexe…, JTNB 16, 535–553 (local) — https://www.numdam.org/item/JTNB_2004__16_3_535_0: §5 (C(|u|), Prop. 1, the questions of method, C(u1,u2), Th. 6, closing remarks); list of theorem statements
+- Waldschmidt, The role of complex conjugation in transcendental number theory (DION 2005, Diophantine Equations 2008) (local) — https://hal-ensta-paris.archives-ouvertes.fr/UPMC/hal-00411402: §§2.7–4.1, Conj. 5.2, §6 (Th. 6.1, 6.2, Cor. 6.3)
+- Waldschmidt, Variations on the six exponentials theorem (Hyderabad 2005) (local) — https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/Hyderabad.pdf: Th. 2.11, Cor. 2.12, 2.13; list of statements in §§1–2
+- Roy, Matrices whose coefficients are linear forms in logarithms, J. Number Theory 41 (1992) (local) — https://www.sciencedirect.com/science/article/pii/0022314X9290081Y: Th. 4, Cor. 1, Cor. 2 (rank bound via structural rank, strong six exponentials)
+- Waldschmidt, The four exponentials problem and Schanuel's conjecture (2023) (local) — https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/FourExponentialsSchanuel.pdf: §6 (Th. 5, inequality (3), structural rank remarks)
+
+## Screened only
+
+- Waldschmidt, Further variations on the six exponentials theorem, Hardy-Ramanujan J. 28 (2005): local text layer is garbled, so judged from the summary of its Th. 1.2 in the role-of-conjugation paper — https://hrj.episciences.org/86
+- Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, Acta Math. 175 (1995): keyword search of the local text only
+- Dasgupta, Ranks of matrices of logarithms of algebraic numbers I (2023) — https://arxiv.org/pdf/2303.02037
+- Dasgupta–Kakde, Ranks of matrices of logarithms of algebraic numbers II: the Matrix Coefficient Conjecture (2024): keyword search; conjugation appears only as a Galois element — https://arxiv.org/pdf/2408.08178
+- Momot, Density of rational points on commutative group varieties and small transcendence degree (2010/11): generalises Diaz 2004 Th. 5 in another direction; §7.1 glimpsed — https://arxiv.org/pdf/1011.3368
+- Warner, The Exponential World (2021): lecture notes, keyword search only — https://arxiv.org/pdf/2105.05809
+- Waldschmidt, Open Diophantine Problems (2004): keyword search only — https://arxiv.org/pdf/math/0312440
+- Butler, A Diophantine approach to the three and four exponentials conjectures (2017), zbMATH 1437.03130: title and snippet
+- Habsieger, A few remarks related to the four exponentials conjecture, Publ. Math. Debrecen 70 (2007): abstract only (alternants, approach barrier) — https://publi.math.unideb.hu/paper/1156
+- Waldschmidt, Le théorème des six exponentielles restreint à l'irrationalité (2021): abstract only, expository — https://hal.science/hal-04025073v1
+- Waldschmidt, Transcendence of Periods: the State of the Art (2006) and On Ramachandra's Contributions: Diaz citations by keyword only
+- Waldschmidt, AWS 2008 Lecture 5 (conjectures and open problems): title only — https://swc-math.github.io/aws/2008/08WaldschmidtSlides5.pdf
+- Bachoc–Serra–Zémor, An analogue of Vosper's theorem for extension fields (2017): abstract only; outside this strategy's field, see notes — https://arxiv.org/abs/1501.00602
+
+## Inaccessible
+
+- Roy, Matrices dont les coefficients sont des formes linéaires, Sém. Théorie des Nombres Paris 1987–88, Progress in Math. 81 (1990), 273–281 — https://doi.org/10.1007/978-1-4612-3460-9_13: Springer paywall; full text not opened. By its title and its 1992 sequel it concerns rank lower bounds, not subspaces of rational functions.
+- Forward-citation lists from zbMATH, and arXiv API listings: zbmath.org front end returned 403 and the arXiv API returned 429 throughout, so arXiv was covered only through WebSearch restricted to arxiv.org. The zbMATH API worked for keyword searches.
+- OpenAlex list of citers of Diaz 2004 (cited_by_count 9) — 10.5802/jtnb.459: OpenAlex reported the count but not the list; my follow-up request failed. Semantic Scholar's list of 8 citers was used instead. OpenAlex reports 0 citers for Diaz 2007, while Semantic Scholar lists one.
+
+## Queries
+
+- Diaz "Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques" conjectures et résultats partiels
+- module d'un logarithme de nombre algébrique transcendance conjecture de Diaz |log α| matrices rang un logarithmes conjugaison complexe six exponentielles
+- linear combinations of logarithms complex conjugate u ū algebraic, products of subspaces 2x3 rank one strong six exponentials, modulus of logarithm
+- Diaz conjecture modulus |u| algebraic then exp(u) transcendental, recent results, conjugation, 2×3 family (v, v̄)(1,u,ū) (extended mode; excluded repository hits ignored)
+- "exponentielles" "conjugaison complexe" logarithmes "module" Q-libre L̃ transcendance résultats partiels espace vectoriel fractions rationnelles
+- Guy Diaz transcendance logarithmes 2010..2026 "quatre exponentielles" forte conjecture produits quotients suite Diaz 2007
+- rank of matrices with entries linear forms in logarithms structural rank conjugation strong six exponentials special cases u, u^2, u^3
+- Roy "Matrices dont les coefficients sont des formes linéaires"
+- Habsieger "A few remarks related to the four exponentials conjecture"
+- transcendence logarithms complex conjugation strong four exponentials partial results 2015–2025 quadratic relations
+- "six exponentials" OR "six exponentielles" Roy families (1,u,u²) (v,vu) product of two subspaces dimension rational functions of a transcendental
+- arXiv-restricted: strong four exponentials, Roy strong six exponentials, new consequences, conjugation, algebraic modulus
+- "four exponentials" "complex conjugation" OR "conjugaison" Diaz cited later, module logarithme thèse, |u| algébrique e^u transcendant
+- "quotients de logarithmes" OR "produits de logarithmes" conjecture forte des quatre exponentielles théorème de Roy Comptes Rendus
+- Waldschmidt "Le théorème des six exponentielles restreint à l'irrationalité"
+- zbMATH API: "strong six exponentials", "strong four exponentials", "six exponentials", "four exponentials", "five exponentials", Diaz conjugaison complexe transcendance, complex conjugation transcendence logarithms, products of logarithms transcendence, Roy matrices logarithms rank one, Schanuel modulus logarithm, ti:logarithmes & ti:produits, and others
+- HAL API: "quatre exponentielles", "six exponentielles", "conjugaison complexe" transcendance, "produits de logarithmes", "strong six exponentials", "strong four exponentials", "four exponentials"
+- Semantic Scholar citations of 10.5802/jtnb.592 (Diaz 2007) and 10.5802/jtnb.459 (Diaz 2004)
+- Local library grep: Kneser, Vosper, Freiman, fractions rationnelles, conjugation, module, barrier wording
