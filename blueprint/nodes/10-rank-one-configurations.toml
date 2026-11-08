@@ -80,13 +80,12 @@ Here $u^{-1}=\bar u/(u\bar u)$ lies in the space. Take $(1,u)\otimes(u^{-1},1,u)
 [[node]]
 platform = "DiazModulus.circle_point_extension_two_by_three_configuration_iff"
 root = true
-novelty = "not-routine"
 env = "theorem"
 title = "The four-dimensional extensions that carry a configuration"
 statement = '''
 Let $u\in\C\setminus\Qbar$ with $u\bar u$ algebraic, put $H_0=\Qbar+\Qbar u+\Qbar\bar u$, and let $z\notin H_0$. There are $x_1,x_2$, linearly independent over $\Qbar$, and $y_1,y_2,y_3$, linearly independent over $\Qbar$, with all six products $x_iy_j$ in $H_0+\Qbar z$ if and only if $z\in H_0+\Qbar w$ for $w=u^{2}$, $w=\bar u^{2}$, or $w=1/(u-a)$ with $a\in\Qbar$, $a\neq0$.
 '''
-source = '''\textbf{Not found in the sources read, and not routine} (Chapter~\ref{chap:14-not-found-in-the-sources}). With Roy's strong six exponentials theorem \cite{Roy92}, the ``if'' direction gives at a candidate the exclusions of \cite[Corollaire 5(1) and 5(4)]{Dia07}; every configuration has the shape of \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}. Its key step, Lemma~\ref{lem:two_by_three_configuration_forces_progression}, is \cite[Lemma 4]{BSZ17}.'''
+source = '''Not found in these terms in the sources read; routine (Chapter~\ref{chap:14-not-found-in-the-sources}). With Roy's strong six exponentials theorem \cite{Roy92}, the ``if'' direction gives at a candidate the exclusions of \cite[Corollaire 5(1) and 5(4)]{Dia07}; every configuration has the shape of \cite[Lemma 6.1]{Fis01} and \cite[Théorème 7(2)]{Dia07}. Its key step, Lemma~\ref{lem:two_by_three_configuration_forces_progression}, is \cite[Lemma 4]{BSZ17}. The step that makes $u$ a M\"obius function of the ratio is the structure of rank-three quadrics through a rational normal curve: \cite[Theorem 1.2(2)]{Par24}, \cite[Theorem 1.1]{PS25} and \cite[\S2]{AH81}.'''
 sketch = '''
 If $z\in H_0+\Qbar w$ and $z\notin H_0$, then $H_0+\Qbar z=H_0+\Qbar w$, which carries a configuration by Proposition~\ref{prop:circle_point_extension_carries_two_by_three_configuration}. Conversely, Lemma~\ref{lem:two_by_three_configuration_forces_progression} writes $H_0+\Qbar z$ as $b(\Qbar+\Qbar h+\Qbar h^{2}+\Qbar h^{3})$ with $h\notin\Qbar$, and Lemma~\ref{lem:circle_hull_progression_contains_square_or_reciprocal} puts $u^{2}$, $\bar u^{2}$ or some $1/(u-a)$ in it. That element is not in $H_0$, since $u$ is transcendental, so $z\in H_0+\Qbar w$.
 

@@ -1,37 +1,40 @@
 # Prior-art sweep of chapter 14, November 2026
 
-A desk search that tried to break each "not found" in chapter 14. Nothing here edits the blueprint, the companion note or the ranking. Those are the author's calls.
+A desk search that tried to break each "not found" in chapter 14. The sweep itself edited nothing; changes to the blueprint, the companion note and the ranking are the author's calls, and this report marks the one applied so far.
 
 ## Result
 
-Of the 20 entries, **8 are `found`, 2 are `found in part` and 10 are `not found by this sweep`**. None is `lead unverified`.
+Of the 20 entries, **5 are `found`, 5 are `found in part` and 10 are `not found by this sweep`**. None is `lead unverified`.
 
 **No statement was found printed as it stands in the library.** Every `found` is a printed theorem plus a derivation written by a verifier. That is what the brief means by "implies", but it's weaker than finding the result in a paper.
 
-Three points need a decision:
+Decisions taken by the author on 8 November 2026:
 
-1. **Theorem B's first rank is in question.** Its key step is in print under another name, and it takes two lines by gcds. The other three "not routine" entries (2, 3, 4) survived.
-2. **The Li₂(1/2) line looks out of date.** Chapter text says irrationality is open. Two 2026 preprints report it proved, with public Lean developments. See "The Li₂(1/2) line" below.
-3. **Entries 6, 8, 9, 14, 16, 17, 18 confirm "routine".** Each follows quickly from a theorem that is in print, usually one already cited. Nearly all stay "not printed", so the source lines need a route added, not a retraction.
+1. **Theorem B leaves the "not routine" list.** Its key step is in print under another name, and it takes two lines by gcds. Applied to chapter 14 and the node's source line. The other three entries (2, 3, 4) survived and move up to ranks 1–3.
+2. **Entries 6, 9, 14 are `found in part`.** See "How the verdicts were set".
+
+Still open: **the Li₂(1/2) line looks out of date.** Chapter text says irrationality is open. Two 2026 preprints report it proved, with public Lean developments. See "The Li₂(1/2) line" below.
+
+Entries 6, 8, 9, 14, 16, 17, 18 confirm "routine": each follows quickly from a theorem that is in print, usually one already cited. Nearly all stay "not printed", so their source lines need a route added, not a retraction.
 
 ## Verdicts
 
 | # | Entry | Class in ch. 14 | Verdict | Sources | What is and isn't in print |
 |---|---|---|---|---|---|
-| 1 | Theorem B | not routine, rank 1 | **found**, as a translation | Park, Trans. AMS 377 (2024), Th. 1.2(2); Park–Sim, Math. Nachr. 298 (2025), Th. 1.1; Arbarello–Harris, Compositio 43 (1981), §2, pp. 157–158; Kadıköylü, Ann. Inst. Fourier 69 (2019), Lemma 2.2 | The Möbius step, in the language of rank-3 quadrics through a curve. The list u², ū², 1/(u−a) needs partial fractions, and BSZ17 is still needed. Never printed as a statement about configurations. |
+| 1 | Theorem B | not routine, rank 1 (moved to routine, 8 Nov) | **found**, as a translation | Park, Trans. AMS 377 (2024), Th. 1.2(2); Park–Sim, Math. Nachr. 298 (2025), Th. 1.1; Arbarello–Harris, Compositio 43 (1981), §2, pp. 157–158; Kadıköylü, Ann. Inst. Fourier 69 (2019), Lemma 2.2 | The Möbius step, in the language of rank-3 quadrics through a curve. The list u², ū², 1/(u−a) needs partial fractions, and BSZ17 is still needed. Never printed as a statement about configurations. |
 | 2 | Involution spaces | not routine, rank 2 | not found by this sweep | | Analogues only; verifiers demoted the leads. |
 | 3 | Theorem E | not routine, rank 3 | not found by this sweep | | No lead reached a verifier. |
 | 4 | Theorem F, NF | not routine, rank 4 | not found by this sweep | | Analogues only, with the extra agent on scrolls and one-generic matrices. |
 | 5 | Laurent hull, sumset | routine | not found by this sweep | | Analogues only. |
-| 6 | Separation, Theorem A | routine | **found**, by a short derivation | Waldschmidt 2000, Prop. 12.4, p. 422; Eisenbud–Harris, Adv. Math. 70 (1988), p. 136; de Seguins Pazzis, arXiv:1507.05375, Prop. 2.3 | Separation with K ⊊ F is not printed. Also a correction: Prop. 12.2 and the Remark on p. 424 hold for any k, not only V₀ = K = Q̄. |
+| 6 | Separation, Theorem A | routine | found in part | Waldschmidt 2000, Prop. 12.4, p. 422; Eisenbud–Harris, Adv. Math. 70 (1988), p. 136; de Seguins Pazzis, arXiv:1507.05375, Prop. 2.3 | Separation with K ⊊ F is not printed. Also a correction: Prop. 12.2 and the Remark on p. 424 hold for any k, not only V₀ = K = Q̄. |
 | 7 | 2 × 2 normal form | routine | found in part | Beauville, Michigan Math. J. 48 (2000), Prop. 3.3; Ishitsuka, arXiv:1512.05167, Prop. 6.1; Waldschmidt 2000, p. 431 | The one-orbit clause only. Not the logarithm clause, the norm-form relation or the constant-term statement beyond a direct computation. |
 | 8 | Conjugate pair spaces | routine | **found**, by a short derivation | Bachoc–Serra–Zémor, arXiv:1501.00602v2, Th. 2 and Th. 33; Castelnuovo's lemma; Green's K_{p,1} theorem | Invisibility follows with a pole count. Not printed; the source has no u, H₀ or conjugation. |
-| 9 | Two poles | routine | **found**, by a short derivation | Bachoc–Serra–Zémor, Th. 2 and Th. 33 | Same route as 8. Verifiers marked the source alone as not covering it; see the rule below. |
+| 9 | Two poles | routine | found in part | Bachoc–Serra–Zémor, Th. 2 and Th. 33 | Same route as 8, but verifiers marked the source alone as not covering it. |
 | 10 | Real pencil spaces | routine | not found by this sweep | | Verifiers demoted both leads. |
 | 11 | Laurent cubic, two-orbit | routine | not found by this sweep | | Analogues only. |
 | 12 | Conjugation-swapped, cyclic | routine | not found by this sweep | | Analogue only. |
 | 13 | Polynomial hulls, Roy + circle point | routine | not found by this sweep | | Verifiers demoted all three leads. |
-| 14 | Degree-one spaces | routine | **found**, by a short derivation | Bachoc–Serra–Zémor, Th. 2 and Th. 33 | The criterion u·R(u)·g follows. Not printed. Rule below applies. |
+| 14 | Degree-one spaces | routine | found in part | Bachoc–Serra–Zémor, Th. 2 and Th. 33 | The criterion u·R(u)·g follows by a derivation. Not printed; verifiers marked the source alone as not covering it. |
 | 15 | Theorem D, barrier | routine | not found by this sweep | | Analogues only. |
 | 16 | (Qr2), pair rigidity, trdeg 1 | routine | **found**, by a short derivation | Roy–Waldschmidt, Ann. Sci. ENS 30 (1997), Th. 0.2, p. 755; Waldschmidt 2000, §15.3.4, p. 593 | A second route beside Brownawell Cors. 5 and 7, already named. Neither statement is printed; (Qr2) isn't mentioned. |
 | 17 | (log 2)² + π² | routine | **found**, by a short derivation | Roy–Waldschmidt 1997, Th. 0.2 and Cor. 7.3; Roy–Waldschmidt, Proc. Japan Acad. 71A (1995), Th. 2; Waldschmidt 2000, p. 593 | This pair of numbers isn't printed; p. 792 of the 1997 paper treats a different number. One substitution. |
@@ -44,10 +47,10 @@ Each entry's folder holds `target.md`, the searchers' reports and one file per v
 ### How the verdicts were set
 
 - `found`: a verifier opened the source, confirmed the statement at the cited place, and found relation "same" or "implies" with a derivation reaching the whole part not found.
-- `found in part`: a verified special case, generalization, or part of the target.
+- `found in part`: a verified special case, generalization, or part of the target; or a derivation that the verifiers marked as not covered by the source alone.
 - A named nearby result doesn't count by itself, per each `target.md`.
 
-**One judgement of mine.** Verifiers filled `covers_part_not_found` unevenly. On entry 8 they set it true for a derivation from Bachoc–Serra–Zémor. On 9 and 14 they set it false for the same kind of derivation, because the source alone doesn't state the target. On entry 6, one of seven set it true. I graded all four on whether the derivation reaches the target, which upgrades 6, 9 and 14 from what the flag alone would give. A stricter reader could call those three `found in part`.
+**Entries 6, 9, 14.** Verifiers filled `covers_part_not_found` unevenly. They set it true on entry 8, and false on 9 and 14 for the same kind of derivation from Bachoc–Serra–Zémor, because the source alone doesn't state the target. On entry 6, one of seven set it true. The author settled 6, 9 and 14 as `found in part`, following the flag. Entry 8 stays `found`, so its verdict differs from 9 and 14 only by that flag.
 
 I checked by hand the algebra for entries 1, 17, 18 and 19 (the gcd argument, the vanishing of each quadric, ℚ-independence, the five-exponentials substitution). The other derivations have only their verifiers behind them, though several verifiers worked independently on most of them.
 
@@ -61,9 +64,9 @@ The source line of entry 18 says irrationality of Li₂(1/2) is open, with only 
 
 The preprints are unrefereed, and a September preprint (arXiv:2609.06895, snippet only, not opened) still lists s = 2 as unresolved. If the result stands, the dichotomy's first horn is true, so the dichotomy says nothing about e^{iγ/π}. The general form with arbitrary a, b, c, t is unaffected. Lai's preprint has no mention of this repository; the Tan–Zhang check didn't record one either way.
 
-## Proposed source-line changes, not applied
+## Proposed source-line changes
 
-Nothing below has been applied. New citation keys would also need entries in `blueprint/nodes/99-references.toml`. BSZ theorem numbers are arXiv v2 numbers: check them against the journal before use.
+Only the Theorem B change has been applied (8 November 2026), in the wording of chapter 14. New citation keys would also need entries in `blueprint/nodes/99-references.toml`. BSZ theorem numbers are arXiv v2 numbers: check them against the journal before use.
 
 **Entry 1.** Nodes: `circle_point_extension_two_by_three_configuration_iff` (14-not-found-in-the-sources.toml); `two_by_three_configuration_forces_progression` (14-not-found-in-the-sources.toml). Replace "Not found in the sources read, and not routine" with: "The classification was not found in this form. Its key step, that u is a Möbius function of the progression's ratio, is the structure of rank-3 quadrics through a rational normal curve: \cite[Theorem 1.2(2)]{Par24}, \cite[Theorem 1.1]{PS25}, \cite[\S2]{AH81}, with \cite[Lemma 4]{BSZ17}." Whether "not routine" and rank 1 stand is the author's call. The step is also two lines by gcds: writing 1, u, ū as b·p₀, b·p₁, b·p₂ gives p₁p₂ = ρp₀²; dividing by the gcd leaves coprime forms whose product is a square, so they are squares; parity forces the gcd to have degree 1.
 

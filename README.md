@@ -872,7 +872,9 @@ exactly when z ∈ H₀ + Q̄w for w = u², w = ū² or w = 1/(u − a) with a a
 - With Roy's strong six exponentials theorem, these are Diaz's exclusions at a candidate (2007, Cor. 5(1) and
   5(4)). Every configuration in such a space is a geometric progression b, bh, bh², bh³, the shape of Fischler
   (2001, Lemma 6.1) and Diaz (2007, Th. 7(2)).
-- The classification was not found in the sources read. Since ℒ̃ is closed under conjugation, z ∈ ℒ̃ brings z̄
+- The classification was not found in these terms in the sources read, but it is routine: its steps are printed
+  (Bachoc–Serra–Zémor, Lemma 4; for the Möbius step, rank-three quadrics through a rational normal curve: Park 2024,
+  Park–Sim 2025, Arbarello–Harris 1981). Since ℒ̃ is closed under conjugation, z ∈ ℒ̃ brings z̄
   with it; the five-dimensional spaces H₀ + Q̄z + Q̄z̄ are the next section.
 - Five nodes: the progression lemma, a normal form for cubics with P₁P₂ = P₀², the progression step, the three
   configurations, and the equivalence.
@@ -1073,7 +1075,7 @@ in u and ū with algebraic coefficients, that is, a Laurent polynomial in v, and
   width count rules out two of the four pencils, and the other two give (R) and (Q).
 - The configurations are printed or substitutions: (P) is Diaz 2007, Théorème 7(1); (Q) is the configuration of the
   proof of Diaz 2004, Théorème 2. The "only if" half, the family (Q) and the criterion were not found in the sources
-  read; Theorem E is the third entry of the blueprint's list of results not found and not routine.
+  read; Theorem E is the second entry of the blueprint's list of results not found and not routine.
 
 ### Theorem D: what these theorems cannot refute
 
@@ -1137,7 +1139,7 @@ max(deg P, deg Q) = 2, and deg S₁, deg S₂ ≤ 2.
   configuration is a progression by Bachoc–Serra–Zémor (2017, Lemma 4). The "only if" half of Theorem F and the
   proof of Theorem NF without vector bundles were not found in the sources read. Of the literature on scrolls and
   rank-two bundles on P¹ only a textbook chapter was read (Reid, Chapters on algebraic surfaces, Ch. 2): it prints the
-  ingredients of the bundle proof but not the three shapes. Theorem F with its key step Theorem NF is the fourth entry
+  ingredients of the bundle proof but not the three shapes. Theorem F with its key step Theorem NF is the third entry
   of the blueprint's list of results not found and not routine.
 
 ### Invisible degree-two spaces: Q1.4–Q1.7
