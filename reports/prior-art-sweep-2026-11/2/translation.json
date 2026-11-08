@@ -1,0 +1,217 @@
+{
+ "target": "Work over k = Q-bar and let u be transcendental, so k(u) is the function field of P^1. Let h be a non-constant element of k(u) and c a non-zero element. Put H = span(1, u, 1/u) and S = c * span(1, h, h^2, h^3), and suppose W = H + S has dimension 5, so H and S meet in dimension exactly 2. Not found: (a) W contains u^2, u^-2 or some 1/(u-b) with b non-zero, or W is an involution space. (b) deg_u h <= 2. (c) If deg h = 2, with P the pencil of quadratics spanned by the numerator and denominator of h (the orbits of a Moebius involution of the u-line), then W = H + (1/(u l1 l2)) Sym^3(P) for some non-zero l1, l2 in P. (d) Assume u*conj(u) is algebraic, so that H is the space H0. Every such W carries a 2x3 configuration (x_i y_j all in W, each family independent), but no 4-dimensional H + k w inside W carries one.",
+ "leads": [
+  {
+   "citation": "M. Wessel, On Freiman's Theorem in a function field setting, arXiv:2405.10724 (2024)",
+   "location": "Proposition 3.5 with its proof; Corollary 1.6.1; Lemma 2.8",
+   "quote": "the set of degrees of Sγ+3 equals {0, 2, 4, . . . , 2γ, 2γ + 1, 2γ + 2}",
+   "link": "https://arxiv.org/abs/2405.10724",
+   "relation": "analogue only",
+   "derivation": "Closest lead, but it reaches none of (a)-(d). My translation: take x with involution x -> -x. Then W = m * span(1, x^2, x^4, x^6, x L1 L2) with L_i in span(x^2, 1), where m = 1/(n d L1 L2) and u = n/d is Moebius in x. So involution spaces, up to the multiplier m, have dim 5 and gamma = 2 (dim W^2 = 11), and degree set {0,2,4,5,6} at a fixed point of the involution, except when L1 L2 is proportional to x^2. That is the gamma = 2 case of Prop. 3.5. Its proof has the progression 1, e2, e2^2, e2^3 and gets [F:K(e2)] <= 2, the same conclusion as (b), but from gamma and the degree pattern, not from H in W. Its stated conclusion is only S in L((n+gamma-1)P_inf). The normal form follows from that in one line, but only for spaces already known to have gamma = 2, which the target's hypotheses do not give without (c). H and invisibility never appear."
+  },
+  {
+   "citation": "A. Couvreur, G. Zémor, Freiman's 3k-4 Theorem for Function Fields, arXiv:2408.00183 (2024); for gamma <= 1, C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's Theorem, Algebraic Combinatorics 1 (2018) 501-521, Theorems 5.3 and 8.1",
+   "location": "Couvreur-Zémor, Theorem 1",
+   "quote": "there exists a Riemann-Roch space L(D) of F that contains S",
+   "link": "https://arxiv.org/abs/2408.00183",
+   "relation": "analogue only",
+   "derivation": "Applied to m*W (gamma = 2, genus 0) it gives only containment in an L(D) of dimension at most 7. The target's W already sits in the binary sextics, which has dimension 7, so this adds nothing towards (a)-(d)."
+  },
+  {
+   "citation": "A. Hofmann, The ideal of curves of genus 2 on rational normal scrolls, arXiv:1102.3156 (2011)",
+   "location": "Section 2 (class of C on the scroll); Proposition 3.2 and its proof",
+   "quote": "[C] = 2H − (d − 6)F",
+   "link": "https://arxiv.org/abs/1102.3156",
+   "relation": "analogue only",
+   "derivation": "Smooth genus 2 only. With d = 6, C is a quadric section of the cubic g^1_2-scroll, and the proof of Prop. 3.2 gives type (3,0), the cone over the twisted cubic, when H = 3K. By my translation an involution space is the same picture degenerated: span(1, t, t^2, t^3, y) with t = h and y^2 = (t-a)^2 (t-b)^2 (t-alpha)(t-beta), a rational sextic of arithmetic genus 2 with two nodes. Hofmann does not treat singular curves, and neither H nor the dichotomy in (a) appears."
+  },
+  {
+   "citation": "M. Aprodu, A. Bruno, E. Sernesi, A characterization of bielliptic curves via syzygy schemes, arXiv:1708.08056; Zbl 1419.14047 (2019)",
+   "location": "Theorem 1; opening of Section 4",
+   "quote": "complete intersection of a quadric with a cone S over a normal curve",
+   "link": "https://arxiv.org/abs/1708.08056",
+   "relation": "analogue only",
+   "derivation": "Same geometric shape: a double cover of a normal curve lies on the cone over it, and the cone's vertex corresponds to one extra eigenvector of the involution. There the base is elliptic and the curve canonical, whereas the target has a rational base and a genus-0 cover. It says nothing that reaches (a)-(d)."
+  },
+  {
+   "citation": "N. P. Nguyen, A generalization of Desargues' involution theorem, arXiv:1912.12200; J. Geom. Graph. 24 (2020)",
+   "location": "Statement of the generalized theorem, introduction",
+   "quote": "conjugate under an involution if and only if",
+   "link": "https://arxiv.org/abs/1912.12200",
+   "relation": "special case",
+   "derivation": "Covers only the classical correspondence behind (c)'s parenthesis: a regular pencil of quadrics restricted to a line gives an involution. Taking binary quadratics on P^1 itself gives pencil = orbits of a Moebius involution. It does not give the normal form W = H + (1/(u l1 l2)) Sym^3(P). This is a modern statement of a classical fact, so a verifier need only confirm the wording."
+  }
+ ],
+ "read": [
+  {
+   "source": "Bachoc, Serra, Zémor, An analogue of Vosper's theorem for extension fields (arXiv version)",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "sections": "Lemma 4 and start of proof; Section 7 through Theorems 33-34"
+  },
+  {
+   "source": "Bachoc, Couvreur, Zémor, Towards a function field version of Freiman's Theorem",
+   "link": "https://arxiv.org/abs/1709.00087",
+   "sections": "Introduction; Conjecture 2.2; statements of Theorems 5.3 and 8.1"
+  },
+  {
+   "source": "Wessel, On Freiman's Theorem in a function field setting",
+   "link": "https://arxiv.org/abs/2405.10724",
+   "sections": "Theorems 1.4 and 1.6; Corollary 1.6.1; Lemmas 2.8 and 2.9 (statements); Propositions 3.4-3.6 with proofs of 3.5 and 3.6"
+  },
+  {
+   "source": "Couvreur, Zémor, Freiman's 3k-4 Theorem for Function Fields",
+   "link": "https://arxiv.org/abs/2408.00183",
+   "sections": "Abstract; introduction; Theorem 1"
+  },
+  {
+   "source": "Hofmann, The ideal of curves of genus 2 on rational normal scrolls",
+   "link": "https://arxiv.org/abs/1102.3156",
+   "sections": "Abstract; introduction; Theorem 5.1 (statement); class formula; Proposition 3.2 and proof"
+  },
+  {
+   "source": "Aprodu, Bruno, Sernesi, A characterization of bielliptic curves via syzygy schemes",
+   "link": "https://arxiv.org/abs/1708.08056",
+   "sections": "Abstract; Theorem 1; opening of Section 4"
+  },
+  {
+   "source": "Jung, Moon, Park, On the rank index of projective curves of almost minimal degree",
+   "link": "https://arxiv.org/abs/2411.17494",
+   "sections": "Abstract; start of introduction; the structure statement for curves projected from a point (g1, g2 presentation and containing scroll), read in part"
+  },
+  {
+   "source": "Nguyen, A generalization of Desargues' involution theorem",
+   "link": "https://arxiv.org/abs/1912.12200",
+   "sections": "Theorem statements in the introduction only"
+  },
+  {
+   "source": "Mirandola, Zémor, Critical pairs for the Product Singleton Bound",
+   "link": "https://arxiv.org/abs/1501.06419",
+   "sections": "Abstract; Theorems 1.1 and 1.2 statements"
+  },
+  {
+   "source": "Nguyen, Projective line revisited",
+   "link": "https://arxiv.org/abs/1804.00639",
+   "sections": "Part of Section 3 (involutions identified with quadratic cycles)"
+  },
+  {
+   "source": "Abdesselam, Chipalkatti, Quadratic involutions on binary forms",
+   "link": "https://arxiv.org/abs/1008.3117",
+   "sections": "Opening construction of the involution from a binary quadratic"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Moon, Park, On the rank index of some quadratic varieties",
+   "link": "https://arxiv.org/abs/2206.08586"
+  },
+  {
+   "source": "Park, On the rank of quadratic equations for curves of high degree",
+   "link": "https://arxiv.org/abs/2202.00857"
+  },
+  {
+   "source": "Aprodu, Bruno, Sernesi, The second syzygy schemes of curves of large degree",
+   "link": "https://arxiv.org/abs/2409.11855"
+  },
+  {
+   "source": "Bachoc, Serra, Zémor, Revisiting Kneser's theorem for field extensions",
+   "link": "https://arxiv.org/abs/1510.01354"
+  },
+  {
+   "source": "Beck, Lecouvey, Additive combinatorics methods in associative algebras",
+   "link": "https://arxiv.org/abs/1504.02287"
+  },
+  {
+   "source": "Hassett, Classical and minimal models of the moduli space of curves of genus two",
+   "link": "https://arxiv.org/abs/math/0408338"
+  },
+  {
+   "source": "Eisenbud, Harris, Vector spaces of matrices of low rank (local copy, keyword search only)"
+  },
+  {
+   "source": "Eisenbud, Popescu, Last syzygies of 1-generic spaces (search listing)",
+   "link": "https://arxiv.org/abs/math/0307361"
+  },
+  {
+   "source": "Ginensky, A generalization of the Clifford index and determinantal equations for curves and their secant varieties",
+   "link": "https://arxiv.org/abs/1002.2023"
+  },
+  {
+   "source": "Buczyński, Ginensky, Landsberg, Determinantal equations for secant varieties and the Eisenbud-Koh-Stillman conjecture",
+   "link": "https://arxiv.org/abs/1007.0192"
+  },
+  {
+   "source": "Graf von Bothmer, Generic syzygy schemes",
+   "link": "https://arxiv.org/abs/math/0403432"
+  },
+  {
+   "source": "Bopp, Hoff, Resolutions of general canonical curves on rational normal scrolls",
+   "link": "https://arxiv.org/abs/1505.07235"
+  },
+  {
+   "source": "Bays, Kirby, Wilkie, A Schanuel property for exponentially transcendental powers",
+   "link": "https://ueaeprints.uea.ac.uk/34966/"
+  },
+  {
+   "source": "Ranks of matrices of logarithms of algebraic numbers I (Structural Rank background)",
+   "link": "https://arxiv.org/abs/2303.02037"
+  },
+  {
+   "source": "Castelnuovo's last higher geometry lectures 1922-23 (search listing)",
+   "link": "https://arxiv.org/abs/1505.03009"
+  },
+  {
+   "source": "Explicit bases of the Riemann-Roch spaces on divisors on hyperelliptic curves",
+   "link": "https://arxiv.org/abs/2012.08870"
+  },
+  {
+   "source": "Local library keyword search for involution and Lüroth: only unrelated hits (Draisma 2006, Reid's Chapters, Waldschmidt notes)"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "Hyeon, Lee, Stability of tri-canonical curves of genus two, Math. Ann. 337 (2007) 479-488",
+   "doi_or_link": "10.1007/s00208-006-0046-2",
+   "why": "Publisher copy, not opened as paywalled; no arXiv version found. Could describe the singular tricanonical curves, including two-nodal rational ones, so it is the first thing to check by hand."
+  },
+  {
+   "source": "Bolza, On binary sextics with linear transformations into themselves (1887)",
+   "doi_or_link": "zbMATH JFM 19.0119.04",
+   "why": "Only the index record seen; I did not try to open a full copy."
+  },
+  {
+   "source": "Eisenbud, Koh, Stillman, Determinantal equations for curves of high degree (1988); Eisenbud, Linear sections of determinantal varieties (1988)",
+   "why": "Seen only through secondary descriptions; no open copy found in the searches and not pursued."
+  },
+  {
+   "source": "Di Gennaro, On curves on rational normal scrolls (2001)",
+   "doi_or_link": "Zbl 1083.14053",
+   "why": "Title only from zbMATH; not opened."
+  }
+ ],
+ "queries": [
+  "linear analogue Vosper theorem rational function field subspaces product dim ST = dim S + dim T - 1 geometric progression k(x) classification",
+  "Bachoc Couvreur Zémor function field Freiman subspaces rational functions small square genus zero",
+  "linear system on projective line composed with an involution Lüroth double cover twisted cubic cone sextic P^4 four-secant line",
+  "rank 3 quadrics through rational curve projected rational normal curve rank index 1-generic matrix scroll determinantal 2x3",
+  "subspaces of rational functions k(x) containing 1, x, 1/x product of 2-dimensional and 3-dimensional subspace dimension 5",
+  "involution of the projective line pencil of binary quadratic forms Desargues involution g^1_2 orbits",
+  "Eisenbud Koh Stillman determinantal equations line bundle decomposition 1-generic",
+  "rational curve on cone over twisted cubic degree six double cover ruling almost minimal degree scroll",
+  "Beck Lecouvey linear Kneser transcendental extension stabilizer subfield",
+  "degree 2 subfield k(h) of k(u) Moebius involution pencil normal form Lüroth index two",
+  "Eisenbud Linear sections of determinantal varieties; Kronecker normal form 2x3 matrix scroll twisted cubic",
+  "binary sextic roots in involution cubic form in two quadratics degree 15 invariant Clebsch Bolza",
+  "Dolgachev involution on P^1 pencil binary forms apolar Jacobian fixed points",
+  "Mirandola Zémor critical pairs product Singleton bound Reed-Solomon Vosper",
+  "double cover of rational normal curve on cone, Castelnuovo curves on cones classification",
+  "Schanuel rank-one 2x3 matrix logarithms structural rank Roy; Kirby weak Schanuel predimension",
+  "genus 2 degree 6 P^4 tricanonical cone over twisted cubic quadric section Castelnuovo extremal cubic scroll",
+  "rational nodal sextic arithmetic genus 2 P^4 cubic scroll projected rational normal curve codimension two binary sextics",
+  "Hyeon Lee stability of tri-canonical curves of genus two two nodes",
+  "two geometric progressions in one function space; hyperelliptic Riemann-Roch basis 1,x,x^2,x^3,y",
+  "serie lineare composta con involuzione curva razionale; composite linear series multiple covering rational normal curve",
+  "combinatorial genus 2 subspaces K(x) dim S^2 = 2 dim S + 1 examples 1,x^2,x^4,x^5,x^6",
+  "zbMATH title searches: Vosper; Kneser field; Freiman function; rank index; spaces of rational functions; syzygy schemes; tri-canonical; binary sextics transformations; curves on rational normal scrolls"
+ ],
+ "notes": "**Outcome: no find.** None of (a)-(d) turned up in print. All leads are analogues, except one partial covering only (c)'s classical parenthesis.\n\n**Translation (my own, not from a source).** Choose x with the involution acting as x -> -x and let u = n/d be Moebius in x. Then\n\nW = (1/(n d L1 L2)) * span(1, x^2, x^4, x^6, x L1 L2), with L_i in span(x^2, 1),\n\nand H = (1/(n d)) * span(1, x, x^2). Equivalently, W * (u l1 l2) = Sym^3(P) + k l1 l2 J, with J the Jacobian of the pencil: the even sextics plus one odd element.\n\nGeometrically, W maps P^1 to a rational sextic in P^4 of arithmetic genus 2 with two nodes, a quadric section of the cone over the twisted cubic. It is the degenerate tricanonical genus 2 curve: y^2 = (t-a)^2 (t-b)^2 (t-alpha)(t-beta). H is projection from the line through the nodes onto a conic. (d) then says no projection from a point of that line lands on a twisted cubic.\n\nChecked by exact arithmetic on one sample pencil only: dim W = 5, codimension 2 in the sextics, dim W^2 = 11 (gamma = 2), and l1 l2 J lies in W. The node and cone statements are reasoning, not computed.\n\n**What each line of literature gives.**\n- **Linear Freiman line:** this was the real surprise. Involution spaces are, up to a multiplier, the n = 5, gamma = 2 case of Wessel's Prop. 3.5, degree set {0,2,4,5,6}, with one degenerate exception (L1 L2 proportional to x^2). Her proof also reaches an index bound <= 2 for a progression ratio. But her hypotheses are gamma and a degree pattern, and H and invisibility never appear. Worth citing as neighbouring work, not as prior art.\n- **BSZ Theorem 33:** over an algebraically closed field it gives the progression directly, which is slightly more than the named Lemma 4. It does not touch the part not found.\n- **Scrolls and syzygies:** Hofmann covers the smooth genus 2 picture and Aprodu-Bruno-Sernesi the bielliptic analogue. Neither treats the nodal case or a distinguished H.\n- **Rank index:** a 3-term progression in W is a rank-3 quadric through the curve, and H is one. Jung-Moon-Park handle projections from a point (codimension 1 in Sym^d), whereas the target is codimension 2. No statement on two such structures in one space was found.\n- **Kronecker, 1-generic, Schanuel, Ax:** vocabulary only. The target is purely about k(u), and I found no Schanuel-type statement bearing on it.\n- **Coding theory (Mirandola-Zémor):** the Reed-Solomon form of Vosper only.\n\n**A remark on the \"not routine\" label.** These are my own short derivations, for whoever reviews the ranking.\n- **(b):** take independent f, g in the 2-dimensional intersection of H and S. Then f/g lies in k(h) and has u-degree <= 2, so the tower law gives deg h <= 2. That is about two lines, and it needs the degree formula but not Lüroth's theorem proper, since h is given.\n- **(c):** write f/g = F1(p,q)/F2(p,q). Since the degree in h must be 1, F_i = E m_i with E binary quadratic, factoring over Q-bar as l1 l2 and m_i in P. Comparing with n_i/u gives c' = lambda/(u l1 l2). That is a few lines, and I checked it by hand only.\n- **Möbius part of (a):** looks like a finite partial-fraction case analysis, which I started but did not finish.\n- **(d):** I did not derive it. It is the part most specific to this work and seems the least likely to be printed anywhere.\n\n**Coverage limits.**\n- OpenAlex, Semantic Scholar and the arXiv API returned 429 on every attempt, so those indexes were effectively not searched. Web search and direct arXiv PDFs stood in for them.\n- zbMATH failed from Python with a self-signed certificate error. I did not disable verification and used Node fetch, which worked. Several multi-term title queries there still returned 404 or 502, so its coverage is partial too.\n- Formulas came from pdftotext and were not checked against page images. I read the Wessel Prop. 3.5 statement and proof in that text layer, so it should be confirmed on the page before being cited.\n- Stopped at about 18 minutes of the 30 because returns had run out. Hyeon-Lee (paywalled) is the one open item I would check next."
+}

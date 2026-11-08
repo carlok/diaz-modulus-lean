@@ -1,0 +1,20 @@
+# Entry 4, verification: N. Ilten, A. Mokhtar, Kh
+
+- **Source read:** N. Ilten, A. Mokhtar, Khovanskii-finite rational curves of arithmetic genus 2, arXiv:2101.09410v2 (17 Mar 2022), full PDF, https://arxiv.org/pdf/2101.09410. Tables, Theorem 3.6 and equations (2)-(3) read via pdftotext. Michigan journal details not confirmed; the published version was not opened.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** analogue only
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** For each of the eight strata, explicit parameterizations for a family of representative curves
+
+**Hypotheses.** Field: K algebraically closed of characteristic 0, which includes Q̄, so this matches. Dimension: n=4 (degree 6 in P⁴) gives 5-dimensional L, but only at arithmetic genus exactly 2. The target allows any pole degree, and W need not be rational. A generic D1 space (computed: degree 7, genus 0) lies outside Table 2. Conjugation: absent from the source. Dimension 4 and Theorem F are absent. Genericity: Table 2 lists representatives up to projective equivalence, with open conditions on parameters. The target fixes the coordinate u. No configuration hypothesis appears in the source.
+
+**Explanation.** Table 2 lists degree n+2 curves of arithmetic genus 2 by singularity. Text search found no scrolls, pencils, involutions or determinantal language; 2×3 configurations do not appear in the parts read. The target is not printed.
+
+Partial dictionary I derived (n=4, W=L/(xy·q)): D2a is L=AC·K₂+⟨C²S₁,A²S₂⟩; D2b is L=A²K₂+⟨ACS₁,C²S₁+ACS₂⟩.
+Two nodes: L={f: f(P₁)+af(P₂)=0, f(P₁′)+bf(P₂′)=0}. Take A, C vanishing on the node pairs. Then AC·K₂⊂L, each side condition leaves an S_i, and the rank is 5.
+
+Result: two nodes, two cusps → D2a; tacnode, (2,5) → D2b; triple point, (3,4,5), cusp+smooth branch → D1. Node+cusp shows the two-fibre pattern, so probably D2a; its full fit timed out. Checks were exact ranks mod 101, one parameter choice (two nodes by hand).
+
+Gaps: this covers only exact genus 2. NF's hard direction, a configuration forcing these shapes for unrestricted W, does not follow from the list.

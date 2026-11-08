@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "analogue only",
+ "hypotheses": "Snyder: classical projective 3-space, field unstated (implicitly complex), about a curve on a quadric cone. Target: subspaces of C over Q-bar, a field statement. Nothing printed on conjugation, u, rho, H0, products, configurations or progressions. Conjugation enters the target only through ubar = rho/u, giving the conic xy = rho z^2, non-degenerate since rho is non-zero. No genericity needed. The count is Bezout-type, so it transfers to Q-bar, but that transfer is mine. Dimension matches only after my translation: the 4-dimensional V gives the P^3 of a twisted cubic.",
+ "covers_part_not_found": false,
+ "passage": "Its order is then 2a+b",
+ "source_read": "V. Snyder, Twisted Curves whose Tangents belong to a Linear Complex, Amer. J. Math. 29 (1907), 279-288, DOI 10.2307/2370139. Full text and p. 279 scan: https://archive.org/details/jstor-2370139",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "Printed: §1 gives order 2a+b; §4 (p. 283) lists the cubic as type (1,1). No classification, no Möbius statement.\n\nDerivation (mine). By [BSZ17, Lemma 4], V = b·span(1,h,h²,h³), h transcendental. Write 1 = bp₀(h), u = bp₁(h), ρ/u = bp₂(h), with independent cubics. Then p₁p₂ = ρp₀². So projecting the twisted cubic from the net's centre O lands on the conic xy = ρz², and the cubic lies on a quadric cone with vertex O. Snyder's 3 = 2a+b, a ≥ 1, gives a = b = 1, so u = p₁/p₀ has degree 1 in h: Möbius.\n\nRebase: V = c·span(1,u,u²,u³). From 1, u, 1/u ∈ V: 1/c = uP, deg P ≤ 1, P = αu+β. α=0 gives w = u²; β=0 gives ū²; otherwise 1/(u−a), a = −β/α ≠ 0.\n\nVerdict: the source supplies only the geometric form of the degree count; the classification is absent. Unique factorisation gives the same count without Snyder. Note for the \"not routine\" label: this step is classical geometry."
+}

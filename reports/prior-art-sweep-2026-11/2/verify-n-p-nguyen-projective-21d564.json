@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "analogue only",
+ "hypotheses": "Field: Nguyen allows any K of characteristic not 2, so K = Q̄ is included. For the pencil fact this is more general than the target. Dimension: Nguyen works with the 3-dimensional space E of polynomials of degree at most 2 on P^1. The 5-dimensional space W, the four-term progression, and 1, u, 1/u never appear. Conjugation: the complex conjugate and uū algebraic do not appear; \"conjugate points\" there means involution pairs, a different notion. Genericity: X is a formal variable. Since u is outside Q̄, it is transcendental over Q̄, so specialising X to u is harmless. Regularity in Prop. 2 (no common zero, with ∞ counted) matches \"coprime, one of degree exactly 2\".",
+ "covers_part_not_found": false,
+ "passage": "\"There is a natural bijection between involutions of a projective line and regular pencils\"",
+ "source_read": "N. P. Nguyen, Projective Line Revisited, arXiv:1804.00639v7, full PDF, Section 3, Props. 1-2 (https://arxiv.org/pdf/1804.00639v7); arXiv lists J. Geom. Graph. 25 (2021), no. 2, 187-195. Journal version not opened.",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "Prop. 1 is at the cited place, but it only supports the parenthetical gloss in (c). Parts (a), (b) and (d) are absent: no progression, Lüroth, degree bound or configuration. No normal form of W is printed either, and the full-text search for these terms found nothing.\n\nDerivation of the gloss. Let q1, q2 be coprime, degree at most 2, one of degree exactly 2. They are independent, and have no common zero, ∞ included. Prop. 2 then makes the pencil regular, and Prop. 1 gives an involution σ whose conjugate pairs are zeros of pencil members.\n\nConverse, not printed: for a point s, the members vanishing at s form one line, because there is no common zero. So that member's zeros are {s, σ(s)}, and the pencil is the orbit pencil.\n\nExplicit form, my hand check: the orthogonal cycle is the Wronskian q1'q2 − q1q2'. Its discriminant is 4Res(q1,q2).\n\nIf \"normal form\" means only this gloss, it is classical and essentially printed. If it means W's shape, Nguyen does not cover it. The target does not settle which reading applies. This citation does not threaten the entry."
+}
