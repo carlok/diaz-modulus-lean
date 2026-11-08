@@ -239,3 +239,13 @@ text = '''E.~Park and S.~Sim, On rank 3 quadratic equations of Veronese embeddin
 key = "AH81"
 label = "AH81"
 text = '''E.~Arbarello and J.~Harris, Canonical curves and quadrics of rank 4, \emph{Compositio Math.} 43 (1981), 145--179.'''
+
+[[reference]]
+key = "TZ26"
+label = "TZ26"
+text = '''H.~Tan and Y.~Zhang, Uniform cubic bounds for irrational values of the dilogarithm, arXiv:2611.01066 (2026), preprint.'''
+
+[[reference]]
+key = "Lai26"
+label = "Lai26"
+text = '''L.~Lai, The linear independence of $1$, $\zeta(3)$ and $\zeta(4)$, arXiv:2610.06838 (2026), preprint.'''

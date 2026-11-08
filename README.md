@@ -1234,8 +1234,11 @@ transcendence-degree-one form was not found in the sources read.
 
 `DiazModulus.dilog_half_irrational_or_exp_i_div_pi_transcendental`: Li₂(1/2) = π²/12 − (log 2)²/2 is irrational,
 or e^{iγ/π} is transcendental for every rational γ ≠ 0.
-- Both alternatives are open. Waldschmidt lists the irrationality of Li₂(1/2) as unknown (*Open Diophantine
-  Problems*, 2004, p. 274), and e^{i/π} is the smallest case of the real half of (S).
+- Waldschmidt lists the irrationality of Li₂(1/2) as unknown (*Open Diophantine Problems*, 2004, p. 274). Two 2026
+  preprints report it proved (Tan–Zhang, arXiv:2611.01066; Lai, arXiv:2610.06838), with public Lean developments. The
+  preprints are unrefereed, and this project has not built those developments. If the result stands, the first
+  alternative holds and the corollary says nothing about e^{iγ/π}. The second alternative is open: e^{i/π} is the
+  smallest case of the real half of (S).
 - It comes from `DiazModulus.recip_pi_log_of_rational_quadratic_relation`: if a·t² + b·π² is rational, with a ≠ 0,
   then e^{iγ/π} is transcendental. That is Brownawell's Corollary 5 (1974) in general form.
 - The dichotomy was not found in the sources read.

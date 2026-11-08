@@ -3,7 +3,7 @@
 [chapter]
 title = "A dichotomy for the dilogarithm at one half"
 text = '''
-Two statements about classical constants from the library's work on Diaz's conjecture. Both rest on the four exponentials theorem in transcendence degree one (Chapter~\ref{chap:06-four-exponentials}). Each alternative of Corollary~\ref{cor:dilog_half_irrational_or_exp_i_div_pi_transcendental} is open, so at least one of two open questions has a positive answer.
+Two statements about classical constants from the library's work on Diaz's conjecture. Both rest on the four exponentials theorem in transcendence degree one (Chapter~\ref{chap:06-four-exponentials}). The second alternative of Corollary~\ref{cor:dilog_half_irrational_or_exp_i_div_pi_transcendental} is open. The first is reported proved in unrefereed preprints of 2026 (see the corollary's source line); if that stands, the corollary says nothing about $e^{i\gamma/\pi}$.
 '''
 
 [[node]]
@@ -26,7 +26,7 @@ title = "$\\mathrm{Li}_2(1/2)$ against $e^{i/\\pi}$"
 statement = '''
 Either $\pi^{2}/12-(\log2)^{2}/2$ is irrational, or $e^{i\gamma/\pi}$ is transcendental for every $\gamma\in\Q$, $\gamma\neq0$.
 '''
-source = '''By Euler's identity, $\pi^{2}/12-(\log2)^{2}/2=\mathrm{Li}_2(1/2)=\sum_{n\ge1}1/(n^{2}2^{n})$. Its irrationality is listed as unknown in \cite[p.~274]{Wal04} and is still open: \cite{Hat93,RV05,CDT24} cover $\mathrm{Li}_2(1/q)$ only for $q\ge6$ and $q\le-5$. The dichotomy was not found in the sources read.'''
+source = '''By Euler's identity, $\pi^{2}/12-(\log2)^{2}/2=\mathrm{Li}_2(1/2)=\sum_{n\ge1}1/(n^{2}2^{n})$. Its irrationality is listed as unknown in \cite[p.~274]{Wal04}, and \cite{Hat93,RV05,CDT24} cover $\mathrm{Li}_2(1/q)$ only for $q\ge6$ and $q\le-5$. Two preprints of 2026 report it proved, \cite[Theorem 1.3]{TZ26} and \cite[p.~2]{Lai26}, with public Lean developments; the preprints are unrefereed and this project has not built those developments. If the result stands, the first alternative holds and the corollary says nothing about $e^{i\gamma/\pi}$; Proposition~\ref{prop:recip_pi_log_of_rational_quadratic_relation} does not depend on it. The dichotomy was not found in the sources read.'''
 sketch = '''
 If $\pi^{2}/12-(\log2)^{2}/2=s\in\Q$, apply Proposition~\ref{prop:recip_pi_log_of_rational_quadratic_relation} with $t=\log2$, $a=-1/2$, $b=1/12$ and $c=s$.
 '''

@@ -1,6 +1,6 @@
 # Prior-art sweep of chapter 14, November 2026
 
-A desk search that tried to break each "not found" in chapter 14. The sweep itself edited nothing; changes to the blueprint, the companion note and the ranking are the author's calls, and this report marks the one applied so far.
+A desk search that tried to break each "not found" in chapter 14. The sweep itself edited nothing; changes to the blueprint, the companion note and the ranking are the author's calls, and this report marks the ones applied so far.
 
 ## Result
 
@@ -13,7 +13,7 @@ Decisions taken by the author on 8 November 2026:
 1. **Theorem B leaves the "not routine" list.** Its key step is in print under another name, and it takes two lines by gcds. Applied to chapter 14 and the node's source line. The other three entries (2, 3, 4) survived and move up to ranks 1–3.
 2. **Entries 6, 9, 14 are `found in part`.** See "How the verdicts were set".
 
-Still open: **the Li₂(1/2) line looks out of date.** Chapter text says irrationality is open. Two 2026 preprints report it proved, with public Lean developments. See "The Li₂(1/2) line" below.
+3. **The Li₂(1/2) wording changes.** "Still open" is gone from the blueprint, the README and the note. They now say two unrefereed 2026 preprints report it proved. See "The Li₂(1/2) line" below.
 
 Entries 6, 8, 9, 14, 16, 17, 18 confirm "routine": each follows quickly from a theorem that is in print, usually one already cited. Nearly all stay "not printed", so their source lines need a route added, not a retraction.
 
@@ -66,7 +66,7 @@ The preprints are unrefereed, and a September preprint (arXiv:2609.06895, snippe
 
 ## Proposed source-line changes
 
-Only the Theorem B change has been applied (8 November 2026), in the wording of chapter 14. New citation keys would also need entries in `blueprint/nodes/99-references.toml`. BSZ theorem numbers are arXiv v2 numbers: check them against the journal before use.
+Applied on 8 November 2026: the Theorem B change, in the wording of chapter 14, and the "still open" part of entry 18. The author declined the rest, including the added routes for entry 18. New citation keys would also need entries in `blueprint/nodes/99-references.toml`. BSZ theorem numbers are arXiv v2 numbers: check them against the journal before use.
 
 **Entry 1.** Nodes: `circle_point_extension_two_by_three_configuration_iff` (14-not-found-in-the-sources.toml); `two_by_three_configuration_forces_progression` (14-not-found-in-the-sources.toml). Replace "Not found in the sources read, and not routine" with: "The classification was not found in this form. Its key step, that u is a Möbius function of the progression's ratio, is the structure of rank-3 quadrics through a rational normal curve: \cite[Theorem 1.2(2)]{Par24}, \cite[Theorem 1.1]{PS25}, \cite[\S2]{AH81}, with \cite[Lemma 4]{BSZ17}." Whether "not routine" and rank 1 stand is the author's call. The step is also two lines by gcds: writing 1, u, ū as b·p₀, b·p₁, b·p₂ gives p₁p₂ = ρp₀²; dividing by the gcd leaves coprime forms whose product is a square, so they are squares; parity forces the gcd to have degree 1.
 
