@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "Then S and T have bases of the form {g, ga, . . . gadimS−1}" (Theorem 33)
+- **Passage:** "Then S and T have bases of the form {g, ga, . . . …
 
 **Hypotheses.** Field: matches. F = Q̄, L = ℂ, and Q̄ is algebraically closed, as Theorem 33 requires and as Theorem 2 and Lemma 4 need (F algebraically closed in L). Dimension: Theorem 2 has dim L infinite, so it gives dim ST >= dim S + dim T - 1 = 4 for dims 2 and 3. Theorem 33 needs equality, which holds exactly when the ambient space has dimension 4. It therefore applies to H₀ + Q̄w, and not directly to the 5-dimensional W. Conjugation: absent from the source. It enters only through ū = ρ/u in the derivation, and that part is elementary. Genericity: the source needs none. The derivation needs u transcendental (u not in Q̄, ρ algebraic), a nonzero, and the target's split between aā ≠ ρ² and aā = ρ². I did not see the target's Proposition defining u, a, z; I assumed those hypotheses from the other statements in the target. Locations are confirmed in arXiv v2: Theorem 2 on p. 2, Lemma 4 in Section 2, Theorem 33 on pp. 25-26. Published numbering and the Zbl entry were not checked. Lemma 4 is not needed.
 

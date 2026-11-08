@@ -13,7 +13,7 @@ Work in the transcendental setting: u is a complex number outside Q̄ with ρ = 
 
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer 2000; credited there to D. Roy 1989, Lemme
 - **Location:** Proposition 12.4, section 12.1, about pp. 421-422 (page read from the text layer, not checked against print)
-- **Quote:** any d × ℓ matrix with entries in En is k-equivalent to a block matrix
+- **Quote:** any d × ℓ matrix with entries in En is k-equivalent to a block …
 - **Link:** https://doi.org/10.1007/978-3-662-11569-5
 - **Relation:** My own translation. It gives only the case of V0 + Ku with no u^-1, for finite-dimensional V0 (enough, since a configuration uses finitely many elements). Take x_n = u and E_{n-1} = V0. The leading block M11 has diagonal in αu + F (α ≠ 0) and off-diagonal in F, so det M11 has degree r in u and is nonzero. Rank 1 then forces r ≤ 1. If r = 1, write M = [[a,B],[C,D]] with B, C, D over F, so aD = CB. Comparing u-degrees gives D = 0, then CB = 0, so M has a zero row or column, contradicting independence. If r = 0, all products lie in V0. This is stronger than the target's description of Prop. 12.2 (V0 = K), but it does NOT reach (c): u^-1 breaks the argument, since {1,u}·{1,1/u} is a 2×2 configuration in K + Ku + Ku^-1 with products outside K. The inverse case, which is the case needed for ū, is not in the source.
 

@@ -4,7 +4,7 @@
   {
    "citation": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer 2000; attributed there to D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algébriques, Groupe d'Études sur les Problèmes Diophantiens 1988-89, Lemme",
    "location": "Proposition 12.4 and its proof, §12.1.2, about pp. 421-422 (page estimated from running heads in the local text)",
-   "quote": "any d × ℓ matrix with entries in En is k-equivalent to a block matrix",
+   "quote": "any d × ℓ matrix with entries in En is k-equivalent to a block …",
    "link": "https://zbmath.org/0944.11024",
    "relation": "special case",
    "derivation": "My translation; it covers only the core without u^{-1}. Take M = uA + N with A over K and N over V0, normalised so A = diag(I_r, 0). If r ≥ 2, the top-left 2×2 minor has leading term u², so it is non-zero and M has rank ≥ 2. If r = 1, M = [u+a, b, c; d, e, f], and rank one with u transcendental over F forces e = f = 0 and bd = cd = 0, so rows or columns become dependent. Hence A = 0: every configuration in V0 + Ku has its products in V0. This is a little stronger than the target's source line, which credits Prop. 12.2 with V0 = K only. It does NOT reach (c): u and u^{-1} are algebraically dependent, so the block form gives no leading monomial for uA + N + u^{-1}B."
@@ -12,7 +12,7 @@
   {
    "citation": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer 2000; attributed there to D. Roy, Groupe d'Études sur les Problèmes Diophantiens 1988-89, Proposition 1 (Roy's original not seen)",
    "location": "Lemma 12.15 (§12.1.5, about p. 431) and Exercise 12.9 hint (about p. 443)",
-   "quote": "No quote: the one quote allowed for this source is used in the lead above.",
+   "quote": "No quote: the one quote allowed for this source is used in the lead …",
    "link": "https://zbmath.org/0944.11024",
    "relation": "analogue only",
    "derivation": "A degree-count result in the field's own literature, older than the [BSZ17, §7] method the target names. If polynomials p_n have positive degrees with each degree at least double the previous one, their span in k[x] has Property (A B; C 0). My derivation: that property excludes all 2×3 configurations. It does not imply (a). The hull contains 1, u and u^{-1}, and clearing denominators gives degrees 0, D-1, D, D+1, 2D, which do not double. The statement is one-sided (degree only), with no pole at 0 and no conjugation. Relevant as prior art for the method, not for the statement."

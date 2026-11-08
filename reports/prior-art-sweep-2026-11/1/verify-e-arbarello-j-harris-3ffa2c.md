@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "cuts out on X a pencil of divisors ... such that |2D + F| = |L|"
+- **Passage:** "cuts out on X a pencil of divisors ... such that |2D + F| …
 
 **Hypotheses.** Field: the paper's setting is complex (Riemann surfaces in §1); §2 names no field. The target has K = Q̄ inside ℂ, with h transcendental, so it needs base change of the cubic and quadric from Q̄ to ℂ; deg of u is unchanged. Dimension: k=1, n=3 is covered (§2 includes curves; p.158 names X3), and all quadrics through X3 lie in the principal locus (Gr(2,3) = P²). Conjugation: absent from the source; it enters the target only through ρ = uū and the relabelling 1/u² ~ ū². Genericity: no hypothesis on either side. Not in the source: subspaces of ℂ, u, 2×3 products, the three-way shape. The progression step still comes from BSZ17 Lemma 4 (AH 2.14 is only the converse, minors of a matrix). So AH gives the Möbius step in geometric dress, not the classification.
 

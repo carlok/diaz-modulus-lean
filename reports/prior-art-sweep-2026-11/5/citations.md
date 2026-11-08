@@ -26,7 +26,7 @@ Let K be a subfield of C, u transcendental over K, S a finite subset of Z, and V
 
 - **Citation:** J. Jung, H. Moon, E. Park, On the rank index of projective curves of almost minimal degree, arXiv:2411.17494
 - **Location:** §4, Notation and Remark 4.1(A), pp. 11-12
-- **Quote:** differences of any pairs (xi xj , xk xl ) of quadratic monomials with the same index
+- **Quote:** differences of any pairs (xi xj , xk xl ) of quadratic monomials with …
 - **Link:** https://arxiv.org/abs/2411.17494
 - **Relation:** Geometric shadow of the p=q=2 'if' direction. A 2×2 configuration in the span of u^S is a binomial quadric of rank ≤4 through the monomial curve of S, and here S={0,...,d} minus one point. There is no converse and no statement about general S or larger p×q. The translation to configurations is mine, not the authors'.
 

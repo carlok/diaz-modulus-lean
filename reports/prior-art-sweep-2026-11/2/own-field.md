@@ -20,7 +20,7 @@ The nearby [BSZ17, Lemma 4] and the Lüroth degree formula as such do not count.
 
 - **Citation:** G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007), 373-391
 - **Location:** Théorème 7 points 1 and 2, p. 390; Corollaire 5 point 4, p. 383; checked against page images
-- **Quote:** Soient u ∈ C\Q̄ et v ∈ C\{0}. Alors : {v, vu, vu², vu³} ⊄ L̃.
+- **Quote:** Soient u ∈ C\Q̄ et v ∈ C\{0}. Alors : {v, vu, vu², vu³} …
 - **Link:** http://archive.numdam.org/article/JTNB_2007__19_2_373_0.pdf
 - **Relation:** Same objects, no part of the target reached. Th. 7(2) says a four-term progression with ratio outside Q̄ never lies in L̃; Th. 7(1) excludes {v, vu, vū}; Cor. 5(4) excludes {1/λ, 1/(λ+α)}, close to the target's 1/(u−b) branch. These are one-off exclusions from Roy's theorem. Diaz has no 5-dimensional space, no classification by what W contains, no index bound, no involution pencil and no statement about 4-dimensional extensions. My one-line consequence: since h is outside Q̄, Th. 7(2) gives W ⊄ L̃, which fits the target's remark that it excludes nothing new at a candidate.
 

@@ -10,7 +10,7 @@ Work over k = Q-bar and let u be transcendental, so k(u) is the function field o
 
 - **Citation:** M. Wessel, On Freiman's Theorem in a function field setting, arXiv:2405.10724 (2024)
 - **Location:** Proposition 3.5 with its proof; Corollary 1.6.1; Lemma 2.8
-- **Quote:** the set of degrees of Sγ+3 equals {0, 2, 4, . . . , 2γ, 2γ + 1, 2γ + 2}
+- **Quote:** the set of degrees of Sγ+3 equals {0, 2, 4, . . . , …
 - **Link:** https://arxiv.org/abs/2405.10724
 - **Relation:** Closest lead, but it reaches none of (a)-(d). My translation: take x with involution x -> -x. Then W = m * span(1, x^2, x^4, x^6, x L1 L2) with L_i in span(x^2, 1), where m = 1/(n d L1 L2) and u = n/d is Moebius in x. So involution spaces, up to the multiplier m, have dim 5 and gamma = 2 (dim W^2 = 11), and degree set {0,2,4,5,6} at a fixed point of the involution, except when L1 L2 is proportional to x^2. That is the gamma = 2 case of Prop. 3.5. Its proof has the progression 1, e2, e2^2, e2^3 and gets [F:K(e2)] <= 2, the same conclusion as (b), but from gamma and the degree pattern, not from H in W. Its stated conclusion is only S in L((n+gamma-1)P_inf). The normal form follows from that in one line, but only for spaces already known to have gamma = 2, which the target's hypotheses do not give without (c). H and invisibility never appear.
 

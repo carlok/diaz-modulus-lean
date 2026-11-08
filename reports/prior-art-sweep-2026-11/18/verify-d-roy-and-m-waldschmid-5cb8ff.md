@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "le corps Q(λ1,...,λn) est de degré de transcendance ≥ 2 sur Q" (Théorème 0.2, p. 755)
+- **Passage:** "le corps Q(λ1,...,λn) est de degré de transcendance ≥ 2 sur Q" (Théorème 0.2, …
 
 **Hypotheses.** Field: P rational, matching rational a, b, c, gamma; only Q-independence of the logs is needed. Dimension: n=3 with form aX^2 - bY^2 + (c/gamma)YZ, homogeneous degree 2. Genericity: Theorem 0.2 needs transcendence degree at most 1, which follows from the supposition and the relation. Conjugation: not involved; t real is used only for Q-independence. Difference: the target's relation is inhomogeneous and the theorem is homogeneous; the supposition e^{i gamma/pi} algebraic bridges this. Target's case c=0 and b=0 are also covered (hypothesis then void).
 

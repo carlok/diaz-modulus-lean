@@ -4,7 +4,7 @@
   {
    "citation": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000. Attributed there to D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algébriques, Groupe d'étude sur les problèmes diophantiens 1988-89, Publ. Math. Univ. Paris VI 90 (Lemme; not read).",
    "location": "Proposition 12.4, p. 422, for arbitrary fields k ⊆ K. Also Exercise 12.10 with its hint, p. 443, for the bound.",
-   "quote": "any d × ℓ matrix with entries in E_n is k-equivalent to a block matrix",
+   "quote": "any d × ℓ matrix with entries in E_n is k-equivalent to a block …",
    "link": "(local library) waldschmidt/dalag.pdf (PDF p. 442; statement checked on the page image)",
    "relation": "implies",
    "derivation": "The derivation is mine; the separation is not printed. Take x_1..x_s a K-basis of the V₀-parts of the entries, then the w's last, so the x's are K-independent. Apply 12.4 to M = (x_i y_j). Let i ≤ m be smallest with r_i > 0, so the top variable is w_t. All entries lie in F' = F(w_1..w_{t-1}) except the diagonal of M_ii, whose entries are c w_t + e with c ≠ 0. Rank 1 forces r_i = 1. So PMQ = [[a,R],[S,T]] with a = c w_t + e. The minors aT = S·R, with w_t transcendental over F', give T = 0 and then R = 0 or S = 0. That produces a zero column or row, contradicting K-independence since p,q ≥ 2. Hence r_1 = … = r_m = 0 and all entries lie in E_s ⊆ V₀. Theorem A then follows from Exercise 12.10 (rank ≥ (d+ℓ)/4 when dim E ≤ 3, any k): 1 ≥ 5/4 is false."

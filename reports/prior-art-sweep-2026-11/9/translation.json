@@ -4,7 +4,7 @@
   {
    "citation": "C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452; arXiv:1501.00602",
    "location": "Section 7 'Transcendental extensions', Theorem 33 (arXiv numbering; p. 25-26). Theorem 2 supplies the lower bound.",
-   "quote": "Then S and T have bases of the form {g, ga, . . . gadimS−1 } and {g′ , g′ a, . . .",
+   "quote": "Then S and T have bases of the form {g, ga, . . . …",
    "link": "https://arxiv.org/abs/1501.00602",
    "relation": "implies",
    "derivation": "Part (b) only, through my own translation plus a short divisor argument that is not in the source. The source never mentions these spaces, poles or conjugation. Take F = Q̄, L = ℂ. If S·T ⊂ V = H₀+Q̄w with dim S = 2, dim T = 3, Theorem 2 forces S·T = V, so Theorem 33 gives V = h⟨1,a,a²,a³⟩ with a = (ha)/h ∈ Q̄(u) non-constant of degree n. Reduce w mod H₀ to αz₁+βz₂. V is base-point-free relative to its polar divisor D = (0)+(∞)+(the ±√a_i with non-zero coefficient), so 3n = deg D ∈ {4,6}. So n = 2 and both α, β are non-zero; let S be the four points ±√a_i. Every divisor div(f)+D (f ∈ V) is a pullback under a. f = u gives 2(0)+S, so 0 is fixed by the deck involution and is a ramification point. f = 1 gives D, which has multiplicity 1 at 0, and a pullback has even multiplicity there: contradiction. Part (a) is an explicit partial-fraction check not taken from any source: X = ⟨1, 1/(u²−a₁)⟩, Y = ⟨u, 1/u, z₂⟩."
@@ -20,7 +20,7 @@
   {
    "citation": "D. Eisenbud, On the resiliency of determinantal ideals (1987), and Linear sections of determinantal varieties, Amer. J. Math. 110 (1988)",
    "location": "1-generic matrices; the rational normal curve case is cited as Prop. 4.3 of 'Ei1' in Sidman-Smith, arXiv:0910.2424. I saw this only through secondary quotations.",
-   "quote": "ideal of maximal minors of a 1-generic m × n matrix ... is prime (arXiv:1801.07916, on Eisenbud)",
+   "quote": "ideal of maximal minors of a 1-generic m × n matrix ... is prime …",
    "link": "https://arxiv.org/abs/0910.2424",
    "relation": "analogue only",
    "derivation": "Under the dictionary, a 2×3 configuration spanning a 4-dimensional V is a 1-generic 2×3 matrix of linear forms on P³ vanishing on the curve. Primality would make its minor locus a twisted cubic, which gives the same structure as BSZ Theorem 33. This is a possible alternative to the first step only, not checked against the primary text, and it stops short of the pole argument."

@@ -10,7 +10,7 @@ Let u be transcendental with u·ū = ρ algebraic, so ū = ρ/u and H₀ = Q̄ +
 
 - **Citation:** C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452 (arXiv:1501.00602). Theorem 2 there is credited to Eliahou-Lecouvey.
 - **Location:** Theorem 2 (dim ST >= dim S + dim T - 1 when F is algebraically closed in L) and Lemma 4, Section 2 (arXiv numbering; also checked in the local copy)
-- **Quote:** there exists g ∈ S such that {g, ga, ..., ga^(s−1)} is a basis for S
+- **Quote:** there exists g ∈ S such that {g, ga, ..., ga^(s−1)} is a basis …
 - **Link:** https://arxiv.org/abs/1501.00602
 - **Relation:** Own translation; reaches the invisibility part only, not the cyclic space's missing degree-one factor. Neither the spaces nor the classification below are printed. Take F = Q̄, L = ℂ, and suppose V = H₀ + Q̄w carries a configuration. Rescale to A = ⟨1,a⟩ and S = x₁B. Then Theorem 2 gives dim AS = 4, so AS = V, and Lemma 4 gives V = g⟨1,a,a²,a³⟩ with g, a ∈ Q̄(u). Since 1, u ∈ V, u lies in Q̄(a), so a is Möbius in u and V = c·P₃(u), where P₃ is the polynomials of degree at most 3. From 1, u, 1/u ∈ V, 1/c = u(αu+β). So V is H₀ plus one of u², u⁻², 1/(u−b) with b ≠ 0: every class of V outside H₀ has polar part beyond H₀ at one point only. In the swapped W, λg + μḡ has simple poles at ±a or ±ρ/ā (four distinct points, as aā ≠ ρ and aā > 0). In the cyclic W, λG₁ + μG₂ has poles at both ±s. So no such V lies in W. The derivation is by hand and has not been refereed.
 

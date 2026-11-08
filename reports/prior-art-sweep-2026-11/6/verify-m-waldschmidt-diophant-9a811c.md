@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "yields a more general result where the xi are not assumed to be algebraically independent"
+- **Passage:** "yields a more general result where the xi are not assumed to be algebraically …
 
 **Hypotheses.** Field: Prop 12.4 holds for any k in K (section convention, p. 418), so book k = target K, book K = C. Dimension: x_1..x_n are k-independent and finite; V_0 must be cut to a finite-dimensional part, which is harmless. Algebraic independence: absent from 12.4. It is the target's own hypothesis and enters only in my derivation. Conjugation: not in the source; ū = ρ/u only places ū in F = Q̄(u). Genericity: 12.4 needs none. Exercise 12.10 (p. 443) is a bound only, for dim_k E ≤ 3, set as an exercise with a hint and no printed proof. As stated for arbitrary k it is false. Counterexample: k = Q, E = K = Q(θ), θ³ = 2, x = (1,θ), y = (1,θ,θ²) gives rank 1 < 5/4. So k needs to be algebraically closed in K (or similar). At k = Q̄ it is fine, so Theorem A goes through. For general K, the p+q ≤ 4 corollary should not rest on the exercise. A degree argument works instead: scale into K(u), then X ⊂ L(A), Y ⊂ L(B), A+B ≤ (0)+(∞), genus 0. p. 422 also misprints "rank r_1 − 1"; it should be r_1. Roy 1989 itself was not read.
 

@@ -18,7 +18,7 @@ Let t be a nonzero real with e^t algebraic, and let a, b, c be rationals with a 
 
 - **Citation:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191-202
 - **Location:** Corollaire 4, p. 192, and the remark right after it. Page image checked.
-- **Quote:** deux des quatre nombres log α, log β, log γ, exp(log α log β/log γ)
+- **Quote:** deux des quatre nombres log α, log β, log γ, exp(log α log β/log …
 - **Link:** https://doi.org/10.1016/0022-314X(73)90045-0
 - **Relation:** Printed: for algebraic alpha, beta, gamma with log alpha, log gamma and log beta, log gamma each Q-independent, two of the four numbers log alpha, log beta, log gamma, exp(log alpha log beta/log gamma) are algebraically independent. My translation: alpha = beta = e^t, log gamma = i pi. Under a t^2 + b pi^2 = c, the numbers t and pi are algebraically dependent, so the fourth number must be algebraically independent of pi. That number is a root of unity times e^{-i(c/a)/pi}. This gives more than the target: for nonzero rational gamma, e^{i gamma/pi} and pi are algebraically independent; c = 0 is again impossible. The DOI suffix is from memory and was not checked; the local copy is waldschmidt-1973-huitieme-probleme-schneider.pdf.
 
@@ -62,7 +62,7 @@ Let t be a nonzero real with e^t algebraic, and let a, b, c be rationals with a 
 
 **What I could not settle.** I found no source that prints the literal Li₂(1/2) or (log 2)²/π² dichotomy. Absence of that literal form is weak evidence, because OpenAlex and zbMATH were unusable (see inaccessible). The Brownawell 1972 Norske notes were not read. Web search returned nothing literal.
 
-**Checks.** W73 p. 192 and LN402 pp. 202-203 were checked against page images, not only OCR. RW97 statements were read from OCR, with garbled symbols interpreted, and were not checked on the page. The two DOIs for W73 and RW97 are from memory, not verified; the local PDFs are under missions/diaz/sources/. All three are independent of this work, dating from 1973, 1974 and 1997.
+**Checks.** W73 p. 192 and LN402 pp. 202-203 were checked against page images, not only OCR. RW97 statements were read from OCR, with garbled symbols interpreted, and were not checked on the page. The two DOIs for W73 and RW97 are from memory, not verified; the local PDFs are under (local library) . All three are independent of this work, dating from 1973, 1974 and 1997.
 
 **Timing.** Started 16:02, last clock check 16:06:52 CET, well inside the box. I stopped once the find was verified rather than using the full 30 minutes. Page images remain in (temp path)
 

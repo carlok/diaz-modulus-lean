@@ -1,6 +1,6 @@
 # Entry 17, verification: D. Roy, M. Waldschmidt,
 
-- **Source read:** D. Roy, M. Waldschmidt, Proc. Japan Acad. Ser. A 71 (1995), 151-153, Theorem 2, p. 151. Read from local scan missions/diaz/sources/roy-waldschmidt-1995-quadratic-relations.pdf, page image checked. The given link https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604 did not yield the PDF from here (a 1054-byte HTML stub, then 403).
+- **Source read:** D. Roy, M. Waldschmidt, Proc. Japan Acad. Ser. A 71 (1995), 151-153, Theorem 2, p. 151. Read from local scan (local library) roy-waldschmidt-1995-quadratic-relations.pdf, page image checked. The given link https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604 did not yield the PDF from here (a 1054-byte HTML stub, then 403).
 - **Accessible:** True
 - **Statement present:** True
 - **Relation:** implies

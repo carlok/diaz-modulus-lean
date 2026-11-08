@@ -1,12 +1,12 @@
 # Entry 19, verification: M. Waldschmidt, Diophant
 
-- **Source read:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000: Sec. 11.6.1 p. 399, Sec. 12.4.3 pp. 437-438. Read from local text layer prove2me/missions/diaz/sources/waldschmidt/dalag.txt, lines 21745-21766 and 23753-23776.
+- **Source read:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000: Sec. 11.6.1 p. 399, Sec. 12.4.3 pp. 437-438. Read from local text layer (local library) waldschmidt/dalag.txt, lines 21745-21766 and 23753-23776.
 - **Accessible:** True
 - **Statement present:** True
 - **Relation:** special case
 - **Covers the part not found:** False
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "the strong four exponentials Conjecture implies the following refinement of the Hermite-Lindemann's Theorem" (DALAG p. 399)
+- **Passage:** "the strong four exponentials Conjecture implies the following refinement of the Hermite-Lindemann's Theorem" (DALAG …
 
 **Hypotheses.** Field (complex x, y; algebraic coefficients), conjugation (the bar-lambda substitution, lost in the text layer) and the conclusion (u nonzero, |u| algebraic implies e^u transcendental) all match. The hypothesis differs. The printed implication assumes Conjecture 11.17, with four numbers and no fifth exponential. The target assumes Strong Five, printed separately at pp. 437-438. Under 11.17 the Strong Five hypotheses cannot hold, so 11.17 implies Strong Five vacuously and the target is formally the stronger theorem. The fifth exponential is written with x1/x2 in DALAG and x2/x1 in the target, which a swap of indices fixes. No genericity assumption is involved.
 

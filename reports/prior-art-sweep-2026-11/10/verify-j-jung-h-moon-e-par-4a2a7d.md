@@ -6,7 +6,7 @@
 - **Relation:** analogue only
 - **Covers the part not found:** False
 - **Printed or translation:** not applicable
-- **Passage:** "C is a divisor on S in the class H + 2F" (Cor. 3.2 proof, p. 9)
+- **Passage:** "C is a divisor on S in the class H + 2F" (Cor. 3.2 …
 
 **Hypotheses.** Field: paper uses algebraically closed K, char 0; target uses Q̄ inside ℂ with complex conjugation. Taking K=Q̄ works only when the space lies in Q̄(u), u transcendental; the first target theorem has arbitrary g ∈ ℂ. Dimension: Lemma 5.1 (d≥5) includes d=5, a 5-dimensional section space in P^4, so it fits. Conjugation: absent; a text search finds no conjugation, pencil, invisibility or progression, and "real" appears only in a pointer to Blekherman et al. Genericity: rank of p is a condition on the centre, unrelated to the target's freeness and modulus hypotheses.
 

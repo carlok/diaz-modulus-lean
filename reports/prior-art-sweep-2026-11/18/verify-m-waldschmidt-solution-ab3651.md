@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** Alors deux des quatre nombres log α, log β, log γ, exp(log α log β/log γ)
+- **Passage:** Alors deux des quatre nombres log α, log β, log γ, exp(log α log …
 
 **Hypotheses.** Field: both over Q-bar in C, matching. Dimension: Theorem is 2x2; e^{x1y2}, e^{x2y2} algebraic (checked on the page image; OCR garbles it). Conjugation: none in the source; the target's t real is used only for Q-independence of t and iπ. Genericity: Cor. 4 needs only log α, log γ and log β, log γ Q-independent, and allows α=β. Both hold here. Mismatch: the source never mentions t, quadratic relations, Li2 or log 2.
 

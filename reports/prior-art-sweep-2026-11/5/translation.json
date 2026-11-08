@@ -12,7 +12,7 @@
   {
    "citation": "R. M. Roth, N. Raviv, I. Tamo, Construction of Sidon Spaces With Applications to Coding, IEEE Trans. Inform. Theory 64 (2018), no. 6, 4412-4422; arXiv:1705.04560",
    "location": "Construction 21 and Lemma 22, with Lemma 20, Section IV (p. 5 of the arXiv version)",
-   "quote": "The subspace V ∈ Gq (n, k) from Construction 21 is a max-span Sidon space.",
+   "quote": "The subspace V ∈ Gq (n, k) from Construction 21 is a max-span Sidon …",
    "link": "https://arxiv.org/abs/1705.04560",
    "relation": "analogue only",
    "derivation": "Closest printed statement about spans of powers. Dictionary (my derivation): a space has no 2x2 configuration iff it is a Sidon space, because ab=cd gives x=(a,c), y=(1,d/a). Lemma 22 then says: S a Sidon set in [m], gamma of degree n>2m over F_q, implies span of gamma^s has no 2x2 configuration. That is the p=q=2 only-if direction, in a finite-field setting with gamma algebraic of high degree, not transcendental over a general K. It does not formally imply the target, gives nothing for 2x3, and does not reach the hulls, because {0,±1,±k} is never Sidon (-1+1=0+0)."

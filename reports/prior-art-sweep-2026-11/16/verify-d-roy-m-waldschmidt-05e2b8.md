@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "est contenu dans un sous-espace vectoriel de C^n défini sur Q et contenu dans V"
+- **Passage:** "est contenu dans un sous-espace vectoriel de C^n défini sur Q et contenu dans …
 
 **Hypotheses.** Field: P in Q[X], homogeneous of degree at most 2; the target's forms have coefficients in Q (±1, and c=|u|²/|v|²). Match. Subspace: defined over Q. Match. Point: in L^n; conjugates of logarithms are logarithms, so the point lies in L⁴. Match. Dimension: n=4, one quadric; the p. 791 intersection extension is not needed. Transcendence: Q(point) is exactly the target's field, and the theorem's alternative is trdeg ≥2, so ≤1 (including 0) is covered. Conjugation: Th. 0.2 does not mention it; it enters only through the choice of point. Genericity: none in Th. 0.2. The not-real, not-imaginary hypothesis is used only at the end, to exclude one ruling.
 

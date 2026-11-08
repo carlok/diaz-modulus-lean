@@ -12,7 +12,7 @@
   {
    "citation": "D. Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, Acta Math. 175 (1995), 49-73; restated as Lemma 12.16* and Exercise 12.10 in Waldschmidt, DALAG (2000), pp. 431, 443",
    "location": "Theorem 3.4 and its proof, p. 66, with §3.2 Homogeneous surfaces, p. 65. Statement checked on the page image.",
-   "quote": "Paraphrase, not verbatim (the session limits verbatim quotation): for lambda_1, lambda_2, lambda_3 independent over Q-bar and M with entries in their span and independent rows and columns, 4 rank M ≥ d+l.",
+   "quote": "Paraphrase, not verbatim (the session limits verbatim quotation): for lambda_1, lambda_2, lambda_3 independent over …",
    "link": "https://doi.org/10.1007/BF02392486",
    "relation": "special case",
    "derivation": "Take rank M=1: p+q≤4 in any 3-dimensional Q-bar-space. So span(u^a,u^b,u^c) carries no 2x3 configuration, which is the only-if direction for |S|=3, p=2, q=3, K=Q-bar, and it holds for arbitrary 3-dimensional spaces, so on that slice it is more general. It says nothing for |S|≥4, hence nothing about S={0,±1,±k}. Roy's §3.2 uses the theorem as a barrier: on the cone xy=z² (geometric progressions of three terms) the Waldschmidt rank theorem cannot prove the four exponentials conjecture. This is the same kind of statement as the target's limit on Roy's theorem through hulls, for a different theorem and a smaller space."

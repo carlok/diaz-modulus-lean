@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** any nonzero homogeneous polynomial Q ∈ Q[X1,…,Xn] of degree 2, we have Q(λ1,…,λn) ≠ 0
+- **Passage:** any nonzero homogeneous polynomial Q ∈ Q[X1,…,Xn] of degree 2, we have Q(λ1,…,λn) ≠ …
 
 **Hypotheses.** Field: the book's Q is rational, not Q̄; I checked the page image. Dimension: any n, with Q-independent logarithms and trdeg exactly 1. The target's ≤1 equals 1 by Hermite-Lindemann, since a nonzero logarithm is transcendental. Conjugation: the source never mentions it. I supply it: ū lies in L because exp(ū) is the conjugate of exp(u), so the conjugates can simply be included among the λ's, and the target's trdeg hypothesis already covers them. Genericity: none is needed beyond the target's own exclusions. Dependent families need a passage to a basis, done in the derivation. Theorem 15.30 says rstr 'with respect to k', which is odd wording, so I rely only on the explicit Q[X] paragraph after it.
 

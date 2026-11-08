@@ -11,7 +11,7 @@ Let u be a non-zero complex number with |u| and e^u algebraic (a candidate). The
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000
 - **Location:** Exercise 15.16(c), end of chapter 15 (see also the remark after Conjecture 1.13 and section 11.6)
 - **Quote:** either e|λ| is transcendental, or λ and λ are algebraically independent
-- **Link:** local library: prove2me/missions/diaz/sources/waldschmidt/dalag.txt (text layer; the conjugation bar is presumably lost in OCR, not checked against the page)
+- **Link:** local library: (local library) waldschmidt/dalag.txt (text layer; the conjugation bar is presumably lost in OCR, not checked against the page)
 - **Relation:** Concerns a logarithm and its conjugate, with an unconditional dichotomy. It has no weak Schanuel hypothesis and no conclusion about Im u ∈ πQ. It does not reach the part not found.
 
 ### Lead 2: analogue only
@@ -27,7 +27,7 @@ Let u be a non-zero complex number with |u| and e^u algebraic (a candidate). The
 - **Citation:** M. Waldschmidt, Four exponentials problem and Schanuel's conjecture (survey; publication details not established, Springer Nature template, MSC 2020)
 - **Location:** Section after Conjecture 1 (algebraic independence of logarithms), p. 4
 - **Quote:** Conjecture 1 claims that log 2 and π are algebraically independent
-- **Link:** local library: prove2me/missions/diaz/sources/waldschmidt-four-exponentials-problem-schanuel.txt
+- **Link:** local library: (local library) waldschmidt-four-exponentials-problem-schanuel.txt
 - **Relation:** With λ1 = t and λ2 = iπ, the logarithms conjecture gives t² + π² transcendental, which is the single relation of (b). The hypothesis is different (logarithms, not the n = 1 kernel statement), and this is the step the entry itself calls standard. It does not touch the weak Schanuel reduction.
 
 ## Notes

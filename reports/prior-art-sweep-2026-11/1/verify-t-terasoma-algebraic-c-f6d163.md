@@ -5,7 +5,7 @@
 - **Statement present:** True
 - **Relation:** unrelated
 - **Covers the part not found:** False
-- **Passage:** det(t1 Q1 + t2 Q2 + t3 Q3 ) = (t1 t3 − t2^2)^2 = 0
+- **Passage:** det(t1 Q1 + t2 Q2 + t3 Q3 ) = (t1 t3 − t2^2)^2 …
 
 **Hypotheses.** None match. Field: Terasoma works in projective geometry over C, with no subfield such as Q-bar and no K-subspaces of C. Dimension: P^3 and a net of quadrics, not a 4-dimensional K-subspace of numbers holding six products. Conjugation: none; there is no u, u-bar or uū algebraic, and no H_0. Genericity: the special net (4.1) is the central fibre of a generic deformation, which has nothing to do with z not in H_0 or u transcendental. The only shared shape is the twisted cubic parametrisation (x^3:x^2:x:1). That resembles the progression (b, bh, bh^2, bh^3), which is the BSZ17 side the target already names as nearby, and even this link is my own reading, not something the paper states.
 

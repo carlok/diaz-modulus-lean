@@ -10,7 +10,7 @@ Work in Q̄(u) with u transcendental and uū algebraic, so that conjugation acts
 
 - **Citation:** C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452; arXiv:1501.00602v2
 - **Location:** Lemma 4 (and Lemma 5, Theorem 2), text layer of the arXiv version; no page checked
-- **Quote:** there exists g ∈ S such that {g, ga, . . . , gas−1 } is a basis for S
+- **Quote:** there exists g ∈ S such that {g, ga, . . . , gas−1 …
 - **Link:** https://arxiv.org/abs/1501.00602
 - **Relation:** My own translation: Q̄ is algebraically closed in ℂ, so with A=(x1,x2)=x1(1,a) and dim AT=4, Lemma 4 forces T=g(1,a,a²). Hence any 4-dimensional V carrying a 2×3 configuration is a progression g'(1,a,a²,a³). This is only a structural tool. It does not say that W1, the two-orbit space or W(λ,f) contains no such H0+Q̄w, and it gives neither the degree bound nor the Laurent visibility criterion. Those need a separate computation that I did not find in print.
 
@@ -18,7 +18,7 @@ Work in Q̄(u) with u transcendental and uū algebraic, so that conjugation acts
 
 - **Citation:** C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018), no. 4; arXiv:1709.00087
 - **Location:** Introduction (linear Vosper over an algebraically closed base), Definition 2.1 and Conjecture 2.2 (combinatorial genus)
-- **Quote:** A particularly simple case for which a linear version of Vosper's Theorem can be derived
+- **Quote:** A particularly simple case for which a linear version of Vosper's Theorem can be …
 - **Link:** https://doi.org/10.5802/alco.19
 - **Relation:** It concerns subspaces of function fields over an algebraically closed base with small products, mostly the symmetric case S=T. The 2×3 pair here has dim ST = 4 or 5, and the spaces are not squares. The paper has no spaces containing 1,u,1/u, no conjugation and no statement about these spaces. No derivation reaches the target.
 

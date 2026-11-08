@@ -26,7 +26,7 @@ Let K be algebraically closed (here Q̄), u transcendental over K (or at least n
 
 - **Citation:** H.-C. Graf von Bothmer, Geometric syzygies of Mukai varieties and general canonical curves with genus at most 8, arXiv:math/0202133
 - **Location:** Section 2.2 (Scrollar syzygies), opening paragraph and Proposition 2.2.1
-- **Quote:** we can construct a scroll S containing X from a pencil of divisors on X
+- **Quote:** we can construct a scroll S containing X from a pencil of divisors on …
 - **Link:** https://arxiv.org/abs/math/0202133
 - **Relation:** This is the general dictionary between low-rank syzygies, scrolls containing X and pencils of divisors on X, which the author calls well known apart from one morphism. It concerns canonical curves. No normal forms for a space containing 1, u, 1/u, and no types.
 

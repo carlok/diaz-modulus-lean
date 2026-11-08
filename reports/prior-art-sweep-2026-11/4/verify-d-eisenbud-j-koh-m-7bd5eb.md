@@ -6,7 +6,7 @@
 - **Relation:** analogue only
 - **Covers the part not found:** False
 - **Printed or translation:** not applicable
-- **Passage:** "The normalization of C is P1, C has exactly one singular point, x" (p. 533, (c))
+- **Passage:** "The normalization of C is P1, C has exactly one singular point, x" (p. …
 
 **Hypotheses.** Field: the paper works over an algebraically closed field (p. 513), so Q̄ fits. Dimension: Theorem A has C reduced and irreducible of arithmetic genus g, with F torsion free of rank 1. It treats only the extremal case h⁰(F) + h¹(F) = g + 1. The target has a 5-dimensional W and a 2 × 3 configuration, usually with six products spanning 5 dimensions, which is one below that bound if W = H⁰(ω). Conjugation: absent from the source. It is also unused in the target's σ-free form, so this is no obstacle for that form, but Theorem F's hull statement is not addressed. Genericity: no condition in either. Mismatches: the source needs the products to fill all of H⁰(ω_C) and F, Hom(F, ω) to be full section spaces. The target has W ∋ 1, u, 1/u and arbitrary subspaces x, y. Case (c) has ruling ratio t of degree 1, while Theorem NF assumes degree 2.
 

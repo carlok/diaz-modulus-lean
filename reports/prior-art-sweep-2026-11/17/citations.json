@@ -12,7 +12,7 @@
   {
    "citation": "D. Roy, M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. ENS (4) 30 (1997), 753-796",
    "location": "Théorème 0.2, p. 755; proof from Théorème 7.1 at p. 791",
-   "quote": "(no quote, one quote per response kept for the lead above) Paraphrase: a point with coordinates in L on a quadric cone over Q̄, generating a field of transcendence degree ≤ 1, lies in a Q̄-defined linear subspace inside the cone.",
+   "quote": "(no quote, one quote per response kept for the lead above) Paraphrase: a point …",
    "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/ASENS_1997_4_30_6_753_0.pdf",
    "relation": "implies",
    "derivation": "My translation; reaches all three parts. Boundary statement: suppose t ≠ 0 real, e^t algebraic, t²+π² = r in Q, and w = iγ/π in L with γ ≠ 0 rational. Since w·iπ = −γ, the point (t, iπ, w) satisfies X² − Y² + (r/γ)WY = 0, a rank 3 form over Q. The field is algebraic over Q(π), so has transcendence degree 1. A non-degenerate quadric in 3 variables contains no plane, so the subspace is a line over Q̄ and t/(iπ) is algebraic. Gelfond-Schneider then makes t and iπ Q-dependent, impossible for t real non-zero. Uniqueness: r1 X² − r0 Z² − (r1−r0) Y² vanishes at (t0, t1, iπ) with the same conclusion when r1 ≠ r0."
@@ -20,7 +20,7 @@
   {
    "citation": "D. Roy, M. Waldschmidt, Quadratic relations between logarithms of algebraic numbers, Proc. Japan Acad. Ser. A 71 (1995), 151-153",
    "location": "Theorem 2, p. 151 (checked on the page image); stated without full proof, the proof deferred to the 1997 paper",
-   "quote": "(no quote) Paraphrase: same statement as Théorème 0.2 of the 1997 paper, for transcendence degree exactly 1, and it contains the four exponentials case as P = X1X4 − X2X3.",
+   "quote": "(no quote) Paraphrase: same statement as Théorème 0.2 of the 1997 paper, for transcendence …",
    "link": "https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604",
    "relation": "implies",
    "derivation": "Same two quadratic forms and the same linear-subspace argument as for Théorème 0.2 above; my translation. This is the earliest printed statement I found that implies the target, as an announcement only."
@@ -28,7 +28,7 @@
   {
    "citation": "D. Roy, M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. ENS (4) 30 (1997), 753-796",
    "location": "Corollaire 7.4 and the example after it, p. 792 (read in the text layer, not checked on the page image)",
-   "quote": "(no quote) Paraphrase: if log 2 and π are algebraically dependent, the exponential of the square root of (log 2)²+π² is transcendental.",
+   "quote": "(no quote) Paraphrase: if log 2 and π are algebraically dependent, the exponential of …",
    "link": "https://eudml.org/doc/82449",
    "relation": "analogue only",
    "derivation": "The only printed appearance of the number (log 2)²+π² I found. If that number is rational, the example's conclusion is already Hermite-Lindemann and says nothing about log 3. It does not imply the target by itself; Corollaire 7.3, one step earlier, does."

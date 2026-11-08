@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "l'une au moins des deux propriétés suivantes est vraie" (p. 202, then (i) and (ii))
+- **Passage:** "l'une au moins des deux propriétés suivantes est vraie" (p. 202, then (i) and …
 
 **Hypotheses.** Field: complex numbers over Q in the source. Target's t is real with e^t algebraic, a stronger assumption; reality is used only for Q-independence of t and iπs. Dimension: Th. 7.4.1 is the 2x2 case with two of the four exponentials assumed algebraic; no mismatch. Conjugation: absent from both. Genericity: the example needs l1, l2 Q-independent logarithms and yields the alternative algebraically independent OR exp(l1^2/l2) transcendental. Target satisfies this: a≠0 makes the relation a nontrivial polynomial, so (i) fails. Differences: source never mentions Li2, log 2 with pi^2, e^{iγ/π}, or rational a,b,c. Case c=0 needs a remark (see explanation); it is vacuous by the same example. Printed typo: "u3, u4" should be v1, v2.
 

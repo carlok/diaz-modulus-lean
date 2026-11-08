@@ -49,7 +49,7 @@ A full-text mention in a new preprint would not appear in these checks.
 - I did not read the books in the neighbourhood, such as Waldschmidt's DALAG Chapter 11 or Murty-Rath.
 - I cannot rule out a remark in a paywalled source. Nothing I saw suggests one exists.
 
-**Local library.** Bachoc-Serra-Zémor, Bachoc-Couvreur-Zémor, Butler and Couvreur-Zémor are already in `missions/diaz/sources/`. The analogue lead is therefore not new to the project.
+**Local library.** Bachoc-Serra-Zémor, Bachoc-Couvreur-Zémor, Butler and Couvreur-Zémor are already in `(local library) `. The analogue lead is therefore not new to the project.
 
 ## Read
 

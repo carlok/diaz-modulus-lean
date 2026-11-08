@@ -10,7 +10,7 @@ Let K be the algebraic numbers, u a transcendental complex number with s^2 = u �
 
 - **Citation:** C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452; arXiv:1501.00602
 - **Location:** Theorem 33 (section on infinite extensions, pp. 25-26 of the arXiv version)
-- **Quote:** S and T have bases of the form {g, ga, . . . } and {g′, g′a, . . . }
+- **Quote:** S and T have bases of the form {g, ga, . . . } …
 - **Link:** https://arxiv.org/abs/1501.00602
 - **Relation:** Over an algebraically closed base it gives the structure of (X,Y) only when dim XY = dim X + dim Y − 1 = 4. The hard case for the target is dim XY = 5 = dim W. It says nothing on conjugation, on classes (P), (Q), (R), on the exponent bound or on the cubic criterion. The target already names this paper's section 7 and Lemma 4 as method; Theorem 33 is not named there but sits in the same circle.
 
@@ -26,7 +26,7 @@ Let K be the algebraic numbers, u a transcendental complex number with s^2 = u �
 
 - **Citation:** N. Tanısalı, M. Wessel, High dimensional Riemann-Roch spaces in linear spaces with small squares, arXiv:2609.06822 (6 Sep 2026)
 - **Location:** Abstract only
-- **Quote:** S^2 must contain a Riemann--Roch space of dimension at least 2 dim S − 1 + g
+- **Quote:** S^2 must contain a Riemann--Roch space of dimension at least 2 dim S − …
 - **Link:** https://arxiv.org/abs/2609.06822
 - **Relation:** A recent forward citation of BSZ17. It concerns squares S² and states a conjecture proved in a restricted case. It has no pair (X,Y) with X ≠ Y and no involution, so it does not reach the target. Judged from the abstract alone.
 

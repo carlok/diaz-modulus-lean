@@ -10,7 +10,7 @@ Let u be a complex number that is not algebraic, with ρ = uū algebraic, so ū 
 
 - **Citation:** G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007), 373-391
 - **Location:** Cor. 5(4), pp. 383-384; also Cor. 1(3), p. 380, and Théorème 7(2), p. 390
-- **Quote:** Pour tout α ∈ Q\{0} on a : {1/λ, 1/(λ + α)} ⊄ L̃ (text-layer rendering; Q is Q̄)
+- **Quote:** Pour tout α ∈ Q\{0} on a : {1/λ, 1/(λ + α)} ⊄ L̃ …
 - **Link:** https://doi.org/10.5802/jtnb.592
 - **Relation:** Diaz applies Roy's theorem to explicit families. Cor. 5(4) uses (λ, λ+α) and (1, 1/λ, 1/(λ+α)), a 2×3 configuration in the 4-dimensional span of 1, λ, 1/λ, 1/(λ+α). Cor. 1(3) gives the shape {λ², 1/λ}. Th. 7(2) uses (v, vu) and (1, u, u²), giving {v, vu, vu², vu³} ⊄ L̃. My translation: Th. 7(2)'s families with u→u² and v→u/(u²(u²−a1)(u²−a2)) give part (a), the carrying half, since v times 1, t, t², t³ (t=u²) spans the odd part of W. Nothing in Diaz states part (b), the absence of a configuration in the 4-dimensional subspaces, nor any classification of 4-dimensional spaces carrying one. Diaz's one-pole families are in fact the visible cases that (b) excludes from W.
 

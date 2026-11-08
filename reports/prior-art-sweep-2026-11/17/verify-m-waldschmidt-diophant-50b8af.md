@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "for any nonzero homogeneous polynomial Q ... of degree 2, we have Q(λ1,...,λn) ≠ 0"
+- **Passage:** "for any nonzero homogeneous polynomial Q ... of degree 2, we have Q(λ1,...,λn) ≠ …
 
 **Hypotheses.** Field: logarithms in L with trdeg 1; both hold, since t_i^2 = rational - pi^2 makes t_i algebraic over Q(pi). Coefficients: the local copy drops the overbar in places (Thm 1.5 prints the same symbol twice), so Q may mean Q-bar. The argument survives either reading: my forms are rational, and Baker's Thm 1.5 lifts Q-independence to Q-bar-independence. Dimension: three logarithms, n = 3. Conjugation: not used; realness of t only separates real from imaginary parts. Genericity: none needed. Theorem 15.30 assumes only trdeg 1. Difference: the book states homogeneous forms only and calls nonhomogeneous extensions interesting; the target's relations are nonhomogeneous until two are combined. Neither log 2, log 3 with pi^2 nor these corollaries appear there (text-layer search, p. 593 checked on the page image).
 

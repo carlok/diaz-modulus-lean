@@ -26,7 +26,7 @@ Let K be a subfield of C and u a number transcendental over K with rho = u*conj(
 
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000; statement credited there to D. Roy 1989, Lemme
 - **Location:** Proposition 12.4, section 12.1 (with its use in Exercise 12.10, p. 443)
-- **Quote:** any d × ℓ matrix with entries in En is k-equivalent to a block matrix
+- **Quote:** any d × ℓ matrix with entries in En is k-equivalent to a block …
 - **Link:** https://www.imj-prg.fr/~michel.waldschmidt/
 - **Relation:** A printed GL x GL normal form over k for matrices with entries in a flag E1 in E2 in E3, valid for arbitrary k-independent generators. It ignores rank one and any relation such as u conj(u) = rho, so it gives a triangular block shape and not a single orbit or invertibility of the constant-term matrix. Applying it to H does not reach parts (1) or (2) without the argument the target supplies.
 

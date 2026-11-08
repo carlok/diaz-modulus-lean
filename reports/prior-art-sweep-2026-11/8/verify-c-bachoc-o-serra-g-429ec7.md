@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** True
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "Then S and T have bases of the form {g, ga, . . . gadimS−1 }" (Theorem 33)
+- **Passage:** "Then S and T have bases of the form {g, ga, . . . …
 
 **Hypotheses.** Field: F=Q̄ is algebraically closed, L=C; Theorems 2 and 33 apply, with dimensions 2 and 3. Theorem 33 needs equality; dim V=4 forces it. Conjugation and genericity: absent from the source. Conjugation only supplies ū=ρ/u and the form of z̄ (my computation). u∉Q̄ makes u transcendental. The target does not reprint the configuration proposition; I read it as first z with aā≠ρ², second with aā=ρ². Invisibility holds for any a≠0.
 

@@ -6,7 +6,7 @@
 - **Relation:** analogue only
 - **Covers the part not found:** False
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "The matrix Ω is 1-generic and its ideal I2 (Ω) of 2-minors vanishes on X"
+- **Passage:** "The matrix Ω is 1-generic and its ideal I2 (Ω) of 2-minors vanishes on …
 
 **Hypotheses.** Field: Sidman-Smith work over an algebraically closed k of characteristic zero; the target has an arbitrary subfield K of C, or Q-bar with u transcendental, and K-rationality matters. Dimension: their matrix is s x t on a projective scheme; the 2 x 2 case with X a conic, E = E' = O(1), is an instance. Conjugation: absent. The target's ū = ρ/u is only a coordinate on the conic. Genericity: they assume nothing about a point. The target needs u transcendental, except no_vanishing_coeff, which needs only u not in K. Candidates and logarithms: absent.
 

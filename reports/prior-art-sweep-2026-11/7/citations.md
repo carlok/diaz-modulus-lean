@@ -11,14 +11,14 @@ Let K ⊂ ℂ be a field and u transcendental over K with ρ = uū ∈ K, so ū 
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000, §12.1.6 (motivation for Lemma 12.16, credited to Proposition 2 of Roy 1989)
 - **Location:** p. 431, paragraph after Lemma 12.16
 - **Quote:** satisfies V ∩ k² = {0} (because x ∉ k)
-- **Link:** local copy: prove2me/missions/diaz/sources/waldschmidt/dalag.txt, line 23456 onward (DOI 10.1007/978-3-662-11569-5)
+- **Link:** local copy: (local library) waldschmidt/dalag.txt, line 23456 onward (DOI 10.1007/978-3-662-11569-5)
 - **Relation:** Reaches only Diaz.no_vanishing_coeff, by my own translation; it does not reach the orbit classification, the constant-term matrix or the pencil. The target file cites p. 431 only for the configuration and names Roy95 §3.2 as the nearest passage for no_vanishing_coeff, so this passage is closer than the file says. Waldschmidt takes E = ku+kux+kux², the rank-one matrix with rows (u,ux),(ux,ux²), and notes V = K(1,x) meets k² only in 0. Translation: put x = ū/r, which is not in K because u ∉ K. Then u·x = r and u·x² = ū, so H = u(1,x)ᵀ(1,x) and wᵀHv = u(w₁+w₂x)(v₁+v₂x) ≠ 0. The non-vanishing is not stated in print; it is one line from the printed fact. Roy 1989 Prop. 2, the credited source, could not be opened and may say more.
 
 ### Lead 2: analogue only
 
 - **Citation:** C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423–452
 - **Location:** Theorem 33, p. 445 (stronger companion to the named Lemmas 4 and 5, but only for F algebraically closed)
-- **Quote:** S and T have bases of the form {g, ga, …} and {g′, g′a, …}
+- **Quote:** S and T have bases of the form {g, ga, …} and {g′, g′a, …
 - **Link:** https://arxiv.org/abs/1501.00602
 - **Relation:** Gives a common ratio a with S = g⟨1,a⟩ and T = g′⟨1,a⟩, but says nothing about a relative to a prescribed W, and K in the target is not algebraically closed. Identifying a as a Möbius function of u, and the multiplier as μ, μ⁻¹, is the part not found. Lemmas 4 and 5 are already named; Theorem 33 adds nothing for the target.
 
@@ -26,7 +26,7 @@ Let K ⊂ ℂ be a field and u transcendental over K with ρ = uū ∈ K, so ū 
 
 - **Citation:** V. Di Gennaro, A. Rapagnetta, P. Sabatino, The genus of a curve on Calabi-Yau threefolds, arXiv:2610.25065v2 (3 Nov 2026)
 - **Location:** §2 items (v)–(vii); §3 Step 2, pp. 8–9, 14–15
-- **Quote:** the minimal Hopf equality dim UV = dim U + dim V − 1 holds
+- **Quote:** the minimal Hopf equality dim UV = dim U + dim V − 1 …
 - **Link:** https://arxiv.org/abs/2610.25065
 - **Relation:** The only forward citation of BSZ17 dated after 5 October 2026 that uses the critical-pair statement. Over ℂ on a curve, it writes UV = γ·Span(1,f,…,f⁴) and uses this to exclude a rational normal curve. No classification of factorisations of a fixed three-dimensional space, no K-rational orbit, no conjugation.
 
@@ -43,7 +43,7 @@ Let K ⊂ ℂ be a field and u transcendental over K with ρ = uū ∈ K, so ū 
 - **Citation:** D. Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, Acta Math. 175 (1995), 49–73; restated as Waldschmidt DALAG, Exercise 12.10
 - **Location:** Theorem 3.4 and its proof, pp. 65–66 (just after the named §3.2 passage)
 - **Quote:** Then its rank r satisfies 4r ≥ d+l
-- **Link:** local copy: prove2me/missions/diaz/sources/roy/roy-1995-acta-points-logarithms-varieties.txt, line 733 onward (OCR of the quote corrected)
+- **Link:** local copy: (local library) roy/roy-1995-acta-points-logarithms-varieties.txt, line 733 onward (OCR of the quote corrected)
 - **Relation:** For Q̄-independent λ₁,λ₂,λ₃, the proof bounds the dimension of {t : tL₁ ⊆ L₀} by 1, 2, 3 for dim L₁ = 3, 2, 1. This is a dimension count for configurations in any 3-space. There is no normal form, and it uses no conic structure. It rules out a 3×2 configuration but does not classify the 2×2 ones.
 
 ## Notes

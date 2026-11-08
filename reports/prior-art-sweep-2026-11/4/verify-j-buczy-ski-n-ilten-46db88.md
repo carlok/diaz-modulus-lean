@@ -6,7 +6,7 @@
 - **Relation:** analogue only
 - **Covers the part not found:** False
 - **Printed or translation:** not applicable
-- **Passage:** "exactly one of the singularities of Table 1, or two nodes, two cusps" (Example 1.5)
+- **Passage:** "exactly one of the singularities of Table 1, or two nodes, two cusps" (Example …
 
 **Hypotheses.** Field: K algebraically closed, so Q̄ is allowed. Dimension: ℓ=2, d=6, n=4 meets 2ℓ<d and n>2, as cited. But the theorem fixes L(D) of degree 6; the target does not. (D1) has unbounded degree: W=⟨u⁻¹,1,u,u⁷,u⁸⟩ has d=9, ℓ=5, outside ℓ≤3. NF does not even assume W is rational. Conjugation: absent, so it says nothing on Theorem F's hull or the 4-dimensional clause. Genericity: all L missing X, no genericity. The condition 1,u,u⁻¹ ∈ W is not treated. No 2×3 products, scrolls or pencils appear anywhere in the paper.
 

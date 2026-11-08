@@ -21,7 +21,7 @@
    "citation": "S. Fischler, Orbits under algebraic groups and logarithms of algebraic numbers, Acta Arith. 100 (2001), 167-187.",
    "location": "Closing N.B. of Section 6, p. 186; cites Roy 1989, Proposition 2",
    "quote": "it is impossible ([8], Proposition 2) to derive \"algebraically\" any of these conjectures",
-   "link": "local library: missions/diaz/sources/others/fischler-2001-acta-arith-orbits-logarithms.txt (no web URL checked)",
+   "link": "local library: (local library) others/fischler-2001-acta-arith-orbits-logarithms.txt (no web URL checked)",
    "relation": "analogue only",
    "derivation": "A printed statement of the barrier kind: Fischler's conjectures for V(2,2) and T(2,2), consequences of four exponentials, cannot be derived algebraically from the rank theorem (his Theorem 2.1). It concerns neither moduli, nor conjugation, nor a space containing L."
   },

@@ -6,7 +6,7 @@
 - **Relation:** analogue only
 - **Covers the part not found:** False
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "This proof of Proposition 12.2 yields a more general result" (DALAG p. 422, before 12.4)
+- **Passage:** "This proof of Proposition 12.2 yields a more general result" (DALAG p. 422, before …
 
 **Hypotheses.** Field: arbitrary k ⊂ K, compatible with K ⊆ F, but 12.4 has no transcendence hypothesis. Dimension: general d × ℓ normal form, with no rank-one or 2 × 3 statement. Conjugation: absent. Genericity: x_i only k-independent; the determinant conclusion is drawn only when they are algebraically independent, and u, 1/u are not. Decisive mismatch: 2 × 2 fails, since (1, 1/u)·(u, 1) has products in K + Ku + K/u. So the 2 × 3 shape is essential, and 12.4 never uses it.
 

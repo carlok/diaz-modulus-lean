@@ -6,7 +6,7 @@
 - **Relation:** special case
 - **Covers the part not found:** False
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "then E = k + E0 satisfies Property" (Waldschmidt, DALAG, Remark in §12.1.3, p. 424)
+- **Passage:** "then E = k + E0 satisfies Property" (Waldschmidt, DALAG, Remark in §12.1.3, p. …
 
 **Hypotheses.** Field: the Remark holds for any k ⊂ K, not only Q̄, so it is wider than the target's gloss "V₀=K=Q̄". In target notation it is K=F with V₀=F (Prop. 12.2 itself gives V₀=0), and those are the only F-subspaces of F. Target's K⊊F, with V₀ any K-subspace of F, is absent. Dimension: any matrix size, but the conclusion is the block form, not "configurations". Conjugation: none there; Theorem A's u, ū, and the p+q≤4 bound are not in the Remark. Genericity: matches (algebraic independence over k, E₀∩k=0).
 

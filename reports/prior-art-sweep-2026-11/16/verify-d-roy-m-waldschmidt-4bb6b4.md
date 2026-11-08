@@ -6,7 +6,7 @@
 - **Relation:** implies
 - **Covers the part not found:** False
 - **Printed or translation:** needs a derivation of the verifier
-- **Passage:** "contained in a vector subspace of C^n which is defined over Q and contained in V"
+- **Passage:** "contained in a vector subspace of C^n which is defined over Q and contained …
 
 **Hypotheses.** Field: the subspace is defined over Q, checked at 300 dpi. Our P is rational, so the coefficient field of P does not matter. Dimension: n=4 at the point (l0, conj l0, l1, conj l1), or (u, conj u, v, conj v). Conjugation: absent from the paper; the verifier must put conjugates in as coordinates, which is legal since L is conjugation-stable. The field Q(point) is then exactly the target's field. Transcendence degree: Theorem 2 says =1, the target <=1; Hermite-Lindemann closes this, since a non-zero log is transcendental. Genericity: no independence hypothesis in Theorem 2. Non-real/non-imaginary is used only to discard one branch. Status: announced here without full proof.
 

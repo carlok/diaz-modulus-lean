@@ -4,7 +4,7 @@
   {
    "citation": "D. Roy, M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. École Norm. Sup. (4) 30 (1997), no. 6, 753-796",
    "location": "Théorème 0.2, p. 755 (checked on the page image: P has rational coefficients, trdeg >= 2); proof in §7, pp. 790-791",
-   "quote": "Alors, ou bien (λ1,...,λn) est contenu dans un sous-espace vectoriel de C^n défini sur Q",
+   "quote": "Alors, ou bien (λ1,...,λn) est contenu dans un sous-espace vectoriel de C^n défini sur …",
    "link": "https://eudml.org/doc/82449 (PDF: https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/ASENS_1997_4_30_6_753_0.pdf)",
    "relation": "implies",
    "derivation": "My translation; the paper does not state it. Eliminate the constant to homogenise. (a),(b): let r_j = t_j²+π² > 0 and take P = r1 X² - r0 Y² + (r0-r1) Z² at v = (t0, t1, iπ). All coordinates are logarithms, P(v) = 0, and the field is algebraic over Q(π), so trdeg is 1. Th. 0.2 gives a Q-rational subspace U with v in U, inside {P=0}. If r0 ≠ r1, P is non-degenerate in 3 variables, so dim U <= 1. Then t0 = q·iπ with q rational; t0 real forces t0 = 0, so π² = r0 is rational, a contradiction. Hence r0 = r1 and t1 = ±t0; (b) follows since log 2 ≠ ±log 3. (c): suppose w = iγ/π is a logarithm, r = t²+π². Take P = γX² - γY² + rYZ at (t, iπ, w); P(v) = γr - rγ = 0, determinant -γr²/4 ≠ 0, trdeg 1. So U is a line and iγ/π = q·iπ, making π² = γ/q rational, a contradiction."

@@ -10,7 +10,7 @@ Let W be a 5-dimensional space of functions containing 1, u, 1/u. Suppose there 
 
 - **Citation:** D. Eisenbud, J. Koh, M. Stillman, Determinantal equations for curves of high degree, with an appendix with J. Harris, Amer. J. Math. 110 (1988), 513-539
 - **Location:** Appendix, Theorem A(2), cases (b) and (c), p. 533 (page image checked); explicit description of case (c) just below it
-- **Quote:** Paraphrase, not verbatim: equality in Clifford on an integral curve holds only for a multiple of the g^1_2 on a Gorenstein hyperelliptic curve, or for O_C<1,t,...,t^d> on a rational curve with one singular point whose conductor is the maximal ideal.
+- **Quote:** Paraphrase, not verbatim: equality in Clifford on an integral curve holds only for a …
 - **Link:** https://eisenbud.github.io/papers/pdfs/1988-002.pdf
 - **Relation:** My own translation, not stated in the source. It gives the D1 versus D2 split only when W has pole degree 6. Take Γ = image of P^1 in P^4, of arithmetic genus 2, with L of degree 6 and F = O_Γ<x0,x1>. Y gives 3 sections of Hom(F,L). Clifford for F and Hom(F,L) forces deg F = 2 and h^0(F) = 2, so F is Clifford-extremal. Case (b): the ratio is the g^1_2 (degree 2), Γ is Gorenstein: D2 side. Case (c) with d = 1: the ratio is a Möbius function of u, Γ is non-Gorenstein: D1 side. It does not separate D2a from D2b, gives no normal forms, does not mention 1, u, 1/u, and does not show that a configuration forces degree ≤ 6.
 
@@ -26,7 +26,7 @@ Let W be a 5-dimensional space of functions containing 1, u, 1/u. Suppose there 
 
 - **Citation:** N. Ilten, A. Mokhtar, Khovanskii-finite rational curves of arithmetic genus 2, Michigan Math. J. 73 (2023), no. 5, 1059-1082; arXiv:2101.09410
 - **Location:** §3.1, Table 1, Table 2, Theorem 3.6(1), equations (2)-(3)
-- **Quote:** Paraphrase, not verbatim: for each of the eight singularity strata of degree n+2 rational curves in P^n, Table 2 lists explicit representative parameterizations.
+- **Quote:** Paraphrase, not verbatim: for each of the eight singularity strata of degree n+2 rational …
 - **Link:** https://arxiv.org/abs/2101.09410
 - **Relation:** These are explicit normal forms for pole-degree-6 W, in my own translation (n = 4, divide by a suitable form, u = x/y). Two cusps gives <1,u,1/u,u^3-au^2,u^-3-bu^-2>, which is exactly D2a at pencil (X^2,1), the shape of class (P). Tacnode gives <1,u,1/u,u^2-au^-2,u^3+bu^-2-u^-3>, which is D2b at P'=X, Q'=X^2+1/a, the shape of class (Q). Exact rational checks at one parameter value: dim{t in W: ht in W} = 3 for the ratio h in the two-cusps, tacnode, (2,5)-cusp, node+cusp and two-nodes rows, and dim{t: ut in W} = 2 in those rows. dim{t: ut in W} = 3 in the (3,4,5)-cusp, cusp+branch and triple-point rows. The paper does not group strata into these types and mentions no configuration.
 
@@ -34,7 +34,7 @@ Let W be a 5-dimensional space of functions containing 1, u, 1/u. Suppose there 
 
 - **Citation:** D. Eisenbud, Linear sections of determinantal varieties, Amer. J. Math. 110 (1988), 541-575
 - **Location:** §4(c), Proposition 4.5; Theorem 5.1(i),(iii); Corollary 5.2
-- **Quote:** Paraphrase, not verbatim: a 1-generic 2×v space with minimal codimension of the rank-one locus is equivalent to a unique scrollar space M(a_1,...,a_d).
+- **Quote:** Paraphrase, not verbatim: a 1-generic 2×v space with minimal codimension of the rank-one locus …
 - **Link:** https://eisenbud.github.io/papers/pdfs/1988-003.pdf
 - **Relation:** For v = 3 this gives the two pairing shapes Cat(3,2) (span 4) and M(1,2) (span 5), that is, cone/progression versus cubic scroll. This is the Rei97 level in sharper form, plus the uniqueness of the shape. It classifies the abstract pairing and says nothing about how it sits relative to 1, u, 1/u, so the three types are absent.
 
@@ -42,7 +42,7 @@ Let W be a 5-dimensional space of functions containing 1, u, 1/u. Suppose there 
 
 - **Citation:** D. Eisenbud, J. Harris, On varieties of minimal degree (a centennial account), in Algebraic Geometry, Bowdoin 1985, Proc. Sympos. Pure Math. 46, Part 1, AMS 1987, 3-13
 - **Location:** §2, Lemma 2.1 and Examples (i), pp. 8-10 (read by OCR)
-- **Quote:** Paraphrase, not verbatim: a nondegenerate pairing k^2 ⊗ k^δ into linear forms gives a scroll of degree δ; a hyperelliptic curve embedded by a complete series lies on the scroll of g^1_2 secants as a divisor of class 2H+(d-2r+2)F.
+- **Quote:** Paraphrase, not verbatim: a nondegenerate pairing k^2 ⊗ k^δ into linear forms gives a …
 - **Link:** https://eisenbud.github.io/papers/pdfs/1987-001.pdf
 - **Relation:** Gives the scroll containing C and the class of a curve whose ruling is cut by a g^1_2, for complete series on a hyperelliptic curve. Stops before incomplete series, singular rational models, any normal form of W, and the three types. Only the Bertini-Del Pezzo classification and this construction are treated.
 
@@ -50,7 +50,7 @@ Let W be a 5-dimensional space of functions containing 1, u, 1/u. Suppose there 
 
 - **Citation:** J. Harris, M. Roth, J. Starr, Curves of small degree on cubic threefolds, arXiv:math/0202067
 - **Location:** Lemma 6.8; also Lemmas 6.9, 6.10, 6.12
-- **Quote:** Paraphrase, not verbatim: a smooth rational quartic in P^4 with a base-point-free g^1_2 lies on a unique cubic scroll, in class 2D+2F, whose ruling cuts that pencil.
+- **Quote:** Paraphrase, not verbatim: a smooth rational quartic in P^4 with a base-point-free g^1_2 lies …
 - **Link:** https://arxiv.org/abs/math/0202067
 - **Relation:** Treats the complete quartic only, with a pushforward computation for O(1)+O(2). This is the case ℓ = a ruling (pole degree 4) in my count in the notes, and it lands on the D1 side. No degree 6, no modifications, no D2a or D2b.
 
@@ -58,7 +58,7 @@ Let W be a 5-dimensional space of functions containing 1, u, 1/u. Suppose there 
 
 - **Citation:** A. Alzati, R. Re, Irreducible components of Hilbert schemes of rational curves with given normal bundle, arXiv:1502.02521
 - **Location:** §7, Theorem 2 and its proof
-- **Quote:** Paraphrase, not verbatim: a smooth rational curve lies on a smooth scroll exactly when its vertex is the space of e-th partials of one form, equivalently when the restricted tangent bundle has a given splitting.
+- **Quote:** Paraphrase, not verbatim: a smooth rational curve lies on a smooth scroll exactly when …
 - **Link:** https://arxiv.org/abs/1502.02521
 - **Relation:** An apolar criterion on the D1 side: the proof treats C as a section of the scroll, so the ratio has degree 1. It assumes C smooth, which excludes the singular bisections of D2a and D2b. Nothing on degree-2 ratios.
 

@@ -6,7 +6,7 @@
 - **Relation:** unrelated
 - **Covers the part not found:** False
 - **Printed or translation:** not applicable
-- **Passage:** "yields a more general result where the xi are not assumed to be algebraically independent"
+- **Passage:** "yields a more general result where the xi are not assumed to be algebraically …
 
 **Hypotheses.** Field: arbitrary k ⊂ K, which covers K ⊆ Q̄ ⊂ ℂ, so there is no clash. Dimension: any d × ℓ matrix, so 2 × 3 is included, but nothing about rank or rank-one matrices is singled out. Conjugation: absent. There are no circle points, no ρ = uū, no ū = ρ/u; a grep of chapter 12 for conjugat, circle, Laurent and valuation found nothing. Genericity: none assumed, the x_i are only k-linearly independent. The target's Theorem and rank_one_config_inverse_adjoin need u transcendental over F, and the hull theorem needs u ∉ Q̄ with uū algebraic. Multiplicative structure (polynomials P(u), u⁻¹, products of x_i and y_j): absent from the statement.
 

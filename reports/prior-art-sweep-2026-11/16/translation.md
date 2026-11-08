@@ -26,7 +26,7 @@ Work in the Q-vector space L of logarithms of non-zero algebraic numbers; L is s
 
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000.
 - **Location:** §15.3.4, Theorem 15.30 and the paragraph after it, p. 593
-- **Quote:** for any nonzero homogeneous polynomial Q ... of degree 2, we have Q(λ1, ..., λn) ≠ 0
+- **Quote:** for any nonzero homogeneous polynomial Q ... of degree 2, we have Q(λ1, ..., …
 - **Link:** https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/3-540-66785-7.pdf
 - **Relation:** Own translation. Take a Q-basis λ1..λn of the span of the four numbers (trdeg 1 is automatic for non-zero logarithms) and write the point as Aλ with A rational. Then P(Aλ)=0 forces the form P∘A to vanish identically, so the image of A is a rational subspace inside the quadric. Conclude with the ruling argument of the first lead. The book states neither (A) nor (B). Secondary to Roy-Waldschmidt 1997, which it cites, but printed and independent of this work.
 

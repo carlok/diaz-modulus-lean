@@ -11,7 +11,7 @@ Assume this: if x1,x2 are Q-independent, y1,y2 are Q-independent, eta is non-zer
 - **Citation:** M. Waldschmidt, On the transcendence methods of Gel'fond and Schneider in several variables, in A. Baker (ed.), New Advances in Transcendence Theory (Durham 1986), Cambridge Univ. Press, 1988
 - **Location:** Remark after Corollary 2.2, p. 379
 - **Quote:** it contains non trivial open problems
-- **Link:** local: prove2me/missions/diaz/sources/waldschmidt/Durham1986TMGSSV.txt (OCR text, formulas partly garbled)
+- **Link:** local: (local library) waldschmidt/Durham1986TMGSSV.txt (OCR text, formulas partly garbled)
 - **Relation:** This is the origin of the conjecture and the closest printed consequence. Its example is (log a)(log b) != log c, for non-zero logarithms. The target needs (log a)(log b) not algebraic. A non-zero algebraic number is never a logarithm, by Hermite-Lindemann, so the printed inequality never touches lambda*conj(lambda)=rho and does not imply the target. The printed choice of x and y adapts by setting a22=rho instead of 0, but that adaptation is my step and is not in the text.
 
 ### Lead 2: special case
@@ -19,7 +19,7 @@ Assume this: if x1,x2 are Q-independent, y1,y2 are Q-independent, eta is non-zer
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000
 - **Location:** Sec. 11.6.1, after Conjecture 11.17, p. 399; compare the weaker status of Strong Five at Sec. 12.4.3, pp. 437-438
 - **Quote:** the strong four exponentials Conjecture implies the following refinement of the Hermite-Lindemann's Theorem
-- **Link:** local: prove2me/missions/diaz/sources/waldschmidt/dalag.txt
+- **Link:** local: (local library) waldschmidt/dalag.txt
 - **Relation:** The printed implication is Strong Four => Diaz, credited to Diaz, with x=(1,lambda), y=(1,conj lambda). Pp. 437-438 call Strong Five a weaker statement than the Strong Four family, so the target has the weaker hypothesis and is strictly more than what is printed. Adding the fifth exponential e^lambda to the same configuration gives the target, but the book does not do this. The target file already treats this book as nearby for the conjectures; I found no stronger form in it.
 
 ### Lead 3: analogue only

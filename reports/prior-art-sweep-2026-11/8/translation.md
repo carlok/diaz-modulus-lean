@@ -10,7 +10,7 @@ Let K = Q̄ and let u be transcendental over K with uū = ρ in K, so conjugatio
 
 - **Citation:** C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452; arXiv:1501.00602v2
 - **Location:** Theorem 33, Section 7 (arXiv pp. 25-26), together with Theorem 2 (intro; the lower bound dim ST ≥ dim S + dim T − 1)
-- **Quote:** S and T have bases of the form {g, ga, . . . gadimS−1 }
+- **Quote:** S and T have bases of the form {g, ga, . . . gadimS−1 …
 - **Link:** https://arxiv.org/abs/1501.00602
 - **Relation:** My own translation; the paper never mentions these spaces. Let V ⊂ K(u) be 4-dimensional with 1, u in V, and let XY ⊂ V with dims 2, 3. Theorem 2 gives XY = V, and Theorem 33 (K algebraically closed) gives V = g⟨1,f,f²,f³⟩. Then f is a ratio of elements of V, so f is in K(u), and u is a ratio of two polynomials in f, so K(f) = K(u) and f is Möbius in u. Since 1 is in V, g = 1/P(f) with deg P ≤ 3, so V has polar divisor of degree exactly 3. But for w = h + αz + βz̄ in W∖H₀, the term αz + βz̄ is nonzero, odd and vanishes at ∞, so it has poles at some c, −c with c ≠ 0. So V = H₀ + Kw has polar degree ≥ 4, a contradiction. This covers both the invisibility and the conjugation-stable case. It does not address 'W carries a configuration', which the target already counts as printed.
 
@@ -34,7 +34,7 @@ Let K = Q̄ and let u be transcendental over K with uū = ρ in K, so conjugatio
 
 - **Citation:** C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's Theorem, Algebraic Combinatorics 1 (2018), 501-521; arXiv:1709.00087
 - **Location:** Theorem 5.3 and the remark after it in Section 6.1; Theorem 6.3
-- **Quote:** S has combinatorial genus γ = 0 if and only if it has genus 0
+- **Quote:** S has combinatorial genus γ = 0 if and only if it has genus …
 - **Link:** https://arxiv.org/abs/1709.00087
 - **Relation:** Symmetric case only (S², not XY), so it does not exclude a 2×3 configuration on its own. It supplies the Riemann-Roch vocabulary. It also places the conjugation-stable V: my computation gives dim V² = 8 = 2 dim V, so V has combinatorial genus 1 and falls under the genus-0 case of Theorem 6.3 (codimension 1 in L(D), deg D = 4). To reach the target you still need BSZ Theorem 33 to get from XY to a geometric progression.
 

@@ -10,7 +10,7 @@ Let t ≠ 0 be real with e^t algebraic, and let a, b, c be rational with a ≠ 0
 
 - **Citation:** M. Waldschmidt, Nombres transcendants, Lecture Notes in Mathematics 402, Springer, 1974.
 - **Location:** §7.4, Corollaire 7.4.3 and the example after it, p. 202 (typescript p. 7.20); Théorème 7.4.1 on p. 201
-- **Quote:** l'une au moins des deux propriétés suivantes est vraie : (i) ℓ1, ℓ2 sont algébriquement indépendants
+- **Quote:** l'une au moins des deux propriétés suivantes est vraie : (i) ℓ1, ℓ2 sont …
 - **Link:** https://doi.org/10.1007/BFb0061579
 - **Relation:** Printed for Q-independent logarithms ℓ1, ℓ2: (i) ℓ1, ℓ2 are algebraically independent, or (ii) exp(ℓ1²/ℓ2) is transcendental. Take ℓ1 = t and ℓ2 = iπ; these are Q-independent because t is real and nonzero. The relation a t² + b π² = c makes (i) fail, so exp(t²/(iπ)) is transcendental. My translation from there: t²/(iπ) = −i(c/a)/π + i(b/a)π, and exp(i(b/a)π) is a root of unity, so exp(−i(c/a)/π) is transcendental. In particular c ≠ 0, because c = 0 would make exp(t²/(iπ)) a root of unity. If e^{iγ/π} were algebraic for some rational γ ≠ 0, then exp(−i(c/a)/π), a rational power of it, would be algebraic, a contradiction. For the dichotomy take t = log 2, a = −1/2, b = 1/12, c = Li₂(1/2). This reaches both the general form and the dichotomy; neither log 2 nor Li₂(1/2) is written in the source. Page checked on the scan: the printed substitution reads x = 1 + ℓ2/ℓ1, ℓ = ℓ1, which yields exp(ℓ2²/ℓ1), while (ii) prints ℓ1²/ℓ2. The indices are swapped, which is harmless because the hypothesis is symmetric. Independent of Brownawell's Corollary 5 as a printed statement, though the underlying theorem is the same.
 
@@ -18,7 +18,7 @@ Let t ≠ 0 be real with e^t algebraic, and let a, b, c be rational with a ≠ 0
 
 - **Citation:** M. Waldschmidt, Solution du huitième problème de Schneider, J. Number Theory 5 (1973), 191–202.
 - **Location:** Corollaire 4, p. 192 (from the Théorème on the same page)
-- **Quote:** Alors deux des quatre nombres log α, log β, log γ, exp(log α log β/log γ)
+- **Quote:** Alors deux des quatre nombres log α, log β, log γ, exp(log α log …
 - **Link:** https://doi.org/10.1016/0022-314X(73)90043-0
 - **Relation:** Take α = β = e^t and γ = −1, with log γ = iπ. The hypothesis holds because t and iπ are Q-independent. Then two of t, t, iπ, exp(t²/(iπ)) are algebraically independent. The relation a t² + b π² = c makes t and π algebraically dependent, so exp(t²/(iπ)) is transcendental and even algebraically independent of π. Then proceed as in the LN 402 derivation. Page checked on the scan. Same paper, immediately after Cor. 4: for rational r ≠ 0, 1, one of e^{iπ^r}, e^{iπ^{2−r}} is transcendental. At r = −1 this is a printed statement about e^{i/π} itself (with e^{iπ³}), but it has no link to log 2.
 
@@ -26,7 +26,7 @@ Let t ≠ 0 be real with e^t algebraic, and let a, b, c be rational with a ≠ 0
 
 - **Citation:** D. Roy and M. Waldschmidt, Quadratic relations between logarithms of algebraic numbers, Proc. Japan Acad. Ser. A 71 (1995), no. 7, 151–153.
 - **Location:** Theorem 2, p. 151 (statement announced there; full proof in the 1997 paper below)
-- **Quote:** contained in a vector subspace of C^n which is defined over Q and contained in V
+- **Quote:** contained in a vector subspace of C^n which is defined over Q and contained …
 - **Link:** https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604
 - **Relation:** My translation, using the rank-3 quadric dictionary. Suppose e^{iγ/π} is algebraic. Then L := t²/(iπ) is a logarithm of an algebraic number, by the computation above. The point (t, iπ, L) lies on the cone X₁² = X₂X₃, with coordinates logarithms, in a field of transcendence degree 1. Theorem 2 puts the point in a rational subspace contained in the cone. A rank-3 cone in C³ contains no plane, so the subspace is a rational line, which forces t/(iπ) ∈ Q. That is false since t is real and nonzero. So the general form follows. The source treats arbitrary quadratic forms and does not mention π or log 2.
 

@@ -20,7 +20,7 @@
   {
    "citation": "D. Roy, M. Waldschmidt, Ann. Sci. ENS 30 (1997), same paper as the first lead",
    "location": "Corollaires 7.3 and 7.4, pp. 791-792",
-   "quote": "No separate quote: one quote per source, already used for Th. 0.2. Paraphrase in derivation.",
+   "quote": "No separate quote: one quote per source, already used for Th. 0.2. Paraphrase in …",
    "link": "https://www.numdam.org/item/ASENS_1997_4_30_6_753_0",
    "relation": "analogue only",
    "derivation": "The closest printed statements with both conjugation and trdeg one. Cor. 7.3: for a logarithm λ neither real nor purely imaginary and algebraically dependent with its conjugate, and q a rational binary form of nonzero discriminant, exp of the square root of q(λ, λ-bar) is transcendental. Cor. 7.4: for non-real λ in L, either λ and λ-bar are algebraically independent or e^|λ| is transcendental. These concern one logarithm and whether a modulus-type quantity is itself a logarithm. Neither gives A or B, which compare two logarithms. They do show the authors applied the method to (λ, λ-bar), but they did not state the two-logarithm case."

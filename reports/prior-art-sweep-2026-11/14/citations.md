@@ -18,7 +18,7 @@ Work in C over the algebraically closed subfield Q̄. Let u be non-algebraic wit
 
 - **Citation:** G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007), 2 (journal p. 390 region)
 - **Location:** Théorème 7, points 1 and 2 (PDF p. 19 of the local copy)
-- **Quote:** (paraphrase, no quotation) For u non-algebraic and v non-zero, v, vu, vu², vu³ are not all in the Q̄-span of 1 and logarithms.
+- **Quote:** (paraphrase, no quotation) For u non-algebraic and v non-zero, v, vu, vu², vu³ are …
 - **Link:** https://doi.org/10.5802/jtnb.592
 - **Relation:** It prints the family v<1,u,u²,u³>, which by the derivation above is exactly the shape of the visible 4-dimensional spaces, with v = 1/(u f₁(u)). It states no criterion on H₀ + Q̄w, no converse and no degree test, so it does not reach the target.
 
@@ -26,7 +26,7 @@ Work in C over the algebraically closed subfield Q̄. Let u be non-algebraic wit
 
 - **Citation:** C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018); arXiv:1709.00087
 - **Location:** Introduction, the remark on an algebraically closed base field
-- **Quote:** (paraphrase, no quotation) Over an algebraically closed base, the linear Vosper theorem follows nearly directly by passing to valuations.
+- **Quote:** (paraphrase, no quotation) Over an algebraically closed base, the linear Vosper theorem follows nearly …
 - **Link:** https://arxiv.org/abs/1709.00087
 - **Relation:** It confirms and credits the engine used in the first lead, and otherwise treats squares S² only. It says nothing about H₀ or degree-one spaces.
 

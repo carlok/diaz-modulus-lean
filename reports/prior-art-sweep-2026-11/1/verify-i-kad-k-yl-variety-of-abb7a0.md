@@ -5,7 +5,7 @@
 - **Statement present:** True
 - **Relation:** generalization
 - **Covers the part not found:** True
-- **Passage:** "in one to one correspondence with the data (A, F) such that 2A + F"
+- **Passage:** "in one to one correspondence with the data (A, F) such that 2A + …
 
 **Hypotheses.** Partial match, for the key step only. Field: the paper names no field (context is complex moduli of curves), while the target uses Q-bar; the argument is algebraic, but this transfer is mine, not printed. Dimension: the paper takes any r, the target needs r=3 (Gamma is the twisted cubic), and the r>=3 convention appears in Prop. 2.4's proof. Conjugation: absent from the paper, harmless because the target uses only ubar = rho/u. Genericity: none needed, Lemma 2.2 says "any rational normal curve". Rank: X1X2 = rho X0^2 has rank exactly 3 because u is not algebraic. Form of the source: the correspondence is asserted inside a short proof, by reference to Lemma 2.1's rank 3 discussion, not stated as a lemma.
 

@@ -24,7 +24,7 @@ Let K = Q̄ and let u be transcendental with uū = ρ algebraic, so ū = ρ/u an
 
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Springer, 2000; after D. Roy 1989, Proposition 1.
 - **Location:** Lemma 12.15 with Exercise 12.9 and its hint, pp. 431 and 443-ish (page of the exercise not checked against the print)
-- **Quote:** (no second quote from this source) A subspace of k[x] with degrees at least doubling satisfies Property (A B; C 0).
+- **Quote:** (no second quote from this source) A subspace of k[x] with degrees at least …
 - **Link:** https://doi.org/10.1007/978-3-662-11569-5
 - **Relation:** A printed degree condition under which a polynomial space carries no rank-degenerate matrix, close in spirit to (a). It does not apply to (a): after clearing denominators, the degrees of span(1, u, 1/u, P, P̄) are 0, d-1, d, d+1, 2d, which do not double. It also needs t_{n+1} ≥ 2t_n throughout. The statement has no converse and no two-sided (0 and ∞) count.
 

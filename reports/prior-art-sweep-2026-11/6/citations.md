@@ -18,7 +18,7 @@ Let K ⊆ F be subfields of ℂ, V₀ ⊆ F a K-subspace, and w₁,…,w_m algeb
 
 - **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Springer, 2000 (attributed there to D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algébriques, Groupe d'étude sur les problèmes diophantiens 1988-89, Lemme)
 - **Location:** Proposition 12.4, p. 422
-- **Quote:** (no quote: the one quote allowed for this source is used in the first lead)
+- **Quote:** (no quote: the one quote allowed for this source is used in the first …
 - **Link:** https://doi.org/10.1007/978-3-662-11569-5
 - **Relation:** My own translation; an alternative route that stays over k = K and needs no linear independence of V₀ beyond a basis. Apply the block form to x_1,…,x_n, a K-basis of the V₀-parts of the entries followed by w₁,…,w_m last. If some w_k occurs, with k maximal, the first non-empty diagonal block has diagonal entries involving w_k and all other entries free of w_k. A 2×2 minor of degree 2 in w_k shows the block is 1×1 (transcendence over F). The minors d·m_ab = m_1b·m_a1 then force m_ab = 0 for a,b ≥ 2, and force the rest of the first row or first column to vanish. So a column or a row of a K-equivalent matrix is zero, contradicting K-independence since p,q ≥ 2.
 

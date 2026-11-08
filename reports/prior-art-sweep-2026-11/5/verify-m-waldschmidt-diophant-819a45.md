@@ -5,7 +5,7 @@
 - **Statement present:** True
 - **Relation:** analogue only
 - **Covers the part not found:** False
-- **Passage:** "There exists a k-vector subspace E of k[x] of infinite dimension" (Lemma 12.15*, p. 431)
+- **Passage:** "There exists a k-vector subspace E of k[x] of infinite dimension" (Lemma 12.15*, p. …
 
 **Hypotheses.** Field: both take x (or u) transcendental over a base field, with k general in the lemma and K ⊆ ℂ in the target, so no conflict. The hint is written for one polynomial ring, and I did not settle ℚ versus ℚ̄ in its print. Dimension: they differ. The lemma gives an infinite-dimensional E in k[x], polynomials only, of positive degrees in the hint, so no constants and no negative exponents. The target takes finite S ⊂ ℤ, Laurent, and its consequences need 0, ±1 in S. Conclusion: they differ. The lemma is existence of one space with Property (A B; C 0), for matrices of all ranks. The target is an iff for p×q rank-one configurations, for every S. Conjugation: absent from the source, and the target's core theorem does not use it either. Genericity: same, transcendence only. Key mismatch: every target hull contains {-1,0,1} = {0,1}+{-1,0}, hence a 2×2 configuration, hence fails Property (A B; C 0). So the lemma's spaces are never the target's hulls.
 

@@ -26,7 +26,7 @@ Work in spaces of functions of u over the algebraically closed field Q̄, with H
 
 - **Citation:** C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018); arXiv:1709.00087.
 - **Location:** Abstract and introduction; Conjecture 2.2
-- **Quote:** such a space S is included in a function field of genus 0 or 1
+- **Quote:** such a space S is included in a function field of genus 0 or …
 - **Link:** https://arxiv.org/abs/1709.00087
 - **Relation:** Studies the square S^2 with small excess, not a 2×3 product AB. Nothing gives the bound deg h <= 2 under the constraint 1, u, 1/u in AB. The same holds for Wessel, arXiv:2405.10724, and Tanısalı-Wessel, arXiv:2609.06822, which I screened only.
 

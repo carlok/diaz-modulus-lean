@@ -10,7 +10,7 @@ Let u be a complex number outside Q̄ with ρ = uū algebraic, so ū = ρ/u and 
 
 - **Citation:** G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007), 373-391
 - **Location:** Théorème 7(2), p. 390 (proved from the strong six exponentials theorem applied to (1,u,u²) and (v,vu))
-- **Quote:** Soient u ∈ C\Q̄ et v ∈ C\{0}. Alors : {v, vu, vu², vu³} ⊄ L̃.
+- **Quote:** Soient u ∈ C\Q̄ et v ∈ C\{0}. Alors : {v, vu, vu², vu³} …
 - **Link:** https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf
 - **Relation:** This does not reach the target. By my own translation (not printed, not refereed), a 2×3 configuration in a 4-dimensional space must be v⟨1,t,t²,t³⟩ with t = x₂/x₁: t is transcendental, and dim(B+tB) ≤ 4 with dim B = 3 forces B to be a single t-string. So Th. 7(2) is the printed result covering every 4-dimensional case. Neither Diaz nor anyone I read asks which spaces H₀ + Q̄w have this form, and the invisibility is exactly the claim that none in W do. The theorem concerns the same objects and gives no non-existence statement.
 
