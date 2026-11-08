@@ -1,0 +1,21 @@
+# Entry 17, verification: D. Roy, M. Waldschmidt,
+
+- **Source read:** Roy, Waldschmidt, Proc. Japan Acad. 71A (1995), 151-153, p.151, Theorem 2: local scan roy-waldschmidt-1995-quadratic-relations.pdf, page image checked. Given Euclid link returned an HTML stub by script; Zbl not checked. Also 1997 Th. 0.2, local.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "vector subspace of C^n which is defined over Q and contained in V"
+
+**Hypotheses.** Field: P is over Q̄ (bars are faint in the scan; the 1997 version agrees), and our P has rational coefficients, so this is harmless. Dimension: n=3, degree 2, with coordinates in ℒ as printed. Transcendence degree: exactly 1 is required, and it holds because rationality makes t² algebraic over Q(iπ), and iπ is transcendental. The hypothesis is used by contradiction. Conjugation: no conjugation in the theorem, and none is needed. Genericity: none is assumed; the output is a Q̄-subspace, and the rank-3 form forces it to be a line. The target's reals t and rational moduli fit as a special case. Status: 1995 only announces Theorem 2, with Theorem 1's proof sketched. The full statement is Théorème 0.2 of Roy-Waldschmidt, Ann. ENS 1997. The cited 'proof sketched' is therefore slightly off, since only Theorem 1 gets a sketch.
+
+**Explanation.** The numbers are not printed; three substitutions give everything. Let a=t0²+π², b=t1²+π² be rational, so positive.
+
+Uniqueness: if a≠b, P=bX²−aY²−(b−a)Z² vanishes at (t0,t1,iπ). Nondegenerate rank 3 admits no isotropic plane, so W is a line and t0=αiπ with α algebraic; t0≠0 since π²∉Q. Then (−1)^α=e^{t0} is algebraic, so α is rational (Gelfond-Schneider), making t0 non-real: contradiction. So a=b, t1=±t0.
+
+log 2, log 3: the case t0=log2, t1=log3, since log3≠±log2.
+
+Boundary: if e^{iγ/π} is algebraic, γ≠0, take s=iγ/π and P=γX²−γY²+aYZ at (t,iπ,s). P(λ)=γa−aγ=0; Gram determinant −γa²/4≠0. W is a line, so s/(iπ)=γ/π² is algebraic: contradiction.
+
+Scepticism: a derivation, though short. Theorem 2 is only announced in 1995; its proof is 1997.

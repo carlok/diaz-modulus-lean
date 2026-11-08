@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "implies",
+ "hypotheses": "Source: l1, l2 are any Q-linearly independent logarithms of algebraic numbers in C. That is more general than the target (l1 = t real, l2 = rational multiple of i pi). Dimension and genericity do not arise; no conjugation is used. Independence holds because t is real and non-zero and iπq is imaginary and non-zero. The source's dichotomy is transcendence of exp(l1^2/l2) versus algebraic independence of l1, l2. The target instead assumes a rational quadratic relation, which negates (i). No mismatch. Printed index oddity: x = 1 + l2/l1 gives exp(l2^2/l1), but exp(l1^2/l2) is printed. This is harmless, since the statement quantifies over all ordered pairs. The case c = 0 needs Gelfond-Schneider, which the source's remark does not supply.",
+ "covers_part_not_found": true,
+ "passage": "\"l'une au moins des deux propriétés suivantes est vraie\" (Waldschmidt, LN 402, p. 202)",
+ "source_read": "M. Waldschmidt, Nombres transcendants, LNM 402, Springer 1974, Ch. 7, §7.4, course p. 7.20, printed p. 202; page image read at 250 dpi. https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/LN402/LN402chap7.pdf",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "The remark is there; the target is not printed (no Li2, no quadratic relation). Derivation. Take at²+bπ²=c, a≠0, t≠0 real, e^t algebraic, γ≠0 rational.\nc≠0: if c=0 then t=√r·π with r>0 rational, and e^t=(-1)^{-i√r} is transcendental by Gelfond-Schneider, a contradiction.\nPut q=-c/(aγ), l1=t, l2=iπq. These are logarithms, Q-independent, and algebraically dependent via a·l1²+(b/q²)·(-1)·l2²... precisely a·l1²-(b/q²)·l2²=c. So (ii) holds: exp(t²/(iπq)) is transcendental.\nNow t²/(iπq)=-i(c-bπ²)/(aqπ)=iγ/π+iπb/(aq). The second term gives a root of unity, so e^{iγ/π} is transcendental.\nDichotomy: t=log 2, a=-1/2, b=1/12, c=Li2(1/2) if rational (c≠0 anyway).\nIndex check: the corollary gives l2²/l1 from the stated x; this is the printed form after swapping labels.\nI did not check whether others printed the dichotomy. Verdict: pre-1975 printed result, implying the target by a few lines of specialisation."
+}

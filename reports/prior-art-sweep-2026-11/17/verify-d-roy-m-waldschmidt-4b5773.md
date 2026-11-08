@@ -1,0 +1,17 @@
+# Entry 17, verification: D. Roy, M. Waldschmidt,
+
+- **Source read:** Roy, Waldschmidt, Proc. Japan Acad. 71A (1995), no. 7, 151-153, Thm 2, p. 151; page scan read in local sources/roy-waldschmidt-1995-quadratic-relations.pdf. The given link https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604 returned only a bot-check page.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "is contained in a vector subspace of C^n which is defined over Q"
+
+**Hypotheses.** Field: on the scan, P and the subspace are over unbarred Q; the target's quadrics are rational, so this fits. Dimension: n=3. Trdeg 1 holds, since all coordinates are algebraic over Q(pi). Conjugation: not used by the theorem; realness of t is used only to exclude iπ/t in Q. Genericity: none needed. Caveat: the 1995 paper only announces Theorem 2 and sketches Theorem 1; the proof is in the 1997 paper, Th. 0.2 (statement and derivation read locally, not the whole proof). The specific numbers do not appear in the 1995 paper.
+
+**Explanation.** Not printed; follows from Theorem 2. Fact: a nondegenerate ternary quadric contains no plane, so W is a line.
+Uniqueness: z=iπ, r_i=t_i²+π²>0, t_i≠0 (π² irrational). The point (t0,t1,z) lies on r1x²−r0y²+(r0−r1)z²=0. Trdeg is 1. If r0≠r1 the form is nondegenerate, so W is a rational line, giving iπ/t0∈Q; impossible for real t0≠0. So r0=r1, t1=±t0.
+Pair: log 3≠±log 2.
+Boundary: if β=e^{iγ/π} is algebraic, then μ=iγ/π∈ℒ and zμ=−γ. The point (t,z,μ) lies on γx²−γy²+ryz=0, nondegenerate as γ,r≠0. Trdeg is 1. So the line gives z/t∈Q; contradiction.
+This matches the target's "routine" class: another one-step route beside Brownawell Cors 5, 7.

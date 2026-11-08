@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "implies",
+ "hypotheses": "Field and setting match for the first horn only: irrationality over Q of a real number, with n = 2 inside the stated range Z \\ {0,1}. Dimension, conjugation and genericity do not arise. The source has no e^{iγ/π}, no π² or (log 2)² form, and no relation at² + bπ² = c. Its n ranges over integers, so it gives no other (a,b,t). Status is weak: a one-line report in an unrefereed preprint, pointing to a Lean repository, which is out of scope and which I did not open.",
+ "covers_part_not_found": false,
+ "passage": "Liu [37] formalized a proof in Lean 4 of the irrationality of Li2 (1/n)",
+ "source_read": "Li Lai, The linear independence of 1, ζ(3), and ζ(4), arXiv:2610.06838v2 (15 Oct 2026), p. 2, list after Theorem 1.5; ref. [37] checked on the rendered page. Also v1 (5 Oct 2026). https://arxiv.org/abs/2610.06838",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "The bullet is there as cited, but it only reports a Lean formalisation. The paper gives no proof and never mentions the dichotomy.\n\nDerivation: take n = 2, so Li₂(1/2) is irrational if the report holds. Euler gives Li₂(1/2) = π²/12 − (log 2)²/2. So the first horn holds and the disjunction follows trivially. Nothing is learned about e^{iγ/π}.\n\nGeneral form: not covered. At t = log 2 with a/b = −6, the proposition's hypothesis would simply be false, so that instance becomes empty. Other a, b, t are untouched.\n\nSo the dichotomy is implied only conditionally, and is not printed.\n\nWorth correcting: the target's \"still open\" line for Li₂(1/2) looks outdated if Liu's claim holds. v1 also says Zudilin obtained this result before Liu; v2 drops that remark. Search snippets from arXiv:2609.06895 (September, not opened) still list s = 2 as unresolved. I found no printed proof. The paper has no hits for diaz, carlok or prove2, so it appears independent."
+}

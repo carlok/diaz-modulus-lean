@@ -1,0 +1,25 @@
+# Entry 18, verification: M. Waldschmidt, Nombres
+
+- **Source read:** M. Waldschmidt, Nombres transcendants, LNM 402, Springer 1974, ch. 7, pp. 201-202. Read: local copy of the author's scan (sources/waldschmidt/LN402_chap7.pdf, from webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/LN402/LN402chap7.pdf); p. 202 checked as page image. Given DOI 10.1007/BFb0061579 returned 404; Crossref lists the book as 10.1007/bfb0065320.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "l'une au moins des deux propriétés suivantes est vraie" (p. 202, then (i) and (ii))
+
+**Hypotheses.** Field: complex numbers over Q in the source. Target's t is real with e^t algebraic, a stronger assumption; reality is used only for Q-independence of t and iπs. Dimension: Th. 7.4.1 is the 2x2 case with two of the four exponentials assumed algebraic; no mismatch. Conjugation: absent from both. Genericity: the example needs l1, l2 Q-independent logarithms and yields the alternative algebraically independent OR exp(l1^2/l2) transcendental. Target satisfies this: a≠0 makes the relation a nontrivial polynomial, so (i) fails. Differences: source never mentions Li2, log 2 with pi^2, e^{iγ/π}, or rational a,b,c. Case c=0 needs a remark (see explanation); it is vacuous by the same example. Printed typo: "u3, u4" should be v1, v2.
+
+**Explanation.** Corollaire 7.4.3 and its example are there as cited. The target is not printed; it follows in a few lines.
+
+Printed example: l1, l2 Q-independent logarithms, algebraically dependent, implies exp(l1²/l2) transcendental.
+
+Derivation. Given at²+bπ²=c, a≠0. Take l1=t, l2=iπs, s∈Q nonzero. They are Q-independent (real versus imaginary) and algebraically dependent. Then l1²/l2 = -ic/(asπ) + ibπ/(as).
+
+c=0: the exponential is a root of unity, contradicting the example, so the hypothesis cannot hold.
+
+c≠0: put s=-c/(aγ). Then exp(l1²/l2) = e^{iγ/π}·exp(-iπbγ/c), a root of unity times e^{iγ/π}. So e^{iγ/π} is transcendental.
+
+Dichotomy: t=log 2, a=-1/2, b=1/12, c=Li₂(1/2), which is positive.
+
+Checked 7.4.3 from Th. 7.4.1: u=(1,x), v=(l,lx); if all three exponentials are algebraic, the six numbers have trdeg ≤1. Example: x=1+l2/l1 gives x²l=l1+2l2+l2²/l1. Brownawell's Corollary 5 was not checked; it was not in the local library under that name.

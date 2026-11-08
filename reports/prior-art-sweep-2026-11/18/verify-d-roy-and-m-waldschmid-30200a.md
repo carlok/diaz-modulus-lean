@@ -1,0 +1,13 @@
+# Entry 18, verification: D. Roy and M. Waldschmid
+
+- **Source read:** D. Roy, M. Waldschmidt, Proc. Japan Acad. Ser. A 71 (1995), no. 7, 151-153. The given link (projecteuclid.org/download/pdf_1/euclid.pja/1195510604) returned HTTP 403 to my fetch, so I read the local PDF, prove2me/missions/diaz/sources/roy-waldschmidt-1995-quadratic-relations.pdf, p. 151, rendered as an image.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "contained in a vector subspace of C^n which is defined over Q and contained in V"
+
+**Hypotheses.** Field: printed Theorem 2 has P in Q[X], homogeneous of degree at most 2, and a subspace defined over Q (page image checked, no bar on Q). The target's rational a,b,c fit. Dimension: n=3 is allowed, n is arbitrary. Trdeg: exactly 1, since pi is transcendental and t is algebraic over Q(pi) because a is non-zero. Conjugation and genericity play no part; the hull and candidate notions do not appear. Differences: the target's relation is inhomogeneous, and the theorem needs homogeneous P. The gap closes by homogenising with the assumed logarithm. Theorem 2 is only announced in the 1995 paper; its proof is in Roy-Waldschmidt 1997, Th. 0.2, which I saw stated in the local copy, with its proof section listed but not read.
+
+**Explanation.** Theorem 2 is at p. 151 as cited. Neither pi, Li_2 nor the dichotomy is mentioned. Derivation: suppose l = i*gamma/pi is in L (gamma rational, non-zero). With Y = i*pi, YZ = -gamma at Z = l. So (t, i*pi, l) is in L^3 and is a zero of P = aX^2 - bY^2 + (c/gamma)YZ, which is non-zero since a is non-zero. The field is Q(t, i*pi), since l = -gamma/(i*pi); its trdeg is 1. Theorem 2 gives a rational subspace W with the point in W, W inside V. The coordinates are Q-independent: take a rational relation r1 t + r2 i*pi + r3 l = 0. The real part gives r1 = 0. The imaginary part gives r2 pi^2 = -r3 gamma, so r2 = r3 = 0 as pi^2 is irrational. Hence W = C^3, so P = 0, a contradiction. For Li_2(1/2): t = log 2, a = -1/2, b = 1/12, c = the assumed rational value. The argument is short, but it is mine.

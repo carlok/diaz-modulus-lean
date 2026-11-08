@@ -1,0 +1,154 @@
+{
+ "target": "Let u be a transcendental complex number with ρ = uū algebraic, so ū = ρ/u and H₀ = Q̄ + Q̄u + Q̄ū = Q̄ + Q̄u + Q̄/u has dimension 3. Let g be a complex number with 1, u, ū, g, ug linearly independent over Q̄, and put W = H₀ + Q̄g + Q̄ug. W always contains the products of (1,u) with (ū,1,g). Target: some w in W outside H₀ exists such that the 4-dimensional space H₀ + Q̄w contains all products x_i y_j of a 2-dimensional and a 3-dimensional Q̄-subspace, if and only if g is rational in u of the special form u·R(u)·g = N(u), with R ≠ 0, deg R ≤ 2, deg N ≤ 3. Companion: for spaces H₀ + Q̄f + Q̄f/(s+λu), with s² = uū, |λ| = 1 and f = P(u)/Q(u) coprime, the same property holds if and only if max(deg P, deg Q + 1) ≤ 2 + [Q(0)=0] + [P(-s/λ)=0], where the brackets are 1 if the condition holds and 0 otherwise. This is linear algebra over Q̄(u) with no divisor argument. No transcendence is involved in the statement itself.",
+ "leads": [
+  {
+   "citation": "G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007), 365-391.",
+   "location": "Théorème 7 and its proof, §2.3, p. 390 (Théorème 6 and its proof, pp. 389-390, are similar)",
+   "quote": "On applique le théorème fort des six exponentielles, version 1",
+   "link": "https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf",
+   "relation": "analogue only",
+   "derivation": "Th. 7(2) applies Roy's theorem to (1,u,u²) and (v,vu), whose products fill the cubic space v·<1,u,u²,u³>, and Th. 7(1) uses (1,u,ū) and (v,v̄). These are the same kinds of 2×3 configuration, used one at a time to exclude membership in L̃. Diaz never asks which spaces containing Q̄+Q̄u+Q̄ū carry such a configuration, and gives no criterion on g, so nothing here reaches the target."
+  },
+  {
+   "citation": "C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. (2017); arXiv:1501.00602. Outside my own-field brief, but it is the structural tool closest to the target.",
+   "location": "Theorem 2 and Theorem 3, introduction, pp. 2-3",
+   "quote": "S and T have bases of the form",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "relation": "analogue only",
+   "derivation": "Theorem 2 gives dim ST ≥ dim S + dim T − 1, so a 2×3 configuration in a 4-dimensional space is the extremal case. Theorem 3 gives geometric-progression bases in that case, but only for finite F. The authors say that conclusion can fail for general F, so Q̄ is not covered as stated. Even granting the structure, the step to the condition on u·R(u)·g would be my own computation and is not in the paper. I did not carry it out."
+  }
+ ],
+ "read": [
+  {
+   "source": "Diaz 2007, JTNB 19 (local diaz-2007-fulltext.txt)",
+   "sections": "Th. 2 (start of its proof), Cor. 5, Th. 5, Th. 6, Th. 7, §2.4 bilan, references",
+   "link": "https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf"
+  },
+  {
+   "source": "Diaz 2004, JTNB 16 (local text, OCR poor)",
+   "sections": "§5.1-5.2 conjectures C(|u|) and C(u1,u2); theorem headings only for the rest",
+   "link": "https://www.numdam.org/item/JTNB_2004__16_3_535_0"
+  },
+  {
+   "source": "Waldschmidt, The role of complex conjugation in transcendental number theory (DION 2005)",
+   "sections": "§§2-4 up to Remark 4.3",
+   "link": "https://hal-ensta-paris.archives-ouvertes.fr/UPMC/hal-00411402"
+  },
+  {
+   "source": "Waldschmidt, The Four Exponentials Problem and Schanuel's Conjecture (survey; local copy)",
+   "sections": "§6 strong six exponentials"
+  },
+  {
+   "source": "Waldschmidt, Diophantine Approximation on Linear Algebraic Groups (2000)",
+   "sections": "Exercises 11.9-11.11 only"
+  },
+  {
+   "source": "Bachoc-Serra-Zémor, arXiv:1501.00602",
+   "sections": "Introduction, Theorems 1-3; theorem list for the rest",
+   "link": "https://arxiv.org/abs/1501.00602"
+  },
+  {
+   "source": "Momot, Density of rational points on commutative group varieties and small transcendence degree, arXiv:1011.3368",
+   "sections": "Generalizations of a theorem of Diaz (first part; my extract was cut off at the margins)",
+   "link": "https://arxiv.org/abs/1011.3368"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Roy 1992, Matrices whose coefficients are linear forms in logarithms, JNT 41 (local; introduction and theorem lines by grep)"
+  },
+  {
+   "source": "Waldschmidt, Variations on the six exponentials theorem (Hyderabad 2005; local; grep for vector-space statements)",
+   "link": "https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/Hyderabad.pdf"
+  },
+  {
+   "source": "Diaz 1997, La conjecture des quatre exponentielles et les conjectures de D. Bertrand, JTNB 9 (local; statement headings)",
+   "link": "https://www.numdam.org/item/JTNB_1997__9_1_229_0.pdf"
+  },
+  {
+   "source": "Waldschmidt, Open Diophantine Problems (grep for Diaz and strong conjectures)",
+   "link": "https://arxiv.org/abs/math/0312440"
+  },
+  {
+   "source": "Waldschmidt, Schanuel colloquium 2014 (local; grep)"
+  },
+  {
+   "source": "Warner, The Exponential World, arXiv:2105.05809 (grep: the Diaz curve remark, conditional on the four exponentials conjecture)",
+   "link": "https://arxiv.org/abs/2105.05809"
+  },
+  {
+   "source": "Butler, A Diophantine approach to the three and four exponentials conjectures, Ramanujan J. 42 (2017) (title and zbMATH record)"
+  },
+  {
+   "source": "Bachoc-Couvreur-Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018) (search snippet; concerns S² rather than ST)",
+   "link": "https://alco.centre-mersenne.org/articles/10.5802/alco.19/"
+  },
+  {
+   "source": "Wessel, On Freiman's theorem in a function field setting, arXiv:2405.10724 (abstract)",
+   "link": "https://arxiv.org/abs/2405.10724"
+  },
+  {
+   "source": "arXiv:2408.08178, Matrix Coefficient Conjecture (search snippet only)",
+   "link": "https://arxiv.org/abs/2408.08178"
+  },
+  {
+   "source": "Dasgupta, Ranks of matrices of logarithms of algebraic numbers I, arXiv:2303.02037 (title and snippet)",
+   "link": "https://arxiv.org/abs/2303.02037"
+  },
+  {
+   "source": "Semantic Scholar citers of Diaz 2004 (first results seen, list truncated) and of Diaz 2007 (one entry)"
+  },
+  {
+   "source": "zbMATH Open: au:Diaz & cc:11J81; 'six exponentials' 2007+; 'four exponentials' 2008+; 'logarithms of algebraic numbers' 2008+ & cc:11J81. Fetched and keyword-searched; only parts of the records seen"
+  },
+  {
+   "source": "arXiv API: all:'six exponentials' (about 5 results, top two read; unrelated to the target)"
+  },
+  {
+   "source": "Pattern grep for geometric-progression families across the local Diaz, Roy, Waldschmidt, Dasgupta-Kakde and others folders. Hits outside Diaz 2007 and Bachoc-Serra-Zémor were coincidental, apart from Roy 2004's points in geometric progression, which are a different use"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "Waldschmidt, Further variations on the six exponentials theorem, Hardy-Ramanujan J. 28 (2005)",
+   "why": "The local PDF's text layer is unreadable (Type 3 fonts) and I did not OCR it, so this is unread. It is the likeliest remaining place in the field for corollaries of Roy's theorem, though Diaz 2007 §2.4 says applications of its result are not evident.",
+   "doi_or_link": "https://doi.org/10.46298/hrj.2005.86"
+  },
+  {
+   "source": "OpenAlex searches",
+   "why": "HTTP 429 on every attempt, so there is no OpenAlex coverage.",
+   "doi_or_link": "https://api.openalex.org"
+  },
+  {
+   "source": "arXiv API, broader queries on 'four exponentials', 'strong six exponentials', 'quatre exponentielles'",
+   "why": "HTTP 429 on both attempts; web search was only a partial replacement.",
+   "doi_or_link": "https://export.arxiv.org/api/query"
+  },
+  {
+   "source": "Semantic Scholar keyword search",
+   "why": "HTTP 429; only the citation endpoints worked.",
+   "doi_or_link": "https://api.semanticscholar.org"
+  }
+ ],
+ "queries": [
+  "Diaz \"module d'un logarithme\" transcendance conjecture |log α| algébrique matrices coefficients logarithmes rang un",
+  "product of two subspaces dimension 2 and 3 contained in a space spanned by 1, u, 1/u, rational functions; six exponentials linear subspace products algebraic numbers logarithms",
+  "Roy \"matrices whose coefficients are linear forms in logarithms\" rank one Diaz modulus logarithm algebraic number transcendence",
+  "Diaz \"Utilisation de la conjugaison complexe\" transcendance exponentielle |u| algébrique polynôme en u, nombres u, ū, produit de deux espaces vectoriels",
+  "strong six exponentials theorem complex conjugation Q̄-vector space generated by 1, u, ū |u| algebraic e^u algebraic consequence conjecture Diaz candidate transcendence 2020..2026",
+  "\"Diaz\" conjecture \"|u|\" algebraic e^u transcendental partial results new theorem four exponentials complex conjugation arXiv",
+  "produits et quotients de combinaisons linéaires de logarithmes famille {v, vu, vu², vu³} ⊄ L̃ généralisation espace vectoriel Q̄ fraction rationnelle en u",
+  "\"Bachoc\" \"Couvreur\" \"Zémor\" function field version Freiman theorem genus 0 product of spaces dim ST = dim S + dim T - 1 geometric progression basis",
+  "transcendance \"combinaisons linéaires de logarithmes\" u, u², u³ théorème fort des six exponentielles application; Roy strong six exponentials corollary \"1, t, t^2\" logarithms linear combination powers",
+  "\"strong four exponentials\" conjecture matrix rank one linear forms logarithms new results algebraic function of u conjugate 2022 2023 2024 2025 (extended)",
+  "\"exponentielles\" conjecture forte logarithmes \"produit\" thèse transcendance espace vectoriel engendré conjugaison complexe module algébrique généralisation Diaz théorème",
+  "vector space spanned by 1, x, 1/x contains product of two subspaces rational function field \"degree at most 3\" critical pair Vosper algebraically closed base field linear Kneser inverse theorem",
+  "zbMATH: au:Diaz & cc:11J81",
+  "zbMATH: any:\"six exponentials\" & py:2007-2026",
+  "zbMATH: any:\"four exponentials\" & py:2008-2026",
+  "zbMATH: any:\"logarithms of algebraic numbers\" & py:2008-2026 & cc:11J81",
+  "arXiv: all:\"six exponentials\"",
+  "Semantic Scholar: citations of DOI 10.5802/jtnb.592 and 10.5802/jtnb.459"
+ ],
+ "notes": "**Result: no lead reaches the target.** I found no printed statement of the criterion, of its degree-bound companion, or of any question of this shape (\"which spaces containing H₀ carry a 2×3 configuration through a 4-dimensional subspace\"). The two leads are analogues only. This is failure to find within limited coverage, not evidence of absence.\n\n**Why the transcendence literature is unlikely to hold it.** In Diaz, Roy and Waldschmidt, a configuration is an input to Roy's theorem or to the strong four exponentials conjecture. The output is a non-membership in L̃. Diaz 2004 §5 and Diaz 2007 §2 pick specific families by hand: (1,u,u²)⊗(v,v̄), (1,u,u²)⊗(v,vu), (1,u,ū)⊗(v,v̄). None of them classifies the configurations inside a given space, or treats H₀ + Q̄w as an object. Diaz 2007 §2.4 expects little further progress from staying within Roy's theorem, and points to Waldschmidt's Further Variations as a possible source of applications.\n\n**Closest material**\n- Diaz 2007 Th. 7(2) has the cubic space v·<1,u,u²,u³> implicitly, which is the shape behind \"degree ≤ 3\". It says nothing about H₀ or g.\n- Bachoc-Serra-Zémor Theorem 2 explains why 4 is the minimum dimension. Theorem 3 gives the inverse statement only over finite F, and the authors warn that it fails for general base fields. It is therefore neither a find nor directly a tool over Q̄ as stated. The field-specific lemma that would be needed is not stated there. I read only the introduction and the theorem list, not the partial results for arbitrary F (Theorem 16, Proposition 17).\n- Momot's \"generalizations of Diaz\" concern real or imaginary algebraic logarithms on group varieties, which is a different question.\n- DALAG Exercises 11.9-11.11 are unrelated in shape. I did not read DALAG beyond those and a theorem grep of Chapter 11.\n\n**What I did not settle**\n- Waldschmidt, Further Variations, is unread because the text layer is garbled and I did not OCR it. Anyone following up should check this first, though a criterion of this kind would surprise me.\n- OpenAlex and the broader arXiv queries were rate-limited (HTTP 429). Direct Python access to zbMATH failed on a TLS certificate error, and I did not disable verification. I used the fetch tool instead, and it worked.\n- Keyword searches over the zbMATH results returned mostly noise, and I saw only parts of those records. Recent work (2020-2026) rests on these partial listings plus web search, so it is the weakest part of the coverage.\n- Bachoc-Couvreur-Zémor and Wessel were screened only, and they concern S² rather than ST. The function-field route belongs more to a different search strategy than this own-field one.\n- I did not independently check the target's proof or try deriving it from any source.\n\n**Time.** I stopped well inside the 30-minute box, once the own-field sources were exhausted and the indexes were rate-limited. I did not use the remaining time to retry the rate-limited APIs. The last clock check, partway through the run, read 15:57 against a 15:54 start."
+}

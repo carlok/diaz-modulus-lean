@@ -1,0 +1,19 @@
+# Entry 16, verification: D. Roy, M. Waldschmidt,
+
+- **Source read:** Roy, Waldschmidt, Proc. Japan Acad. 71A (1995), 151-153, p. 151, checked on the page image. Read from local copy sources/roy-waldschmidt-1995-quadratic-relations.pdf; the given link https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604 returned a bot-check HTML page, not the PDF.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "(λ1,...,λn) is contained in a vector subspace of C^n which is defined over Q"
+
+**Hypotheses.** Field: the logs are complex, P is over Q, and trdeg is exactly 1. This is harmless, because a nonzero log is transcendental, so the target's trdeg ≤ 1 means = 1. Dimension: n = 4. Conjugation: not mentioned anywhere in the paper; I supply it by applying the theorem to (u, ū, v, v̄), since ℒ is conjugation-stable. Genericity: none is required. The modulus and real/imaginary conditions become the rational quadrics below. Theorem 2 is only announced here, with no proof in this paper; I did not check the 1997 proof. Its special case Theorem 1 is credited to Brownawell Cor. 7 and suffices for both target statements.
+
+**Explanation.** Theorem 2 is at the cited place, but neither target is printed. Derivation: the smallest Q-subspace W containing the point lies in V, and a nondegenerate quadric gives dim W ≤ 2.
+
+Pair: take (u,ū,v,v̄), P = X1X2 − cX3X4, c = |u|²/|v|². If u,ū are independent, v = au+bū, and W = {(s,t,as+bt,at+bs)}. The s² coefficient gives cab = 0, so v ∈ Qu or Qū. If ū = ±u and v ∉ Qu, W = {(s,±s,t,αs+βt)}; the t² and s² coefficients give β = 0, then ±1 = 0, impossible.
+
+Qr2: take (ℓ0,ℓ1,ℓ̄0,ℓ̄1), P = X1X4 ∓ X2X3. ℓ0,ℓ̄0 are independent, so ℓ1 = aℓ0+bℓ̄0. Real case: b(s²−t²) ≡ 0, so b = 0 and the ratio is rational. Imaginary case: 2ast + b(s²+t²) ≡ 0, so ℓ1 = 0, excluded.
+
+Not a covering find: Theorem 1 alone also gives both, so the source adds nothing beyond the named nearby result. Conjugation never appears. The "routine" class stands.

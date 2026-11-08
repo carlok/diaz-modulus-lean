@@ -1,0 +1,17 @@
+# Entry 19, verification: M. Waldschmidt, Diophant
+
+- **Source read:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000: Sec. 11.6.1 p. 399, Sec. 12.4.3 pp. 437-438. Read from local text layer prove2me/missions/diaz/sources/waldschmidt/dalag.txt, lines 21745-21766 and 23753-23776.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** special case
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "the strong four exponentials Conjecture implies the following refinement of the Hermite-Lindemann's Theorem" (DALAG p. 399)
+
+**Hypotheses.** Field (complex x, y; algebraic coefficients), conjugation (the bar-lambda substitution, lost in the text layer) and the conclusion (u nonzero, |u| algebraic implies e^u transcendental) all match. The hypothesis differs. The printed implication assumes Conjecture 11.17, with four numbers and no fifth exponential. The target assumes Strong Five, printed separately at pp. 437-438. Under 11.17 the Strong Five hypotheses cannot hold, so 11.17 implies Strong Five vacuously and the target is formally the stronger theorem. The fifth exponential is written with x1/x2 in DALAG and x2/x1 in the target, which a swap of indices fixes. No genericity assumption is involved.
+
+**Explanation.** Both passages are at the cited places, but the book never links Strong Five to Diaz: p. 399 derives Diaz from 11.17, and pp. 437-438 only state Strong Five as weaker. Grep finds Strong Five only there.
+
+Derivation, in DALAG's form. Let u be nonzero with uū algebraic and e^u algebraic. By Hermite-Lindemann, u and ū are irrational. Take x1=ū, x2=1, y1=1, y2=u; both pairs are Q-independent. Take β11=0, β12=uū, β21=1, β22=0, γ1=1, γ2=0. The five exponentials are e^ū, 1, e, wait: x2y1−β21=0 gives 1; x1y1−β11=ū gives e^ū; x1y2−β12=0 gives 1; x2y2−β22=u gives e^u; γ1x1/x2−γ2=ū gives e^ū. All are algebraic, since e^ū is the conjugate of e^u. The conclusion gives ū=x1y1=β11=0, a contradiction.
+
+So the argument is the same substitution as p. 399 plus a free fifth exponential. It confirms the 'routine' class, but the target is not printed here. Web search was not needed for this check.
