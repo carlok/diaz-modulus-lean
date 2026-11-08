@@ -1,0 +1,234 @@
+{
+ "target": "Let u be transcendental over a field K inside C, S a finite set of integers, V_S the K-span of the powers u^s, s in S. Claim: there exist K-independent x_1..x_p and K-independent y_1..y_q in C with all products x_i y_j in V_S if and only if S contains a sumset A+B with |A|=p, |B|=q. Equivalent forms: (1) the rank-one p x q matrix (x_i y_j) has entries in V_S and independent rows and columns; (2) for p=2: some r outside K has dim(V_S cap r V_S) >= q, iff some d != 0 has |S cap (S+d)| >= q; (3) for p=q=2: V_S is a Sidon space (Bachoc-Serra-Zemor) iff S is a Sidon set; (4) geometrically: the monomial curve C_S carries a 1-generic p x q matrix of linear forms of rank one on the curve (p=q=2: a quadric of rank <=4 through C_S), iff A+B is in S. Consequences: {0,±1,±k} has a 2x3 configuration only for k=2,3; for 4<=k<l, {0,±1,±k,±l} has one iff l is in {k+1,k+2,2k-1,2k,2k+1,3k}; {0,±1} together with all ±4^j has none.",
+ "leads": [
+  {
+   "citation": "C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's Theorem, Algebraic Combinatorics 1 (2018), no. 4, 501-521; arXiv:1709.00087",
+   "location": "Proposition 3.1 and Lemma 3.2, section 3 (p. 4 of the arXiv version)",
+   "quote": "The set v(S) is finite and its cardinality equals dim S.",
+   "link": "https://arxiv.org/abs/1709.00087",
+   "relation": "implies",
+   "derivation": "Only-if direction, all p,q. Rescale: x_i/x_1 and x_1 y_j lie in K(u) with the same products. The u-adic valuation has residue field K, so Prop. 3.1 gives |v(X)|=p, |v(Y)|=q, and multiplicativity gives v(X)+v(Y) inside v(V_S)=S. The converse is trivial. Caveats: the paper states only S and S^2 (the two-space inclusion is my one-line step), states no iff, and contains no sumset-containment statement. This is the valuation method the entry already credits to BSZ17 section 7, in a more citable form, not a printed statement of the theorem. It supports the class 'routine' and does not break 'not found'."
+  },
+  {
+   "citation": "R. M. Roth, N. Raviv, I. Tamo, Construction of Sidon Spaces With Applications to Coding, IEEE Trans. Inform. Theory 64 (2018), no. 6, 4412-4422; arXiv:1705.04560",
+   "location": "Construction 21 and Lemma 22, with Lemma 20, Section IV (p. 5 of the arXiv version)",
+   "quote": "The subspace V ∈ Gq (n, k) from Construction 21 is a max-span Sidon space.",
+   "link": "https://arxiv.org/abs/1705.04560",
+   "relation": "analogue only",
+   "derivation": "Closest printed statement about spans of powers. Dictionary (my derivation): a space has no 2x2 configuration iff it is a Sidon space, because ab=cd gives x=(a,c), y=(1,d/a). Lemma 22 then says: S a Sidon set in [m], gamma of degree n>2m over F_q, implies span of gamma^s has no 2x2 configuration. That is the p=q=2 only-if direction, in a finite-field setting with gamma algebraic of high degree, not transcendental over a general K. It does not formally imply the target, gives nothing for 2x3, and does not reach the hulls, because {0,±1,±k} is never Sidon (-1+1=0+0)."
+  },
+  {
+   "citation": "C. Castello, On generalized Sidon spaces, Linear Algebra Appl. 704 (2024/25), 270-308; arXiv:2312.12245",
+   "location": "Theorem 4.3, Section 4 (p. 11 of the arXiv version)",
+   "quote": "then V is a max-span r-Sidon space.",
+   "link": "https://arxiv.org/abs/2312.12245",
+   "relation": "analogue only",
+   "derivation": "Extends the Roth-Raviv-Tamo construction: a B_r-set S in [h], gamma of degree n>rh over F_q, gives span of gamma^s r-Sidon. This generalises in r (products of r factors), not in the p x q shape. Same finite-field setting. No statement for a sumset A+B inside S with |A| or |B| at least 3."
+  },
+  {
+   "citation": "S. L'vovsky, On inflection points, monomial curves, and hypersurfaces containing projective curves, Math. Ann. 306 (1996), 719-735; preprint alg-geom/9504002 (On number of hypersurfaces containing projective curves)",
+   "location": "Proposition 3.1 and its proof, Section 3, p. 3 of the preprint; monomial curves in Section 4",
+   "quote": "Among m-fold products of sj's there are exactly Spanm(A) that have different orders",
+   "link": "https://arxiv.org/abs/alg-geom/9504002",
+   "relation": "analogue only",
+   "derivation": "The same inequality in algebraic-geometry vocabulary, on any smooth curve and predating the BSZ/BCZ line: adapted bases at a point give dim Im Sym^m V >= |mA| for A the vanishing sequence. It bounds the size of symmetric products from below. It does not treat a pair X,Y inside a fixed monomial space and has no sumset-containment statement. Method only, independent of the Kneser line."
+  }
+ ],
+ "read": [
+  {
+   "source": "Bachoc, Serra, Zémor, An analogue of Vosper's theorem for extension fields (BSZ17, named as nearby; read for orientation only)",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "sections": "Section 5 Sidon spaces (statement (14), Prop. 17, remarks), Section 7 Theorems 33-34 and proofs"
+  },
+  {
+   "source": "Bachoc, Couvreur, Zémor, Towards a function field version of Freiman's Theorem",
+   "link": "https://arxiv.org/abs/1709.00087",
+   "sections": "Section 3 (Prop. 3.1, Lemma 3.2, Remark 3.3), passage after Prop. 6.2 on spaces spanned by x^a, Prop. 8.2 Laurent-polynomial passage"
+  },
+  {
+   "source": "Roth, Raviv, Tamo, Construction of Sidon Spaces With Applications to Coding",
+   "link": "https://arxiv.org/abs/1705.04560",
+   "sections": "Definition 4, Lemma 20 proof, Construction 21, Lemma 22"
+  },
+  {
+   "source": "Castello, On generalized Sidon spaces",
+   "link": "https://arxiv.org/abs/2312.12245",
+   "sections": "Definition 4.1 to Example 4.4, statement of Theorem 7.1"
+  },
+  {
+   "source": "L'vovsky, On number of hypersurfaces containing projective curves (preprint of the Math. Ann. paper)",
+   "link": "https://arxiv.org/abs/alg-geom/9504002",
+   "sections": "Introduction, Section 3 up to Prop. 3.3, list of statements in Sections 4-5"
+  },
+  {
+   "source": "Fischler, Orbits under algebraic groups and logarithms of algebraic numbers (local copy; named as nearby)",
+   "sections": "Lemma 6.1 and its proof; states nothing stronger than the entry says"
+  },
+  {
+   "source": "Couvreur, Zémor, Freiman's 3k-4 Theorem for Function Fields",
+   "link": "https://arxiv.org/abs/2408.00183",
+   "sections": "Introduction passage on spaces generated by x^a; searched the whole text for a two-space v(S)+v(T) inclusion, none found"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Tanisali, Wessel, High dimensional Riemann-Roch spaces in linear spaces with small squares (2026)",
+   "link": "https://arxiv.org/abs/2609.06822"
+  },
+  {
+   "source": "Wessel, On Freiman's Theorem in a function field setting (local copy; keyword search)",
+   "link": "https://arxiv.org/abs/2405.10724"
+  },
+  {
+   "source": "Eliahou, Lecouvey, On linear versions of some addition theorems (no valuations, no monomials)",
+   "link": "https://arxiv.org/abs/0802.3523"
+  },
+  {
+   "source": "Beck, Lecouvey, Additive combinatorics methods in associative algebras (no valuations)",
+   "link": "https://arxiv.org/abs/1504.02287"
+  },
+  {
+   "source": "Lecouvey, Plünnecke and Kneser type theorems for dimension estimates, Combinatorica 34 (2014) (keyword search of the arXiv version)",
+   "link": "https://arxiv.org/abs/1109.0134"
+  },
+  {
+   "source": "Hou, Leung, Xiang, A generalization of an addition theorem of Kneser, J. Number Theory 2002",
+   "link": "https://doi.org/10.1006/jnth.2002.2793"
+  },
+  {
+   "source": "Elias, Sumsets and projective curves, Mediterr. J. Math. 2022 (monomial curve to sumset, Hilbert function only; keyword search)",
+   "link": "https://arxiv.org/abs/2202.00590"
+  },
+  {
+   "source": "Colarte-Gómez, Elias, Miró-Roig, Sumsets and Veronese varieties",
+   "link": "https://arxiv.org/abs/2202.01114"
+  },
+  {
+   "source": "Jung, Moon, Park, On the rank index of projective curves of almost minimal degree (rank-3/4 quadrics, S an interval minus a point; keyword search)",
+   "link": "https://arxiv.org/abs/2411.17494"
+  },
+  {
+   "source": "Barile, on monomial curves and 2-minors of a 2x3 monomial matrix (entries not linear forms)",
+   "link": "https://arxiv.org/abs/math/0511291"
+  },
+  {
+   "source": "Sidman, Smith, Linear determinantal equations for all projective schemes (multiplication-map matrix is 1-generic; dictionary only; keyword search)",
+   "link": "https://arxiv.org/abs/0910.2424"
+  },
+  {
+   "source": "Deopurkar, Patel, Orbits of linear series on the projective line (keyword search)",
+   "link": "https://arxiv.org/abs/2211.16603"
+  },
+  {
+   "source": "Castello, Polverino, Santonastaso, Zullo, Constructions and equivalence of Sidon spaces (keyword search)",
+   "link": "https://arxiv.org/abs/2303.17306"
+  },
+  {
+   "source": "Castello, Polverino, Zullo, On one-orbit cyclic subspace codes of G_q(n,3) (keyword search)",
+   "link": "https://arxiv.org/abs/2405.01652"
+  },
+  {
+   "source": "Zullo, Multi-orbit cyclic subspace codes and linear sets (keyword search)",
+   "link": "https://arxiv.org/abs/2112.08781"
+  },
+  {
+   "source": "Trautmann, Manganiello, Braun, Rosenthal, Cyclic orbit codes (difference multisets run over all elements of U, not over a monomial basis; keyword search)",
+   "link": "https://arxiv.org/abs/1112.1238"
+  },
+  {
+   "source": "Gluesing-Luerssen, Morrison, Troha, Cyclic orbit codes and stabilizer subfields (keyword search)",
+   "link": "https://arxiv.org/abs/1403.1218"
+  },
+  {
+   "source": "Gluesing-Luerssen, Lehmann, Distance distributions of cyclic orbit codes (keyword search)",
+   "link": "https://arxiv.org/abs/1912.05522"
+  },
+  {
+   "source": "Ben-Sasson, Etzion, Gabizon, Raviv, Subspace polynomials and cyclic subspace codes (keyword search)",
+   "link": "https://arxiv.org/abs/1404.7739"
+  },
+  {
+   "source": "Castello, Santonastaso, Asymptotically optimal cyclic subspace codes (keyword search)",
+   "link": "https://arxiv.org/abs/2507.09290"
+  },
+  {
+   "source": "Bodur et al., The Schur product of evaluation codes (exponent Minkowski sum, if-direction only; keyword search)",
+   "link": "https://arxiv.org/abs/2505.10068"
+  },
+  {
+   "source": "Grundmeier, Lebl, Initial monomial invariants of holomorphic maps (keyword search)",
+   "link": "https://arxiv.org/abs/1502.03434"
+  },
+  {
+   "source": "Arithmetic circuit lower bounds from sumset expansion (2026; abstract: monomial maps, iterated sumsets, different question)",
+   "link": "https://arxiv.org/abs/2607.15848"
+  },
+  {
+   "source": "Kirby, Exponential algebraicity in exponential fields (search snippet; nothing on subspace products)",
+   "link": "https://arxiv.org/abs/0810.4285"
+  },
+  {
+   "source": "Kirby, variants of Schanuel (local copy; keyword search)"
+  },
+  {
+   "source": "Zannier, Composite rational functions expressible with few terms (title and snippet only)",
+   "link": "https://doi.org/10.4171/JEMS/299"
+  },
+  {
+   "source": "Borwein, Erdélyi, products of Müntz spaces (search snippet: Remez-type inequalities, no sumset structure)"
+  },
+  {
+   "source": "de Guzmán, Hefez, On value sets of fractional ideals (search snippet only)",
+   "link": "https://arxiv.org/abs/1912.02112"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "zbMATH Open API and web search",
+   "why": "API call failed certificate verification (self-signed certificate in chain); I did not bypass it. The web interface returned HTTP 403. No zbMATH coverage in this run; OpenAlex, arXiv and web search used instead."
+  },
+  {
+   "source": "C. Castello, Algebraic and geometric perspectives on Sidon spaces and cyclic subspace codes (2026 thesis)",
+   "doi_or_link": "https://iris.unicampania.it/handle/11591/582704",
+   "why": "A search summary reported the repository record has an abstract but no file. I did not open the record myself. The thesis is the most likely place for a monomial or function-field Sidon statement, so it is unchecked."
+  },
+  {
+   "source": "D. Eisenbud, Linear sections of determinantal varieties, Amer. J. Math. 110 (1988); Eisenbud, Koh, Stillman, Determinantal equations for curves of high degree, Amer. J. Math. 110 (1988)",
+   "why": "Not found open access in search and not opened, so judged only through Sidman-Smith's description. Both concern 1-generic multiplication matrices in general; nothing indicates a monomial or sumset statement."
+  }
+ ],
+ "queries": [
+  "product of subspaces in rational function field K(x) valuation dimension equals number of valuations sumset monomials span linear Kneser",
+  "subspaces X Y of rational functions with product XY contained in span of monomials support contains sumset A+B lacunary Laurent polynomials",
+  "projective monomial curve determinantal 2x3 matrix of linear forms rank one on curve sumset exponents one-generic matrix sparse rational curve lies on scroll",
+  "Sidon space span of powers of element in field extension Sidon set exponents product of subspaces monomial subspace additive energy linear analogue",
+  "rank one matrix entries sparse polynomials span of monomials tropical rank one exponents a_i + b_j rows columns linearly independent theorem",
+  "Elias Sumsets and projective curves monomial curves sumset Hilbert function",
+  "Kaveh Khovanskii valuation one-dimensional leaves product of subspaces of rational functions semigroup v(L1)+v(L2) subset v(L1 L2)",
+  "decomposition of a linear system on P^1 as product of two linear systems sparse monomials lacunary linear series factorization",
+  "Roy Matrices whose coefficients are linear forms in logarithms rank one structural rank span powers rational functions",
+  "linear span products geometric progression subspaces of K(t) Laurent monomials sumset t-adic",
+  "Schur product of codes contained in a monomial code; subcodes of Reed-Solomon codes spanned by monomials, error-correcting pair sumset",
+  "Waldschmidt Roy linear subspace rational functions strong six exponentials u^2 u^3 powers geometric progression",
+  "rank one locus Segre intersection monomial curve sumset space of Hankel matrices zero pattern",
+  "vanishing sequence of product of linear series sum of vanishing sequences monomial linear series P^1 torus fixed",
+  "quadrics of rank 4 containing a projective monomial curve, binomial quadrics additive quadruple, rational normal scroll containing curve",
+  "linear analogue additive energy subspaces field extension Balog-Szemeredi-Gowers function field monomial valuation",
+  "Sidon space constructed from Sidon set of integers: span of powers x^a is a Sidon space over rational function field or finite field (extended)",
+  "cyclic subspace code dim(U ∩ αU) subspace spanned by powers of primitive element, exponent differences, monomial basis",
+  "Kirby weak Schanuel linear subspaces rational functions one transcendental product of subspaces reduction, Ax-Schanuel 2x3 matrix",
+  "value set fractional ideals length equals number of values v(I)+v(J) in v(IJ) numerical semigroup K((t))",
+  "Kemperman linear version torsion-free group algebra supports, order of vanishing, subspaces of Laurent series product in sparse subspace",
+  "Sidon space transcendental extension K(x) Sidon set exponents characterization monomials rational function field",
+  "torus action Borel fixed point Grassmannian pairs of subspaces product in monomial subspace; initial subspaces in(X) in(Y) in in(XY)",
+  "On one-orbit cyclic subspace codes G_q(n,3) subspace ⟨1,x,x^k⟩ dim(U ∩ αU)",
+  "cyclic subspace code minimum distance 2k-4 basis powers γ^{a_i}, exponents B_2[g], dim(V ∩ αV) ≤ 2",
+  "compression space zero block Hankel matrices torus invariant matrix space shrunk subspace non-commutative rank",
+  "Müntz polynomials product of Müntz spaces sumset; Ritt factorization exponential polynomials spectrum",
+  "linear analogue additive irreducibility Ostmann: subspace of field extension as product of two subspaces",
+  "polynomials supported on a Sidon set product identity fg = hk; multiplicative energy of spaces of sparse polynomials, x-adic valuation (extended)",
+  "Eisenbud Linear sections of determinantal varieties 1-generic multiplication of sections L = A ⊗ B rank one on curve",
+  "OpenAlex: 12 title/abstract searches on products of subspaces, monomial curves in scrolls, rank four quadrics, Vosper in function fields, sums of finite sets; further searches on Sidon spaces, subspace polynomials, cyclic orbit codes"
+ ],
+ "notes": "**Outcome.** No printed statement of the theorem, in any of the vocabularies tried. \"Not found\" survives. Run time was about 11 minutes of the 30-minute box (10:23 to 10:34), so this is not exhaustive: I stopped when new query families had stopped yielding candidates.\n\n**The most useful restatements (my own derivations, not from a source).**\n- p=2: a 2×q configuration in V exists iff some r∉K has dim(V∩rV) ≥ q. So the target at p=2 reads: max over r∉K of dim(V_S∩rV_S) equals max over d≠0 of |S∩(S+d)|. This is the cyclic orbit code quantity, since d(V,αV)=2k−2dim(V∩αV).\n- p=q=2: \"no 2×2 configuration\" is the same as Sidon space, and \"S contains A+B with |A|=|B|=2\" is the same as S not being a Sidon set (3-term progressions included). So this case reads: V_S is a Sidon space iff S is a Sidon set.\n- Geometry: a configuration is a 1-generic matrix of linear forms of rank one on the monomial curve C_S. For p=q=2 it is a quadric of rank ≤4 through C_S.\n- Hankel side: X⊗Y lies in the preimage of V_S under multiplication iff the sparse Hankel matrices supported off S share a p×q zero block, which makes them a compression space. A+B⊂S is a biclique in a Cayley sum graph.\n\n**What each line gave.**\n- *Linear Kneser, BCZ line.* BCZ18 Prop. 3.1 is the cleanest citation for |v(X)|=dim X, and the paper calls it classical. With v(xy)=v(x)+v(y) it gives the only-if direction in two lines, so the entry's class \"routine\" looks right. BCZ18 and Couvreur–Zémor state S² only; I found no two-space v(S)+v(T) inclusion in BSZ17, BCZ18, or Couvreur–Zémor. Their monomial spaces x^a appear only as motivating examples, with S² generated by x^(A+A); they do not ask what products lie inside a given monomial span.\n- *Sidon spaces and subspace codes.* This is the only line with statements about spans of powers: Roth–Raviv–Tamo Lemma 22 and Castello Thm 4.3. They go from a Sidon or B_r set to a Sidon-type space, over F_q with γ of large degree, via maximal dim V^r. Neither gives the converse as a stated result, and neither handles an S that fails to be Sidon, which is what the hulls {0,±1,±k} need. I found no statement bounding dim(V∩αV) by the difference multiplicities of a monomial basis beyond the Sidon case. Trautmann et al. use difference multisets over all elements of U, which is a different object.\n- *Riemann–Roch, linear series.* L'vovsky Prop. 3.1 is the same valuation inequality under the name vanishing sequence. Elias and Colarte-Gómez–Elias–Miró-Roig relate sumsets to Hilbert functions of monomial curves and Veronese projections, which concerns |sA| only.\n- *Determinantal, scrolls.* The rank index papers and Sidman–Smith give the dictionary but no monomial classification. No paper found on scrolls or rank-4 quadrics containing a general monomial curve in terms of exponents.\n- *Schanuel, Kirby, Ax.* Nothing relevant. The target is a statement about K(u), with no exponential content.\n- *Müntz, Ritt, tropical, group algebra, compression spaces.* Searches produced nothing on point. These were judged from search snippets only and are weak negatives.\n\n**The consequences.** The k=2,3 statement, the pair list and the 4^j statement are finite or elementary sumset checks once the theorem is in hand. No source treating them was found, and I would not expect a printed source outside transcendence work. I spot-checked k=2,3,4 by hand via difference multiplicities, and that agrees with the entry.\n\n**Not settled.**\n- zbMATH was unavailable, so MSC-based browsing was not done.\n- Castello's 2026 thesis was not read and is the one source most likely to contain a function-field Sidon statement.\n- Many items in the screened list were only keyword-searched, not read; a statement phrased without my search terms could be missed.\n- All arXiv text was read through pdftotext. The quoted statements read cleanly, but I did not check them against page images.\n\nNo repository outside the permitted target file and local sources folder was opened; downloads were kept in a scratch folder and deleted."
+}

@@ -1,0 +1,176 @@
+{
+ "target": "Let K be the algebraic numbers and u in C, not in K, with rho = u times its conjugate in K, so the conjugate of u is rho/u. Put H0 = K + Ku + K(rho/u), of dimension 3, and take z not in H0. Suppose V = H0 + Kz contains all six products x_i y_j, with x1, x2 K-independent and y1, y2, y3 K-independent. Then z lies in H0 + Kw, where w is u^2, (rho/u)^2, or 1/(u - a) with a in K non-zero. Printed input (BSZ17 Lemma 4): V = b(K + Kh + Kh^2 + Kh^3) with h not in K. So the wanted step is this: a four-term progression over an algebraically closed field that contains 1, u, rho/u forces u to be a Moebius function of h, and V to be one of the three listed spaces.",
+ "leads": [
+  {
+   "citation": "G. Diaz, Produits et quotients de combinaisons lineaires de logarithmes de nombres algebriques : conjectures et resultats partiels, J. Theor. Nombres Bordeaux 19 (2007), 373-391",
+   "location": "p. 387, remark introducing Theoremes 5 and 6 (sufficient conditions for {v, vu, vu^2} not in L-tilde)",
+   "quote": "ces conditions ne prétendent pas être les seules possibles",
+   "link": "https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf",
+   "relation": "analogue only",
+   "derivation": "Not a find. Diaz explicitly disclaims completeness for his sufficient conditions. The paper lists configurations and their exclusions, and never asks which extensions of 1, u, u-bar carry a configuration. Useful only as evidence that the author did not claim the converse."
+  },
+  {
+   "citation": "C. Bachoc, A. Couvreur, G. Zemor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics (2018); arXiv:1709.00087 (journal details from memory, not checked)",
+   "location": "Section 6, discussion after Proposition 6.2; also the remark after Theorem 9.2",
+   "quote": "basis in geometric progression, i.e. inside a Riemann-Roch space of genus 0",
+   "link": "https://arxiv.org/abs/1709.00087",
+   "relation": "analogue only",
+   "derivation": "Outside my field; read only because of its dictionary. It identifies progressions with genus-0 Riemann-Roch spaces, but says nothing about 1, u, 1/u or a Moebius step. My own remark, not in the paper: if V = L(D) on P^1 with deg D = 3, then u and 1/u in V give (zeros of u) + (poles of u) <= D, so 2 deg u <= 3 and deg u = 1. The third point of D then gives u^2, 1/u^2 or 1/(u-a). I found no source that states this."
+  },
+  {
+   "citation": "S. Fischler, Orbits under algebraic groups and logarithms of algebraic numbers, Acta Arith. 100 (2001), 167-187, citing D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algebriques, Groupe d'etude sur les problemes diophantiens 1988/89, Publ. Math. Univ. Paris VI, Proposition 2",
+   "location": "Final N.B. of Section 6, p. 186",
+   "quote": "it is impossible ([8], Proposition 2) to derive “algebraically” any of these conjectures",
+   "link": "https://doi.org/10.4064/aa100-2-4",
+   "relation": "analogue only",
+   "derivation": "A printed limit on what can be deduced algebraically from the rank theorem (improving q <= 3 to q <= 2 in Lemma 6.1), not a classification of configurations. It concerns neither a point of a circle nor a fourth element z. Roy's text itself could not be opened, so its Proposition 2 is known only through this sentence."
+  }
+ ],
+ "read": [
+  {
+   "source": "Diaz 2007, JTNB 19 (local copy)",
+   "sections": "Section 2: Theoreme 3, Corollaire 1 (start), Theoreme 4, Corollaires 4-5 with examples, Theoremes 5, 6, 7, section 2.4",
+   "link": "https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf"
+  },
+  {
+   "source": "Diaz 2004, Utilisation de la conjugaison complexe, JTNB 16 (local, poor OCR)",
+   "sections": "Statements of Theoremes 1-6; section 5.2 to the end",
+   "link": "https://emis.univie.ac.at/journals/JTNB/2004-3/pages535-553.pdf"
+  },
+  {
+   "source": "Waldschmidt, Variations on the six exponentials theorem (2005)",
+   "sections": "Opening lines of Consequences 1.6-1.13, Theorem 2.1, Corollaries 2.2-2.14, 3.2-3.5 (statements only)",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/Hyderabad.pdf"
+  },
+  {
+   "source": "Waldschmidt, The role of complex conjugation in transcendental number theory (2005) (local)",
+   "sections": "Opening lines of all theorems, corollaries, conjectures, including Conjecture 5.2 and Section 6",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf"
+  },
+  {
+   "source": "Roy, Matrices whose coefficients are linear forms in logarithms, JNT 41 (1992) (local)",
+   "sections": "Introduction; opening lines of Theorems 1-7, Corollaries 1-2, Lemmas 1-3",
+   "link": "https://doi.org/10.1016/0022-314X(92)90081-Y"
+  },
+  {
+   "source": "Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, Acta Math. 175 (1995) (local)",
+   "sections": "Introduction (start); Theorem 2.1, Corollary 2.2, Proposition 2.5; all passages on dimension 4 (these concern Grassmannians); reference list",
+   "link": "https://doi.org/10.1007/BF02392486"
+  },
+  {
+   "source": "Fischler 2001, Acta Arith. 100 (local)",
+   "sections": "Section 6: Lemma 6.1, Theorem 6.2, proof of Theorem 6.4, final N.B.",
+   "link": "https://doi.org/10.4064/aa100-2-4"
+  },
+  {
+   "source": "Waldschmidt, Diophantine Approximation on Linear Algebraic Groups (2000) (local)",
+   "sections": "Section 11.3.3 examples (five exponentials, strong six); opening lines of Exercises 11.1-11.7; Exercises 14 hints on rank-one matrices. Exercises 11.8 onward not read",
+   "link": ""
+  },
+  {
+   "source": "G. Warner, The Exponential World, arXiv:2105.05809",
+   "sections": "Section 43, lemmas 4-7 only",
+   "link": "https://arxiv.org/abs/2105.05809"
+  },
+  {
+   "source": "Bachoc, Couvreur, Zemor 2018 (local)",
+   "sections": "The passages using 'geometric progression' only, including Sections 6 and 9",
+   "link": "https://arxiv.org/abs/1709.00087"
+  },
+  {
+   "source": "Roy, Waldschmidt, Quadratic relations between logarithms of algebraic numbers, Proc. Japan Acad. 71 (1995) (local)",
+   "sections": "First page: Theorems 1-2",
+   "link": ""
+  }
+ ],
+ "screened": [
+  {
+   "source": "Waldschmidt, Further variations on the six exponentials theorem, Hardy-Ramanujan J. 28 (2005): keyword counts, zbMATH review",
+   "link": "https://hrj.episciences.org/86"
+  },
+  {
+   "source": "Waldschmidt, The four exponentials problem and Schanuel's conjecture (2022): keyword search, no hits for Diaz, conjugation, classification, geometric; zbMATH review",
+   "link": "https://doi.org/10.1007/978-3-031-12244-6_39"
+  },
+  {
+   "source": "zbMATH review of Diaz 2007 by Waldschmidt, Zbl 1163.11055"
+  },
+  {
+   "source": "Diaz 1997, La conjecture des quatre exponentielles et les conjectures de D. Bertrand: keyword search only",
+   "link": "https://doi.org/10.5802/jtnb.198"
+  },
+  {
+   "source": "L. Butler, A Diophantine approach to the three and four exponentials conjectures, Ramanujan J. 42 (2017): keyword search",
+   "link": "https://doi.org/10.1007/s11139-015-9728-2"
+  },
+  {
+   "source": "A. Momot, Density of rational points on commutative group varieties and small transcendence degree: abstract, keyword search",
+   "link": "https://arxiv.org/abs/1011.3368"
+  },
+  {
+   "source": "Waldschmidt, Open Diophantine Problems: keyword search",
+   "link": "https://arxiv.org/abs/math/0312440"
+  },
+  {
+   "source": "Waldschmidt, Six exponentials theorem - irrationality: abstract, keyword search"
+  },
+  {
+   "source": "Laurent 1991, Resultats recents de transcendance: keyword search, no hits"
+  },
+  {
+   "source": "Roy, Waldschmidt, Approximation diophantienne et independance algebrique de logarithmes (1997): title and citation data only, not reread",
+   "link": "https://doi.org/10.1016/S0012-9593(97)89938-7"
+  },
+  {
+   "source": "Dasgupta 2023; Dasgupta, Kakde 2024, Ranks of matrices of logarithms I, II: titles",
+   "link": "https://arxiv.org/abs/2303.02037"
+  },
+  {
+   "source": "Citation lists of Diaz 2004, Roy 1992, Roy 1995, Diaz 1997, Fischler 2001, Variations, Further variations (OpenAlex; Semantic Scholar for Diaz 2004 and 2007): titles"
+  },
+  {
+   "source": "Regex scan of 117 local text files for Moebius or homographic terms, degree-count phrasing, 1/(u-a) forms and progression terms: the only 1/(u-a) form was Diaz 2007 Cor. 5(4), and Moebius or homographic terms gave no hits"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algebriques, Groupe d'etude sur les problemes diophantiens 1988/89, Publ. Math. Univ. Paris VI 90",
+   "why": "No online copy found by search. This is the most useful unread item, because of its Proposition 2 as cited by Fischler."
+  },
+  {
+   "source": "D. Roy, Matrices dont les coefficients sont des formes lineaires, Sem. Theorie des Nombres Paris 1987-88, Progr. Math. 81 (1990), 273-281 (title from memory; the local reference lists show only the pages)",
+   "why": "Publisher volume, assumed paywalled; not attempted."
+  },
+  {
+   "source": "G. Diaz, Transcendance et independance algebrique: liens entre les points de vue elliptique et modulaire, Ramanujan J. (2000)",
+   "doi_or_link": "https://doi.org/10.1023/a:1009879120323",
+   "why": "Assumed paywalled from the publisher; title seen only, not attempted."
+  },
+  {
+   "source": "zbmath.org citing-documents page for Zbl 1163.11055",
+   "doi_or_link": "https://zbmath.org/?q=rf%3A1163.11055",
+   "why": "HTTP 403. Forward citations of Diaz 2007 are therefore only partly checked."
+  }
+ ],
+ "queries": [
+  "Diaz produits logarithmes module d'un logarithme conjecture espace vectoriel 1, u, u-bar configuration rang 1 matrice 2x3",
+  "matrices of rank one 2x3 entries in Q-bar space spanned by 1 and logarithms; dimension 4 classification geometric progression b, bh, bh^2, bh^3",
+  "Waldschmidt strong six exponentials complex conjugation modulus of logarithm candidate 1/lambda lambda^2 not in L-tilde classification",
+  "quatre exponentielles / six exponentielles matrices formes lineaires de logarithmes rang structurel dimension 4 fonction homographique",
+  "\"le module d'un logarithme\" nombre algebrique transcendant Diaz conjugaison complexe theoreme fort des six exponentielles",
+  "|log alpha| transcendence, u with e^u and |u| algebraic, strong four exponentials partial results",
+  "Q-bar space containing 1, u, 1/u and all products x_i y_j; which z yield a strong six exponentials contradiction; 1/(u-a), u^2, Moebius",
+  "e^{pi^2}, e^{1/pi} strong six exponentials reciprocal of logarithm recent results",
+  "\"progression geometrique\" logarithmes nombres algebriques six exponentielles raison transcendante",
+  "L-tilde elements in geometric progression, rational functions of lambda, 1/(lambda+alpha), Roy Waldschmidt corollaries and exercises",
+  "Roy \"Sur la conjecture de Schanuel pour les logarithmes de nombres algebriques\"",
+  "classification of Q-bar spaces containing products x_i y_j in dimension four, span of 1, u, 1/u and a fourth element, limits of the method (extended mode)",
+  "OpenAlex: 8 title lookups with citing works; 12 keyword searches on strong six and four exponentials, produits de logarithmes, modulus, inverse of a logarithm, conjugaison, rank one",
+  "Semantic Scholar: citations of 10.5802/jtnb.592 and 10.5802/jtnb.459; keyword searches (mostly rate-limited)",
+  "arXiv API: 10 phrase queries on six and four exponentials, quatre and six exponentielles, products of logarithms, complex conjugation",
+  "HAL API: 8 phrase queries",
+  "zbMATH API: strong six exponentials; ti:exponentials & cc:11J81; au:Diaz, G & cc:11J",
+  "Crossref: produits quotients logarithmes transcendance exponentielles Diaz"
+ ],
+ "notes": "**Result: no lead of relation same, implies, special case or generalization.** The three leads above are analogues only. The \"not found\" stands for this strategy, within the limits below.\n\n**Stopped early.** About 9 minutes of the 30 by the system clock (10:23 to 10:32). I stopped because the remaining own-field items were either unobtainable or returning the same papers, not because the box ran out.\n\n**What the field does.** Every source I read goes one way: choose a configuration, apply Roy's theorem, deduce an exclusion.\n- **Diaz 2007:** Cor. 1(3), Cor. 4, Cor. 5, Th. 5, 6, 7. Its stated aim is to extract as much as possible from Roy's theorem, but it never asks which extensions carry a configuration. Th. 6(1) is the degenerate case with (1, u, u-bar) dependent, and is not stronger than the nearby items.\n- **Diaz 2004:** Th. 2 and 6 are the same kind of result. It remarks that its hypotheses exclude u1 = u, u2 = u-bar, and it asks whether the conjectures can be reformulated algebraically. It does not take up the question of the target.\n- **Waldschmidt 2005 (Variations):** Cor. 2.2-2.6 give exclusions of the same type, for example one of 1/L1, L2/L1 lies outside L-tilde. These are 'if'-direction statements with general hypotheses.\n- **Waldschmidt 2005 (Role of conjugation):** states Diaz's conjecture on |u| (Conjecture 5.2) and lists his results. No classification.\n- **Roy 1992:** gives rank bounds and the 2x3 corollary. Roy 1995 classifies points on Grassmannians; its 'dimension 4' passages concern a Q-rational subspace U and bivectors, which is unrelated.\n- **Fischler 2001:** Lemma 6.1 uses progressions in L (named nearby) and is stated no more strongly than the target says. Its Theorem 6.2(2) classifies squares of linear forms with coefficients in L, a different shape of statement.\n- **Warner 2021:** repeats Diaz-type exclusions as a textbook account (Section 43, items 4-5).\n\n**Observation for whoever ranks this entry.** The missing step becomes very short in divisor language (see the Bachoc-Couvreur-Zemor lead). With P = 1/b, V = {Q(h)/P(h) : deg Q <= 3} = L(D), where D is effective of degree 3 on P^1. Since u and 1/u lie in V, zeros plus poles of u are at most D, so deg u = 1. The third point of D gives u^2, 1/u^2 or 1/(u-a), and a is non-zero because a = 0 is the 1/u^2 case. An elementary version: write u = A/P and 1/u = cB/P as cubic forms, so AB = c'P^2, and unique factorisation forces deg u = 1. This is my own sketch, checked by hand only, and I found it in no source. It does not show the result is in print, but it bears on the 'not routine' label: the argument is short once V is seen as L(D).\n\n**Not settled**\n- Roy 1989 is unread, known only through Fischler's sentence on its Proposition 2.\n- Forward citations of Diaz 2007 are partial. OpenAlex shows 0 citing works for its record, Semantic Scholar shows only Waldschmidt 2005, and the zbmath.org citing page returned 403.\n- Exercises 11.8 onward of Waldschmidt's 2000 book were not read. The regex scan of that file found no Moebius or 1/(u-a) form, but OCR can hide formulas.\n- Conjugation bars are lost in the text layers, so the statements above were read with that in mind. Diaz 2004's OCR drops some formulas, including parts of Th. 2 and Th. 6. Nothing here relies on an exact formula from those passages.\n- I did not check statements against page images.\n- Most entries in the screened list were judged by keyword search or title, not reading.\n\n**Tool notes**\n- Direct Python calls to api.zbmath.org failed certificate verification. I did not disable verification. I used the fetch tool instead, which worked for a few queries; one further query returned 404.\n- The fetch index also held zbMATH entries from sibling agents; I used only the reviews listed above.\n- Semantic Scholar was mostly rate-limited. arXiv API phrase queries returned many irrelevant papers.\n- A Lean repository surfaced in one search and was ignored as out of scope. Nothing from the excluded repositories or sites was used.\n- Temporary files were deleted and no repository file was changed."
+}

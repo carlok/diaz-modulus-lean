@@ -1,0 +1,12 @@
+# Entry 5, verification: D. Roy, Points whose coo
+
+- **Source read:** D. Roy, Acta Math. 175 (1995), 49-73, pp. 65-66, page image of the local copy sources/roy/roy-1995-acta-points-logarithms-varieties.pdf (https://doi.org/10.1007/BF02392486 hit a bot wall). Waldschmidt, DALAG (2000), pp. 431, 443, local text layer of sources/waldschmidt/dalag.txt.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** analogue only
+- **Covers the part not found:** False
+- **Passage:** "Then its rank r satisfies 4r≥d+l and so r(d+l)≥dl."
+
+**Hypotheses.** Field: Roy works over Q̄ only, in K = C or C_p; the target allows any subfield K ⊆ C. Dimension: Roy's ambient span has dimension exactly 3 with arbitrary d, l, r; the target has dim = |S| arbitrary (5 and 7 in the consequences), rank one only. Conjugation: absent from Roy and not used in the sumset statement. Genericity: Roy assumes three Q̄-independent numbers, no transcendence and no power structure; the target needs u transcendental and concerns the exact set S. Overlap: only r = 1, |S| = 3, giving p+q ≤ 4.
+
+**Explanation.** The citation is accurate: Theorem 3.4 is on p. 66, §3.2 on p. 65, Lemma 12.16* on p. 431, Exercise 12.10 on p. 443. It does not reach the target. Roy bounds rank for matrices over one 3-dimensional Q̄-space, so that Theorem 1.2 cannot settle homogeneous surfaces. That is a limit-of-method result in the same spirit. It has no sumsets, Laurent spans or iff. Its r = 1 case gives only p+q ≤ 4 when |S| = 3, which the sumset criterion also gives, since |A+B| ≥ p+q−1. It cannot separate S = {0,1,5}, with no 2×2 sumset, from {0,1,2}, which has one. It says nothing on the 5- and 7-dimensional hulls, k = 2,3, the pairs, or u^{4^j}. A 2×3 configuration at k = 2 violates r(d+l) ≥ dl, so the bound fails in dimension 5. Separate lead, not cited: DALAG Lemma 12.15* with Exercise 12.9 (Roy 1989, Prop. 1, not read) concerns lacunary polynomials, degrees at least doubling. Property (CAB0) excludes rank-one 2×3 there. It is closer to u^{4^j}, but one-sided, without constants or negative powers, so it does not cover the target.

@@ -1,0 +1,123 @@
+# Entry 5, strategy: citations
+
+## Target, as restated by the searcher
+
+Let K be a subfield of C, u transcendental over K, S a finite subset of Z, and V the K-span of the powers u^s, s in S. Suppose there are K-linearly independent x_1,...,x_p and K-linearly independent y_1,...,y_q in C with every product x_i y_j in V. The claim is that this happens exactly when S contains a sumset A+B with |A|=p, |B|=q (A, B subsets of Z). Consequences for K = Q-bar: for S={0,±1,±k} a 2×3 configuration exists only for k=2,3. For 4≤k<l, S={0,±1,±k,±l} carries one iff l is in {k+1,k+2,2k-1,2k,2k+1,3k}. S={0,±1}∪{±4^j : j≥1} carries none. The "if" direction is monomials. The content is the "only if" direction and the explicit decisions on these hulls. Fischler's Lemma 6.1, Diaz's Théorème 7(2) and the method of BSZ17 §7 are already known.
+
+## Leads
+
+### Lead 1: implies
+
+- **Citation:** C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018), no. 4; arXiv:1709.00087
+- **Location:** §3, Proposition 3.1 and Lemma 3.2 (p. 4 of the arXiv version)
+- **Quote:** The set v(S) is finite and its cardinality equals dim S.
+- **Link:** https://doi.org/10.5802/alco.19
+- **Relation:** Implies only the 'only if' half of the Laurent hull theorem, not the hull consequences. Normalise: x_i/x_1 = (x_i y_1)/(x_1 y_1) lies in K(u), so replace x_i by x_i/x_1 and y_j by x_1 y_j; independence and products are unchanged. Take v u-adic on K(u), residue field K, so Prop 3.1 (no algebraic closure needed there) gives |v(X)|=p, |v(Y)|=q, and v(V)=S. Then v(X)+v(Y) ⊆ S by multiplicativity of v (Lemma 3.2 is printed only for X=Y). A=v(X), B=v(Y). This is the same method the target already credits to BSZ17 §7, stated more explicitly and called classical there. It is a printed tool plus a three-line argument, not a printed statement of the sumset criterion. The authors never consider sparse monomial spaces.
+
+### Lead 2: analogue only
+
+- **Citation:** S. Fischler, Orbits under algebraic groups and logarithms of algebraic numbers, Acta Arith. 100 (2001), 167-187, closing remark, pointing to D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algébriques, Publ. Math. Univ. Paris VI 90 (1989), Proposition 2
+- **Location:** Fischler, end of the paper, p. 186, after the conjectures including 'q≤2 in Lemma 6.1'
+- **Quote:** impossible ([8], Proposition 2) to derive “algebraically” any of these conjectures
+- **Link:** https://doi.org/10.4064/aa100-2-4
+- **Relation:** A printed barrier of the same spirit as 'configurations cannot reach this hull': Fischler says these conjectures cannot be derived algebraically from his Theorem 2.1 (apparently Roy's matrix theorem; not checked). It concerns the step from q≤3 to q≤2 and coefficients in L, not hulls of powers or sumsets. Roy's Proposition 2 itself could not be read, so its exact content is unverified.
+
+### Lead 3: analogue only
+
+- **Citation:** J. Jung, H. Moon, E. Park, On the rank index of projective curves of almost minimal degree, arXiv:2411.17494
+- **Location:** §4, Notation and Remark 4.1(A), pp. 11-12
+- **Quote:** differences of any pairs (xi xj , xk xl ) of quadratic monomials with the same index
+- **Link:** https://arxiv.org/abs/2411.17494
+- **Relation:** Geometric shadow of the p=q=2 'if' direction. A 2×2 configuration in the span of u^S is a binomial quadric of rank ≤4 through the monomial curve of S, and here S={0,...,d} minus one point. There is no converse and no statement about general S or larger p×q. The translation to configurations is mine, not the authors'.
+
+## Notes
+
+**Result.** The "not found" holds at the level of statements. I found no printed statement of the sumset criterion for spans of powers, in any wording. I also found none of the decisions k=2,3, the l-list, or the 4^j set. Search ran from 10:23 to about 10:36 on 2026-11-08, under the 30-minute box, because further queries had stopped returning new material.
+
+**Best lead, with limits.** BCZ18 §3 (Prop 3.1, Lemma 3.2) prints the tool cleanly: for a valuation with residue field K, |v(S)| = dim S, and v(S)+v(S) ⊆ v(S²). Prop 3.1 needs no algebraic closure. It gives the "only if" half in three lines once the families are normalised into K(u). What it does not contain:
+- the normalisation from C to K(u);
+- the two-subspace form, although Couvreur-Zémor 2024's introduction writes v(S)+v(T) in passing;
+- any monomial-support statement;
+- any of the consequences.
+
+The authors call Prop 3.1 classical, which supports the "routine" class. The target already credits the same method to BSZ17 §7, so this sharpens the attribution and is not a find. BSZ17 §7 itself applies valuations only to the critical case dim ST = dim S + dim T − 1, via Theorem 33 and 34. It does not have |v(S)| = dim S as a stated proposition; BCZ18 does. If the blueprint wants the most exact citation for the tool, BCZ18 Prop 3.1 fits better than BSZ17 §7. BCZ18 is already in the local library.
+
+**Transcendence side.** Fischler's Lemma 6.1 and Diaz's Théorème 7(2) read as the target says, and Diaz's remark about not going far inside the strong six exponentials theorem is general, with no hull or power statement. OpenAlex lists no citations of Diaz 2007. Semantic Scholar lists one, Waldschmidt's 2005 survey on complex conjugation, which is a preprint-era citation. I scanned that survey and the 2005 variations papers and the four exponentials paper for power statements and found none.
+
+One pointer may deserve a human look. Fischler's closing remark cites Roy 1989, Proposition 2, for the impossibility of deriving the conjectures "algebraically" from his Theorem 2.1. That is the same kind of statement as the target's barrier, but it concerns a different question, and I could not get the text. DALAG's discussion of Roy 1989 surfaced in a grep but I did not read it for this point.
+
+**Geometric side.** A p×q configuration in the span of u^S is the same as a 1-generic p×q matrix of linear forms whose 2×2 minors vanish on the monomial curve of S. This translation is mine. I looked in the rank-of-quadrics literature (Jung-Moon-Park, and searches on rank-4 quadrics) and the sumset-regularity literature (Gimenez-González-Sánchez, Chaudhary-Khandelwal). Those give binomial generators and regularity, never the converse criterion. Rank-4 theory for canonical curves (Green, Arbarello-Harris) surfaced in search as a different setting; I did not read it. This route found nothing, but the searches on it were few, and a statement in older determinantal literature could have escaped them.
+
+**Combinatorial side.** For |A|=2, |B|=3 the condition says some nonzero d has |S ∩ (S−d)| ≥ 3, which is a generalised Sidon condition on differences. That fact is standard, but it carries no linear-algebra content and I did not look for the specific sets.
+
+**After 5 October 2026.** arXiv listings for math.NT, math.CO, math.AG, math.AC, cs.IT and math.RA were filtered on title and abstract only. Nothing relevant appeared. A lemma inside the body of a paper would not be caught, and journal-only items would not appear. Forward-citation data from OpenAlex lags: its newest BSZ17 citation is from June 2026. The newest closely related paper is Tanisali-Wessel (6 Sept 2026), which predates the last check and has no monomial-support content in my scan.
+
+**Unsettled.**
+- Contents of Roy 1989, Prop 2.
+- Forward citations of BSZ17 and BCZ18 on Semantic Scholar, which was rate limited.
+- Mirandola's thesis and the Eliahou-Kervaire-Lecouvey JNT paper, not read.
+- Keyword scans of PDFs can miss garbled formulas. The statements I rely on from BCZ18 and Fischler were read in context, from the text layer only.
+
+Two arXiv ids I first guessed for Randriambololona and Lecouvey returned unrelated papers. I discarded those and used the correct ids from the arXiv title search.
+
+## Read
+
+- Bachoc, Serra, Zémor, An analogue of Vosper's theorem for extension fields (2017) — https://arxiv.org/abs/1501.00602: §7 through Theorem 34 and its proof opening; §5 on Sidon spaces, Prop 17; reference list
+- Bachoc, Couvreur, Zémor, Towards a function field version of Freiman's theorem (2018) — https://doi.org/10.5802/alco.19: §3 in full; reference list
+- Couvreur, Zémor, Freiman's 3k-4 theorem for function fields (arXiv 2024) — https://arxiv.org/abs/2408.00183: Introduction: the passage on v(S)+v(T); keyword scan of the rest
+- Wessel, On Freiman's theorem in a function field setting (arXiv 2024) — https://arxiv.org/abs/2405.10724: Introduction: filtered basis passage
+- Fischler, Orbits under algebraic groups and logarithms of algebraic numbers (2001) — https://doi.org/10.4064/aa100-2-4: §6: Lemma 6.1 and proof, Theorem 6.2 statement; closing conjectures and remark
+- Diaz, Produits et quotients de combinaisons linéaires de logarithmes (2007) — https://doi.org/10.5802/jtnb.592: Théorème 7 and §2.4 (the 'aller très loin' remark)
+- Jung, Moon, Park, On the rank index of projective curves of almost minimal degree (arXiv 2024) — https://arxiv.org/abs/2411.17494: Start of §4, Remark 4.1(A)
+- Roy, Matrices whose coefficients are linear forms in logarithms (1992) — https://doi.org/10.1016/0022-314x(92)90081-y: Only the passage citing Roy 1989 in the introduction, plus a keyword scan
+
+## Screened only
+
+- Tanisali, Wessel, High dimensional Riemann-Roch spaces in linear spaces with small squares (2026-09-06): abstract and keyword scan; about squares of small dimension, no monomial supports — https://arxiv.org/abs/2609.06822
+- Beck, Lecouvey, Additive combinatorics methods in associative algebras (2017): abstract and keyword scan; no valuation or monomial-support statement — https://arxiv.org/abs/1504.02287
+- Beck, Submodular functions in additive combinatorics problems for group actions and representations: abstract and keyword scan — https://arxiv.org/abs/2210.08845
+- Lecouvey, Plünnecke and Kneser type theorems for dimension estimates: keyword scan, dimension bounds only — https://arxiv.org/abs/1109.0134
+- Randriambololona, On products and powers of linear codes under componentwise multiplication: keyword scan, no sumset criterion — https://arxiv.org/abs/1312.0022
+- Mirandola, Zémor, Critical pairs for the product Singleton bound: keyword scan; Reed-Solomon pairs, finite-length analogue — https://doi.org/10.1109/tit.2015.2450207
+- Kaveh, Khovanskii, Mixed volume and an extension of intersection theory of divisors (MMJ 2010): keyword scan; monomial spaces L_A as motivation only — https://www.math.utoronto.ca/~askold/kaveh-khovanskii-MMJ-2010.pdf
+- Chaudhary, Khandelwal, Sumsets regularity versus Castelnuovo-Mumford regularity for monomial curves (2026-10-16): abstract and keyword scan; regularity, not products — https://arxiv.org/abs/2610.24121
+- Gimenez, González-Sánchez, Castelnuovo-Mumford regularity of projective monomial curves via sumsets: search snippet — https://arxiv.org/abs/2304.10989
+- Waldschmidt, An introduction to the strategy of transcendence proofs (2026-10-29): keyword scan, no Diaz, Fischler or configuration content — https://arxiv.org/abs/2610.39810
+- Aliabadi, Losonczy, Matchings and product growth in modular abelian independence groups (2026): abstract — https://arxiv.org/abs/2608.18340
+- Dasgupta, Ranks of matrices of logarithms of algebraic numbers I: abstract and keyword scan — https://arxiv.org/abs/2303.02037
+- Losonczy-type matching paper, Matching subspaces in a field extension: keyword scan — https://arxiv.org/abs/1208.2792
+- Cyclic triorthogonal codes in prime dimension (2026-10-06): title and abstract hit only; cyclic-code analogue at most — https://arxiv.org/abs/2610.08012
+- Jindal, Zalar, Operator Fejér-Riesz theorems with gaps and degree bounds (2026-11-02): abstract; unrelated — https://arxiv.org/abs/2611.02967
+- OpenAlex forward-citation lists by title: BSZ17 (47), Revisiting Kneser (16), Fischler 2001 (2), Diaz 2007 (0), BCZ18 (3), Eliahou-Lecouvey (12), Roy 1992 (21). Nothing relevant by title
+- Semantic Scholar citations: Diaz 2007 (1), Fischler 2001 (3), Couvreur-Zémor (1), Eliahou-Kervaire-Lecouvey JNT paper (4). Nothing relevant by title
+- arXiv listings 5 Oct to 8 Nov 2026, title and abstract keyword filter: math.NT 924, math.CO 1000+615 (overlapping), math.AG 823, math.AC 184, cs.IT 723, math.RA 284. No relevant hit beyond those named above
+- zbMATH Open queries: ti:'six exponentials'; sumset & subspaces & field; cc:11J81 py:2026 (first 50 results). Nothing relevant
+- Reference lists of BSZ17 and BCZ18, judged by title
+
+## Inaccessible
+
+- D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algébriques, Publ. Math. Univ. Paris VI 90 (1989): No open copy found; a seminar publication. Proposition 2 is known here only through Fischler's remark and is worth checking in print.
+- D. Mirandola, On products of linear error correcting codes (thesis, Leiden, 2017) — https://scholarlypublications.universiteitleiden.nl/access/item%3A2949236/view: The repository link returned no usable PDF text.
+- Eliahou, Kervaire, Lecouvey, On the product of vector spaces in a commutative field extension (JNT, 2009) — https://doi.org/10.1016/j.jnt.2008.06.004: Publisher page not opened; judged from title and citation context only.
+- Semantic Scholar forward citations of BSZ17 and BCZ18, and its keyword search: HTTP 429 rate limit on every attempt. OpenAlex covered the same two papers, with its latest BSZ17 citation dated June 2026, so recent citations may be missing.
+
+## Queries
+
+- OpenAlex cites: BSZ17, Revisiting Kneser, Fischler 2001, Diaz 2007, BCZ18, Eliahou-Lecouvey, Roy 1992
+- Semantic Scholar citations: Diaz 2007, Fischler 2001, Couvreur-Zémor, Eliahou-Kervaire-Lecouvey
+- OpenAlex fulltext.search: 'strong six exponentials'; 'geometric progression logarithms algebraic numbers transcendental ratio'; 'products of subspaces monomials sumset Laurent'
+- arXiv cat listings by submittedDate 2026-10-05 to 2026-11-08 with keyword filter transcend|six exponential|four exponential|schanuel|sumset|freiman|kneser|vosper|sidon space|product of subspaces|linear analog
+- arXiv: Vosper AND subspaces; field extension Kneser subspaces; Freiman function fields product; six exponentials; four exponentials; Sidon spaces; Laurent polynomials sumset; monomial curve rank quadrics; Hankel sparse sumset; Minkowski sum subspaces valuation; product of two subspaces polynomials; Newton-Okounkov sumset; biclique sumset; Cayley sum graph biclique
+- zbMATH: ti:'six exponentials'; sumset & subspaces & field; cc:11J81 py:2026
+- Web: product of subspaces spanned by monomials Laurent polynomials sumset A+B contained in S valuation
+- Web: Vosper extension fields valuation K(x) citing BSZ 2024-2026
+- Web: quadrics of rank 4 in the ideal of a monomial curve, additive quadruple, 1-generic matrix
+- Web: subspace of Laurent polynomials with prescribed support contains product iff support contains sumset
+- Web: Sidon set monomials rational function field Sidon space Laurent
+- Web: rank one matrices Laurent polynomial entries sparse support, tropical rank one
+- Web: sumsets regularity, monomial curves, determinantal
+- Web: v(S)+v(T), span of monomials, linear analogue, Kneser polynomial ring
+- Web (extended): subspaces of F(t) with products in a sparse polynomial space, lacunary, Freiman
+- Web (extended): powers u,u^2,u^3 logarithms matrix rank one, limit of the six exponentials method
+- Web: Roy, Sur la conjecture de Schanuel pour les logarithmes
+- Web: Diaz, Produits et quotients, later citations

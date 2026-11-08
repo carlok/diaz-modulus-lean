@@ -1,0 +1,18 @@
+# Entry 1, verification: E. Park, On rank 3 quadr
+
+- **Source read:** E. Park, On rank 3 quadratic equations of projective varieties, arXiv:2208.12481v2 (PDF read, 26 Oct 2023), https://arxiv.org/pdf/2208.12481v2. Crossref confirms Trans. AMS 377, 2049-2064, DOI 10.1090/tran/9083; journal copy not read.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Passage:** every rank 3 quadratic polynomial in I(X, L) is contained in W (A, B)
+
+**Hypotheses.** Field: K algebraically closed, char not 2; K = Q̄ fits. Dimension: X = P¹, L = O(3), r = 3, so the 4-dimensional case. Σ reduces to A = B = O(1), which is locally factorial with Pic finitely generated. Genericity: only rank 3 is needed. It holds because u is transcendental, so 1, u, ρ/u are independent. Conjugation: absent from Park. It enters only through the substitution ū = ρ/u, with √ρ in Q̄. Differences: Park states nothing about progressions, complex numbers, H₀ or z, and never mentions the twisted cubic. The numbering was read from arXiv v2 only, not the journal copy.
+
+**Explanation.** All cited locations check out: Theorem 1.2(2), Remark 1.3, Definition 2.1, Proposition 3.1 (parity proof), and the P¹ display on pp. 4-5.
+
+The translation is mine, not printed. With 1 = b·p₀(h), u = b·p₁(h), ρ/u = b·p₂(h), the cubics satisfy p₁p₂ = ρp₀², since h is transcendental. That is a rank-3 quadric through the twisted cubic. The parity proof applied to these x, y, z gives x = s²h′, y = t²h′, z = sth′ with s, t, h′ linear; parity allows one or three odd points, and three would make s, t dependent. So u is a scalar times s/t, a Möbius function of h: the step marked not found.
+
+Then V = (cubics)/(u(αu+β)), and partial fractions give exactly u², ū² or 1/(u−a), matching the list. I checked this by hand only.
+
+Limits: Park prints neither the classification of z nor any number-theoretic form. The 2×3-to-progression step still needs BSZ17. The core is an elementary UFD argument, and the paper is independent of this work.
