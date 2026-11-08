@@ -1,0 +1,262 @@
+{
+ "target": "Let W be a 5-dimensional Q̄-space containing 1, u, 1/u, with u transcendental. Suppose (1,h)·Y ⊂ W up to a common factor, with Y 3-dimensional and h = p(u)/q(u) of degree exactly 2 in u. Theorem NF says one of three things then holds. (D1) dim(W ∩ u⁻¹W) ≥ 3. (D2a) uW = (polys of degree ≤2) + Q̄·(Q'/P')S₁ + Q̄·(P'/Q')S₂, with P', Q' coprime and max degree 2. (D2b) the same with the second generator replaced by (Q'/P')·((Q'/P')S₁ + S₂). Theorem F is the resulting iff for rational W, and for the conjugation hull W_z of a rational z, where dimension 4 gives the extra family z ∈ H₀ + Q̄/(u−a), aā = uū. My restatement in curve language (my own, not printed): W maps P¹ to P⁴, and a configuration puts the image on a cubic scroll S(1,2) or cone S(0,3) with ruling cut by h, as a bisection. D2a and D2b are degree-6 rational curves in class 2H with arithmetic genus 2, i.e. gluings on two fibres of the g¹₂ (nodes or cusps), or on one fibre doubled (tacnode or A4). So uP'Q'·W is a codimension-2 subspace of binary sextics, and the projection centre is a line in P⁶ meeting the two chords of h-fibres. D1 is the case where u itself is also a ruling: μ-type (1,1,1,d−3), with W = a(1,u)+b(1,u,u²) or a+b(1,u,u²,u³).",
+ "leads": [
+  {
+   "citation": "N. Tanisali and M. Wessel, High dimensional Riemann–Roch spaces in linear spaces with small squares, arXiv:2609.06822, 6 Sep 2026",
+   "location": "Theorem B; Lemma 4.3; Proposition 3.8; Corollary 3.10; Proposition 5.4; intro discussion of Randriambololona's hypersurface conjecture",
+   "quote": "must contain a Riemann–Roch space of dimension at least",
+   "link": "https://arxiv.org/abs/2609.06822",
+   "relation": "analogue only",
+   "derivation": "Newer and stronger than the listed Wes24 and CZ24. For k=5, g=0, b=2, γ=2 we have 2b ≤ k+2, so W² contains an L(G) of dimension ≥9, and Cor. 3.10 puts annihilator forms of W inside the span of evaluation forms on a short divisor. Prop. 3.8 settles codimension 1: the forms f(P)=αf(Q) and D¹f(P)=αf(P), the building blocks of D2a and D2b. It says nothing about 2×3 configurations and does not list codimension-2 types. By my own count (not printed), triple-point gluing f(α)=af(β)=bf(γ) also has γ=2, so γ alone cannot yield the three types."
+  },
+  {
+   "citation": "H. Randriambololona, The quadratic hull of a code and the geometric view on multiplication algorithms, Contemp. Math. (2020); arXiv:1912.06627",
+   "location": "§8.3, Proposition; §1 item (iii)",
+   "quote": "parameterize a subset of (and possibly all) the locus of hyperplanes",
+   "link": "https://arxiv.org/abs/1912.06627",
+   "relation": "analogue only",
+   "derivation": "Hyperplanes of a code given by points of the secant variety of its quadratic hull do not have full square. In L(A) this is the node and cusp gluing hyperplane, one codimension below W. No statement for codimension 2 or for products of two different spaces."
+  },
+  {
+   "citation": "A. Hofmann, The ideal of curves of genus 2 on rational normal scrolls, arXiv:1102.3156, 2011",
+   "location": "Proposition 2.1, Proposition 3.2, Theorem 5.1 (even degree case; d=6 is the P⁴ case)",
+   "quote": "The scroll type of the g21 (C)-scroll S",
+   "link": "https://arxiv.org/abs/1102.3156",
+   "relation": "analogue only",
+   "derivation": "For smooth genus 2 curves of degree d≥6, the g¹₂ scroll type is read from |H−((d−2)/2)K|. At d=6 this gives S(1,2) or S(0,3). That is the smooth counterpart of D2a and D2b. It excludes the singular rational curves that W gives, has no normal forms in u, and has no D1 alternative."
+  },
+  {
+   "citation": "D. A. Cox and A. A. Iarrobino, Strata of rational space curves, Comput. Aided Geom. Design (2015); arXiv:1408.2816",
+   "location": "§4, 'The Smallest Stratum and Rational Normal Scrolls', formulas (4.8)–(4.11) and the closing paragraphs",
+   "quote": "the number of 1's in the µ-type of the parametrization determines the dimension",
+   "link": "https://arxiv.org/abs/1408.2816",
+   "relation": "analogue only",
+   "derivation": "By my translation, D1 for a base-point-free W in P⁴ means three 1's in the μ-type, so τ=2 and W splits as h₁(1,u,…)+h₂(1,u,…) on S(1,2) or S(0,3). This normal form covers ruling degree 1 only. It says nothing about h of degree 2, which is the content of Theorem NF."
+  },
+  {
+   "citation": "E. Park, On hyperquadrics containing projective varieties, arXiv:1909.04859, 2019 (quoting his earlier paper [Pa3], Theorem 1.3(4))",
+   "location": "Theorem 1.2 and inequality (1.1)",
+   "quote": "d = c + 3 and depth(X) = n + 1",
+   "link": "https://arxiv.org/abs/1909.04859",
+   "relation": "analogue only",
+   "derivation": "For a curve in P⁴ (n=1, c=3), a₂=4 holds exactly for d=5 with depth 1 or d=6 ACM. So the D2 curves are numerically characterised by counting quadrics. That count does not detect the 2×3 structure and gives no types."
+  },
+  {
+   "citation": "M. Franciosi, Scrolls containing binary curves, arXiv:1811.09690, 2018",
+   "location": "Remark 4.1 and Proposition 4.3",
+   "quote": "the induced map Γ → P1 has degree k",
+   "link": "https://arxiv.org/abs/1811.09690",
+   "relation": "analogue only",
+   "derivation": "Coordinates (y_i; t₀, t₁) for a rational curve on a scroll, with ruling of degree k. This is exactly W = a(1,h)+b(1,h,h²). But it covers only rational normal curves, i.e. W = all of H⁰(O(4)) for k=2, which is a D1 space. No singular curves, so D2a and D2b are not reached."
+  }
+ ],
+ "read": [
+  {
+   "source": "Tanisali–Wessel 2026",
+   "link": "https://arxiv.org/abs/2609.06822",
+   "sections": "Intro, Conjecture A, Theorem B, Prop. 3.8 statement, Cor. 3.10–3.11, §4.1–4.2, Prop. 5.4 statement, references (no citation of the excluded repository)"
+  },
+  {
+   "source": "Wessel 2024 (arXiv:2405.10724)",
+   "link": "https://arxiv.org/abs/2405.10724",
+   "sections": "Intro, Thm 1.4, 1.6, Cor. 1.6.1, set-up. Only containment in L(D); no type list, despite 'classified' in Tanisali–Wessel"
+  },
+  {
+   "source": "Couvreur–Zémor 2024 (arXiv:2408.00183)",
+   "link": "https://arxiv.org/abs/2408.00183",
+   "sections": "Thm 1, Thm 2, Prop. 4.2 and surrounding text. 'Blockwise constant' refers to a subfield L, not to gluing conditions"
+  },
+  {
+   "source": "Randriambololona, quadratic hull",
+   "link": "https://arxiv.org/abs/1912.06627",
+   "sections": "§1 properties list, §8.2–8.3"
+  },
+  {
+   "source": "Hofmann 2011",
+   "link": "https://arxiv.org/abs/1102.3156",
+   "sections": "Intro, §2 start, Prop. 3.2"
+  },
+  {
+   "source": "Cox–Iarrobino 2015",
+   "link": "https://arxiv.org/abs/1408.2816",
+   "sections": "Abstract, end of §4 (scrolls and μ-type)"
+  },
+  {
+   "source": "Park, hyperquadrics",
+   "link": "https://arxiv.org/abs/1909.04859",
+   "sections": "Intro through Thm 1.3"
+  },
+  {
+   "source": "Franciosi 2018",
+   "link": "https://arxiv.org/abs/1811.09690",
+   "sections": "Intro, §2, Thm 3.1, Remarks 4.1–4.2, Prop. 4.3"
+  },
+  {
+   "source": "Lee–Park, On curves lying on a rational normal surface scroll",
+   "link": "https://arxiv.org/abs/1808.03038",
+   "sections": "Abstract and start of intro only (Betti tables of divisors on S(a₁,a₂)); no function-space types"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Harris–Roth–Starr, Curves of small degree on cubic threefolds (§6, smooth quartic with pencil on a cubic scroll, class 2D+2F)",
+   "link": "https://arxiv.org/abs/math/0202067"
+  },
+  {
+   "source": "Alzati–Re, PGL(2) actions on Grassmannians, JPAA 2015 (splitting types, vertex projection)",
+   "link": "https://arxiv.org/abs/1405.2753"
+  },
+  {
+   "source": "Jung–Moon–Park, On the rank index of projective curves of almost minimal degree (degree r+1 only)",
+   "link": "https://arxiv.org/abs/2411.17494"
+  },
+  {
+   "source": "Han–Moon–Park et al., On the rank index of some quadratic varieties",
+   "link": "https://arxiv.org/abs/2206.08586"
+  },
+  {
+   "source": "Han–Park, Secant rank and syzygies of projections of elliptic normal curves, 2026",
+   "link": "https://arxiv.org/abs/2604.02046"
+  },
+  {
+   "source": "Ginensky, A generalization of the Clifford index and determinantal equations",
+   "link": "https://arxiv.org/abs/1002.2023"
+  },
+  {
+   "source": "Determinantal ideals of secant varieties, 2025",
+   "link": "https://arxiv.org/abs/2510.01895"
+  },
+  {
+   "source": "Bachoc–Serra–Zémor, Revisiting Kneser's theorem for field extensions",
+   "link": "https://arxiv.org/abs/1510.01354"
+  },
+  {
+   "source": "Mirandola–Zémor, Critical pairs for the product Singleton bound",
+   "link": "https://arxiv.org/abs/1501.06419"
+  },
+  {
+   "source": "Márquez-Corbella–Pellikaan, MDS codes with an error-correcting pair",
+   "link": "https://arxiv.org/abs/1508.02187"
+  },
+  {
+   "source": "Randriambololona, Linear independence of rank 1 matrices",
+   "link": "https://arxiv.org/abs/1501.05978"
+  },
+  {
+   "source": "Csajbók et al., minimum size linear sets (Prop. on T=⟨1,μ⟩)",
+   "link": "https://arxiv.org/abs/2201.02003"
+  },
+  {
+   "source": "Aliabadi et al., Extremal Chowla sets, 2026 (unrelated)",
+   "link": "https://arxiv.org/abs/2607.24847"
+  },
+  {
+   "source": "Alvarenga–Kaur–Moço, Hecke modifications of vector bundles (types over P¹)",
+   "link": "https://arxiv.org/abs/2501.03422"
+  },
+  {
+   "source": "Alvarenga, On graphs of Hecke operators, Example 5.2",
+   "link": "https://arxiv.org/abs/1709.09243"
+  },
+  {
+   "source": "Lorscheid, Graphs of Hecke operators",
+   "link": "https://arxiv.org/abs/1012.3513"
+  },
+  {
+   "source": "Stevens, Rolling factors deformations",
+   "link": "https://arxiv.org/abs/math/0006189"
+  },
+  {
+   "source": "Stevens, Deformations of cones over hyperelliptic curves",
+   "link": "https://arxiv.org/abs/alg-geom/9303003"
+  },
+  {
+   "source": "Lara–Marchesi–Martins, Curves with canonical models on scrolls",
+   "link": "https://arxiv.org/abs/1502.07556"
+  },
+  {
+   "source": "Lara–Martins–Souza, On gonality, scrolls and canonical models of non-Gorenstein curves",
+   "link": "https://arxiv.org/abs/1803.10899"
+  },
+  {
+   "source": "Pflueger, Weierstrass semigroups on Castelnuovo curves",
+   "link": "https://arxiv.org/abs/1608.08178"
+  },
+  {
+   "source": "Eisenbud–Green–Hulek–Popescu, Small schemes and varieties of minimal degree",
+   "link": "https://arxiv.org/abs/math/0404517"
+  },
+  {
+   "source": "von Bothmer et al., Last syzygies of 1-generic spaces",
+   "link": "https://arxiv.org/abs/math/0307361"
+  },
+  {
+   "source": "Schicho–Schreyer–Weimann, Computational aspects of gonal maps",
+   "link": "https://arxiv.org/abs/1304.2551"
+  },
+  {
+   "source": "Kemeny, The geometric syzygy conjecture in even genus",
+   "link": "https://arxiv.org/abs/1907.07553"
+  },
+  {
+   "source": "Schenck–Stillman, High rank linear syzygies on low rank quadrics",
+   "link": "https://arxiv.org/abs/1012.0933"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "Eisenbud–Harris, On varieties of minimal degree (a centennial account), Proc. Sympos. Pure Math. 46 (1987)",
+   "why": "AMS page returned 403; no open copy found"
+  },
+  {
+   "source": "Eisenbud, The Geometry of Syzygies, Ch. 6 (1-generic matrices, linear series)",
+   "why": "Springer book. Search showed unofficial PDF copies, which I did not open"
+  },
+  {
+   "source": "E. Park, Projective curves of degree=codimension+2, Math. Z. 256 (2007); Lee–Park part II, IJAC 2016",
+   "why": "Paywalled; no preprint found. These are the most promising unread sources for line-projection centres"
+  },
+  {
+   "source": "Eisenbud–Koh–Stillman, Determinantal equations for curves of high degree, Amer. J. Math. 1988; Eisenbud, Linear sections of determinantal varieties, 1988",
+   "why": "Paywalled, seen only through citing papers"
+  },
+  {
+   "source": "Schreyer, Syzygies of canonical curves and special linear series, Math. Ann. 1986; Green, Koszul cohomology, JDG 1984; Ehbauer 1994",
+   "why": "Not openly found; known only through citations"
+  },
+  {
+   "source": "Catanese, Pluricanonical Gorenstein curves, 1982; Kustin–Polini–Ulrich, Rational normal scrolls and Rees algebras, 2011",
+   "why": "Not opened: Catanese not openly found, Kustin–Polini–Ulrich seen only through Cox–Iarrobino"
+  },
+  {
+   "source": "zbMATH Open API; arXiv API; OpenAlex",
+   "why": "zbMATH failed with an SSL certificate error; arXiv and OpenAlex returned 429. Used web search, Semantic Scholar citations and direct arXiv PDFs instead"
+  }
+ ],
+ "queries": [
+  "rational curves on cubic scroll P^4 bisection ruling g^1_2 singular rational sextic two double points classification determinantal 2x3",
+  "one-generic 2x3 matrix linear forms vanishing on curve, rational normal scroll, pair of linear series, Eisenbud Koh Stillman",
+  "Freiman 3k-3 function field products of subspaces combinatorial genus 2 classification",
+  "rank index projective curves rank 3 quadrics rational normal curve projection genus 2 scroll",
+  "subspace of rational functions containing product of 2-dim and 3-dim subspace, Kneser Vosper critical pair",
+  "Park Projective curves of degree=codimension+2, projection from a line, surface scroll",
+  "curve with 3 or 4 quadrics in P^4, rational sextic arithmetic genus 2, line meeting two secant lines",
+  "elementary transformations Hirzebruch rational bisection nodes, pushforward double cover, colength 2 modifications",
+  "error-correcting pairs, codimension two subcode GRS, Schur product genus 2",
+  "pencil of binary sextics apolar catalecticant line meeting two secants",
+  "linear analogue Hamidoune-Rodseth dim ST = dim S + dim T",
+  "Eisenbud Harris centennial account minimal degree pdf",
+  "Alzati Re PGL(2) Grassmannians restricted tangent bundle",
+  "singular rational curves on scrolls, Gorenstein hyperelliptic genus 2, gluing conditions",
+  "rank 4 quadrics rational curve pencils factorization, syzygy scheme 2x3",
+  "degree 6 rational curves P^4 by projection centre line relative to secant variety",
+  "Kronecker pencil, scroll S(1,2), moving lines, mu-basis singularities",
+  "Lorscheid graphs of Hecke operators P^1 O(n)+O",
+  "linear spaces of composite rational functions Luroth involution product of spaces",
+  "rolling factors, quadric section of scroll, hyperelliptic Gorenstein genus 2",
+  "Green K_{p,1} curve P^4 linear syzygy cubic scroll, syzygy scheme Ehbauer von Bothmer",
+  "Eisenbud Geometry of Syzygies linear series and 1-generic matrices",
+  "Semantic Scholar citations of BSZ17, BCZ18, CZ24, Wes24"
+ ],
+ "notes": "**Result: no same or implies lead.** All six leads are analogues. Run from 10:41 to about 10:58, under the time box. I stopped because the open sources were exhausted; the unread classics are paywalled. The \"not found\" stands, with the caveat below.\n\n**Most useful new item.** Tanisali–Wessel (arXiv, Sept 2026) is not in the target's nearby list and is stronger than Wes24 and CZ24 in this range: for W of γ=2 and codimension 2, W² contains a Riemann–Roch space of dimension ≥9. It also proves the codimension-1 list (place, node form, cusp form). It does not give the codimension-2 list or touch 2×3 products. A follower of this line could probably get \"two weight-2 forms\" for γ=2, b=2, but that is my speculation, not printed. It would also admit triple-point gluing, which by my estimate has γ=2 but no configuration. So the target's remark that combinatorial genus does not reach the types still holds.\n\n**A false trail, checked.** Tanisali–Wessel say γ=2 in K(x) \"was classified\" by Wessel. Wes24 proves only containment in L(D) with deg D ≤ n+1 (Cor. 1.6.1), as the target says. CZ24 Prop. 4.2 (\"blockwise constant\") concerns a subfield, not gluing.\n\n**The dictionary (my derivation, a sketch; no machine check).**\n- A rank-two configuration forces Y = (a, b, hb), so W = a(1,h) + b(1,h,h²). This is Reid's picture.\n- W ∋ 1, u, 1/u is a projection from a line ℓ ⊂ P⁴ onto a conic, so ℓ absorbs d−2 of the curve's degree. For h of degree 2, ℓ meets the scroll in at most two points, each of multiplicity ≤2 on the curve, unless ℓ lies on the scroll. That gives d ≤ 6.\n- At d=6: C ∈ |2H|, p_a=2, and two double points on the fibres of h. This is D2a (two fibres, node or cusp) or D2b (one fibre doubled, tacnode or A4). Direct check from the target's formulas: uP'Q'·W = P'Q'·Sym² + ⟨Q'²S₁, P'²S₂⟩, a codimension-2 space of sextics cut by two gluing conditions.\n- Rationals with Gorenstein p_a=2 are y² = q·r², deg q = deg r = 2. The root patterns of r give exactly these singularities.\n- Bundle version: π_*O(2) = O(1)⊕O inside E(1) = O(2)⊕O(1) has colength 2. Quotient types (1)+(1), (2), (1,1) match D2a, D2b and the non-cyclic case, where E(1) = π_*O(4), a D1 space. These are Hecke modifications, or distance-2 moves in the Bruhat–Tits tree.\n- D1 in print: μ-type (1,1,1,d−3) (Cox–Iarrobino §4; Kustin–Polini–Ulrich).\n- Existence translates to K_{1,1}≠0 (Green), which I only saw cited.\n\n**What the translated literature gives.**\n- Numerical invariants: Betti tables (Lee–Park), quadric counts (Park).\n- Smooth genus 2: Hofmann.\n- Rational normal curves on scrolls: Franciosi, Harris–Roth–Starr.\n- Degree-1 pencils: Cox–Iarrobino, Alzati–Re.\n- Codimension 1: Randriambololona, Tanisali–Wessel.\n\nNone combines a singular rational curve, a bisection scroll and a list of types. The ingredients are classical, so the list would be an easy exercise for a specialist, and it may sit unstated inside a paper I could not open.\n\n**Could not settle.**\n- Eisenbud–Harris 1987 and Park 2007 remain unread, so the target's stated weak point is only partly reduced. Park 2007 and its sequel study the same projections of rational normal curves and may separate line centres by their position against the secant variety. I rate them Betti-oriented from their abstracts, but a library check would be worthwhile.\n- zbMATH could not be queried (SSL error), and citation data came from Semantic Scholar only. Citation lists for BSZ17 and BCZ18 showed no other relevant follow-up, but the title-only screening of Sidon-space papers was quick.\n- Schanuel, Kirby and Ax vocabulary was not searched: the target is unconditional and purely about function spaces.\n- The local library was only listed: its 38 entries are transcendence sources, and none matched scroll or Freiman terms by filename."
+}

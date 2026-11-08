@@ -1,0 +1,17 @@
+# Entry 2, verification: N. P. Nguyen, A Generali
+
+- **Source read:** N. P. Nguyen, A Generalization of Desargues' Involution Theorem, arXiv:1912.12200, https://arxiv.org/pdf/1912.12200. Read in full (13 pp.); theorem on p. 2, restated and proved on p. 9; Props 1-2 pp. 6-8.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** analogue only
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "(when they do) in pairs of points that are conjugate under an involution"
+
+**Hypotheses.** Field: Nguyen allows any K of characteristic not 2, so K = Q̄ is included. Dimension: any projective space, so the line itself (binary quadratic forms) is included, but his dimension concerns the ambient projective space, not the target's 5-dimensional subspaces of ℂ. Conjugation: absent; uū algebraic and H₀ never appear. Genericity: his no-common-zero condition matches 'coprime, one of degree exactly 2' once homogenised, since ∞ is then not a common zero. Everything else is absent: u, h, c, 1/u, progressions, Lüroth, p × q configurations, W.
+
+**Explanation.** The theorem is at the cited place, but it touches only the parenthetical gloss in (c). (a), (b) and (d) are absent and do not follow from it.
+
+Derivation of the gloss. Take K = Q̄ and P(V) = P(E) = the u-line. Homogenised, q₁, q₂ are binary quadratics with no common zero, so the theorem gives an involution σ whose orbits are the zeros of pencil members. So h∘σ = h. By §3, σ has a trace-zero matrix, hence two fixed points over Q̄. Moving them to 0, ∞ gives x ↦ −x (as in the proof of Prop 4). Orbits {a, −a} are zeros of X² − a²Y², so the pencil becomes span(X², Y²). The converse (involution gives pencil) is printed after Prop 1, which I rechecked by hand.
+
+Limit. This normal form uses a Möbius change of coordinate, which does not preserve 1, u, u⁻¹, so it cannot reduce (d) to q₁ = X², q₂ = 1. If 'normal form' means W's generators q₁^i q₂^{3−i}/(u l₁l₂), that is not in the paper. Nothing here undermines the 'not found' status of the entry.

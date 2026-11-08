@@ -1,0 +1,181 @@
+{
+ "target": "Strong five exponentials hypothesis: if x1,x2 are Q-linearly independent, y1,y2 are Q-linearly independent, gamma is non-zero, and beta_ij, delta are algebraic with exp(x_i y_j - beta_ij) and exp(gamma x2/x1 - delta) all algebraic, then all five exponents vanish. Claim sought in print: this hypothesis alone implies that no non-zero u has both |u| and e^u algebraic. Equivalently, a non-zero logarithm of an algebraic number never has algebraic modulus. The point is the weaker hypothesis: the same conclusion from the strong FOUR exponentials conjecture is already printed.",
+ "leads": [
+  {
+   "citation": "M. Waldschmidt, On the transcendence methods of Gel'fond and Schneider in several variables, in New Advances in Transcendence Theory (A. Baker, ed.), Cambridge Univ. Press, 1988",
+   "location": "Remark after Corollary 2.2, p. 379",
+   "quote": "it contains non trivial open problems",
+   "link": "local library: waldschmidt/Durham1986TMGSSV.txt",
+   "relation": "analogue only",
+   "derivation": "Originates the conjecture and deduces (log a)(log b) != log c from it. With log a=u, log b=conj(u) this does not reach the target: u*conj(u)=rho is algebraic and non-zero, so by Hermite-Lindemann rho is never a log c, and the printed statement is vacuous here. Reaching the target needs a new choice of parameters (beta_22=rho), which is the target's own one line and is not printed."
+  },
+  {
+   "citation": "M. Waldschmidt, Hopf algebras and transcendental numbers, in Zeta Functions, Topology and Quantum Physics (2003 conference volume; publication details from memory, not checked)",
+   "location": "Conjecture 1.5 and the discussion after it, sec. 1.1",
+   "quote": "we deduce from Conjecture 1.5 the transcendence of",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/ztq2003.pdf",
+   "relation": "analogue only",
+   "derivation": "Same conjecture under the name 'sharp five exponentials'. Printed instance: x1=y1=gamma=1, x2=y2=lambda gives e^(lambda^2) transcendental. Replacing y2=lambda by conj(lambda), beta_22=|lambda|^2, proves the target, but that substitution is my translation. The paper states no modulus or conjugate case."
+  },
+  {
+   "citation": "M. Waldschmidt, Open Diophantine problems, Mosc. Math. J. 4 (2004), 245-305",
+   "location": "Conjecture 3.5 and the following paragraph, about pp. 269-270",
+   "quote": "A consequence of Conjecture 3.5 is the solution of the open problem",
+   "link": "https://arxiv.org/abs/math/0312440",
+   "relation": "analogue only",
+   "derivation": "Names only e^(pi^2) and alpha^(log alpha)=e^(lambda^2) as consequences. Modulus not mentioned in this passage. Also calls the conjecture a special case of strong four, so the direction is the unhelpful one."
+  },
+  {
+   "citation": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000",
+   "location": "p. 399 after Conjecture 11.17 (modulus from strong four, credited to Diaz); pp. 437-438 (strong five as weaker)",
+   "quote": "A weaker statement is the so-called Strong Five Exponentials Conjecture",
+   "link": "local library: waldschmidt/dalag.txt",
+   "relation": "analogue only",
+   "derivation": "The two facts run the wrong way: strong four => modulus statement, and strong four => strong five. Together they do not give strong five => modulus. Named-nearby source, not stated more strongly than the target file says; listed because it fixes the exact gap."
+  },
+  {
+   "citation": "G. Warner, The Exponential World, arXiv:2105.05809 (2021), expository",
+   "location": "sec. 45, items 9 and 11 ('Admit S4EC')",
+   "quote": "If λ ∈ L is nonzero, then |λ| is transcendental",
+   "link": "https://arxiv.org/abs/2105.05809",
+   "relation": "analogue only",
+   "derivation": "Repeats modulus and C(|u|) under strong four only. The only 'five' hits a keyword scan found in the text are the five exponentials theorem, with no strong or sharp five conjecture, so the target's hypothesis does not appear. The scan was by keyword, not a full read."
+  }
+ ],
+ "read": [
+  {
+   "source": "G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques, JTNB 19 (2007), 373-391",
+   "sections": "Introduction, sec. 1.1-1.2 (CF4E, PQ, P, Q, M, C(|u|)), start of sec. 2.2 (Theorem 4). Keyword scan of the rest for 'five/cinq'.",
+   "link": "local library: diaz/diaz-2007-produits-quotients.txt"
+  },
+  {
+   "source": "G. Diaz, Utilisation de la conjugaison complexe, JTNB 16 (2004), 535-553",
+   "sections": "Introduction, sec. 2 opening, sec. 5.1-5.2 (C(|u|) from Schanuel and strong four)",
+   "link": "local library: diaz/diaz-2004-conjugaison-complexe.txt"
+  },
+  {
+   "source": "G. Diaz, La conjecture des quatre exponentielles et les conjectures de D. Bertrand, JTNB 9 (1997), 229-245",
+   "sections": "Theorem 5 and Lemma 6 (OCR is badly garbled in the formulas)",
+   "link": "local library: diaz/diaz-1997-quatre-exponentielles-bertrand.txt"
+  },
+  {
+   "source": "M. Waldschmidt, Open Diophantine problems (2004)",
+   "sections": "Conjectures 3.4-3.7; Diaz references",
+   "link": "local library: waldschmidt/ODP-MoscowMathJ.txt"
+  },
+  {
+   "source": "M. Waldschmidt, DALAG (2000)",
+   "sections": "Remark in sec. 1.3 (p. 15), sec. 11.3.3 (five exponentials), sec. 11.6.1 (p. 399), pp. 437-438, Exercises 11.8 and 15.16, index entries",
+   "link": "local library: waldschmidt/dalag.txt"
+  },
+  {
+   "source": "M. Waldschmidt, On the transcendence methods of Gel'fond and Schneider in several variables (1988)",
+   "sections": "Corollary 2.2 and the Remark on strong five",
+   "link": "local library: waldschmidt/Durham1986TMGSSV.txt"
+  },
+  {
+   "source": "M. Waldschmidt, Hopf algebras and transcendental numbers",
+   "sections": "sec. 1.1, Conjecture 1.5 and consequences",
+   "link": "local library: waldschmidt/ztq2003.txt"
+  },
+  {
+   "source": "M. Waldschmidt, The role of complex conjugation in transcendental number theory (DION 2005 proceedings)",
+   "sections": "sec. 1 through sec. 5, Conjecture 5.2; keyword scan for 'five' found none",
+   "link": "local library: waldschmidt-2005-role-of-complex-conjugation.txt"
+  },
+  {
+   "source": "M. Waldschmidt, Variations on the six exponentials theorem (2005)",
+   "sections": "sec. 1 (Conjecture 1.5, Consequences 1.6-1.11), Theorem 2.1, Corollary 2.7",
+   "link": "local library: waldschmidt-2005-variations-six-exponentials.txt"
+  },
+  {
+   "source": "M. Waldschmidt, Four exponentials problem and Schanuel's conjecture (survey)",
+   "sections": "sec. 6-7",
+   "link": "local library: waldschmidt-four-exponentials-problem-schanuel.txt"
+  },
+  {
+   "source": "M. Waldschmidt, Legacy of Ramanujan 2013 text",
+   "sections": "sec. 3 (five exponentials, strong four)",
+   "link": "local library: waldschmidt/LegacyRamanujan2013Text.txt"
+  },
+  {
+   "source": "G. Warner, The Exponential World, arXiv:2105.05809",
+   "sections": "sec. 44 item 12, sec. 45 opening through item 6; items 9, 11 seen in keyword hits; keyword scan of the rest",
+   "link": "https://arxiv.org/abs/2105.05809"
+  }
+ ],
+ "screened": [
+  {
+   "source": "M. Waldschmidt, Transcendence of Periods and Mahdia periods lecture: passages naming 'five exponentials' conjectures only (keyword context)",
+   "link": "local library: waldschmidt/TranscendencePeriods.txt"
+  },
+  {
+   "source": "Waldschmidt, Linear independence of logarithms (LIL) and Isao 1986 notes: five exponentials theorem only (keyword context)",
+   "link": "local library: waldschmidt/LIL.txt"
+  },
+  {
+   "source": "zbMATH review by Waldschmidt of Diaz 2007: restates strong four and the partial results, no strong five",
+   "link": "https://zbmath.org/5302780"
+  },
+  {
+   "source": "H. Massold, Transcendence degrees of fields generated by exponentials of products, arXiv:2506.01123. Keyword scan printed no hits for five exponentials, strong four, modulus or Diaz.",
+   "link": "https://arxiv.org/abs/2506.01123"
+  },
+  {
+   "source": "A. Cano, N. Gusevskii, M. López-Flores, Spectral Fields and Unitary Descent, arXiv:2611.00456 (30 Oct 2026). Abstract only, unrelated.",
+   "link": "https://arxiv.org/abs/2611.00456"
+  },
+  {
+   "source": "Variations on Schanuel's Conjecture for elliptic and quasi-elliptic functions I, arXiv:2504.14048 (title only)",
+   "link": "https://arxiv.org/abs/2504.14048"
+  },
+  {
+   "source": "Semi-abelian analogues of Schanuel Conjecture and applications, arXiv:2010.15170 (title only)",
+   "link": "https://arxiv.org/abs/2010.15170"
+  },
+  {
+   "source": "An abelian analogue of Schanuel's conjecture and applications, arXiv:1811.05167 (title only)",
+   "link": "https://arxiv.org/abs/1811.05167"
+  },
+  {
+   "source": "Irrationality measures for Gamma(1/4) and Gamma(1/3), arXiv:2611.01711 (1 Nov 2026), title only, unrelated",
+   "link": "https://arxiv.org/abs/2611.01711"
+  },
+  {
+   "source": "Wikipedia, Six exponentials theorem (secondary; search snippets only)",
+   "link": "https://en.wikipedia.org/wiki/Six_exponentials_theorem"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "OpenAlex forward citations of Dia07, Dia04, Wal04, Wal00, Roy92",
+   "why": "API returned 429 and 503 throughout. It did return one record for Dia07 (cited_by_count 0, not credible). The DOI I guessed for Dia04 resolved to an unrelated paper, so nothing from it is used."
+  },
+  {
+   "source": "Semantic Scholar citation lists beyond Dia07",
+   "why": "Search endpoint returned 429. The Dia07 citations call worked and listed only Waldschmidt, Role of complex conjugation. Wal04, Wal00 and Roy92 were not walked.",
+   "doi_or_link": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.5802/jtnb.592/citations"
+  },
+  {
+   "source": "zbMATH Open web interface and phrase search for 'strong five exponentials'",
+   "why": "Web page returned 403. The API phrase query returned 404, which may mean no results or a malformed query; I did not settle which. A loose API query returned only a few records."
+  },
+  {
+   "source": "M. Waldschmidt 1990 (cited in the local survey for the strong six exponentials corollary) and C. Bertolin, Périodes de 1-motifs et transcendance (J. Number Theory 2002)",
+   "why": "Not opened: not found in the local library listing I saw, and the search budget ended before I could look for them."
+  }
+ ],
+ "queries": [
+  "WebSearch: strong five exponentials conjecture implies modulus of logarithm of algebraic number transcendental Diaz conjecture",
+  "WebSearch: sharp/strong five exponentials conjecture consequence modulus logarithm complex conjugation",
+  "WebSearch: Diaz conjecture C(|u|) |u| algebraic then e^u transcendental four exponentials 2025 2026 arXiv",
+  "WebSearch: Diaz 'Produits et quotients...' cited, conjecture modulus logarithm",
+  "WebSearch (refused, budget exhausted): Waldschmidt five exponentials (log a)(log b) transcendental e^{lambda bar lambda}",
+  "arXiv API, newest first: all:\"four exponentials\", all:\"six exponentials\", all:\"five exponentials\"; abs: Schanuel+modulus, logarithms of algebraic numbers+product, complex conjugation+transcendence, Diaz+transcendence, strong four exponentials, Waldschmidt+conjecture+exponentials",
+  "OpenAlex: title searches for Dia07, Dia04, Wal04 and others (503/429); DOI lookups; cites: filter (429)",
+  "Semantic Scholar: paper search (429); DOI:10.5802/jtnb.592/citations",
+  "zbMATH API: \"strong five exponentials\" (404); exponentials strong conjecture logarithms",
+  "Local library regex scan: strong five, five exponentials, cinq exponentielles, C(|u|), modulus, across all sources except n3-lit"
+ ],
+ "notes": "**Result: no lead reaches the part not found.** The \"not found\" stands in everything I could check, but the forward-citation walk is incomplete (see Limits).\n\n**Restated gap.** Printed: strong four exponentials => modulus statement (DALAG p. 399, crediting Diaz 1997; Diaz 2007 sec. 1.2 via PQ and P2; Waldschmidt, Role of complex conjugation, sec. 5). Also printed: strong four => strong five (Wal04 calls it a special case; DALAG p. 437 calls it weaker). These do not compose into strong five => modulus.\n\n**Closest material.** Waldschmidt has printed the same style of instantiation twice from this hypothesis:\n- 1988: (log a)(log b) != log c.\n- Hopf algebras paper and Wal04: e^(lambda^2) transcendental.\n\nNeither reaches the target.\n- The 1988 statement is vacuous at b = conj(a), because u*conj(u) is non-zero algebraic and so not a logarithm, by Hermite-Lindemann.\n- The e^(lambda^2) instance uses y2 = lambda, not conj(lambda).\n- So all are analogues, despite the proof being one substitution away.\n\n**My check of the target's one line (translation, not a source).** Take x=(1, conj u), y=(1, u), beta_11=1, beta_12=beta_21=0, beta_22=rho=u*conj(u), gamma=1, delta=0. Independence of 1,u and of 1,conj u comes from Lindemann. All five exponentials are algebraic, and the conclusion forces u=0. This confirms the \"routine\" class: the result is an easy exercise that apparently nobody printed, not a deep gap.\n\n**What each source says about modulus and strong five.**\n- Diaz 2004 sec. 5.1 derives C(|u|) from Schanuel and notes it is a special case of strong four. No strong five.\n- Diaz 1997 Theorem 5 treats the four exponentials form with e^|log alpha|. OCR is poor. The '[Di 1997a]' credit for strong four => modulus comes via DALAG; I did not verify that Diaz 1997 states it in that form.\n- Diaz 2007 sec. 1.2 gives PQ and M from strong four. The only 'five' it mentions is the five exponentials theorem (sec. 2.2). Theorem 4 there is a sufficient condition for strong four, unconditional, and needs x2/x1 in L-tilde: not this target.\n- DALAG p. 15 derives e^|lambda| transcendental from plain four exponentials: a different conclusion.\n- DALAG Exercise 15.16(c): e^|lambda| or algebraic independence. Different again.\n- Warner sec. 45 repeats the strong four derivations; his sec. 44 item 12 is about |w|^2 rational and exp(2 pi i w), under four exponentials. Neither uses strong five.\n- Variations 2005, Role of conjugation, the Legacy of Ramanujan text and the Four Exponentials survey never tie strong five to modulus. Keyword scans found no 'five' in Role, and only the five exponentials theorem in Legacy and the survey.\n\n**After 5 October 2026.** The arXiv API listings showed only unrelated papers dated after that date (2610.10469, 2610.41600, 2611.00456, 2611.01711), judged by title, plus the 2611.00456 abstract. The listings returned few and noisy matches: 16 for \"four exponentials\", 6 for \"five exponentials\". They are weak evidence of absence. The zbMATH and citation-index checks of recent items did not work.\n\n**Limits, stated plainly.**\n- The citation strategy was largely blocked. OpenAlex was rate-limited or unavailable, Semantic Scholar mostly 429, zbMATH web 403.\n- Forward citations were obtained only for Dia07, with one citing paper from Semantic Scholar. Wal04, DALAG, Roy92 and the 1988 paper were not walked.\n- The session's WebSearch budget ran out after four queries succeeded; a fifth was refused with an instruction to continue from what was already gathered. I therefore stopped discovery searching, including further scholarly-index queries, at about 5 minutes of the 30-minute box. After that I only read items already in hand.\n- The work most likely to change the answer is a walk of the papers citing Wal04 and of Waldschmidt's lecture notes. The notes the search surfaced (Wien-ESI, AWS Lectures 5, Sarrebruck, Bangalore, DION2005 Beamer) were not opened. A follow-up session with fresh search budget could do that.\n- Local files were read through text layers. Formulas in the Durham OCR and Diaz 1997 are garbled; the quoted Durham remark is legible, but its parameter list should be checked on the page if it matters.\n- Page numbers for Wal04 are approximate, and publication details of the Hopf algebras paper are from memory.\n- Roy92's references and text were keyword-scanned only ('five', 'strong', Waldschmidt conjecture); that scan's output did not show anything relevant."
+}

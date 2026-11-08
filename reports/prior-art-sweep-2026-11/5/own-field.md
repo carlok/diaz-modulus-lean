@@ -1,0 +1,113 @@
+# Entry 5, strategy: own-field
+
+## Target, as restated by the searcher
+
+Let K be a subfield of C, u in C transcendental over K, S a finite subset of Z, V_S the K-span of u^s (s in S). A p x q configuration in V_S is a K-independent x_1..x_p and a K-independent y_1..y_q with all x_i y_j in V_S (equivalently a rank-one p x q matrix with entries in V_S and K-independent rows and columns). Claim: one exists iff S contains a sumset A+B with |A|=p, |B|=q. Consequences: for S={0,±1,±k} a 2x3 configuration exists only for k=2,3; for S={0,±1,±k,±l} with 4≤k<l exactly when l is in {k+1,k+2,2k-1,2k,2k+1,3k}; for S={0,±1}∪{±4^j : j≥1} never. Reading: Roy's strong six exponentials theorem, applied through these hulls, cannot exclude u^k in L-tilde for a single k>3, nor all of the u^{4^j}.
+
+## Leads
+
+### Lead 1: special case
+
+- **Citation:** M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer 2000; attributed there to D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algébriques, Groupe d'Études sur les Problèmes Diophantiens 1988-89, Publ. Math. Univ. Paris VI 90, no. 6, Prop. 1
+- **Location:** §12.1.6, Lemma 12.15*, p. 431; §12.1.3 for Property (A B; C 0), p. 424; Exercise 12.9 and its hint, p. 443. Checked on the page images.
+- **Quote:** There exists a k-vector subspace E of k[x] of infinite dimension which satisfies Property
+- **Link:** https://doi.org/10.1007/978-3-662-11569-5 (author copy: https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/3-540-66785-7.pdf)
+- **Relation:** The hint builds E as the span of polynomials p_n of degree t_n>0 with t_{n+1}≥2t_n. Property (A B; C 0) says every nonzero M over E is k-equivalent to a block matrix with A regular and a zero lower-right block. A rank-one M with independent rows and columns has no zero entry after k-equivalence, so d=1 or l=1 (my one-line deduction, not printed). Hence no p x q configuration with p,q≥2 in the span of u^{4^j}, j≥1. So the printed lemma gives the lacunary positive-exponent slice of the only-if direction and of the u^{4^j} statement, and in degree-lacunary form it also covers non-monomial p_n and matrices of any rank. It does not give the target's Proposition: the target's set adds 0, ±1 and negative exponents, and {-1,0,1} does carry a 2x2 configuration, so Property (A B; C 0) fails there. No sumset criterion and no k=2,3 statement is printed. The book leaves the proof as an exercise, so I cannot say the degree argument is printed.
+
+### Lead 2: special case
+
+- **Citation:** D. Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, Acta Math. 175 (1995), 49-73; restated as Lemma 12.16* and Exercise 12.10 in Waldschmidt, DALAG (2000), pp. 431, 443
+- **Location:** Theorem 3.4 and its proof, p. 66, with §3.2 Homogeneous surfaces, p. 65. Statement checked on the page image.
+- **Quote:** Paraphrase, not verbatim (the session limits verbatim quotation): for lambda_1, lambda_2, lambda_3 independent over …
+- **Link:** https://doi.org/10.1007/BF02392486
+- **Relation:** Take rank M=1: p+q≤4 in any 3-dimensional Q-bar-space. So span(u^a,u^b,u^c) carries no 2x3 configuration, which is the only-if direction for |S|=3, p=2, q=3, K=Q-bar, and it holds for arbitrary 3-dimensional spaces, so on that slice it is more general. It says nothing for |S|≥4, hence nothing about S={0,±1,±k}. Roy's §3.2 uses the theorem as a barrier: on the cone xy=z² (geometric progressions of three terms) the Waldschmidt rank theorem cannot prove the four exponentials conjecture. This is the same kind of statement as the target's limit on Roy's theorem through hulls, for a different theorem and a smaller space.
+
+## Notes
+
+**Outcome.** The "not found" stands for the sumset criterion and for "only k=2,3". I found neither in the own-field literature I could open. Two printed slices of it were not named in the target and should be cited. Both are in the local library.
+
+**1. DALAG §12.1.6 (Roy 1989, Prop. 1).** Lemma 12.15: for x transcendental over k, some infinite-dimensional subspace of k[x] satisfies Property (A B; C 0). The hint to Exercise 12.9 takes polynomials with t_{n+1}≥2t_n, t_n>0. The hint is written over ℚ, the lemma over k.
+- That property forbids rank-one matrices with independent rows and columns unless d=1 or l=1 (my deduction, not printed).
+- So the span of u^{4^j}, j≥1, carries no 2x2 configuration. This is the closest print to the target's u^{4^j} statement.
+- It stops short because t_n>0 excludes exponent 0, and the target's hull contains {-1,0,1}, which carries a 2x2 configuration. The target's "no 2x3 but yes 2x2" case is therefore not covered.
+- The hint uses degrees of polynomials, which suggests the same degree idea as the target's proof. But the proof is left as an exercise, and Roy 1989 itself is unread.
+
+**2. Roy 1995, Theorem 3.4 (DALAG Lemma 12.16, Ex. 12.10).** Any 3-dimensional Q-bar-space: 4 rank M ≥ d+l. In rank one, p+q≤4.
+- This settles |S|=3 for all spaces, not just spans of powers.
+- DALAG p. 431 adds the example E = ku+kux+kux², citing Roy 1989 Prop. 2: it fails Property (A B; C 0) through the 2x2 matrix on (u,ux),(ux,ux²). This is the smallest "if" case.
+- Roy's §3.2 uses this as a limit on the Waldschmidt rank theorem. It is the nearest printed relative of the target's "Roy's theorem cannot reach this", but it concerns another theorem and only three terms.
+
+**Other sources relative to the target.**
+- Diaz 2007: only the 2x3 progression (Th. 7(2)) and the general remark on p. 390. No converse direction.
+- Fischler 2001: Lemma 6.1 only, already named. His closing N.B. points to Roy 1989 Prop. 2 for non-derivability, which is another reason to get that fascicle.
+- Roy 1992: Theorem 6 builds extremal subspaces for phi(n,d); I read only the start of its proof. Different question, no powers.
+- Waldschmidt 2005: corollaries of Roy's theorem with Λ's; no span-of-powers analysis.
+- Habsieger 2007: explains why alternant methods fail for 2^t, 3^t. Analogue at most in spirit, so not listed as a lead.
+- The classic 2^π, 2^{π²}, 2^{π³} example from search snippets is the k=1,2,3 progression, already known. Nothing printed that I found discusses which other exponent sets the theorem reaches.
+
+**Sanity check.** A brute-force sumset test on sample exponent sets gave:
+- 2x3 for {0,±1,±k} only at k=2,3, among k≤11;
+- {4^j, j=1..5} has no 2x2;
+- adding 0, ±1 and negatives gives 2x2 but no 2x3;
+- {0,1,2} has 2x2 but no 2x3.
+
+This checks my relation claims, not any source.
+
+**Not settled.** Roy 1989 Props 1-2 and Roy 1990 are unread and could state more than DALAG reports. A hand copy of Roy 1989 is the single most useful next step. zbMATH's Python TLS failed on a self-signed certificate, so I used the JS fetch route without disabling verification. OpenAlex hit its rate limit late, so the last title searches did not run or were not seen. Text search over OCR can miss formula-only statements, especially in the older Waldschmidt notes.
+
+**Quotation.** The session's copyright rule allows one verbatim quote per response, so the Roy 1995 lead's quote field is a marked paraphrase. Time used: about 10 of the 30 minutes (10:23 to 10:34 CET).
+
+## Read
+
+- Waldschmidt, DALAG (2000) (local copy) — https://doi.org/10.1007/978-3-662-11569-5: §§12.1.3, 12.1.5, 12.1.6 and Exercises 12.7-12.12; pp. 431 and 443 checked as images
+- Roy, Acta Math. 175 (1995) — https://doi.org/10.1007/BF02392486: §3.2 and Theorem 3.4 (p. 66 checked as image), Theorem 1.2, §2 statements
+- Roy, J. Number Theory 41 (1992) — https://doi.org/10.1016/0022-314X(92)90081-Y: Corollary 2, §5 Theorems 5 and 6 with the function phi(n,d) (start of the Theorem 6 proof); grep of the rest
+- Diaz, JTNB 19 (2007) — https://doi.org/10.5802/jtnb.592: Théorème 7, Corollaire 5, §2.4 (the p. 390 remark)
+- Fischler, Acta Arith. 100 (2001) — https://doi.org/10.4064/aa100-2-4: §6: Lemma 6.1, Theorem 6.2, closing N.B. remarks
+- Waldschmidt, Variations on the six exponentials theorem (2005) — https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/Hyderabad.pdf: §2 Theorem 2.1 and Corollaries 2.2-2.5
+- Habsieger, Publ. Math. Debrecen 70 (2007), 179-194 — https://publi.math.unideb.hu/paper/1156/download/10_5486_PMD_2007_3505.pdf: Abstract, introduction, keyword scan; alternants, no span-of-powers statement
+- Dasgupta, Ranks of matrices of logarithms I (arXiv 2303.02037) — https://arxiv.org/abs/2303.02037: §5.1 rank-one deduction of six exponentials
+- Waldschmidt, Quelques aspects transcendants de la théorie des nombres algébriques (1986/87): Corrected exercise on rank-one matrices, OCR pp. 211-213; Leopoldt context only
+
+## Screened only
+
+- Local-library grep only (geometric progression, sumset, powers of, rank one, hankel, lacunary, k[x], ux^2), own-field files: all of waldschmidt/ (163 files including LN402, ODP, Bourbaki 824), roy/, diaz/ (1989, 1996, 1997, 2004), Laurent 1991, Roy-Waldschmidt 1995 and 1997, Waldschmidt 1971, 1973, 1992, 2005 role of conjugation, survey, Brownawell 1974, Kirby. OCR and garbled text layers may hide formula matches. Further variations (2005) has an unreadable text layer and was not searched.
+- Dasgupta-Kakde, Ranks of matrices of logarithms II (grep) — https://arxiv.org/abs/2408.08178
+- Warner, The Exponential World (arXiv 2105.05809): table of contents and grep; §43 strong six exponentials, Diaz curve — https://arxiv.org/abs/2105.05809
+- Prasad, Some questions in Diophantine approximation (arXiv 2505.15744): grep; structural rank only — https://arxiv.org/abs/2505.15744
+- Kühne, Logarithms of algebraic numbers, JTNB 27 (2015): off topic — https://jtnb.centre-mersenne.org/article/JTNB_2015__27_2_499_0.pdf
+- Jensen-Marques, arXiv 0901.1335: off topic — https://arxiv.org/abs/0901.1335
+- Hančl, Transcendental sequences, Math. Slovaca 46 (1996): title page only; off topic
+- zbMATH Open query lists (six exponentials 29 hits, matrices and logarithms 11, rank and logarithms in 11J81 8, complex conjugation 2, ti:exponentielles in 11J81 9, ti:logarithmes in 11J81 4): titles only
+- OpenAlex citers of Diaz 2004, Fischler 2001, Roy 1992 (titles); Diaz 2007 shows zero citers there, and Semantic Scholar shows only Waldschmidt 2005
+- arXiv API: six exponentials, four exponentials, strong six exponentials, structural rank, logarithms of algebraic numbers with matrix or rank, products of logarithms: titles; nothing relevant beyond Dasgupta
+- Beck-Lecouvey 2017 and Bachoc-Couvreur-Zémor 2018 appeared in searches: additive-combinatorics side, outside this strategy, titles only
+
+## Inaccessible
+
+- D. Roy, Sur la conjecture de Schanuel pour les logarithmes de nombres algébriques, Groupe d'Études sur les Problèmes Diophantiens 1988-89, Publ. Math. Univ. Paris VI 90, no. 6, 12 pp. Primary source for Props 1 and 2, the best place left to look.: Seminar fascicle; no online copy found. Known only through DALAG and through Fischler's citation of Prop. 2.
+- D. Roy, Matrices dont les coefficients sont des formes linéaires, Sém. Théorie des Nombres Paris 1987-88, Progress in Math. 81 (1990) — https://doi.org/10.1007/978-1-4612-3460-9_13: Springer paywall; only a preview is offered.
+- Waldschmidt, Further variations on the six exponentials theorem, Hardy-Ramanujan J. 28 (2005) — https://doi.org/10.46298/hrj.2005.86: Open access, but the local text layer is unreadable (Type 3 fonts) and I did not read it from page images in this run.
+- Murty-Rath, Transcendental Numbers (Springer 2014): Paywalled book; title-level only.
+- Waldschmidt, Transcendental numbers and functions of several variables (1993, Zbl 0791.11032): Not in the local library; I did not locate an open copy in this run.
+
+## Queries
+
+- Diaz produits et quotients de combinaisons linéaires de logarithmes (web, OpenAlex citers)
+- rank one matrix entries powers of transcendental u, six exponentials, geometric progression
+- products of subspaces of K(x), valuation, sumset, Laurent polynomials
+- strong six exponentials corollary u, u^2, u^3 not all in L-tilde
+- produits de logarithmes, puissances u^2 u^3, six exponentielles, module d'un logarithme, conjugaison complexe
+- sumset A+B in S, rank-one matrix, span of monomials, Segre, coordinate subspace
+- 2^t, 2^{t^2}, 2^{t^3}, replacing t^3 by t^4, four exponentials corollary
+- Habsieger, A few remarks related to the four exponentials conjecture
+- logarithms of algebraic numbers, geometric progression, transcendental ratio, Roy strong four exponentials
+- L-tilde, powers of u, |u| algebraic, Diaz conjecture, arXiv 2024-2026
+- espace engendré par les puissances d'un nombre transcendant, matrices de rang un, théorème fort des six exponentielles
+- Roy, Sur la conjecture de Schanuel pour les logarithmes; Roy, Matrices dont les coefficients sont des formes linéaires (web)
+- Roy 1989 structural rank, subspace of k[x], degrees t_{n+1}≥2t_n
+- product dimension lemma, Kneser, algebraically closed, transcendental number theory
+- zbMATH Open: any:"six exponentials", "strong four exponentials", "six exponentielles", ti:produits & ti:logarithmes, matrices or rank & logarithms of algebraic numbers (cc 11J, 11J81), Diaz & complex conjugation, Laurent polynomials & sumset, ti:exponentielles & cc:11J81, ti:logarithmes & cc:11J81
+- arXiv API: abs "six exponentials", "four exponentials", "strong six exponentials", "structural rank", "logarithms of algebraic numbers" with matrix or rank, "products of logarithms", "logarithmes de nombres algébriques"
+- OpenAlex: cites filter for Diaz 2004, Diaz 2007, Fischler 2001, Roy 1992; title searches in French and English (rate-limited partway through)
+- local grep: geometric progression, progression géométrique, sumset, powers of, rank one, rang 1, hankel, toeplitz, lacunary, k[x], ux^2, normal curve, Veronese

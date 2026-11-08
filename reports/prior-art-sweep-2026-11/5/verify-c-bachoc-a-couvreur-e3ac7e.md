@@ -1,0 +1,12 @@
+# Entry 5, verification: C. Bachoc, A. Couvreur,
+
+- **Source read:** C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's Theorem, Algebraic Combinatorics 1 (2018), no. 4, 501-521. Read arXiv:1709.00087v2 (https://arxiv.org/pdf/1709.00087), p. 4; journal PDF numbering checked (https://alco.centre-mersenne.org/item/10.5802/alco.19.pdf).
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** analogue only
+- **Covers the part not found:** False
+- **Passage:** "v(S) + v(S) ⊆ v(S 2 )" (Lemma 3.2, inclusion (3))
+
+**Hypotheses.** Field: any function field over K; Prop. 3.1 needs residue field K, which the u-adic place of K(u) has, so K ⊆ ℂ is fine. After Remark 3.3 the paper assumes K algebraically closed, but both cited items precede this. Dimension: Lemma 3.2 is symmetric only, v(S)+v(S) ⊆ v(S²); the target needs p × q with two spaces. The two-space version is immediate but not printed there; the introduction only alludes to it, attributing it to [1]. Target's x_i, y_j lie in ℂ, so rescaling into K(u) is needed and is not stated. Conjugation: absent. Genericity: u transcendental corresponds to one-variable K(u); no candidates, circles or logarithms appear. Span of Laurent monomials: not treated as such; Laurent polynomials occur only in the proof of Prop. 8.2.
+
+**Explanation.** The location is correct: Prop. 3.1 (dim S = |v(S)|, filtered basis) and Lemma 3.2 are on p. 4 of the arXiv version, and the journal PDF uses the same numbers. They are general tools on valuations, called classical and elementary by the authors. They do not state the target. Nothing there or elsewhere in the paper (keyword search, plus reading pp. 3-6) gives the characterisation of configurations in a span of u^s by sumsets in S, the k = 2, 3 result, the pair list, or the u^{4^j} result. The forward direction of the target follows in a few lines, after rescaling into K(u) and extending Lemma 3.2 to two spaces. The converse is trivial. So this is the same valuation method the target already credits to [BSZ17, §7], in a second independent source, with the symmetric case only. It is a useful extra citation for the method, not a find. The consequences are combinatorics of integer sets, absent here. The paper's aim is the opposite direction: structure of S when dim S² is small.

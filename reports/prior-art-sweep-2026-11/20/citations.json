@@ -1,0 +1,207 @@
+{
+ "target": "Kirby's Weak Schanuel for n=2: if trdeg_Q Q(a,b,e^a,e^b) < 2, then ma+nb lies in 2πiZ for some integers (m,n) ≠ (0,0). Call u ≠ 0 a candidate if |u| and e^u are both algebraic; Diaz's conjecture says no candidate exists. The target has three parts. (1) Under that n=2 case, every candidate has Re u ≠ 0 and Im u a nonzero rational multiple of π. (2) Under the same hypothesis, Diaz's conjecture is equivalent to one statement: t²+π² is transcendental for every real t ≠ 0 with e^t algebraic. (3) If in addition trdeg_Q Q(π,a,e^a) ≥ 2 for every a outside 2πiQ (Schanuel over the kernel, n=1), then Diaz's conjecture holds. The argument is short. Apply the hypothesis to (u, ū), whose field has trdeg ≤ 1 because ū = ρ/u. This gives (m+n)Re u = 0 and (m−n)Im u ∈ 2πZ. If Re u = 0 or Im u = 0 then u is algebraic, which contradicts Hermite-Lindemann, so m = −n ≠ 0. Rescaling by the rational Im u/π gives the single relation, and u = t+iπ gives the converse.",
+ "leads": [
+  {
+   "citation": "M. Waldschmidt, The role of complex conjugation in transcendental number theory, Proceedings of DION 2005 (International Conference on Diophantine Analysis and Related Fields), 2005/2006",
+   "location": "Section 5, the sentence between Theorem 5.1 and Conjecture 5.2",
+   "quote": "the number |λ|² = λλ̄ should be transcendental",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf",
+   "relation": "analogue only",
+   "derivation": "My own specialisation: λ = t+iπ, a logarithm of −e^t, gives |λ|² = t²+π², so the single relation is one instance of the expected transcendence of |λ|². The source derives this from the strong four exponentials conjecture and never singles out Im λ ∈ πQ. It does not use Kirby's Weak SC, and it does not reduce Diaz's conjecture to that instance. The part not found is not reached."
+  },
+  {
+   "citation": "C. Bertolin, P. Philippon, B. Saha, E. Saha, Semi-abelian analogues of Schanuel conjecture and applications, arXiv:2010.15170v2",
+   "location": "Remark 4.11, following Conjecture 4.10",
+   "quote": "This is Schanuel conjecture (up to the transcendency of π).",
+   "link": "https://arxiv.org/abs/2010.15170",
+   "relation": "analogue only",
+   "derivation": "With s=1 the inequality is trdeg over Q(2iπ) of Q(2iπ,τ,log τ) ≥ dim of the span of log τ in C/2iπQ. Together with the transcendence of π, this is exactly the target's hypothesis trdeg Q(π,a,e^a) ≥ 2 for a outside 2πiQ (my translation). So it prints the hypothesis of the third part only. It has no link to moduli, conjugation, Weak SC or Diaz's conjecture, so neither reduction is reached."
+  }
+ ],
+ "read": [
+  {
+   "source": "J. Kirby, Variants of Schanuel's conjecture, arXiv:1801.08765",
+   "sections": "Section 1 read, including Conjectures 1.4 and 1.5, Proposition 1.6 and the remark after it. Whole text keyword-searched: no Diaz, no conjugation, no application to moduli.",
+   "link": "https://arxiv.org/abs/1801.08765"
+  },
+  {
+   "source": "G. Diaz, Utilisation de la conjugaison complexe..., JTNB 16 (2004) 535-553 (local copy)",
+   "sections": "Section 5: Conjecture C(|u|), Proposition 1 and its proof, Proposition 2. The proof splits u in R∪iR from (u,ū) Q-free and applies full Schanuel. It never considers a relation modulo 2πi.",
+   "link": "https://www.numdam.org/item/JTNB_2004__16_3_535_0"
+  },
+  {
+   "source": "G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes..., JTNB 19 (2007) (local copy)",
+   "sections": "Passages on C(|u|) and Conjecture (M), and the statement that the conjectures follow from Schanuel. (M) follows from (PQ); no Weak SC, no πQ.",
+   "link": "https://doi.org/10.5802/jtnb.592"
+  },
+  {
+   "source": "M. Waldschmidt, The role of complex conjugation in transcendental number theory (local copy)",
+   "sections": "Section 5 around Theorem 5.1 and Conjecture 5.2, and the Schanuel passages",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf"
+  },
+  {
+   "source": "Roy and Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. ENS 30 (1997) (local copy)",
+   "sections": "Introduction: Theorems 0.1 and 0.2, Conjecture 0.3. Theorem 0.2 concerns homogeneous polynomials only, so t²+π²=a with a ≠ 0 is not directly covered."
+  },
+  {
+   "source": "Roy and Waldschmidt, Quadratic relations between logarithms of algebraic numbers, Proc. Japan Acad. 71 (1995) (local copy)",
+   "sections": "Section 1 statements, Theorems 1 and 2. OCR is two-column and garbled."
+  },
+  {
+   "source": "Bertolin, Philippon, Saha, Saha, arXiv:2010.15170",
+   "sections": "Conjecture 4.10 and Remark 4.11 only",
+   "link": "https://arxiv.org/abs/2010.15170"
+  },
+  {
+   "source": "M. Bays, SEAC from EAC modulo Schanuel, arXiv:2610.27963 (20 Oct 2026)",
+   "sections": "Title, abstract opening and keyword search of the full text. It concerns exponential-algebraic closedness; no Diaz, no modulus.",
+   "link": "https://arxiv.org/abs/2610.27963"
+  },
+  {
+   "source": "M. Waldschmidt, An introduction to the strategy of transcendence proofs, arXiv:2610.39810 (29 Oct 2026)",
+   "sections": "Keyword search of the full text: no Diaz, no Schanuel; 'conjugates' occurs only in the algebraic sense",
+   "link": "https://arxiv.org/abs/2610.39810"
+  },
+  {
+   "source": "Kirby and Zilber, Exponentially closed fields and the conjecture on intersections with tori, arXiv:1108.1075",
+   "sections": "Keyword search and passages on the Schanuel Property over the kernel. Model theory only, no application to moduli.",
+   "link": "https://arxiv.org/abs/1108.1075"
+  },
+  {
+   "source": "Berarducci and Gallinaro, On the elementary theory of the real exponential field, arXiv:2603.08365v3",
+   "sections": "Keyword search; Conjecture 13.4 is the Macintyre-Wilkie weak Schanuel, a different statement",
+   "link": "https://arxiv.org/abs/2603.08365"
+  },
+  {
+   "source": "Fischler-type density paper, Density of rational points on commutative group varieties and small transcendence degree, arXiv:1011.3368 (cites Diaz 2004)",
+   "sections": "Keyword search of the Diaz passages: restriction of scalars and four exponentials. No Weak SC, no kernel relation.",
+   "link": "https://arxiv.org/abs/1011.3368"
+  },
+  {
+   "source": "M. Waldschmidt, Transcendence of Periods: the state of the art (local and author's copy)",
+   "sections": "Keyword search: Diaz is cited only for the derivative-free Hermite-Lindemann proof"
+  },
+  {
+   "source": "M. Waldschmidt, On Ramachandra's contributions to transcendental number theory (local copy)",
+   "sections": "Keyword search of the Diaz passages: conjugation trick only"
+  },
+  {
+   "source": "Bertolin and Waldschmidt, Variations on Schanuel's Conjecture for elliptic and quasi-elliptic functions I, arXiv:2504.14048",
+   "sections": "Conjecture 2.1 with its exceptional 2πiQ case, by keyword search. Elliptic setting, nothing on moduli.",
+   "link": "https://arxiv.org/abs/2504.14048"
+  },
+  {
+   "source": "C. Bertolin, A conjecture in Schanuel style for 1-motives, arXiv:2509.08700v3",
+   "sections": "Keyword search of the 2πiQ and 'unless' clauses: 1-motive setting, nothing on moduli",
+   "link": "https://arxiv.org/abs/2509.08700"
+  },
+  {
+   "source": "G. Warner, The Exponential World, arXiv:2105.05809",
+   "sections": "Keyword search: it reproduces Diaz's Theorem on e^{tβ}, lecture notes with nothing new here",
+   "link": "https://arxiv.org/abs/2105.05809"
+  },
+  {
+   "source": "Kirby, Macintyre and Onshuus, The algebraic numbers definable in various exponential fields, arXiv:1101.4224",
+   "sections": "Schanuel passages by keyword search: definability only",
+   "link": "https://arxiv.org/abs/1101.4224"
+  },
+  {
+   "source": "J. Kirby, Finitely presented exponential fields, arXiv:0912.4019",
+   "sections": "Keyword search: its one use of complex conjugation is an analogue on B_kappa",
+   "link": "https://arxiv.org/abs/0912.4019"
+  }
+ ],
+ "screened": [
+  {
+   "source": "arXiv listing, all:Schanuel sorted by date, with all entries from Oct-Nov 2026 by title: 2610.35409, 2610.30025, 2610.28477, 2610.16993, 2610.09714, 2610.06518",
+   "link": "https://arxiv.org/a/search"
+  },
+  {
+   "source": "arXiv listing, math.NT transcendence and algebraic independence, 15 Sep to 8 Nov 2026, by title; nothing relevant apart from 2610.39810"
+  },
+  {
+   "source": "J. Kirby, Exponential algebraicity in exponential fields, BLMS 42 (2010), arXiv:0810.4285: its 'weak Schanuel property' concerns the dimension of exponential algebraic closure",
+   "link": "https://arxiv.org/abs/0810.4285"
+  },
+  {
+   "source": "J. Kirby, A Schanuel property for exponentially transcendental powers, arXiv:0810.4457 (keyword search found nothing)",
+   "link": "https://arxiv.org/abs/0810.4457"
+  },
+  {
+   "source": "M. Viale, Forcing the truth of a weak form of Schanuel's conjecture, Confluentes Math.: abstract only",
+   "link": "https://www.numdam.org/articles/10.5802/cml.33"
+  },
+  {
+   "source": "Butler and co-authors, A Diophantine approach to the three and four exponentials conjectures, Ramanujan J. (cites Diaz 2004): title only",
+   "link": "https://doi.org/10.1007/s11139-015-9728-2"
+  },
+  {
+   "source": "Waldschmidt, Variations on the six exponentials theorem (cites Diaz 2004): title; the local copy was not opened in detail",
+   "link": "https://doi.org/10.1007/978-93-86279-23-1_23"
+  },
+  {
+   "source": "Waldschmidt, Four exponentials problem and Schanuel's conjecture (local): matched only on the Calegari-Mazur 'weak Schanuel', which the target already separates"
+  },
+  {
+   "source": "Pila, conjecture equivalent to Schanuel plus multiplicative Zilber-Pink, Rend. Lincei 36 (2025): zbMATH summary",
+   "link": "https://doi.org/10.4171/rlm/1086"
+  },
+  {
+   "source": "zbMATH Open, any:Schanuel py:2024-2026, 100 records: indexed search for modulus, conjugate, kernel and Diaz returned nothing relevant"
+  },
+  {
+   "source": "zbMATH Open, any:'weak Schanuel': returned Kirby 2010 and others"
+  },
+  {
+   "source": "Gun, Murty and Saha-type abelian analogue, arXiv:1811.05167: keyword search found nothing",
+   "link": "https://arxiv.org/abs/1811.05167"
+  },
+  {
+   "source": "Waldschmidt, On Schanuel's Conjecture, elliptic and quasi-elliptic functions (January 2025), and arXiv:2504.14041: keyword search found nothing"
+  },
+  {
+   "source": "Marques and Sondow, Schanuel's conjecture and algebraic powers, arXiv:1010.6216; Cheng et al., Some consequences of Schanuel's Conjecture, arXiv:0804.3550: keyword search for Diaz, conjugation and kernel found nothing"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "OpenAlex forward citations of Diaz 2004 and of Kirby's note",
+   "why": "HTTP 429 on every attempt across the session, including through the index tool. Only the record for Diaz 2004 returned once (9 citing works, not listed)."
+  },
+  {
+   "source": "zbMATH citing-works query for Zbl 1071.11046",
+   "why": "the rf: query returned HTTP 404 through the fetch tool; the direct API call failed certificate verification and I did not bypass it"
+  },
+  {
+   "source": "D. Roy, summer school 2008 lecture 5 PDF",
+   "why": "HTTP 404",
+   "doi_or_link": "https://mysite.science.uottawa.ca/droy/summer-school-2008/droy_lecture5.pdf"
+  },
+  {
+   "source": "Viale full text via Numdam",
+   "why": "the URL served a page rather than a PDF, so no text was extracted; the abstract was enough to judge it off target",
+   "doi_or_link": "https://www.numdam.org/articles/10.5802/cml.33"
+  }
+ ],
+ "queries": [
+  "Semantic Scholar citations and references of ARXIV:1801.08765 (1 citation returned)",
+  "Semantic Scholar citations of DOI:10.5802/jtnb.459 (8 returned)",
+  "zbMATH: any:'weak Schanuel'; any:Schanuel py:2024-2026; ti:'conjugaison complexe' au:Diaz",
+  "arXiv API: all:'Schanuel'; all:'weak Schanuel'; abs:Schanuel AND abs:modulus; abs:Schanuel AND abs:conjugation; abs:Hermite-Lindemann AND abs:modulus; abs:Schanuel AND abs:kernel; abs:'algebraic modulus' AND abs:transcendental; abs:'six exponentials' AND abs:conjugation; math.NT transcendence, latest",
+  "web: weak Schanuel Kirby modulus Diaz conjecture",
+  "web: Diaz conjecture e^u and |u| algebraic; Schanuel implies",
+  "web: weak Schanuel t^2+π^2 conjugate logarithm",
+  "web: Schanuel over the kernel transcendence consequence",
+  "web: transcendence (log α)^2+π^2, log 2 and π",
+  "web: Diaz conjecture |u| cited 2020s",
+  "web: Kirby Variants cited 2024-2026",
+  "web: Weak SC kernel conjugate u ū",
+  "web: Bertolin Waldschmidt trdeg Q(π,a,e^a) ≥ 2",
+  "web: Kirby Macintyre Onshuus conjugation",
+  "web: C(|u|) module algébrique 2025 2026",
+  "web: e^u real, Im u in πQ, |log α|^2",
+  "web: π^2+log^2 transcendental, strong four exponentials",
+  "local library regex: t²+π², e^u réel, Im u ∈, |u| algébrique, Diaz with modulus, across all .txt files except n3-lit and dasgupta-kakde"
+ ],
+ "notes": "**Result: no printed statement of the part not found.** The two leads are analogues only, and neither reaches it.\n\n**Backward from Diaz 2004.** Proposition 1 of §5 proves C(|u|) from full Schanuel. The proof treats u in R∪iR by Hermite-Lindemann, then applies Schanuel directly to the Q-free pair (u, ū). Diaz never needs a relation modulo 2πi, because full Schanuel sees no kernel. The case the target is about is u−ū ∈ 2πiQ, i.e. e^u real. That case only appears when you weaken to Kirby's form, and it appears nowhere in Diaz 2004, Diaz 2007 or Waldschmidt 2005.\n\nDiaz 2007 goes through (PQ) and (M). Conjecture (M) has hypothesis (λ, λ̄) Q-free, so it covers λ = t+iπ, again without isolating it.\n\n**Backward from Kirby.** Conjecture 1.5 reads as the target quotes it. Proposition 1.6 gives the chain SC ⇒ SC over the kernel ⇒ Weak SC. Kirby's example separating the last two is e and π algebraically dependent, the same kind of obstruction as the target's residual relation, but it is a remark about the conjectures, not about moduli. The note has no number-theoretic application of Weak SC at n=2, and no mention of Diaz or conjugation.\n\n**Forward from Kirby.** Semantic Scholar gives one citing work (arXiv:1609.06025, real exponential hypersurfaces, off target by title). The citation data here is thin. Most use of 'Weak SC' in the logic literature that I could see is about pseudo-exponentiation and the kernel axiom (Kirby-Zilber's SPOK), not transcendence consequences for specific numbers.\n\n**Forward from Diaz 2004.** Semantic Scholar lists eight entries, all at or before 2017, and Waldschmidt's and Diaz's follow-ups are in the local library. I judged Butler et al. only from the title, and Waldschmidt's six-exponentials variation paper likewise, so these two are the weakest parts of the check.\n\n**After 5 October 2026.** The arXiv listings for Schanuel and for math.NT transcendence show nothing relevant. The two nearest are Bays (2610.27963, exponential-algebraic closedness) and Waldschmidt (2610.39810, an expository piece that mentions neither Diaz nor Schanuel). No new Diaz or modulus paper surfaced. This covers arXiv and zbMATH records only; a journal article not on arXiv since October would not be caught.\n\n**Name clash, confirmed.** 'Weak Schanuel' has at least three meanings in print: Kirby's Conjecture 1.5; Calegari-Mazur's algebraic independence of logarithms (via Waldschmidt's four exponentials survey); and Macintyre-Wilkie's (via Berarducci-Gallinaro, Conjecture 13.4). Kirby 2010 has a further 'weak Schanuel property' for exponential dimension. Searches on the phrase are noisy, and only the first meaning matches the target.\n\n**Related but not reaching.** Roy-Waldschmidt 1997 Theorem 0.2 is homogeneous, so t²+π²−a with a ≠ 0 does not fit directly, and I did not find a printed inhomogeneous version covering the rank-2 pair (t, iπ). An unconditional result of that form would make the target's reduction unnecessary, but nothing I read gives one.\n\n**Remark on class.** I rechecked the deduction (see the target field). It is a few lines and uses only Hermite-Lindemann and the parity of (m+n, m−n). That supports the blueprint's 'routine' label, and it makes a stray remark in an unindexed paper or talk harder to rule out by search, since such a remark would not need a title or abstract.\n\n**What I could not settle.**\n- OpenAlex was rate-limited throughout (HTTP 429), so forward citations rest on Semantic Scholar, which is known to be incomplete, particularly for arXiv-only notes such as Kirby's.\n- Google Scholar-style citing lists were not used.\n- Formula strings like 't²+π²' are not searchable in PDFs through the available engines, and the local regex is at the mercy of OCR.\n- Keyword searches of PDFs would miss a statement written without the words Diaz, conjugate or kernel.\n- Most entries in 'read' are keyword-guided passages, not whole papers, as their section fields say.\n\n**Time.** Started 18:13 CET. The last date check was 18:21, partway through; I stopped within the time box, with OpenAlex still blocked."
+}

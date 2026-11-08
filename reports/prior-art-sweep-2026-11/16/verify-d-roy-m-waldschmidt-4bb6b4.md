@@ -1,0 +1,21 @@
+# Entry 16, verification: D. Roy, M. Waldschmidt,
+
+- **Source read:** Roy, Waldschmidt, Proc. Japan Acad. Ser. A 71 (1995), no. 7, 151-153, Theorem 2, p. 151. Read from page images of the local library copy, sources/roy-waldschmidt-1995-quadratic-relations.pdf. The given link https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604 returned only a bot-check page.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "contained in a vector subspace of C^n which is defined over Q and contained …
+
+**Hypotheses.** Field: the subspace is defined over Q, checked at 300 dpi. Our P is rational, so the coefficient field of P does not matter. Dimension: n=4 at the point (l0, conj l0, l1, conj l1), or (u, conj u, v, conj v). Conjugation: absent from the paper; the verifier must put conjugates in as coordinates, which is legal since L is conjugation-stable. The field Q(point) is then exactly the target's field. Transcendence degree: Theorem 2 says =1, the target <=1; Hermite-Lindemann closes this, since a non-zero log is transcendental. Genericity: no independence hypothesis in Theorem 2. Non-real/non-imaginary is used only to discard one branch. Status: announced here without full proof.
+
+**Explanation.** Theorem 2 is at the cited place, as an announcement. Neither target appears; conjugation is never mentioned.
+
+Derivation. Let W be the Q-subspace from Theorem 2. On W, the coordinates x_i are non-zero rational linear forms, hence primes in the polynomial ring of W over Q.
+
+Pair: P = X1X2 - cX3X4 at (u, ū, v, v̄), with uū = c·v v̄. Then x1 divides x3x4, so u = λv or u = λv̄ with λ rational. Hence v ∈ Qu or v ∈ Qū.
+
+(Qr2): the ratio being real or imaginary gives ℓ1 ℓ̄0 = ±ℓ̄1 ℓ0, so P = X1X4 ∓ X2X3 at (ℓ0, ℓ̄0, ℓ1, ℓ̄1). Then ℓ0 = λℓ̄0 or ℓ0 = λℓ1. In the first case |λ| = 1, so ℓ0 is real or imaginary, excluded. So ℓ1/ℓ0 ∈ Q.
+
+Caveat: this adds nothing beyond the named input. Both quadrics are rank 4 and rationally equivalent to the determinant, so Theorem 1 of this paper (which it credits to [1] Cor. 7, the Bro74 cited in the target) already gives both: use x=(1,v/u), y=(u,c v̄), or x=(1,ℓ1/ℓ0), y=(ℓ0,ℓ̄0). The not-found status stands: implied, not printed.

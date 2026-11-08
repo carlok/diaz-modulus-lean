@@ -1,0 +1,13 @@
+# Entry 1, verification: E. Park, On rank 3 quadr
+
+- **Source read:** E. Park, On rank 3 quadratic equations of projective varieties, arXiv:2208.12481v2 (26 Oct 2023), full PDF read, https://arxiv.org/pdf/2208.12481v2; Trans. AMS 377 (2024), 2049-2064, doi:10.1090/tran/9083 (Crossref metadata only).
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** every rank 3 quadratic polynomial in I(X, L) is contained in W (A, B)
+
+**Hypotheses.** Field: Park works over an algebraically closed K with char not 2, so Q̄ fits. Dimension: X = P¹, L = O(3), r = 3 is the four-term progression; P¹ is locally factorial and Pic is finitely generated. Park prints the P¹ decomposition for general d (pp. 4-5); d = 3 is not singled out. Conjugation: absent from Park. It enters only through ū = ρ/u, which supplies the quadric. Genericity: none is needed on either side, and the target does not assume a candidate. Differences: Park has no numbers, no 2×3 configurations and no H₀. The reduction to a progression is BSZ17 Lemma 4, not Park. The printed statement only gives Q = Q_{A,B}(s,t,h) for some triple. That the triple is the given (x,y,z) up to scalars comes from the proof on p. 10. Rank exactly 3 holds because u is transcendental (Q̄ is algebraically closed, ρ ≠ 0), so 1, u, ρ/u are independent. Locations are correct: Theorem 1.2(2) p. 3, Proposition 3.1 p. 10. Crossref confirms Trans. AMS 377, 2049-2064.
+
+**Explanation.** Not printed in this form; Park's result specialises to the step. Derivation: V = b⟨1,h,h²,h³⟩ by BSZ17, with h transcendental. Dividing by b gives V ≅ H⁰(P¹,O(3)). Let p,q,r be the images of 1,u,ū, so qr = ρp², a rank 3 quadric on the twisted cubic. Here Σ = {(O(1),O(1))}, and the proof of Prop. 3.1 gives q∝s²l, r∝t²l, p∝stl with s,t,l linear forms and s,t independent. So u = cs/t, a Möbius function of h. Rescale so (s:t) = (u:1), and write l = αu+β. Then V = (1/(ul))⟨1,u,u²,u³⟩. If α=0, V = H₀+Q̄u². If β=0, V = H₀+Q̄ū². Otherwise l∝u−a with a≠0, and V = H₀+Q̄/(u−a). Since V = H₀+Q̄z, the z claim follows. The argument is only unique factorisation in Q̄[S,T]. My own remark, not checked in a source: it is the classical fact that rank 3 quadrics through the twisted cubic are cones with vertex on the curve. This weakens the "not routine" label.

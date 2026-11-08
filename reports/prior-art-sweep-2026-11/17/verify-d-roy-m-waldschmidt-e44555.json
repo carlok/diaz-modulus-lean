@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "implies",
+ "hypotheses": "Field: on the page image, q lies in Q[X,Y] with no bar over Q, and every q used below has rational coefficients. This is exactly where the rationality of the moduli is used. Dimension: the corollary is binary q, equivalent to a ternary quadric Z^2 = q; the target needs nothing more. Conjugation: lambda must be neither real nor purely imaginary, with lambda and its conjugate algebraically dependent. Here lambda = t + (purely imaginary), t != 0, and all quantities are algebraic over Q(pi), so transcendence degree <= 1 holds. t = 0 cannot occur, because pi^2 is irrational. Genericity: none is required. lambda is in L, meaning logarithms of non-zero algebraic numbers; I took this from the paper's usage and did not separately read the definition. Discriminant: non-zero exactly when s != r in (a), and when gamma != 0 in (c). Differences: Cor. 7.3 gives no pair of numbers and no uniqueness statement; these come from the substitutions.",
+ "covers_part_not_found": true,
+ "passage": "\"Alors le nombre exp(√q(λ, λ̄)) est transcendant\" (Cor. 7.3, p. 791)",
+ "source_read": "D. Roy, M. Waldschmidt, Ann. Sci. ENS (4) 30 (1997), 753-796. Opened http://archive.numdam.org/article/ASENS_1997_4_30_6_753_0.pdf (linked from https://eudml.org/doc/82449); p. 791 read as page image, p. 792 and Thm 0.2 (p. 755) as text layer.",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "Cor. 7.3 is printed as cited. The pair is not printed; p. 792 only has exp(sqrt((log 2)^2+pi^2)) transcendental if log 2, pi are dependent. All three target parts follow by my substitutions.\n\n(a) Uniqueness: let r=t0^2+pi^2, s=t1^2+pi^2 be rational, l=t0+i pi, so l l̄=r. Then t1^2=(s/r)l l̄+(l-l̄)^2/4=q(l,l̄), with q=X^2/4+(s/r-1/2)XY+Y^2/4 and discriminant (s/r)(s/r-1). If s!=r, Cor. 7.3 makes exp(±t1) transcendental, a contradiction. So t1=±t0.\n\n(b) Take t0=log 2, t1=log 3.\n\n(c) Suppose m=i g/pi has e^m algebraic. Let r=t^2+pi^2, A=g/r, x=i pi, Z=m+(1-A)x, y=(1+A)x-m, l=t+y. y is purely imaginary and non-zero (else pi^2 rational); Z, y, l are in L. From A r=g: Z^2=y^2-4A t^2=(l-l̄)^2/4-A(l+l̄)^2, discriminant 4A!=0. exp(Z)=e^m(-1)^(1-A) is algebraic, contradicting Cor. 7.3.\n\nIdentities checked numerically. The source is independent (1997)."
+}

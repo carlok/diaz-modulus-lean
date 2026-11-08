@@ -1,0 +1,133 @@
+{
+ "target": "Let u in C be non-algebraic with rho = u*conj(u) algebraic, so conj(u) = rho/u and conjugation acts on Qbar(u). Put H0 = Qbar + Qbar u + Qbar/u. For a in Qbar, a != 0, take z = u/(u^2-a) or u/(u^2-a)^2, and W = H0 + Qbar z + Qbar conj(z). Here conj(z) = c u/(u^2-b) or c u^3/(u^2-b)^2, with b = rho^2/conj(a). A 2x3 configuration in a Qbar-space V is a pair of Qbar-independent families x1,x2 and y1,y2,y3 with all six products x_i y_j in V. The part sought is this: for every w in W outside H0, the 4-dimensional space H0 + Qbar w carries no 2x3 configuration, although W itself carries one. In particular, when a*conj(a) = rho^2 the conjugation-stable space H0 + Qbar u/(u^2-a) carries none.",
+ "leads": [
+  {
+   "citation": "C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Camb. Philos. Soc. 163 (2017), no. 3, 423-452 (Zbl 1405.11134); arXiv:1501.00602v2",
+   "location": "arXiv v2: Theorem 2 (p. 2), Lemma 4 (Section 2); also Theorem 33 (pp. 25-26, F algebraically closed). Published numbering not checked.",
+   "quote": "{g, ga, . . . , gas−1 } is a basis for S",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "relation": "implies",
+   "derivation": "THROUGH MY OWN TRANSLATION; the paper never mentions logarithms, conjugation or these spaces, and the pole count below is mine, unrefereed. Take F = Qbar, L = C, V = H0 + Qbar w, dim V = 4, and suppose x_i y_j lies in V. Put A = <1,a> with a = x2/x1 and T = x1<y1,y2,y3>. Theorem 2 gives dim AT >= 4, so AT = V, and Lemma 4 gives T = g<1,a,a^2>, hence V = g<1,a,a^2,a^3>. Since 1 is in V, g = 1/P(a) with P nonzero of degree <= 3. Then u is in Qbar(a), and a = (ag)/g is in Qbar(u), so a is a Mobius function of u. Therefore every element of V has polar divisor <= D, where D is a fixed effective divisor of degree exactly 3 on P^1_u. D must contain the pole of u at infinity and the pole of 1/u at 0. Write w modulo H0 as w' = alpha z + beta conj(z), which is nonzero. It is odd in u and vanishes at 0 and infinity, so it has a pole at some p other than 0 and infinity, and also at -p != p. That forces deg D >= 4, a contradiction, for both families and with or without a*conj(a) = rho^2. Converse from the same argument: H0 + Qbar w carries a configuration exactly when w is, modulo H0, a multiple of 1/(u-p), u^2 or 1/u^2."
+  }
+ ],
+ "read": [
+  {
+   "source": "G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes..., JTNB 19 (2007) 373-391 (local text)",
+   "sections": "Whole paper, Sections 0-2.4, including Cor. 4, Cor. 5, Th. 6, Th. 7 and the closing bilan",
+   "link": "https://doi.org/10.5802/jtnb.592"
+  },
+  {
+   "source": "G. Diaz, Utilisation de la conjugaison complexe..., JTNB 16 (2004) 535-553 (local OCR text)",
+   "sections": "Section 1, Section 2 through Théorème 2, and the end of Section 5 (Th. 6 and closing remarks). OCR garbles formulas; middle sections not read.",
+   "link": "https://doi.org/10.5802/jtnb.459"
+  },
+  {
+   "source": "Bachoc, Serra, Zémor, An analogue of Vosper's theorem for extension fields, arXiv:1501.00602v2 (local text)",
+   "sections": "Introduction, Theorem 2, Theorem 3, Lemmas 4-5, Theorem 33 and its proof",
+   "link": "https://arxiv.org/abs/1501.00602"
+  },
+  {
+   "source": "Bachoc, Couvreur, Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018), arXiv:1709.00087",
+   "sections": "Abstract and introduction; keyword hits in later sections for genus 0 and Riemann-Roch statements",
+   "link": "https://arxiv.org/abs/1709.00087"
+  },
+  {
+   "source": "Couvreur, Zémor, Freiman's 3k-4 theorem for function fields, arXiv:2408.00183v2 (local text)",
+   "sections": "Abstract, introduction, statement of Theorem 1",
+   "link": "https://arxiv.org/abs/2408.00183"
+  },
+  {
+   "source": "M. Waldschmidt, The role of complex conjugation in transcendental number theory (2005, local text)",
+   "sections": "Passages mentioning Diaz, conjugation and 2x3 matrices (Sections 1, 2, 4, 5, start of 6), by keyword, not the whole text",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf"
+  },
+  {
+   "source": "M. Waldschmidt, Variations on the six exponentials theorem (2005, local text)",
+   "sections": "Passages mentioning Diaz, conjugation and 2x3 matrices (Th. 2.1, Cor. 2.7, Cor. 2.13), by keyword",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/Hyderabad.pdf"
+  }
+ ],
+ "screened": [
+  {
+   "source": "D. Roy, Matrices whose coefficients are linear forms in logarithms, JNT 41 (1992) 22-47 (local text, theorem and corollary headers only)",
+   "link": "https://doi.org/10.1016/0022-314X(92)90081-Y"
+  },
+  {
+   "source": "M. Waldschmidt, Further variations on the six exponentials theorem, Hardy-Ramanujan J. 28 (2005): no hit for Diaz, conjugation or 2x3 in the local text layer"
+  },
+  {
+   "source": "M. Waldschmidt, The four exponentials problem and Schanuel's conjecture (2023, Zbl 1543.11060; local text): no hit for Diaz or conjugation",
+   "link": "https://doi.org/10.1007/978-3-031-12244-6_39"
+  },
+  {
+   "source": "L. Butler, A Diophantine approach to the three and four exponentials conjectures, Ramanujan J. 42 (2017): citer of Dia04, keyword passages only, real-case equivalence, not on target",
+   "link": "https://doi.org/10.1007/s11139-015-9728-2"
+  },
+  {
+   "source": "A. Momot, Density of rational points on commutative group varieties and small transcendence degree, arXiv:1011.3368: citer of Dia04, title only",
+   "link": "https://arxiv.org/abs/1011.3368"
+  },
+  {
+   "source": "M. Waldschmidt, Transcendence of periods: the state of the art (2006) and On Ramachandra's contributions (2003): citers of Dia04, Diaz passages only, no such spaces"
+  },
+  {
+   "source": "L. Habsieger, A few remarks related to the four exponantials conjecture, Publ. Math. Debrecen 70 (2007): zbMATH summary, about 2^t and 3^t, off target"
+  },
+  {
+   "source": "S2 citers of Roy92 by title: Dimitrov-Betina 2019, Maksoud 2022, Iwasawa-theory items, Laurent, Roy-Waldschmidt 1997, Roy 1995, Baker-Wüstholz (via zbMATH). None on this question from title."
+  },
+  {
+   "source": "M. Wessel, On Freiman's theorem in a function field setting, arXiv:2405.10724: abstract only; about S^2, analogue at most",
+   "link": "https://arxiv.org/abs/2405.10724"
+  },
+  {
+   "source": "Wang, Tang, A generalization of Vosper's theorem, Chin. Ann. Math. B 45 (2024): zbMATH review, integers mod m, analogue only"
+  },
+  {
+   "source": "zbMATH citers of BSZ 2017 (Zullo; Zhang-Tang; Napolitano-Polverino; Castello-Polverino; Castello): titles only, finite-field Sidon spaces and linear sets, off target"
+  },
+  {
+   "source": "M. Bays, SEAC from EAC modulo Schanuel, arXiv:2610.27963 (20 Oct 2026): title only; the one post-5-October title near the area, abstract fetch hit a rate limit",
+   "link": "https://arxiv.org/abs/2610.27963"
+  },
+  {
+   "source": "C. Bertolin, Algebraic independence of the exponential and Weierstrass p-functions, arXiv:2609.15294: title only",
+   "link": "https://arxiv.org/abs/2609.15294"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "OpenAlex forward-citation lists (filter=cites) for Dia04, Dia07, Roy92, Variations",
+   "why": "HTTP 429 on every attempt; only work IDs and counts came back (Dia04 9, Dia07 0, Roy92 21, Variations 6). Semantic Scholar and zbMATH were used instead."
+  },
+  {
+   "source": "arXiv API, late queries for recent Schanuel and transcendence listings, and the Bays abstract",
+   "why": "HTTP 429 in the last part of the run. Earlier listing queries worked, but phrase queries returned mostly noise."
+  },
+  {
+   "source": "BSZ 2017, published version in Math. Proc. Camb. Philos. Soc.",
+   "why": "Publisher copy not opened, so theorem numbers come from arXiv v2.",
+   "doi_or_link": "https://doi.org/10.1017/S0305004116000888"
+  },
+  {
+   "source": "zbMATH citers of Dia07 and of Waldschmidt's role-of-conjugation paper (ci: query)",
+   "why": "API returned 404. For Dia07 I read this as no indexed citers, which Semantic Scholar's single 2005 entry supports, but it is not confirmed."
+  }
+ ],
+ "queries": [
+  "Semantic Scholar citations: DOI 10.5802/jtnb.592, 10.5802/jtnb.459, 10.1016/0022-314X(92)90081-Y",
+  "OpenAlex lookup and cites filter for the same DOIs and Variations (rate limited)",
+  "zbMATH Open: ci:1071.11046, ci:0763.11030, ci:1176.11033, ci:1163.11055, ci:1198.11068, ci:1405.11134",
+  "zbMATH Open: \"four exponentials\" & py:2015-2026; \"six exponentials\" & cc:11J; \"strong six exponentials\"; \"strong four exponentials\"; \"Diaz\" & \"complex conjugation\" & cc:11J; \"complex conjugation\" & cc:11J81; \"Vosper\" & py:2017-2026",
+  "arXiv API: abs:\"six exponentials theorem\"; abs:\"four exponentials conjecture\"; ti:exponentials AND cat:math.NT; Schanuel AND conjugation; Roy AND six exponentials",
+  "Numdam item pages for Dia04 and Dia07 (the 'Cité par' block came back empty)",
+  "Web: Diaz conjecture |u| algebraic e^u algebraic conjugation six exponentials 2x3",
+  "Web: strong six exponentials complex conjugation modulus logarithm 2025 2026",
+  "Web: 'Produits et quotients de combinaisons linéaires de logarithmes' cited, new results",
+  "Web: arXiv 2026 strong four exponentials partial results (extended)",
+  "Web: rational functions u/(u^2-a) L-tilde circle point 2x3 rank one H0",
+  "Web: Vosper theorem function field dim ST = dim S + dim T - 1 rational function field genus zero",
+  "Web: linear Vosper algebraically closed base field, Beck-Lecouvey"
+ ],
+ "notes": "**Outcome.** I found no printed statement of the invisibility. I did find one source from which it follows, but only through a translation and a pole count of my own. Judge it on that basis: it is a tool plus a short argument, not prior statement of the result.\n\n**Transcendence side (backward and forward).**\n- Dia07 and Dia04 only apply Roy's theorem at chosen families. Neither asks which subspaces of Qbar(u) carry a 2x3 configuration, and neither discusses where the hypotheses fail for u/(u^2-a).\n- Dia07's closing section says staying within the strong six exponentials theorem cannot go very far, but proves no barrier. Waldschmidt's two 2005 papers, read at the Diaz and conjugation passages, contain nothing of this kind either.\n- Forward citers I could list are few: Semantic Scholar gives 1 for Dia07, 8 entries for Dia04 (Butler twice) and 19 for Roy92; zbMATH gives Dia07 as the only citer of Dia04 and 5 for Roy92.\n- None concerns this question, judged from titles and the passages noted in the screened list. Nothing after 5 October 2026 citing these papers turned up, with the limits below.\n\n**Why the search moved to additive combinatorics.** The target contains no transcendence: it is a statement about products of Qbar-subspaces of the rational function field Qbar(u). That is the setting of the linear Kneser and Vosper line: Hou-Leung-Xiang, Eliahou-Lecouvey, Bachoc-Serra-Zémor, Bachoc-Couvreur-Zémor, Couvreur-Zémor.\n\n**The lead.**\n- BSZ Theorem 2 gives dim ST >= dim S + dim T - 1 when F is algebraically closed in L. So a 2x3 configuration inside a 4-dimensional V fills V exactly.\n- BSZ Lemma 4 then gives geometric progressions, so V = g<1,a,a^2,a^3>. Theorem 33 gives the same conclusion for algebraically closed F.\n- The rest is mine: 1 in V forces Qbar(a) = Qbar(u), so V lies in a Riemann-Roch space L(D) with deg D = 3. Oddness of w' forces at least four poles.\n- This covers both z families, and it covers the conjugation-stable case without using a*conj(a) = rho^2.\n- It also gives a sharper classification than the target states: among the 4-dimensional extensions of H0, only w = 1/(u-p), u^2, 1/u^2 modulo H0 carry a configuration.\n\n**Caveats on the lead.**\n- Lemma 4 for this case takes a few lines and Theorem 2 is standard, so the honest reading supports the entry's class \"routine\". It does not show that anyone printed the invisibility.\n- The derivation needs a check by a verifier. I did it by hand and did not run a computer algebra check.\n- BSZ is already in the project's local library (`others/`), so the paper is not new to the project. I did not check whether the project has already made this connection, since I was told not to read the research folder.\n- Only the invisibility is addressed. That W itself carries a configuration is taken as printed, as the target says.\n- Elsewhere, the classical fact that 2x2 minors of a 1-generic 2x3 matrix in 4 variables cut out a twisted cubic would give another route. I did not read a source for it and do not claim it.\n\n**Not settled.**\n- OpenAlex forward lists never loaded (429), and the arXiv API rate-limited late in the run. So the post-5-October check rests on zbMATH, Semantic Scholar, earlier arXiv listing queries and web search.\n- None of these does full-text citation search, so a recent preprint citing Diaz without those keywords could be missed.\n- I also could not get BSZ's published numbering, or confirm that zbMATH's 404 on `ci:1163.11055` means zero citers.\n\n**Time.** The clock read 13:16 at the start and 13:29 at the last check, with a few calls after that. I stopped short of the time box because the citation trail was exhausted and the APIs were rate-limiting."
+}

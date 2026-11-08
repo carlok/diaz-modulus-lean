@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "analogue only",
+ "hypotheses": "Field: arbitrary k ⊂ K, compatible with K ⊆ F, but 12.4 has no transcendence hypothesis. Dimension: general d × ℓ normal form, with no rank-one or 2 × 3 statement. Conjugation: absent. Genericity: x_i only k-independent; the determinant conclusion is drawn only when they are algebraically independent, and u, 1/u are not. Decisive mismatch: 2 × 2 fails, since (1, 1/u)·(u, 1) has products in K + Ku + K/u. So the 2 × 3 shape is essential, and 12.4 never uses it.",
+ "covers_part_not_found": false,
+ "passage": "\"This proof of Proposition 12.2 yields a more general result\" (DALAG p. 422, before …",
+ "source_read": "Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Springer 2000: author-hosted dalag.pdf (local copy), pp. 419-424, 431, 443; p. 422 checked as image. DOI page blocked; Roy 1989 not opened.",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "Proposition 12.4 is at p. 422, attributed to Roy 1989 as cited. It is only a block normal form. It says nothing on hulls, deg P, valuations at 0 and infinity, or real polynomials: (a), (b) are uncovered.\n\nFor (c), the printed top-term argument needs my addition. Let M = (x_i y_j) = M0 + uA + B/u, with M0 over V0 and A, B over K. All entries are nonzero and all 2×2 minors vanish.\nIf A ≠ 0: the u² coefficient gives rank A = 1; K-equivalence (keeps a configuration) makes A = E11.\nFor j = 2, 3, the u¹ coefficient of minor(1,2;1,j) is (M0)_2j = 0, so M_2j = b_2j/u, b_2j in K.\nA column operation on columns 2, 3 makes M_23 = 0, contradicting x2y3 ≠ 0.\nSo A = 0; u ↦ 1/u gives B = 0.\nThen ū = ρ/u and Roy's theorem give (c).\nThis uses coefficient extraction and the first reduction step, not 12.4's statement. Not printed."
+}

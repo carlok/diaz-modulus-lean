@@ -1,0 +1,18 @@
+# Entry 17, verification: M. Waldschmidt, Diophant
+
+- **Source read:** Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer 2000, https://doi.org/10.1007/978-3-662-11569-5; read in local dalag.pdf: p. 593 (image), Prop. 12.25 p. 438, Thm 1.5 (text layer).
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** True
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "for any nonzero homogeneous polynomial Q ... of degree 2, we have Q(λ1,...,λn) ≠ …
+
+**Hypotheses.** Field: logarithms in L with trdeg 1; both hold, since t_i^2 = rational - pi^2 makes t_i algebraic over Q(pi). Coefficients: the local copy drops the overbar in places (Thm 1.5 prints the same symbol twice), so Q may mean Q-bar. The argument survives either reading: my forms are rational, and Baker's Thm 1.5 lifts Q-independence to Q-bar-independence. Dimension: three logarithms, n = 3. Conjugation: not used; realness of t only separates real from imaginary parts. Genericity: none needed. Theorem 15.30 assumes only trdeg 1. Difference: the book states homogeneous forms only and calls nonhomogeneous extensions interesting; the target's relations are nonhomogeneous until two are combined. Neither log 2, log 3 with pi^2 nor these corollaries appear there (text-layer search, p. 593 checked on the page image).
+
+**Explanation.** Not printed; follows by combining relations. Call the p. 593 corollary (*). Let t_0^2+pi^2=a, t_1^2+pi^2=b, a,b>0 rational; L=i*pi. Trdeg is 1 (Lindemann).
+Form: b*X^2 - a*Y^2 + (a-b)*Z^2 vanishes at (t_0,t_1,L): b(a-pi^2) - a(b-pi^2) - (a-b)pi^2 = 0. It is nonzero, as a>0.
+log 2, log 3, L are Q-independent (real/imaginary parts, 2 and 3 multiplicatively independent), contradicting (*). So not both rational.
+Uniqueness: by (*), t_0,t_1,L are dependent. Real/imaginary parts give t_1=q*t_0, q rational (t_i nonzero since pi^2 is irrational). If q^2 is not 1, t_0^2 is rational, so pi^2 is too: contradiction. So t_1=±t_0.
+Third: if e^{M} is algebraic, M=i*g/pi, g nonzero rational, then g*X^2 - g*L^2 + a*L*M vanishes at (t,L,M): g*a - a*g = 0. t,L,M are Q-independent since pi^2 is irrational, contradicting (*).
+All three parts follow.

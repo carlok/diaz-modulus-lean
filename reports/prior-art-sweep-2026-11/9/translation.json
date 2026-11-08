@@ -1,0 +1,127 @@
+{
+ "target": "Let u be transcendental over Q̄ with ρ = uū algebraic, so ū = ρ/u and H₀ = ⟨1, u, 1/u⟩ over Q̄. For distinct non-zero algebraic a₁, a₂ put z_i = u/(u²−a_i) and W = H₀ + Q̄z₁ + Q̄z₂ (dimension 5). Claim: (a) W contains a product X·Y with dim X = 2, dim Y = 3; (b) for no w ∈ W∖H₀ does the 4-dimensional H₀ + Q̄w contain such a product. No hypothesis says W is conjugation-stable. Translation: inside Q̄(u), a 2×3 product in a 4-dimensional space is a critical pair for the linear Cauchy-Davenport bound. So (b) says the map P¹ → P³ given by 1, u, 1/u, w is never a multiple cover of a twisted cubic, while (a) says the odd hyperplane ⟨u, 1/u, z₁, z₂⟩ of W is exactly such a cover, via t = u².",
+ "leads": [
+  {
+   "citation": "C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452; arXiv:1501.00602",
+   "location": "Section 7 'Transcendental extensions', Theorem 33 (arXiv numbering; p. 25-26). Theorem 2 supplies the lower bound.",
+   "quote": "Then S and T have bases of the form {g, ga, . . . …",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "relation": "implies",
+   "derivation": "Part (b) only, through my own translation plus a short divisor argument that is not in the source. The source never mentions these spaces, poles or conjugation. Take F = Q̄, L = ℂ. If S·T ⊂ V = H₀+Q̄w with dim S = 2, dim T = 3, Theorem 2 forces S·T = V, so Theorem 33 gives V = h⟨1,a,a²,a³⟩ with a = (ha)/h ∈ Q̄(u) non-constant of degree n. Reduce w mod H₀ to αz₁+βz₂. V is base-point-free relative to its polar divisor D = (0)+(∞)+(the ±√a_i with non-zero coefficient), so 3n = deg D ∈ {4,6}. So n = 2 and both α, β are non-zero; let S be the four points ±√a_i. Every divisor div(f)+D (f ∈ V) is a pullback under a. f = u gives 2(0)+S, so 0 is fixed by the deck involution and is a ramification point. f = 1 gives D, which has multiplicity 1 at 0, and a pullback has even multiplicity there: contradiction. Part (a) is an explicit partial-fraction check not taken from any source: X = ⟨1, 1/(u²−a₁)⟩, Y = ⟨u, 1/u, z₂⟩."
+  },
+  {
+   "citation": "C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018), 501-521; arXiv:1709.00087",
+   "location": "Introduction (remark on the algebraically closed case); Theorem 5.3",
+   "quote": "S has a basis in geometric progression",
+   "link": "https://doi.org/10.5802/alco.19",
+   "relation": "analogue only",
+   "derivation": "Theorem 5.3 is the case S = T with dim S² = 2 dim S − 1. The target needs a 2×3 pair, so it is not an instance. The introduction remarks that the S ≠ T Vosper statement over an algebraically closed base follows from an addition theorem via valuations, which is the BSZ Theorem 33 route. It supplies the Riemann-Roch vocabulary but says nothing about H₀ or invisibility."
+  },
+  {
+   "citation": "D. Eisenbud, On the resiliency of determinantal ideals (1987), and Linear sections of determinantal varieties, Amer. J. Math. 110 (1988)",
+   "location": "1-generic matrices; the rational normal curve case is cited as Prop. 4.3 of 'Ei1' in Sidman-Smith, arXiv:0910.2424. I saw this only through secondary quotations.",
+   "quote": "ideal of maximal minors of a 1-generic m × n matrix ... is prime …",
+   "link": "https://arxiv.org/abs/0910.2424",
+   "relation": "analogue only",
+   "derivation": "Under the dictionary, a 2×3 configuration spanning a 4-dimensional V is a 1-generic 2×3 matrix of linear forms on P³ vanishing on the curve. Primality would make its minor locus a twisted cubic, which gives the same structure as BSZ Theorem 33. This is a possible alternative to the first step only, not checked against the primary text, and it stops short of the pole argument."
+  },
+  {
+   "citation": "E. Park, S. Sim (attribution from search summary), On rank 3 quadratic equations of Veronese embeddings, arXiv:2412.16983; Han, Lee, Moon, Park, Rank 3 quadratic generators of Veronese embeddings, Compositio (arXiv:2001.06687)",
+   "location": "Theorem 1.1 of 2412.16983, as reported by a search summary",
+   "quote": "(no primary quote taken; judged from a search summary)",
+   "link": "https://arxiv.org/abs/2412.16983",
+   "relation": "analogue only",
+   "derivation": "These describe rank-3 quadric loci through a rational normal curve. They treat complete linear systems on the normal curve, whereas the target concerns a non-complete 4-dimensional series (a projection) and whether it factors. No statement about H₀-type series was seen."
+  }
+ ],
+ "read": [
+  {
+   "source": "Bachoc, Serra, Zémor, An analogue of Vosper's theorem for extension fields (local copy of the arXiv text)",
+   "sections": "Introduction, Theorems 1-3; Section 2 Lemmas 4-5; Section 7 Theorems 33-34",
+   "link": "https://arxiv.org/abs/1501.00602"
+  },
+  {
+   "source": "Bachoc, Couvreur, Zémor, Towards a function field version of Freiman's theorem (arXiv text)",
+   "sections": "Introduction, Remark 3.3 and Theorem 5.3, via keyword extraction; not read end to end",
+   "link": "https://arxiv.org/abs/1709.00087"
+  },
+  {
+   "source": "Diaz 2007, produits et quotients (local full text)",
+   "sections": "Passage stating Roy's 2×3 theorem, versions 1-3 (about 25 lines), plus a keyword search of the rest for no hits on rational functions, involutions or Kneser/Vosper"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Couvreur, Zémor, Freiman's 3k-4 theorem for function fields (S² only; Riemann-Roch spaces)",
+   "link": "https://arxiv.org/abs/2408.00183"
+  },
+  {
+   "source": "Wessel, further cases of the BCZ conjecture",
+   "link": "https://arxiv.org/abs/2405.10724"
+  },
+  {
+   "source": "Beck, Lecouvey, Additive combinatorics methods in associative algebras, Confluentes Math. 9 (2017); no Vosper statement seen in search extracts",
+   "link": "https://arxiv.org/abs/1504.02287"
+  },
+  {
+   "source": "Sidman, Smith, Linear determinantal equations for all projective schemes",
+   "link": "https://arxiv.org/abs/0910.2424"
+  },
+  {
+   "source": "Han, Lee, Moon, Park, Rank 3 quadratic generators of Veronese embeddings",
+   "link": "https://arxiv.org/abs/2001.06687"
+  },
+  {
+   "source": "On rank 3 quadratic equations of Veronese embeddings",
+   "link": "https://arxiv.org/abs/2412.16983"
+  },
+  {
+   "source": "On rank 3 quadratic equations of projective varieties",
+   "link": "https://arxiv.org/abs/2208.12481"
+  },
+  {
+   "source": "A shorter proof of Martens' theorem (Hopf lemma usage; no equality classification seen)",
+   "link": "https://arxiv.org/abs/1606.03652"
+  },
+  {
+   "source": "Diaz 2004 JTNB, Waldschmidt 2005 role of complex conjugation, Roy 1992, Roy-Waldschmidt 1997, Kirby variants of Schanuel (local): keyword search only, for rational functions, involution, homography, Kneser, Vosper; no hits among the first 30 printed"
+  },
+  {
+   "source": "Waldschmidt, DION 2005 proceedings on complex conjugation (search extract)",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "Eisenbud, Linear sections of determinantal varieties, Amer. J. Math. 110 (1988)",
+   "why": "Not opened; known only through secondary quotations in this search"
+  },
+  {
+   "source": "Eisenbud, On the resiliency of determinantal ideals (Adv. Stud. Pure Math., 1987)",
+   "why": "A Project Euclid PDF link appeared in results but was not opened in this run, so Proposition 4.3 is unchecked",
+   "doi_or_link": "https://projecteuclid.org/download/pdf_1/euclid.aspm/1527702062"
+  },
+  {
+   "source": "arXiv API, OpenAlex, zbMATH Open API",
+   "why": "arXiv and OpenAlex returned HTTP 429 and zbMATH failed on an SSL certificate error. I did not bypass these, so structured index searches did not run and coverage rests on WebSearch."
+  }
+ ],
+ "queries": [
+  "linear Vosper theorem function field rational function field critical pair dim ST = dim S + dim T - 1 geometric progression basis algebraically closed",
+  "Bachoc Couvreur Zémor Towards a function field version of Freiman's theorem genus zero Riemann-Roch space product spaces",
+  "subspace of rational functions containing 1, u, 1/u factors as product of 2-dimensional and 3-dimensional subspaces; 1-generic 2x3 matrix linear forms vanishing on rational curve twisted cubic projection",
+  "Diaz conjecture modulus algebraic exp u algebraic matrix rank 2x3 linear forms logarithms conjugate circle six exponentials Hilbert seventh rational functions of u",
+  "rank 3 quadrics through rational normal curve projection rank index of projective curves determinantal presentation 2x3 linear forms rational curve scroll",
+  "Hopf lemma bilinear map nondegenerate equality base point free pencil trick multiplication of sections rational normal curve classification",
+  "linear systems on P^1 composed with an involution: 4-dimensional space of rational functions image a twisted cubic, degree 2 map, Möbius involution, Lüroth",
+  "Beck Lecouvey Additive combinatorics methods in associative algebras Vosper theorem linear algebraically closed base field",
+  "Eisenbud linear sections of determinantal varieties 1-generic matrix 2x3 linear forms rational normal curve ideal 2x2 minors classification",
+  "bilinear factorization of subspace of rational functions k(x) as product of subspaces span(1,t,t^2) characterization",
+  "Eisenbud On the resiliency of determinantal ideals Proposition rational normal curve; Sidman Smith Linear determinantal equations for all projective schemes",
+  "Waldschmidt complex conjugation transcendence u algebraic modulus 1, u, ū rational functions linear subspace Schanuel reduction products of K-subspaces 2x3",
+  "Vosper linear version algebraically closed base field bases in geometric progression subspaces products transcendental extension application rational functions",
+  "Park Sim rank 3 quadrics rational normal curve W_l(C) decomposition; quadrics of rank at most 4 determinantal 2x3 factorization",
+  "Laurent polynomials span 1, x, 1/x, simple poles; Sidon space function field; double cover of twisted cubic rational sextic in P^3 on three quadrics, system composed with involution"
+ ],
+ "notes": "**Outcome.** I found no printed statement of the entry itself: no source treats ⟨1, u, 1/u, z₁, z₂⟩ or anything named invisibility. I did find a printed theorem that delivers the hard half almost immediately, once the target is translated.\n\n**The translation.**\n- ū = ρ/u gives H₀ = ⟨1, u, 1/u⟩ over Q̄. Here u is transcendental, and the conjugation hypotheses play no further role.\n- If S·T ⊂ V with dims 2, 3 and dim V = 4, the linear Cauchy-Davenport bound (BSZ Theorem 2; Eliahou-Lecouvey; Hou-Leung-Xiang) forces equality.\n- BSZ Theorem 33 is linear Vosper over an algebraically closed base, valid in any extension, so L = ℂ works directly. It gives V = h⟨1,a,a²,a³⟩, i.e. the curve in P³ is a degree-n cover of a twisted cubic.\n\n**Finishing (b) by my own argument, not in any source.**\n- The polar divisor D of V is (0)+(∞)+(the ±√a_i with non-zero coefficient), and V has no base points relative to D. Hence 3n = deg D ∈ {4,6}.\n- A single pole pair (deg 4) dies at once on divisibility by 3.\n- With two pole pairs, n = 2. The section u has divisor 2(0)+S, where S is the four points ±√a_i, so the deck involution fixes 0. Then D, the divisor of the section 1, would need even multiplicity at 0, but it has multiplicity 1.\n\n**Part (a), elementary.** With v = u², ⟨u, 1/u, z₁, z₂⟩ = u·L((0)+(a₁)+(a₂)) on the v-line. Take X = ⟨1, 1/(v−a₁)⟩ and Y = ⟨u, 1/u, z₂⟩. Partial fractions give (1/(v−a₁))·(1/u) = (z₁−1/u)/a₁ and (1/(v−a₁))·z₂ = (z₁−z₂)/(a₁−a₂). No source was needed or found for this.\n\n**Numerical sanity check (mine, a₁=2, a₂=3, modulo 2⁶¹−1, 14 ratios α:β).**\n- dim V² = 7 for the odd part, the value a twisted-cubic cover must have.\n- dim V² = 8 for one pole pair.\n- dim V² = 9 for all twelve ratios with both coefficients non-zero.\nThis is consistent with the proof for those ratios. The proof, not the check, covers every ratio. Neither the proof nor the check has been independently reviewed.\n\n**How strong the 'implies' is.** BSZ Theorem 33 is the structural engine, and it really does reach the invisibility statement, but only with the extra divisor paragraph above, which is mine. So this is not 'the statement under another name'. It fits the entry's class 'routine' and suggests the source line could cite BSZ for the mechanism. A verifier should confirm Theorem 33's numbering in the published version, since I used the arXiv text in the local library, and should check the base-point step. A verifier should also decide whether the extra paragraph is small enough to count as an implication. I would not claim the entry is printed.\n\n**What the other lines gave.**\n- BCZ, Couvreur-Zémor and Wessel treat squares S², with Riemann-Roch spaces as the structure. They give vocabulary only.\n- The 1-generic route (Eisenbud) would replace Theorem 33, but I did not read the primary text.\n- The rank-3 quadric literature treats complete systems on normal curves, not projections.\n- The transcendence sources I searched (Diaz 2004, 2007, Waldschmidt, Roy, Kirby) showed nothing on this rational-function question. That was keyword-level, apart from the Roy passage in Diaz 2007, so it is weak evidence. The Schanuel line looks irrelevant, since the statement is pure function-field algebra.\n\n**Limits.** arXiv and OpenAlex rate-limited me and zBMATH failed on SSL, so coverage rests on web search and the local library. The run used only a small part of the 30-minute box. It stopped on the find rather than on exhaustion, so a textbook-level treatment of the equality case in Hopf's lemma on P¹ was not ruled out."
+}

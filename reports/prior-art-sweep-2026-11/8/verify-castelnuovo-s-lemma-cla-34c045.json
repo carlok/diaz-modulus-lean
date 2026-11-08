@@ -1,0 +1,11 @@
+{
+ "accessible": true,
+ "statement_present": true,
+ "relation": "implies",
+ "hypotheses": "Field: Park works over any algebraically closed field, and Q̄ qualifies. Dimension: n=1, c=2, a curve in P³. Conjugation: absent from Park; I supply it through ū=ρ/u. Genericity: u must be transcendental, which holds for u∉Q̄, so the second statement's hypothesis fits. Theorem 1.1 is quoted from L'vovsky, not proved there. It yields only the non-existence half. I checked existence directly: x=(u,ū), y=(1, 1/(u²−a), 1/(u²−b) or 1/(u²−a)²). Journal details unverified (OpenAlex returned 429).",
+ "covers_part_not_found": true,
+ "passage": "the equality is attained if and only if d = c + 1",
+ "source_read": "E. Park, On hypersurfaces containing projective varieties, arXiv:1104.5599v1 (PDF read), abstract and Section 1, Theorem 1.1(1). https://arxiv.org/abs/1104.5599",
+ "printed_or_translation": "needs a derivation of the verifier",
+ "explanation": "The lemma is present, but the target is not printed: no u, conjugation or products appear. It is a general tool, and the translation is mine.\n\nDerivation. Let V=H₀+Q̄w, dimension 4, inside Q̄(u). A configuration gives a 2×3 matrix m_ij=x_iy_j with entries in V. Its minors are quadrics on V vanishing on the image of P¹ in P³.\n\nThe minors are independent. A dependency makes, after column operations, a 2×2 minor vanish in the UFD Sym(V). Then two linear entries are proportional, so x₁(y₁−λy₂)=0 or (x₁−λx₂)y₁=0 in ℂ, which is impossible.\n\nSo three quadrics contain the curve, and Castelnuovo forces degree 3. The map is birational, since u is a ratio, and its degree counts poles: 0, ∞, plus w's poles modulo H₀. Here b=ρ²/ā and z̄∝u/(u²−b) or u³/(u²−a)². Every w∈W∖H₀ is odd modulo H₀ with poles at two points ±√a or ±√b, so degree ≥4. Contradiction.\n\nExact rank checks, with one rational sample each, gave 1–2 quadrics; the control w=1/(u−t) gave 3."
+}

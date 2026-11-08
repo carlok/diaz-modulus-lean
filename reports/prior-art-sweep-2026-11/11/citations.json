@@ -1,0 +1,163 @@
+{
+ "target": "Work in Q̄(u) with u transcendental and uū algebraic, so that conjugation acts on rational functions of u. H0 = Q̄ + Q̄u + Q̄ū. A 2×3 configuration in a Q̄-space V is a pair of independent families x1,x2 and y1,y2,y3 with all products x_i y_j in V. Sought in print: (a) With s real algebraic, s² = uū, F = (u/s)³ + (u/s)², the 5-dimensional conjugation-stable space W1 = H0 + Q̄F + Q̄F̄ contains no 4-dimensional H0 + Q̄w (w outside H0) carrying a 2×3 configuration, and no configuration of W1 has Möbius-in-u ratio x2/x1. (b) The same invisibility for the two-orbit space Q̄ + Q̄u + Q̄/u + Q̄g1 + Q̄g2, with g1 = α/(u−a) + β/(u+a), g2 = γ/(u−b) + δ/(u+b), a² ≠ b², and α≠β or γ≠δ. (c) Degree bound: if 1, u, 1/u lie in the span of c, ch, ch², ck, chk with h = p(u)/q(u) non-constant and coprime, then max(deg p, deg q) ≤ 2. (d) For W(λ,f) = H0 + Q̄f + Q̄f/(s+λu), with f a self-conjugate Laurent polynomial in u/s of degree k and |λ| = 1: W(λ,f) is invisible when the five numbers are free and k ≥ 3, or when k = 2 and f(−λ̄) ≠ 0. If k = 2 and f(−λ̄) = 0, then u², ū² lie in W(λ,f), which is the visible case. The configuration of W1 alone is Dia07 Th. 7(1) at v = u, w = u² + su, and does not count.",
+ "leads": [
+  {
+   "citation": "C. Bachoc, O. Serra, G. Zémor, An analogue of Vosper's theorem for extension fields, Math. Proc. Cambridge Philos. Soc. 163 (2017), 423-452; arXiv:1501.00602v2",
+   "location": "Lemma 4 (and Lemma 5, Theorem 2), text layer of the arXiv version; no page checked",
+   "quote": "there exists g ∈ S such that {g, ga, . . . , gas−1 …",
+   "link": "https://arxiv.org/abs/1501.00602",
+   "relation": "analogue only",
+   "derivation": "My own translation: Q̄ is algebraically closed in ℂ, so with A=(x1,x2)=x1(1,a) and dim AT=4, Lemma 4 forces T=g(1,a,a²). Hence any 4-dimensional V carrying a 2×3 configuration is a progression g'(1,a,a²,a³). This is only a structural tool. It does not say that W1, the two-orbit space or W(λ,f) contains no such H0+Q̄w, and it gives neither the degree bound nor the Laurent visibility criterion. Those need a separate computation that I did not find in print."
+  },
+  {
+   "citation": "C. Bachoc, A. Couvreur, G. Zémor, Towards a function field version of Freiman's theorem, Algebraic Combinatorics 1 (2018), no. 4; arXiv:1709.00087",
+   "location": "Introduction (linear Vosper over an algebraically closed base), Definition 2.1 and Conjecture 2.2 (combinatorial genus)",
+   "quote": "A particularly simple case for which a linear version of Vosper's Theorem can be …",
+   "link": "https://doi.org/10.5802/alco.19",
+   "relation": "analogue only",
+   "derivation": "It concerns subspaces of function fields over an algebraically closed base with small products, mostly the symmetric case S=T. The 2×3 pair here has dim ST = 4 or 5, and the spaces are not squares. The paper has no spaces containing 1,u,1/u, no conjugation and no statement about these spaces. No derivation reaches the target."
+  }
+ ],
+ "read": [
+  {
+   "source": "G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques, JTNB 19 (2007), 373-391",
+   "sections": "Statements of Théorèmes 1, 2, 4, 5, 6, 7; proof of Th. 7; §2.4; reference list (local text layer)",
+   "link": "https://doi.org/10.5802/jtnb.592"
+  },
+  {
+   "source": "Bachoc, Serra, Zémor, An analogue of Vosper's theorem for extension fields (2017)",
+   "sections": "Introduction, Theorems 1-3, Lemmas 4-5 and the passage on arbitrary base fields (local arXiv copy)",
+   "link": "https://arxiv.org/abs/1501.00602"
+  },
+  {
+   "source": "Bachoc, Couvreur, Zémor, Towards a function field version of Freiman's theorem (2018)",
+   "sections": "Introduction, section plan, Definition 2.1, Conjecture 2.2 (local arXiv copy). Theorem 6.3 and later sections not read",
+   "link": "https://doi.org/10.5802/alco.19"
+  },
+  {
+   "source": "zbMATH review of Dia07 by M. Waldschmidt, Zbl 1163.11055",
+   "sections": "Full review text through the zbMATH API; it mentions no such spaces",
+   "link": "https://zbmath.org/1163.11055"
+  }
+ ],
+ "screened": [
+  {
+   "source": "M. Waldschmidt, The role of complex conjugation in transcendental number theory (2005): keyword scan and excerpts around 'stable', Diaz's theorem and Cor. 4.2 only; no degree-two or Laurent material",
+   "link": "https://hal.science/hal-00411402v1"
+  },
+  {
+   "source": "G. Diaz, Utilisation de la conjugaison complexe..., JTNB 16 (2004), 535-553: keyword scan (local), excerpts on stability under conjugation; 'Laurent' hits not opened"
+  },
+  {
+   "source": "M. Waldschmidt, Variations on the six exponentials theorem (2005): keyword scan (local), no stable-space or u²+ hits",
+   "link": "https://hal.science/hal-00411315v1"
+  },
+  {
+   "source": "M. Waldschmidt, Further variations on the six exponentials theorem (2005): keyword scan (local), no hits",
+   "link": "https://hal.science/hal-00411308v1"
+  },
+  {
+   "source": "M. Waldschmidt, The four exponentials problem and Schanuel's conjecture: keyword 'Diaz' gives zero hits (local)"
+  },
+  {
+   "source": "M. Waldschmidt, Transcendence of Periods: Diaz cited only for the 2004 conjugation paper (local keyword scan)"
+  },
+  {
+   "source": "S. Dasgupta, M. Kakde, Ranks of matrices of logarithms of algebraic numbers I and II: II judged from a search summary only (Matrix Coefficient Conjecture); not about conjugation-stable spaces",
+   "link": "https://arxiv.org/abs/2408.08178"
+  },
+  {
+   "source": "L. Maksoud, On the rank of Leopoldt's and Gross's regulator maps (cites Roy 1992): title and search excerpt",
+   "link": "https://arxiv.org/abs/2201.08203"
+  },
+  {
+   "source": "Betina, Dimitrov, Geometry of the eigencurve at CM points and trivial zeros of Katz p-adic L-functions (uses Roy's theorem): abstract",
+   "link": "https://arxiv.org/abs/1907.09422"
+  },
+  {
+   "source": "Semantic Scholar forward list of Roy 1992 (19 items, latest 2022): titles only; none on this topic"
+  },
+  {
+   "source": "arXiv:2610.41600, Pańkowski, joint universality of zeta (uses a six exponentials generalisation): abstract, irrelevant; post-5-October-2026",
+   "link": "https://arxiv.org/abs/2610.41600"
+  },
+  {
+   "source": "arXiv:2610.10469, Neroli, Iterated Graph Systems II (mentions six exponentials): abstract, irrelevant; post-5-October-2026",
+   "link": "https://arxiv.org/abs/2610.10469"
+  },
+  {
+   "source": "arXiv:2609.06822, High dimensional Riemann-Roch spaces in linear spaces with small squares: title only, S² setting; possible further analogue, before the check date",
+   "link": "https://arxiv.org/abs/2609.06822"
+  },
+  {
+   "source": "arXiv:2503.20345, Zeros of E-functions and of exponential polynomials: title only",
+   "link": "https://arxiv.org/abs/2503.20345"
+  },
+  {
+   "source": "arXiv:2405.10724, Wessel, On Freiman's theorem in a function field setting: search summary only, S² setting",
+   "link": "https://arxiv.org/abs/2405.10724"
+  },
+  {
+   "source": "arXiv:2408.00183, Couvreur, Zémor, Freiman's 3k-4 theorem for function fields: title and keyword scan, S² setting",
+   "link": "https://arxiv.org/abs/2408.00183"
+  },
+  {
+   "source": "HAL listing for four/six exponentials (9 records, latest 2022, all Waldschmidt apart from one physics record): titles only"
+  },
+  {
+   "source": "arXiv title and abstract searches for four/six exponentials, sorted by date, through 2026-11-08: 21 and 25 result lists, titles only; no relevant paper after 5 October 2026"
+  },
+  {
+   "source": "Local n3-lit copies of Eisenbud-Harris 1988, Draisma 2006, Fortin-Reutenauer 2004: titles only; low-rank matrix spaces, analogues at most"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "zbMATH 'cited by' list for Zbl 1163.11055",
+   "why": "The API query rf:1163.11055 returned 404 and the HTML site returned 403; zbMATH citations of Dia07 not checked"
+  },
+  {
+   "source": "OpenAlex forward citations of Roy 1992 and of the Waldschmidt papers; date-filtered OpenAlex searches",
+   "why": "HTTP 429 on repeated tries. Only the counts came through: Dia07 cited_by 0, Roy 1992 cited_by 21"
+  },
+  {
+   "source": "Forward citations of Diaz 2004",
+   "why": "The DOI I guessed (10.5802/jtnb.460) returned class-polynomial papers, so it is not Diaz 2004. I did not resolve the correct DOI, and this citation chain is unchecked"
+  },
+  {
+   "source": "Semantic Scholar forward citations of Waldschmidt 2005",
+   "why": "HTTP 429"
+  },
+  {
+   "source": "arXiv API",
+   "why": "HTTP 429 throughout; replaced by arxiv.org/search, which only searches titles and abstracts, so citations of Dia07 inside recent full texts cannot be seen"
+  },
+  {
+   "source": "Google Scholar-style full-text citation search",
+   "why": "No free API; web search returned only Dia07's own pages for its quoted title"
+  }
+ ],
+ "queries": [
+  "OpenCitations and Crossref citations for DOI 10.5802/jtnb.592",
+  "OpenAlex works/doi:10.5802/jtnb.592",
+  "Semantic Scholar citations DOI:10.5802/jtnb.592 and DOI:10.1016/0022-314X(92)90081-Y",
+  "zbMATH au:Diaz ti:logarithmes; ab:\"strong six exponentials\"",
+  "arXiv abstract search \"four exponentials\" OR \"six exponentials\" sorted by date",
+  "arXiv all-fields \"strong four/five/six exponentials\"",
+  "arXiv abstract \"logarithms of algebraic numbers\" conjugation",
+  "arXiv linear Vosper/Kneser subspaces; Freiman function field",
+  "arXiv title \"exponentials conjecture\" sorted by date",
+  "HAL \"four exponentials\" OR \"six exponentials\" OR \"quatre exponentielles\"",
+  "web: Diaz conjecture modulus e^u algebraic complex conjugation six exponentials",
+  "web: Diaz Produits et quotients cited strong four exponentials 2×3",
+  "web: product of subspaces conjugation stable logarithms strong six exponentials arXiv 2026",
+  "web: four exponentials complex conjugation circle 2026 arXiv",
+  "web: Bachoc Couvreur Zémor genus zero critical pair",
+  "web: vector space spanned by 1,u,1/u product of 2- and 3-dimensional subspaces Laurent",
+  "web: strong six exponentials consequences u² u³ 2025",
+  "web: linear Vosper rational function field algebraically closed base",
+  "web: Diaz modulus logarithm open problem 2026",
+  "web: Matrix Coefficient Conjecture four exponentials"
+ ],
+ "notes": "**Verdict: no lead reaches the part not found.** I found no printed statement, or implication by a one-line derivation, of (a) invisibility of W1 or of the two-orbit space, (b) the degree ≤ 2 bound, or (c) the Laurent visibility criterion for W(λ,f). Two analogues are reported, both from the linear-Kneser/Vosper line, not the transcendence line.\n\n**This is not a clean negative.** The forward citation chains are only partly checked, because of rate limits and blocked pages. See \"Coverage\" below.\n\n**Backward from Dia07.** Its reference list has seven items: Diaz 1997 and 2004, Roy 1992, Waldschmidt 2000, 2004, 2005. Th. 7 offers just two \"neighbouring families\": (v, v̄)⊗(1,u,ū) and (v,vu)⊗(1,u,u²). The paper gives only non-membership in L̃ through Roy's theorem. It never asks whether a space admits another configuration or a smaller one. The notion of being invisible to four-dimensional extensions does not appear there, nor anywhere else I looked.\n\n**Sources in the transcendence line.** The Waldschmidt 2005 papers and Diaz 2004 were keyword-scanned rather than read in full. The excerpts use stability of L̃ under conjugation only to build one configuration. I saw nothing that classifies configurations inside a space. This judgement is weaker than a full reading.\n\n**Forward from Dia07.**\n- Crossref, OpenCitations and OpenAlex each report 0 citations.\n- Semantic Scholar reports 1, Waldschmidt 2005, which is an older paper and so probably a preprint-era link.\n- Dia07 appears essentially uncited in these indexes, although indexes miss French-language and proceedings citations.\n- zbMATH's own citation list could not be opened.\n\n**Forward from Roy 1992.** The Semantic Scholar titles (19, latest 2022) are Iwasawa and p-adic applications or Waldschmidt surveys, with no space-theoretic classification. OpenAlex counts 21 but its list was rate-limited.\n\n**After 5 October 2026.** arXiv title and abstract searches through 8 November show only two abstracts mentioning six exponentials: Pańkowski (2610.41600) and Neroli (2610.10469). Both merely use the theorem, or mention it, in other fields. Nothing concerned Diaz's conjecture, L̃ or conjugation. arXiv search covers titles and abstracts only, so a recent paper citing Dia07 only in its body would be missed.\n\n**The closest actual mathematics.** BSZ Lemma 4 gives, over any base algebraically closed in the extension, that dim(1,a)T = dim T + 1 forces T to be a progression in a. With BSZ Theorem 2 this yields, by my own translation, that a 4-dimensional V carrying a 2×3 configuration is g'(1,a,a²,a³). That is the general shape behind a four-dimensional extension carrying a configuration. It does not decide whether a given W contains such an extension. Excluding it for W1, the two-orbit space and W(λ,f) is a calculation with specific rational functions, and that calculation is what I did not find. So I record this as analogue only. A verifier may still want it as an independent reference for the progression step, if the blueprint proves that step from scratch; I did not look at how the blueprint does it.\n\n**Why a print find looks unlikely (my opinion, not evidence).**\n- The statements are lemma-level computations about specific spaces, motivated by a question that the printed sources do not pose.\n- For the degree bound I sketched an elimination: eliminating k gives a relation among 1, u, 1/u over Q̄(h), and this constrains [Q̄(u):Q̄(h)]. I did not complete the case analysis. It suggests why the result would appear at most as an unremarked lemma, under no searchable name.\n- This agrees with the \"routine\" class in the target file.\n\n**Coverage.**\n- Stopped at about 15 minutes of the 30-minute box (15:33 to about 15:48 by the clock). Further index retries kept returning 429, and the remaining chains need a rate-limit window, not more queries.\n- Unchecked: the zbMATH citing list for Dia07, OpenAlex forward lists, forward citations of Diaz 2004 (my DOI guess was wrong) and of Waldschmidt 2005.\n- Not read: BCZ Theorem 6.3, Couvreur-Zémor 2024, Wessel 2024 in depth. They treat S², not pairs, and would at most add analogues.\n- The Dasgupta-Kakde and Wessel entries rest on search-tool summaries, not on my reading of the sources.\n- Formulas in BSZ and BCZ come from text layers and were not checked against page images. Lemma 4 is short and read clearly.\n- Excluded as instructed: Lean repositories, the blueprint, prove2.me, formalpedia."
+}

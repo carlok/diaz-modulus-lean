@@ -1,0 +1,21 @@
+# Entry 6, verification: C. de Seguins Pazzis, La
+
+- **Source read:** C. de Seguins Pazzis, Large spaces of bounded rank matrices revisited, arXiv:1507.05375v2, PDF https://arxiv.org/pdf/1507.05375v2, Proposition 2.3, §2.2, pp. 14-15 (proof pp. 15-16), read via pdftotext.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** implies
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** "all the non-zero matrices of S have the same kernel"
+
+**Hypotheses.** Field: the source allows any field, so I apply it over F. Since F is a subfield of C it is infinite, which excludes the #K=2 outcome. The target's K enters only through my descent step, not through the source. Dimension: arbitrary n, p; matches p, q >= 2. Conjugation: absent from the source, and also absent from the separation statement. It matters only for Theorem A's hull, through ū = ρ/u in F. Genericity: absent from the source. Algebraic independence is used only in my step from w to free parameters. The source has no configurations, no K-linear independence and no transcendence. covers_part_not_found is false because the separation theorem is not stated there; it follows only by the derivation given. Theorem A also needs Roy's m=0 case (separation with F = Q̄(u), V₀ = H₀), or the hull bound, which the source does not contain. The version read was arXiv v2; journal version not checked. The paper dates from 2015-16, so it is independent of this work.
+
+**Explanation.** Proposition 2.3 is at the cited place, but it is only a rank-one classification lemma. The target is not printed; it follows as below.
+
+Write M=(x_iy_j)=V+Σw_kC_k, with V over F and C_k over K. The 2×2 minors vanish. They are polynomials in w over F, so by independence they vanish identically. Hence S=V+Σ F·C_k is an affine rank-≤1 space over the infinite field F.
+
+Suppose some C_k≠0.
+Same image D: every C_l, being a difference of members of S, has image in D. So D=Fd with d∈K^p, read off the nonzero C_k. Then M has columns proportional to d, so x is proportional to d, so x_1,x_2 are K-dependent (p≥2). Contradiction.
+Same kernel H: H is the kernel of C_k, hence defined over K. M vanishes on H, so y is proportional to a K-vector. Contradiction (q≥2).
+
+So all C_k=0, and the products lie in V₀. The argument is short and elementary, so this is a usable lemma, not a printed prior statement.

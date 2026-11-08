@@ -1,0 +1,122 @@
+# Entry 18, strategy: citations
+
+## Target, as restated by the searcher
+
+Let t = log 2, or more generally a nonzero real t with e^t algebraic. Dichotomy: pi^2/12 - (log 2)^2/2 = Li_2(1/2) is irrational, or e^{i gamma/pi} is transcendental for every nonzero rational gamma. General form: if a, b, c are rational, a is nonzero and a t^2 + b pi^2 = c, then e^{i gamma/pi} is transcendental for every nonzero rational gamma. Equivalently: e^t and e^{i gamma/pi} both algebraic forces t^2 to lie outside Q + Q pi^2. I am looking for this dichotomy, its general form, an equivalent statement in (log 2)^2 and pi^2, or anything that yields them.
+
+## Leads
+
+### Lead 1: implies
+
+- **Citation:** Li Lai, The linear independence of 1, zeta(3), and zeta(4), arXiv:2610.06838v2, 15 Oct 2026 (preprint).
+- **Location:** Section 1, list after Theorem 1.5, with reference [37] (S. Liu, Li2Rational, GitHub, accessed 5 Oct 2026)
+- **Quote:** Liu [37] formalized a proof in Lean 4 of the irrationality of Li2 (1/n)
+- **Link:** https://arxiv.org/abs/2610.06838
+- **Relation:** The range given is n in Z minus {0,1}, which includes n = 2. So Li_2(1/2) is irrational, the first disjunct holds, and the dichotomy is true whatever e^{i gamma/pi} does. This reports a formal proof, it does not contain one. It says nothing about the general form with other a, b, c.
+
+### Lead 2: implies
+
+- **Citation:** Hu Tan and Ying Zhang, Uniform cubic bounds for irrational values of the dilogarithm, arXiv:2611.01066v1, 31 Oct 2026 (preprint), citing [10] Q. Tang, Irrationality of Li2(1/2), software source (2026).
+- **Location:** Section 1, paragraph before Theorem 1.1; references [3], [10], [11]
+- **Quote:** Qian Tang adapted this approach to the dilogarithm, including the value Li2 (1/2)
+- **Link:** https://arxiv.org/abs/2611.01066
+- **Relation:** Same one-line derivation: the first disjunct is reported proved. The paper's own Theorem 1.1 needs q > 8.09 p^3 and so does not cover p/q = 1/2. The value 1/2 rests on the cited Tang work, which is a Lean proof (github.com/dtq1997/li2-half-irrationality), not a printed one.
+
+### Lead 3: implies
+
+- **Citation:** D. Roy and M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. Éc. Norm. Sup. (4) 30 (1997), 753-796.
+- **Location:** Abstract, p. 753; Théorème 0.2, p. 755; proved in section 7
+- **Quote:** for any non zero quadratic form
+- **Link:** http://www.numdam.org/item/ASENS_1997_4_30_6_753_0/
+- **Relation:** My own translation; the paper does not state this case. Suppose e^{i gamma/pi} is algebraic. Then x = (t, i pi, i gamma/pi) is a triple of logarithms, Q-linearly independent because t is real and pi^2 is irrational, hence Q-bar-independent by Baker. The field Q-bar(x) has transcendence degree 1 because a is nonzero. But the nonzero form P = a X^2 - b Y^2 + (c/gamma) Y Z vanishes at x, since Y Z = -gamma there. By Th. 0.2 x lies in a Q-bar-subspace inside {P=0}; independence makes that subspace all of C^3, contradiction. This gives the general form, and also a, b, c, gamma algebraic and t complex with t, i pi, i gamma/pi still independent, which is stronger than the target.
+
+### Lead 4: analogue only
+
+- **Citation:** G. Diaz, Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques : conjectures et résultats partiels, J. Théor. Nombres Bordeaux 19 (2007), 373-391.
+- **Location:** Corollaire 1 (PQ), points 3 and 4, and the remark after it, pp. 379-380
+- **Quote:** que exp(π 2 ) ou exp(1/π) est transcendant
+- **Link:** http://jtnb.cedram.org/item?id=JTNB_2007__19_2_373_0
+- **Relation:** Printed dichotomies of the same flavour, involving exp(1/pi) at lambda = i pi. Neither contains log 2 or a relation between t^2 and pi^2, and I found no substitution in points 2-4 that reaches the target.
+
+## Notes
+
+**Result: the "not found" breaks in two ways, neither as a printed statement of the dichotomy.**
+
+**1. The entry's premise looks out of date.** Its source line says irrationality of Li_2(1/2) is still open, with Li_2(1/q) known only for q >= 6 and q <= -5.
+- Lai (arXiv:2610.06838, v2 15 Oct 2026) reports a Lean 4 proof by Liu of irrationality of Li_2(1/n) for all integers n other than 0 and 1.
+- Tan-Zhang (arXiv:2611.01066, 31 Oct 2026) credit Qian Tang with the value 1/2.
+- Both use the determinant method of Fauzan's zeta(5) proof (Zenodo, 17 Sep 2026).
+- Tang's README states the theorem `li2_one_half_irrational`, axioms propext, Classical.choice and Quot.sound, and a comparator and nanoda check. Liu's README puts Tang's proof at 28 Sep 2026.
+
+If this is right, the first disjunct holds and the dichotomy is true but empty as a statement about e^{i gamma/pi}.
+
+Caveats:
+- I found no printed human proof at 1/2. The printed sources only report formal proofs, and I built nothing and read no Lean proof.
+- The Lean repositories are out of scope as finds. The leads are the two arXiv papers that report them. A verifier should decide whether a report counts.
+- Tang's NOTICE says the code had substantial AI assistance.
+- Neither paper cites the excluded repository in the parts I read. I did not scan Lai's full reference list.
+- These dates fall around or after the 5 Oct 2026 check. Lai accessed Liu's repository on 5 Oct, and the two arXiv papers appeared on or after 7 Oct.
+
+**2. The general form follows from Roy-Waldschmidt 1997, which the entry does not name.** The derivation in the lead is mine, and the paper does not state this case. It uses three inputs:
+- Th. 0.2, or the abstract's form that a nonzero quadratic form does not vanish at Q-bar-independent logarithms in transcendence degree one.
+- The trick of homogenising the constant c through (i pi)(i gamma/pi) = -gamma.
+- Baker, to pass from Q-independence to Q-bar-independence. Baker is needed only because the OCR drops the bars, so I cannot tell whether the abstract's hypothesis is over Q or Q-bar.
+
+It is stronger than the target: a, b, c, gamma may be algebraic, and t need not be real provided t, i pi, i gamma/pi stay Q-linearly independent. At c = 0 or b = 0 it still applies directly; those cases are also vacuous for real t by Gelfond-Schneider and Hermite-Lindemann.
+
+The bars in the OCR were not checked on the page. Rational coefficients make the form's field irrelevant, but the page should be checked at Th. 0.2 before relying on it. Brownawell's Cor. 5 gives only rational scaling, because its exponential is exp(i t^2/pi), and pulling out exp(-i pi b/a) as a root of unity needs b/a rational.
+
+**Printed near-miss, not listed as a separate lead.** After Cor. 7.4 on p. 792, RW97 note that if log 2 and pi are algebraically dependent, then exp(sqrt((log 2)^2 + pi^2)) is transcendental. It has the same shape and is a statement about log 2 and pi, but the conclusion is about a different number, so it is an analogue only. Cor. 7.3 is similar.
+
+**Not settled.**
+- No source states the dichotomy or the general form explicitly, in any wording I could find. The relation to exp(i/pi) appears nowhere in what I read.
+- The search was cut short: the session's WebSearch budget ran out after six queries and a seventh was refused. That query was a targeted hunt for a printed proof of Li_2(1/2). About six minutes of the 30 had passed, and I stopped rather than work around the limit. A follow-up message can resume it.
+- So a human-readable write-up of Li_2(1/2) may exist that I did not see. arXiv abstract search showed none, and Lai notes many recent results have not appeared on arXiv.
+- Citation lists were judged from titles only.
+
+**Suggested for the entry.** Correct the "still open" line and re-examine the corollary, since its first branch appears proved. Cite RW97 for the general form, as the Q-bar version is available from it.
+
+## Read
+
+- Brownawell 1974, J. Number Theory 6, 22-31 (local copy) — https://doi.org/10.1016/0022-314X(74)90005-5: Theorem and Corollaries 1-6, pp. 22-23. OCR garbles the second exponential in Cor. 5; I reconstructed it as exp(i pi eta^2) from the stated parameters.
+- Roy-Waldschmidt 1997, Ann. Sci. ENS (local copy) — http://www.numdam.org/item/ASENS_1997_4_30_6_753_0/: Abstract, Th. 0.1, 0.2, Conj. 0.3, section 7 from the end of the proof of Th. 0.2 through Cor. 7.2-7.5, including the log 2 and pi example after Cor. 7.4
+- Roy-Waldschmidt 1995, Quadratic relations between logarithms of algebraic numbers, Proc. Japan Acad. 71A (local copy) — https://doi.org/10.3792/PJAA.71.151: Section 1, Theorems 1 and 2; the text of Theorem 2 is broken by the OCR and I did not check it on the page
+- Diaz 2007, JTNB 19 (local copy) — http://jtnb.cedram.org/item?id=JTNB_2007__19_2_373_0: Corollaire 1 and remark, pp. 379-380
+- Waldschmidt 2004, Open Diophantine problems, Mosc. Math. J. 4 (local copy): Passage on irrationality of Li_2(1/2) around p. 274
+- Lai, arXiv:2610.06838v2 — https://arxiv.org/abs/2610.06838: Introduction through Theorem 1.6; references [15], [37]
+- Tan-Zhang, arXiv:2611.01066v1 — https://arxiv.org/abs/2611.01066: Abstract, section 1, reference list; no proof sections
+- Prellberg, arXiv:2609.06895v1 — https://arxiv.org/abs/2609.06895: Abstract; text search for 1/2 and transcendence, no relevant hit
+- Giraudin, arXiv:2611.01708v1 — https://arxiv.org/abs/2611.01708: Text search for Li2 and dilogarithm: no hit
+- Persiflage (Calegari), zeta(5) is irrational, blog post, 24 Sep 2026 — https://galoisrepresentations.org/2026/09/24/zeta5-is-irrational/: The strategy; Hankel determinants. Treats zeta values; nothing on Li_2 found. Context only.
+
+## Screened only
+
+- Q. Tang, li2-half-irrationality: README, NOTICE, Challenge.lean only. Lean repository, out of scope as a find; opened to confirm the printed reports. Not built, proof not read. — https://github.com/dtq1997/li2-half-irrationality
+- S.-Q. Liu, Li2Rational: README only. Lean repository, same caveat. States Li_2(1/k) irrational for k >= 2 and Li_2(-1/k) for k >= 1. — https://github.com/siqiliu-tsinghua/Li2Rational
+- Forward citations of Brownawell 1974 (Semantic Scholar, 24 listed; titles only), including Roy 1995 Acta, Diaz 1997, Nesterenko-type 'On the numbers e^e...' 1998, Tubbs 1987, Waldschmidt 1979, Bhagwat-type 'A Diophantine approach to the three and four exponentials conjectures' 2015/2017, Schanuel's Conjecture 2014
+- Algebraic independence of values of Weierstrass elliptic and zeta functions, Proc. Edinburgh Math. Soc. 2026 (only post-2020 citer of Brownawell 1974; title only, abstract not usable) — https://doi.org/10.1017/S001309152610145X
+- Forward citations of Roy-Waldschmidt 1997 (25) and 1995 (9), titles only; the newest in topic is Irrationality measures for Gamma(1/4) and Gamma(1/3), arXiv:2611.01711 — https://arxiv.org/abs/2611.01711
+- Forward citations of Hata 1993 from 2025 on: only arXiv:2609.06895 and arXiv:2611.01066
+- zbMATH Open listings: dilogarithm 2026 and MSC 11J81 2026, retrieved and only keyword-searched; no further Li_2 irrationality paper surfaced
+- arXiv API listings: dilogarithm + irrationality, dilogarithm + Hankel, Fauzan, six and four exponentials, exp(1/pi); abstract-field search only
+- Web search snippets: arXiv:2509.07598, arXiv:2506.10206, arXiv:2608.23792, arXiv:2603.00836, MathWorld on zeta(5), Waldschmidt talk notes; none relevant to the dichotomy
+
+## Inaccessible
+
+- A. Fauzan, zeta(5) is irrational, Zenodo preprint — https://doi.org/10.5281/zenodo.22826419: Not opened; the Zenodo API returned 403 from this environment. It is the method's source and is not about Li_2.
+- Discussion thread named in Tang's README — https://chaoli.club/index.php/12296: Not opened: a forum, not printed literature.
+- Semantic Scholar citations of Calegari-Dimitrov-Tang — arXiv:2408.15403: The API returned zero citers, so forward citations of this paper were not checked.
+- OpenAlex: HTTP 429 and 503 on the two attempts; I used Semantic Scholar and Crossref instead.
+
+## Queries
+
+- WebSearch: irrationality of dilogarithm Li_2(1/2) open problem π²/12 − (log 2)²/2 transcendence exp(i/π) algebraic independence
+- WebSearch: e^{1/π} OR exp(1/π) transcendence log 2 π algebraically dependent corollary Brownawell Waldschmidt quadratic relation logarithms
+- WebSearch: Li_2(1/2) irrationality proved 2026 arXiv dilogarithm at 1/2 (log 2)^2 π^2 linear independence over Q
+- WebSearch: algebraically dependent log 2 and π then transcendental exp corollary Roy Waldschmidt small transcendence degree quadratic form
+- WebSearch: Tang Irrationality of Li_2(1/2) 2026 Si-Qi Liu dilogarithm rational arguments
+- WebSearch: Fauzan zeta(5) irrational Hankel determinants Li_2(1/2) Qian Tang Persiflage
+- Semantic Scholar citations: Brownawell 1974, Hata 1993, CDT 2024, Prellberg 2026, Tan-Zhang 2026, Roy-Waldschmidt 1995 and 1997
+- arXiv API: abs:dilogarithm AND abs:irrationality; abs:dilogarithm AND abs:Hankel; abs:Fauzan; all:Li_2(1/2); abs:six exponentials; abs:four exponentials; abs:exp(1/pi)
+- zbMATH API: py:2026 & cc:11J81; dilogarithm & py:2026
+- Local grep of the Diaz sources: Li2, dilog, (log 2), 1/π, algebraically dependent

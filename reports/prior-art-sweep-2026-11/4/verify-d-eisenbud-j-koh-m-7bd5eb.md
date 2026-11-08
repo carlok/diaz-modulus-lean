@@ -1,0 +1,23 @@
+# Entry 4, verification: D. Eisenbud, J. Koh, M.
+
+- **Source read:** D. Eisenbud, J. Koh, M. Stillman, Determinantal equations for curves of high degree, Amer. J. Math. 110 (1988), 513-539; Appendix with J. Harris, pp. 532-539, read on page images and OCR. https://eisenbud.github.io/papers/pdfs/1988-002.pdf
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** analogue only
+- **Covers the part not found:** False
+- **Printed or translation:** not applicable
+- **Passage:** "The normalization of C is P1, C has exactly one singular point, x" (p. …
+
+**Hypotheses.** Field: the paper works over an algebraically closed field (p. 513), so Q̄ fits. Dimension: Theorem A has C reduced and irreducible of arithmetic genus g, with F torsion free of rank 1. It treats only the extremal case h⁰(F) + h¹(F) = g + 1. The target has a 5-dimensional W and a 2 × 3 configuration, usually with six products spanning 5 dimensions, which is one below that bound if W = H⁰(ω). Conjugation: absent from the source. It is also unused in the target's σ-free form, so this is no obstacle for that form, but Theorem F's hull statement is not addressed. Genericity: no condition in either. Mismatches: the source needs the products to fill all of H⁰(ω_C) and F, Hom(F, ω) to be full section spaces. The target has W ∋ 1, u, 1/u and arbitrary subspaces x, y. Case (c) has ruling ratio t of degree 1, while Theorem NF assumes degree 2.
+
+**Explanation.** Statement is there; the target is neither printed nor derivable from it. The D1/D2a/D2b classification is absent.
+
+Derivation of the overlap (mine): equality makes H⁰(F)⊗Hom(F,ω)→H⁰(ω) surjective with h⁰+h¹=g+1. So 2×3 means g=4 and products spanning 4 dimensions: Case I, already [BSZ17, Lemma 4]. Here H⁰(ω)=y₀⟨1,h,h²,h³⟩, with deg h=2 in (b), h=t in (c).
+
+Explicit (c), g=3: C⊂S(0,3)⊂P⁴, sections s⁷ and f·cubics. Products lie in f·cubics, a 4-dimensional progression with ratio of degree 1. That is the dimension-4 configuration or D1, not NF.
+
+g=5, W=H⁰(ω), 2×4 or 3×3: the proof gives W=y₀⟨1,…,h⁴⟩. Since 1,u∈W, k(h)=k(u), so h is Möbius: a subfamily of D1.
+
+Exact computation, one sample each of D2a, D2b: dim W=5, six products span 5, {t∈W: ht∈W} has dimension 3. So Clifford equality fails: non-extremal, Theorem A silent.
+
+Theorem B (p. 537, Eisenbud) prints only the 2×3 determinantal shapes, as [Rei97] does.

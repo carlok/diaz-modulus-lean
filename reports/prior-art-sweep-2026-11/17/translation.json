@@ -1,0 +1,105 @@
+{
+ "target": "Let L be the Q-space of logarithms of non-zero algebraic numbers, so iπ lies in L, and any real t with e^t algebraic lies in L. Three claims. (a) If t0, t1 are real elements of L and t0^2 + π^2 and t1^2 + π^2 are both rational, then t1 = ±t0. (b) In particular (log 2)^2 + π^2 and (log 3)^2 + π^2 are not both rational. (c) If t ≠ 0 is real in L and t^2 + π^2 is rational, then iγ/π is not in L for any non-zero rational γ. Equivalently: L contains no point satisfying these relations. All numbers involved lie in a field algebraic over Q(π), so this is a question about quadratic relations among logarithms in transcendence degree one.",
+ "leads": [
+  {
+   "citation": "D. Roy, M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. ENS (4) 30 (1997), no. 6, 753-796",
+   "location": "Théorème 0.2, p. 755 (proved in §7, p. 791); same statement in the abstract, p. 753. Checked against the page image of p. 755, not only OCR.",
+   "quote": "le nombre Q(log α1, ..., log αn) n'est pas nul",
+   "link": "https://www.numdam.org/item/ASENS_1997_4_30_6_753_0",
+   "relation": "implies",
+   "derivation": "Translation of my own; the pair of numbers is not printed there. Th. 0.2: for a non-zero homogeneous P in Q[X1..Xn] of degree ≤ 2 and a zero λ with coordinates in L, either λ lies in a Q-rational subspace contained in Z(P), or trdeg Q(λ) ≥ 2. (a),(b): P = r1(X^2-Z^2) - r0(Y^2-Z^2) with r_j = t_j^2+π^2 > 0 vanishes at (t0, t1, iπ), and trdeg = 1 since π is transcendental and t_j^2 = r_j - π^2. P ≠ 0, so the coordinates are Q-dependent; iπ is imaginary and the t_j real, so t1 = q t0 with q rational (t0 ≠ 0, since π^2 is irrational). Then (q^2-1) t0^2 = r1 - r0, and q^2 ≠ 1 would make t0 algebraic, contradicting Hermite-Lindemann. So t1 = ±t0; log 3 ≠ ±log 2 gives (b). (c): suppose λ = iγ/π is in L, and let r = t^2+π^2. Then P = r W Z + γ(X^2 - Z^2) is non-zero and vanishes at (X, Z, W) = (t, iπ, λ), since λ·iπ = -γ. Trdeg is 1. The coordinates are Q-independent: t is real non-zero, and iπ, λ dependent would make π^2 rational. Contradiction."
+  },
+  {
+   "citation": "D. Roy, M. Waldschmidt, Quadratic relations between logarithms of algebraic numbers, Proc. Japan Acad. Ser. A 71 (1995), no. 7, 151-153",
+   "location": "Theorem 2, p. 151 (announced; the paper sketches only the 2x2 case and defers the full proof to the 1997 paper)",
+   "quote": "any homogeneous polynomial of degree 2",
+   "link": "https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604",
+   "relation": "implies",
+   "derivation": "Same statement as Roy-Waldschmidt 1997 Th. 0.2, printed two years earlier, so the same derivation applies with the same forms: r1 X^2 - r0 Y^2 + (r0-r1) Z^2 at (t0, t1, iπ), and r W Z + γ(X^2-Z^2) at (t, iπ, iγ/π). OCR is garbled in two columns; I read the theorem from the text layer only, and it agrees with the 1997 version."
+  },
+  {
+   "citation": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000",
+   "location": "Theorem 15.30 and the paragraph after it, §15.3, about pp. 593-594; Proposition 12.25, §12.5, p. 438",
+   "quote": "we have Q(λ1, ..., λn) ≠ 0",
+   "link": "https://doi.org/10.1007/978-3-662-11569-5",
+   "relation": "implies",
+   "derivation": "The book states the most directly usable form: Q-independent elements of L with trdeg Q(λ) = 1 satisfy Q(λ) ≠ 0 for every non-zero homogeneous quadratic Q over Q. Apply it to (t0, t1, iπ) if t0, t1 are Q-independent, and to (t, iπ, iγ/π) for (c). The Q-dependent case of (a) is the Hermite-Lindemann step above. Read in the local copy, text layer; the page number is from a running header, so check it before citing. The DOI link is from memory and was not opened."
+  },
+  {
+   "citation": "D. Roy, M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. ENS (4) 30 (1997)",
+   "location": "Corollaire 7.4 and the example after it, p. 792",
+   "quote": "si log 2 et π sont algébriquement dépendants sur Q",
+   "link": "https://www.numdam.org/item/ASENS_1997_4_30_6_753_0",
+   "relation": "analogue only",
+   "derivation": "The only printed appearance of (log 2)^2 + π^2 I found: if log 2 and π are algebraically dependent, then exp of the square root of that number is transcendental. It concerns one number and does not reach the pair. If the number were rational, the conclusion would already follow from Hermite-Lindemann."
+  }
+ ],
+ "read": [
+  {
+   "source": "Roy-Waldschmidt 1997, Ann. Sci. ENS 30: abstract, introduction, Th. 0.1-0.3 (pp. 753-755), §7 proof of Th. 0.2 and Cor. 7.2-7.5 (pp. 791-792)",
+   "sections": "pp. 753-755 (p. 755 checked as page image), pp. 791-792",
+   "link": "https://www.numdam.org/item/ASENS_1997_4_30_6_753_0"
+  },
+  {
+   "source": "Roy-Waldschmidt 1995, Proc. Japan Acad. 71",
+   "sections": "p. 151, Theorems 1 and 2 (text layer, garbled columns)",
+   "link": "https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604"
+  },
+  {
+   "source": "Waldschmidt, Diophantine Approximation on Linear Algebraic Groups (local copy)",
+   "sections": "opening of §12.5 with Prop. 12.25; Th. 15.30 and the following paragraph; grep for π^2 + (log)^2 patterns",
+   "link": "https://doi.org/10.1007/978-3-662-11569-5"
+  },
+  {
+   "source": "Brownawell 1974, J. Number Theory 6 (local copy)",
+   "sections": "Theorem and Corollaries 1-7, pp. 22-23"
+  },
+  {
+   "source": "Waldschmidt, four exponentials problem and Schanuel survey (local copy)",
+   "sections": "passage on the transcendence degree one case and the Roy-Waldschmidt extension; reference list",
+   "link": "https://webusers.imj-prg.fr/%7Emichel.waldschmidt/articles/pdf/FourExponentialsSchanuel.pdf"
+  }
+ ],
+ "screened": [
+  {
+   "source": "D. Roy, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties, Acta Math. 175 (1995), 49-73 (search summary only; source of Conjecture 0.3)",
+   "link": "https://projecteuclid.org/download/pdf_1/euclid.acta/1485890866"
+  },
+  {
+   "source": "Waldschmidt, slides on Schanuel and quadratic relations (Hyderabad, NCTS 2003)",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/Hyderabad.pdf"
+  },
+  {
+   "source": "Waldschmidt, Open Diophantine Problems, Moscow Math. J. 2004 (search, plus grep of local copy for log 2 / log 3 patterns)",
+   "link": "https://arxiv.org/pdf/math/0312440"
+  },
+  {
+   "source": "Waldschmidt, The role of complex conjugation in transcendental number theory (abstract)",
+   "link": "https://hal-ensta-paris.archives-ouvertes.fr/UPMC/hal-00411402"
+  },
+  {
+   "source": "Calegari-Mazur, Nearly ordinary Galois deformations, Conj. 3.9, weak Schanuel in logarithmic form (search summary only)",
+   "link": "https://arxiv.org/pdf/0708.2451"
+  },
+  {
+   "source": "Local library grep across all .txt files for OCR variants of (log 2)^2 + π^2: only RW97 p. 792 and an unrelated size bound in DALAG"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "zbMATH Open API",
+   "why": "The API call failed with an SSL certificate verification error in the sandbox. I did not bypass it, so there was no structured zbMATH search; literal-pair coverage rests on web search and local grep."
+  }
+ ],
+ "queries": [
+  "\"log^2 2 + \\pi^2\" transcendence rational \"not both\" logarithm modulus algebraic independence",
+  "modulus of logarithm of algebraic number |log α| transcendental conjecture real t e^t algebraic t^2+π^2 algebraic Diaz",
+  "transcendence degree one field contains three Q-linearly independent logarithms of algebraic numbers, algebraic independence of logarithms π log 2 log 3 quadratic relation",
+  "Roy Waldschmidt \"quadratic relations\" logarithms of algebraic numbers transcendence degree one homogeneous polynomial degree 2 consequence example π log 2 log 3",
+  "\"\\pi^2 + \\log^2\" OR \"log^2 2 + \\pi^2\" rational irrational transcendental \"log(-2)\" absolute value squared",
+  "weak Schanuel Ax-Schanuel transcendence degree one logarithms rational quadric points \"rank 3\" quadratic relation rational subspaces contained in hypersurface",
+  "quadrics through rational normal curve rank 3 logarithms algebraic numbers Q-rational subspace hypersurface Roy",
+  "\"e^{i\\gamma/\\pi}\" OR \"exp(i/\\pi)\" transcendental reciprocal of pi logarithm of algebraic number"
+ ],
+ "notes": "**Result.** All three parts of the \"not found\" are implied by a printed theorem, in one line each: Roy-Waldschmidt 1997 Th. 0.2 (announced 1995 Th. 2; book form in DALAG Th. 15.30 with Prop. 12.25). None of these prints the pair log 2, log 3 or the iγ/π statement. The translation is mine, so this is \"implies\", not \"same\". The sources do not cite the excluded repository; they predate it.\n\n**The translation that worked.** Read t² + π² as t² − (iπ)², a quadratic form in the logarithms t and iπ. Two rational values r0, r1 cancel to the homogeneous relation r1(t0² − Z²) = r0(t1² − Z²) with Z = iπ. Trdeg is one because every t_j is algebraic over Q(π). This is the setting of Conjecture 0.3 of RW97 (Roy's \"logarithm points on varieties\"), which Th. 0.2 proves for quadrics in trdeg ≤ 1.\n\nFor (c), the constant is homogenised by the first relation: r·λ·Z + γ(t² − Z²) = 0, where λ = iγ/π.\n\n**Checks made.**\n- Th. 0.2 has coefficients in Q and a homogeneous P. The page image of p. 755 confirms Q, not Q̄, for the theorem (Q̄ appears only in Conjecture 0.3). Our forms have rational coefficients, so this is fine.\n- The non-homogeneous obstruction in the RW97 remark, p. 791 (exp(λ²) type), does not apply, because both forms are homogeneous.\n- Independence: the real/imaginary split handles iπ. π² is irrational, which handles (iπ, iγ/π). The dependent case of (a) ends in Hermite-Lindemann.\n\n**Relation to the entry's stated source line.** The form in (a) has the rational zero (1,1,1), so it factors as a 2×2 determinant: r0(t0−t1)(t0+t1) = (r0−r1)(t0−iπ)(t0+iπ). That is why a substitution in Bro74 Cor. 7 suffices, consistent with the entry's \"routine\" label. Th. 0.2 needs no such factoring. So this find does not dislodge \"routine\"; it adds a printed statement that implies the result directly, and it suggests citing RW97 Th. 0.2 on that line.\n\nFor (c), the entry's route, Bro74 Cor. 5 at η = t/π, gives i t²/π not in L. Hence i r/π is not in L, and since L is a Q-space, iγ/π is not in L. I checked this by hand; it agrees with the result above.\n\n**Not settled.**\n- I found no printed occurrence of the literal pair (log 2)² + π², (log 3)² + π², nor of the \"not both fail\" boundary phrasing. The nearest is RW97 Cor. 7.4's example, a one-number statement and an analogue only. Literal coverage is limited: web search handles formulas poorly, and the zbMATH API was unavailable.\n- Other dictionaries: subspace-product (Kneser/Vosper) and scroll/1-generic matrix terms were not separately searched once the quadric translation succeeded. The one rank-3 quadric search returned nothing beyond Roy and Roy-Waldschmidt. No lead from weak Schanuel or Ax-type sources: these give only the conjectural statement, nothing unconditional here.\n- Time: the sandbox clock showed only a few minutes elapsed at the last check. I stopped early because the find was verified, not because the time box ran out.\n- Not re-derived: the internal proof of Th. 0.2 (via Th. 7.1 and the Clifford construction). I take it as published.\n- DALAG: the page number comes from a running header and the DOI is from memory; check both before citing."
+}

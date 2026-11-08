@@ -1,0 +1,17 @@
+# Entry 2, verification: N. P. Nguyen, A generali
+
+- **Source read:** N. P. Nguyen, A Generalization of Desargues' Involution Theorem, arXiv:1912.12200 (full PDF read, https://arxiv.org/pdf/1912.12200); J. Geom. Graph. 24 (2020), no. 1, 65-72, listing opened at https://www.heldermann.de/JGG/JGG24/JGG241/jgg24006.htm (the listing spells the author Nicolas P. Nguyen, arXiv Nicholas Phat Nguyen; journal text itself not read).
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** unrelated
+- **Covers the part not found:** False
+- **Printed or translation:** not applicable
+- **Passage:** in pairs of points that are conjugate under an involution if and only if
+
+**Hypotheses.** Nguyen: any field of characteristic not 2, projective space of any dimension, pencil of quadrics restricted to a line. Target: K = Q̄, a transcendental u in ℂ, and 5-dimensional Q̄-subspaces of ℂ spanned by rational functions of u. Field and dimension specialise without trouble (K = Q̄, ambient space the line), but only for the pencil-involution fact. Nguyen has no subspaces of ℂ, no products, no 2×3 configurations, no progressions and no ratio h. Conjugation: his 'conjugate' means swapped by the involution; complex conjugation and the circle condition (uū algebraic) never appear. Genericity: he works with points of the line, so applying it at a transcendental u needs the remark that the identities are polynomial over Q̄. Degree formula and Lüroth do not appear; a text search found no occurrence.
+
+**Explanation.** The theorem is at the cited place (intro, p. 2), but (a), (b), (d) are absent and do not follow.
+
+Only overlap: the target's parenthetical gloss in (c). Translation, mine: homogenise q1, q2 to binary forms. Coprime with one of degree exactly 2 means no common zero on P¹, including ∞. Props 1-2 then make the span the pencil of an involution. Explicitly, for x↦(ax+b)/(cx−a), the form AX²+BX+C vanishes on orbits iff bA=cC+aB (checked by hand and on exact rationals), matching his determinant pairing. Example: X², 1 gives x↦−x.
+
+This is the classical correspondence. The target does not define 'normal form' beyond that gloss, and I read nothing else. If (c) means only this, that clause is classical. If it means W's form, spanned by 1, u, u⁻¹ and q1^i q2^(3−i)/(u l1 l2), Nguyen has nothing. Either way the lead does not touch the not-found core.

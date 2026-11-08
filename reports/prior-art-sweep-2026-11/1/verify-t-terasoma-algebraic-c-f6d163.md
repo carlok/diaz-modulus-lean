@@ -1,0 +1,16 @@
+# Entry 1, verification: T. Terasoma, Algebraic c
+
+- **Source read:** T. Terasoma, Algebraic correspondences between genus three curves and certain Calabi-Yau varieties, arXiv:1001.4846v1, 18 pp., PDF from https://arxiv.org/pdf/1001.4846, Section 4.1 (pp. 6-7). The Amer. J. Math. version and its page numbers were not opened or checked.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** unrelated
+- **Covers the part not found:** False
+- **Passage:** det(t1 Q1 + t2 Q2 + t3 Q3 ) = (t1 t3 − t2^2)^2 …
+
+**Hypotheses.** None match. Field: Terasoma works in projective geometry over C, with no subfield such as Q-bar and no K-subspaces of C. Dimension: P^3 and a net of quadrics, not a 4-dimensional K-subspace of numbers holding six products. Conjugation: none; there is no u, u-bar or uū algebraic, and no H_0. Genericity: the special net (4.1) is the central fibre of a generic deformation, which has nothing to do with z not in H_0 or u transcendental. The only shared shape is the twisted cubic parametrisation (x^3:x^2:x:1). That resembles the progression (b, bh, bh^2, bh^3), which is the BSZ17 side the target already names as nearby, and even this link is my own reading, not something the paper states.
+
+**Explanation.** The location checks out. Section 4.1 defines a net of quadrics containing a twisted cubic, the display gives its discriminant as the square of a conic, and Lemma 4.1 gives the tangent-hyperplane curve and the vertex (x^3:x^2:x:1) of each singular quadric. I evaluated the determinant by hand at one point (t1=t3=1, t2=0) and got 1, as the display says.
+
+None of this bears on the target. The paper has no products of subspaces, no 2 × 3 configurations of numbers, no point of a circle, no classification of z by u^2, ū^2 or 1/(u-a), and no degree count making u a Möbius function of a ratio. A keyword search of the whole text for progression, Möbius, Vosper, Bachoc, conjugate and logarithm found nothing. 'Configuration' appears only for points and hyperplanes.
+
+Limits: I read Section 4.1 closely, through pdftotext with slightly garbled matrices, and searched the rest by keyword without reading it line by line. I also kept a temporary text copy in (temp path), outside the mktemp folder, and deleted it with that folder. Verdict: not a find for Theorem B's converse.

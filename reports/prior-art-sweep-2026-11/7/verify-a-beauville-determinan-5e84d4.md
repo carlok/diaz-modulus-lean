@@ -1,0 +1,19 @@
+# Entry 7, verification: A. Beauville, Determinan
+
+- **Source read:** A. Beauville, Determinantal hypersurfaces, arXiv:math/9910030v2, full text opened (sections 0.3, 1.12, 3.1, 3.3 on arXiv pp. 2, 6, 9). Given Project Euclid link blocked (Incapsula), so Michigan Math. J. 48 pp. 46-47 not checked.
+- **Accessible:** True
+- **Statement present:** True
+- **Relation:** generalization
+- **Covers the part not found:** False
+- **Printed or translation:** needs a derivation of the verifier
+- **Passage:** The group Gd acts freely and properly on Ld
+
+**Hypotheses.** Field: arbitrary k (0.3), so K ⊆ ℂ is allowed. Dimension: d is general, and d=2 (g=0) is not excluded, but it is never discussed. Conjugation: absent from the source; it enters only through ū=ρ/u. Genericity: Beauville takes F=det M as given and has no point u or configuration. The target's u transcendental over K must be turned into det M=cF, and c=0 ruled out, both by the verifier. The conic needs a K-point, here (0:1:0), since Beauville's J over k is not discussed for pointless conics. no_vanishing_coeff assumes only u∉K, so it lies outside this argument.
+
+**Explanation.** Statements present; conics and configurations never appear. Only the orbit claim follows, and the invertible constant matrix by computation. Logarithms, the norm-form relation and no_vanishing_coeff do not.
+
+Derivation. Let x_iy_j = a_ij+b_iju+c_ijū; M = aX0+bX1+cX2 has rank 1 at p=(1,u,ū). So det M vanishes at p; u transcendental gives det M = cF, F = X1X2−ρX0².
+
+c≠0: otherwise M = αβᵀ over K[X] with one factor constant, making x or y K-dependent.
+
+F is a smooth conic with a K-point, so C≅P¹ and the degree −1 line bundle is unique with H⁰=0. By 3.1(b) and the proof of 3.3, M = P·M0·Q with M0 = [[X0,X2],[X1,ρX0]]. Evaluating at p and comparing rank-one factorisations gives the normal form.

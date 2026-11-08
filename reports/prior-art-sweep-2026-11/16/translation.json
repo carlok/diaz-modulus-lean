@@ -1,0 +1,164 @@
+{
+ "target": "Work in the Q-vector space L of logarithms of non-zero algebraic numbers; L is stable under complex conjugation. (A) Diaz's (Qr2) in transcendence degree one: if l0, l1 in L are neither real nor purely imaginary, Q(l0, l1, conj l0, conj l1) has transcendence degree at most 1, and t = l1/l0 satisfies conj t = ±t, then t is rational. (B) Pair rigidity: if u, v in L are non-zero, |u|^2/|v|^2 is rational and Q(u, v, conj u, conj v) has transcendence degree at most 1, then v lies in Qu or in Q conj u. Translation: in both cases the point (x1,x2,x3,x4) = (first log, second log, their conjugates) lies in L^4, on a rank-4 quadric with rational coefficients. (A) is x1x4 = ±x2x3; (B) is x1x3 = c x2x4. The conclusion says the point lies on a rational plane of the quadric, that is, a rational line of a ruling of P^1 x P^1 in P^3.",
+ "leads": [
+  {
+   "citation": "D. Roy, M. Waldschmidt, Approximation diophantienne et indépendance algébrique de logarithmes, Ann. Sci. École Norm. Sup. (4) 30 (1997), no. 6, 753-796.",
+   "location": "Théorème 0.2, p. 755 (proof p. 791; extension to intersections of quadrics p. 791). Checked against the page image, not only OCR: P is in Q[X], the subspace is defined over Q, the point is in L^n.",
+   "quote": "contenu dans un sous-espace vectoriel de C^n défini sur Q et contenu dans V",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/ASENS_1997_4_30_6_753_0.pdf",
+   "relation": "implies",
+   "derivation": "Own translation; the paper states neither (A) nor (B). Apply Th. 0.2 (P homogeneous of degree <= 2 over Q, point in L^n, trdeg <= 1 gives a Q-rational subspace U with point in U inside V). (B): P = X1X3 - cX2X4 at (u,v,conj u,conj v). The smallest rational subspace through the point lies in V and has dimension at most 2, since the quadric has rank 4. Dimension 1 gives v/u rational at once. In dimension 2 the plane lies in a ruling with rational parameter s: either X2=sX1, X3=csX4, so v=su; or X4=sX1, X3=csX2, so conj v=su, i.e. v=s conj u. The parameter values 0 and infinity would force v=0 or u=0. (A): conj t=εt with ε=±1, so P = X1X4 - εX2X3 at (l0,l1,conj l0,conj l1). The rulings are X2=sX1, X4=εsX3, giving l1/l0=s rational; or X3=rX1, X4=εrX2, giving conj l0=r l0 with r rational, so |r|=1, r=±1 and l0 is real or purely imaginary, which is excluded. Dimension 1 again gives t rational. Infinite parameters would force l0=0. This reaches both statements in the part not found. It is a general theorem specialised, not an explicit statement of (A) or (B). The same section's Cor. 7.3 and 7.4 do use conjugation at transcendence degree one, but on different conclusions (sqrt q(λ, conj λ) and |λ| not in L); those two are analogues only."
+  },
+  {
+   "citation": "D. Roy, M. Waldschmidt, Quadratic relations between logarithms of algebraic numbers, Proc. Japan Acad. Ser. A Math. Sci. 71 (1995), no. 7, 151-153.",
+   "location": "Theorem 2, p. 151, announced without full proof; the authors note Theorem 1 is the case P = X1X4 - X2X3, n = 4. Checked against the page image.",
+   "quote": "is contained in a vector subspace of C^n which is defined over Q",
+   "link": "https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604",
+   "relation": "implies",
+   "derivation": "Same statement as Roy-Waldschmidt 1997 Th. 0.2, hypothesis trdeg exactly 1. That loses nothing here: non-zero logarithms are transcendental, so trdeg <= 1 means trdeg = 1. Same two quadrics and same ruling argument give (A) and (B). Own translation; conjugation is not mentioned in this paper. Earliest printed form found."
+  },
+  {
+   "citation": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren 326, Springer, 2000.",
+   "location": "§15.3.4, Theorem 15.30 and the paragraph after it, p. 593",
+   "quote": "for any nonzero homogeneous polynomial Q ... of degree 2, we have Q(λ1, ..., …",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/3-540-66785-7.pdf",
+   "relation": "implies",
+   "derivation": "Own translation. Take a Q-basis λ1..λn of the span of the four numbers (trdeg 1 is automatic for non-zero logarithms) and write the point as Aλ with A rational. Then P(Aλ)=0 forces the form P∘A to vanish identically, so the image of A is a rational subspace inside the quadric. Conclude with the ruling argument of the first lead. The book states neither (A) nor (B). Secondary to Roy-Waldschmidt 1997, which it cites, but printed and independent of this work."
+  },
+  {
+   "citation": "G. Diaz, La conjecture des quatre exponentielles et les conjectures de D. Bertrand sur la fonction modulaire, J. Théor. Nombres Bordeaux 9 (1997), 229-245.",
+   "location": "§ on partial results, Lemme 6(A.1) and Propositions 1 and 2, pp. 240-242",
+   "quote": "sont algébriquement indépendants",
+   "link": "https://numdam.org/item/JTNB_1997__9_1_229_0/",
+   "relation": "analogue only",
+   "derivation": "Prop. 2: for a non-real logarithm with exp|log a| algebraic, log a and its conjugate are algebraically independent. Same device as the target, trdeg-one four exponentials applied to a matrix built with the conjugate, but a different conclusion. It is the same content as Roy-Waldschmidt 1997 Cor. 7.4. It does not reach (A) or (B), because it needs exp|log a| algebraic rather than a rational ratio or a real quotient."
+  }
+ ],
+ "read": [
+  {
+   "source": "Roy-Waldschmidt 1997, Ann. Sci. ENS 30",
+   "sections": "Abstract, §0 including Th. 0.1-0.2 and Conj. 0.3 (page image p. 755), Cor. 1.2, §7 through Cor. 7.5 (page image p. 791 and text p. 792)",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/ASENS_1997_4_30_6_753_0.pdf"
+  },
+  {
+   "source": "Roy-Waldschmidt 1995, Proc. Japan Acad. 71",
+   "sections": "p. 151 from page image: Theorems 1 and 2",
+   "link": "https://projecteuclid.org/download/pdf_1/euclid.pja/1195510604"
+  },
+  {
+   "source": "Diaz 2007, J. Théor. Nombres Bordeaux 19",
+   "sections": "(Qr) and proofs pp. 376-377; §2.2 Théorème 4, Brownawell-Waldschmidt remark p. 386, Corollaire 6 p. 387; bibliography",
+   "link": "https://emis.univie.ac.at/journals/JTNB/2007-2/article04.pdf"
+  },
+  {
+   "source": "Brownawell 1974, J. Number Theory 6",
+   "sections": "Statements of Corollaries 1-7, pp. 22-23 (local OCR text)"
+  },
+  {
+   "source": "Waldschmidt, DALAG (2000)",
+   "sections": "Cor. 15.28 and remark, Cor. 15.29, §15.3.4 Th. 15.30, pp. 591-594",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/3-540-66785-7.pdf"
+  },
+  {
+   "source": "Diaz 1997, J. Théor. Nombres Bordeaux 9",
+   "sections": "Lemme 6, Cases 1-3, Propositions 1-2, pp. 240-242",
+   "link": "https://numdam.org/item/JTNB_1997__9_1_229_0/"
+  },
+  {
+   "source": "Waldschmidt, The role of complex conjugation in transcendental number theory (DION 2005)",
+   "sections": "List of all numbered statements, §§1-6, Th. 4.1, Cor. 4.2, Th. 5.1, Conj. 5.2; no transcendence-degree statement on conjugates",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/DION2005proceedings.pdf"
+  },
+  {
+   "source": "Roy 1995, Acta Math. 175, Points whose coordinates are logarithms of algebraic numbers on algebraic varieties",
+   "sections": "Introduction only; conjugation is not treated",
+   "link": "https://projecteuclid.org/download/pdf_1/euclid.acta/1485890866"
+  },
+  {
+   "source": "Fischler 2001, Acta Arith. 100, Orbits under algebraic groups and logarithms of algebraic numbers",
+   "sections": "Introduction and keyword scan; no complex conjugation, and the only 'conjugation' hit is matrix conjugation in §5.2"
+  },
+  {
+   "source": "Kirby, Variants of Schanuel's conjecture",
+   "sections": "Conventions, Conj. 1.4-1.5, Prop. 1.6; conditional only, no unconditional trdeg-one statement on logarithms"
+  }
+ ],
+ "screened": [
+  {
+   "source": "Diaz 2004, Utilisation de la conjugaison complexe, J. Théor. Nombres Bordeaux 16: theorem list and keyword scan; no transcendence-degree hypothesis",
+   "link": "https://www.numdam.org/item/JTNB_2004__16_3_535_0"
+  },
+  {
+   "source": "Bachoc-Serra-Zémor, An analogue of Vosper's theorem for extension fields: linear Kneser/Vosper setting, no logarithms; analogue at most",
+   "link": "https://arxiv.org/pdf/1501.00602"
+  },
+  {
+   "source": "Bachoc-Serra-Zémor, Revisiting Kneser's theorem for field extensions: analogue at most",
+   "link": "https://arxiv.org/pdf/1510.01354v2"
+  },
+  {
+   "source": "Park, On the rank of quadratic equations for curves of high degree: rank-index vocabulary, no arithmetic of logarithms",
+   "link": "https://ar5iv.arxiv.org/html/2202.00857"
+  },
+  {
+   "source": "On the rank index of projective curves of almost minimal degree: geometry only",
+   "link": "https://arxiv.org/html/2411.17494v1"
+  },
+  {
+   "source": "Han, Lee, Moon, Park, Rank 3 quadratic generators of Veronese embeddings: geometry only",
+   "link": "https://arxiv.org/pdf/2001.06687"
+  },
+  {
+   "source": "Momot, Density of rational points on commutative group varieties and small transcendence degree: trdeg <= 1 on group varieties, abstract only; not checked for reach to conjugates",
+   "link": "https://arxiv.org/pdf/1011.3368"
+  },
+  {
+   "source": "Kirby, Exponential algebraicity in exponential fields: weak Schanuel for exponential-algebraic closure; not about logarithms of algebraic numbers in trdeg one",
+   "link": "https://ar5iv.arxiv.org/html/0810.4285"
+  },
+  {
+   "source": "Dasgupta, Ranks of matrices of logarithms of algebraic numbers I: structural rank background, snippet only",
+   "link": "https://ar5iv.labs.arxiv.org/html/2303.02037"
+  },
+  {
+   "source": "Waldschmidt, Variations on the six exponentials theorem (Hyderabad): search-result snippet only",
+   "link": "https://www.imj-prg.fr/~michel.waldschmidt/articles/pdf/Hyderabad.pdf"
+  }
+ ],
+ "inaccessible": [
+  {
+   "source": "OpenAlex citing-works lists for Diaz 2007 and Roy-Waldschmidt 1995",
+   "why": "HTTP 429 on the cites filter after retries with waits. OpenAlex reports 0 citations for Diaz 2007, which looks like an index gap. The forward-citation search of Diaz 2007 is therefore incomplete.",
+   "doi_or_link": "10.5802/jtnb.592"
+  },
+  {
+   "source": "Semantic Scholar citation graph for the same papers",
+   "why": "HTTP 429 on all four searches"
+  },
+  {
+   "source": "zbMATH Open search and API",
+   "why": "HTTP 403 on the web page; certificate verification failed on the API, and I did not bypass it"
+  },
+  {
+   "source": "Nesterenko-Philippon (eds), Introduction to Algebraic Independence Theory, LNM 1752, Ch. 13; Tubbs, Algebraic groups and small transcendence degree I, II, J. Number Theory",
+   "why": "Not opened; publisher versions not attempted. Not expected to treat conjugation, but unverified."
+  }
+ ],
+ "queries": [
+  "Diaz Produits et quotients de combinaisons linéaires de logarithmes de nombres algébriques conjectures et résultats partiels",
+  "quotient of logarithms of algebraic numbers real or purely imaginary implies rational four exponentials conjecture transcendence degree one",
+  "Roy Waldschmidt quadratic relations between logarithms transcendence degree one complex conjugate logarithm modulus corollary algebraically dependent conjugate",
+  "rank 4 quadric point coordinates logarithms of algebraic numbers linear subspace defined over Qbar; Schneider problem transcendence degree one; complex conjugate logarithm ratio rational",
+  "Roy Waldschmidt Theorem transcendence degree 1 logarithms homogeneous quadratic polynomial complex conjugate real or purely imaginary corollary",
+  "rank-one matrix of logarithms field of transcendence degree one conjugate logarithm: log b = t log a with t real implies t rational",
+  "weak Schanuel conjecture Kirby logarithms transcendence degree one field complex conjugation exponential field",
+  "linear analogue Kneser Vosper products of subspaces field extension transcendental; quadric rational normal curve rank 4 quadrics rank index logarithms",
+  "Gelfond-Schneider strengthening t real t log a logarithm implies t rational conjecture partial results algebraic independence",
+  "Waldschmidt transcendence degree 1 logarithms complex conjugate Diaz Qr real multiple of a logarithm R lambda intersect L = Q lambda",
+  "Diaz 2007 Produits et quotients cited four exponentials complex conjugation logarithms arXiv new results",
+  "rank 4 quadrics containing rational normal curve rank index syzygy scheme 2x2 minors 1-generic matrix scroll Eisenbud Koh Stillman",
+  "Tubbs algebraic groups and small transcendence degree; algebraic independence of logarithms complex conjugate trdeg 1 quadratic relation Grassmannian Roy",
+  "Local keyword scan of the sources library: transcendence degree near conjugate, real, purely imaginary"
+ ],
+ "notes": "**Result.** No printed source states (A) or (B) explicitly, so the literal \"not found\" survives. But a printed theorem not named in the target implies both by a short translation of mine: Roy-Waldschmidt, Théorème 0.2 of 1997 (announced as Theorem 2 in 1995), also in DALAG §15.3.4.\n\n**The translation that worked** is the quadric dictionary from the brief, applied to the logarithms rather than to a function space.\n- (A) is the point (l0, l1, conj l0, conj l1) on x1x4 = ±x2x3.\n- (B) is (u, v, conj u, conj v) on x1x3 = c x2x4.\n- Both have rational coefficients and rank 4, and the point lies in L^4 with trdeg ≤ 1. That is exactly the hypothesis of Th. 0.2.\n- The conclusion gives a rational plane of the quadric. Reading off the two rulings gives the statements; the derivation is in the first lead. In (A), the second ruling yields conj l0 = r l0 with r rational, which is exactly the excluded real or purely imaginary case. In (B), the two rulings are the two alternatives v ∈ Qu and v ∈ Q conj u.\n\n**How much this changes.** Logically nothing beyond what the target already knows. Th. 0.2 for these P is equivalent in strength here to the trdeg-one four exponentials theorem; RW 1995 itself says Theorem 1 is the case P = X1X4 - X2X3. So this is not a stronger input than Bro74 Cor. 7, only a different printed source that reaches the target. Whoever verifies should decide whether it merits a citation in the source line. I would say it confirms the \"routine\" class. I found no reason to think it endangers anything else in the entry.\n\n**Near-miss in the target's own named source.** Diaz 2007 p. 386 prints the Brownawell-Waldschmidt theorem with the hypothesis trdeg Q(x1,x2,y1,y2) ≤ 1, as a sufficient condition for the conclusion of Théorème 4, part 2. On p. 387, Corollaire 6 applies Théorème 4 with (1, l1/l0) and (l0, conj l0) to get (Qr2) under the condition l1/l0 ∈ L̃. Diaz does not make the same substitution in the trdeg-one theorem. He illustrates it only with a corollary on l², l³. So (A) sits one line from what he printed, and he does not state it. It is not a lead, since Dia07 is named, but it supports \"routine\".\n\n**Conjugation at transcendence degree one, in print, but other conclusions.** RW 1997 Cor. 7.3 and 7.4, Diaz 1997 Prop. 2. RW 1997 remarks that 7.4 seems not to appear explicitly in the literature, while Diaz 1997 Prop. 2 appears to be the same result the same year. These show the community used the device, but no one I read specialised it to a real quotient or to rational squared moduli.\n\n**Other translations tried, with no reach.**\n- Linear Kneser/Vosper (Bachoc-Serra-Zémor): the 2×2 configuration (1,t)·(l0, conj l0) ⊂ L is a product-of-subspaces statement in form only. Those theorems carry no arithmetic information about L. Analogue at most, and I do not list it as a lead.\n- Rank index, scrolls, 1-generic matrices (Eisenbud-Koh-Stillman line, Park, Han-Lee-Moon-Park): vocabulary only, about quadrics through curves. The statements here are not about a space V of functions of u, despite the notation section, so that part of the dictionary does not apply. Only the elementary rulings of a rank-4 quadric are used.\n- Kirby's weak Schanuel, Ax-type: conditional. Schanuel makes (A) and (B) immediate, but no unconditional trdeg-one statement about logarithms turned up there.\n\n**Not settled.**\n- Forward citations of Diaz 2007 and RW 1995/1997 could not be enumerated, because OpenAlex and Semantic Scholar returned 429 and zbMATH was blocked. An explicit statement in a citing paper remains possible; web searches surfaced none.\n- Nesterenko-Philippon Ch. 13 and Tubbs were not read.\n- The library at sources/ was scanned by keyword, not read in full. Text layers there are poor for bars and blackboard letters, so I checked the key statements against page images (RW 1997 pp. 755, 791; RW 1995 p. 151). Brownawell's corollaries and Diaz's passages were read from the text layer only.\n- The ruling derivation is mine and has not been refereed. It is elementary, but a verifier should recheck the sign ε and the degenerate parameters.\n\n**Time.** Started 15:54, last clock check 16:00 with a few steps after it, well inside the box. I stopped because the remaining avenues were blocked or low yield, not because time ran out.\n\nPage images are in the scratchpad at (temp path); no repository files were changed."
+}
