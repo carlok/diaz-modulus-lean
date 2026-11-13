@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-11-01): **618** of 618
+As of the latest archived submission (2026-11-13): **628** of 628
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -496,6 +496,16 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.restrictSupport_block_filtration` | yes | `Diaz/Mirror/restrictSupport_block_filtration.lean` | done |  |
 | `DiazModulus.ringHom_preserves_linearIndependent` | yes | `Diaz/Mirror/ringHom_preserves_linearIndependent.lean` | done |  |
 | `DiazModulus.ringKrullDim_quotient_sectionIdeal_le` | yes | `Diaz/Mirror/ringKrullDim_quotient_sectionIdeal_le.lean` | done |  |
+| `DiazModulus.roy_field_lifts` | yes | `Diaz/Mirror/roy_field_lifts.lean` | done |  |
+| `DiazModulus.roy_intKer_image` | yes | `Diaz/Mirror/roy_intKer_image.lean` | done |  |
+| `DiazModulus.roy_period_space` | yes | `Diaz/Mirror/roy_period_space.lean` | done |  |
+| `DiazModulus.roy_rank_bound` | yes | `Diaz/Mirror/roy_rank_bound.lean` | done |  |
+| `DiazModulus.roy_rational_adapted_basis` | yes | `Diaz/Mirror/roy_rational_adapted_basis.lean` | done |  |
+| `DiazModulus.roy_relation_rank_le` | yes | `Diaz/Mirror/roy_relation_rank_le.lean` | done |  |
+| `DiazModulus.roy_semistable_node` | yes | `Diaz/Mirror/roy_semistable_node.lean` | done |  |
+| `DiazModulus.roy_slope_bound` | yes | `Diaz/Mirror/roy_slope_bound.lean` | done |  |
+| `DiazModulus.roy_theorem_four` | yes | `Diaz/Mirror/roy_theorem_four.lean` | done |  |
+| `DiazModulus.roy_upsilon_dims` | yes | `Diaz/Mirror/roy_upsilon_dims.lean` | done |  |
 | `DiazModulus.s0_add_mem` | yes | `Diaz/Mirror/s0_add_mem.lean` | done |  |
 | `DiazModulus.s0_bridge_halves_imp_parent` | yes | `Diaz/Mirror/s0_bridge_halves_imp_parent.lean` | done |  |
 | `DiazModulus.s0_conj_mem` | yes | `Diaz/Mirror/s0_conj_mem.lean` | done |  |

@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.41, 1 November 2026}
+\date{September 2026\\[2pt]\small Version 1.42, 13 November 2026}
 
 \begin{document}
 \maketitle
@@ -164,6 +164,18 @@ and $3^{\pi}$ is transcendental~\cite[(2.2.3)]{waldschmidt-1988}; and for non-ze
 and algebraic $\beta\neq0$, one of $\e^{\beta\lambda_{1}\lambda_{2}}$ and $\e^{(\beta\lambda_{1})^{2}\lambda_{2}}$
 is~\cite[Exercise~11.8(b)]{waldschmidt-book}. These are routine formalisations of classical results. The sharp six
 exponentials theorem~\cite[Corollary~2.1]{waldschmidt-1988} is not formalised.
+
+Since version 1.42 Roy's lower bound for the rank of a matrix of logarithms~\cite[\S4, Corollary~1]{roy-1992},
+\cite[Theorem~12.20 and Corollary~12.21]{waldschmidt-book} is machine-checked as well, with no hypothesis, for
+$\Alg$ and $\aLogs$: a $d\times l$ matrix $M$ with entries in $\aLogs$, $d\geq1$, is equivalent over $\Alg$ to one
+whose top right $d'\times(l-l')$ block vanishes, for some $0<d'\leq d$ and $l'\leq l$ with
+$d\,l'\leq\operatorname{rank}(M)\,(d'+l')$. Roy's Theorem~4 is machine-checked with it, in the form
+of~\cite[Proposition~11.19]{waldschmidt-book}. Both come from $(\mathrm{ME})$ and the linear subgroup
+theorem~\cite[Theorem~11.21]{waldschmidt-book}, along an induction on $d$ that splits $\mathbb{C}^{d}$ along a
+rational subspace of maximal slope and applies the linear subgroup theorem once at each semistable step;
+\cite[\S11.6]{waldschmidt-book} and~\cite{roy-1992} pass through other intermediate statements. This is a routine
+formalisation of a classical result. Its printed applications, among them~\cite[Theorem~2.1]{waldschmidt-2005b},
+are not formalised.
 
 \begin{conjecture}[Strong four exponentials]\label{conj:sfe}
 Let $x_{1},x_{2}$ be linearly independent over $\Alg$ and let $y_{1},y_{2}$ be linearly
@@ -2575,6 +2587,12 @@ answers to the research notes' questions Q1.4--Q1.7 on degree-two spaces.
 The rows of the table below were checked against the platform by script on 30 October 2026, and the rows added
 in version 1.40 on 1 November 2026. Version 1.41 records the literature check of
 Remark~\ref{rem:invisible-degree-two-credit}; the mirrored project then held all 618 proved results of the development.
+Version 1.42 adds, on 13 November 2026, Roy's Corollary~1 and Theorem~4 for $\Alg$ and $\aLogs$, machine-checked
+with no hypothesis (Section~\ref{sec:setting}), and records two changes of 8 November 2026, after a prior-art
+check: the companion blueprint moved one result of its first list to its routine results, so the entry of
+Remark~\ref{rem:rational-hulls-credit} is now third there, and the passage on $\mathrm{Li}_{2}(1/2)$ reports
+the two preprints of 2026 that announce its irrationality. The mirrored project then held all 628 proved results
+of the development.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2708,6 +2726,7 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 \S\ref{sec:setting}, $(\mathrm{ME})$ & Proved & \nolinkurl{DiazModulus.multiplicityEstimateElem} \\
 \S\ref{sec:setting}, Roy's theorem & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_unconditional} \\
 \S\ref{sec:setting}, five exponentials & Proved & \nolinkurl{DiazModulus.five_exponentials}, \nolinkurl{DiazModulus.two_pow_pi_or_three_pow_pi_transcendental}, \nolinkurl{DiazModulus.exp_mul_or_exp_sq_mul_transcendental} \\
+\S\ref{sec:setting}, Roy's Corollary~1 & Proved & \nolinkurl{DiazModulus.roy_rank_bound}, \nolinkurl{DiazModulus.roy_theorem_four} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 618 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 628 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -39,6 +39,7 @@ checked and ranks those that are not routine; in the dependency graph they have 
 | the six exponentials theorem | Lang 1965–66, Ramachandra 1968 | `Diaz.six_exponentials` | this project |
 | Roy's strong six exponentials theorem: for `x₁, x₂` and `y₁, y₂, y₃` free over Q̄, some `xᵢyⱼ` is not in `ℒ̃` | Roy 1992, Cor. 2; DALAG Cor. 11.16, via Th. 11.21 | `Diaz.strongSixExponentials` | this project, with no hypothesis, through an elementary case of the multiplicity estimate (DALAG Th. 8.1) |
 | the five exponentials theorem: for `x₀, x₁` and `y₀, y₁` free over ℚ and algebraic `η ≠ 0`, one of `e^{xᵢyⱼ}`, `e^{ηx₁/x₀}` is transcendental | Waldschmidt 1988, Cor. 2.2; DALAG §11.3.3 | `Diaz.five_exponentials` | this project, from Roy's theorem and Baker's, as in DALAG (Remark after Cor. 11.16) |
+| Roy's rank bound: a `d × l` matrix `M` with entries in `ℒ̃` has rank at least `dθ/(1 + θ)`, `θ` read off the zero blocks of `PMQ` for algebraic `P`, `Q` | Roy 1992, Cor. 1; DALAG Th. 12.20, Cor. 12.21 | `Diaz.roy_rank_bound` | this project, with no hypothesis, from the linear subgroup theorem (DALAG Th. 11.21) |
 | the four exponentials theorem in transcendence degree one | Waldschmidt 1973, Brownawell 1974 | `Diaz.four_exponentials_trdeg_one` | this project |
 | two of `xᵢ, yⱼ, e^{xᵢyⱼ}` are algebraically independent when one column is algebraic | Waldschmidt 1973, Brownawell 1974 | `Diaz.two_algebraically_independent_of_exp_column` | this project |
 | one of `e^e`, `e^{e²}` is transcendental (Schneider's eighth problem) | Waldschmidt 1973, Brownawell 1974 | `Transcendence.exp_e_or_exp_e_sq_transcendental` | this project |
@@ -807,6 +808,30 @@ Three nodes of 1 November 2026. All three are classical results, formalised rout
 
 All three are milestones of the Prove2Me mission: 173 for the theorem, 181 and 182 for the corollaries. The 3 modules have 238
 lines in `Diaz/Mirror/`. The sharp six exponentials theorem (Waldschmidt 1988, Cor. 2.1) is not formalised.
+
+### Roy's Corollary 1: the rank of a matrix of logarithms
+
+Ten nodes of 13 November 2026. All are formal proofs of classical results (Roy 1992; DALAG §11.6 and §12.3); two
+steps were not found in the sources read in the form stated, and both are routine.
+
+- `DiazModulus.roy_rank_bound` (milestone) — Roy 1992, Cor. 1 (p. 38), for Q̄ and `ℒ̃`: a `d × l` matrix `M` with
+  entries in `ℒ̃`, `d ≥ 1`, has invertible algebraic `P`, `Q` and `0 < d′ ≤ d`, `l′ ≤ l` such that the top right
+  `d′ × (l − l′)` block of `PMQ` vanishes and `d·l′ ≤ rank(M)·(d′ + l′)`. That is Roy's bound
+  `rank(M) ≥ dθ/(1 + θ)`. With no hypothesis: it applies `multiplicityEstimateElem`.
+- `DiazModulus.roy_theorem_four` — Roy's Theorem 4 in the form of DALAG Prop. 11.19: at a rational subspace `S`
+  minimising `(n − dim(U ∩ S))/(d − dim S)`, the images in `ℂᵈ/S` satisfy `ℓ′d′ ≤ n′(d′ + ℓ′)` and `n′/d′ ≤ n/d`.
+- `DiazModulus.roy_slope_bound`, `roy_semistable_node` — the proof: an induction on `d`. A semistable `U` gets one
+  application of the linear subgroup theorem (`linear_subgroup_transcendence`, DALAG Th. 11.21) at `Υ⁻¹(U)`; otherwise
+  `ℂᵈ` splits along a rational subspace of maximal slope. DALAG (Th. 11.5 (3′), Lemma 11.24) and Roy (his Th. 2)
+  pass through other intermediate statements.
+- Six leaves: lifts through Roy's map `Υ` (`roy_field_lifts`), its dimension counts (`roy_upsilon_dims`, DALAG
+  Lemma 11.18), the image of an integer kernel (`roy_intKer_image`), the rank of the relations returned by Th. 11.21
+  (`roy_relation_rank_le`), a space of periods (`roy_period_space`), and coordinates adapted to a rational subspace
+  (`roy_rational_adapted_basis`). The second-to-last two are the steps not found in the sources read in this form.
+
+Milestone 185 of the Prove2Me mission is the corollary; the other nine joined by import. The 10 modules have 2,497
+lines in `Diaz/Mirror/`. Roy's Theorem 5 (DALAG Cor. 11.15) and the printed applications of the corollary
+(Waldschmidt's *Further variations*, Th. 2.1; DALAG §12.3) are not formalised.
 
 ### Consequences of Roy's strong six exponentials theorem
 

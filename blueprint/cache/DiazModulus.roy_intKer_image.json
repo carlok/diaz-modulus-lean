@@ -1,0 +1,21 @@
+{
+ "theorem_id": "cddee12c-a966-45a0-970d-2982017836b3",
+ "theorem_name": "DiazModulus.roy_intKer_image",
+ "theorem_title": "If $L_1$ is the kernel of an integer matrix and $\\omega$ is $\\mathbb Q$-free and algebraic, then $\\dim L_1 \\le m \\dim \\Upsilon_1(L_1)$ and $\\Upsilon_1(L_1)$ is rational",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem roy_intKer_image {d m q : ℕ} (ω : Fin m → ℂ) (hωQ : LinearIndependent ℚ ω)\n    (hωalg : ∀ a, ω a ∈ Qbar) (φ : Fin q → Fin m × Fin d → ℤ) (L₁ : Submodule ℂ (Fin m × Fin d → ℂ))\n    (hL₁ : ∀ v, v ∈ L₁ ↔ ∀ k, ∑ i, (φ k i : ℂ) * v i = 0) :\n    Module.finrank ℂ ↥(L₁) ≤ m * Module.finrank ℂ ↥(L₁.map (LinearMap.pi fun i : Fin d =>\n        ∑ k, ω k • (LinearMap.proj (k, i) : (Fin m × Fin d → ℂ) →ₗ[ℂ] ℂ))) ∧\n    Submodule.span ℂ {v : Fin d → ℂ | v ∈ L₁.map (LinearMap.pi fun i : Fin d =>\n        ∑ k, ω k • (LinearMap.proj (k, i) : (Fin m × Fin d → ℂ) →ₗ[ℂ] ℂ)) ∧ ∀ i, v i ∈ Qbar} = L₁.map (LinearMap.pi fun i : Fin d =>\n        ∑ k, ω k • (LinearMap.proj (k, i) : (Fin m × Fin d → ℂ) →ₗ[ℂ] ℂ)) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Here $\\overline{\\mathbb Q}$ is the field of algebraic numbers, $\\mathcal L$ the set of logarithms of algebraic numbers ($z \\in \\mathbb C$ with $e^z$ algebraic), and $\\widetilde{\\mathcal L}$ the $\\overline{\\mathbb Q}$-vector space spanned by $1$ and $\\mathcal L$. A subspace $S \\subseteq \\mathbb C^d$ is *rational* if it is spanned by vectors with algebraic coordinates.\n\nFor $\\omega \\in \\mathbb C^m$, $\\Upsilon : \\mathbb C^d \\times \\mathbb C^{m \\times d} \\to \\mathbb C^d$ is Roy's map $\\Upsilon(x, y)_i = x_i + \\sum_{k=1}^m \\omega_k y_{k,i}$ (DALAG §11.6.2), and $\\Upsilon_1(y) = \\Upsilon(0, y)$.\n\nLet $\\omega_1, \\dots, \\omega_m$ be algebraic and linearly independent over $\\mathbb Q$, and let $L_1 \\subseteq \\mathbb C^{m \\times d}$ be the common kernel of finitely many integer linear forms. Then $\\dim L_1 \\le m \\cdot \\dim \\Upsilon_1(L_1)$, and $\\Upsilon_1(L_1)$ is a rational subspace of $\\mathbb C^d$.",
+ "created_at": "2026-11-13T09:46:55.076634+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, §11.6.2, Lemma 11.18 (3) (the estimate d₁′ ≥ m d′), here without assuming that the obstruction subgroup is defined over Q̄. Novelty: none claimed; routine. Formal proof: Diaz modulus mission, 13 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

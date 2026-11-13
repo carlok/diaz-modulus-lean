@@ -222,3 +222,13 @@ import Solution
 #print axioms Diaz.exp_mul_or_exp_sq_mul_transcendental
 #print axioms Diaz.quadric_trdeg_two_alg
 #print axioms Diaz.log_modulus_forces_independence_alg
+#print axioms Diaz.roy_field_lifts
+#print axioms Diaz.roy_upsilon_dims
+#print axioms Diaz.roy_intKer_image
+#print axioms Diaz.roy_relation_rank_le
+#print axioms Diaz.roy_period_space
+#print axioms Diaz.roy_rational_adapted_basis
+#print axioms Diaz.roy_semistable_node
+#print axioms Diaz.roy_slope_bound
+#print axioms Diaz.roy_theorem_four
+#print axioms Diaz.roy_rank_bound

@@ -577,3 +577,13 @@ import Diaz.Mirror.exp_mul_or_exp_sq_mul_transcendental
 import Diaz.Mirror.two_pow_pi_or_three_pow_pi_transcendental
 import Diaz.Mirror.quadric_trdeg_two_alg
 import Diaz.Mirror.log_modulus_forces_independence_alg
+import Diaz.Mirror.roy_field_lifts
+import Diaz.Mirror.roy_upsilon_dims
+import Diaz.Mirror.roy_intKer_image
+import Diaz.Mirror.roy_relation_rank_le
+import Diaz.Mirror.roy_period_space
+import Diaz.Mirror.roy_rational_adapted_basis
+import Diaz.Mirror.roy_semistable_node
+import Diaz.Mirror.roy_slope_bound
+import Diaz.Mirror.roy_theorem_four
+import Diaz.Mirror.roy_rank_bound
