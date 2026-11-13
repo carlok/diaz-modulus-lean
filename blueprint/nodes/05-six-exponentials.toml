@@ -1275,7 +1275,7 @@ title = "Lifts through Roy's map"
 statement = '''
 Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^z$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$. A subspace $S \subseteq \C^d$ is \emph{rational} if it is spanned by vectors with algebraic coordinates. For $\omega \in \C^m$, Roy's map $\Upsilon : \C^d \times \C^{m \times d} \to \C^d$ is $\Upsilon(x, y)_i = x_i + \sum_{k=1}^m \omega_k y_{k,i}$, and $\Upsilon_1(y) = \Upsilon(0, y)$.
 
-Let $z_1, \dots, z_\ell \in \widetilde{\mathcal L}^d$. Then there are $m \geq 1$ and algebraic numbers $\omega_1, \dots, \omega_m$, linearly independent over $\Q$, whose $\Q$-span $k$ contains $1$ and is closed under multiplication (so $k$ is a number field), and vectors $\eta_{b,i} = (x, y)$ with $x \in k^d$ and $y \in \mathcal{L}^{m \times d}$, such that $\Upsilon(\eta_{b,i}) = \omega_b z_i$ for all $b \leq m$ and $i \leq \ell$.
+Let $z_1, \dots, z_{\ell} \in \widetilde{\mathcal L}^d$. Then there are $m \geq 1$ and algebraic numbers $\omega_1, \dots, \omega_m$, linearly independent over $\Q$, whose $\Q$-span $k$ contains $1$ and is closed under multiplication (so $k$ is a number field), and vectors $\eta_{b,i} = (x, y)$ with $x \in k^d$ and $y \in \mathcal{L}^{m \times d}$, such that $\Upsilon(\eta_{b,i}) = \omega_b z_i$ for all $b \leq m$ and $i \leq \ell$.
 '''
 source = '''\cite[\S11.6.2, Lemma~11.18(4)]{Wal00}, after \cite{Roy92}, proof of Th.~4; lifts of a $\Q$-basis replace the appeal to Baker's theorem. Routine.'''
 sketch = '''
@@ -1303,7 +1303,7 @@ Let $\omega_1, \dots, \omega_m$ be algebraic and linearly independent over $\Q$,
 '''
 source = '''\cite[\S11.6.2, Lemma~11.18(3)]{Wal00} (the estimate $d_1' \geq m d'$), here without assuming that the obstruction subgroup is defined over $\Qbar$. Routine.'''
 sketch = '''
-$L_1$ is the $\C$-span of its rational points $L_\Q$: expand the coordinates of $y \in L_1$ in a $\Q$-basis of their $\Q$-span. So $\dim L_1 \leq \dim_\Q L_\Q$. Some $w = \dim \Upsilon_1(L_1)$ coordinates $a_1, \dots, a_w$ separate the points of $\Upsilon_1(L_1)$, and $r \mapsto (r_{(k, a_j)})_{j,k}$ is injective on $L_\Q$, because $\omega$ is $\Q$-free; hence $\dim_\Q L_\Q \leq mw$. Each $\Upsilon_1(r)$ with $r$ rational has algebraic coordinates, and these vectors span $\Upsilon_1(L_1)$.
+$L_1$ is the $\C$-span of its rational points $L_{\Q}$: expand the coordinates of $y \in L_1$ in a $\Q$-basis of their $\Q$-span. So $\dim L_1 \leq \dim_{\Q} L_{\Q}$. Some $w = \dim \Upsilon_1(L_1)$ coordinates $a_1, \dots, a_w$ separate the points of $\Upsilon_1(L_1)$, and $r \mapsto (r_{(k, a_j)})_{j,k}$ is injective on $L_{\Q}$, because $\omega$ is $\Q$-free; hence $\dim_{\Q} L_{\Q} \leq mw$. Each $\Upsilon_1(r)$ with $r$ rational has algebraic coordinates, and these vectors span $\Upsilon_1(L_1)$.
 '''
 
 [[node]]
@@ -1311,7 +1311,7 @@ platform = "DiazModulus.roy_relation_rank_le"
 env = "lemma"
 title = "The rank of the relations at Roy's lifts"
 statement = '''
-Let $\omega$ be algebraic and $\Q$-free, $k$ its $\Q$-span, $z_1, \dots, z_\ell \in \C^d$ linearly independent over $\Qbar$, and $\eta_{b,i} \in k^d \times \mathcal{L}^{m \times d}$ with $\Upsilon(\eta_{b,i}) = \omega_b z_i$ (Lemma~\ref{lem:roy_field_lifts}). Let $V' \subseteq \C^d$ be a subspace and $L_1$ the common kernel of integer linear forms $\varphi_1, \dots, \varphi_q$. Let $\rho$ be the dimension of the $\Q$-span of the integer vectors $s$ with $\sum_j s_j \eta'_j \in V'$ and $\prod_i (\prod_j e^{s_j \eta''_{j,i}})^{\varphi_{k,i}} = 1$ for every $k$ (the relations of Theorem~\ref{thm:linear_subgroup_transcendence}). With $T = \Upsilon(\mathrm{span}_\C(V' \cap \Qbar^d) \times L_1)$,
+Let $\omega$ be algebraic and $\Q$-free, $k$ its $\Q$-span, $z_1, \dots, z_{\ell} \in \C^d$ linearly independent over $\Qbar$, and $\eta_{b,i} \in k^d \times \mathcal{L}^{m \times d}$ with $\Upsilon(\eta_{b,i}) = \omega_b z_i$ (Lemma~\ref{lem:roy_field_lifts}). Let $V' \subseteq \C^d$ be a subspace and $L_1$ the common kernel of integer linear forms $\varphi_1, \dots, \varphi_q$. Let $\rho$ be the dimension of the $\Q$-span of the integer vectors $s$ with $\sum_j s_j \eta'_j \in V'$ and $\prod_i (\prod_j e^{s_j \eta''_{j,i}})^{\varphi_{k,i}} = 1$ for every $k$ (the relations of Theorem~\ref{thm:linear_subgroup_transcendence}). With $T = \Upsilon(\mathrm{span}_{\C}(V' \cap \Qbar^d) \times L_1)$,
 \[ \rho \leq m \dim_{\Qbar} \bigl(\mathrm{span}_{\Qbar}(z) \cap \{\tau + 2\pi i\,\kappa : \tau \in T,\ \kappa \in \Qbar^d\}\bigr). \]
 '''
 source = '''A step of the proof of \cite[Th.~4]{Roy92}, in the setting of \cite[\S11.6.2]{Wal00}. The route here is an induction on $d$ that splits along a rational subspace of maximal slope and applies \cite[Th.~11.21]{Wal00} once at each semistable step, counting the periods through one extra rational subspace; \cite{Wal00} argues instead through Th.~11.5\,(3$'$) and Lemma~11.24, and \cite{Roy92} through his Th.~2. Not found in the sources read in this form; routine.'''
@@ -1324,11 +1324,11 @@ platform = "DiazModulus.roy_period_space"
 env = "lemma"
 title = "The space of periods"
 statement = '''
-Let $c \neq 0$, let $T, U \subseteq \C^d$ be subspaces with $T$ rational, and let $F$ be a finite-dimensional $\Qbar$-subspace of $U$ every element of which is $\tau + c\kappa$ with $\tau \in T$ and $\kappa \in \Qbar^d$. Then $R = T + \mathrm{span}_\C F$ is rational, $\dim_{\Qbar} F + \dim T \leq \dim_{\Qbar}(F \cap T) + \dim R$, and $\dim(U \cap R) + \dim T = \dim(U \cap T) + \dim R$.
+Let $c \neq 0$, let $T, U \subseteq \C^d$ be subspaces with $T$ rational, and let $F$ be a finite-dimensional $\Qbar$-subspace of $U$ every element of which is $\tau + c\kappa$ with $\tau \in T$ and $\kappa \in \Qbar^d$. Then $R = T + \mathrm{span}_{\C} F$ is rational, $\dim_{\Qbar} F + \dim T \leq \dim_{\Qbar}(F \cap T) + \dim R$, and $\dim(U \cap R) + \dim T = \dim(U \cap T) + \dim R$.
 '''
 source = '''Linear algebra; a step of the proof of \cite[Th.~4]{Roy92} (first case), on the route of Lemma~\ref{lem:roy_relation_rank_le}. Not found in the sources read in this form; routine.'''
 sketch = '''
-For $x = \tau + c\kappa \in F$, $\kappa = c^{-1}(x - \tau) \in R$, so $R$ is spanned by algebraic vectors. The $\Qbar$-space of pairs $(x, \kappa)$ with $x \in F$, $\kappa \in \Qbar^d$ and $x - c\kappa \in T$ projects onto $F$ with a kernel of dimension at least $\dim T$, and its second projection has a kernel inside $F \cap T$ and an image of algebraic vectors of $R$, of $\Qbar$-dimension at most $\dim R$. Rank--nullity twice gives the inequality. As $\mathrm{span}_\C F \subseteq U$, $U + R = U + T$, and the dimension formula gives the identity.
+For $x = \tau + c\kappa \in F$, $\kappa = c^{-1}(x - \tau) \in R$, so $R$ is spanned by algebraic vectors. The $\Qbar$-space of pairs $(x, \kappa)$ with $x \in F$, $\kappa \in \Qbar^d$ and $x - c\kappa \in T$ projects onto $F$ with a kernel of dimension at least $\dim T$, and its second projection has a kernel inside $F \cap T$ and an image of algebraic vectors of $R$, of $\Qbar$-dimension at most $\dim R$. Rank--nullity twice gives the inequality. As $\mathrm{span}_{\C} F \subseteq U$, $U + R = U + T$, and the dimension formula gives the identity.
 '''
 
 [[node]]
@@ -1348,7 +1348,7 @@ platform = "DiazModulus.roy_semistable_node"
 env = "proposition"
 title = "Roy's Theorem 4, the semistable case"
 statement = '''
-Assume \texttt{hME} (the hypothesis of Theorem~\ref{thm:linear_subgroup_transcendence}; Theorem~\ref{thm:multiplicityEstimateElem} proves it), and assume the conclusion of Proposition~\ref{prop:roy_slope_bound} in every dimension $t < d$. Let $U \subseteq \C^d$ with $n = \dim U < d$ and $d \dim(U \cap S) \leq n \dim S$ for every rational $S \subseteq \C^d$, and let $z_1, \dots, z_\ell \in U \cap \widetilde{\mathcal L}^d$ be linearly independent over $\Qbar$. Then $(d - n)\,\ell \leq dn$.
+Assume \texttt{hME} (the hypothesis of Theorem~\ref{thm:linear_subgroup_transcendence}; Theorem~\ref{thm:multiplicityEstimateElem} proves it), and assume the conclusion of Proposition~\ref{prop:roy_slope_bound} in every dimension $t < d$. Let $U \subseteq \C^d$ with $n = \dim U < d$ and $d \dim(U \cap S) \leq n \dim S$ for every rational $S \subseteq \C^d$, and let $z_1, \dots, z_{\ell} \in U \cap \widetilde{\mathcal L}^d$ be linearly independent over $\Qbar$. Then $(d - n)\,\ell \leq dn$.
 '''
 source = '''\cite[Th.~4]{Roy92}, first case; \cite[Prop.~11.19]{Wal00} (\S11.6.2), first case, through \cite[Th.~11.21]{Wal00} (Theorem~\ref{thm:linear_subgroup_transcendence}), applied once, on the route of Lemma~\ref{lem:roy_relation_rank_le}.'''
 sketch = '''
@@ -1360,7 +1360,7 @@ platform = "DiazModulus.roy_slope_bound"
 env = "proposition"
 title = "The slope bound"
 statement = '''
-Assume \texttt{hME} (Theorem~\ref{thm:multiplicityEstimateElem} proves it). Let $U \subseteq \C^d$ and let $a < b$ be natural numbers with $b \dim(U \cap S) \leq a \dim S$ for every rational $S \subseteq \C^d$, and let $z_1, \dots, z_\ell \in U \cap \widetilde{\mathcal L}^d$ be linearly independent over $\Qbar$. Then $(b - a)\,\ell \leq b \dim U$. With $(a, b) = (\dim U, d)$ this is the first case of Roy's Theorem 4: $\ell/(d + \ell) \leq n/d$.
+Assume \texttt{hME} (Theorem~\ref{thm:multiplicityEstimateElem} proves it). Let $U \subseteq \C^d$ and let $a < b$ be natural numbers with $b \dim(U \cap S) \leq a \dim S$ for every rational $S \subseteq \C^d$, and let $z_1, \dots, z_{\ell} \in U \cap \widetilde{\mathcal L}^d$ be linearly independent over $\Qbar$. Then $(b - a)\,\ell \leq b \dim U$. With $(a, b) = (\dim U, d)$ this is the first case of Roy's Theorem 4: $\ell/(d + \ell) \leq n/d$.
 '''
 source = '''\cite[Th.~4]{Roy92}, first case (p.~34), in a form that passes to subspaces and quotients; \cite[Prop.~11.19]{Wal00}. The proof is the induction on $d$ described in the source of Lemma~\ref{lem:roy_relation_rank_le}.'''
 sketch = '''
@@ -1372,7 +1372,7 @@ platform = "DiazModulus.roy_theorem_four"
 env = "theorem"
 title = "Roy's Theorem 4"
 statement = '''
-Assume \texttt{hME} (Theorem~\ref{thm:multiplicityEstimateElem} proves it). Let $U \subseteq \C^d$, $n = \dim U$, and $z_1, \dots, z_\ell \in U \cap \widetilde{\mathcal L}^d$ linearly independent over $\Qbar$, spanning $Z$. Let $S \neq \C^d$ be a rational subspace minimising $(n - \dim(U \cap S))/(d - \dim S)$ among the rational subspaces $\neq \C^d$. With $d' = d - \dim S$, $n' = n - \dim(U \cap S)$ and $\ell' = \ell - \dim_{\Qbar}(Z \cap S)$, the dimensions of the images under the quotient by $S$,
+Assume \texttt{hME} (Theorem~\ref{thm:multiplicityEstimateElem} proves it). Let $U \subseteq \C^d$, $n = \dim U$, and $z_1, \dots, z_{\ell} \in U \cap \widetilde{\mathcal L}^d$ linearly independent over $\Qbar$, spanning $Z$. Let $S \neq \C^d$ be a rational subspace minimising $(n - \dim(U \cap S))/(d - \dim S)$ among the rational subspaces $\neq \C^d$. With $d' = d - \dim S$, $n' = n - \dim(U \cap S)$ and $\ell' = \ell - \dim_{\Qbar}(Z \cap S)$, the dimensions of the images under the quotient by $S$,
 \[ \ell' d' \leq n' (d' + \ell') \quad\text{and}\quad n' d \leq n d'. \]
 '''
 source = '''\cite[Th.~4]{Roy92} (\S4, p.~34), for $K = \Qbar$ and $\widetilde{\mathcal L} = \Qbar + \Qbar\mathcal{L}$; \cite[Prop.~11.19]{Wal00} (\S11.6.2, p.~402).'''
