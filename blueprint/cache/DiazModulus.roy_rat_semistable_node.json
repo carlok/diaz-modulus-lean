@@ -1,0 +1,21 @@
+{
+ "theorem_id": "f397c65e-ab39-47fd-b3e5-e03d7fcf3b6c",
+ "theorem_name": "DiazModulus.roy_rat_semistable_node",
+ "theorem_title": "Roy's Th. 4 over ℚ, semistable case, from the multiplicity estimate: if d dim(U ∩ S) ≤ n dim S for all S rational over ℚ and n = dim U < d, then (d − n)ℓ ≤ dn for ℚ-free z in U ∩ (ℚ + ℒ)ᵈ",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem roy_rat_semistable_node (hME : MultiplicityEstimateElem) {d : ℕ}\n    (hIH : ∀ t < d, ∀ (U' : Submodule ℂ (Fin t → ℂ)) (a b ℓ' : ℕ) (z' : Fin ℓ' → Fin t → ℂ),\n        a < b → (∀ S : Submodule ℂ (Fin t → ℂ),\n          Submodule.span ℂ {v : Fin t → ℂ | v ∈ S ∧ ∀ i, ∃ q : ℚ, v i = (q : ℂ)} = S →\n          b * Module.finrank ℂ ↥(U' ⊓ S) ≤ a * Module.finrank ℂ ↥S) →\n        (∀ i, z' i ∈ U') → (∀ i j, z' i j ∈ Submodule.span ℚ (insert (1 : ℂ) LogAlg)) →\n        LinearIndependent ℚ z' → (b - a) * ℓ' ≤ b * Module.finrank ℂ ↥U')\n    (U : Submodule ℂ (Fin d → ℂ)) (hUd : Module.finrank ℂ ↥U < d)\n    (hss : ∀ S : Submodule ℂ (Fin d → ℂ),\n      Submodule.span ℂ {v : Fin d → ℂ | v ∈ S ∧ ∀ i, ∃ q : ℚ, v i = (q : ℂ)} = S →\n      d * Module.finrank ℂ ↥(U ⊓ S) ≤ Module.finrank ℂ ↥U * Module.finrank ℂ ↥S)\n    {ℓ : ℕ} (z : Fin ℓ → Fin d → ℂ) (hzU : ∀ i, z i ∈ U)\n    (hz : ∀ i j, z i j ∈ Submodule.span ℚ (insert (1 : ℂ) LogAlg)) (hzind : LinearIndependent ℚ z) :\n    (d - Module.finrank ℂ ↥U) * ℓ ≤ d * Module.finrank ℂ ↥U := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Here $\\mathcal L$ is the set of logarithms of algebraic numbers ($z \\in \\mathbb C$ with $e^z$ algebraic). Write $\\mathbb Q + \\mathcal L$ for the $\\mathbb Q$-vector space spanned by $1$ and $\\mathcal L$; it consists of the numbers $q + \\lambda$ with $q \\in \\mathbb Q$ and $\\lambda \\in \\mathcal L$. A vector of $\\mathbb C^d$ is *rational* if its coordinates are rational numbers, and a subspace $S \\subseteq \\mathbb C^d$ is *rational over $\\mathbb Q$* if it is spanned by its rational vectors.\n\nAssume the multiplicity estimate `hME`, and assume the conclusion of DiazModulus.roy_rat_slope_bound in every dimension $t < d$ (hypothesis `hIH`). Let $U \\subseteq \\mathbb C^d$ with $n = \\dim U < d$ and $d \\dim(U \\cap S) \\le n \\dim S$ for every subspace $S \\subseteq \\mathbb C^d$ rational over $\\mathbb Q$, and let $z_1, \\dots, z_\\ell \\in U \\cap (\\mathbb Q + \\mathcal L)^d$ be linearly independent over $\\mathbb Q$. Then $(d - n)\\,\\ell \\le d\\,n$.\n\nThe multiplicity estimate is the explicit hypothesis `hME : MultiplicityEstimateElem` (proved on the platform as DiazModulus.multiplicityEstimateElem).",
+ "created_at": "2026-11-14T17:29:42.852771+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus\nimport Definitions.Def_MultiplicityEstimateElem",
+ "source": "D. Roy, Matrices whose coefficients are linear forms in logarithms, J. Number Theory 41 (1992), 22–47, Th. 4 (p. 34), semistable case, over F = ℚ (Remark (i), p. 37, with ℚ + ℒ in place of ℒ̃); M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, Prop. 11.19 (p. 402) for (ℚ, ℚ + ℒ) in the same case. The route is that of DiazModulus.roy_semistable_node, over ℚ and with m = 1: DALAG Th. 11.21 (DiazModulus.linear_subgroup_transcendence) is applied once, and the periods are counted through one extra rational subspace. Formal proof: Diaz modulus mission, 14 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

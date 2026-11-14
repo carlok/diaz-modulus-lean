@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 672 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 684 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -40,7 +40,7 @@ checked and ranks those that are not routine; in the dependency graph they have 
 | Roy's strong six exponentials theorem: for `x₁, x₂` and `y₁, y₂, y₃` free over Q̄, some `xᵢyⱼ` is not in `ℒ̃` | Roy 1992, Cor. 2; DALAG Cor. 11.16, via Th. 11.21 | `Diaz.strongSixExponentials` | this project, with no hypothesis, through an elementary case of the multiplicity estimate (DALAG Th. 8.1) |
 | the five exponentials theorem: for `x₀, x₁` and `y₀, y₁` free over ℚ and algebraic `η ≠ 0`, one of `e^{xᵢyⱼ}`, `e^{ηx₁/x₀}` is transcendental | Waldschmidt 1988, Cor. 2.2; DALAG §11.3.3 | `Diaz.five_exponentials` | this project, from Roy's theorem and Baker's, as in DALAG (Remark after Cor. 11.16) |
 | Roy's rank bound: a `d × l` matrix `M` with entries in `ℒ̃` has rank at least `dθ/(1 + θ)`, `θ` read off the zero blocks of `PMQ` for algebraic `P`, `Q` | Roy 1992, Cor. 1; DALAG Th. 12.20, Cor. 12.21 | `Diaz.roy_rank_bound` | this project, with no hypothesis, from the linear subgroup theorem (DALAG Th. 11.21) |
-| Roy's Theorem 5: if `U ⊆ ℂᵈ` meets `Q̄ᵈ` only in 0 and no rational subspace other than `ℂᵈ` contains it, a Q̄-free family in `U ∩ ℒ̃ᵈ` has at most `φ(dim U, d)` elements, `φ` the largest `Σ nᵢdᵢ/(dᵢ − nᵢ)` over the decompositions `(dim U, d) = Σ (nᵢ, dᵢ)` | Roy 1992, Th. 5 and Lemma (p. 40); DALAG Cor. 11.15 | `Diaz.roy_theorem_five`, `Diaz.roy_theorem_five_dmin`, `Diaz.dalag_cor_11_15_psi` | this project, with no hypothesis, from Roy's Theorem 4; `φ` in closed form, and DALAG's table Ψ as its integer part |
+| Roy's Theorem 5: if `U ⊆ ℂᵈ` meets `Q̄ᵈ` only in 0 and no rational subspace other than `ℂᵈ` contains it, a Q̄-free family in `U ∩ ℒ̃ᵈ` has at most `φ(dim U, d)` elements, `φ` the largest `Σ nᵢdᵢ/(dᵢ − nᵢ)` over the decompositions `(dim U, d) = Σ (nᵢ, dᵢ)` | Roy 1992, Th. 5, Remark (i) (p. 37) and Lemma (p. 40); DALAG Cor. 11.15 | `Diaz.roy_theorem_five`, `Diaz.roy_theorem_five_dmin`, `Diaz.dalag_cor_11_15_psi`, `Diaz.dalag_cor_11_15_rat` | this project, with no hypothesis, from Roy's Theorem 4; `φ` in closed form, and DALAG's table Ψ as its integer part; over ℚ too, for `(ℚ, ℚ + ℒ)` |
 | the four exponentials theorem in transcendence degree one | Waldschmidt 1973, Brownawell 1974 | `Diaz.four_exponentials_trdeg_one` | this project |
 | two of `xᵢ, yⱼ, e^{xᵢyⱼ}` are algebraically independent when one column is algebraic | Waldschmidt 1973, Brownawell 1974 | `Diaz.two_algebraically_independent_of_exp_column` | this project |
 | one of `e^e`, `e^{e²}` is transcendental (Schneider's eighth problem) | Waldschmidt 1973, Brownawell 1974 | `Transcendence.exp_e_or_exp_e_sq_transcendental` | this project |
@@ -939,8 +939,9 @@ real and the other purely imaginary; DALAG's deduction of Cor. 12.24 from Cor. 1
 Cor. 12.24 is proved here from Th. 12.20; and the printed proof of *Further variations* Th. 2.1 covers
 finite-dimensional `Y`, which is how it is stated here; the next section proves the statement as printed.
 [`ERRATA.md`](ERRATA.md) gives each point with the printed text, a counterexample or the missing step, and the
-repair, with gaps in DALAG's proofs of Cor. 11.10/11.15, Th. 11.21 and Lemma 12.9 and in Roy's proof of his Lemma
-on `φ`, and a list of smaller slips.
+repair, with gaps in DALAG's proofs of Cor. 11.10/11.15, Prop. 11.19 (for `(ℚ, ℚ + ℒ)`), Th. 11.21, Lemma 12.9
+and Prop. 12.13 and in Roy's proof of his Lemma on `φ`, a fourth false statement (DALAG Lemma 11.18 (2)), and a
+list of smaller slips.
 
 ### *Further variations* Th. 2.1 for every `Y`, Roy's Lemma, DALAG Cor. 11.15 and 12.23
 
@@ -976,11 +977,11 @@ the two sections above.
   rational `Nₖ`. From `dalag_cor_12_22` (above) and three helpers: `baker_rat_add_logAlg_free`, Baker's theorem
   for `ℚ + ℒ` (elements free over ℚ are free over Q̄), through `logAlg_exists_rat_basis` (a ℚ-basis chosen among
   finitely many logarithms); and `matrix_rank_map_field` (a homomorphism of fields preserves the rank of a
-  matrix). DALAG's Lemma 12.9 is not needed.
+  matrix). DALAG's Lemma 12.9 is not needed; the affine form of p. 435 is `dalag_cor_12_23_affine` (below).
 
 Milestones 203–206 of the Prove2Me mission are the four printed results; the other eleven joined by import. The 15
-modules have 1,330 lines in `Diaz/Mirror/`. Not formalised: DALAG Cor. 11.15 for `(ℚ, ℚ + ℒ)`, which needs a
-ℚ-rational form of DALAG Th. 11.5; DALAG Lemma 12.9, which no proof here uses.
+modules have 1,330 lines in `Diaz/Mirror/`. DALAG Cor. 11.15 for `(ℚ, ℚ + ℒ)` and DALAG Lemma 12.9 are
+formalised in the next two sections.
 
 **Printed proofs completed while formalising.** The proof of *Further variations* Th. 2.1 covers finite-dimensional
 `Y` only, and the statement as printed is true: the finite approximation above reduces it to that case. Roy's
@@ -989,6 +990,80 @@ proof of his Lemma concludes that a maximising decomposition has two parts from 
 of the printed argument and has three parts. One exchange on three parts repairs it, and the Lemma is correct.
 DALAG's proof of Lemma 12.9 leaves a dehomogenisation implicit, and its table Ψ does not define `Ψ(0, 0)`, which
 Cor. 11.15 uses at `V = 0`. [`ERRATA.md`](ERRATA.md) gives each point with the printed text, the evidence and the
+repair.
+
+### DALAG Cor. 11.15 for `(ℚ, ℚ + ℒ)`, by Roy's route over ℚ
+
+Eight nodes of 14 November 2026. All are formal proofs of classical results: DALAG Cor. 11.15 (p. 398) for
+`(ℚ, ℚ + ℒ)`, with no hypothesis, and on the way Roy's Theorems 4 and 5 over ℚ. Roy's Remark (i) (p. 37) says that
+his Theorem 4 holds over every subfield `F` of Q̄, with `F + F·ℒ` in place of `ℒ̃`; here `F = ℚ`, and `ℚ + ℒ` is
+the ℚ-span of 1 and `ℒ`. A subspace is rational over ℚ when it is spanned by vectors with rational coordinates.
+
+- `DiazModulus.dalag_cor_11_15_rat` (milestone) — DALAG Cor. 11.15 (p. 398) for `(ℚ, ℚ + ℒ)` in its printed form:
+  if `V ⊆ ℂᵈ` meets `ℚᵈ` only in 0, then `V ∩ (ℚ + ℒ)ᵈ` is finite-dimensional over ℚ and
+  `dim_ℚ(V ∩ (ℚ + ℒ)ᵈ) ≤ Ψ(dim V, d_min)`, with DALAG's table Ψ (p. 394) and `d_min` the least dimension of a
+  subspace rational over ℚ that contains `V`; and `dim V < d_min` when `V ≠ 0`. From `roy_rat_theorem_five` and
+  `dalag_psi_floor_roy_phi` (above), with `Ψ(n, ·)` non-increasing above `n`.
+- `DiazModulus.roy_rat_theorem_five` — Roy 1992, Th. 5 (p. 39) over ℚ: if `U ⊆ ℂᵈ` meets `ℚᵈ` only in 0, then
+  `ℓ` ℚ-free points of `U ∩ (ℚ + ℒ)ᵈ` satisfy `ℓ ≤ Σ nᵢdᵢ/(dᵢ − nᵢ)` for some subspace `S ⊇ U` rational over ℚ and
+  some decomposition `(dim U, dim S) = Σ (nᵢ, dᵢ)` with `0 < nᵢ < dᵢ`. By an induction on `d` that splits along a
+  subspace of maximal slope, with the slope bound on the subspace and the induction on the quotient, so that Roy's
+  hypothesis that `ℂᵈ` is the least subspace rational over ℚ containing `U` is not needed.
+- `DiazModulus.roy_rat_slope_bound`, `roy_rat_semistable_node` — Roy's Theorem 4 over ℚ, in the slope form of
+  `roy_slope_bound`, by the same induction as over Q̄: a semistable `U` gets one application of the linear subgroup
+  theorem (`linear_subgroup_transcendence`, DALAG Th. 11.21), for Roy's map `Υ(x, y) = x + y`. The additive part of
+  the obstruction it returns is replaced by the span of its rational vectors, so no subgroup has to be selected and
+  DALAG Prop. 11.19 is not used. Both take the multiplicity estimate `hME` as a hypothesis, as their Q̄ versions do;
+  `roy_rat_theorem_five` discharges it with `multiplicityEstimateElem`.
+- Four leaves: `ratLogAlg_mem_iff` (the ℚ-span of 1 and `ℒ` is `ℚ + ℒ`, which gives the lifts through `Υ`), and
+  three ℚ analogues of leaves of "Roy's Corollary 1" above: `roy_rat_adapted_basis` (coordinates adapted to a
+  subspace rational over ℚ, by a rational matrix), `roy_rat_relation_rank_le` (the rank of the relations returned
+  by Th. 11.21) and `roy_rat_period_space` (a space of periods).
+
+Milestone 207 of the Prove2Me mission is the corollary; the other seven joined by import. Apart from
+`linear_subgroup_transcendence`, `multiplicityEstimateElem` and `dalag_psi_floor_roy_phi`, they import nothing
+proved earlier; in particular not Baker's theorem. The 8 modules have 2,138 lines in `Diaz/Mirror/`.
+
+**A printed proof that misses this case.** DALAG proves Cor. 11.15 (p. 403) from Prop. 11.19, whose proof reads
+Th. 11.5 (3′) at the trivial subgroup. For `(ℚ, ℚ + ℒ)` that step fails: Th. 11.5 ranges over subgroups defined
+over Q̄, and for `U = ℂ(1, √2, 0) + ℂ(log 2, log 3, log 5)` in `ℂ³` a subgroup with tangent space
+`ℂ(1, √2, 0) × {0}` ties with the trivial one and is the one (3′) selects. The example refutes the inference, not
+the inequality, and Prop. 11.19 is true; the route above proves the corollary without it. The tie comes from the
+algebraic vector `(1, √2, 0)` of `U`, which the second clause of DALAG Lemma 11.18 (2) would exclude; that clause is
+false, since `U ∩ kᵈ = 0` does not give `U ∩ Q̄ᵈ = 0`. For `(Q̄, ℒ̃)` the printed step is right.
+[`ERRATA.md`](ERRATA.md) gives both points (A4, B9) with the printed text and the evidence.
+
+### DALAG Lemma 12.9, and Cor. 12.23 in the affine form of p. 435
+
+Four nodes of 14 November 2026, formal proofs of classical results with no hypothesis. DALAG §12.1.4 defines the
+structural rank of a matrix `M` with entries in a field `K`, over a subfield `k`, through an injective `k`-linear
+map from the span of its entries into the linear forms `kX₁ + ⋯ + kXₙ`; Lemma 12.9 (p. 427) allows the affine forms `k + kX₁ + ⋯ + kXₙ`. As in
+`dalag_cor_12_22`, the structural rank is computed from a presentation `M = Σⱼ eⱼNⱼ`, with `k`-free `eⱼ` and `Nⱼ`
+over `k`: it is the rank of `Σⱼ ZⱼNⱼ` over `k(Z₁, …, Z_m)`.
+
+- `DiazModulus.dalag_lemma_12_9` (milestone) — DALAG Lemma 12.9 (p. 427), for any field `k`: if
+  `φ : K → k + kX₁ + ⋯ + kXₙ` is `k`-linear and injective on the span of the `eⱼ`, the rank of `φ(M)` over
+  `k(X₁, …, Xₙ)` is the structural rank of `M`. From two helpers, the two steps the printed proof leaves implicit:
+  `dalag_lemma_12_9_dehomog`, dehomogenisation keeps the rank (`N₀ + Σᵢ XᵢNᵢ` over `k(X₁, …, X_m)` and
+  `Y₀N₀ + Σᵢ YᵢNᵢ` over `k(Y₀, …, Y_m)` have the same rank); and `dalag_lemma_12_8_linear`, DALAG Lemma 12.8 (p. 426)
+  for every `k`-linear map into linear forms that is injective on the span of the `eⱼ`, not only for one given by a
+  basis. Both rest on `matrix_rank_map_field` (above).
+- `DiazModulus.dalag_cor_12_23_affine` (milestone) — DALAG Cor. 12.23 (p. 436) with the matrix of p. 435: if
+  `M = M₀ + Σₖ λₖNₖ` with rational `M₀, Nₖ`, `λₖ ∈ ℚ + ℒ` and `1, λ₁, …, λ_m` linearly independent over ℚ, then
+  `rank_{ℚ(X₁, …, X_m)}(M₀ + Σₖ XₖNₖ) ≤ 2·rank M`. By Lemma 12.9 the left side is the structural rank over ℚ. From
+  `dalag_cor_12_23` (above) and `dalag_lemma_12_9_dehomog`.
+
+Milestones 208 and 209 of the Prove2Me mission are the lemma and the corollary; the other two joined by import. The
+4 modules have 356 lines in `Diaz/Mirror/`. Not formalised: DALAG Prop. 12.13, whose proof uses Lemma 12.9.
+
+**Printed proofs completed while formalising.** DALAG's proof of Lemma 12.9 (p. 428) obtains the structural rank as
+the rank of a homogenised matrix and leaves the dehomogenisation implicit; it also applies Lemma 12.8 to a map not
+given by a basis, which the proof of Lemma 12.8 covers. Its proof of Prop. 12.13, (iv) ⇒ (iii) (p. 430), applies
+(iv) to a matrix whose entries need not lie in the space `E` that (iv) is about; multiplying that matrix by `x₀`
+gives one over `E` with the same rank and, by Lemma 12.9, full structural rank, and the proposition is correct.
+Two slips nearby: "k-vector subspace" for "K-vector subspace" in the proof of Prop. 12.7 (p. 426), and "a r × r
+matrix" in the remark before Lemma 12.9 (p. 427), meant for a matrix `k`-equivalent to one with a regular `r × r`
+block. [`ERRATA.md`](ERRATA.md) gives each point (B7, B8, C10, C11) with the printed text, the evidence and the
 repair.
 
 ### Consequences of Roy's strong six exponentials theorem

@@ -1,0 +1,21 @@
+{
+ "theorem_id": "ec10078d-b687-4c92-96f2-d98ea76742fe",
+ "theorem_name": "DiazModulus.dalag_lemma_12_8_linear",
+ "theorem_title": "DALAG Lemma 12.8 for any injective map: if M = Σ eⱼNⱼ, e free over k, Nⱼ over k, and φ: K → kX₁ + ⋯ + kXₙ is k-linear and injective on span(e), then rank φ(M) = rank Σ ZⱼNⱼ",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem dalag_lemma_12_8_linear {k K : Type*} [Field k] [Field K] [Algebra k K] {d l m n : ℕ}\n    (M : Matrix (Fin d) (Fin l) K) (e : Fin m → K) (he : LinearIndependent k e)\n    (N : Fin m → Matrix (Fin d) (Fin l) k) (hMN : M = ∑ j, e j • (N j).map (algebraMap k K))\n    (φ : K →ₗ[k] (Fin n → k)) (hφ : Set.InjOn φ (Submodule.span k (Set.range e) : Set K)) :\n    (M.map fun x => algebraMap (MvPolynomial (Fin n) k) (FractionRing (MvPolynomial (Fin n) k))\n        (∑ i, MvPolynomial.C (φ x i) * MvPolynomial.X i)).rank =\n    (∑ j, (algebraMap (MvPolynomial (Fin m) k) (FractionRing (MvPolynomial (Fin m) k))\n        (MvPolynomial.X j)) • (N j).map (algebraMap k (FractionRing (MvPolynomial (Fin m) k)))).rank := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \\subseteq K$), let $M$ be a $d \\times \\ell$ matrix with entries in $K$, and let $e_1, \\dots, e_m \\in K$ be linearly independent over $k$ and $N_1, \\dots, N_m$ be $d \\times \\ell$ matrices with entries in $k$ such that $M = \\sum_{j=1}^m e_j N_j$. Let $\\varphi : K \\to k^n$ be $k$-linear and injective on the $k$-span of $e_1, \\dots, e_m$, and let $\\varphi(M)$ be the matrix whose $(a, b)$ entry is the linear form $\\sum_{i=1}^n \\varphi(M_{ab})_i X_i$. Then\n$$\\operatorname{rank}_{k(X_1, \\dots, X_n)} \\varphi(M) = \\operatorname{rank}_{k(Z_1, \\dots, Z_m)} \\sum_{j=1}^m Z_j N_j.$$\nThe right-hand side is the structural rank of $M$ over $k$ (DALAG §12.1.4), computed from the presentation $M = \\sum_j e_j N_j$. DALAG's Lemma 12.8 states this equality for $\\varphi$ given by a basis.",
+ "created_at": "2026-11-14T17:29:26.891302+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, Lemma 12.8 (p. 426; proof p. 427), for any k-linear map into kX₁ + ⋯ + kXₙ that is injective on the span of the eⱼ, as the proof of Lemma 12.9 (p. 428) uses it; the printed statement is for a map given by a basis. Formal proof: Diaz modulus mission, 14 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

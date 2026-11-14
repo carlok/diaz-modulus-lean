@@ -276,3 +276,15 @@ import Solution
 #print axioms Diaz.fv_rank_quot_witness
 #print axioms Diaz.fv_theorem_2_1_general
 #print axioms Diaz.fv_theorem_2_1_rank
+#print axioms Diaz.ratLogAlg_mem_iff
+#print axioms Diaz.roy_rat_adapted_basis
+#print axioms Diaz.roy_rat_relation_rank_le
+#print axioms Diaz.roy_rat_period_space
+#print axioms Diaz.roy_rat_semistable_node
+#print axioms Diaz.roy_rat_slope_bound
+#print axioms Diaz.roy_rat_theorem_five
+#print axioms Diaz.dalag_cor_11_15_rat
+#print axioms Diaz.dalag_lemma_12_9_dehomog
+#print axioms Diaz.dalag_lemma_12_8_linear
+#print axioms Diaz.dalag_lemma_12_9
+#print axioms Diaz.dalag_cor_12_23_affine

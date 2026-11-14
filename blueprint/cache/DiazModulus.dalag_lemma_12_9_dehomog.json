@@ -1,0 +1,21 @@
+{
+ "theorem_id": "6af6372c-8f53-469f-974a-ca4bbb134f29",
+ "theorem_name": "DiazModulus.dalag_lemma_12_9_dehomog",
+ "theorem_title": "Dehomogenisation keeps the rank: for matrices N₀, …, Nₘ over a field k, N₀ + Σ XᵢNᵢ over k(X₁, …, Xₘ) and Σ YᵢNᵢ (i = 0, …, m) over k(Y₀, …, Yₘ) have the same rank",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem dalag_lemma_12_9_dehomog {k : Type*} [Field k] {d l m : ℕ} (N₀ : Matrix (Fin d) (Fin l) k)\n    (N : Fin m → Matrix (Fin d) (Fin l) k) :\n    (N₀.map (algebraMap k (FractionRing (MvPolynomial (Fin m) k))) +\n      ∑ j, (algebraMap (MvPolynomial (Fin m) k) (FractionRing (MvPolynomial (Fin m) k))\n        (MvPolynomial.X j)) • (N j).map (algebraMap k (FractionRing (MvPolynomial (Fin m) k)))).rank =\n    (∑ j : Fin (m + 1),\n      (algebraMap (MvPolynomial (Fin (m + 1)) k) (FractionRing (MvPolynomial (Fin (m + 1)) k))\n        (MvPolynomial.X j)) •\n      ((Fin.cons N₀ N : Fin (m + 1) → Matrix (Fin d) (Fin l) k) j).map\n        (algebraMap k (FractionRing (MvPolynomial (Fin (m + 1)) k)))).rank := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $k$ be a field and $N_0, N_1, \\dots, N_m$ be $d \\times \\ell$ matrices with entries in $k$. Then\n$$\\operatorname{rank}_{k(X_1, \\dots, X_m)} \\Big(N_0 + \\sum_{i=1}^m X_i N_i\\Big) = \\operatorname{rank}_{k(Y_0, \\dots, Y_m)} \\sum_{i=0}^m Y_i N_i,$$\nthe ranks being taken over the fields of rational functions in $X_1, \\dots, X_m$ and in $Y_0, \\dots, Y_m$.",
+ "created_at": "2026-11-14T17:29:28.154201+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Step of the proof of M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, Lemma 12.9 (p. 427; proof p. 428): the passage from the homogenised matrix back to the affine one, which the printed proof leaves to the reader. Novelty: none claimed; routine. Formal proof: Diaz modulus mission, 14 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.44, 14 November 2026}
+\date{September 2026\\[2pt]\small Version 1.45, 14 November 2026}
 
 \begin{document}
 \maketitle
@@ -217,6 +217,28 @@ rank over $\Q$, from Corollary~12.22 and Baker's theorem~\cite{baker-1966} in th
 linearly independent over $\Q$ are linearly independent over $\Alg$. These are routine formalisations of classical
 results; two of the printed proofs needed one more step (Remark~\ref{rem:printed-corrections}, (B5) and~(B6)).
 
+Since version 1.45 two more results of~\cite{waldschmidt-book} are machine-checked as well, with no hypothesis, and
+with them Corollary~12.23 in the affine form of~\cite[p.~435]{waldschmidt-book}.
+\cite[Corollary~11.15]{waldschmidt-book} holds for $\Q$ and $\Q+\Logs$ in its printed form: if a subspace
+$V\subseteq\C^{d}$ contains no non-zero vector with rational coordinates, and $d_{\min}$ is the least dimension of a
+subspace of $\C^{d}$ spanned by rational vectors and containing $V$, then $V\cap(\Q+\Logs)^{d}$ is finite-dimensional
+over $\Q$ and $\dim_{\Q}(V\cap(\Q+\Logs)^{d})\leq\Psi(\dim V,d_{\min})$. The formal proof follows Roy. His
+Theorem~4 holds over every subfield $F$ of $\Alg$, with $F+F\cdot\Logs$ in place of
+$\aLogs$~\cite[Remark~(i), p.~37]{roy-1992}; here $F=\Q$, with one application of the linear subgroup theorem at
+each semistable step, as for $\Alg$ above. His Theorem~5 follows by an induction on $d$, and Roy's Lemma
+on~$\varphi$ gives the table $\Psi$. The proof does not use~\cite[Proposition~11.19]{waldschmidt-book}, whose
+printed proof has a gap in this case (Remark~\ref{rem:printed-corrections}, (B9)). Then
+\cite[Lemma~12.9]{waldschmidt-book}: let $k$ be a field, $M=\sum_{j}e_{j}N_{j}$ with $e_{1},\dots,e_{m}$ linearly
+independent over $k$ and matrices $N_{j}$ with entries in $k$, and $\phi$ a $k$-linear map into
+$k+kX_{1}+\dots+kX_{n}$ that is injective on the span of the $e_{j}$; then the rank of $\phi(M)$ over
+$k(X_{1},\dots,X_{n})$ is the structural rank of $M$ over $k$, the rank of $\sum_{j}Z_{j}N_{j}$ over
+$k(Z_{1},\dots,Z_{m})$. Its first step, a dehomogenisation, gives Corollary~12.23 for the matrix
+of~\cite[p.~435]{waldschmidt-book}: if $M=M_{0}+\sum_{i}\lambda_{i}N_{i}$ with rational matrices $M_{0},N_{i}$,
+$\lambda_{i}\in\Q+\Logs$ and $1,\lambda_{1},\dots,\lambda_{m}$ linearly independent over $\Q$, then
+$\operatorname{rank}_{\Q(X_{1},\dots,X_{m})}(M_{0}+\sum_{i}X_{i}N_{i})\leq2\operatorname{rank}M$. These are routine
+formalisations of classical results; the printed proof of Lemma~12.9 leaves two steps implicit
+(Remark~\ref{rem:printed-corrections}, (B7)).
+
 \begin{remark}[Printed statements corrected while formalising]\label{rem:printed-corrections}
 Formalising the results above met the points below. The file \texttt{ERRATA.md} of the mirrored project gives each
 one with the printed text, the evidence and the repair, together with smaller slips. Here
@@ -242,6 +264,13 @@ $G=\mathbb{G}_{m}^{3}$, $W=\{0\}$, $V=\C^{2}\times\{0\}$ and $Y=\Z(2\pi i,0,0)+\
 the other conclusions force $G^{*}=\mathbb{G}_{m}\times\{1\}\times\{1\}$, and the image of $Y$ in $G/G^{*}$ is
 $\Z(2\pi i,0)$, which consists of periods, so $\kappa'=1$. The other conclusions hold, with ``spanned by
 $\Omega_{G}$'' read as ``spanned by $Y\cap\Omega_{G}$'' in the proof. The formal proofs do not use the lemma.
+\item[(A4)] For a number field $k$ with basis $\omega_{1},\dots,\omega_{m}$ over $\Q$,
+\cite[Lemma~11.18]{waldschmidt-book} (p.~400) sets $\Upsilon(x,y_{1},\dots,y_{m})=x+\omega_{1}y_{1}+\dots+\omega_{m}y_{m}$
+on $\C^{d}\times(\C^{d})^{m}$ and $\mathcal{V}=\Upsilon^{-1}(U)$ for a subspace $U\subseteq\C^{d}$. The second
+clause of its part~(2), that $U\cap k^{d}=\{0\}$ implies $\mathcal{V}\cap(\Alg^{d}\times\{0\})=\{0\}$, is false: for
+$k=\Q$, $d=2$ and $U=\C(1,\sqrt{2})$ one has $U\cap\Q^{2}=\{0\}$, while $((1,\sqrt{2}),0)\in\mathcal{V}$. It holds with
+$k^{d}$ in place of $\Alg^{d}$, or when $U\cap\Alg^{d}=\{0\}$. The formal proofs do not use it; (B9) is where it
+matters.
 \item[(B1)] The proof of~\cite[Corollary~2.13]{waldschmidt-2005a} (p.~347) applies Corollary~2.12 to the
 columns $(\overline{\Lambda_{1j}},\overline{\Lambda_{2j}})$, $j=2,3$. These give $\pm\overline{\Lambda_{j}}$ only
 when $\Lambda_{11}$ and $\Lambda_{21}$ are both real or both purely imaginary, and the mixed case occurs within the
@@ -253,8 +282,9 @@ every case; the formal proof uses them.
 the induction hypothesis, at $V\cap S$, the bound $\ell^{*}\leq n^{*}d^{*}/(d^{*}-n^{*})$, which it does not give
 and which can fail (by Lemma~11.20 there, already for $(n,d)=(4,10)$), and do not check that no proper rational
 subspace of $S$ contains $V\cap S$. The minimality of $S$ gives that check, as in~\cite[p.~39]{roy-1992}; the
-induction hypothesis then gives $\ell^{*}\leq\Psi(n^{*},d^{*})$, which is all the proof uses. The formal proof
-follows~\cite[Theorem~5]{roy-1992}, and reaches the bound $\Psi$ through Roy's Lemma on~$\varphi$ (above).
+induction hypothesis then gives $\ell^{*}\leq\Psi(n^{*},d^{*})$, which is all the proof uses. The formal proofs
+follow~\cite[Theorem~5]{roy-1992}, for $\Alg$ and $\aLogs$ and for $\Q$ and $\Q+\Logs$, and reach the bound $\Psi$
+through Roy's Lemma on~$\varphi$ (above).
 \item[(B3)] In Step~6 of the proof of~\cite[Theorem~11.21]{waldschmidt-book} (p.~407) the multiplicity estimate
 gives a subgroup $G^{*}$ with no field of definition, while the theorem asserts one defined over $\Alg$. Choosing
 the auxiliary polynomial with algebraic coefficients, or replacing the additive part of $G^{*}$ by the span of its
@@ -279,11 +309,40 @@ instead.
 \item[(B7)] The proof of~\cite[Lemma~12.9]{waldschmidt-book} (p.~428) obtains the structural rank as the rank of a
 homogenised matrix and leaves implicit that this is the rank of the affine one; the substitution
 $X_{i}\mapsto Y_{i}/Y_{0}$, a homomorphism of fields, gives it. It also applies Lemma~12.8 to a map not given by a
-basis, which the proof of Lemma~12.8 covers. The formal proofs do not use the lemma: Corollary~12.23 is
-machine-checked through presentations, whose structural matrices are homogeneous.
+basis, which the proof of Lemma~12.8 covers. Both steps are machine-checked, the first through the substitution
+$Y_{i}\mapsto Y_{0}Y_{i}$, and with them the lemma, for a map injective on the span of a presentation
+$M=\sum_{j}e_{j}N_{j}$. Corollary~12.23 is machine-checked through presentations, whose structural matrices are
+homogeneous, and in the affine form of~\cite[p.~435]{waldschmidt-book} through the first step.
+\item[(B8)] The proof of~\cite[Proposition~12.13]{waldschmidt-book}, (iv)$\Rightarrow$(iii) (p.~430), applies
+condition~(iv), which is about matrices with entries in a $k$-vector space $E$, to $M=M_{0}+\sum_{i}M_{i}y_{i}$, where
+$y_{i}=x_{i}/x_{0}$ for some $x_{0},\dots,x_{n}\in E$; these entries need not lie in $E$. For $k=\Q$ and
+$E=\Q+\Q\e+\Q\e\sqrt{2}$, the elements $x_{0}=\e$ and $x_{1}=\e\sqrt{2}$ give $y_{1}=\sqrt{2}\notin E$. The matrix
+$x_{0}M=M_{0}x_{0}+\sum_{i}M_{i}x_{i}$ has entries in $E$ and the rank of $M$, and its structural rank is full by
+Lemma~12.9, which repairs the step. The proposition is correct; it is not machine-checked.
+\item[(B9)] In the case $(\Q,\Q+\Logs)$ the proof of~\cite[Proposition~11.19]{waldschmidt-book} (pp.~402--403) reads
+Theorem~11.5\,(3$'$) at the trivial subgroup. Theorem~11.5 ranges over subgroups $G^{*}$ defined over $\Alg$, so
+$\Upsilon(T_{e}G^{*})$ is rational over $\Alg$ only; the first case of the proof, about subspaces rational over $\Q$,
+does not exclude it, and (3$'$) need not select $\{e\}$. For $d=3$ and $U=\C(1,\sqrt{2},0)+\C(\log2,\log3,\log5)$,
+which meets $\Q^{3}$ only in $0$ and satisfies the first case, the subgroup of
+$\mathbb{G}_{a}^{3}\times\mathbb{G}_{m}^{3}$ with tangent space $\C(1,\sqrt{2},0)\times\{0\}$ is defined over $\Alg$,
+ties with $\{e\}$, and is the one (3$'$) selects; the tie comes from the algebraic point that~(A4) would exclude. The
+example refutes the inference, not the inequality, and the proposition is true:
+\cite[Theorem~11.21]{waldschmidt-book} applied directly, with its additive part replaced by the span of its rational
+vectors as in~(B3), lets Roy's argument for $F=\Q$~\cite[Remark~(i), p.~37]{roy-1992} go through with no selection.
+Corollary~11.15 for $\Q$ is machine-checked along that route, without Proposition~11.19. For $\Alg$ and $\aLogs$
+the printed step is right, by Lemma~11.18\,(3).
 \item[(C9)] The table $\Psi$ of~\cite[p.~394]{waldschmidt-book} gives $\Psi(0,d)$ for $d>0$ only, while
 Corollaries~11.10 and~11.15 there allow $V=\{0\}$, where $d_{\min}=0$; the value $\Psi(0,0)=0$ is meant, and it is
 the one machine-checked.
+\item[(C10)] In the proof of~\cite[Proposition~12.7]{waldschmidt-book} (p.~426) the inductive assertion concerns ``a
+$k$-vector subspace of $K^{r}$'', and $V_{1}$ is then ``the $k$-vector space spanned by the columns of $B$''; $K$ is
+meant in both places, and with $k$ the assertion fails already for $r=1$. The proposition is correct; it is not
+machine-checked.
+\item[(C11)] The remark before~\cite[Lemma~12.9]{waldschmidt-book} (p.~427) says that ``a $r\times r$ matrix'' with
+entries in a space with the block property described there has rank at least $r$. What is meant is a matrix that is
+$k$-equivalent to one whose upper left $r\times r$ block is regular; its rank is then at least $r$, and its
+structural rank at most $2r$. As printed, every square matrix over such a space would be regular, which fails for
+$E=k$ and $\operatorname{diag}(1,0)$.
 \end{itemize}
 \end{remark}
 
@@ -2593,7 +2652,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.44 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.45 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2721,7 +2780,11 @@ with the table $\Psi$, and Corollary~12.23 of~\cite{waldschmidt-book}, all machi
 (Section~\ref{sec:setting}); item~(B5) of Remark~\ref{rem:printed-corrections} now says that the printed statement
 is true, and items (B6), (B7) and~(C9) are added. The mirrored project then held all 672 proved results of the
 development.
-% 672 = 657 + 15, if all 15 nodes port as modules; check after the port.
+Version 1.45 adds, on 14 November 2026, Corollary~11.15 of~\cite{waldschmidt-book} for $\Q$ and $\Q+\Logs$, by
+Roy's route over~$\Q$, Lemma~12.9 of~\cite{waldschmidt-book}, and Corollary~12.23 in the affine form
+of~\cite[p.~435]{waldschmidt-book}, all machine-checked with no hypothesis (Section~\ref{sec:setting}); item~(B7) of
+Remark~\ref{rem:printed-corrections} now says that its two steps are machine-checked, and items (A4), (B8), (B9),
+(C10) and~(C11) are added. The mirrored project then held all 684 proved results of the development.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2878,6 +2941,9 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 \S\ref{sec:setting}, Roy's Lemma on $\varphi$, \cite{roy-1992}, p.~40 & Proved & \nolinkurl{DiazModulus.roy_lemma_phi} \\
 \S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~11.15 with $\Psi$ & Proved & \nolinkurl{DiazModulus.dalag_cor_11_15_psi} \\
 \S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~12.23 & Proved & \nolinkurl{DiazModulus.dalag_cor_12_23} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~11.15 for $\Q$ and $\Q+\Logs$ & Proved & \nolinkurl{DiazModulus.dalag_cor_11_15_rat}, \nolinkurl{DiazModulus.roy_rat_theorem_five} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Lemma~12.9 & Proved & \nolinkurl{DiazModulus.dalag_lemma_12_9}, \nolinkurl{DiazModulus.dalag_lemma_12_8_linear} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~12.23, affine form & Proved & \nolinkurl{DiazModulus.dalag_cor_12_23_affine} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

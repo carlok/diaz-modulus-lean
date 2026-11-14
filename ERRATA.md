@@ -3,9 +3,9 @@
 # Notes on printed statements and proofs met while formalising rank bounds for matrices of logarithms
 
 These notes record places where a printed statement or argument needed a correction while the results below were
-being formalised. Most items are small. Three printed statements are false as stated (two corollaries in [Var]
-and a lemma in [DALAG]); one of the two corollaries was already corrected by its author. Section B lists seven
-gaps in printed proofs, each with a repair (four in [DALAG], one each in [Var], [FV] and [Roy]), and section C nine
+being formalised. Most items are small. Four printed statements are false as stated (two corollaries in [Var]
+and two lemmas in [DALAG]); one of the two corollaries was already corrected by its author. Section B lists nine
+gaps in printed proofs, each with a repair (six in [DALAG], one each in [Var], [FV] and [Roy]), and section C eleven
 smaller slips. Each item gives the place, the printed text (short quotation), what goes wrong, the evidence,
 whether the point is already corrected in print,
 and how the formal version handles it. The formal versions are theorems of the Lean 4 library in this repository;
@@ -129,6 +129,29 @@ Y does). In the proof, "spanned by Ω_G" should read "spanned by Y ∩ Ω_G": th
 **Formal version.** Not used: the formal proof of [Roy] Theorem 4 (DALAG Proposition 11.19) applies Theorem 11.21
 once, in a semistable situation, and never passes to a quotient group, so neither Lemma 11.24 nor (1̃) is needed.
 
+### A4. [DALAG] Lemma 11.18 (2), p. 400 — false statement (the second clause of "Moreover")
+
+**Printed.** k is a number field of degree m with ℚ-basis ω₁, …, ω_m, Υ(x, y₁, …, y_m) = x + ω₁y₁ + ⋯ + ω_my_m on
+ℂ^d × (ℂ^d)^m, d̲₀ = d, d̲₁ = md, and 𝒱 = Υ⁻¹(𝒰). "Moreover, if 𝒰 ∩ k^d = {0}, then 𝒱 ∩ ({0} × ℚ^{d̲₁}) = {0} and
+𝒱 ∩ (Q̄^{d̲₀} × {0}) = {0}" (the overline is on the second ℚ only).
+
+**What goes wrong.** The first clause is right: (0, y) ∈ 𝒱 with y rational gives Σ ω_c y_c ∈ 𝒰 ∩ k^d = {0}, so y = 0.
+The second is not: 𝒱 ∩ (Q̄^{d̲₀} × {0}) = {(x, 0) : x ∈ 𝒰 ∩ Q̄^d}, and 𝒰 ∩ k^d = {0} does not imply 𝒰 ∩ Q̄^d = {0}. The
+proof (p. 401: the second property "follows from the fact that the spaces ℂ^d̲/𝒱 and ℂ^d/𝒰 are isomorphic") does
+not address the clause.
+
+**Counterexample.** k = ℚ, the case (𝕂, L) = (ℚ, ℚ + ℒ) of Proposition 11.19 (p. 402: "in the case
+(𝕂, L) = (ℚ, ℚ + ℒ) we have k = ℚ"): d = 2, 𝒰 = ℂ(1, √2). Then 𝒰 ∩ ℚ² = {0}, and ((1, √2), 0) ∈ 𝒱 ∩ (Q̄² × {0}). For
+any number field k, 𝒰 = ℂ(1, α) with α ∈ Q̄ ∖ k.
+
+**Repair.** Either assume 𝒰 ∩ Q̄^d = {0} for the second clause, or read k^{d̲₀} for Q̄^{d̲₀} (true, by the argument of
+the first clause). Only the first repair serves Proposition 11.19: in the (Q̄, ℒ̃) case its first case gives
+𝒰 ∩ Q̄^d = {0}; in the (ℚ, ℚ + ℒ) case 𝒰 may contain algebraic vectors, and B9 is the consequence.
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** Not used: no formal proof uses a statement about 𝒱 ∩ (Q̄^{d̲₀} × {0}).
+
 ---
 
 ## B. Proof gaps
@@ -193,7 +216,8 @@ smaller ratio (n′ ≥ 1, since V ⊄ S), contradicting the choice of S. Then t
 **Already corrected in print.** Not in the sources consulted. [Roy] Theorem 5 and its proof (pp. 39–40) treat the
 (Q̄, ℒ̃) case of Corollary 11.15 by the route of the repair.
 
-**Formal version.** Only the (Q̄, ℒ̃) case is formalised, along [Roy]'s route: `roy_theorem_five` and
+**Formal version.** Both cases are formalised along [Roy]'s route. For (ℚ, ℚ + ℒ): `roy_rat_theorem_five` and
+`dalag_cor_11_15_rat` (B9). For (Q̄, ℒ̃): `roy_theorem_five` and
 `roy_theorem_five_dmin` (Corollary 11.15 with the bound in the form "ℓ ≤ Σ nᵢdᵢ/(dᵢ − nᵢ) for some decomposition
 of (n, d_min)"), and `dalag_cor_11_15_psi` (the printed bound Ψ(n, d_min)), which passes from that form to the
 table Ψ through [Roy]'s Lemma on p. 40 (`roy_lemma_phi`; see B6) and Ψ(n, d) = ⌊φ(n, d)⌋
@@ -342,9 +366,76 @@ proof, or as the independence of the choice of φ asserted in §12.1.4. The Lemm
 
 **Already corrected in print.** Not in the sources consulted.
 
-**Formal version.** Not needed. `dalag_cor_12_23` works with ℚ-presentations M = Σ eₖNₖ, whose structural matrix
-Σ XₖNₖ is homogeneous, so neither the affine matrix M₀ + Σ XₖMₖ of p. 435 nor Lemma 12.9 enters; its proof
-compares the ranks over ℚ(X) and Q̄(X) through `matrix_rank_map_field`.
+**Formal version.** `dalag_lemma_12_9` states the Lemma in presentation form, M = Σ eⱼNⱼ with e free over k, for
+any field k and any k-linear φ into k + kX₁ + ⋯ + kXₙ that is injective on the span of the eⱼ. Step (1) is
+`dalag_lemma_12_9_dehomog`, proved through the substitution Yᵢ ↦ Y₀Yᵢ rather than Xᵢ ↦ Yᵢ/Y₀. Step (2) is
+`dalag_lemma_12_8_linear`: Lemma 12.8 for any k-linear map into kX₁ + ⋯ + kXₙ that is injective on the span.
+`dalag_cor_12_23_affine` is Corollary 12.23 with the affine matrix M₀ + Σ XₖMₖ of p. 435. `dalag_cor_12_23` needs
+neither: it works with ℚ-presentations M = Σ eₖNₖ, whose structural matrix Σ XₖNₖ is homogeneous, and compares the
+ranks over ℚ(X) and Q̄(X) through `matrix_rank_map_field`.
+
+### B8. [DALAG] proof of Proposition 12.13, (iv) ⇒ (iii), p. 430 — proof gap (small): the matrix used need not have entries in E
+
+**Printed.** Assuming that (iii) fails, the proof takes x₀, …, xₙ ∈ E, free over k, such that the quotients
+yᵢ = xᵢ/x₀ are algebraically dependent, a non-zero P with P(y) = 0, and a square matrix M₀ + Σ MᵢXᵢ over
+k + Σ kXᵢ with determinant P (Proposition 12.10). It sets M = M₀ + Σ Mᵢyᵢ: then det M = 0, while the structural
+rank of M, through the map that is the identity on k and sends yᵢ to Xᵢ, is full; "condition (iv) does not hold".
+
+**What goes wrong.** Condition (iv) is about matrices with entries in E, and yᵢ = xᵢ/x₀ need not lie in E.
+Example: k = ℚ, K = ℂ, E = ℚ + ℚe + ℚe√2 with e = exp(1). Then x₀ = e and x₁ = e√2 are free over ℚ and
+X₁² − 2X₀² vanishes at them, so (iii) fails. But y₁ = √2 is not in E: otherwise e would be algebraic or √2
+rational. So no M₀ + M₁√2 with det(M₀ + M₁X₁) = X₁² − 2, such as ((√2, 2), (1, √2)), is a matrix over E.
+
+**Repair.** Use x₀M = M₀x₀ + Σ Mᵢxᵢ in place of M. Its entries lie in E, and its rank is rank M, less than its
+size. The k-linear map x₀ ↦ 1, xᵢ ↦ Xᵢ is injective on the span of x₀, …, xₙ and sends x₀M to M₀ + Σ MᵢXᵢ, whose
+determinant is P ≠ 0; by Lemma 12.9 the structural rank of x₀M is full. In the example,
+x₀M = ((e√2, 2e), (e, e√2)) has rank 1 and structural rank 2. The Proposition is correct.
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** Proposition 12.13 is not formalised. The repaired step is the case of `dalag_lemma_12_9` (see
+B7) with this map.
+
+### B9. [DALAG] proof of Proposition 11.19, pp. 402–403, case (𝕂, L) = (ℚ, ℚ + ℒ) — proof gap: Theorem 11.5 (3′) need not select {e}
+
+**Printed.** The proof reduces to the first case: for every 𝕂-rational T with 0 < dim T < d,
+dim(𝒰/𝒰 ∩ T)/codim T > n/d (C1). Then "Thanks to Lemma 11.18, we may apply part (3′) of Theorem 11.5 … Since d̲ > n̲,
+we deduce ℓ₁(d̲ − n̲) ≤ d̲₁(n̲ − ℓ̲₀)". This is (3′) read at G* = {e}; section D (first bullet) checks that (3′)
+selects {e}.
+
+**What goes wrong.** In Theorem 11.5, "G* is a connected algebraic subgroup of G, defined over Q̄" (p. 381), so
+T = Υ(T_e(G*)) is rational over Q̄ only (Lemma 11.18 (3)). For 𝕂 = Q̄ the check in D is right. For 𝕂 = ℚ the first case
+says nothing about a T that is not rational over ℚ, and (3′) need not select {e}.
+
+**Counterexample (to the inference).** d = 3, n = 2, 𝒰 = ℂ(1, √2, 0) + ℂ(log 2, log 3, log 5); k = ℚ, m = 1,
+G = 𝔾ₐ³ × 𝔾ₘ³, 𝒱 = Υ⁻¹(𝒰): d̲ = 6, n̲ = 5, d̲₁ = 3, ℓ̲₀ = 3.
+- 𝒰 ∩ ℚ³ = {0}: if α(1, √2, 0) + β(log 2, log 3, log 5) = q ∈ ℚ³ with q₃ ≠ 0, eliminating α gives
+  √2(q₁ log 5 − q₃ log 2) + q₃ log 3 − q₂ log 5 = 0, a non-trivial Q̄-linear relation, excluded by Baker's theorem.
+  So q₃ = 0, β = 0, and α = 0.
+- The first case holds over ℚ: a rational line meets 𝒰 in {0} (ratio 1 > 2/3); a rational plane meets 𝒰 in a line
+  (ratio 1 > 2/3).
+- G* = G₀* × {1} with T_e(G₀*) = ℂ(1, √2, 0) is defined over Q̄, T_e(G*) ⊂ 𝒱, and d̲′ = 5, n̲′ = 4, d̲₁′ = 3: the ratio
+  d̲₁′/(d̲′ − n̲′) is 3, that of {e}. The minimum is 3 (d̲′ > n̲′ forces T_e(G*) ⊂ 𝒱, and then the ratio is
+  3 − dim T_e(G₁*) with T_e(G₁*) ⊂ 𝒰 rational over ℚ, hence {0}); the minimisers are {e} and this G*
+  (𝒰 ∩ Q̄³ = Q̄(1, √2, 0), by Baker's theorem). (3′) takes d̲′ minimal and selects G*, not {e}.
+The example refutes the inference, not the inequality: here Y* = {0} and 𝒲* = {0}, so (3′) for this G* gives
+ℓ₁ ≤ 3(n̲′ − ℓ̲₀′) = 3, which implies ℓ₁(d̲ − n̲) ≤ 6 = d̲₁(n̲ − ℓ̲₀). In general, when Y* = {0}, the mediant inequality
+gives the wanted bound; when Y* ≠ {0}, passing from G/G* back to G needs a bound for ℓ₁* that the text does not give.
+The tie comes from the algebraic point ((1, √2, 0), 0) of 𝒱 ∩ (Q̄^{d̲₀} × {0}), which the false clause A4 would exclude.
+
+**Repair.** The statement is true. (a) Apply Theorem 11.21 directly to G = 𝔾ₐ^d × 𝔾ₘ^d with Υ(x, y) = x + y, and
+replace the additive part of its output by the span of its rational vectors (B3, repair (b), with ℚ in place of Q̄;
+legitimate because the additive coordinates of the points are rational). The resulting T is rational over ℚ, and
+[Roy]'s argument (Theorem 4 with his Remark (i), p. 37, for F = ℚ) goes through with no selection step.
+(b) Inside DALAG's framework: a variant of Theorem 11.5 (3′) in which only G₀* is required to be rational over ℚ (subtori
+G₁* always are), under "additive coordinates of Y in ℚ^{d̲₀}, 𝒲 rational over ℚ". Exercise 11.1 (p. 411) does not
+supply it: its hypothesis exp_G(Y) ⊂ G(ℚ) fails here (multiplicative coordinates in Q̄, e.g. e^λ = 1 + i). Granting
+the variant, T is rational over ℚ, T_e(G₀*) ⊂ 𝒰 is impossible since 𝒰 ∩ ℚ^d = {0}, and the check in D goes through.
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** Repair (a): `dalag_cor_11_15_rat` (Corollary 11.15 for (ℚ, ℚ + ℒ)) rests on
+`roy_rat_semistable_node`, which applies `linear_subgroup_transcendence` once and never selects a subgroup.
 
 ---
 
@@ -385,8 +476,9 @@ and as [Var] p. 347 says ("Theorem 5 of [7] (see also Corollary 11.15 in [12])")
 other directly (the hypotheses V ∩ ℚ^d = {0} and V ∩ Q̄^d = {0} differ, and so do the two hulls); the (ℚ, ℒ)
 version is within reach of [Roy]'s method by his Remark (i), p. 37 (Theorem 4 over a subfield F of Q̄).
 
-**Already corrected in print.** Not in the sources consulted. **Formal version.** Only the (Q̄, ℒ̃) case is
-formalised, and it is credited to [Roy] Theorem 5 and DALAG Corollary 11.15.
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Both cases are
+formalised: (Q̄, ℒ̃) credited to [Roy] Theorem 5 and DALAG Corollary 11.15, and (ℚ, ℚ + ℒ)
+(`dalag_cor_11_15_rat`) credited to DALAG Corollary 11.15 and [Roy]'s Remark (i), p. 37.
 
 ### C4. [DALAG] p. 435 — slip: "the subspace of ℒ spanned by 1 and the entries of M"
 
@@ -456,18 +548,44 @@ at n = 0 or at 0 < n < d_min.
 
 ---
 
+### C10. [DALAG] proof of Proposition 12.7, p. 426 — slip: "k-vector subspace" for "K-vector subspace"
+
+**Printed.** The inductive assertion concerns "a k-vector subspace of K^r such that V₁ ∩ k^r = {0}", and V₁ is
+then chosen as "the k-vector space spanned by the columns of B".
+
+**What is meant.** K in both places: the assertion is the Proposition in dimension r. With k it fails already at
+r = 1 (k = ℚ, E = ℚ + ℚπ, V₁ = ℚπ, where V₁ ∩ E^1 has dimension 1 > 0). Also tacit: "V contains V₁ × {0}^{d−r}"
+holds for P·V, where P ∈ GL_d(k) is the left factor of the k-equivalence; P·V satisfies the same hypotheses as V,
+and P·(V ∩ E^d) = P·V ∩ E^d. The Proposition is correct.
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected (Proposition 12.7 is
+not formalised).
+
+### C11. [DALAG] Remark before Lemma 12.9, p. 427 — slip: "If M is a r × r matrix"
+
+**Printed.** The Remark says that if M is "a r × r matrix" with entries in a space with Property (A B; C 0), then
+the rank of M is at least r.
+
+**What is meant.** M is k-equivalent to a matrix (12.1) whose block A is a regular r × r matrix; then rank M ≥ r
+and the structural rank of M is at most 2r. As printed, every square matrix over such a space would be regular,
+which fails for E = k and M = diag(1, 0). The boxed consequence is correct. The Remark also prints a doubled comma
+after "Property (A B; C 0)".
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected.
+
 ## D. Checked and not counted as errors
 
 These places leave a step to the reader or state a side remark without proof. Each was checked and is correct,
 or is plainly announced as unproved.
 
-- **[DALAG] proof of Proposition 11.19, p. 403.** The proof applies Theorem 11.5 (3′) "thanks to Lemma 11.18" and
-  reads off the inequality for G* = {e} without saying that {e} is the subgroup that (3′) selects. It is, and
-  Lemma 11.18 (3) is exactly what shows it. Let G* ≠ {e} in G = 𝔾ₐ^d × 𝔾ₘ^{md} with d′ > n′ (the quantities of
-  this auxiliary group, underlined in the book) and
-  T = Υ(T_e(G*)). If 0 < dim T < d, then d₁′ ≥ m·codim T and the first case (n′/d′ > n/d, see C1) give a ratio
+- **[DALAG] proof of Proposition 11.19, p. 403, case (Q̄, ℒ̃).** The proof applies Theorem 11.5 (3′) "thanks to
+  Lemma 11.18" and reads off the inequality for G* = {e} without saying that {e} is the subgroup that (3′) selects.
+  For 𝕂 = Q̄ it is, and Lemma 11.18 (3) is exactly what shows it. Let G* ≠ {e} in G = 𝔾ₐ^d × 𝔾ₘ^{md} with
+  d′ > n′ (the quantities of this auxiliary group, underlined in the book) and T = Υ(T_e(G*)). If 0 < dim T < d, then d₁′ ≥ m·codim T and the first case (n′/d′ > n/d, see C1) give a ratio
   strictly larger than md/(d − n). T = ℂ^d is excluded by d′ > n′. If T = {0}, then T_e(G*) ⊂ ker Υ forces
-  G* = {e}, because ω₁, …, ω_m is a ℚ-basis. Also ℓ₁′ = ℓ₁ ≥ mℓ > 0. **Not an error** (terse).
+  G* = {e}, because ω₁, …, ω_m is a ℚ-basis. Also ℓ₁′ = ℓ₁ ≥ mℓ > 0. **Not an error** (terse) for 𝕂 = Q̄. The
+  argument applies the first case to T, which Lemma 11.18 (3) makes rational over Q̄ only, so it is valid for 𝕂 = Q̄
+  only; in the (ℚ, ℚ + ℒ) case the first case speaks only of T rational over ℚ, and {e} need not be selected (B9).
 - **[Roy] p. 37.** "One can show θ(M) = ϑ(M) for any matrix M with coefficients in L, but we will not do it here."
   This is an announced omission in a side remark. Corollary 1 uses ϑ only. **Not an error.**
 - **[GDL] Lemme 5.1, p. 106.** The proof is a reference ("Voir [7] lemme 1.3.1"). The statement gives n′ > 0, while
@@ -515,7 +633,9 @@ or is plainly announced as unproved.
   n, d − n ≤ 8 (91 of them, none a maximiser); and Ψ = ⌊φ⌋ was checked against the table of [DALAG] p. 394 for
   d ≤ 80. For B5, the finite approximation was run with finite fields in place of (Q̄, ℂ), every subspace V
   enumerated: (𝔽₂, 𝔽₄), (𝔽₂, 𝔽₈) and (𝔽₃, 𝔽₉), n ≤ 3. Each check was written twice, independently, as a short
-  Python script.
+  Python script. For B8 and C11 the examples (determinants, ranks, structural ranks) were recomputed by two short
+  Python scripts, one written with the item and one by an independent referee; so were, for B9, the dimensions in
+  the example and the monotonicity in d of the Ψ table for d < 60.
 - Corrections in print were looked for in [FV] (all nine pages, on images) and [Role] (text search, then §6 on
   images), and on the author's publications page (webusers.imj-prg.fr/~michel.waldschmidt/texts.html, read on
   14 November 2026). That page gives one erratum for [Var]: Corollary 2.12, p. 346, with the hypothesis that

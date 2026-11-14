@@ -631,3 +631,15 @@ import Diaz.Mirror.fv_finite_approx
 import Diaz.Mirror.fv_rank_quot_witness
 import Diaz.Mirror.fv_theorem_2_1_general
 import Diaz.Mirror.fv_theorem_2_1_rank
+import Diaz.Mirror.ratLogAlg_mem_iff
+import Diaz.Mirror.roy_rat_adapted_basis
+import Diaz.Mirror.roy_rat_relation_rank_le
+import Diaz.Mirror.roy_rat_period_space
+import Diaz.Mirror.roy_rat_semistable_node
+import Diaz.Mirror.roy_rat_slope_bound
+import Diaz.Mirror.roy_rat_theorem_five
+import Diaz.Mirror.dalag_cor_11_15_rat
+import Diaz.Mirror.dalag_lemma_12_9_dehomog
+import Diaz.Mirror.dalag_lemma_12_8_linear
+import Diaz.Mirror.dalag_lemma_12_9
+import Diaz.Mirror.dalag_cor_12_23_affine

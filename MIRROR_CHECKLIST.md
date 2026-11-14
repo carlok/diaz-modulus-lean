@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-11-14): **672** of 672
+As of the latest archived submission (2026-11-14): **684** of 684
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -228,10 +228,15 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration` | yes | `Diaz/Mirror/cyclic_pair_space_no_mobius_ratio_configuration.lean` | done |  |
 | `DiazModulus.cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero` | yes | `Diaz/Mirror/cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero.lean` | done |  |
 | `DiazModulus.dalag_cor_11_15_psi` | yes | `Diaz/Mirror/dalag_cor_11_15_psi.lean` | done |  |
+| `DiazModulus.dalag_cor_11_15_rat` | yes | `Diaz/Mirror/dalag_cor_11_15_rat.lean` | done |  |
 | `DiazModulus.dalag_cor_12_21` | yes | `Diaz/Mirror/dalag_cor_12_21.lean` | done |  |
 | `DiazModulus.dalag_cor_12_22` | yes | `Diaz/Mirror/dalag_cor_12_22.lean` | done |  |
 | `DiazModulus.dalag_cor_12_23` | yes | `Diaz/Mirror/dalag_cor_12_23.lean` | done |  |
+| `DiazModulus.dalag_cor_12_23_affine` | yes | `Diaz/Mirror/dalag_cor_12_23_affine.lean` | done |  |
 | `DiazModulus.dalag_cor_12_24` | yes | `Diaz/Mirror/dalag_cor_12_24.lean` | done |  |
+| `DiazModulus.dalag_lemma_12_8_linear` | yes | `Diaz/Mirror/dalag_lemma_12_8_linear.lean` | done |  |
+| `DiazModulus.dalag_lemma_12_9` | yes | `Diaz/Mirror/dalag_lemma_12_9.lean` | done |  |
+| `DiazModulus.dalag_lemma_12_9_dehomog` | yes | `Diaz/Mirror/dalag_lemma_12_9_dehomog.lean` | done |  |
 | `DiazModulus.dalag_psi_floor_roy_phi` | yes | `Diaz/Mirror/dalag_psi_floor_roy_phi.lean` | done |  |
 | `DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space` | yes | `Diaz/Mirror/degree_one_multiplier_space_visible_or_degree_one_space.lean` | done |  |
 | `DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal` | yes | `Diaz/Mirror/degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal.lean` | done |  |
@@ -497,6 +502,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.rank_one_config_separation` | yes | `Diaz/Mirror/rank_one_config_separation.lean` | done |  |
 | `DiazModulus.rank_one_config_separation_two` | yes | `Diaz/Mirror/rank_one_config_separation_two.lean` | done |  |
 | `DiazModulus.rank_one_polynomial_matrix_factor` | yes | `Diaz/Mirror/rank_one_polynomial_matrix_factor.lean` | done |  |
+| `DiazModulus.ratLogAlg_mem_iff` | yes | `Diaz/Mirror/ratLogAlg_mem_iff.lean` | done |  |
 | `DiazModulus.rational_conj_hull_le_adjoin` | yes | `Diaz/Mirror/rational_conj_hull_le_adjoin.lean` | done |  |
 | `DiazModulus.rational_conj_hull_two_by_three_configuration_iff` | yes | `Diaz/Mirror/rational_conj_hull_two_by_three_configuration_iff.lean` | done |  |
 | `DiazModulus.rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le` | yes | `Diaz/Mirror/rational_degree_one_space_visible_to_four_dimensional_extensions_iff_natDegree_le.lean` | done |  |
@@ -536,6 +542,12 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.roy_period_space` | yes | `Diaz/Mirror/roy_period_space.lean` | done |  |
 | `DiazModulus.roy_phi_closed_form_superadd` | yes | `Diaz/Mirror/roy_phi_closed_form_superadd.lean` | done |  |
 | `DiazModulus.roy_rank_bound` | yes | `Diaz/Mirror/roy_rank_bound.lean` | done |  |
+| `DiazModulus.roy_rat_adapted_basis` | yes | `Diaz/Mirror/roy_rat_adapted_basis.lean` | done |  |
+| `DiazModulus.roy_rat_period_space` | yes | `Diaz/Mirror/roy_rat_period_space.lean` | done |  |
+| `DiazModulus.roy_rat_relation_rank_le` | yes | `Diaz/Mirror/roy_rat_relation_rank_le.lean` | done |  |
+| `DiazModulus.roy_rat_semistable_node` | yes | `Diaz/Mirror/roy_rat_semistable_node.lean` | done |  |
+| `DiazModulus.roy_rat_slope_bound` | yes | `Diaz/Mirror/roy_rat_slope_bound.lean` | done |  |
+| `DiazModulus.roy_rat_theorem_five` | yes | `Diaz/Mirror/roy_rat_theorem_five.lean` | done |  |
 | `DiazModulus.roy_rational_adapted_basis` | yes | `Diaz/Mirror/roy_rational_adapted_basis.lean` | done |  |
 | `DiazModulus.roy_relation_rank_le` | yes | `Diaz/Mirror/roy_relation_rank_le.lean` | done |  |
 | `DiazModulus.roy_semistable_node` | yes | `Diaz/Mirror/roy_semistable_node.lean` | done |  |

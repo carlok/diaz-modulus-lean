@@ -21,7 +21,9 @@ Chapter~\ref{chap:09-baker} derives Waldschmidt's five exponentials theorem from
 
 The four sections that follow the one on Roy's Corollary~1 formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}): results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, and Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. These are routine formalisations of classical results.
 
-The last three sections complete three of these results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The last section has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
+The three sections that follow the one on Fischler's centraliser bound complete three of these results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The third of them has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
+
+The last two sections formalise, routinely, two more classical results of \cite{Wal00}. \cite[Cor.~11.15]{Wal00} holds for $\Q$ and $\Q + \mathcal{L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_rat}) by Roy's route over $\Q$: his Theorem~4 holds over every subfield of $\Qbar$ \cite[Remark~(i), p.~37]{Roy92}, his Theorem~5 follows (Theorem~\ref{thm:roy_rat_theorem_five}), and his Lemma gives the table $\Psi$ as above, while DALAG's own proof of this case, through its Prop.~11.19, has a gap there and is not used (ERRATA.md, B9). \cite[Lemma~12.9]{Wal00}, that the structural rank can be computed through any injective map into affine forms, is Lemma~\ref{lem:dalag_lemma_12_9}, with the two steps that its printed proof leaves implicit (ERRATA.md, B7); the first of them, a dehomogenisation (Lemma~\ref{lem:dalag_lemma_12_9_dehomog}), gives \cite[Cor.~12.23]{Wal00} in the affine form of \cite[p.~435]{Wal00} in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23_affine}).
 '''
 
 [[node]]
@@ -1972,4 +1974,173 @@ Let $f : K \to L$ be a homomorphism of fields and $A$ a $d \times \ell$ matrix w
 source = '''Classical linear algebra; a step of the proof of Corollary~\ref{cor:dalag_cor_12_23}, where it compares ranks over $\Q(X_1, \dots, X_m)$ and $\Qbar(X_1, \dots, X_m)$. Routine.'''
 sketch = '''
 The homomorphism $f$ is injective, and $L$ is a $K$-vector space through $f$. Choose rows of $A$ forming a $K$-basis of its row space. Their images are linearly independent over $L$, since vectors of $K^{\ell}$ that are linearly independent over $K$ stay so over $L$; and every row of $f(A)$ is the image of a $K$-combination of the chosen rows, hence an $L$-combination of their images. So the images form an $L$-basis of the row space of $f(A)$.
+'''
+
+# --- DALAG Corollary 11.15 over the rationals, by Roy's route ----------
+[[node]]
+platform = "DiazModulus.ratLogAlg_mem_iff"
+section = "DALAG Corollary 11.15 over the rationals, by Roy's route"
+env = "lemma"
+title = '''The $\Q$-span of $1$ and $\mathcal{L}$ is $\Q + \mathcal{L}$'''
+statement = '''
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic).
+
+Let $x \in \C$. Then $x$ lies in the $\Q$-vector space spanned by $1$ and $\mathcal{L}$ if and only if $x - q \in \mathcal{L}$ for some $q \in \Q$. So this space is $\Q + \mathcal{L} = \{q + \lambda : q \in \Q,\ \lambda \in \mathcal{L}\}$.
+'''
+source = '''Classical: the space $\Q + \mathcal{L}$ of \cite[p.~398]{Wal00}, the case $(\Q, \Q + \mathcal{L})$ of Cor.~11.15 there, written as the $\Q$-span of $1$ and $\mathcal{L}$. A step of the proof of that corollary, at the end of this section. Routine.'''
+sketch = '''
+First, $\mathcal{L}$ is a $\Q$-vector subspace of $\C$: $e^{0} = 1$, $e^{u + v} = e^{u}e^{v}$, and $e^{mu} = (e^{u})^{m}$ is algebraic for every integer $m$, since $e^{u} \neq 0$; for $N \geq 1$ the number $y = e^{u/N}$ satisfies $y^{N} = e^{u}$, so $y$ is algebraic and $u/N \in \mathcal{L}$. Hence every element of the $\Q$-span of $1$ and $\mathcal{L}$ is $q \cdot 1 + \lambda$ with $q \in \Q$ and $\lambda \in \mathcal{L}$: the generators have this form, and it is stable under sums and rational multiples. Conversely, if $x - q \in \mathcal{L}$, then $x = q \cdot 1 + (x - q)$ lies in the span. The rational $q$ is unique, by the Hermite--Lindemann theorem, but this is not used.
+'''
+
+[[node]]
+platform = "DiazModulus.roy_rat_adapted_basis"
+env = "lemma"
+title = '''Coordinates adapted to a subspace rational over $\Q$'''
+statement = '''
+A vector of $\C^{d}$ is \emph{rational} if its coordinates are rational numbers, and a subspace $S \subseteq \C^{d}$ is \emph{rational over $\Q$} if it is spanned by its rational vectors.
+
+Let $S \subseteq \C^{d}$ be rational over $\Q$. Then there is a linear automorphism $g$ of $\C^{d}$ such that, for every $\Q$-vector subspace $M \subseteq \C$, both $g$ and $g^{-1}$ map $M^{d}$ into $M^{d}$, and $v \in S$ if and only if $(gv)_i = 0$ for every index $i \geq \dim S$ (the indices run over $0, \dots, d - 1$). With $M = \Q$ and $M = \Q + \mathcal{L}$ (Lemma~\ref{lem:ratLogAlg_mem_iff}), $g$ and $g^{-1}$ preserve rational vectors and vectors with coordinates in $\Q + \mathcal{L}$.
+'''
+source = '''Classical linear algebra over $\Q \subseteq \C$; the analogue over $\Q$ of Lemma~\ref{lem:roy_rational_adapted_basis}. Routine.'''
+sketch = '''
+The rational vectors of $S$ form a $\Q$-subspace $W$ of $\Q^{d}$. Complete a $\Q$-basis of $W$, of $k$ vectors, to a basis $b_0, \dots, b_{d-1}$ of $\Q^{d}$, let $P$ be the matrix with these columns, and let $g$ be the inverse of $P$, both read as complex matrices. Each coordinate of $gv$ and of $g^{-1}v$ is a $\Q$-linear combination of the coordinates of $v$, so both maps preserve $M^{d}$ for every $\Q$-subspace $M$ of $\C$. Every $v$ is $\sum_j (gv)_j b_j$, so $v \in S$ when the coordinates of $gv$ of index $\geq k$ vanish; conversely $g$ maps each $w \in W$ to its coordinate vector, whose coordinates of index $\geq k$ vanish, and these $w$ span $S$ over $\C$. The columns of $P$ are linearly independent over $\C$ and the first $k$ of them span $S$, so $k = \dim S$.
+'''
+
+[[node]]
+platform = "DiazModulus.roy_rat_relation_rank_le"
+env = "lemma"
+title = '''The rank of the relations, over $\Q$'''
+statement = '''
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic). Rational vectors and subspaces rational over $\Q$ are as in Lemma~\ref{lem:roy_rat_adapted_basis}.
+
+Let $z_1, \dots, z_{\ell} \in \C^{d}$ be linearly independent over $\Q$, with $z_j = b_j + \lambda_j$, $b_j \in \Q^{d}$ and $\lambda_j \in \mathcal{L}^{d}$. Let $V' \subseteq \C^{d}$ be a subspace and $L_1$ the common kernel of linear forms $\varphi_1, \dots, \varphi_q$ on $\C^{d}$ with integer coefficients. Let $\rho$ be the dimension of the $\Q$-span of the integer vectors $s \in \Z^{\ell}$ with $\sum_j s_j b_j \in V'$ and $\prod_i \bigl(\prod_j e^{s_j \lambda_{j,i}}\bigr)^{\varphi_{k,i}} = 1$ for every $k$ (the relations of Theorem~\ref{thm:linear_subgroup_transcendence} at the lifts $(b_j, \lambda_j)$). With $T = \mathrm{span}_{\C}(V' \cap \Q^{d}) + L_1$,
+\[ \rho \leq \dim_{\Q}\Bigl(\mathrm{span}_{\Q}(z) \cap \mathrm{span}_{\Q}\{\tau + 2\pi i\,\kappa : \tau \in T,\ \kappa \in \Q^{d}\}\Bigr). \]
+'''
+source = '''A step of the proof of \cite[Th.~4]{Roy92} over $F = \Q$ (Remark~(i), p.~37, with $\Q + \mathcal{L}$ in place of $\widetilde{\mathcal L}$), in the setting of \cite[\S11.6.2]{Wal00} with $m = 1$; the analogue over $\Q$ of Lemma~\ref{lem:roy_relation_rank_le}, without its factor $m$. Routine.'''
+sketch = '''
+For a relation $s$ put $x_s = \sum_j s_j b_j$ and $y_s = \sum_j s_j \lambda_j$, so that $\sum_j s_j z_j = x_s + y_s$. The vector $x_s$ lies in $V'$ and is rational, so it lies in $\mathrm{span}_{\C}(V' \cap \Q^{d}) \subseteq T$. The exponential condition says $\sum_i \varphi_{k,i}\, y_{s,i} \in 2\pi i\,\Z$ for every $k$; a $\Q$-linear projection $\C \to \Q$ fixing $1$, applied to the coordinates of $y_s/2\pi i$, gives $r \in \Q^{d}$ with $\varphi_k(r) = \varphi_k(y_s)/2\pi i$ for every $k$, so $y_s - 2\pi i\,r \in L_1$. Hence $\sum_j s_j z_j = (x_s + y_s - 2\pi i\,r) + 2\pi i\,r$ lies in the space on the right. The map $c \mapsto \sum_j c_j z_j$ on $\Q^{\ell}$ is injective, since $z$ is $\Q$-free, and it maps the $\Q$-span of the relations into that space; an injective linear map does not lower the dimension.
+'''
+
+[[node]]
+platform = "DiazModulus.roy_rat_period_space"
+env = "lemma"
+title = '''The space of periods, over $\Q$'''
+statement = '''
+Rational vectors and subspaces rational over $\Q$ are as in Lemma~\ref{lem:roy_rat_adapted_basis}.
+
+Let $c \neq 0$, let $T, U \subseteq \C^{d}$ be subspaces with $T$ rational over $\Q$, and let $F$ be a finite-dimensional $\Q$-subspace of $U$ every element of which is $\tau + c\kappa$ with $\tau \in T$ and $\kappa \in \Q^{d}$. Then $R = T + \mathrm{span}_{\C} F$ is rational over $\Q$,
+\[ \dim_{\Q} F + \dim T \leq \dim_{\Q}(F \cap T) + \dim R, \quad\text{and}\quad \dim(U \cap R) + \dim T = \dim(U \cap T) + \dim R. \]
+'''
+source = '''Linear algebra; a step of the proof of \cite[Th.~4]{Roy92} over $F = \Q$ (Remark~(i), p.~37), on the route of Lemma~\ref{lem:roy_rat_relation_rank_le}; the analogue over $\Q$ of Lemma~\ref{lem:roy_period_space}. Routine.'''
+sketch = '''
+Every $x \in F$ is $\tau + c\kappa$ with $\tau \in T$ and $\kappa$ rational, and then $\kappa = c^{-1}(x - \tau) \in R$; so $R$ is spanned by the rational vectors of $T$ and these $\kappa$, and is rational over $\Q$. The $\Q$-space $P$ of pairs $(x, \kappa)$ with $x \in F$, $\kappa \in \Q^{d}$ and $x - c\kappa \in T$ is finite-dimensional. Its first projection is onto $F$, with kernel the pairs $(0, \kappa)$ with $\kappa$ a rational vector of $T$, of $\Q$-dimension at least $\dim T$ because $T$ is rational over $\Q$. Its second projection has a kernel that embeds in $F \cap T$ and an image of rational vectors of $R$; rational vectors that are linearly independent over $\Q$ are linearly independent over $\C$, so the image has $\Q$-dimension at most $\dim R$. Rank--nullity twice gives $\dim_{\Q} F + \dim T \leq \dim_{\Q} P \leq \dim_{\Q}(F \cap T) + \dim R$. Finally $\mathrm{span}_{\C} F \subseteq U$, so $U + R = U + T$, and the dimension formula for $U, R$ and for $U, T$ gives the identity.
+'''
+
+[[node]]
+platform = "DiazModulus.roy_rat_semistable_node"
+env = "proposition"
+title = '''Roy's Theorem 4 over $\Q$, the semistable case'''
+statement = '''
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers, and $\Q + \mathcal{L}$ the $\Q$-vector space spanned by $1$ and $\mathcal{L}$ (Lemma~\ref{lem:ratLogAlg_mem_iff}). Rational vectors and subspaces rational over $\Q$ are as in Lemma~\ref{lem:roy_rat_adapted_basis}.
+
+Assume \texttt{hME} (the hypothesis of Theorem~\ref{thm:linear_subgroup_transcendence}; Theorem~\ref{thm:multiplicityEstimateElem} proves it). Assume also, for every $t < d$: whenever $U' \subseteq \C^{t}$ is a subspace, $a < b$ are natural numbers with $b \dim(U' \cap S) \leq a \dim S$ for every subspace $S \subseteq \C^{t}$ rational over $\Q$, and $z'_1, \dots, z'_{\ell'} \in U' \cap (\Q + \mathcal{L})^{t}$ are linearly independent over $\Q$, then $(b - a)\,\ell' \leq b \dim U'$. Let $U \subseteq \C^{d}$ with $n = \dim U < d$ and $d \dim(U \cap S) \leq n \dim S$ for every subspace $S \subseteq \C^{d}$ rational over $\Q$, and let $z_1, \dots, z_{\ell} \in U \cap (\Q + \mathcal{L})^{d}$ be linearly independent over $\Q$. Then
+\[ (d - n)\,\ell \leq dn. \]
+The second hypothesis is the slope bound over $\Q$ in every dimension below $d$; the next proposition proves it by induction on $d$, with this one as the step.
+'''
+source = '''\cite[Th.~4]{Roy92} (p.~34), semistable case, over $F = \Q$ (Remark~(i), p.~37, with $\Q + \mathcal{L}$ in place of $\widetilde{\mathcal L}$); \cite[Prop.~11.19]{Wal00} (p.~402) for $(\Q, \Q + \mathcal{L})$ in the same case, whose printed proof has a gap for $\Q$ (ERRATA.md, B9) and is not used. The route is that of Proposition~\ref{prop:roy_semistable_node}, over $\Q$ and with $m = 1$: \cite[Th.~11.21]{Wal00} (Theorem~\ref{thm:linear_subgroup_transcendence}) is applied once, the additive part of its obstruction is replaced by the span of its rational vectors (ERRATA.md, B3, repair (b), with $\Q$ for $\Qbar$), and no subgroup has to be selected.'''
+sketch = '''
+Write $z_j = b_j + \lambda_j$ with $b_j \in \Q^{d}$ and $\lambda_j \in \mathcal{L}^{d}$ (Lemma~\ref{lem:ratLogAlg_mem_iff}). The map $\Upsilon(x, y) = x + y$ on $\C^{d} \times \C^{d}$ is onto, with kernel spanned by the vectors $(e_h, -e_h)$, so $V = \Upsilon^{-1}(U)$ has dimension $n + d$. Theorem~\ref{thm:linear_subgroup_transcendence} at $V$, with that algebraic spanning family of $\ker\Upsilon$ and the lifts $(b_j, \lambda_j)$, returns $V'$, integer forms with common kernel $L_1$, and an integer $\ell_T$. Put $T = \mathrm{span}_{\C}(V' \cap \Q^{d}) + L_1$: it is rational over $\Q$ (the kernel of an integer matrix is spanned by rational vectors), of dimension $t < d$, and a dimension count turns the inequality of the theorem into $(\ell - \rho)(d - n) \leq n(d - t)$. Lemma~\ref{lem:roy_rat_relation_rank_le} bounds $\rho$ by $\dim_{\Q} F$, where $F = \mathrm{span}_{\Q}(z) \cap (T + 2\pi i\,\Q^{d})$. Lemma~\ref{lem:roy_rat_period_space} makes $R = T + \mathrm{span}_{\C} F$ rational over $\Q$, with $\dim_{\Q} F + t \leq \dim_{\Q}(F \cap T) + \dim R$ and $\dim(U \cap R) + t = \dim(U \cap T) + \dim R$, and the hypothesis on $U$ at $R$ bounds $\dim(U \cap R)$. The second hypothesis at $t$, moved to $\C^{t}$ by Lemma~\ref{lem:roy_rat_adapted_basis}, gives $(d - n)\dim_{\Q}(\mathrm{span}_{\Q}(z) \cap T) \leq d \dim(U \cap T)$. Adding these inequalities gives $(d - n)\ell \leq dn$.
+'''
+
+[[node]]
+platform = "DiazModulus.roy_rat_slope_bound"
+env = "proposition"
+title = '''The slope bound over $\Q$'''
+statement = '''
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers, and $\Q + \mathcal{L}$ the $\Q$-vector space spanned by $1$ and $\mathcal{L}$ (Lemma~\ref{lem:ratLogAlg_mem_iff}). Rational vectors and subspaces rational over $\Q$ are as in Lemma~\ref{lem:roy_rat_adapted_basis}.
+
+Assume \texttt{hME} (Theorem~\ref{thm:multiplicityEstimateElem} proves it). Let $U \subseteq \C^{d}$ be a subspace and $a < b$ natural numbers with $b \dim(U \cap S) \leq a \dim S$ for every subspace $S \subseteq \C^{d}$ rational over $\Q$, and let $z_1, \dots, z_{\ell} \in U \cap (\Q + \mathcal{L})^{d}$ be linearly independent over $\Q$. Then
+\[ (b - a)\,\ell \leq b \dim U. \]
+With $(a, b) = (\dim U, d)$ this is the semistable case of Roy's Theorem~4 over $\Q$: $\ell/(d + \ell) \leq n/d$, where $n = \dim U$.
+'''
+source = '''\cite[Th.~4]{Roy92} (p.~34), semistable case, over $F = \Q$ (Remark~(i), p.~37, with $\Q + \mathcal{L}$ in place of $\widetilde{\mathcal L}$), in a form that passes to subspaces and quotients; \cite[Prop.~11.19]{Wal00} for $(\Q, \Q + \mathcal{L})$ in the same case. The analogue over $\Q$ of Proposition~\ref{prop:roy_slope_bound}, by the same induction on $d$ along a subspace of maximal slope.'''
+sketch = '''
+Strong induction on $d$; for $d = 0$ the family is empty, and so it is when $U = 0$. Let $n = \dim U$. If $d \dim(U \cap S) \leq n \dim S$ for every $S$ rational over $\Q$, the hypothesis at $S = \C^{d}$ gives $bn \leq ad$, hence $n < d$, and Proposition~\ref{prop:roy_rat_semistable_node}, with the induction hypothesis, gives $(d - n)\ell \leq dn$, which implies the claim. Otherwise a subspace $S_1 \neq 0$, rational over $\Q$, of maximal slope $\dim(U \cap S)/\dim S$ (the slopes take finitely many values) has $0 < s_1 = \dim S_1 < d$, and $u_1 = \dim(U \cap S_1) < s_1$ by the hypothesis at $S_1$. Coordinates adapted to $S_1$ (Lemma~\ref{lem:roy_rat_adapted_basis}) have a rational matrix, so they preserve vectors with coordinates in $\Q + \mathcal{L}$; they identify $S_1$ with $\C^{s_1}$ and give a projection $\pi : \C^{d} \to \C^{d - s_1}$ with kernel $S_1$ and a rational section. By maximality, $U \cap S_1$ and $\pi(U)$ satisfy the hypothesis with $(a, b) = (u_1, s_1)$; for the quotient, $\dim(\pi(U) \cap S'') = \dim(U \cap \pi^{-1}S'') - u_1$. The $\Q$-span $Z$ of $z$ splits into $Z \cap S_1$ and $\pi(Z)$, of total dimension $\ell$, and the induction hypothesis on both pieces adds up to $(s_1 - u_1)\ell \leq s_1 n$; then $bu_1 \leq as_1$ turns this into $(b - a)\ell \leq bn$.
+'''
+
+[[node]]
+platform = "DiazModulus.roy_rat_theorem_five"
+env = "theorem"
+title = '''Roy's Theorem 5 over $\Q$'''
+statement = '''
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers, and $\Q + \mathcal{L}$ the $\Q$-vector space spanned by $1$ and $\mathcal{L}$ (Lemma~\ref{lem:ratLogAlg_mem_iff}). Rational vectors and subspaces rational over $\Q$ are as in Lemma~\ref{lem:roy_rat_adapted_basis}, and decompositions as in Theorem~\ref{thm:roy_theorem_five}: lists $(n_1, d_1), \dots, (n_k, d_k)$ with $0 < n_i < d_i$, $\sum_i n_i = n$ and $\sum_i d_i = d$, the empty list decomposing $(0, 0)$ only.
+
+Let $U \subseteq \C^{d}$ be a subspace that contains no non-zero rational vector, and let $z_1, \dots, z_{\ell} \in U \cap (\Q + \mathcal{L})^{d}$ be linearly independent over $\Q$. Then there are a subspace $S \supseteq U$ of $\C^{d}$, rational over $\Q$, and a decomposition $(n_1, d_1), \dots, (n_k, d_k)$ of $(\dim U, \dim S)$ with
+\[ \ell \leq \sum_{i=1}^{k} \frac{n_i d_i}{d_i - n_i}. \]
+So $\ell \leq \varphi(\dim U, \dim S)$, where Roy's $\varphi(n, d)$ is the largest value of this sum over the decompositions of $(n, d)$ (Lemma~\ref{lem:roy_lemma_phi}). It holds with no hypothesis.
+'''
+source = '''\cite[Th.~5]{Roy92} (p.~39) over $F = \Q$, with $\Q + \mathcal{L}$ in place of $\widetilde{\mathcal L}$: Roy's Remark~(i) (p.~37) states his Th.~4 for every subfield $F$ of $\Qbar$, and Th.~5 follows from Th.~4 by his induction on $d$ (pp.~39--40). Here in decomposition form, with a subspace $S \supseteq U$ rational over $\Q$ in place of Roy's hypothesis that $\C^{d}$ is the least one. The induction splits along a subspace of maximal slope, with Proposition~\ref{prop:roy_rat_slope_bound} on the subspace and the induction hypothesis on the quotient, so that no transport to a hull (Lemma~\ref{lem:roy_hull_transport} over $\Qbar$) is needed; \texttt{hME} is discharged by Theorem~\ref{thm:multiplicityEstimateElem}.'''
+sketch = '''
+Strong induction on $d$, for all $U$ and $z$. If $U = 0$, then $\ell = 0$, and $S = 0$ with the empty decomposition will do. Otherwise let $S_1 \neq 0$, rational over $\Q$, have maximal slope $u_1/s_1$, where $u_1 = \dim(U \cap S_1)$ and $s_1 = \dim S_1$. Then $u_1 \geq 1$, by comparison with $\C^{d}$, and $u_1 < s_1$, for otherwise $S_1 \subseteq U$ and $U$ would contain a non-zero rational vector. Coordinates adapted to $S_1$ (Lemma~\ref{lem:roy_rat_adapted_basis}) identify $S_1$ with $\C^{s_1}$ and give a projection $\pi : \C^{d} \to \C^{d - s_1}$ with kernel $S_1$ and a rational section. By maximality, $U \cap S_1$, moved to $\C^{s_1}$, satisfies the hypothesis of Proposition~\ref{prop:roy_rat_slope_bound} with $(a, b) = (u_1, s_1)$, which, with Theorem~\ref{thm:multiplicityEstimateElem}, gives $\dim_{\Q}(Z \cap S_1) \leq u_1 s_1/(s_1 - u_1)$ for the $\Q$-span $Z$ of $z$. Maximality also gives $s_1 \dim(\pi(U) \cap S') \leq u_1 \dim S'$ for every $S'$ rational over $\Q$, so $\pi(U)$ contains no non-zero rational vector, and the induction hypothesis, applied to a $\Q$-basis of $\pi(Z)$, gives $S'$ and a decomposition $D'$. Then $S = \pi^{-1}(S')$ is rational over $\Q$, contains $U$ and has dimension $s_1 + \dim S'$, and $(u_1, s_1)$ followed by $D'$ is a decomposition of $(\dim U, \dim S)$ whose sum bounds $\ell = \dim_{\Q}(Z \cap S_1) + \dim_{\Q} \pi(Z)$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_cor_11_15_rat"
+root = true
+env = "corollary"
+title = '''DALAG Corollary 11.15 for $\Q$ and $\Q + \mathcal{L}$'''
+statement = '''
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\Q + \mathcal{L}$ the $\Q$-vector space spanned by $1$ and $\mathcal{L}$, the set of the $q + \lambda$ with $q \in \Q$ and $\lambda \in \mathcal{L}$ (Lemma~\ref{lem:ratLogAlg_mem_iff}). A vector of $\C^{d}$ is \emph{rational} if its coordinates are rational numbers, and a subspace of $\C^{d}$ is \emph{rational over $\Q$} if it is spanned by its rational vectors. $\Psi$ is the table of Lemma~\ref{lem:dalag_psi_floor_roy_phi}, with $\Psi(0, d) = 0$ for every $d \geq 0$.
+
+Let $V \subseteq \C^{d}$ be a subspace that contains no non-zero rational vector, and let $S_0 \supseteq V$ be a subspace rational over $\Q$ of least dimension among the subspaces rational over $\Q$ that contain $V$; write $n = \dim V$ and $d_{\min} = \dim S_0$. Then $n < d_{\min}$ if $n > 0$, the $\Q$-vector space $V \cap (\Q + \mathcal{L})^{d}$ is finite-dimensional, and
+\[ \dim_{\Q}\bigl(V \cap (\Q + \mathcal{L})^{d}\bigr) \leq \Psi(n, d_{\min}). \]
+'''
+source = '''\cite[Cor.~11.15]{Wal00} (p.~398) for $(\Q, \Q + \mathcal{L})$, with the bound $\Psi(\dim V, d_{\min})$ as printed and $\Psi(0, d) = 0$ for every $d$ (ERRATA.md, C9), as in Corollary~\ref{cor:dalag_cor_11_15_psi}. The proof is Roy's route over $\Q$: \cite[Th.~4]{Roy92} for a subfield $F$ of $\Qbar$ by his Remark~(i) (p.~37), with $F = \Q$ (Proposition~\ref{prop:roy_rat_slope_bound}); \cite[Th.~5]{Roy92} by an induction on $d$ (p.~39; Theorem~\ref{thm:roy_rat_theorem_five}); and Roy's Lemma (p.~40) through Lemma~\ref{lem:dalag_psi_floor_roy_phi}. DALAG proves the corollary (p.~403) from Prop.~11.19 (p.~402), whose printed proof has a gap in this case: Th.~11.5\,(3$'$) need not select the trivial subgroup (ERRATA.md, B9; the false clause of Lemma~11.18\,(2) behind it is A4). Prop.~11.19 is not used here.'''
+sketch = '''
+If $n > 0$, then $n \leq d_{\min}$, and $n = d_{\min}$ would make $V = S_0$ a non-zero subspace rational over $\Q$, which contains a non-zero rational vector; so $n < d_{\min}$. Let $W = V \cap (\Q + \mathcal{L})^{d}$. For a $\Q$-free family of $\ell$ vectors of $W$, Theorem~\ref{thm:roy_rat_theorem_five} gives $S \supseteq V$ rational over $\Q$ and a decomposition $D$ of $(n, \dim S)$ with $\ell \leq \sum_i n_i d_i/(d_i - n_i)$; each term is at most $n_i d$, since $d_i \leq d$ and $d_i - n_i \geq 1$, so $\ell \leq nd$, and $W$ is finite-dimensional. Apply this to a $\Q$-basis of $W$. If $n = 0$, $D$ is empty and $\dim_{\Q} W = 0$. If $n > 0$, $D$ is non-empty, so $n < \dim S$, and $d_{\min} \leq \dim S$ by minimality. Lemma~\ref{lem:dalag_psi_floor_roy_phi} at $(n, \dim S)$ bounds the sum of $D$ below $\Psi(n, \dim S) + 1$, so $\dim_{\Q} W \leq \Psi(n, \dim S)$, both being integers. Finally $\Psi(n, \cdot)$ does not increase on the integers $> n$: its values are $2$, then $1$, for $n = 1$, and $n(n + 1)$, $n(n - 1) + 2$, then $n(n - 1) + 1$, for $n \geq 2$. As $n < d_{\min} \leq \dim S$, $\Psi(n, \dim S) \leq \Psi(n, d_{\min})$.
+'''
+
+# --- DALAG Lemma 12.9: the structural rank through affine forms ----------
+[[node]]
+platform = "DiazModulus.dalag_lemma_12_9_dehomog"
+section = "DALAG Lemma 12.9: the structural rank through affine forms"
+env = "lemma"
+title = "Dehomogenisation keeps the rank"
+statement = '''
+Let $k$ be a field and $N_0, N_1, \dots, N_m$ matrices of size $d \times \ell$ with entries in $k$. Then
+\[ \operatorname{rank}_{k(X_1, \dots, X_m)} \Bigl(N_0 + \sum_{i=1}^{m} X_i N_i\Bigr) = \operatorname{rank}_{k(Y_0, \dots, Y_m)} \sum_{i=0}^{m} Y_i N_i, \]
+the ranks being taken over the fields of rational functions in $X_1, \dots, X_m$ and in $Y_0, \dots, Y_m$. Every matrix whose entries are affine forms $a_0 + a_1X_1 + \dots + a_mX_m$ with $a_i \in k$ is such an $N_0 + \sum_i X_i N_i$, and $\sum_{i=0}^{m} Y_i N_i$ is its homogenisation.
+'''
+source = '''A step of the proof of \cite[Lemma~12.9]{Wal00} (p.~427; proof p.~428): the passage from the homogenised matrix back to the affine one, which the printed proof leaves implicit (ERRATA.md, B7, step (1)); the remark before the lemma (p.~427), that the determinant of a matrix of linear forms is homogeneous, points to it. The substitution here is $Y_i \mapsto Y_0 Y_i$ rather than $X_i \mapsto Y_i/Y_0$. Routine.'''
+sketch = '''
+Write $A = N_0 + \sum_{i=1}^{m} X_i N_i$ and $B = \sum_{i=0}^{m} Y_i N_i$. The $k$-algebra endomorphism $\theta_0$ of $k[Y_0, \dots, Y_m]$ with $Y_0 \mapsto Y_0$ and $Y_i \mapsto Y_0 Y_i$ ($i \geq 1$) has the left inverse $Y_0 \mapsto Y_0$, $Y_i \mapsto Y_i/Y_0$ into $k(Y_0, \dots, Y_m)$, so it is injective and extends to a homomorphism $\theta$ of $k(Y_0, \dots, Y_m)$ into itself. The renaming $X_i \mapsto Y_i$ extends likewise to a homomorphism of fields $\iota : k(X_1, \dots, X_m) \to k(Y_0, \dots, Y_m)$. Entry by entry, $\theta(B) = Y_0\,\iota(A)$. By Lemma~\ref{lem:matrix_rank_map_field} a homomorphism of fields does not change the rank of a matrix, nor does the non-zero scalar $Y_0$, so $\operatorname{rank} B = \operatorname{rank} \theta(B) = \operatorname{rank} \iota(A) = \operatorname{rank} A$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_lemma_12_8_linear"
+env = "lemma"
+title = "DALAG Lemma 12.8 for any injective map into linear forms"
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), let $M$ be a $d \times \ell$ matrix with entries in $K$, and suppose that $M = \sum_{j=1}^{m} e_j N_j$ with $e_1, \dots, e_m \in K$ linearly independent over $k$ and $N_1, \dots, N_m$ matrices of size $d \times \ell$ with entries in $k$. Let $\varphi : K \to k^{n}$ be $k$-linear and injective on the $k$-span of $e_1, \dots, e_m$, and let $\varphi(M)$ be the matrix whose $(a, b)$ entry is the linear form $\sum_{i=1}^{n} \varphi(M_{ab})_i X_i$. Then
+\[ \operatorname{rank}_{k(X_1, \dots, X_n)} \varphi(M) = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j. \]
+The right-hand side is the structural rank of $M$ over $k$ (DALAG \S12.1.4), computed from the presentation $M = \sum_j e_j N_j$ as in Corollary~\ref{cor:dalag_cor_12_22}. Applied to two bases of the $k$-span of the entries of $M$, it gives DALAG Lemma~12.8: the rank does not depend on the basis.
+'''
+source = '''\cite[Lemma~12.8]{Wal00} (p.~426; proof p.~427) in the generality of its proof: stated there for a map given by a basis, here for every $k$-linear map into $kX_1 + \dots + kX_n$ that is injective on the span of the $e_j$, which is how the proof of \cite[Lemma~12.9]{Wal00} (p.~428) uses it (ERRATA.md, B7, step (2)). It is also the independence of the choice of the map asserted in \S12.1.4 (p.~426). Routine.'''
+sketch = '''
+The vectors $c_j = \varphi(e_j) \in k^{n}$ are linearly independent over $k$: a relation among them is the image of an element of the span of the $e_j$ that $\varphi$ sends to $0 = \varphi(0)$. So $v \mapsto \sum_j v_j c_j$ is injective on $k^{m}$, and it has a $k$-linear left inverse $G$. The $k$-algebra map $\Lambda_0 : k[Z_1, \dots, Z_m] \to k[X_1, \dots, X_n]$ with $Z_j \mapsto \sum_i (c_j)_i X_i$ has the left inverse $X_i \mapsto \sum_q G(\varepsilon_i)_q Z_q$, where $\varepsilon_1, \dots, \varepsilon_n$ are the unit vectors, so it is injective (linear forms that are linearly independent over $k$ are algebraically independent) and extends to a homomorphism of fields $\Lambda : k(Z_1, \dots, Z_m) \to k(X_1, \dots, X_n)$. Since $\varphi(M_{ab}) = \sum_j (N_j)_{ab}\, c_j$, $\Lambda$ maps $\sum_j Z_j N_j$ to $\varphi(M)$, and Lemma~\ref{lem:matrix_rank_map_field} gives the equality.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_lemma_12_9"
+root = true
+env = "lemma"
+title = "DALAG Lemma 12.9"
+statement = '''
+Let $k$, $K$ and $M = \sum_{j=1}^{m} e_j N_j$ be as in Lemma~\ref{lem:dalag_lemma_12_8_linear}: $e_1, \dots, e_m \in K$ are linearly independent over $k$ and $N_1, \dots, N_m$ have entries in $k$. Let $\varphi : K \to k^{n+1}$ be $k$-linear and injective on the $k$-span of $e_1, \dots, e_m$, read as a map into the affine forms $k + kX_1 + \dots + kX_n$, and let $\varphi(M)$ be the matrix whose $(a, b)$ entry is $\varphi(M_{ab})_0 + \sum_{i=1}^{n} \varphi(M_{ab})_i X_i$. Then
+\[ \operatorname{rank}_{k(X_1, \dots, X_n)} \varphi(M) = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j, \]
+the structural rank of $M$ over $k$ (DALAG \S12.1.4), computed from the presentation $M = \sum_j e_j N_j$.
+'''
+source = '''\cite[Lemma~12.9]{Wal00} (p.~427; proof p.~428), in presentation form, for any field $k$ and any $k$-linear map into $k + kX_1 + \dots + kX_n$ that is injective on the span of the $e_j$. DALAG asks the map to be injective on the span $E$ of the entries of $M$; a presentation by a basis of $E$, with the map extended from $E$ to $K$, gives that form. The printed proof composes the map with $a_0 + \sum_i a_i X_i \mapsto a_0 Y_0 + \sum_i a_i Y_i$ and applies Lemma~12.8; the two steps it leaves implicit are Lemma~\ref{lem:dalag_lemma_12_9_dehomog} and Lemma~\ref{lem:dalag_lemma_12_8_linear} (ERRATA.md, B7). The repair of a step in the proof of \cite[Prop.~12.13]{Wal00}, (iv)$\Rightarrow$(iii) (p.~430), is a case of this lemma (ERRATA.md, B8); Prop.~12.13 is not formalised.'''
+sketch = '''
+Put $N'_i = \bigl(\varphi(M_{ab})_i\bigr)_{a,b}$ for $i = 0, \dots, n$, matrices with entries in $k$. Entry by entry, $\varphi(M) = N'_0 + \sum_{i=1}^{n} X_i N'_i$, and its homogenisation $\sum_{i=0}^{n} Y_i N'_i$ is the matrix of linear forms $\sum_{i=0}^{n} \varphi(M_{ab})_i Y_i$: the image of $M$ under the same $\varphi$, read as a map into $kY_0 + \dots + kY_n$. Lemma~\ref{lem:dalag_lemma_12_9_dehomog} gives $\operatorname{rank} \varphi(M) = \operatorname{rank} \sum_{i=0}^{n} Y_i N'_i$, and Lemma~\ref{lem:dalag_lemma_12_8_linear}, with $n + 1$ variables, gives $\operatorname{rank} \sum_{i=0}^{n} Y_i N'_i = \operatorname{rank} \sum_j Z_j N_j$.
 '''

@@ -1,0 +1,21 @@
+{
+ "theorem_id": "6311071d-dbb7-48d5-a414-4b1c3d1976c3",
+ "theorem_name": "DiazModulus.roy_rat_period_space",
+ "theorem_title": "If F ⊆ U ∩ (T + cℚᵈ) with T rational over ℚ, then R = T + span F is rational over ℚ and dim F − dim(F ∩ T) ≤ dim R − dim T = dim(U ∩ R) − dim(U ∩ T)",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem roy_rat_period_space {d : ℕ} (c : ℂ) (hc : c ≠ 0) (T U : Submodule ℂ (Fin d → ℂ))\n    (hT : Submodule.span ℂ {v : Fin d → ℂ | v ∈ T ∧ ∀ i, ∃ q : ℚ, v i = (q : ℂ)} = T)\n    (F : Submodule ℚ (Fin d → ℂ)) (hFfin : FiniteDimensional ℚ ↥F) (hFU : ∀ x ∈ F, x ∈ U)\n    (hF : ∀ x ∈ F, ∃ τ ∈ T, ∃ κ : Fin d → ℂ, (∀ i, ∃ q : ℚ, κ i = (q : ℂ)) ∧ x = τ + c • κ) :\n    Submodule.span ℂ {v : Fin d → ℂ | v ∈ (T ⊔ Submodule.span ℂ (F : Set (Fin d → ℂ))) ∧\n        ∀ i, ∃ q : ℚ, v i = (q : ℂ)} = (T ⊔ Submodule.span ℂ (F : Set (Fin d → ℂ))) ∧\n    Module.finrank ℚ ↥F + Module.finrank ℂ ↥T ≤\n      Module.finrank ℚ ↥(F ⊓ T.restrictScalars ℚ) +\n        Module.finrank ℂ ↥(T ⊔ Submodule.span ℂ (F : Set (Fin d → ℂ))) ∧\n    Module.finrank ℂ ↥(U ⊓ (T ⊔ Submodule.span ℂ (F : Set (Fin d → ℂ)))) + Module.finrank ℂ ↥T =\n      Module.finrank ℂ ↥(U ⊓ T) + Module.finrank ℂ ↥(T ⊔ Submodule.span ℂ (F : Set (Fin d → ℂ))) := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "A vector of $\\mathbb C^d$ is *rational* if its coordinates are rational numbers, and a subspace $S \\subseteq \\mathbb C^d$ is *rational over $\\mathbb Q$* if it is spanned by its rational vectors.\n\nLet $c \\neq 0$, let $T, U \\subseteq \\mathbb C^d$ be subspaces with $T$ rational over $\\mathbb Q$, and let $F$ be a finite-dimensional $\\mathbb Q$-subspace of $U$ every element of which is $\\tau + c\\kappa$ with $\\tau \\in T$ and $\\kappa \\in \\mathbb Q^d$. Then $R = T + \\mathrm{span}_{\\mathbb C} F$ is rational over $\\mathbb Q$, $\\dim_{\\mathbb Q} F + \\dim T \\le \\dim_{\\mathbb Q}(F \\cap T) + \\dim R$, and $\\dim(U \\cap R) + \\dim T = \\dim(U \\cap T) + \\dim R$.",
+ "created_at": "2026-11-14T17:29:34.393233+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Linear algebra; a step of the proof of D. Roy, Matrices whose coefficients are linear forms in logarithms, J. Number Theory 41 (1992), 22–47, Th. 4, over F = ℚ (Remark (i), p. 37, with ℚ + ℒ in place of ℒ̃); the analogue over ℚ of DiazModulus.roy_period_space. Novelty: none claimed; routine. Formal proof: Diaz modulus mission, 14 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
