@@ -15,12 +15,12 @@ namespace Transcendence
 
 `D^k G(0)(z, …, z)` expands along the coordinate directions as a sum over direction lists
 `L : Fin k → ι` (`iteratedFDeriv_expand`); grouping the lists by their multiplicities `cnt L`
-gives the coefficient `coef G T r τ` of `(z / r)^τ` for `τ` taylor_coeff_forms_in the box `ι → Fin T` (`sum_tc_eq`;
+gives the coefficient `coef G T r τ` of `(z / r)^τ` for `τ` in the box `ι → Fin T` (`sum_tc_eq`;
 no symmetry of derivatives is needed, and the coefficients of order `≥ T` vanish). Each mixed
 derivative is at most `τ! M / r^K` by Cauchy's inequalities on the polydisc
 (`Transcendence.polydisc_cauchy`), and the multinomial count `#{L | cnt L = τ} · τ! = K!`
-(`card_mul_prod_factorial`, from the multinomial theorem taylor_coeff_forms_in `MvPolynomial ι ℕ`) gives
-`|coef G T r τ| ≤ M` (`norm_coef_le`). The coefficients are linear taylor_coeff_forms_in `G` (`coef_sum`).
+(`card_mul_prod_factorial`, from the multinomial theorem in `MvPolynomial ι ℕ`) gives
+`|coef G T r τ| ≤ M` (`norm_coef_le`). The coefficients are linear in `G` (`coef_sum`).
 -/
 
 namespace TaylorCoeffForms
@@ -47,7 +47,7 @@ variable [DecidableEq ι]
 noncomputable def D (G : (ι → ℂ) → ℂ) {k : ℕ} (L : Fin k → ι) : ℂ :=
   iteratedFDeriv ℂ k G 0 (fun i => Pi.single (L i) 1)
 
-/-- How many times the direction `ν` occurs taylor_coeff_forms_in `L`. -/
+/-- How many times the direction `ν` occurs in `L`. -/
 def cnt {k : ℕ} (L : Fin k → ι) (ν : ι) : ℕ := (univ.filter fun i => L i = ν).card
 
 lemma cnt_le {k : ℕ} (L : Fin k → ι) (ν : ι) : cnt L ν ≤ k := by
@@ -80,13 +80,13 @@ lemma iteratedFDeriv_expand (G : (ι → ℂ) → ℂ) (k : ℕ) (z : ι → ℂ
   rw [ContinuousMultilinearMap.map_smul_univ, smul_eq_mul]
   rfl
 
-/-- The normalised Taylor coefficient of `G` at `0` of multi-index `τ` (taylor_coeff_forms_in the box `ι → Fin T`),
+/-- The normalised Taylor coefficient of `G` at `0` of multi-index `τ` (in the box `ι → Fin T`),
 times `ρ^{|τ|}`; the multi-index is encoded by direction lists `L` with `cnt L = τ`. -/
 noncomputable def coef (G : (ι → ℂ) → ℂ) (T : ℕ) (ρ : ℂ) (τ : ι → Fin T) : ℂ :=
   ∑ k ∈ range T, (k ! : ℂ)⁻¹ * ρ ^ k *
     ∑ L ∈ (univ.filter fun L : Fin k → ι => ∀ ν, cnt L ν = τ ν), D G L
 
-/-- The Taylor polynomial of order `< T` of `G` at `ρ • y` taylor_coeff_forms_in terms of the coefficients. -/
+/-- The Taylor polynomial of order `< T` of `G` at `ρ • y` in terms of the coefficients. -/
 lemma sum_tc_eq (G : (ι → ℂ) → ℂ) (T : ℕ) (ρ : ℂ) (y : ι → ℂ) :
     ∑ k ∈ range T, (k ! : ℂ)⁻¹ * iteratedFDeriv ℂ k G 0 (fun _ => ρ • y) =
       ∑ τ : ι → Fin T, (∏ ν, y ν ^ (τ ν : ℕ)) * coef G T ρ τ := by
@@ -118,7 +118,7 @@ lemma sum_tc_eq (G : (ι → ℂ) → ℂ) (T : ℕ) (ρ : ℂ) (y : ι → ℂ)
     simp [hne]
 
 /-- The multinomial count `#{L | cnt L = τ} · ∏ τ_ν! = K!` for `∑ τ = K`, from the multinomial
-theorem taylor_coeff_forms_in `MvPolynomial ι ℕ`. -/
+theorem in `MvPolynomial ι ℕ`. -/
 lemma card_mul_prod_factorial (τ : ι → ℕ) {K : ℕ} (hK : ∑ ν, τ ν = K) :
     (univ.filter fun L : Fin K → ι => ∀ ν, cnt L ν = τ ν).card * ∏ ν, (τ ν)! = K ! := by
   have h := MvPolynomial.coeff_sum_X_pow_of_fintype (R := ℕ) (Finsupp.equivFunOnFinite.symm τ) K

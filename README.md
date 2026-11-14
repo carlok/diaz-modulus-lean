@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 657 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 672 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -40,7 +40,7 @@ checked and ranks those that are not routine; in the dependency graph they have 
 | Roy's strong six exponentials theorem: for `x₁, x₂` and `y₁, y₂, y₃` free over Q̄, some `xᵢyⱼ` is not in `ℒ̃` | Roy 1992, Cor. 2; DALAG Cor. 11.16, via Th. 11.21 | `Diaz.strongSixExponentials` | this project, with no hypothesis, through an elementary case of the multiplicity estimate (DALAG Th. 8.1) |
 | the five exponentials theorem: for `x₀, x₁` and `y₀, y₁` free over ℚ and algebraic `η ≠ 0`, one of `e^{xᵢyⱼ}`, `e^{ηx₁/x₀}` is transcendental | Waldschmidt 1988, Cor. 2.2; DALAG §11.3.3 | `Diaz.five_exponentials` | this project, from Roy's theorem and Baker's, as in DALAG (Remark after Cor. 11.16) |
 | Roy's rank bound: a `d × l` matrix `M` with entries in `ℒ̃` has rank at least `dθ/(1 + θ)`, `θ` read off the zero blocks of `PMQ` for algebraic `P`, `Q` | Roy 1992, Cor. 1; DALAG Th. 12.20, Cor. 12.21 | `Diaz.roy_rank_bound` | this project, with no hypothesis, from the linear subgroup theorem (DALAG Th. 11.21) |
-| Roy's Theorem 5: if `U ⊆ ℂᵈ` meets `Q̄ᵈ` only in 0 and no rational subspace other than `ℂᵈ` contains it, a Q̄-free family in `U ∩ ℒ̃ᵈ` has at most `φ(dim U, d)` elements, `φ` the largest `Σ nᵢdᵢ/(dᵢ − nᵢ)` over the decompositions `(dim U, d) = Σ (nᵢ, dᵢ)` | Roy 1992, Th. 5; DALAG Cor. 11.15 | `Diaz.roy_theorem_five`, `Diaz.roy_theorem_five_dmin` | this project, with no hypothesis, from Roy's Theorem 4 |
+| Roy's Theorem 5: if `U ⊆ ℂᵈ` meets `Q̄ᵈ` only in 0 and no rational subspace other than `ℂᵈ` contains it, a Q̄-free family in `U ∩ ℒ̃ᵈ` has at most `φ(dim U, d)` elements, `φ` the largest `Σ nᵢdᵢ/(dᵢ − nᵢ)` over the decompositions `(dim U, d) = Σ (nᵢ, dᵢ)` | Roy 1992, Th. 5 and Lemma (p. 40); DALAG Cor. 11.15 | `Diaz.roy_theorem_five`, `Diaz.roy_theorem_five_dmin`, `Diaz.dalag_cor_11_15_psi` | this project, with no hypothesis, from Roy's Theorem 4; `φ` in closed form, and DALAG's table Ψ as its integer part |
 | the four exponentials theorem in transcendence degree one | Waldschmidt 1973, Brownawell 1974 | `Diaz.four_exponentials_trdeg_one` | this project |
 | two of `xᵢ, yⱼ, e^{xᵢyⱼ}` are algebraically independent when one column is algebraic | Waldschmidt 1973, Brownawell 1974 | `Diaz.two_algebraically_independent_of_exp_column` | this project |
 | one of `e^e`, `e^{e²}` is transcendental (Schneider's eighth problem) | Waldschmidt 1973, Brownawell 1974 | `Transcendence.exp_e_or_exp_e_sq_transcendental` | this project |
@@ -852,7 +852,8 @@ formalising" below).
 - `DiazModulus.roy_theorem_five_dmin` (milestone) — DALAG Cor. 11.15 (p. 398) for `(Q̄, ℒ̃)`, in the same form: if
   `V ∩ Q̄ᵈ = 0`, then `V ∩ ℒ̃ᵈ` is finite-dimensional over Q̄, of dimension at most `Σ nᵢdᵢ/(dᵢ − nᵢ)` for a
   decomposition of `(dim V, d_min)`, where `d_min` is the least dimension of a rational subspace containing `V`.
-  The proof follows Roy, not DALAG's argument for the corollary.
+  The proof follows Roy, not DALAG's argument for the corollary. The bound in DALAG's printed form, with the table
+  Ψ, is `dalag_cor_11_15_psi` (below).
 - `DiazModulus.variations_hyperplane_bound` (milestone) — *Variations* Th. 3.1 (p. 347): a hyperplane of `ℂᵈ` that
   meets `Q̄ᵈ` only in 0 meets `ℒ̃ᵈ` in dimension at most `d(d − 1)` over Q̄; the hyperplane case of the previous
   item. `DiazModulus.variations_cor_3_2` (milestone) — Cor. 3.2 (p. 348): for an `m × ℓ` matrix `(Λᵢⱼ)` over `ℒ̃`
@@ -875,9 +876,10 @@ formalising" below).
   `(I_m, M)` Q̄-free.
 
 Milestones 186–193 of the Prove2Me mission are the eight printed results; the three helpers joined by import. The
-11 modules have 1,269 lines in `Diaz/Mirror/`. Not formalised: the closed form of Roy's `φ` (his lemma on p. 40)
-and DALAG's table Ψ; *Variations* Th. 3.3 and Cor. 3.4–3.5, which rest on DALAG Cor. 11.6 rather than on Roy's
-theorem.
+11 modules have 1,269 lines in `Diaz/Mirror/`. Roy's closed form of `φ` (his Lemma on p. 40)
+and DALAG's table Ψ are formalised in "*Further variations* Th. 2.1 for every `Y`, Roy's Lemma, DALAG Cor. 11.15
+and 12.23" below. Not formalised: *Variations* Th. 3.3 and Cor. 3.4–3.5, which rest on DALAG Cor. 11.6 rather
+than on Roy's theorem.
 
 ### Applications of Roy's Corollary 1: *Further variations*, DALAG §12.3, Fischler
 
@@ -891,7 +893,7 @@ results, with no hypothesis.
     Q̄-subspaces with `dim X = d > n` and `μ(Y, ℂⁿ) > d/(d − n)`, then `x · y ∉ ℒ̃` for some `x ∈ X`, `y ∈ Y`. Here
     `x · y` is the bilinear dot product and `μ(Y, ℂⁿ)` the least `dim_Q̄(Y/(Y ∩ V))/codim V` over all ℂ-subspaces
     `V ≠ ℂⁿ`. The printed statement allows any `Y`; its proof covers finite-dimensional `Y`, which is the case
-    stated here. The proof takes one ℂ-subspace of maximal slope for `X` (`fv_max_slope`) and a relative form of
+    stated here, and `fv_theorem_2_1_rank` (below) proves the statement for every `Y`. The proof takes one ℂ-subspace of maximal slope for `X` (`fv_max_slope`) and a relative form of
     the semistable case (`fv_semistable_core`), with Roy's Corollary 1 applied once to a Gram matrix
     (`fv_gram_zero_block`) and the orthogonal for the dot product (`fv_dot_orthogonal`), in place of the printed
     reduction after Waldschmidt 1981, Lemmes 5.1–5.2.
@@ -923,9 +925,10 @@ results, with no hypothesis.
     `remond_commuting_end`, the same statement for endomorphisms, by the printed induction on `n`.
 
 Milestones 194–202 of the Prove2Me mission are the nine headline results; the other nine joined by import. The 18
-modules have 1,851 lines in `Diaz/Mirror/`. Not formalised: *Further variations* Th. 2.1 for infinite-dimensional
-`Y`, and Cor. 1.3; DALAG Cor. 12.23 and the ℚ + ℒ statement after Cor. 12.24; Fischler's Th. 1.1 and §4, on
-orbits under algebraic groups.
+modules have 1,851 lines in `Diaz/Mirror/`. *Further variations* Th. 2.1 for
+infinite-dimensional `Y` and DALAG Cor. 12.23 are formalised in the next section. Not formalised: *Further
+variations* Cor. 1.3; the ℚ + ℒ statement after DALAG Cor. 12.24; Fischler's Th. 1.1 and §4, on orbits under
+algebraic groups.
 
 **Printed statements corrected while formalising.** Formalising these results met three printed statements that
 are false as stated, two of them used here: *Variations* Cor. 2.12, which the author corrected in *Further
@@ -934,9 +937,59 @@ consulted; the formal statements are the corrected ones. The third, DALAG Lemma 
 proofs. The printed proof of *Variations* Cor. 2.13 also needs signs on two columns when one of `Λ₁₁`, `Λ₂₁` is
 real and the other purely imaginary; DALAG's deduction of Cor. 12.24 from Cor. 12.22 does not give rank 2, so
 Cor. 12.24 is proved here from Th. 12.20; and the printed proof of *Further variations* Th. 2.1 covers
-finite-dimensional `Y`, which is how it is stated here. [`ERRATA.md`](ERRATA.md) gives each point with the printed
-text, a counterexample or the missing step, and the repair, with two gaps in DALAG's proofs of Cor. 11.10/11.15 and
-Th. 11.21 and a list of smaller slips.
+finite-dimensional `Y`, which is how it is stated here; the next section proves the statement as printed.
+[`ERRATA.md`](ERRATA.md) gives each point with the printed text, a counterexample or the missing step, and the
+repair, with gaps in DALAG's proofs of Cor. 11.10/11.15, Th. 11.21 and Lemma 12.9 and in Roy's proof of his Lemma
+on `φ`, and a list of smaller slips.
+
+### *Further variations* Th. 2.1 for every `Y`, Roy's Lemma, DALAG Cor. 11.15 and 12.23
+
+Fifteen nodes of 14 November 2026. All are formal proofs of classical results, with no hypothesis: Waldschmidt's
+*Further variations* Th. 2.1 as printed, for every Q̄-subspace `Y`; Roy's Lemma (Roy 1992, p. 40), the closed form
+of `φ(n, d)`; DALAG Cor. 11.15 for `(Q̄, ℒ̃)` with DALAG's table Ψ; and DALAG Cor. 12.23. Each completes a result of
+the two sections above.
+
+- `DiazModulus.fv_theorem_2_1_rank` (milestone) — *Further variations* Th. 2.1 (p. 5) as printed: `Y` is any
+  Q̄-subspace of `ℂⁿ`, and the hypothesis `μ(Y, ℂⁿ) > d/(d − n)` is read with `dim_Q̄ Y/(Y ∩ V)` a cardinal. From
+  `fv_theorem_2_1_general`, the same theorem with the hypothesis through finite-dimensional witnesses (for each
+  `V ≠ ℂⁿ`, some finite-dimensional `Y₀ ⊆ Y` with `d·(n − dim V) < (d − n)·dim_Q̄ Y₀/(Y₀ ∩ V)`), and
+  `fv_rank_quot_witness` (if `dim_Q̄ Y/(Y ∩ V) ≥ N`, some finite-dimensional `Y₀ ⊆ Y` has
+  `dim Y₀/(Y₀ ∩ V) ≥ N`). The
+  printed proof covers finite-dimensional `Y` (`fv_theorem_2_1`, above). `fv_finite_approx` supplies the missing
+  step: for every `Y` and every integer `B`, one finite-dimensional `Y₀ ⊆ Y` has
+  `dim Y₀/(Y₀ ∩ V) ≥ min(dim Y/(Y ∩ V), B)` for every ℂ-subspace `V` at once. Its proof maximises a bounded integer
+  attached to the intersection of the subspaces `V` where a finite-dimensional subspace falls short of `B`, with
+  three dimension counts as helpers (`fv_rho_excess`, `fv_rho_inf`, `fv_rho_sInf`); no topology on Grassmannians
+  is used.
+- `DiazModulus.roy_lemma_phi` (milestone) — Roy's Lemma (Roy 1992, p. 40; not Roy's lemma on singular spaces of
+  matrices in the table above): for `0 < n < d`, the largest `Σ nᵢdᵢ/(dᵢ − nᵢ)` over the decompositions
+  `(n, d) = Σ (nᵢ, dᵢ)`, `0 < nᵢ < dᵢ`, is `nd/(d − n)` if `n = 1` or `d − n = 1`, and `(d − n)/(d − n − 1) + (n − 1)n`
+  otherwise, which Roy writes `φ(1, d − n) + φ(n − 1, n)`. The proof is not Roy's exchange argument but
+  `roy_phi_closed_form_superadd`: the closed form bounds a single part and is superadditive, so it bounds every
+  decomposition by induction on the number of parts.
+- `DiazModulus.dalag_cor_11_15_psi` (milestone) — DALAG Cor. 11.15 (p. 398) for `(Q̄, ℒ̃)` in its printed form:
+  if `V ∩ Q̄ᵈ = 0`, then `dim_Q̄(V ∩ ℒ̃ᵈ) ≤ Ψ(dim V, d_min)`, with DALAG's table Ψ (p. 394), and `dim V < d_min` when
+  `V ≠ 0`. From `roy_theorem_five_dmin` (above) and `dalag_psi_floor_roy_phi`: `Ψ(n, d) = ⌊φ(n, d)⌋`, row by row
+  from Roy's Lemma.
+- `DiazModulus.dalag_cor_12_23` (milestone) — DALAG Cor. 12.23 (p. 436): a matrix with entries in `ℚ + ℒ` has rank
+  at least half its structural rank over ℚ, for every presentation `M = Σₖ eₖNₖ` with ℚ-free `eₖ ∈ ℚ + ℒ` and
+  rational `Nₖ`. From `dalag_cor_12_22` (above) and three helpers: `baker_rat_add_logAlg_free`, Baker's theorem
+  for `ℚ + ℒ` (elements free over ℚ are free over Q̄), through `logAlg_exists_rat_basis` (a ℚ-basis chosen among
+  finitely many logarithms); and `matrix_rank_map_field` (a homomorphism of fields preserves the rank of a
+  matrix). DALAG's Lemma 12.9 is not needed.
+
+Milestones 203–206 of the Prove2Me mission are the four printed results; the other eleven joined by import. The 15
+modules have 1,330 lines in `Diaz/Mirror/`. Not formalised: DALAG Cor. 11.15 for `(ℚ, ℚ + ℒ)`, which needs a
+ℚ-rational form of DALAG Th. 11.5; DALAG Lemma 12.9, which no proof here uses.
+
+**Printed proofs completed while formalising.** The proof of *Further variations* Th. 2.1 covers finite-dimensional
+`Y` only, and the statement as printed is true: the finite approximation above reduces it to that case. Roy's
+proof of his Lemma concludes that a maximising decomposition has two parts from two exclusions that leave parts
+`(nᵢ, dᵢ) = (1, 2)` free: for `(n, d) = (3, 7)` the decomposition `(1, 3), (1, 2), (1, 2)` meets every condition
+of the printed argument and has three parts. One exchange on three parts repairs it, and the Lemma is correct.
+DALAG's proof of Lemma 12.9 leaves a dehomogenisation implicit, and its table Ψ does not define `Ψ(0, 0)`, which
+Cor. 11.15 uses at `V = 0`. [`ERRATA.md`](ERRATA.md) gives each point with the printed text, the evidence and the
+repair.
 
 ### Consequences of Roy's strong six exponentials theorem
 
@@ -1710,7 +1763,7 @@ The five exponentials theorem gives one of `2^π`, `3^π` (Waldschmidt,
 Stated plainly, because an adversarial audit found these and a reader
 should not have to.
 
-- **Rank and structural rank are not formalized.** Only the
+- **The transfer of rank and structural rank is not formalized.** Only the
   matrix-coefficient third of "every assertion transfers" is proved. The
   accompanying note says so explicitly rather than claiming the whole
   transfer.

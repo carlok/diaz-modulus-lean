@@ -1,0 +1,21 @@
+{
+ "theorem_id": "db2914f2-8295-45b1-9e73-f9f77fc0aaff",
+ "theorem_name": "DiazModulus.dalag_cor_12_23",
+ "theorem_title": "DALAG Cor. 12.23: if M = Σₖ eₖNₖ with e₁, …, eₘ ∈ ℚ + ℒ linearly independent over ℚ and rational matrices Nₖ, the rank of Σₖ XₖNₖ over ℚ(X₁, …, Xₘ) is at most 2 rank M",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem dalag_cor_12_23 {d l m : ℕ} (M : Matrix (Fin d) (Fin l) ℂ)\n    (e : Fin m → ℂ) (he : LinearIndependent ℚ e) (heL : ∀ k, ∃ q : ℚ, e k - q ∈ LogAlg)\n    (N : Fin m → Matrix (Fin d) (Fin l) ℚ)\n    (hMN : M = ∑ k, e k • (N k).map ((↑) : ℚ → ℂ)) :\n    (∑ k, (algebraMap (MvPolynomial (Fin m) ℚ) (FractionRing (MvPolynomial (Fin m) ℚ))\n        (MvPolynomial.X k)) •\n      (N k).map (algebraMap ℚ (FractionRing (MvPolynomial (Fin m) ℚ)))).rank ≤ 2 * M.rank := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Here $\\overline{\\mathbb Q}$ is the field of algebraic numbers, $\\mathcal L$ the set of logarithms of algebraic numbers ($z \\in \\mathbb C$ with $e^z$ algebraic), and $\\widetilde{\\mathcal L}$ the $\\overline{\\mathbb Q}$-vector space spanned by $1$ and $\\mathcal L$. A subspace $S \\subseteq \\mathbb C^d$ is *rational* if it is spanned by vectors with algebraic coordinates.\n\nLet $M$ be a complex $d \\times \\ell$ matrix, let $e_1, \\dots, e_m \\in \\mathbb C$ be linearly independent over $\\mathbb Q$ with each $e_k \\in \\mathbb Q + \\mathcal L$ (that is, $e_k - q_k \\in \\mathcal L$ for some $q_k \\in \\mathbb Q$), and let $N_1, \\dots, N_m$ be $d \\times \\ell$ matrices with rational entries such that $M = \\sum_{k=1}^m e_k N_k$. Let $N(X) = \\sum_{k=1}^m X_k N_k$, a matrix over the field $\\mathbb Q(X_1, \\dots, X_m)$ of rational functions in $m$ variables. Then\n$$\\operatorname{rank}_{\\mathbb Q(X_1, \\dots, X_m)} N(X) \\le 2 \\operatorname{rank} M.$$\nThe rank of $N(X)$ is the structural rank of $M$ over $\\mathbb Q$ in the sense of DALAG §12.1.4; every matrix with entries in $\\mathbb Q + \\mathcal L$ has such a presentation, and the statement holds for each of them.",
+ "created_at": "2026-11-14T14:06:33.208308+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, Cor. 12.23 (p. 436), for the structural rank over ℚ (§12.1.4, p. 426), in the presentation form: M = Σₖ eₖNₖ with e₁, …, eₘ ∈ ℚ + ℒ linearly independent over ℚ and rational Nₖ, the structural rank being the rank of Σₖ XₖNₖ over ℚ(X₁, …, Xₘ). Proved from Cor. 12.22 (p. 436; on the platform DiazModulus.dalag_cor_12_22) and Baker's theorem (DALAG, Th. 1.6), proved on the platform as Schanuel.baker_linear_forms_in_logarithms: by Baker's theorem the eₖ are linearly independent over Q̄ (as on p. 435), so M = Σₖ eₖNₖ is also a presentation over Q̄, and the rank of Σₖ XₖNₖ is the same over ℚ(X₁, …, Xₘ) and over Q̄(X₁, …, Xₘ). Formal proof: Diaz modulus mission, 14 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

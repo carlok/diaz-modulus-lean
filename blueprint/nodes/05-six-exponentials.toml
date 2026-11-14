@@ -19,7 +19,9 @@ The five sections on the multiplicity estimate prove \texttt{hME}: the multiplic
 
 Chapter~\ref{chap:09-baker} derives Waldschmidt's five exponentials theorem from Roy's theorem and Baker's theorem (Theorem~\ref{thm:five_exponentials}).
 
-The last four sections formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}): results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, and Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. These are routine formalisations of classical results.
+The four sections that follow the one on Roy's Corollary~1 formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}): results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, and Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. These are routine formalisations of classical results.
+
+The last three sections complete three of these results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The last section has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
 '''
 
 [[node]]
@@ -1456,7 +1458,7 @@ Decompositions are as in Theorem~\ref{thm:roy_theorem_five}. Let $V \subseteq \C
 \[ \dim_{\Qbar}\bigl(V \cap \widetilde{\mathcal L}^{d}\bigr) \leq \sum_{i=1}^{k} \frac{n_i d_i}{d_i - n_i}. \]
 For $d_{\min} = d$ this is Theorem~\ref{thm:roy_theorem_five}.
 '''
-source = '''\cite[Cor.~11.15]{Wal00} (p.~398), for $(\Qbar, \widetilde{\mathcal L})$, in the decomposition form. DALAG states the bound as $\Psi(\dim V, d_{\min})$; the passage from the decomposition form to $\Psi$ uses Roy's closed form of $\varphi$ \cite[p.~40]{Roy92} and is not part of this statement. The case $d_{\min} = d$ is \cite[Th.~5]{Roy92} (p.~39). The proof follows \cite[Th.~5]{Roy92}, not DALAG's argument for Cor.~11.15.'''
+source = '''\cite[Cor.~11.15]{Wal00} (p.~398), for $(\Qbar, \widetilde{\mathcal L})$, in the decomposition form. DALAG states the bound as $\Psi(\dim V, d_{\min})$; the passage from the decomposition form to $\Psi$ uses Roy's closed form of $\varphi$ \cite[p.~40]{Roy92} and is Corollary~\ref{cor:dalag_cor_11_15_psi}. The case $d_{\min} = d$ is \cite[Th.~5]{Roy92} (p.~39). The proof follows \cite[Th.~5]{Roy92}, not DALAG's argument for Cor.~11.15.'''
 sketch = '''
 Let $W = V \cap \widetilde{\mathcal L}^{d}$, a $\Qbar$-subspace. For a $\Qbar$-free family $z$ of $\ell$ vectors of $W$, Lemma~\ref{lem:roy_hull_transport} moves $(V, z)$ to $\C^{d_{\min}}$ with full rational hull and the same dimension, and Theorem~\ref{thm:roy_theorem_five} there gives a decomposition of $(\dim V, d_{\min})$ with $\ell \leq \sum_i n_i d_i/(d_i - n_i)$. Each term is at most $n_i d_{\min}$, since $d_i \leq d_{\min}$ and $d_i - n_i \geq 1$, so every finite free family in $W$ has at most $d_{\min} \dim V$ elements, and $W$ is finite-dimensional over $\Qbar$. The same argument applied to a $\Qbar$-basis of $W$ gives the bound.
 '''
@@ -1586,7 +1588,7 @@ With the notation of Lemma~\ref{lem:fv_dot_orthogonal} and the coefficient $\mu$
 \[ d\,(n - \dim V) < (d - n)\bigl(\dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V)\bigr), \]
 that is, $\mu(Y, \C^{n}) > d/(d - n)$. Then $x \cdot y \notin \widetilde{\mathcal L}$ for some $x \in X$ and $y \in Y$.
 '''
-source = '''\cite[Th.~2.1]{Wal05b} (p.~5; proof pp.~5--6), for finite-dimensional $Y$. \cite{Wal05b} states it for every $\Qbar$-subspace $Y$ of $\C^{n}$, but the printed proof writes $Y = \Qbar y_1 + \dots + \Qbar y_{\ell}$ and so covers finite-dimensional $Y$ only. For infinite-dimensional $Y$ one would need a finite-dimensional $Y_f \subseteq Y$ with $\mu(Y_f, \C^{n}) > d/(d - n)$, which is not automatic, since $V$ ranges over infinitely many subspaces; that case is not settled here. Every application in \cite{Wal05b} (Th.~1.2, Cor.~1.4) has $\dim Y = 5$. The proof replaces the reduction of \cite[p.~5]{Wal05b}, after \cite[Lemmes~5.1--5.2]{Wal81}, and the inequality (2.3) by one $\C$-subspace of maximal slope for $X$ and a relative form of the semistable case, and uses \cite[Cor.~1]{Roy92} once (Theorem~\ref{thm:roy_rank_bound}; \cite[Th.~12.20]{Wal00}).'''
+source = '''\cite[Th.~2.1]{Wal05b} (p.~5; proof pp.~5--6), for finite-dimensional $Y$. \cite{Wal05b} states it for every $\Qbar$-subspace $Y$ of $\C^{n}$, but the printed proof writes $Y = \Qbar y_1 + \dots + \Qbar y_{\ell}$ and so covers finite-dimensional $Y$ only. For infinite-dimensional $Y$ one needs a finite-dimensional $Y_f \subseteq Y$ with $\mu(Y_f, \C^{n}) > d/(d - n)$, which is not automatic, since $V$ ranges over infinitely many subspaces; Proposition~\ref{prop:fv_finite_approx} supplies one, and Theorem~\ref{thm:fv_theorem_2_1_rank} is the statement for every $Y$. Every application in \cite{Wal05b} (Th.~1.2, Cor.~1.4) has $\dim Y = 5$. The proof replaces the reduction of \cite[p.~5]{Wal05b}, after \cite[Lemmes~5.1--5.2]{Wal81}, and the inequality (2.3) by one $\C$-subspace of maximal slope for $X$ and a relative form of the semistable case, and uses \cite[Cor.~1]{Roy92} once (Theorem~\ref{thm:roy_rank_bound}; \cite[Th.~12.20]{Wal00}).'''
 sketch = '''
 Suppose every $x \cdot y$ lies in $\widetilde{\mathcal L}$; as $d > n$, $n \geq 1$. Lemma~\ref{lem:fv_max_slope} gives a $\C$-subspace $W_0 \neq 0$ of maximal slope for $X$; put $n_0 = \dim W_0$, $X_0 = X \cap W_0$ and $d_0 = \dim_{\Qbar} X_0$. Maximality gives $n_0 \dim_{\Qbar}(X \cap W) \leq d_0 \dim W$ for every $W$; at $W = \C^{n}$ this is $d n_0 \leq d_0 n$, so $d_0 > n_0$, and since $X_0 \cap W \subseteq X \cap W$, $X_0$ is semistable relative to $W_0$. Proposition~\ref{prop:fv_semistable_core} for $W_0$, $X_0$ and $Y$ gives $V \neq \C^{n}$ with $(d_0 - n_0)\rho \leq d_0 c$, where $\rho = \dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V)$ and $c = n - \dim V$, while the hypothesis at the same $V$ says $dc < (d - n)\rho$. Multiplying the former by $d$ and the latter by $d_0$ gives $\rho\,(d n_0 - d_0 n) > 0$, which is impossible because $d n_0 \leq d_0 n$.
 '''
@@ -1769,4 +1771,205 @@ that is, $\dim C(M) \leq (n^{2} + 1)/2$.
 source = '''\cite[Th.~1.2]{Fis01} (p.~169), complex case. Fischler's $\mathcal{L}$, the $\Qbar$-vector space spanned by $1$ and the logarithms of algebraic numbers, is $\widetilde{\mathcal L}$ here, so this is the printed statement.'''
 sketch = '''
 Suppose $2\dim C(M) \geq n^{2} + 2$. Proposition~\ref{prop:fischler_prop_5_5} gives rational subspaces $U$, $V$ of $\mathrm{Mat}_n(\C)$ with $\dim U + \dim V \geq n^{2} + 2$ and $\operatorname{Tr}(M(AB - BA)) = 0$ for all $A \in U$, $B \in V$. As the $n^{2}$ entries of $M$ are free over $\Qbar$, Lemma~\ref{lem:fischler_commute_of_trace} gives $AB = BA$ on $U \times V$, and Lemma~\ref{lem:remond_commuting_subspaces} bounds $\dim U + \dim V \leq n^{2} + 1$, a contradiction.
+'''
+
+# --- Further variations: Theorem 2.1 for every subspace ----------
+[[node]]
+platform = "DiazModulus.fv_rho_excess"
+section = '''\emph{Further variations}: Theorem 2.1 for every subspace'''
+env = "lemma"
+title = "The excess does not increase along a chain"
+statement = '''
+Here $\Qbar$ is the field of algebraic numbers, and $\C^{n}$ is a $\Qbar$-vector space by restriction of scalars. For a $\Qbar$-subspace $Z$ and a $\C$-subspace $V$ of $\C^{n}$, $Z \cap V$ is a $\Qbar$-subspace; when $Z$ is finite-dimensional write
+\[ \rho_Z(V) = \dim_{\Qbar} Z - \dim_{\Qbar}(Z \cap V), \]
+the dimension of $Z/(Z \cap V)$ over $\Qbar$. Dimensions of $\C$-subspaces are over $\C$.
+
+Let $Z \subseteq Z'$ be $\Qbar$-subspaces of $\C^{n}$ with $Z'$ finite-dimensional, and let $V \subseteq V'$ be $\C$-subspaces of $\C^{n}$. Then
+\[ \rho_{Z'}(V') + \rho_Z(V) \leq \rho_Z(V') + \rho_{Z'}(V). \]
+That is, the excess $\rho_{Z'}(V) - \rho_Z(V)$, which is non-negative, does not increase as $V$ grows. At $V' = \C^{n}$ this is the monotonicity $\rho_Z(V) \leq \rho_{Z'}(V)$.
+'''
+source = '''Classical linear algebra (Grassmann's formula); a step of the finite approximation (Proposition~\ref{prop:fv_finite_approx}) that extends \cite[Th.~2.1]{Wal05b} to every $Y$. Routine.'''
+sketch = '''
+Since $Z \subseteq Z'$, $Z \cap (Z' \cap V) = Z \cap V$, so Grassmann's formula for $Z$ and $Z' \cap V$ gives
+\[ \rho_{Z'}(V) - \rho_Z(V) = \dim_{\Qbar} Z' - \dim_{\Qbar}\bigl(Z + (Z' \cap V)\bigr), \]
+which is $\geq 0$ because $Z + (Z' \cap V) \subseteq Z'$. For $V \subseteq V'$, $Z + (Z' \cap V) \subseteq Z + (Z' \cap V')$, so the excess at $V'$ is at most the excess at $V$. All four numbers are natural numbers, and adding $\rho_Z(V) + \rho_Z(V')$ to both sides gives the inequality. At $V' = \C^{n}$ both $\rho_Z(\C^{n})$ and $\rho_{Z'}(\C^{n})$ vanish.
+'''
+
+[[node]]
+platform = "DiazModulus.fv_rho_inf"
+env = "lemma"
+title = "The quotient at an intersection of two subspaces"
+statement = '''
+With the notation of Lemma~\ref{lem:fv_rho_excess}: let $Z \subseteq \C^{n}$ be a finite-dimensional $\Qbar$-subspace and $V_1, V_2$ $\C$-subspaces of $\C^{n}$. Then
+\[ \rho_Z(V_1 \cap V_2) \leq \rho_Z(V_1) + \rho_Z(V_2). \]
+'''
+source = '''Classical linear algebra (Grassmann's formula); a step of Lemma~\ref{lem:fv_rho_sInf}. Routine.'''
+sketch = '''
+Put $A = Z \cap V_1$ and $B = Z \cap V_2$. Then $A \cap B = Z \cap V_1 \cap V_2$ and $A + B \subseteq Z$, so Grassmann's formula gives $\dim_{\Qbar}(Z \cap V_1 \cap V_2) = \dim_{\Qbar} A + \dim_{\Qbar} B - \dim_{\Qbar}(A + B) \geq \dim_{\Qbar} A + \dim_{\Qbar} B - \dim_{\Qbar} Z$. Subtracting from $\dim_{\Qbar} Z$ gives $\rho_Z(V_1 \cap V_2) \leq (\dim_{\Qbar} Z - \dim_{\Qbar} A) + (\dim_{\Qbar} Z - \dim_{\Qbar} B)$.
+'''
+
+[[node]]
+platform = "DiazModulus.fv_rho_sInf"
+env = "lemma"
+title = "The quotient at the intersection of a family"
+statement = '''
+With the notation of Lemma~\ref{lem:fv_rho_excess}: let $Z \subseteq \C^{n}$ be a finite-dimensional $\Qbar$-subspace, $\mathfrak{F}$ a set of $\C$-subspaces of $\C^{n}$, finite or not, and $D$ a natural number with $\rho_Z(V) \leq D$ for every $V \in \mathfrak{F}$. Let $J$ be the intersection of the members of $\mathfrak{F}$ ($J = \C^{n}$ if $\mathfrak{F}$ is empty). Then
+\[ \rho_Z(J) \leq n\,D. \]
+'''
+source = '''Classical linear algebra; a step of the finite approximation (Proposition~\ref{prop:fv_finite_approx}), where $\mathfrak{F}$ is uncountable in general. Routine.'''
+sketch = '''
+By induction on $k \leq n$ there is a $\C$-subspace $W \supseteq J$ with $\rho_Z(W) \leq kD$ and either $W = J$ or $\dim W + k \leq n$. For $k = 0$ take $W = \C^{n}$. Given $W$ for $k < n$, keep it if $W = J$; otherwise some $V \in \mathfrak{F}$ does not contain $W$, and $W \cap V$ contains $J$, has dimension at most $\dim W - 1$, and has $\rho_Z(W \cap V) \leq kD + D$ by Lemma~\ref{lem:fv_rho_inf}. At $k = n$, either $W = J$, or $\dim W = 0$ and then $J \subseteq W = 0$ gives $W = J$ again. So $\rho_Z(J) \leq nD$; the argument shows that $J$ is $\C^{n}$ or the intersection of at most $n$ members of $\mathfrak{F}$.
+'''
+
+[[node]]
+platform = "DiazModulus.fv_finite_approx"
+env = "proposition"
+title = "Finite approximation"
+statement = '''
+With the notation of Lemma~\ref{lem:fv_rho_excess}: let $Y \subseteq \C^{n}$ be a $\Qbar$-subspace, of any dimension, and $B$ a natural number. Then there is a finite-dimensional $\Qbar$-subspace $Y_0 \subseteq Y$ such that
+\[ \min\bigl(\rho_{Y_1}(V), B\bigr) \leq \rho_{Y_0}(V) \]
+for every $\C$-subspace $V \subseteq \C^{n}$ and every finite-dimensional $\Qbar$-subspace $Y_1 \subseteq Y$. Equivalently, $\dim_{\Qbar}\bigl(Y_0/(Y_0 \cap V)\bigr) \geq \min\bigl(\dim_{\Qbar}(Y/(Y \cap V)), B\bigr)$ for every $V$, an infinite dimension counting as larger than $B$: one finite-dimensional $Y_0$ serves for all $V$ at once.
+'''
+source = '''The step that \cite[Th.~2.1]{Wal05b} needs for infinite-dimensional $Y$: its proof (pp.~5--6) writes $Y = \Qbar y_1 + \dots + \Qbar y_{\ell}$, and for infinite-dimensional $Y$ a finite-dimensional $Y_0$ with $\mu(Y_0, \C^{n}) > d/(d - n)$ is not automatic, since $V$ ranges over infinitely many subspaces (Theorem~\ref{thm:fv_theorem_2_1_general}). Elementary linear algebra: no topology on Grassmannians and no Noetherian argument is used. Routine.'''
+sketch = '''
+For a finite-dimensional $Z \subseteq Y$ let $I(Z)$ be the intersection of all $\C$-subspaces $V$ with $\rho_Z(V) < B$. By Lemma~\ref{lem:fv_rho_sInf}, $\rho_Z(I(Z)) \leq nB$, so $N(Z) = (nB + 1)\dim I(Z) + \rho_Z(I(Z))$ is bounded by $(nB + 1)n + nB$; let $Y_0$ maximise it. Lemma~\ref{lem:fv_rho_excess} (monotonicity) makes $I$ monotone: $Z \subseteq Z'$ gives $I(Z) \subseteq I(Z')$. Write $I = I(Y_0)$. For finite-dimensional $Z' \supseteq Y_0$ in $Y$, maximality of $N(Y_0)$ forces $\dim I(Z') = \dim I$, hence $I(Z') = I$, and then $\rho_{Z'}(I) \leq \rho_{Y_0}(I)$, so $\rho_{Z'}(I) = \rho_{Y_0}(I)$ by monotonicity. Now let $V$ and $Y_1$ be given. If $V \not\supseteq I$, then $\rho_{Y_0}(V) \geq B$ by the definition of $I$. If $V \supseteq I$, put $Z' = Y_0 + Y_1$; Lemma~\ref{lem:fv_rho_excess} for $Y_0 \subseteq Z'$ and $I \subseteq V$ gives $\rho_{Z'}(V) + \rho_{Y_0}(I) \leq \rho_{Y_0}(V) + \rho_{Z'}(I)$, so $\rho_{Z'}(V) \leq \rho_{Y_0}(V)$, and monotonicity gives $\rho_{Y_1}(V) \leq \rho_{Z'}(V)$.
+'''
+
+[[node]]
+platform = "DiazModulus.fv_theorem_2_1_general"
+env = "theorem"
+title = '''Waldschmidt, \emph{Further variations}, Theorem 2.1, with finite-dimensional witnesses'''
+statement = '''
+With the notation of Lemma~\ref{lem:fv_dot_orthogonal} ($u \cdot v$ the bilinear dot product, $\widetilde{\mathcal L}$ the $\Qbar$-span of $1$ and the logarithms of algebraic numbers) and of Lemma~\ref{lem:fv_rho_excess}: let $X, Y \subseteq \C^{n}$ be $\Qbar$-subspaces, $X$ finite-dimensional with $d = \dim_{\Qbar} X > n$, and $Y$ of any dimension. Assume that for every $\C$-subspace $V \neq \C^{n}$ there is a finite-dimensional $\Qbar$-subspace $Y_0 \subseteq Y$, which may depend on $V$, with
+\[ d\,(n - \dim V) < (d - n)\,\rho_{Y_0}(V). \]
+Then $x \cdot y \notin \widetilde{\mathcal L}$ for some $x \in X$ and $y \in Y$.
+
+The hypothesis is $\mu(Y, \C^{n}) > d/(d - n)$, for the least value $\mu(Y, \C^{n})$ of $\dim_{\Qbar}\bigl(Y/(Y \cap V)\bigr)/(n - \dim V)$ over the $\C$-subspaces $V \neq \C^{n}$, an infinite dimension giving the value $\infty$: at each $V$ a witness $Y_0$ exists exactly when that ratio exceeds $d/(d - n)$. Theorem~\ref{thm:fv_theorem_2_1_rank} states it in that form.
+'''
+source = '''\cite[Th.~2.1]{Wal05b} (p.~5), for every $\Qbar$-subspace $Y$ as printed, with the hypothesis $\mu(Y, \C^{n}) > d/(d - n)$ written through finite-dimensional witnesses. The printed proof (pp.~5--6) writes $Y = \Qbar y_1 + \dots + \Qbar y_{\ell}$ and covers finite-dimensional $Y$ only (Theorem~\ref{thm:fv_theorem_2_1}); the general case is reduced to it here by Proposition~\ref{prop:fv_finite_approx}, which gives one finite-dimensional $Y_0 \subseteq Y$ that works for every $V$ at once. No correction of this point was found in the sources consulted.'''
+sketch = '''
+Let $Y_0$ be given by Proposition~\ref{prop:fv_finite_approx} for $Y$ and $B = dn + 1$; Theorem~\ref{thm:fv_theorem_2_1} will apply to $X$ and $Y_0$. Let $V \neq \C^{n}$, put $c = n - \dim V \leq n$, and let $Y_1$ be the witness at $V$, so that $dc < (d - n)\rho_{Y_1}(V)$. If $\rho_{Y_1}(V) \leq B$, then $\rho_{Y_0}(V) \geq \rho_{Y_1}(V)$ and the inequality passes to $Y_0$. Otherwise $\rho_{Y_0}(V) \geq B = dn + 1$, and $(d - n)\rho_{Y_0}(V) \geq dn + 1 > dc$ since $d - n \geq 1$. So Theorem~\ref{thm:fv_theorem_2_1} gives $x \in X$ and $y \in Y_0 \subseteq Y$ with $x \cdot y \notin \widetilde{\mathcal L}$.
+'''
+
+[[node]]
+platform = "DiazModulus.fv_rank_quot_witness"
+env = "lemma"
+title = "Finite-dimensional witnesses for a large quotient"
+statement = '''
+With the notation of Lemma~\ref{lem:fv_rho_excess}: let $Y \subseteq \C^{n}$ be a $\Qbar$-subspace, $V \subseteq \C^{n}$ a $\C$-subspace, and $N$ a natural number with $N \leq \dim_{\Qbar}\bigl(Y/(Y \cap V)\bigr)$, a dimension that may be an infinite cardinal. Then there is a finite-dimensional $\Qbar$-subspace $Y_0 \subseteq Y$ with
+\[ N \leq \rho_{Y_0}(V). \]
+'''
+source = '''Classical linear algebra; a step of the proof of Theorem~\ref{thm:fv_theorem_2_1_rank}. Routine.'''
+sketch = '''
+Choose $N$ linearly independent classes $[y_1], \dots, [y_N]$ in $Y/(Y \cap V)$, with $y_i \in Y$, and let $Y_0$ be the $\Qbar$-span of $y_1, \dots, y_N$. If $\sum_i a_i y_i \in V$ with algebraic $a_i$, then $\sum_i a_i y_i \in Y \cap V$, so $\sum_i a_i [y_i] = 0$ and every $a_i = 0$. Hence $\dim_{\Qbar} Y_0 = N$ and $Y_0 \cap V = 0$, so $\rho_{Y_0}(V) = N$.
+'''
+
+[[node]]
+platform = "DiazModulus.fv_theorem_2_1_rank"
+root = true
+env = "theorem"
+title = '''Waldschmidt, \emph{Further variations}, Theorem 2.1'''
+statement = '''
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$. For $u, v \in \C^{n}$, $u \cdot v = \sum_k u_k v_k$ is the bilinear dot product. Dimensions over $\Qbar$ are cardinals, possibly infinite; dimensions of $\C$-subspaces are over $\C$.
+
+Let $X, Y \subseteq \C^{n}$ be $\Qbar$-subspaces, $X$ finite-dimensional with $d = \dim_{\Qbar} X > n$, and $Y$ of any dimension. Assume that for every $\C$-subspace $V \neq \C^{n}$
+\[ d\,(n - \dim V) < (d - n) \dim_{\Qbar}\bigl(Y/(Y \cap V)\bigr) \]
+in cardinal arithmetic; that is, $\mu(Y, \C^{n}) > d/(d - n)$, where $\mu(Y, \C^{n})$ is the least value of $\dim_{\Qbar}\bigl(Y/(Y \cap V)\bigr)/(n - \dim V)$ over the $\C$-subspaces $V \neq \C^{n}$. Then $x \cdot y \notin \widetilde{\mathcal L}$ for some $x \in X$ and $y \in Y$.
+'''
+source = '''\cite[Th.~2.1]{Wal05b} (p.~5), as printed: $Y$ is any $\Qbar$-subspace of $\C^{n}$, and $\mu(Y, \C^{n})$ is that of \cite[p.~4]{Wal05b}, with $\dim_{\Qbar}(Y/(Y \cap V))$ a cardinal. The printed proof (pp.~5--6) covers finite-dimensional $Y$ only (Theorem~\ref{thm:fv_theorem_2_1}); the general case comes from Theorem~\ref{thm:fv_theorem_2_1_general}, whose proof reduces it to one finite-dimensional subspace of $Y$ (Proposition~\ref{prop:fv_finite_approx}). Every application in \cite{Wal05b} (Th.~1.2, Cor.~1.4) has $\dim Y = 5$.'''
+sketch = '''
+By Theorem~\ref{thm:fv_theorem_2_1_general} it suffices to find, for each $\C$-subspace $V \neq \C^{n}$, a finite-dimensional $Y_0 \subseteq Y$ with $dc < (d - n)\rho_{Y_0}(V)$, where $c = n - \dim V$. Let $\kappa = \dim_{\Qbar}(Y/(Y \cap V))$. If $\kappa$ is finite, the hypothesis is the inequality $dc < (d - n)\kappa$ between natural numbers, and Lemma~\ref{lem:fv_rank_quot_witness} with $N = \kappa$ gives $Y_0$ with $\rho_{Y_0}(V) \geq \kappa$. If $\kappa$ is infinite, the same lemma with $N = dc + 1$ gives $\rho_{Y_0}(V) \geq dc + 1$, and $(d - n)(dc + 1) > dc$ since $d - n \geq 1$.
+'''
+
+# --- The closed form of Roy's bound, and DALAG's table ----------
+[[node]]
+platform = "DiazModulus.roy_phi_closed_form_superadd"
+section = "The closed form of Roy's bound, and DALAG's table"
+env = "lemma"
+title = "The closed form bounds one part and is superadditive"
+statement = '''
+For natural numbers $0 < n < d$ put
+\[ F(n, d) = \begin{cases} \dfrac{nd}{d - n} & \text{if } n = 1 \text{ or } d - n = 1, \\[1ex] \dfrac{d - n}{d - n - 1} + (n - 1)\,n & \text{otherwise,} \end{cases} \]
+a rational number. Then
+\[ \frac{ax}{x - a} \leq F(a, x) \qquad\text{and}\qquad F(a, x) + F(b, y) \leq F(a + b, x + y) \]
+for all natural numbers $0 < a < x$ and $0 < b < y$.
+'''
+source = '''The closed form of \cite[Lemma, p.~40]{Roy92}. When neither $n = 1$ nor $d - n = 1$, $F(n, d) = F(1, d - n) + F(n - 1, n)$, Roy's recursion with both values evaluated. The left inequality is, after subtracting $a$, the relation $a^{2}/\delta \leq (a - 1)^{2} + 1/(\delta - 1)$ ($a, \delta \geq 2$) of Roy's proof (pp.~40--41); superadditivity is the route taken here to Roy's Lemma (Lemma~\ref{lem:roy_lemma_phi}) in place of his exchange argument. Routine.'''
+sketch = '''
+Write $\delta = x - a$. Then $ax/(x - a) = a + a^{2}/\delta$, while $F(a, x) - a$ is $a^{2}/\delta$ if $a = 1$ or $\delta = 1$, and $(a - 1)^{2} + 1/(\delta - 1)$ if $a, \delta \geq 2$. The left inequality is an equality in the former case; in the latter the difference is $\bigl((a - 1)(\delta - 1) - 1\bigr)^{2}/\bigl(\delta(\delta - 1)\bigr) \geq 0$. For the right inequality put $\delta_1 = x - a$ and $\delta_2 = y - b$. Since $a + b \geq 2$ and $\delta_1 + \delta_2 \geq 2$, $F(a + b, x + y) - (a + b) = (a + b - 1)^{2} + 1/(\delta_1 + \delta_2 - 1)$. Sort each of $(a, \delta_1)$ and $(b, \delta_2)$ into three kinds: entry $1$ on the left; left entry at least $2$ and right entry $1$; both entries at least $2$. Up to exchanging the two pairs there are six combinations, each an elementary inequality between rational numbers; for instance, for $a = 1$ and $\delta_2 = 1$ the two sides are equal, and for $a, b \geq 2$ and $\delta_1 = \delta_2 = 1$ the difference is $2(a - 1)(b - 1)$.
+'''
+
+[[node]]
+platform = "DiazModulus.roy_lemma_phi"
+root = true
+env = "lemma"
+title = '''Roy's Lemma: the closed form of $\varphi(n, d)$'''
+statement = '''
+Decompositions are as in Theorem~\ref{thm:roy_theorem_five}: lists $(n_1, d_1), \dots, (n_k, d_k)$ of pairs of natural numbers with $0 < n_i < d_i$, $\sum_i n_i = n$ and $\sum_i d_i = d$.
+
+Let $0 < n < d$. Among the values of $\sum_i n_i d_i/(d_i - n_i)$ over the decompositions of $(n, d)$, the largest is
+\[ \varphi(n, d) = \begin{cases} \dfrac{nd}{d - n} & \text{if } n = 1 \text{ or } d - n = 1, \\[1ex] \dfrac{d - n}{d - n - 1} + (n - 1)\,n & \text{otherwise:} \end{cases} \]
+some decomposition of $(n, d)$ attains it, and none exceeds it. This is Roy's $\varphi(n, d)$; in the second case it equals $\varphi(1, d - n) + \varphi(n - 1, n)$, the form in which Roy states it.
+'''
+source = '''\cite[Lemma, p.~40]{Roy92}, which states the second case as $\varphi(n, d) = \varphi(1, d - n) + \varphi(n - 1, n)$; the closed form follows from the case $n = 1$ or $d - n = 1$ at $(1, d - n)$ and $(n - 1, n)$. Roy's proof (pp.~40--41) maximises $\sum_i n_i^{2}/(d_i - n_i)$ by exchanges and concludes that a maximiser has two parts, a step that its two exclusions do not give, since they leave parts with $n_i = d_i - n_i = 1$ free: for $(n, d) = (3, 7)$ the decomposition $(1, 3), (1, 2), (1, 2)$ meets every condition stated there and has three parts. One exchange on three parts repairs it (ERRATA.md), and the Lemma is correct as printed. The proof here uses no exchanges: it goes through the superadditivity of the closed form (Lemma~\ref{lem:roy_phi_closed_form_superadd}).'''
+sketch = '''
+Let $F$ be the closed form of Lemma~\ref{lem:roy_phi_closed_form_superadd}, and $\varphi_D$ the sum of a decomposition $D$ of $(n, d)$. By induction on the number of parts, $\varphi_D \leq F(n, d)$: for one part this is the left inequality of Lemma~\ref{lem:roy_phi_closed_form_superadd}; for $D = (a, x), D'$ with $D'$ non-empty, $D'$ decomposes $(n - a, d - x)$, so $0 < n - a < d - x$, and $\varphi_D = ax/(x - a) + \varphi_{D'} \leq F(a, x) + F(n - a, d - x) \leq F(n, d)$. The bound is attained: by $D = (n, d)$ if $n = 1$ or $d - n = 1$, and otherwise by $D = (1, d - n), (n - 1, n)$, whose sum is $(d - n)/(d - n - 1) + (n - 1)n$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_psi_floor_roy_phi"
+env = "lemma"
+title = '''DALAG's table $\Psi$ is the integer part of $\varphi$'''
+statement = '''
+Decompositions are as in Theorem~\ref{thm:roy_theorem_five}. Let $\Psi$ be the table of \cite[p.~394]{Wal00}: $\Psi(0, d) = 0$, and for $0 < n < d$
+\[ \Psi(n, d) = \begin{cases} 1 & \text{if } n = 1 \text{ and } d \geq 3, \\ n(n - 1) + 1 & \text{if } 2 \leq n \leq d - 3, \\ n(n - 1) + 2 & \text{if } 2 \leq n = d - 2, \\ n(n + 1) & \text{if } n = d - 1. \end{cases} \]
+Let $0 < n < d$. Then every decomposition of $(n, d)$ has $\sum_i n_i d_i/(d_i - n_i) < \Psi(n, d) + 1$, and some decomposition of $(n, d)$ has $\sum_i n_i d_i/(d_i - n_i) \geq \Psi(n, d)$. So $\Psi(n, d) = \lfloor \varphi(n, d) \rfloor$, with $\varphi$ as in Lemma~\ref{lem:roy_lemma_phi}.
+'''
+source = '''The table is \cite[p.~394]{Wal00} (\S11.5, before Cor.~11.10), where it is introduced by its values; \cite{Wal00} does not compare it with Roy's $\varphi$, and its Exercise~11.4 proves Lemma~11.11 there by a case analysis of the table. The comparison is a computation from Roy's Lemma (Lemma~\ref{lem:roy_lemma_phi}), row by row. Routine.'''
+sketch = '''
+By Lemma~\ref{lem:roy_lemma_phi} both claims reduce to $\Psi(n, d) \leq F(n, d) < \Psi(n, d) + 1$ for the closed form $F$ of Lemma~\ref{lem:roy_phi_closed_form_superadd}. Put $\delta = d - n$. For $n = 1$ and $d = 2$, $F = 2 = \Psi$. For $n = 1$ and $d \geq 3$, $F = 1 + 1/(d - 1)$ lies in $(1, 3/2]$ and $\Psi = 1$. For $n \geq 2$ and $\delta = 1$, $F = n(n + 1) = \Psi$. For $n \geq 2$ and $\delta = 2$, $F = 2 + n(n - 1) = \Psi$. For $n \geq 2$ and $\delta \geq 3$, $F = n(n - 1) + 1 + 1/(\delta - 1)$ with $0 < 1/(\delta - 1) \leq 1/2$, and $\Psi = n(n - 1) + 1$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_cor_11_15_psi"
+root = true
+env = "corollary"
+title = '''DALAG Corollary 11.15 for $\Qbar$ and $\widetilde{\mathcal L}$, with the table $\Psi$'''
+statement = '''
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$. A subspace of $\C^{d}$ is \emph{rational} if it is spanned by vectors with algebraic coordinates. $\Psi$ is the table of Lemma~\ref{lem:dalag_psi_floor_roy_phi}, with $\Psi(0, d) = 0$ for every $d \geq 0$.
+
+Let $V \subseteq \C^{d}$ be a subspace that contains no non-zero vector with algebraic coordinates, and let $S_0 \supseteq V$ be a rational subspace of least dimension among the rational subspaces containing $V$; write $n = \dim V$ and $d_{\min} = \dim S_0$. Then $n < d_{\min}$ if $n > 0$, the $\Qbar$-vector space $V \cap \widetilde{\mathcal L}^{d}$ is finite-dimensional, and
+\[ \dim_{\Qbar}\bigl(V \cap \widetilde{\mathcal L}^{d}\bigr) \leq \Psi(n, d_{\min}). \]
+'''
+source = '''\cite[Cor.~11.15]{Wal00} (p.~398) for $(\Qbar, \widetilde{\mathcal L})$, with the bound $\Psi(\dim V, d_{\min})$ as printed; for $d_{\min} = d$ it is \cite[Th.~5]{Roy92} (p.~39) with Roy's $\varphi$ replaced by its integer part. The table of p.~394 gives $\Psi(0, d)$ for $d > 0$ only, while the corollary allows $V = 0$, where $d_{\min} = 0$; the value $\Psi(0, 0) = 0$ is the one the bound needs. The proof follows \cite[Th.~5]{Roy92} through Corollary~\ref{cor:roy_theorem_five_dmin}, not DALAG's argument for Cor.~11.15.'''
+sketch = '''
+Corollary~\ref{cor:roy_theorem_five_dmin} gives the finiteness and a decomposition $D$ of $(n, d_{\min})$ with $\ell = \dim_{\Qbar}(V \cap \widetilde{\mathcal L}^{d}) \leq \varphi_D$, the sum of $D$. If $n = 0$, $D$ is empty, since every part has $n_i \geq 1$, so $\ell \leq 0 = \Psi(0, d_{\min})$. If $n > 0$, $D$ is non-empty, and adding up $n_i < d_i$ gives $n < d_{\min}$. Lemma~\ref{lem:dalag_psi_floor_roy_phi} then gives $\varphi_D < \Psi(n, d_{\min}) + 1$, and since $\ell$ and $\Psi(n, d_{\min})$ are integers, $\ell \leq \Psi(n, d_{\min})$.
+'''
+
+# --- Two lemmas for DALAG Corollary 12.23 ----------
+[[node]]
+platform = "DiazModulus.logAlg_exists_rat_basis"
+section = "Two lemmas for DALAG Corollary 12.23"
+env = "lemma"
+title = "A rational basis among finitely many logarithms"
+statement = '''
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic). Let $\lambda_1, \dots, \lambda_m \in \mathcal{L}$. Then there are $\mu_1, \dots, \mu_s \in \mathcal{L}$, linearly independent over $\Q$, and rational numbers $c_{kt}$ such that
+\[ \lambda_k = \sum_{t=1}^{s} c_{kt}\,\mu_t \qquad (k = 1, \dots, m). \]
+'''
+source = '''Classical linear algebra: a $\Q$-basis of the $\Q$-span of $\lambda_1, \dots, \lambda_m$ chosen among them. A step of the argument of \cite[p.~435]{Wal00} for \cite[Cor.~12.23]{Wal00} (Corollary~\ref{cor:dalag_cor_12_23}). Routine.'''
+sketch = '''
+Take a maximal subfamily of $\lambda_1, \dots, \lambda_m$ that is linearly independent over $\Q$. Its members lie in $\mathcal{L}$, and by maximality every $\lambda_k$ lies in its $\Q$-span.
+'''
+
+[[node]]
+platform = "DiazModulus.matrix_rank_map_field"
+env = "lemma"
+title = "A homomorphism of fields preserves the rank of a matrix"
+statement = '''
+Let $f : K \to L$ be a homomorphism of fields and $A$ a $d \times \ell$ matrix with entries in $K$, and let $f(A)$ be the matrix obtained by applying $f$ to every entry. Then
+\[ \operatorname{rank}_{L} f(A) = \operatorname{rank}_{K} A. \]
+'''
+source = '''Classical linear algebra; a step of the proof of Corollary~\ref{cor:dalag_cor_12_23}, where it compares ranks over $\Q(X_1, \dots, X_m)$ and $\Qbar(X_1, \dots, X_m)$. Routine.'''
+sketch = '''
+The homomorphism $f$ is injective, and $L$ is a $K$-vector space through $f$. Choose rows of $A$ forming a $K$-basis of its row space. Their images are linearly independent over $L$, since vectors of $K^{\ell}$ that are linearly independent over $K$ stay so over $L$; and every row of $f(A)$ is the image of a $K$-combination of the chosen rows, hence an $L$-combination of their images. So the images form an $L$-basis of the row space of $f(A)$.
 '''

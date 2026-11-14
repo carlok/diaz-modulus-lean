@@ -12,7 +12,7 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-11-14): **657** of 657
+As of the latest archived submission (2026-11-14): **672** of 672
 Proved nodes are in the library. Of the rest, **0** marked high
 priority, **0** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
@@ -136,6 +136,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.anisotropic_relation_four_exp_barrier` | yes | `Diaz/Mirror/anisotropic_relation_four_exp_barrier.lean` | done |  |
 | `DiazModulus.anisotropic_relation_on_circle` | yes | `Diaz/Mirror/anisotropic_relation_on_circle.lean` | done |  |
 | `DiazModulus.baker_columns_qbar_independent` | yes | `Diaz/Mirror/baker_columns_qbar_independent.lean` | done |  |
+| `DiazModulus.baker_rat_add_logAlg_free` | yes | `Diaz/Mirror/baker_rat_add_logAlg_free.lean` | done |  |
 | `DiazModulus.baker_two_logs` | yes | `Diaz/Mirror/baker_two_logs.lean` | done |  |
 | `DiazModulus.binary_quadratic_dvd_of_coprime_mul_eq` | yes | `Diaz/Mirror/binary_quadratic_dvd_of_coprime_mul_eq.lean` | done |  |
 | `DiazModulus.boxHilb_add_finrank_inf` | yes | `Diaz/Mirror/boxHilb_add_finrank_inf.lean` | done |  |
@@ -226,9 +227,12 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.cyclic_pair_space_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/cyclic_pair_space_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration` | yes | `Diaz/Mirror/cyclic_pair_space_no_mobius_ratio_configuration.lean` | done |  |
 | `DiazModulus.cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero` | yes | `Diaz/Mirror/cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero.lean` | done |  |
+| `DiazModulus.dalag_cor_11_15_psi` | yes | `Diaz/Mirror/dalag_cor_11_15_psi.lean` | done |  |
 | `DiazModulus.dalag_cor_12_21` | yes | `Diaz/Mirror/dalag_cor_12_21.lean` | done |  |
 | `DiazModulus.dalag_cor_12_22` | yes | `Diaz/Mirror/dalag_cor_12_22.lean` | done |  |
+| `DiazModulus.dalag_cor_12_23` | yes | `Diaz/Mirror/dalag_cor_12_23.lean` | done |  |
 | `DiazModulus.dalag_cor_12_24` | yes | `Diaz/Mirror/dalag_cor_12_24.lean` | done |  |
+| `DiazModulus.dalag_psi_floor_roy_phi` | yes | `Diaz/Mirror/dalag_psi_floor_roy_phi.lean` | done |  |
 | `DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space` | yes | `Diaz/Mirror/degree_one_multiplier_space_visible_or_degree_one_space.lean` | done |  |
 | `DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal` | yes | `Diaz/Mirror/degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal.lean` | done |  |
 | `DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic` | yes | `Diaz/Mirror/degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic.lean` | done |  |
@@ -315,12 +319,19 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.four_pow_hull_no_two_by_three` | yes | `Diaz/Mirror/four_pow_hull_no_two_by_three.lean` | done |  |
 | `DiazModulus.fv_cor_1_4` | yes | `Diaz/Mirror/fv_cor_1_4.lean` | done |  |
 | `DiazModulus.fv_dot_orthogonal` | yes | `Diaz/Mirror/fv_dot_orthogonal.lean` | done |  |
+| `DiazModulus.fv_finite_approx` | yes | `Diaz/Mirror/fv_finite_approx.lean` | done |  |
 | `DiazModulus.fv_gram_zero_block` | yes | `Diaz/Mirror/fv_gram_zero_block.lean` | done |  |
 | `DiazModulus.fv_lambda_squares` | yes | `Diaz/Mirror/fv_lambda_squares.lean` | done |  |
 | `DiazModulus.fv_max_slope` | yes | `Diaz/Mirror/fv_max_slope.lean` | done |  |
+| `DiazModulus.fv_rank_quot_witness` | yes | `Diaz/Mirror/fv_rank_quot_witness.lean` | done |  |
+| `DiazModulus.fv_rho_excess` | yes | `Diaz/Mirror/fv_rho_excess.lean` | done |  |
+| `DiazModulus.fv_rho_inf` | yes | `Diaz/Mirror/fv_rho_inf.lean` | done |  |
+| `DiazModulus.fv_rho_sInf` | yes | `Diaz/Mirror/fv_rho_sInf.lean` | done |  |
 | `DiazModulus.fv_semistable_core` | yes | `Diaz/Mirror/fv_semistable_core.lean` | done |  |
 | `DiazModulus.fv_theorem_1_2` | yes | `Diaz/Mirror/fv_theorem_1_2.lean` | done |  |
 | `DiazModulus.fv_theorem_2_1` | yes | `Diaz/Mirror/fv_theorem_2_1.lean` | done |  |
+| `DiazModulus.fv_theorem_2_1_general` | yes | `Diaz/Mirror/fv_theorem_2_1_general.lean` | done |  |
+| `DiazModulus.fv_theorem_2_1_rank` | yes | `Diaz/Mirror/fv_theorem_2_1_rank.lean` | done |  |
 | `DiazModulus.fv_two_by_three_lines` | yes | `Diaz/Mirror/fv_two_by_three_lines.lean` | done |  |
 | `DiazModulus.generic_circle_point_config_is_two_by_two` | yes | `Diaz/Mirror/generic_circle_point_config_is_two_by_two.lean` | done |  |
 | `DiazModulus.generic_circle_point_no_two_by_three_configuration` | yes | `Diaz/Mirror/generic_circle_point_no_two_by_three_configuration.lean` | done |  |
@@ -411,6 +422,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.logAlg_adjoin_circle_point_trdeg_le_one_logAlg_part_eq_zero` | yes | `Diaz/Mirror/logAlg_adjoin_circle_point_trdeg_le_one_logAlg_part_eq_zero.lean` | done |  |
 | `DiazModulus.logAlg_adjoin_circle_point_trdeg_le_one_trichotomy` | yes | `Diaz/Mirror/logAlg_adjoin_circle_point_trdeg_le_one_trichotomy.lean` | done |  |
 | `DiazModulus.logAlg_conj_stable` | yes | `Diaz/Mirror/logAlg_conj_stable.lean` | done |  |
+| `DiazModulus.logAlg_exists_rat_basis` | yes | `Diaz/Mirror/logAlg_exists_rat_basis.lean` | done |  |
 | `DiazModulus.log_modulus_forces_independence_alg` | yes | `Diaz/Mirror/log_modulus_forces_independence_alg.lean` | done |  |
 | `DiazModulus.log_mul_imaginary_mixed_of_trdeg_one` | yes | `Diaz/Mirror/log_mul_imaginary_mixed_of_trdeg_one.lean` | done |  |
 | `DiazModulus.log_mul_real_trichotomy_of_trdeg_one` | yes | `Diaz/Mirror/log_mul_real_trichotomy_of_trdeg_one.lean` | done |  |
@@ -423,6 +435,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.log_two_log_three_not_both_rational` | yes | `Diaz/Mirror/log_two_log_three_not_both_rational.lean` | done |  |
 | `DiazModulus.log_two_pi_dependent_forces_transcendence` | yes | `Diaz/Mirror/log_two_pi_dependent_forces_transcendence.lean` | done |  |
 | `DiazModulus.matrix_rank_le_of_zero_block` | yes | `Diaz/Mirror/matrix_rank_le_of_zero_block.lean` | done |  |
+| `DiazModulus.matrix_rank_map_field` | yes | `Diaz/Mirror/matrix_rank_map_field.lean` | done |  |
 | `DiazModulus.mem_logAlg_adjoin_circle_point_iff` | yes | `Diaz/Mirror/mem_logAlg_adjoin_circle_point_iff.lean` | done |  |
 | `DiazModulus.mobius_progression_space_contains_square_or_reciprocal` | yes | `Diaz/Mirror/mobius_progression_space_contains_square_or_reciprocal.lean` | done |  |
 | `DiazModulus.mobius_ratio_configuration_u_multiplier_triple` | yes | `Diaz/Mirror/mobius_ratio_configuration_u_multiplier_triple.lean` | done |  |
@@ -519,7 +532,9 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.roy_field_lifts` | yes | `Diaz/Mirror/roy_field_lifts.lean` | done |  |
 | `DiazModulus.roy_hull_transport` | yes | `Diaz/Mirror/roy_hull_transport.lean` | done |  |
 | `DiazModulus.roy_intKer_image` | yes | `Diaz/Mirror/roy_intKer_image.lean` | done |  |
+| `DiazModulus.roy_lemma_phi` | yes | `Diaz/Mirror/roy_lemma_phi.lean` | done |  |
 | `DiazModulus.roy_period_space` | yes | `Diaz/Mirror/roy_period_space.lean` | done |  |
+| `DiazModulus.roy_phi_closed_form_superadd` | yes | `Diaz/Mirror/roy_phi_closed_form_superadd.lean` | done |  |
 | `DiazModulus.roy_rank_bound` | yes | `Diaz/Mirror/roy_rank_bound.lean` | done |  |
 | `DiazModulus.roy_rational_adapted_basis` | yes | `Diaz/Mirror/roy_rational_adapted_basis.lean` | done |  |
 | `DiazModulus.roy_relation_rank_le` | yes | `Diaz/Mirror/roy_relation_rank_le.lean` | done |  |

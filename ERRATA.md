@@ -4,8 +4,10 @@
 
 These notes record places where a printed statement or argument needed a correction while the results below were
 being formalised. Most items are small. Three printed statements are false as stated (two corollaries in [Var]
-and a lemma in [DALAG]); one of the two corollaries was already corrected by its author. Each item gives the place,
-the printed text (short quotation), what goes wrong, the evidence, whether the point is already corrected in print,
+and a lemma in [DALAG]); one of the two corollaries was already corrected by its author. Section B lists seven
+gaps in printed proofs, each with a repair (four in [DALAG], one each in [Var], [FV] and [Roy]), and section C nine
+smaller slips. Each item gives the place, the printed text (short quotation), what goes wrong, the evidence,
+whether the point is already corrected in print,
 and how the formal version handles it. The formal versions are theorems of the Lean 4 library in this repository;
 they are named here without their namespace.
 
@@ -193,7 +195,9 @@ smaller ratio (n′ ≥ 1, since V ⊄ S), contradicting the choice of S. Then t
 
 **Formal version.** Only the (Q̄, ℒ̃) case is formalised, along [Roy]'s route: `roy_theorem_five` and
 `roy_theorem_five_dmin` (Corollary 11.15 with the bound in the form "ℓ ≤ Σ nᵢdᵢ/(dᵢ − nᵢ) for some decomposition
-of (n, d_min)"). The step from that form to the table Ψ rests on [Roy]'s lemma on p. 40 and is not formalised.
+of (n, d_min)"), and `dalag_cor_11_15_psi` (the printed bound Ψ(n, d_min)), which passes from that form to the
+table Ψ through [Roy]'s Lemma on p. 40 (`roy_lemma_phi`; see B6) and Ψ(n, d) = ⌊φ(n, d)⌋
+(`dalag_psi_floor_roy_phi`).
 
 ### B3. [DALAG] proof of Theorem 11.21, Step 6, p. 407 — proof gap (small): G* not shown to be defined over Q̄
 
@@ -245,7 +249,7 @@ among ℚ-free rational vectors). It does not follow from Corollary 12.23 for th
 **Formal version.** `dalag_cor_12_24` is proved from Theorem 12.20 (in [Roy]'s form) by a direct case analysis
 of the block shape, not from Corollary 12.22; the ℚ + ℒ bullet is not a target.
 
-### B5. [FV] Theorem 2.1, pp. 4–6 — proof gap (scope): the proof covers finite-dimensional Y only
+### B5. [FV] Theorem 2.1, pp. 4–6 — proof gap (scope): the proof covers finite-dimensional Y only; the statement holds for every Y
 
 **Printed.** μ(Y, ℂⁿ) is defined for any Q̄-vector subspace Y of ℂⁿ (p. 4). Theorem 2.1 (p. 5): "Let X and Y be
 two Q̄-vector subspaces of ℂⁿ", X of dimension d > n, μ(Y, ℂⁿ) > d/(d − n); then X·Y ⊄ ℒ̃. No finiteness is
@@ -256,14 +260,91 @@ respectively", and on p. 6 writes Y = Q̄y₁ + ⋯ + Q̄y_ℓ. So it treats dim
 Y one needs a finite-dimensional Y_f ⊂ Y with μ(Y_f, ℂⁿ) > d/(d − n). That is not automatic, because V ranges over
 infinitely many subspaces, and no argument is given.
 
-**Status.** The finite-dimensional case is complete. We have not settled the general case. A reduction by a
-Noetherian argument on Grassmannians looks possible, but it has not been checked in full. Every application in
-[FV] (Theorem 1.2, Corollary 1.4) has dim Y = 5.
+**Repair.** The statement is true for every Q̄-subspace Y. What the proof needs is one finite-dimensional Y_f ⊂ Y
+that serves for all V at once, and a finite approximation supplies it: for every Q̄-subspace Y ⊂ ℂⁿ and every
+B ∈ ℕ there is a finite-dimensional Y₀ ⊂ Y with dim(Y₀/(Y₀ ∩ V)) ≥ min(dim(Y/(Y ∩ V)), B) for every ℂ-subspace V
+of ℂⁿ, an infinite dimension counting as larger than B. Proof: for finite-dimensional Z ⊂ Y let I(Z) be the
+intersection of the ℂ-subspaces V with dim(Z/(Z ∩ V)) < B. It is the intersection of at most n of them, so
+dim(Z/(Z ∩ I(Z))) ≤ nB by Grassmann's formula, and the integer (nB + 1)·dim I(Z) + dim(Z/(Z ∩ I(Z))) is bounded;
+let Y₀ maximise it. A V not containing I(Y₀) has dim(Y₀/(Y₀ ∩ V)) ≥ B by the definition of I(Y₀). For Z ⊃ Y₀,
+maximality gives I(Z) = I(Y₀) and the same quotient dimension there, and Grassmann's formula carries this from
+I(Y₀) to every V ⊃ I(Y₀). With B = dn + 1, Y₀ satisfies the hypothesis of the finite-dimensional case whenever
+μ(Y, ℂⁿ) > d/(d − n), and the printed proof applied to (X, Y₀) gives the theorem. Equivalently, μ(Y, ℂⁿ) is the
+largest μ(Y₀, ℂⁿ) over the finite-dimensional Y₀ ⊂ Y when it is finite, and their supremum when it is infinite.
+A Noetherian argument on Grassmannians over Q̄ also works, but only for the subspaces V that the proof of the
+finite-dimensional case produces (rational after a change of coordinates); it needs Hilbert's basis theorem and
+re-enters that proof, while the argument above uses Grassmann's formula only. Every application in [FV]
+(Theorem 1.2, Corollary 1.4) has dim Y = 5.
 
 **Already corrected in print.** Not in the sources consulted.
 
-**Formal version.** `fv_theorem_2_1` is stated and proved with Y finite-dimensional (an explicit hypothesis),
-and is described as "[FV] Theorem 2.1 for finite-dimensional Y".
+**Formal version.** `fv_theorem_2_1` is the finite-dimensional case (Y finite-dimensional, an explicit
+hypothesis). `fv_finite_approx` is the finite approximation, with three dimension counts as helpers:
+`fv_rho_excess` (the excess dim(Z′/(Z′ ∩ V)) − dim(Z/(Z ∩ V)) for Z ⊂ Z′ does not increase as V grows),
+`fv_rho_inf` (the intersection of two subspaces) and `fv_rho_sInf` (the bound nB at the intersection of any
+family). `fv_theorem_2_1_general` proves the theorem for every Y with the hypothesis written through
+finite-dimensional witnesses: for each V ≠ ℂⁿ, some finite-dimensional Y₀ ⊂ Y with
+d·(n − dim V) < (d − n)·dim(Y₀/(Y₀ ∩ V)). `fv_theorem_2_1_rank` states it as printed, with dim_Q̄(Y/(Y ∩ V)) a
+cardinal (`Module.rank`), and derives it from `fv_theorem_2_1_general` through `fv_rank_quot_witness`.
+
+### B6. [Roy] proof of the Lemma, pp. 40–41 — proof gap (small): "k = 2" does not follow from the two exclusions
+
+**Printed.** The Lemma (p. 40): for integers 0 < n < d, φ(n, d) = φ(1, d − n) + φ(n − 1, n) if n ≥ 2 and
+d − n ≥ 2, and φ(n, d) = nd/(d − n) if n = 1 or d − n = 1; here φ(n, d) is the largest Σ nᵢdᵢ/(dᵢ − nᵢ) over the
+decompositions (n, d) = Σ (nᵢ, dᵢ) with 0 < nᵢ < dᵢ (pp. 38–39). The proof writes nd/(d − n) = n + n²/(d − n), so
+that φ(n, d) − n is the largest Σ nᵢ²/δᵢ over the decompositions (n, d − n) = Σ (nᵢ, δᵢ) into k pairs of positive
+integers. It takes a maximiser in which every part has nᵢ = 1 or δᵢ = 1 (by n²/δ ≤ (n − 1)² + 1/(δ − 1) for
+n, δ ≥ 2), excludes two parts (nᵢ, 1), (nⱼ, 1) with nᵢ, nⱼ ≥ 2 and two parts (1, δᵢ), (1, δⱼ) with δᵢ, δⱼ ≥ 2,
+and concludes (p. 41): "k ≥ 2, so that k = 2". The value (n − 1)² + 1/(δ − 1) follows.
+
+**What goes wrong.** Parts (1, 1) fall under neither exclusion, so the exclusions do not bound k. For
+(n, δ) = (3, 4), that is (n, d) = (3, 7), the decomposition (1, 2), (1, 1), (1, 1) has every part with nᵢ = 1, no
+two parts of either excluded kind, and k = 3; so has (2, 1), (1, 1), (1, 2) for (n, δ) = (4, 4), that is
+(n, d) = (4, 8), with one part of each kind. Neither is a maximiser (values 5/2 < 13/3 and 11/2 < 28/3), but the
+printed argument does not show it. Exchanges of two parts, the only kind used, cannot show it: when one of two
+parts is (1, 1) and the other has nᵢ = 1 or δᵢ = 1, no rewrite of the pair into one or two parts with the same
+sums strictly increases Σ nᵢ²/δᵢ.
+
+**Repair.** One exchange on three parts: (a, 1), (1, b), (1, 1) → (a + 1, 1), (1, b + 1) increases Σ nᵢ²/δᵢ by
+2a − 1/(b(b + 1)) > 0 for a, b ≥ 1 (the two parts (a, 1) and (1, b) may themselves be (1, 1)). A decomposition
+that obeys the printed conditions and has k ≥ 3 parts has at most one part (a, 1) with a ≥ 2 and at most one
+(1, b) with b ≥ 2, hence a part (1, 1), and so contains three parts of this shape: it is not a maximiser. So a
+maximiser has k ≤ 2; k = 1 is excluded when n, δ ≥ 2, and the printed conclusion follows. The Lemma is correct.
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** `roy_lemma_phi` states the Lemma with the second value in closed form,
+(d − n)/(d − n − 1) + (n − 1)n = φ(1, d − n) + φ(n − 1, n), as the greatest value over all decompositions. Its
+proof uses no exchanges: the closed form bounds a single part and is superadditive
+(`roy_phi_closed_form_superadd`), so it bounds every decomposition by induction on the number of parts, and the
+decomposition (1, d − n), (n − 1, n) attains it.
+
+### B7. [DALAG] proof of Lemma 12.9, p. 428 — proof gap (small): an implicit dehomogenisation, and Lemma 12.8 beyond its stated scope
+
+**Printed.** §12.1.4 (p. 426) defines the structural rank rstr_k(M) of a matrix M with respect to a subfield k:
+E is the k-span of the entries, φ an injective k-linear map of E into kX₁ + ⋯ + kXₙ, and rstr_k(M) the rank of
+φ(M) over k(X₁, …, Xₙ). Lemma 12.8 (p. 426) says that this rank does not depend on the choice; it is stated for φ
+given by a basis of E. Lemma 12.9 (p. 427) allows an injective φ into the affine space k + kX₁ + ⋯ + kXₙ. Its
+proof (p. 428): compose φ with the injective linear map k + kX₁ + ⋯ + kXₙ → kY₀ + ⋯ + kYₙ,
+a₀ + Σ aᵢXᵢ ↦ a₀Y₀ + Σ aᵢYᵢ, and use Lemma 12.8.
+
+**What goes wrong.** Two steps are left to the reader. (1) The composition gives rstr_k(M) as the rank over
+k(Y₀, …, Yₙ) of the homogenised matrix ψ(φ(M)), ψ the map above. That this equals the rank of φ(M) over
+k(X₁, …, Xₙ), which is what the Lemma asserts, is not argued; the remark printed just before the Lemma (p. 427),
+that the determinant of a matrix of linear forms is homogeneous, is the hint. (2) ψ ∘ φ is not given by a basis of
+E, so Lemma 12.8 as stated does not apply; its proof (p. 427) covers it, since it starts from two arbitrary
+families of algebraically independent elements.
+
+**Repair (routine).** For (1): Xᵢ ↦ Yᵢ/Y₀ defines a homomorphism of fields k(X₁, …, Xₙ) → k(Y₀, …, Yₙ) (a
+non-zero polynomial P goes to Y₀^(−deg P) times its homogenisation, which is non-zero); it sends φ(M) to
+Y₀⁻¹·ψ(φ(M)), and a homomorphism of fields preserves the rank of a matrix. For (2): read "Lemma 12.8" as its
+proof, or as the independence of the choice of φ asserted in §12.1.4. The Lemma is correct.
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** Not needed. `dalag_cor_12_23` works with ℚ-presentations M = Σ eₖNₖ, whose structural matrix
+Σ XₖNₖ is homogeneous, so neither the affine matrix M₀ + Σ XₖMₖ of p. 435 nor Lemma 12.9 enters; its proof
+compares the ranks over ℚ(X) and Q̄(X) through `matrix_rank_map_field`.
 
 ---
 
@@ -316,9 +397,11 @@ and the entries of M", then M = M₀ + M₁λ₁ + ⋯ + M_mλ_m with rational M
 entries of M", with λ₁, …, λ_m ∈ ℒ. The rest of the paragraph (Baker's theorem makes 1, λ₁, …, λ_m Q̄-free, so the
 structural ranks over ℚ and over Q̄ agree) is correct with this reading.
 
-**Already corrected in print.** Not in the sources consulted. **Formal version.** The ℚ + ℒ corollary (12.23) is
-not formalised yet. Corollary 12.22 is stated with presentations M = Σ eₖNₖ (eₖ Q̄-free, Nₖ algebraic), so no basis
-containing 1 has to be chosen.
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Corollary 12.22 is stated with
+presentations M = Σ eₖNₖ (eₖ Q̄-free, Nₖ algebraic), and the ℚ + ℒ corollary 12.23 (`dalag_cor_12_23`) with
+ℚ-presentations (eₖ ∈ ℚ + ℒ ℚ-free, Nₖ rational), so no basis containing 1 has to be chosen. The step of this
+paragraph that Baker's theorem gives, read for ℚ + ℒ, is `baker_rat_add_logAlg_free`: elements of ℚ + ℒ that are
+ℚ-free are Q̄-free.
 
 ### C5. [FV] p. 6 — slip (citation): "Proposition 11.19 or Theorem 12.19 in [7]"
 
@@ -356,6 +439,20 @@ the needed inequality at V = {0} and at every line.
 
 **What is meant.** [Var] Corollary 2.12 is on p. 346 (its proof ends on p. 346; Corollary 2.13's proof is on
 p. 347).
+
+### C9. [DALAG] p. 394, the table Ψ — slip: Ψ(0, 0) is not defined, although Corollaries 11.10 and 11.15 use it
+
+**Printed.** "For d and n positive integers satisfying 0 ≤ n < d, define Ψ(n, d) = …", four rows for 0 < n < d,
+and Ψ(0, d) = 0 for d > 0.
+
+**What is meant.** The introduction contradicts itself at n = 0, which it then treats separately, and the case
+d = 0 is missing. Corollaries 11.10 (p. 394) and 11.15 (p. 398) allow V = {0}, where d_min = 0, so their bound is
+Ψ(0, 0). The intended value is 0, which makes the bound trivially true. Read: for integers 0 ≤ n < d, with
+Ψ(0, d) = 0 for every d ≥ 0.
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** `dalag_cor_11_15_psi` encodes
+the table with Ψ(0, d) = 0 for every d, and proves dim V < d_min whenever V ≠ {0}, so the table is evaluated only
+at n = 0 or at 0 < n < d_min.
 
 ---
 
@@ -413,6 +510,12 @@ or is plainly announced as unproved.
   (B1, and the identities Λ₂ = Log(2 + i), Λ₃ = Log(3 + 2i) in A2) were recomputed with a short Python script.
   So were the Ψ table of [DALAG] p. 394, its monotonicity in d, and the comparison of the Lemma 11.20 lower bound
   with nd/(d − n) for d < 16 (B2).
+- For B6, Roy's Lemma was compared with the maximum over all decompositions, by brute force, for every
+  0 < n < d ≤ 22; the decompositions with three or more parts that obey the printed conditions were enumerated for
+  n, d − n ≤ 8 (91 of them, none a maximiser); and Ψ = ⌊φ⌋ was checked against the table of [DALAG] p. 394 for
+  d ≤ 80. For B5, the finite approximation was run with finite fields in place of (Q̄, ℂ), every subspace V
+  enumerated: (𝔽₂, 𝔽₄), (𝔽₂, 𝔽₈) and (𝔽₃, 𝔽₉), n ≤ 3. Each check was written twice, independently, as a short
+  Python script.
 - Corrections in print were looked for in [FV] (all nine pages, on images) and [Role] (text search, then §6 on
   images), and on the author's publications page (webusers.imj-prg.fr/~michel.waldschmidt/texts.html, read on
   14 November 2026). That page gives one erratum for [Var]: Corollary 2.12, p. 346, with the hypothesis that

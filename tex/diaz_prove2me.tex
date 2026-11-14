@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.43, 14 November 2026}
+\date{September 2026\\[2pt]\small Version 1.44, 14 November 2026}
 
 \begin{document}
 \maketitle
@@ -182,11 +182,13 @@ contains no non-zero vector with algebraic coordinates, and $d_{\min}$ is the le
 $\C^{d}$ spanned by algebraic vectors and containing $V$, then $V\cap\aLogs^{d}$ is finite-dimensional over $\Alg$,
 of dimension at most $\sum_{i}n_{i}d_{i}/(d_{i}-n_{i})$ for some decomposition
 $(\dim V,d_{\min})=\sum_{i}(n_{i},d_{i})$ with $0<n_{i}<d_{i}$; Roy's $\varphi(\dim V,d_{\min})$ is the largest such
-sum. So are the results of~\cite{waldschmidt-2005a} that it gives: the bound $d(d-1)$ for a hyperplane
+sum (its closed form, and the bound $\Psi$ of~\cite[Corollary~11.15]{waldschmidt-book}, since version 1.44, below).
+So are the results of~\cite{waldschmidt-2005a} that it gives: the bound $d(d-1)$ for a hyperplane
 (Theorem~3.1) and Corollary~3.2; Theorem~2.11 and Corollary~2.12, in the corrected form
 of~\cite[Corollary~6.3]{waldschmidt-role}; Corollary~2.13, corrected; and, with Baker's theorem, Corollary~2.14.
 The printed applications of Roy's Corollary~1 are machine-checked with them. From~\cite{waldschmidt-2005b}:
-Theorem~2.1 for finite-dimensional $Y$, whose formal proof replaces the reduction after~\cite[Lemmes~5.1
+Theorem~2.1 for finite-dimensional $Y$ (for every $Y$ since version 1.44, below), whose formal proof replaces the
+reduction after~\cite[Lemmes~5.1
 and~5.2]{waldschmidt-1981} by one subspace of maximal slope and uses Roy's Corollary~1 once; Theorem~1.2, that
 for a $2\times3$ matrix $M$ over $\aLogs$ such that the five rows of
 $\left(\begin{smallmatrix}M\\ I_{3}\end{smallmatrix}\right)$ and the five columns of $(I_{2},M)$ are linearly
@@ -199,6 +201,21 @@ And Fischler's bound~\cite[Theorem~1.2]{fischler-2001}: if the $n^{2}$ entries o
 linearly independent over $\Alg$, the centraliser of $M$ has dimension at most $(n^{2}+1)/2$, with R\'emond's lemma
 on commuting subspaces of matrices~\cite[Lemma~5.6]{fischler-2001}. These are routine formalisations of classical
 results, with corrections where the printed statement needed one (Remark~\ref{rem:printed-corrections}).
+
+Since version 1.44 four results that complete these are machine-checked as well, with no hypothesis.
+Theorem~2.1 of~\cite{waldschmidt-2005b} holds as printed, for every $\Alg$-subspace $Y$ of $\C^{n}$, with
+$\dim_{\Alg}(Y/(Y\cap V))$ read as a cardinal in $\mu(Y,\C^{n})$: for every integer $B$, some finite-dimensional
+$Y_{0}\subseteq Y$ satisfies $\dim_{\Alg}(Y_{0}/(Y_{0}\cap V))\geq\min(\dim_{\Alg}(Y/(Y\cap V)),B)$ for every
+subspace $V$ of $\C^{n}$ at once, and the finite-dimensional case applied to $Y_{0}$ concludes. Roy's Lemma
+on~$\varphi$~\cite[p.~40]{roy-1992}: for $0<n<d$, $\varphi(n,d)=nd/(d-n)$ if $n=1$ or $d-n=1$, and
+$\varphi(n,d)=(d-n)/(d-n-1)+(n-1)n=\varphi(1,d-n)+\varphi(n-1,n)$ otherwise; the formal proof uses the
+superadditivity of this closed form instead of Roy's exchange argument. The integer part of $\varphi(n,d)$ is the
+table $\Psi(n,d)$ of~\cite[p.~394]{waldschmidt-book}, so~\cite[Corollary~11.15]{waldschmidt-book} holds for $\Alg$
+and $\aLogs$ in its printed form, $\dim_{\Alg}(V\cap\aLogs^{d})\leq\Psi(\dim V,d_{\min})$. And
+\cite[Corollary~12.23]{waldschmidt-book}: a matrix with entries in $\Q+\Logs$ has rank at least half its structural
+rank over $\Q$, from Corollary~12.22 and Baker's theorem~\cite{baker-1966} in the form that elements of $\Q+\Logs$
+linearly independent over $\Q$ are linearly independent over $\Alg$. These are routine formalisations of classical
+results; two of the printed proofs needed one more step (Remark~\ref{rem:printed-corrections}, (B5) and~(B6)).
 
 \begin{remark}[Printed statements corrected while formalising]\label{rem:printed-corrections}
 Formalising the results above met the points below. The file \texttt{ERRATA.md} of the mirrored project gives each
@@ -237,7 +254,7 @@ the induction hypothesis, at $V\cap S$, the bound $\ell^{*}\leq n^{*}d^{*}/(d^{*
 and which can fail (by Lemma~11.20 there, already for $(n,d)=(4,10)$), and do not check that no proper rational
 subspace of $S$ contains $V\cap S$. The minimality of $S$ gives that check, as in~\cite[p.~39]{roy-1992}; the
 induction hypothesis then gives $\ell^{*}\leq\Psi(n^{*},d^{*})$, which is all the proof uses. The formal proof
-follows~\cite[Theorem~5]{roy-1992}.
+follows~\cite[Theorem~5]{roy-1992}, and reaches the bound $\Psi$ through Roy's Lemma on~$\varphi$ (above).
 \item[(B3)] In Step~6 of the proof of~\cite[Theorem~11.21]{waldschmidt-book} (p.~407) the multiplicity estimate
 gives a subgroup $G^{*}$ with no field of definition, while the theorem asserts one defined over $\Alg$. Choosing
 the auxiliary polynomial with algebraic coefficients, or replacing the additive part of $G^{*}$ by the span of its
@@ -249,9 +266,24 @@ rows and columns (for $d=2$, $l=3$ it is at most $2$), so it gives only rank at 
 it follows from Corollary~12.21 in two lines, and it is machine-checked from Theorem~12.20. The $\Q+\Logs$
 statement after it follows from Corollary~12.24 and Baker's theorem, not from Corollary~12.23.
 \item[(B5)] \cite[Theorem~2.1]{waldschmidt-2005b} is stated for every $\Alg$-subspace $Y$ of $\C^{n}$, but its proof
-writes $Y=\Alg y_{1}+\dots+\Alg y_{\ell}$ and covers finite-dimensional $Y$ only. It is machine-checked for
-finite-dimensional $Y$, the case of every application in~\cite{waldschmidt-2005b}; the general case is not settled
-here.
+writes $Y=\Alg y_{1}+\dots+\Alg y_{\ell}$ and covers finite-dimensional $Y$ only. The statement is true as
+printed: one finite-dimensional $Y_{0}\subseteq Y$, chosen for all subspaces $V$ at once (above), reduces it to the
+finite-dimensional case, and it is machine-checked for every $Y$.
+\item[(B6)] The proof of Roy's Lemma on~$\varphi$~\cite[p.~40]{roy-1992} maximises $\sum_{i}n_{i}^{2}/\delta_{i}$
+over the decompositions $(n,d-n)=\sum_{i}(n_{i},\delta_{i})$ into pairs of positive integers, and concludes on p.~41
+that a maximiser has two parts, from two exclusions that leave parts $(1,1)$ free: for $(n,d-n)=(3,4)$ the
+decomposition $(1,2),(1,1),(1,1)$ obeys both and has three parts. The exchange
+$(a,1),(1,b),(1,1)\mapsto(a+1,1),(1,b+1)$, which raises the sum by $2a-1/(b(b+1))>0$, rules out every such
+decomposition, and the Lemma is correct. The formal proof goes through the superadditivity of the closed form
+instead.
+\item[(B7)] The proof of~\cite[Lemma~12.9]{waldschmidt-book} (p.~428) obtains the structural rank as the rank of a
+homogenised matrix and leaves implicit that this is the rank of the affine one; the substitution
+$X_{i}\mapsto Y_{i}/Y_{0}$, a homomorphism of fields, gives it. It also applies Lemma~12.8 to a map not given by a
+basis, which the proof of Lemma~12.8 covers. The formal proofs do not use the lemma: Corollary~12.23 is
+machine-checked through presentations, whose structural matrices are homogeneous.
+\item[(C9)] The table $\Psi$ of~\cite[p.~394]{waldschmidt-book} gives $\Psi(0,d)$ for $d>0$ only, while
+Corollaries~11.10 and~11.15 there allow $V=\{0\}$, where $d_{\min}=0$; the value $\Psi(0,0)=0$ is meant, and it is
+the one machine-checked.
 \end{itemize}
 \end{remark}
 
@@ -2508,7 +2540,7 @@ Press, 1916.
 \bibitem{bruns-herzog} W.~Bruns and J.~Herzog, \emph{Cohen--Macaulay Rings}, Cambridge Studies in Advanced
 Mathematics \textbf{39}, Cambridge University Press, 1993.
 \bibitem{waldschmidt-2005a} M.~Waldschmidt, \emph{Variations on the six exponentials theorem}, in
-\emph{Algebra and Number Theory} (R.~Tandon, ed.), Hindustan Book Agency, 2005.
+\emph{Algebra and Number Theory} (R.~Tandon, ed.), Hindustan Book Agency, 2005, 338--355.
 \bibitem{waldschmidt-2005b} M.~Waldschmidt, \emph{Further variations on the six exponentials
 theorem}, Hardy-Ramanujan J. \textbf{28} (2005), 1--9.
 \bibitem{waldschmidt-hopf} M.~Waldschmidt, \emph{Hopf algebras and transcendental numbers}, in
@@ -2561,7 +2593,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.43 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.44 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2683,6 +2715,13 @@ of~\cite{waldschmidt-2005b} with two of their consequences, Corollaries~12.21, 1
 of~\cite{waldschmidt-book}, and Fischler's Theorem~1.2 with R\'emond's lemma, all machine-checked with no
 hypothesis (Section~\ref{sec:setting}); and Remark~\ref{rem:printed-corrections}, on the printed statements
 corrected while formalising them. The mirrored project then held all 657 proved results of the development.
+Version 1.44 adds, on 14 November 2026, Theorem~2.1 of~\cite{waldschmidt-2005b} for every $\Alg$-subspace $Y$,
+Roy's Lemma on~$\varphi$~\cite[p.~40]{roy-1992}, Corollary~11.15 of~\cite{waldschmidt-book} for $\Alg$ and $\aLogs$
+with the table $\Psi$, and Corollary~12.23 of~\cite{waldschmidt-book}, all machine-checked with no hypothesis
+(Section~\ref{sec:setting}); item~(B5) of Remark~\ref{rem:printed-corrections} now says that the printed statement
+is true, and items (B6), (B7) and~(C9) are added. The mirrored project then held all 672 proved results of the
+development.
+% 672 = 657 + 15, if all 15 nodes port as modules; check after the port.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2835,6 +2874,10 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 \S\ref{sec:setting}, \cite{fischler-2001}, Th.~1.2 & Proved & \nolinkurl{DiazModulus.fischler_centralizer} \\
 \S\ref{sec:setting}, \cite{fischler-2001}, Prop.~5.5, in rational form & Proved & \nolinkurl{DiazModulus.fischler_prop_5_5} \\
 \S\ref{sec:setting}, \cite{fischler-2001}, Lemma~5.6 (R\'emond) & Proved & \nolinkurl{DiazModulus.remond_commuting_subspaces} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005b}, Th.~2.1, every $Y$ & Proved & \nolinkurl{DiazModulus.fv_theorem_2_1_rank} \\
+\S\ref{sec:setting}, Roy's Lemma on $\varphi$, \cite{roy-1992}, p.~40 & Proved & \nolinkurl{DiazModulus.roy_lemma_phi} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~11.15 with $\Psi$ & Proved & \nolinkurl{DiazModulus.dalag_cor_11_15_psi} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~12.23 & Proved & \nolinkurl{DiazModulus.dalag_cor_12_23} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\
