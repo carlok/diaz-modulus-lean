@@ -55,7 +55,8 @@ Q̄-free. "Λ₂₁ ≠ 0 and Λ₁₁/Λ₂₁ transcendental" does not give th
 (The author's own example, below, is of the same kind: Λ₂₁ = 1 and Λ₂ⱼ = 0, completed for instance by
 Λ₁₁ = log 2 and Λ₁ⱼ = log 3, …, log 11.)
 
-**Already corrected in print.** Yes, twice. [FV] §4 "Erratum to [8]", journal p. 8, replaces the hypothesis by
+**Already corrected in print.** Yes, twice, and on the author's publications page (which gives p. 346).
+[FV] §4 "Erratum to [8]", journal p. 8, replaces the hypothesis by
 "the three numbers 1, Λ₁₁ and Λ₂₁ are linearly independent over the field of algebraic numbers" and notes a
 counterexample with Λ₂₁ = 1, Λ₂ⱼ = 0 (2 ≤ j ≤ 5). [Role] Corollary 6.3, pp. 10–11, restates the corrected
 version. (Both refer to the corollary as being on p. 347; it is on p. 346.) The corrected hypothesis implies the
@@ -88,7 +89,8 @@ of A1: nothing prevents a relation among 1, Λ₁₁, Λ₂₁.
 Corollary 2.12. (The counterexample violates exactly this: 1 − Λ₁₁ = 0.) The hypothesis Λ₁₂, Λ₁₃ ∈ ℝ ∪ iℝ is not
 used by the proof and can be dropped. The proof also needs the change described in B1.
 
-**Already corrected in print.** Not in the sources consulted: [FV] §4 and [Role] Cor. 6.3 correct Corollary 2.12
+**Already corrected in print.** Not in the sources consulted, nor on the author's publications page, whose erratum
+for [Var] concerns Corollary 2.12 only: [FV] §4 and [Role] Cor. 6.3 correct Corollary 2.12
 only, and neither mentions Corollary 2.13.
 
 **Formal version.** States and proves the corrected corollary (`variations_cor_2_13_corrected`): entries in ℒ̃;
@@ -412,6 +414,9 @@ or is plainly announced as unproved.
   So were the Ψ table of [DALAG] p. 394, its monotonicity in d, and the comparison of the Lemma 11.20 lower bound
   with nd/(d − n) for d < 16 (B2).
 - Corrections in print were looked for in [FV] (all nine pages, on images) and [Role] (text search, then §6 on
-  images). Nothing else was searched. In particular an erratum list on the author's web page was not consulted.
+  images), and on the author's publications page (webusers.imj-prg.fr/~michel.waldschmidt/texts.html, read on
+  14 November 2026). That page gives one erratum for [Var]: Corollary 2.12, p. 346, with the hypothesis that
+  1, Λ₁₁, Λ₂₁ are linearly independent over Q̄. It lists none for Corollary 2.13 and none for [DALAG]; the
+  [DALAG] copy used here is the one hosted on that page. A web search found no errata list for [DALAG].
 - "Formal version" refers to the Lean 4 library in this repository. All theorems named there are proved, using
   only Lean's three standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
