@@ -7,13 +7,15 @@ Baker's theorem in its qualitative, inhomogeneous form (Theorem~\ref{thm:baker_l
 
 Step~5 of the book's \S4.6 needed a repair: vanishing to a given order in each coordinate does not survive the change of variables that the proof makes, while vanishing to a given total order does; only the constants change. No new mathematics is claimed.
 
-The last section derives Waldschmidt's five exponentials theorem \cite[Cor.~2.2]{Wal88}, \cite[\S11.3.3]{Wal00} (Theorem~\ref{thm:five_exponentials}) from Roy's strong six exponentials theorem (Theorem~\ref{thm:strong_six_exponentials_unconditional}) and Baker's theorem, as in \cite[Remark after Cor.~11.16]{Wal00}, with two of its printed consequences: one of $2^{\pi}$, $3^{\pi}$ is transcendental \cite[(2.2.3)]{Wal88} (Corollary~\ref{cor:two_pow_pi_or_three_pow_pi_transcendental}), and \cite[Exercise 11.8(b)]{Wal00} (Corollary~\ref{cor:exp_mul_or_exp_sq_mul_transcendental}). All three are classical, and formalised routinely.
+The section on the five exponentials theorem derives Waldschmidt's five exponentials theorem \cite[Cor.~2.2]{Wal88}, \cite[\S11.3.3]{Wal00} (Theorem~\ref{thm:five_exponentials}) from Roy's strong six exponentials theorem (Theorem~\ref{thm:strong_six_exponentials_unconditional}) and Baker's theorem, as in \cite[Remark after Cor.~11.16]{Wal00}, with two of its printed consequences: one of $2^{\pi}$, $3^{\pi}$ is transcendental \cite[(2.2.3)]{Wal88} (Corollary~\ref{cor:two_pow_pi_or_three_pow_pi_transcendental}), and \cite[Exercise 11.8(b)]{Wal00} (Corollary~\ref{cor:exp_mul_or_exp_sq_mul_transcendental}). All three are classical, and formalised routinely.
 
 \textbf{Notation.} $\iota$ is a finite set, $n=|\iota|$ unless said otherwise, and $\C^{\iota}$ carries the sup norm, so that its closed balls are polydiscs. For $w,z\in\C^{\iota}$, $\langle w,z\rangle=\sum_\nu w_\nu z_\nu$. For a function $F$ on $\C^{\iota}$ and a list $L=(L(0),\dots,L(k-1))$ of $k$ coordinate directions,
 \[ D_LF(z)=D^{k}F(z)\bigl(e_{L(0)},\dots,e_{L(k-1)}\bigr), \]
 where $D^{k}F$ is the $k$-th Fréchet derivative and $e_\nu$ are the coordinate vectors; every derivative of $F$ of total order $k$ vanishes at $z$ when $D^{k}F(z)=0$. Given $x_1,\dots,x_{d_1}\in\C^{\iota}$, $k_0\in\iota$ and integers $T_0,T_1\ge0$, the exponential monomials are $z_{k_0}^{\tau}e^{\langle t_1x_1+\dots+t_{d_1}x_{d_1},\,z\rangle}$ for $0\le\tau\le T_0$ and $t\in\{0,\dots,T_1\}^{d_1}$, and for coefficients $p=(p_{\tau,t})$
 \[ F_p(z)=\sum_{\tau,t}p_{\tau,t}\,z_{k_0}^{\tau}\,e^{\langle t_1x_1+\dots+t_{d_1}x_{d_1},\,z\rangle}. \]
 The grid points of a family $(y_j)_{j\in\iota}$ in $\C^{\iota}$ are the points $\sum_js_jy_j$ with integers $0\le s_j<S_1$.
+
+The last section proves Baker's theorem in column form, that $\Q$-free columns over $\mathcal{L}$ make the columns of $(I_m, M)$ free over $\Qbar$ (Lemma~\ref{lem:baker_columns_qbar_independent}), and with it two printed consequences of results of Chapter~\ref{chap:05-six-exponentials}: \cite[Cor.~2.14]{Wal05a} (Corollary~\ref{cor:variations_cor_2_14}) and \cite[Cor.~1.4]{Wal05b} (Corollary~\ref{cor:fv_cor_1_4}). They are classical, and formalised routinely.
 
 \section{The Cartesian Schwarz lemma}
 
@@ -508,4 +510,59 @@ Let $\lambda_0,\lambda_1$ be non-zero logarithms of algebraic numbers, and let $
 \leanok
 \uses{thm:hermite_lindemann_holds,thm:five_exponentials}
 Apply Theorem~\ref{thm:five_exponentials} to $x=(1,\beta\lambda_0)$, $y=(\lambda_1,\beta\lambda_0\lambda_1)$ and $\eta=\beta^{-1}$. The five numbers are $e^{\lambda_1}$, $e^{\beta\lambda_0\lambda_1}$ (twice), $e^{(\beta\lambda_0)^{2}\lambda_1}$ and $e^{\lambda_0}$, and the outer two are algebraic. Both $x$ and $y=\lambda_1x$ are free over $\Q$: $\beta\lambda_0\in\Q$ would make $\lambda_0$ a non-zero algebraic number with $e^{\lambda_0}$ algebraic, against Theorem~\ref{thm:hermite_lindemann_holds}.
+\end{proof}
+
+\section{Baker's theorem and matrices of logarithms}
+
+% Prove2Me: DiazModulus.baker_columns_qbar_independent -- https://prove2.me/theorems/6658532e-d703-4223-affc-d6d0d69a2f8d
+\begin{lemma}[Baker's theorem in column form]
+\label{lem:baker_columns_qbar_independent}
+\lean{Diaz.baker_columns_qbar_independent}
+\leanok
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$.
+
+Let $M$ be an $m \times \ell$ matrix with entries in $\mathcal{L}$ whose $\ell$ columns are linearly independent over $\Q$. Then the $m + \ell$ columns of the $m \times (m + \ell)$ matrix $(I_m, M)$ are linearly independent over $\Qbar$.
+
+{\small\emph{Source:} A step of the proof of \cite[Cor.~2.14]{Wal05a} (p.~347), where it is deduced from Baker's theorem; here from Baker's theorem (Theorem~\ref{thm:baker_linear_forms_in_logarithms}; \cite[Th.~1.6]{Wal00}), applied coordinatewise to a $\Q$-basis of the $\Q$-span of the entries. Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{thm:baker_linear_forms_in_logarithms}
+Among the entries choose $\lambda_1, \dots, \lambda_r$ forming a $\Q$-basis of the $\Q$-span of all entries; each lies in $\mathcal{L}$, and $M_{ij} = \sum_s a_{ijs}\lambda_s$ with $a_{ijs} \in \Q$. In a relation $\sum_i \alpha_i e_i + \sum_j \beta_j M_{\cdot j} = 0$ with algebraic coefficients, row $i$ reads $\alpha_i + \sum_s \bigl(\sum_j \beta_j a_{ijs}\bigr)\lambda_s = 0$, so Theorem~\ref{thm:baker_linear_forms_in_logarithms} gives $\alpha_i = 0$ and $\sum_j \beta_j a_{ijs} = 0$ for all $i$, $s$. The rational arrays $A_j = (a_{ijs})_{i,s}$ are $\Q$-free, since a rational relation among them is one among the columns of $M$; and vectors of $\Q^{N}$ that are free over $\Q$ stay free over $\Qbar$. So $\beta = 0$.
+\end{proof}
+
+% Prove2Me: DiazModulus.variations_cor_2_14 -- https://prove2.me/theorems/755d5f3e-cdb2-446b-9ca6-62aeea1a9fe6
+\begin{corollary}[Waldschmidt, \emph{Variations}, Corollary 2.14]
+\label{cor:variations_cor_2_14}
+\lean{Diaz.variations_cor_2_14}
+\leanok
+Let $M = (\lambda_{ij})$ be an $m \times \ell$ matrix with entries in $\mathcal{L}$ whose $\ell$ columns are linearly independent over $\Q$, let $\lambda_1, \dots, \lambda_m \in \mathcal{L}$ be linearly independent over $\Q$, and assume $\ell > m^{2}$. Then for some $j \in \{1, \dots, \ell\}$
+\[ \lambda_1\lambda_{1j} + \dots + \lambda_m\lambda_{mj} \notin \widetilde{\mathcal L}. \]
+
+{\small\emph{Source:} \cite[Cor.~2.14]{Wal05a} (p.~347), from Th.~2.11 and Baker's theorem (Theorem~\ref{thm:baker_linear_forms_in_logarithms}; \cite[Th.~1.6]{Wal00}).}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:baker_linear_forms_in_logarithms,lem:baker_columns_qbar_independent,thm:variations_theorem_2_11}
+Lemma~\ref{lem:baker_columns_qbar_independent} makes the $m + \ell$ columns of $(I_m, M)$ free over $\Qbar$, and Theorem~\ref{thm:baker_linear_forms_in_logarithms} makes $1, \lambda_1, \dots, \lambda_m$ free over $\Qbar$. Since $\mathcal{L} \subseteq \widetilde{\mathcal L}$, Theorem~\ref{thm:variations_theorem_2_11} applies with $\Lambda_i = \lambda_i$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_cor_1_4 -- https://prove2.me/theorems/291e8987-bac1-47fe-a356-537978a9ce3e
+\begin{corollary}[Waldschmidt, \emph{Further variations}, Corollary 1.4]
+\label{cor:fv_cor_1_4}
+\lean{Diaz.fv_cor_1_4}
+\leanok
+Let $\lambda = (\lambda_{ij})$ be a $2 \times 3$ matrix with entries in $\mathcal{L}$ whose two rows are linearly independent over $\Q$ (in $\C^{3}$) and whose three columns are linearly independent over $\Q$ (in $\C^{2}$). Then at least one of
+\[ \lambda_{11}\lambda_{22} - \lambda_{12}\lambda_{21}, \qquad \lambda_{12}\lambda_{23} - \lambda_{13}\lambda_{22}, \qquad \lambda_{13}\lambda_{21} - \lambda_{11}\lambda_{23} \]
+is not in $\widetilde{\mathcal L}$.
+
+{\small\emph{Source:} \cite[Cor.~1.4]{Wal05b} (pp.~3--4; proof p.~8), from Th.~1.2 and Baker's theorem (Theorem~\ref{thm:baker_linear_forms_in_logarithms}; \cite[Th.~1.6]{Wal00}).}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:fv_theorem_1_2,lem:baker_columns_qbar_independent}
+The entries of $\lambda$ lie in $\mathcal{L} \subseteq \widetilde{\mathcal L}$. Lemma~\ref{lem:baker_columns_qbar_independent}, applied to the three $\Q$-free columns of $\lambda$ ($m = 2$), makes the five columns of $(I_2, \lambda)$ free over $\Qbar$. Applied to $\lambda^{\top}$, whose columns are the two $\Q$-free rows of $\lambda$ ($m = 3$), it makes the five columns of $(I_3, \lambda^{\top})$ free over $\Qbar$; these are the five rows of $\begin{pmatrix} \lambda \\ I_3 \end{pmatrix}$ in another order. Theorem~\ref{thm:fv_theorem_1_2} then puts one of its three numbers outside $\widetilde{\mathcal L}$, and these are the three numbers of the statement in another order.
 \end{proof}

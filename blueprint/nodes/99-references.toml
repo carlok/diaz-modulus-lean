@@ -249,3 +249,23 @@ text = '''H.~Tan and Y.~Zhang, Uniform cubic bounds for irrational values of the
 key = "Lai26"
 label = "Lai26"
 text = '''L.~Lai, The linear independence of $1$, $\zeta(3)$ and $\zeta(4)$, arXiv:2610.06838 (2026), preprint.'''
+
+[[reference]]
+key = "Wal05a"
+label = "Wal05a"
+text = '''M.~Waldschmidt, Variations on the six exponentials theorem, in \emph{Algebra and Number Theory} (Proceedings of the Silver Jubilee Conference, University of Hyderabad; R.~Tandon, ed.), Hindustan Book Agency, 2005, 338--355.'''
+
+[[reference]]
+key = "Wal05b"
+label = "Wal05b"
+text = '''M.~Waldschmidt, Further variations on the six exponentials theorem, \emph{Hardy--Ramanujan J.} 28 (2005), 1--9.'''
+
+[[reference]]
+key = "Wal05c"
+label = "Wal05c"
+text = '''M.~Waldschmidt, The role of complex conjugation in transcendental number theory, in \emph{Diophantine Equations} (N.~Saradha, ed.; proceedings of DION 2005), Tata Institute of Fundamental Research, 2007 (Narosa, New Delhi). Page numbers cited are those of the 12-page version consulted.'''
+
+[[reference]]
+key = "Wal81"
+label = "Wal81"
+text = '''M.~Waldschmidt, Transcendance et exponentielles en plusieurs variables, \emph{Invent. Math.} 63 (1981), 97--127.'''

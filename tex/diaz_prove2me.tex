@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.42, 13 November 2026}
+\date{September 2026\\[2pt]\small Version 1.43, 14 November 2026}
 
 \begin{document}
 \maketitle
@@ -174,8 +174,86 @@ of~\cite[Proposition~11.19]{waldschmidt-book}. Both come from $(\mathrm{ME})$ an
 theorem~\cite[Theorem~11.21]{waldschmidt-book}, along an induction on $d$ that splits $\mathbb{C}^{d}$ along a
 rational subspace of maximal slope and applies the linear subgroup theorem once at each semistable step;
 \cite[\S11.6]{waldschmidt-book} and~\cite{roy-1992} pass through other intermediate statements. This is a routine
-formalisation of a classical result. Its printed applications, among them~\cite[Theorem~2.1]{waldschmidt-2005b},
-are not formalised.
+formalisation of a classical result. Its printed applications are machine-checked since version 1.43 (below).
+
+Since version 1.43 Roy's Theorem~5~\cite[Theorem~5]{roy-1992} is machine-checked as well, with no hypothesis,
+for $\Alg$ and $\aLogs$ and in the form of~\cite[Corollary~11.15]{waldschmidt-book}: if a subspace $V\subseteq\C^{d}$
+contains no non-zero vector with algebraic coordinates, and $d_{\min}$ is the least dimension of a subspace of
+$\C^{d}$ spanned by algebraic vectors and containing $V$, then $V\cap\aLogs^{d}$ is finite-dimensional over $\Alg$,
+of dimension at most $\sum_{i}n_{i}d_{i}/(d_{i}-n_{i})$ for some decomposition
+$(\dim V,d_{\min})=\sum_{i}(n_{i},d_{i})$ with $0<n_{i}<d_{i}$; Roy's $\varphi(\dim V,d_{\min})$ is the largest such
+sum. So are the results of~\cite{waldschmidt-2005a} that it gives: the bound $d(d-1)$ for a hyperplane
+(Theorem~3.1) and Corollary~3.2; Theorem~2.11 and Corollary~2.12, in the corrected form
+of~\cite[Corollary~6.3]{waldschmidt-role}; Corollary~2.13, corrected; and, with Baker's theorem, Corollary~2.14.
+The printed applications of Roy's Corollary~1 are machine-checked with them. From~\cite{waldschmidt-2005b}:
+Theorem~2.1 for finite-dimensional $Y$, whose formal proof replaces the reduction after~\cite[Lemmes~5.1
+and~5.2]{waldschmidt-1981} by one subspace of maximal slope and uses Roy's Corollary~1 once; Theorem~1.2, that
+for a $2\times3$ matrix $M$ over $\aLogs$ such that the five rows of
+$\left(\begin{smallmatrix}M\\ I_{3}\end{smallmatrix}\right)$ and the five columns of $(I_{2},M)$ are linearly
+independent over $\Alg$, one of the three $2\times2$ minors of $M$ lies outside $\aLogs$; the example
+of~\cite[p.~3]{waldschmidt-2005b}; and Corollary~1.4. From~\cite[\S12.3]{waldschmidt-book}: Corollary~12.21, that
+$\operatorname{rank}(M)\geq dl/(d+l)$ when no $\tau^{\mathsf{T}}M\sigma$ with non-zero algebraic $\tau,\sigma$
+vanishes; Corollary~12.22, that the rank is at least half the structural rank over $\Alg$; and Corollary~12.24,
+that the rank is at least $2$ when the rows and the columns are linearly independent over $\Alg$ and $dl>d+l$.
+And Fischler's bound~\cite[Theorem~1.2]{fischler-2001}: if the $n^{2}$ entries of a matrix $M$ over $\aLogs$ are
+linearly independent over $\Alg$, the centraliser of $M$ has dimension at most $(n^{2}+1)/2$, with R\'emond's lemma
+on commuting subspaces of matrices~\cite[Lemma~5.6]{fischler-2001}. These are routine formalisations of classical
+results, with corrections where the printed statement needed one (Remark~\ref{rem:printed-corrections}).
+
+\begin{remark}[Printed statements corrected while formalising]\label{rem:printed-corrections}
+Formalising the results above met the points below. The file \texttt{ERRATA.md} of the mirrored project gives each
+one with the printed text, the evidence and the repair, together with smaller slips. Here
+$\Lambda_{j}=\Lambda_{11}\Lambda_{2j}-\Lambda_{21}\Lambda_{1j}$, and $\operatorname{Log}$ is the principal
+logarithm.
+\begin{itemize}
+\item[(A1)] \cite[Corollary~2.12]{waldschmidt-2005a} (p.~346), for a $2\times5$ matrix over $\aLogs$, assumes
+$\Lambda_{21}\neq0$ and $\Lambda_{11}/\Lambda_{21}$ transcendental, and is false as printed: $\Lambda_{11}=1$,
+$\Lambda_{21}=\log2$, $\Lambda_{1j}=0$ and $\Lambda_{2j}=\log3,\log5,\log7,\log11$ ($j=2,\dots,5$) satisfy its
+hypotheses, the seven columns of $(I_{2},M)$ being linearly independent over $\Alg$ by Baker's
+theorem~\cite{baker-1966}, while every $\Lambda_{j}=\Lambda_{2j}$ lies in $\Logs$. The author corrected it
+in~\cite[\S4]{waldschmidt-2005b} and~\cite[Corollary~6.3]{waldschmidt-role}, assuming instead that
+$1,\Lambda_{11},\Lambda_{21}$ are linearly independent over $\Alg$; that form is the one machine-checked.
+\item[(A2)] \cite[Corollary~2.13]{waldschmidt-2005a} (p.~346) has the same hypothesis and is false as printed:
+$\Lambda_{11}=1$, $\Lambda_{12}=\Lambda_{13}=0$, $\Lambda_{21}=\log2$, $\Lambda_{22}=\operatorname{Log}(2+i)$,
+$\Lambda_{23}=\operatorname{Log}(3+2i)$ satisfy its hypotheses, $1,\log2,\operatorname{Log}(2\pm i),
+\operatorname{Log}(3\pm2i)$ being linearly independent over $\Alg$ by unique factorisation in $\Z[i]$ and Baker's
+theorem, while $\Lambda_{2}=\operatorname{Log}(2+i)$ and $\Lambda_{3}=\operatorname{Log}(3+2i)$ lie in $\Logs$. It is
+machine-checked with the hypothesis of~(A1), and without the unused hypothesis $\Lambda_{12},\Lambda_{13}\in\R\cup
+i\R$. No correction was found in the sources consulted.
+\item[(A3)] \cite[Lemma~11.24]{waldschmidt-book} (p.~410) concludes $\kappa'=0$, which can fail: for
+$G=\mathbb{G}_{m}^{3}$, $W=\{0\}$, $V=\C^{2}\times\{0\}$ and $Y=\Z(2\pi i,0,0)+\Z(\log2,2\pi i,0)$ one has $\kappa=1$,
+the other conclusions force $G^{*}=\mathbb{G}_{m}\times\{1\}\times\{1\}$, and the image of $Y$ in $G/G^{*}$ is
+$\Z(2\pi i,0)$, which consists of periods, so $\kappa'=1$. The other conclusions hold, with ``spanned by
+$\Omega_{G}$'' read as ``spanned by $Y\cap\Omega_{G}$'' in the proof. The formal proofs do not use the lemma.
+\item[(B1)] The proof of~\cite[Corollary~2.13]{waldschmidt-2005a} (p.~347) applies Corollary~2.12 to the
+columns $(\overline{\Lambda_{1j}},\overline{\Lambda_{2j}})$, $j=2,3$. These give $\pm\overline{\Lambda_{j}}$ only
+when $\Lambda_{11}$ and $\Lambda_{21}$ are both real or both purely imaginary, and the mixed case occurs within the
+hypotheses ($\Lambda_{11}=\log2$, $\Lambda_{21}=i\pi$, for instance). With $\overline{\Lambda_{11}}=\varepsilon_{1}
+\Lambda_{11}$ and $\overline{\Lambda_{21}}=\varepsilon_{2}\Lambda_{21}$, the columns
+$(\varepsilon_{2}\overline{\Lambda_{1j}},\varepsilon_{1}\overline{\Lambda_{2j}})$ give $\overline{\Lambda_{j}}$ in
+every case; the formal proof uses them.
+\item[(B2)] The proofs of~\cite[Corollaries~11.10 and~11.15]{waldschmidt-book} (pp.~396--397 and~403) take from
+the induction hypothesis, at $V\cap S$, the bound $\ell^{*}\leq n^{*}d^{*}/(d^{*}-n^{*})$, which it does not give
+and which can fail (by Lemma~11.20 there, already for $(n,d)=(4,10)$), and do not check that no proper rational
+subspace of $S$ contains $V\cap S$. The minimality of $S$ gives that check, as in~\cite[p.~39]{roy-1992}; the
+induction hypothesis then gives $\ell^{*}\leq\Psi(n^{*},d^{*})$, which is all the proof uses. The formal proof
+follows~\cite[Theorem~5]{roy-1992}.
+\item[(B3)] In Step~6 of the proof of~\cite[Theorem~11.21]{waldschmidt-book} (p.~407) the multiplicity estimate
+gives a subgroup $G^{*}$ with no field of definition, while the theorem asserts one defined over $\Alg$. Choosing
+the auxiliary polynomial with algebraic coefficients, or replacing the additive part of $G^{*}$ by the span of its
+algebraic vectors, repairs this. The formal statement claims no rationality for $G^{*}$, and the formal proof of
+Roy's Theorem~4 applies the second repair.
+\item[(B4)] \cite[p.~436]{waldschmidt-book} derives Corollary~12.24 from Corollary~12.22 with no argument. Corollary~12.22
+gives a rank of at least half the structural rank, and the structural rank can be $2$ with linearly independent
+rows and columns (for $d=2$, $l=3$ it is at most $2$), so it gives only rank at least~$1$. Corollary~12.24 is true:
+it follows from Corollary~12.21 in two lines, and it is machine-checked from Theorem~12.20. The $\Q+\Logs$
+statement after it follows from Corollary~12.24 and Baker's theorem, not from Corollary~12.23.
+\item[(B5)] \cite[Theorem~2.1]{waldschmidt-2005b} is stated for every $\Alg$-subspace $Y$ of $\C^{n}$, but its proof
+writes $Y=\Alg y_{1}+\dots+\Alg y_{\ell}$ and covers finite-dimensional $Y$ only. It is machine-checked for
+finite-dimensional $Y$, the case of every application in~\cite{waldschmidt-2005b}; the general case is not settled
+here.
+\end{itemize}
+\end{remark}
 
 \begin{conjecture}[Strong four exponentials]\label{conj:sfe}
 Let $x_{1},x_{2}$ be linearly independent over $\Alg$ and let $y_{1},y_{2}$ be linearly
@@ -2457,6 +2535,12 @@ the theorems of Baker and Waldschmidt--Masser}, Essent. Number Theory \textbf{2}
 \bibitem{dasgupta-kakde} S.~Dasgupta and M.~Kakde, \emph{Ranks of matrices of logarithms of
 algebraic numbers II: the matrix coefficient conjecture}, Adv. Math. \textbf{487} (2026),
 Art.~110753.
+\bibitem{waldschmidt-role} M.~Waldschmidt, \emph{The role of complex conjugation in transcendental number theory},
+in \emph{Diophantine Equations} (N.~Saradha, ed.; proceedings of DION 2005), Tata Institute of Fundamental
+Research, 2007 (Narosa, New Delhi). Page numbers cited are those of the 12-page version consulted.
+\bibitem{waldschmidt-1981} M.~Waldschmidt, \emph{Transcendance et exponentielles en plusieurs variables},
+Invent. Math. \textbf{63} (1981), 97--127.
+
 \end{thebibliography}
 
 
@@ -2477,7 +2561,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.41 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.43 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2593,6 +2677,12 @@ check: the companion blueprint moved one result of its first list to its routine
 Remark~\ref{rem:rational-hulls-credit} is now third there, and the passage on $\mathrm{Li}_{2}(1/2)$ reports
 the two preprints of 2026 that announce its irrationality. The mirrored project then held all 628 proved results
 of the development.
+Version 1.43 adds, on 14 November 2026, Roy's Theorem~5 in the form of~\cite[Corollary~11.15]{waldschmidt-book}
+for $\Alg$ and $\aLogs$, the results of~\cite{waldschmidt-2005a} that it gives, Theorems~2.1 and~1.2
+of~\cite{waldschmidt-2005b} with two of their consequences, Corollaries~12.21, 12.22 and~12.24
+of~\cite{waldschmidt-book}, and Fischler's Theorem~1.2 with R\'emond's lemma, all machine-checked with no
+hypothesis (Section~\ref{sec:setting}); and Remark~\ref{rem:printed-corrections}, on the printed statements
+corrected while formalising them. The mirrored project then held all 657 proved results of the development.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2727,6 +2817,24 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 \S\ref{sec:setting}, Roy's theorem & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_unconditional} \\
 \S\ref{sec:setting}, five exponentials & Proved & \nolinkurl{DiazModulus.five_exponentials}, \nolinkurl{DiazModulus.two_pow_pi_or_three_pow_pi_transcendental}, \nolinkurl{DiazModulus.exp_mul_or_exp_sq_mul_transcendental} \\
 \S\ref{sec:setting}, Roy's Corollary~1 & Proved & \nolinkurl{DiazModulus.roy_rank_bound}, \nolinkurl{DiazModulus.roy_theorem_four} \\
+\S\ref{sec:setting}, Roy's Theorem~5 & Proved & \nolinkurl{DiazModulus.roy_theorem_five} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~11.15 & Proved & \nolinkurl{DiazModulus.roy_theorem_five_dmin} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005a}, Th.~3.1 & Proved & \nolinkurl{DiazModulus.variations_hyperplane_bound} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005a}, Cor.~3.2 & Proved & \nolinkurl{DiazModulus.variations_cor_3_2} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005a}, Th.~2.11 & Proved & \nolinkurl{DiazModulus.variations_theorem_2_11} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005a}, Cor.~2.12, corrected as \cite{waldschmidt-role}, Cor.~6.3 & Proved & \nolinkurl{DiazModulus.role_cor_6_3} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005a}, Cor.~2.13, corrected & Proved & \nolinkurl{DiazModulus.variations_cor_2_13_corrected} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005a}, Cor.~2.14 & Proved & \nolinkurl{DiazModulus.variations_cor_2_14}, \nolinkurl{DiazModulus.baker_columns_qbar_independent} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005b}, Th.~2.1, finite-dimensional $Y$ & Proved & \nolinkurl{DiazModulus.fv_theorem_2_1} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005b}, Th.~1.2 & Proved & \nolinkurl{DiazModulus.fv_theorem_1_2} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005b}, p.~3 & Proved & \nolinkurl{DiazModulus.fv_lambda_squares} \\
+\S\ref{sec:setting}, \cite{waldschmidt-2005b}, Cor.~1.4 & Proved & \nolinkurl{DiazModulus.fv_cor_1_4} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~12.21 & Proved & \nolinkurl{DiazModulus.dalag_cor_12_21} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~12.22 & Proved & \nolinkurl{DiazModulus.dalag_cor_12_22} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~12.24 & Proved & \nolinkurl{DiazModulus.dalag_cor_12_24} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Th.~1.2 & Proved & \nolinkurl{DiazModulus.fischler_centralizer} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Prop.~5.5, in rational form & Proved & \nolinkurl{DiazModulus.fischler_prop_5_5} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Lemma~5.6 (R\'emond) & Proved & \nolinkurl{DiazModulus.remond_commuting_subspaces} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

@@ -1,0 +1,44 @@
+/-
+Mirrored from Prove2Me: `DiazModulus.fv_dot_orthogonal`.
+
+Ported mechanically from the accepted submission archived as
+`archive/prove2me/DiazModulus.fv_dot_orthogonal__17295054.lean`. Statement and proof are the platform's; only
+imports, namespaces and the theorem's name were rewritten.
+-/
+import Mathlib
+import Diaz.Platform
+
+namespace Diaz
+
+open Complex ComplexConjugate
+
+/-! # The orthogonal of a subspace for the dot product
+
+The dot product identifies `ℂⁿ` with its dual: `v ↦ (z ↦ v · z)` is a linear isomorphism. Let `Φ` be
+the image of `W` under it, a subspace of the dual of dimension `dim W`. The orthogonal
+`W^⊥ = {z : w · z = 0 for all w ∈ W}` is exactly the set of vectors on which every functional in `Φ`
+vanishes, and the dimension of that common kernel is `n − dim Φ`. Hence
+`dim W^⊥ + dim W = n`. -/
+
+namespace RC3_DO
+end RC3_DO
+
+open RC3_DO in
+theorem fv_dot_orthogonal {n : ℕ} (W : Submodule ℂ (Fin n → ℂ)) :
+    ∃ V : Submodule ℂ (Fin n → ℂ), (∀ z, z ∈ V ↔ ∀ w ∈ W, w ⬝ᵥ z = 0) ∧
+      Module.finrank ℂ ↥V + Module.finrank ℂ ↥W = n := by
+  let e := dotProductEquiv ℂ (Fin n)
+  let Φ : Submodule ℂ (Module.Dual ℂ (Fin n → ℂ)) := W.map (e : (Fin n → ℂ) →ₗ[ℂ] _)
+  refine ⟨Φ.dualCoannihilator, fun z => ?_, ?_⟩
+  · rw [Submodule.mem_dualCoannihilator]
+    constructor
+    · intro h w hw
+      exact h (e w) (Submodule.mem_map_of_mem hw)
+    · rintro h φ ⟨w, hw, rfl⟩
+      exact h w hw
+  · have h1 := Subspace.finrank_add_finrank_dualCoannihilator_eq Φ
+    have h2 : Module.finrank ℂ ↥Φ = Module.finrank ℂ ↥W := LinearEquiv.finrank_map_eq e W
+    rw [Module.finrank_fin_fun] at h1
+    omega
+
+end Diaz

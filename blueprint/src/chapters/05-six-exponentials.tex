@@ -13,11 +13,13 @@ Three sections prove Roy's strong six exponentials theorem \cite[Corollary 2]{Ro
 
 The next three sections prove the Hilbert-function half of \texttt{hME}, at finite level: inequalities between dimensions of boxes of polynomials, with no Hilbert polynomials. They follow \cite[Chapters 5 and 8]{Wal00} (Chapter 8 is by D.~Roy): the Hilbert function $h_I(T)$ of a filtration (DALAG's $H(I;T)$), the chain bound \cite[Theorems 8.4 and 8.8]{Wal00} at finite level (Proposition~\ref{prop:boxHilb_le_of_height}), the model of $\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$ inside $K[X,Y,Z]$, and the Hilbert side of the proof of \cite[Theorem 8.1]{Wal00} for $G^-=\{e\}$ on the boxes of \texttt{hME} (Theorem~\ref{thm:torus_hilbert_side}). The names \texttt{boxHilb}, \texttt{blockBox}, \texttt{torusBox}, \texttt{torusIdeal}, \texttt{torusList}, \texttt{torusReduced}, \texttt{boxD}, \texttt{torusCoeffPoly}, \texttt{torusPoint} and \texttt{UnmixedHeight} in the statements are those of the library file \texttt{Diaz/HilbertBox.lean} (on Prove2Me, the published definition \texttt{DiazHilbertBox}). The chain bound and the Hilbert side take one explicit hypothesis, \texttt{hU : UnmixedHeight}: Macaulay's unmixedness, in the form that for every weakly regular sequence $r_1,\dots,r_k$ of the ring, every associated prime of the quotient by $(r_1,\dots,r_k)$ has height at most $k$ \cite[\S8.2.1]{Wal00}. The last section proves it for polynomial rings over an algebraically closed field (Theorem~\ref{thm:unmixedHeight_mvPolynomial}), so over $\C$ the Hilbert side holds without \texttt{hU}: the library theorem \texttt{Diaz.torus\_hilbert\_side\_complex} passes the one to the other. The multiplicity side of \texttt{hME} and its assembly are the last five sections. These results are routine finite-level forms of the book's.
 
-The last section proves the inequality half of Macaulay's unmixedness theorem \cite{Mac16} for $K[X_\sigma]$, $K$ algebraically closed and $\sigma$ finite, in the form \texttt{UnmixedHeight} (Theorem~\ref{thm:unmixedHeight_mvPolynomial}); the reverse inequality is not stated. The route is local and goes through regular sequences only: a weakly regular sequence in the maximal ideal of a Noetherian local ring is no longer than the dimension of $A/\mathfrak{p}$ for any associated prime $\mathfrak{p}$ \cite[Th.~17.2]{Mat86}; Rees' characterisation of regular sequences through Ext, already in Mathlib, shortens a long regular sequence by at most the length of a weakly regular one; together they give unmixedness for a local ring with a regular sequence as long as its dimension \cite[Th.~2.1.6]{BH93}; and at a maximal ideal of $K[X_\sigma]$, which by the Nullstellensatz is the ideal of a point $a$, the $X_i - a_i$ are such a sequence. These are classical results, formalised routinely.
+The section on Macaulay's unmixedness proves the inequality half of Macaulay's unmixedness theorem \cite{Mac16} for $K[X_\sigma]$, $K$ algebraically closed and $\sigma$ finite, in the form \texttt{UnmixedHeight} (Theorem~\ref{thm:unmixedHeight_mvPolynomial}); the reverse inequality is not stated. The route is local and goes through regular sequences only: a weakly regular sequence in the maximal ideal of a Noetherian local ring is no longer than the dimension of $A/\mathfrak{p}$ for any associated prime $\mathfrak{p}$ \cite[Th.~17.2]{Mat86}; Rees' characterisation of regular sequences through Ext, already in Mathlib, shortens a long regular sequence by at most the length of a weakly regular one; together they give unmixedness for a local ring with a regular sequence as long as its dimension \cite[Th.~2.1.6]{BH93}; and at a maximal ideal of $K[X_\sigma]$, which by the Nullstellensatz is the ideal of a point $a$, the $X_i - a_i$ are such a sequence. These are classical results, formalised routinely.
 
-The last five sections prove \texttt{hME}: the multiplicity estimate \cite[Theorem 8.1]{Wal00} in the case $G^-=\{e\}$, $G^+=G$, for $G=\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$ over $\C$, written in coordinates (Theorem~\ref{thm:multiplicityEstimateElem}). For $G^-=\{e\}$ and finite $\Sigma$ the book notes that Theorem 8.1 is a special case of \cite[Theorem 2.1]{Phi86}. The proof is that of \cite[\S8.4]{Wal00} (Chapter 8 is by D.~Roy), at finite level and through elementary arguments: zero sets and heights on the torus, characters and subgroups, the invariant derivations of $G$, the tangent duals of Lemmas 8.14 and 8.15 with W\"ustholz's argument (8.20) and Lemma 8.16, and the descent of \S8.4.1 to an obstruction subgroup, whose Hilbert function is bounded below and compared with the Hilbert side above. The names \texttt{TorusGroup}, \texttt{torusPt}, \texttt{torusDeriv}, \texttt{torusDerivList}, \texttt{torusTransl}, \texttt{torusVanishing}, \texttt{torusZero}, \texttt{torusStab}, \texttt{torusMono}, \texttt{linForm}, \texttt{standardSet}, \texttt{sectionIdeal}, \texttt{vanishOrd}, \texttt{hmePoint} and \texttt{obstructionSpan} in the statements are those of the library file \texttt{Diaz/Multiplicity.lean} (on Prove2Me, the published definition \texttt{DiazMultiplicity}). The last theorem applies Theorem~\ref{thm:strong_six_exponentials} to it: Roy's strong six exponentials theorem with no hypothesis (Theorem~\ref{thm:strong_six_exponentials_unconditional}). In the library the results that took Roy's theorem as a hypothesis have corollaries without it, in \texttt{Diaz/RoyUnconditional.lean}. The theorems are classical, and this is a routine formalisation of their known proofs.
+The five sections on the multiplicity estimate prove \texttt{hME}: the multiplicity estimate \cite[Theorem 8.1]{Wal00} in the case $G^-=\{e\}$, $G^+=G$, for $G=\mathbb{G}_a^{A_0}\times\mathbb{G}_m^{A_1}$ over $\C$, written in coordinates (Theorem~\ref{thm:multiplicityEstimateElem}). For $G^-=\{e\}$ and finite $\Sigma$ the book notes that Theorem 8.1 is a special case of \cite[Theorem 2.1]{Phi86}. The proof is that of \cite[\S8.4]{Wal00} (Chapter 8 is by D.~Roy), at finite level and through elementary arguments: zero sets and heights on the torus, characters and subgroups, the invariant derivations of $G$, the tangent duals of Lemmas 8.14 and 8.15 with W\"ustholz's argument (8.20) and Lemma 8.16, and the descent of \S8.4.1 to an obstruction subgroup, whose Hilbert function is bounded below and compared with the Hilbert side above. The names \texttt{TorusGroup}, \texttt{torusPt}, \texttt{torusDeriv}, \texttt{torusDerivList}, \texttt{torusTransl}, \texttt{torusVanishing}, \texttt{torusZero}, \texttt{torusStab}, \texttt{torusMono}, \texttt{linForm}, \texttt{standardSet}, \texttt{sectionIdeal}, \texttt{vanishOrd}, \texttt{hmePoint} and \texttt{obstructionSpan} in the statements are those of the library file \texttt{Diaz/Multiplicity.lean} (on Prove2Me, the published definition \texttt{DiazMultiplicity}). The last theorem applies Theorem~\ref{thm:strong_six_exponentials} to it: Roy's strong six exponentials theorem with no hypothesis (Theorem~\ref{thm:strong_six_exponentials_unconditional}). In the library the results that took Roy's theorem as a hypothesis have corollaries without it, in \texttt{Diaz/RoyUnconditional.lean}. The theorems are classical, and this is a routine formalisation of their known proofs.
 
 Chapter~\ref{chap:09-baker} derives Waldschmidt's five exponentials theorem from Roy's theorem and Baker's theorem (Theorem~\ref{thm:five_exponentials}).
+
+The last four sections formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}): results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, and Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. These are routine formalisations of classical results.
 
 % Prove2Me: SX.exists_aux_expSum -- https://prove2.me/theorems/f0a028dd-7409-4134-b87b-24b2921be5ae
 \begin{lemma}[The auxiliary function]
@@ -1746,4 +1748,460 @@ This is Roy's lower bound $\operatorname{rank}(M) \geq d\,\theta(M)/(1 + \theta(
 \leanok
 \uses{thm:roy_theorem_four,lem:roy_rational_adapted_basis,thm:multiplicityEstimateElem}
 Let $U$ be the column space of $M$, $n = \operatorname{rank} M$, and $z$ a $\Qbar$-basis of the $\Qbar$-span $Z$ of the columns. Pick a rational $S \neq \C^d$ minimising $(n - \dim(U \cap S))/(d - \dim S)$; Theorem~\ref{thm:roy_theorem_four}, with Theorem~\ref{thm:multiplicityEstimateElem}, gives $d\ell' \leq n(d' + \ell')$. $P$ is the matrix of coordinates adapted to $S$ (Lemma~\ref{lem:roy_rational_adapted_basis}), with the $d'$ coordinates that vanish on $S$ on top. $Q$ comes from coordinates adapted to the rational space $K$ spanned by the algebraic $x$ with $Mx \in S$, with the $l - \dim K$ last columns in $K$; so the top right block of $PMQ$ vanishes. A count over $\Qbar$ gives $l - \dim K \leq \ell'$, and $n \leq d$ finishes the inequality with $l' = l - \dim K$.
+\end{proof}
+
+\section{Roy's Theorem 5 and Waldschmidt's \emph{Variations}}
+
+% Prove2Me: DiazModulus.roy_theorem_four_exists -- https://prove2.me/theorems/60c609d9-378c-4f6b-ab17-e9e26a5b7759
+\begin{lemma}[Roy's Theorem 4 at a minimiser]
+\label{lem:roy_theorem_four_exists}
+\lean{Diaz.roy_theorem_four_exists}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$. A subspace $S \subseteq \C^{d}$ is \emph{rational} if it is spanned by vectors with algebraic coordinates. Dimensions of subspaces of $\C^{d}$ are over $\C$; $\dim_{\Qbar}$ is the dimension of a $\Qbar$-vector space.
+
+Let $d \geq 1$, let $U \subseteq \C^{d}$ be a subspace, $n = \dim U$, and let $z_1, \dots, z_{\ell} \in U$ have coordinates in $\widetilde{\mathcal L}$ and be linearly independent over $\Qbar$, spanning $Z$ over $\Qbar$. Then there is a rational subspace $S \neq \C^{d}$ such that
+\[ \bigl(n - \dim(U \cap S)\bigr)\,(d - \dim S') \leq \bigl(n - \dim(U \cap S')\bigr)\,(d - \dim S) \]
+for every rational subspace $S' \neq \C^{d}$, so that $S$ minimises $(n - \dim(U \cap S))/(d - \dim S)$ among them, and, with $d' = d - \dim S$, $n' = n - \dim(U \cap S)$ and $\ell' = \ell - \dim_{\Qbar}(Z \cap S)$,
+\[ \ell' d' \leq n'(d' + \ell') \quad\text{and}\quad n' d \leq n d'. \]
+
+{\small\emph{Source:} \cite[Th.~4]{Roy92} (p.~34), at a rational subspace minimising the ratio; the minimum exists because the ratio takes finitely many values. A step of the proof of \cite[Th.~5]{Roy92} (p.~39). Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_theorem_four,thm:multiplicityEstimateElem}
+The zero subspace is rational and differs from $\C^{d}$, as $d \geq 1$. For a rational $S \neq \C^{d}$ the numerator $n - \dim(U \cap S)$ lies in $\{0, \dots, d\}$ and the denominator $d - \dim S$ in $\{1, \dots, d\}$, so the ratios take finitely many values and one of them is least. With positive denominators cleared, minimality at $S$ is the hypothesis of Theorem~\ref{thm:roy_theorem_four}, which, applied with Theorem~\ref{thm:multiplicityEstimateElem}, gives both inequalities.
+\end{proof}
+
+% Prove2Me: DiazModulus.roy_hull_transport -- https://prove2.me/theorems/aa3bea11-9b5b-4d61-9349-97a242abdd30
+\begin{lemma}[Transport to a rational subspace of least dimension]
+\label{lem:roy_hull_transport}
+\lean{Diaz.roy_hull_transport}
+\leanok
+Let $S_0 \subseteq \C^{d}$ be a rational subspace of dimension $s$, and $U \subseteq S_0$ a subspace that contains no non-zero vector with algebraic coordinates, such that every rational subspace $T \supseteq U$ has $\dim T \geq s$. Let $z_1, \dots, z_{\ell} \in U$ have coordinates in $\widetilde{\mathcal L}$ and be linearly independent over $\Qbar$. Then there are a subspace $U' \subseteq \C^{s}$ and vectors $z'_1, \dots, z'_{\ell} \in U'$ with coordinates in $\widetilde{\mathcal L}$, linearly independent over $\Qbar$, such that $\dim U' = \dim U$, $U'$ contains no non-zero vector with algebraic coordinates, and $\C^{s}$ is the only rational subspace of $\C^{s}$ containing $U'$.
+
+{\small\emph{Source:} A step of the proof of \cite[Th.~5]{Roy92} (pp.~39--40): Roy's injection of $\C^{d^{*}}$ onto the kernel of $t$ (p.~39), written through coordinates adapted to $S_0$, with a left inverse that preserves $\widetilde{\mathcal L}$. Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:roy_rational_adapted_basis}
+Lemma~\ref{lem:roy_rational_adapted_basis} gives an automorphism $g$ of $\C^{d}$ that preserves algebraic vectors and $\widetilde{\mathcal L}$-vectors in both directions, with $v \in S_0$ exactly when the coordinates of $gv$ of index $> s$ vanish. Let $\iota = g^{-1} \circ \mathrm{pad}$, where $\mathrm{pad}$ extends a vector of $\C^{s}$ by zeros, and let $\rho(v)$ consist of the coordinates $1, \dots, s$ of $gv$. Then $\iota$ is injective with image $S_0$, $\rho \circ \iota = \mathrm{id}$, and $\iota \circ \rho = \mathrm{id}$ on $S_0$. Take $U' = \iota^{-1}(U)$ and $z' = \rho \circ z$. Since $\iota$ maps $U'$ onto $U$ and algebraic vectors to algebraic vectors, $\dim U' = \dim U$ and $U'$ meets $\Qbar^{s}$ only in $0$; $\rho$ preserves $\widetilde{\mathcal L}$-coordinates; and $\iota z' = z$ gives the freeness. A rational $T \supseteq U'$ maps to a rational $\iota(T) \supseteq U$ of the same dimension, so $\dim T \geq s$ and $T = \C^{s}$.
+\end{proof}
+
+% Prove2Me: DiazModulus.roy_theorem_five -- https://prove2.me/theorems/79c50e32-fba2-4621-b5fb-b8e6e3aca4b4
+\begin{theorem}[Roy's Theorem 5]
+\label{thm:roy_theorem_five}
+\lean{Diaz.roy_theorem_five}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$. A subspace $S \subseteq \C^{d}$ is \emph{rational} if it is spanned by vectors with algebraic coordinates. A \emph{decomposition} of a pair $(n, d)$ of natural numbers is a finite list $(n_1, d_1), \dots, (n_k, d_k)$ of pairs of natural numbers with $0 < n_i < d_i$ for every $i$, $\sum_i n_i = n$ and $\sum_i d_i = d$; the empty list decomposes $(0, 0)$ only.
+
+Let $U \subseteq \C^{d}$ be a subspace that contains no non-zero vector with algebraic coordinates, such that $\C^{d}$ is the only rational subspace of $\C^{d}$ containing $U$, and let $z_1, \dots, z_{\ell} \in U$ have coordinates in $\widetilde{\mathcal L}$ and be linearly independent over $\Qbar$. Then $0 < \dim U < d$ if $d \geq 1$, and there is a decomposition $(n_1, d_1), \dots, (n_k, d_k)$ of $(\dim U, d)$ with
+\[ \ell \leq \sum_{i=1}^{k} \frac{n_i d_i}{d_i - n_i}. \]
+Roy's $\varphi(n, d)$ is the largest value of this sum over the decompositions of $(n, d)$, so $\ell \leq \varphi(\dim U, d)$ for every such family. The bound for $\dim_{\Qbar}(U \cap \widetilde{\mathcal L}^{d})$ itself, with its finiteness, is the case $d_{\min} = d$ of Corollary~\ref{cor:roy_theorem_five_dmin}. It holds with no hypothesis.
+
+{\small\emph{Source:} \cite[Th.~5]{Roy92} (p.~39), for $\Qbar$ and $\widetilde{\mathcal L}$, with one decomposition in place of Roy's $\varphi(n, d)$, the largest value over all decompositions (pp.~38--39); \cite[Cor.~11.15]{Wal00} in the case $d_{\min} = d$. The proof is Roy's induction on $d$ (pp.~39--40), through Theorem~\ref{thm:roy_theorem_four} and Theorem~\ref{thm:multiplicityEstimateElem}.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:roy_theorem_four_exists,lem:roy_hull_transport}
+If $d \geq 1$, then $U \neq 0$, for otherwise the zero subspace would be a rational subspace different from $\C^{d}$ containing $U$, and $U \neq \C^{d}$, since $\C^{d}$ contains non-zero algebraic vectors; so $0 < n = \dim U < d$. The decomposition comes by strong induction on $d$; for $d = 0$, $\ell = 0$ and the list is empty. For $d \geq 1$, Lemma~\ref{lem:roy_theorem_four_exists} gives a rational $S \neq \C^{d}$ minimising $(n - \dim(U \cap S))/(d - \dim S)$, with $\ell' d' \leq n'(d' + \ell')$ and $n' d \leq n d'$ in its notation. Since $\C^{d}$ is the only rational subspace containing $U$, $U \not\subseteq S$ and $n' \geq 1$; from $n < d$ and $n' d \leq n d'$, $n' < d'$; hence $\ell' \leq n'd'/(d' - n')$. Minimality of the ratio shows that every rational subspace containing $U \cap S$ has dimension at least $\dim S$, so Lemma~\ref{lem:roy_hull_transport} moves $U \cap S$, with a $\Qbar$-basis of $Z \cap S$, to $\C^{\dim S}$ with full rational hull. The induction hypothesis there gives a decomposition of $(\dim(U \cap S), \dim S)$ bounding $\dim_{\Qbar}(Z \cap S) = \ell - \ell'$, and $(n', d')$ is added to it.
+\end{proof}
+
+% Prove2Me: DiazModulus.roy_theorem_five_dmin -- https://prove2.me/theorems/ee3d71c1-6fe6-40c3-8b75-41ecae34ff82
+\begin{corollary}[DALAG Corollary 11.15 for $\Qbar$ and $\widetilde{\mathcal L}$]
+\label{cor:roy_theorem_five_dmin}
+\lean{Diaz.roy_theorem_five_dmin}
+\leanok
+Decompositions are as in Theorem~\ref{thm:roy_theorem_five}. Let $V \subseteq \C^{d}$ be a subspace that contains no non-zero vector with algebraic coordinates, and let $S_0 \supseteq V$ be a rational subspace of least dimension among the rational subspaces containing $V$; write $d_{\min} = \dim S_0$. Then $V \cap \widetilde{\mathcal L}^{d}$ is a finite-dimensional $\Qbar$-vector space, and there is a decomposition $(n_1, d_1), \dots, (n_k, d_k)$ of $(\dim V, d_{\min})$ with
+\[ \dim_{\Qbar}\bigl(V \cap \widetilde{\mathcal L}^{d}\bigr) \leq \sum_{i=1}^{k} \frac{n_i d_i}{d_i - n_i}. \]
+For $d_{\min} = d$ this is Theorem~\ref{thm:roy_theorem_five}.
+
+{\small\emph{Source:} \cite[Cor.~11.15]{Wal00} (p.~398), for $(\Qbar, \widetilde{\mathcal L})$, in the decomposition form. DALAG states the bound as $\Psi(\dim V, d_{\min})$; the passage from the decomposition form to $\Psi$ uses Roy's closed form of $\varphi$ \cite[p.~40]{Roy92} and is not part of this statement. The case $d_{\min} = d$ is \cite[Th.~5]{Roy92} (p.~39). The proof follows \cite[Th.~5]{Roy92}, not DALAG's argument for Cor.~11.15.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{lem:roy_hull_transport,thm:roy_theorem_five}
+Let $W = V \cap \widetilde{\mathcal L}^{d}$, a $\Qbar$-subspace. For a $\Qbar$-free family $z$ of $\ell$ vectors of $W$, Lemma~\ref{lem:roy_hull_transport} moves $(V, z)$ to $\C^{d_{\min}}$ with full rational hull and the same dimension, and Theorem~\ref{thm:roy_theorem_five} there gives a decomposition of $(\dim V, d_{\min})$ with $\ell \leq \sum_i n_i d_i/(d_i - n_i)$. Each term is at most $n_i d_{\min}$, since $d_i \leq d_{\min}$ and $d_i - n_i \geq 1$, so every finite free family in $W$ has at most $d_{\min} \dim V$ elements, and $W$ is finite-dimensional over $\Qbar$. The same argument applied to a $\Qbar$-basis of $W$ gives the bound.
+\end{proof}
+
+% Prove2Me: DiazModulus.variations_hyperplane_bound -- https://prove2.me/theorems/d14ed94d-aab4-48d4-8155-3221b7465225
+\begin{theorem}[Waldschmidt's hyperplane bound (\emph{Variations}, Theorem 3.1)]
+\label{thm:variations_hyperplane_bound}
+\lean{Diaz.variations_hyperplane_bound}
+\leanok
+Let $V \subseteq \C^{d}$ be a hyperplane ($\dim V + 1 = d$) that contains no non-zero vector with algebraic coordinates. Then $V \cap \widetilde{\mathcal L}^{d}$ is a finite-dimensional $\Qbar$-vector space, and
+\[ \dim_{\Qbar}\bigl(V \cap \widetilde{\mathcal L}^{d}\bigr) \leq d\,(d - 1). \]
+
+{\small\emph{Source:} \cite[Th.~3.1]{Wal05a} (p.~347), the case of a hyperplane in \cite[Th.~5]{Roy92} and \cite[Cor.~11.15]{Wal00}.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{cor:roy_theorem_five_dmin}
+If $d = 1$, then $V = 0$, and Corollary~\ref{cor:roy_theorem_five_dmin} with $S_0 = 0$ gives a decomposition of $(0, 0)$, which is empty, so the dimension is $0$. If $d \geq 2$, a rational $T \neq \C^{d}$ containing $V$ has dimension $d - 1 = \dim V$, so $T = V$, and a rational $V \neq 0$ would contain a non-zero algebraic vector. So $S_0 = \C^{d}$, and Corollary~\ref{cor:roy_theorem_five_dmin} gives a decomposition of $(d - 1, d)$. Since $\sum_i (d_i - n_i) = 1$ and every summand is at least $1$, it has one part, $(d - 1, d)$, and the bound is $(d - 1)d/1$.
+\end{proof}
+
+% Prove2Me: DiazModulus.variations_cor_3_2 -- https://prove2.me/theorems/4d8ea357-402b-462f-b050-c39d00f044e7
+\begin{corollary}[Waldschmidt, \emph{Variations}, Corollary 3.2]
+\label{cor:variations_cor_3_2}
+\lean{Diaz.variations_cor_3_2}
+\leanok
+Let $M = (\Lambda_{ij})$ be an $m \times \ell$ matrix with entries in $\widetilde{\mathcal L}$ whose $\ell$ columns are linearly independent over $\Qbar$, let $x_1, \dots, x_m \in \C$ be linearly independent over $\Qbar$, and assume $\ell > m(m - 1)$. Then for some $j \in \{1, \dots, \ell\}$
+\[ x_1\Lambda_{1j} + \dots + x_m\Lambda_{mj} \neq 0. \]
+
+{\small\emph{Source:} \cite[Cor.~3.2]{Wal05a} (p.~348), from Th.~3.1.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:variations_hyperplane_bound}
+Suppose every $\sum_i x_i\Lambda_{ij}$ vanishes. If $m = 0$, the columns are $\ell > 0$ vectors of the zero space, which cannot be free. If $m \geq 1$, then $x_1 \neq 0$, so $\psi(z) = \sum_i x_i z_i$ maps $\C^{m}$ onto $\C$ and its kernel $V$ is a hyperplane. An algebraic $z \in V$ is a $\Qbar$-relation $\sum_i z_i x_i = 0$, so $z = 0$. The columns of $M$ are $\ell$ $\Qbar$-free vectors of $V \cap \widetilde{\mathcal L}^{m}$, so $\ell \leq m(m - 1)$ by Theorem~\ref{thm:variations_hyperplane_bound}, a contradiction.
+\end{proof}
+
+% Prove2Me: DiazModulus.variations_theorem_2_11 -- https://prove2.me/theorems/7924bc82-5f9e-445c-b93c-fad1c930fe20
+\begin{theorem}[Waldschmidt, \emph{Variations}, Theorem 2.11]
+\label{thm:variations_theorem_2_11}
+\lean{Diaz.variations_theorem_2_11}
+\leanok
+Let $M = (\Lambda_{ij})$ be an $m \times \ell$ matrix with entries in $\widetilde{\mathcal L}$ such that the $m + \ell$ columns of the $m \times (m + \ell)$ matrix $(I_m, M)$ are linearly independent over $\Qbar$. Let $\Lambda_1, \dots, \Lambda_m \in \widetilde{\mathcal L}$ be such that $1, \Lambda_1, \dots, \Lambda_m$ are linearly independent over $\Qbar$, and assume $\ell > m^{2}$. Then for some $j \in \{1, \dots, \ell\}$
+\[ \Lambda_1\Lambda_{1j} + \dots + \Lambda_m\Lambda_{mj} \notin \widetilde{\mathcal L}. \]
+
+{\small\emph{Source:} \cite[Th.~2.11]{Wal05a} (p.~346; proof p.~348); \cite[Th.~6.2]{Wal05c} (p.~10).}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:variations_hyperplane_bound}
+Suppose every $\Lambda'_j = \Lambda_1\Lambda_{1j} + \dots + \Lambda_m\Lambda_{mj}$ lies in $\widetilde{\mathcal L}$. In $\C^{m+1}$ let $\varphi(z) = \Lambda_1 z_1 + \dots + \Lambda_m z_m - z_{m+1}$ and $V = \ker\varphi$; since $\varphi(-w e_{m+1}) = w$, $V$ is a hyperplane. An algebraic $z \in V$ is an algebraic relation $z_1\Lambda_1 + \dots + z_m\Lambda_m - z_{m+1} \cdot 1 = 0$, so $z = 0$. The $m + \ell$ points $(e_i, \Lambda_i)$ and $(M_{\cdot j}, \Lambda'_j)$ lie in $V$ and have coordinates in $\widetilde{\mathcal L}$; they are $\Qbar$-free because their coordinates $1, \dots, m$ are the columns of $(I_m, M)$. Theorem~\ref{thm:variations_hyperplane_bound} gives $m + \ell \leq (m + 1)m$, against $\ell > m^{2}$.
+\end{proof}
+
+% Prove2Me: DiazModulus.role_cor_6_3 -- https://prove2.me/theorems/df983fc9-c5d3-4ac6-9bd3-3dd08855acd0
+\begin{corollary}[Waldschmidt, \emph{Role}, Corollary 6.3 (\emph{Variations}, Corollary 2.12, corrected)]
+\label{cor:role_cor_6_3}
+\lean{Diaz.role_cor_6_3}
+\leanok
+Let $M = (\Lambda_{ij})$ be a $2 \times 5$ matrix with entries in $\widetilde{\mathcal L}$ such that $1, \Lambda_{11}, \Lambda_{21}$ are linearly independent over $\Qbar$ and the seven columns of the $2 \times 7$ matrix $(I_2, M)$ are linearly independent over $\Qbar$. Then for some $j \in \{2, 3, 4, 5\}$
+\[ \Lambda_{11}\Lambda_{2j} - \Lambda_{21}\Lambda_{1j} \notin \widetilde{\mathcal L}. \]
+
+{\small\emph{Source:} \cite[Cor.~6.3]{Wal05c} (pp.~10--11), the corrected form of \cite[Cor.~2.12]{Wal05a} (p.~346). The printed Cor.~2.12 assumes ``$\Lambda_{21} \neq 0$ and $\Lambda_{11}/\Lambda_{21}$ transcendental'' in place of the freeness of $1, \Lambda_{11}, \Lambda_{21}$, and is false as printed: $\Lambda_{11} = 1$, $\Lambda_{21} = \log 2$, $\Lambda_{1j} = 0$ and $\Lambda_{2j} = \log 3, \log 5, \log 7, \log 11$ ($j = 2, \dots, 5$) satisfy its hypotheses, the seven columns of $(I_2, M)$ being linearly independent over $\Qbar$ by Baker's theorem, while every $\Lambda_{11}\Lambda_{2j} - \Lambda_{21}\Lambda_{1j} = \Lambda_{2j}$ lies in $\mathcal{L}$. The author corrected it in \cite[\S4, p.~8]{Wal05b} and in \cite[Cor.~6.3]{Wal05c}, replacing that hypothesis by the linear independence of $1, \Lambda_{11}, \Lambda_{21}$ over $\Qbar$. This node is the corrected form; its proof is the printed one.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:variations_theorem_2_11}
+Apply Theorem~\ref{thm:variations_theorem_2_11} with $m = 2$, $\ell = 5$, $\Lambda_1 = -\Lambda_{21}$ and $\Lambda_2 = \Lambda_{11}$, both in $\widetilde{\mathcal L}$. A relation $a + b\Lambda_1 + c\Lambda_2 = 0$ reads $a + c\Lambda_{11} - b\Lambda_{21} = 0$, so $1, \Lambda_1, \Lambda_2$ are free over $\Qbar$; the columns of $(I_2, M)$ are free by hypothesis, and $5 > 2^{2}$. So some $\Lambda_1\Lambda_{1j} + \Lambda_2\Lambda_{2j} = \Lambda_{11}\Lambda_{2j} - \Lambda_{21}\Lambda_{1j}$ is not in $\widetilde{\mathcal L}$. For $j = 1$ this number is $\Lambda_{11}\Lambda_{21} - \Lambda_{21}\Lambda_{11} = 0 \in \widetilde{\mathcal L}$, so $j \geq 2$.
+\end{proof}
+
+\section{\emph{Further variations}: the 2 × 2 minors}
+
+% Prove2Me: DiazModulus.fv_dot_orthogonal -- https://prove2.me/theorems/1b267f50-4719-4fca-be49-ca6a05705eef
+\begin{lemma}[The orthogonal for the dot product]
+\label{lem:fv_dot_orthogonal}
+\lean{Diaz.fv_dot_orthogonal}
+\leanok
+Here $\Qbar$, $\mathcal{L}$ and $\widetilde{\mathcal L}$ are as in Lemma~\ref{lem:roy_theorem_four_exists}. For $u, v \in \C^{n}$, $u \cdot v = \sum_k u_k v_k$ is the bilinear dot product (not the Hermitian one). For a $\Qbar$-subspace $X$ and a $\C$-subspace $W$ of $\C^{n}$, $X \cap W$ is a $\Qbar$-subspace; dimensions are over $\Qbar$ for $\Qbar$-subspaces, written $\dim_{\Qbar}$, and over $\C$ for $\C$-subspaces.
+
+For every $\C$-subspace $W \subseteq \C^{n}$ there is a $\C$-subspace $V \subseteq \C^{n}$ with
+\[ V = \{z \in \C^{n} : w \cdot z = 0 \text{ for all } w \in W\} \quad\text{and}\quad \dim V + \dim W = n. \]
+
+{\small\emph{Source:} Classical linear algebra; a step of the proof of \cite[Th.~2.1]{Wal05b} (pp.~5--6). Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+The map $v \mapsto (z \mapsto v \cdot z)$ is a linear isomorphism of $\C^{n}$ onto its dual. The orthogonal of $W$ is the common kernel of the image of $W$, a subspace of the dual of dimension $\dim W$, and that common kernel has dimension $n - \dim W$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_max_slope -- https://prove2.me/theorems/4a4f3da9-8eb7-414e-9ef2-9a6d23811ec1
+\begin{lemma}[A subspace of maximal slope]
+\label{lem:fv_max_slope}
+\lean{Diaz.fv_max_slope}
+\leanok
+Let $n \geq 1$ and let $X \subseteq \C^{n}$ be a finite-dimensional $\Qbar$-subspace. Then there is a $\C$-subspace $W_0 \neq 0$ of $\C^{n}$ such that
+\[ \dim_{\Qbar}(X \cap W) \cdot \dim W_0 \leq \dim_{\Qbar}(X \cap W_0) \cdot \dim W \]
+for every $\C$-subspace $W \subseteq \C^{n}$; that is, $W_0$ maximises the slope $\dim_{\Qbar}(X \cap W)/\dim W$ among the $\C$-subspaces $W \neq 0$.
+
+{\small\emph{Source:} A step of the proof of \cite[Th.~2.1]{Wal05b} (pp.~5--6); the analogue of \cite[Lemme~5.1]{Wal81} (p.~106). Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+For $W \neq 0$ the numerator of the slope lies in $\{0, \dots, \dim_{\Qbar} X\}$ and the denominator in $\{1, \dots, n\}$, so the slope takes finitely many values; $W = \C^{n}$ is admissible because $n > 0$. Take $W_0$ realising the largest value. For $W \neq 0$ the inequality is the comparison of slopes with the positive denominators cleared; for $W = 0$ its left side is $0$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_gram_zero_block -- https://prove2.me/theorems/858f5f0a-25e9-4028-a3e5-3d4153a0caeb
+\begin{lemma}[Roy's Corollary 1 for a Gram matrix]
+\label{lem:fv_gram_zero_block}
+\lean{Diaz.fv_gram_zero_block}
+\leanok
+Let $X, Y \subseteq \C^{n}$ be finite-dimensional $\Qbar$-subspaces with $d = \dim_{\Qbar} X \geq 1$ and $x \cdot y \in \widetilde{\mathcal L}$ for all $x \in X$ and $y \in Y$. Then there are $\Qbar$-subspaces $X_1 \subseteq X$ and $Y_1 \subseteq Y$ with $\dim_{\Qbar} X_1 \geq 1$ and $x \cdot y = 0$ for all $x \in X_1$ and $y \in Y_1$, such that, with $\ell' = \dim_{\Qbar} Y - \dim_{\Qbar} Y_1$ and $r = \dim \mathrm{span}_{\C} X$,
+\[ d\,\ell' \leq r\,(\dim_{\Qbar} X_1 + \ell'). \]
+
+{\small\emph{Source:} A step of the proof of \cite[Th.~2.1]{Wal05b} (p.~6): \cite[Cor.~1]{Roy92} (Theorem~\ref{thm:roy_rank_bound}; \cite[Th.~12.20]{Wal00}, p.~435) applied to the Gram matrix $(x_i \cdot y_j)$ of bases of $X$ and $Y$. Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_rank_bound}
+Take $\Qbar$-bases $x_1, \dots, x_d$ of $X$ and $y_1, \dots, y_{\ell}$ of $Y$. The Gram matrix $G = (x_i \cdot y_j)$ has entries in $\widetilde{\mathcal L}$, so Theorem~\ref{thm:roy_rank_bound} gives invertible algebraic $P$, $Q$ and $1 \leq d' \leq d$, $\ell' \leq \ell$ with $(PGQ)_{ij} = 0$ for $i \leq d'$ and $j > \ell'$, and $d\ell' \leq \operatorname{rank}(G)\,(d' + \ell')$. Put $\tilde x_i = \sum_a P_{ia}x_a$ and $\tilde y_j = \sum_b Q_{bj}y_b$: as $P$ and $Q$ are invertible with algebraic entries, these are again $\Qbar$-bases of $X$ and $Y$, and $\tilde x_i \cdot \tilde y_j = (PGQ)_{ij}$ by bilinearity. Let $X_1$ be spanned by the $\tilde x_i$ with $i \leq d'$ (dimension $d'$) and $Y_1$ by the $\tilde y_j$ with $j > \ell'$ (dimension $\ell - \ell'$); then $X_1 \cdot Y_1 = 0$. Finally $G$ is the product of the matrix with rows $x_i$ and the transpose of the matrix with rows $y_j$, so $\operatorname{rank} G$ is at most the dimension of the $\C$-span of the $x_i$, which is $r$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_semistable_core -- https://prove2.me/theorems/56eb2d08-5555-4e00-9652-7d3ad7447ad1
+\begin{proposition}[The semistable case, relative form]
+\label{prop:fv_semistable_core}
+\lean{Diaz.fv_semistable_core}
+\leanok
+For a finite-dimensional $\Qbar$-subspace $Y \subseteq \C^{n}$ with $n \geq 1$, $\mu(Y, \C^{n})$ is the minimum of $\bigl(\dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V)\bigr)/(n - \dim V)$ over the $\C$-subspaces $V \neq \C^{n}$; the ratio takes finitely many values, so the minimum is attained.
+
+Let $W_0 \subseteq \C^{n}$ be a $\C$-subspace, $n_0 = \dim W_0$, and let $X_0, Y \subseteq \C^{n}$ be finite-dimensional $\Qbar$-subspaces with $X_0 \subseteq W_0$ and $d_0 = \dim_{\Qbar} X_0 > n_0$. Assume that $n_0 \dim_{\Qbar}(X_0 \cap W) \leq d_0 \dim W$ for every $\C$-subspace $W \subseteq \C^{n}$ ($X_0$ is semistable relative to $W_0$), and that $x \cdot y \in \widetilde{\mathcal L}$ for all $x \in X_0$ and $y \in Y$. Then there is a $\C$-subspace $V \neq \C^{n}$ with
+\[ (d_0 - n_0)\bigl(\dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V)\bigr) \leq d_0\,(n - \dim V), \]
+that is, $\mu(Y, \C^{n}) \leq d_0/(d_0 - n_0)$.
+
+{\small\emph{Source:} A step of the proof of \cite[Th.~2.1]{Wal05b}: the semistable case (p.~6; \cite[Prop.~6.1]{Wal81}), here for a subspace $X_0$ of $W_0$ semistable relative to $W_0$, with \cite[Cor.~1]{Roy92} used once. The coefficient $\mu$ is that of \cite[p.~4]{Wal05b}, where $V$ ranges over all $\C$-subspaces $V \neq \C^{n}$. Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{lem:fv_dot_orthogonal,lem:fv_gram_zero_block}
+Lemma~\ref{lem:fv_gram_zero_block} for $X_0$ and $Y$ gives $X_1 \subseteq X_0$ of dimension $d' \geq 1$ and $Y_1 \subseteq Y$ with $X_1 \cdot Y_1 = 0$ and $d_0\ell' \leq r(d' + \ell')$, where $\ell' = \dim_{\Qbar} Y - \dim_{\Qbar} Y_1$ and $r$ is the dimension of the $\C$-span of $X_0$. That span lies in $W_0$, so $r \leq n_0$ and $(d_0 - n_0)\ell' \leq n_0 d'$. Let $W$ be the $\C$-span of $X_1$, of dimension $w \geq 1$. As $X_1 \subseteq X_0 \cap W$, semistability gives $n_0 d' \leq d_0 w$. The orthogonal $V$ of $W$ (Lemma~\ref{lem:fv_dot_orthogonal}) has dimension $n - w$, so $V \neq \C^{n}$, and $Y_1 \subseteq Y \cap V$, so $\dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V) \leq \ell'$. Chaining, $(d_0 - n_0)\bigl(\dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V)\bigr) \leq (d_0 - n_0)\ell' \leq n_0 d' \leq d_0 w$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_theorem_2_1 -- https://prove2.me/theorems/4f3a4055-9171-4704-b424-2f7839f73786
+\begin{theorem}[Waldschmidt, \emph{Further variations}, Theorem 2.1, for finite-dimensional $Y$]
+\label{thm:fv_theorem_2_1}
+\lean{Diaz.fv_theorem_2_1}
+\leanok
+With the notation of Lemma~\ref{lem:fv_dot_orthogonal} and the coefficient $\mu$ of Proposition~\ref{prop:fv_semistable_core}: let $X, Y \subseteq \C^{n}$ be finite-dimensional $\Qbar$-subspaces with $d = \dim_{\Qbar} X > n$, and assume that for every $\C$-subspace $V \neq \C^{n}$
+\[ d\,(n - \dim V) < (d - n)\bigl(\dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V)\bigr), \]
+that is, $\mu(Y, \C^{n}) > d/(d - n)$. Then $x \cdot y \notin \widetilde{\mathcal L}$ for some $x \in X$ and $y \in Y$.
+
+{\small\emph{Source:} \cite[Th.~2.1]{Wal05b} (p.~5; proof pp.~5--6), for finite-dimensional $Y$. \cite{Wal05b} states it for every $\Qbar$-subspace $Y$ of $\C^{n}$, but the printed proof writes $Y = \Qbar y_1 + \dots + \Qbar y_{\ell}$ and so covers finite-dimensional $Y$ only. For infinite-dimensional $Y$ one would need a finite-dimensional $Y_f \subseteq Y$ with $\mu(Y_f, \C^{n}) > d/(d - n)$, which is not automatic, since $V$ ranges over infinitely many subspaces; that case is not settled here. Every application in \cite{Wal05b} (Th.~1.2, Cor.~1.4) has $\dim Y = 5$. The proof replaces the reduction of \cite[p.~5]{Wal05b}, after \cite[Lemmes~5.1--5.2]{Wal81}, and the inequality (2.3) by one $\C$-subspace of maximal slope for $X$ and a relative form of the semistable case, and uses \cite[Cor.~1]{Roy92} once (Theorem~\ref{thm:roy_rank_bound}; \cite[Th.~12.20]{Wal00}).}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:fv_max_slope,prop:fv_semistable_core}
+Suppose every $x \cdot y$ lies in $\widetilde{\mathcal L}$; as $d > n$, $n \geq 1$. Lemma~\ref{lem:fv_max_slope} gives a $\C$-subspace $W_0 \neq 0$ of maximal slope for $X$; put $n_0 = \dim W_0$, $X_0 = X \cap W_0$ and $d_0 = \dim_{\Qbar} X_0$. Maximality gives $n_0 \dim_{\Qbar}(X \cap W) \leq d_0 \dim W$ for every $W$; at $W = \C^{n}$ this is $d n_0 \leq d_0 n$, so $d_0 > n_0$, and since $X_0 \cap W \subseteq X \cap W$, $X_0$ is semistable relative to $W_0$. Proposition~\ref{prop:fv_semistable_core} for $W_0$, $X_0$ and $Y$ gives $V \neq \C^{n}$ with $(d_0 - n_0)\rho \leq d_0 c$, where $\rho = \dim_{\Qbar} Y - \dim_{\Qbar}(Y \cap V)$ and $c = n - \dim V$, while the hypothesis at the same $V$ says $dc < (d - n)\rho$. Multiplying the former by $d$ and the latter by $d_0$ gives $\rho\,(d n_0 - d_0 n) > 0$, which is impossible because $d n_0 \leq d_0 n$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_two_by_three_lines -- https://prove2.me/theorems/4e2267dd-013a-4f71-aa03-38a791e11770
+\begin{lemma}[Lines meet the column space of $(I_2, M)$ in dimension at most three]
+\label{lem:fv_two_by_three_lines}
+\lean{Diaz.fv_two_by_three_lines}
+\leanok
+Let $M$ be a complex $2 \times 3$ matrix such that the five rows of the $5 \times 3$ matrix $\begin{pmatrix} M \\ I_3 \end{pmatrix}$ are linearly independent over $\Qbar$, and let $X$ be the $\Qbar$-span of the five columns of the $2 \times 5$ matrix $(I_2, M)$. Then for every $\C$-subspace $V \neq \C^{2}$
+\[ \dim_{\Qbar}(X \cap V) \leq 3. \]
+
+{\small\emph{Source:} A step of the proof of \cite[Th.~1.2]{Wal05b} (p.~7): the core of the estimate (3.1). Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+A $\C$-subspace $V \neq \C^{2}$ lies in the kernel of a non-zero linear form $p(z) = s_1 z_1 + s_2 z_2$. By rank--nullity for the $\Qbar$-linear map $p$ on $X$, $\dim_{\Qbar}(X \cap V) \leq \dim_{\Qbar}(X \cap \ker p) = \dim_{\Qbar} X - \dim_{\Qbar} p(X)$, and $\dim_{\Qbar} X \leq 5$, so it suffices that $\dim_{\Qbar} p(X) \geq 2$. Otherwise $p(X) = \Qbar c$, with $s_1 = a_1 c$, $s_2 = a_2 c$ and $s_1 M_{1j} + s_2 M_{2j} = b_j c$ for algebraic $a$, $b$. Then $c \neq 0$, as $s \neq 0$, and dividing by $c$ gives the relation $a_1 \cdot (\text{row } 1) + a_2 \cdot (\text{row } 2) - \sum_j b_j e_j = 0$ among the five rows of $\begin{pmatrix} M \\ I_3 \end{pmatrix}$. So $a_1 = a_2 = 0$, hence $s = 0$, a contradiction.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_theorem_1_2 -- https://prove2.me/theorems/819773b1-4ee7-43bc-a05b-20927db562ed
+\begin{theorem}[Waldschmidt, \emph{Further variations}, Theorem 1.2]
+\label{thm:fv_theorem_1_2}
+\lean{Diaz.fv_theorem_1_2}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$.
+
+Let $M = (\Lambda_{ij})$ be a $2 \times 3$ matrix with entries in $\widetilde{\mathcal L}$. Assume that the five rows of the $5 \times 3$ matrix $\begin{pmatrix} M \\ I_3 \end{pmatrix}$ are linearly independent over $\Qbar$, and that the five columns of the $2 \times 5$ matrix $(I_2, M)$ are linearly independent over $\Qbar$. Then at least one of the three $2 \times 2$ minors of $M$, up to sign,
+\[ \Lambda_{12}\Lambda_{23} - \Lambda_{13}\Lambda_{22}, \qquad \Lambda_{13}\Lambda_{21} - \Lambda_{11}\Lambda_{23}, \qquad \Lambda_{11}\Lambda_{22} - \Lambda_{12}\Lambda_{21}, \]
+is not in $\widetilde{\mathcal L}$.
+
+{\small\emph{Source:} \cite[Th.~1.2]{Wal05b} (pp.~2--3; proof p.~7, through Th.~2.1 and the estimate (3.1), which is checked here at $V = 0$ and at every line).}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:fv_theorem_2_1,lem:fv_two_by_three_lines}
+Let $v_1, \dots, v_5$ be the columns of $(I_2, M)$ and $X$ their $\Qbar$-span, of dimension $5$. Let $J(z_1, z_2) = (-z_2, z_1)$ and $Y = J(X)$, also of dimension $5$. For $x, x' \in \C^{2}$, $x \cdot J(x')$ is the determinant with columns $x'$, $x$, so on the generators each $v_k \cdot J(v_{k'})$ is $0$, $\pm1$, $\pm\Lambda_{ij}$ or $\pm$ one of the three numbers. If all three lie in $\widetilde{\mathcal L}$, then every $x \cdot y$ with $x \in X$, $y \in Y$ does, by bilinearity, since $\widetilde{\mathcal L}$ is a $\Qbar$-space containing $1$ and the entries of $M$. On the other hand Theorem~\ref{thm:fv_theorem_2_1} applies with $n = 2$ and $\dim_{\Qbar} X = 5$: for $V = 0$ the required inequality is $10 < 15$; for a line $V$, $J$ maps $X \cap J^{-1}(V)$ onto $Y \cap V$ and $J^{-1}(V)$ is a line, so $\dim_{\Qbar}(Y \cap V) \leq 3$ by Lemma~\ref{lem:fv_two_by_three_lines}, and the inequality is $5 < 3 \cdot (5 - 3)$. So some $x \cdot y \notin \widetilde{\mathcal L}$, a contradiction.
+\end{proof}
+
+% Prove2Me: DiazModulus.fv_lambda_squares -- https://prove2.me/theorems/56748e12-b275-4019-b32a-5ed6a3e35271
+\begin{corollary}[The $\Lambda^{2}$ corollary of \emph{Further variations}]
+\label{cor:fv_lambda_squares}
+\lean{Diaz.fv_lambda_squares}
+\leanok
+Let $\Lambda_1, \Lambda_2, \Lambda_3 \in \widetilde{\mathcal L}$ be such that $1, \Lambda_1, \Lambda_2, \Lambda_3$ are linearly independent over $\Qbar$. Then at least one of
+\[ \Lambda_1^{2} - \Lambda_2\Lambda_3, \qquad \Lambda_2^{2} - \Lambda_3\Lambda_1, \qquad \Lambda_3^{2} - \Lambda_1\Lambda_2 \]
+is not in $\widetilde{\mathcal L}$.
+
+{\small\emph{Source:} \cite[p.~3]{Wal05b}, stated there as a consequence of Th.~1.2; it is Th.~1.2 for the matrix $\begin{pmatrix} \Lambda_1 & \Lambda_2 & \Lambda_3 \\ \Lambda_2 & \Lambda_3 & \Lambda_1 \end{pmatrix}$.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:fv_theorem_1_2}
+Apply Theorem~\ref{thm:fv_theorem_1_2} to $M = \begin{pmatrix} \Lambda_1 & \Lambda_2 & \Lambda_3 \\ \Lambda_2 & \Lambda_3 & \Lambda_1 \end{pmatrix}$. Its three numbers are $\Lambda_1\Lambda_2 - \Lambda_3^{2}$, $\Lambda_2\Lambda_3 - \Lambda_1^{2}$ and $\Lambda_1\Lambda_3 - \Lambda_2^{2}$, the negatives of the three numbers of the statement, and $\widetilde{\mathcal L}$ is closed under negation. A relation among the rows of $\begin{pmatrix} M \\ I_3 \end{pmatrix}$, with coefficients $a$, $b$ on the rows of $M$ and $c_1, c_2, c_3$ on those of $I_3$, has coordinate $1$ equal to $c_1 + a\Lambda_1 + b\Lambda_2 = 0$, so $a = b = c_1 = 0$, and the other two coordinates give $c_2 = c_3 = 0$. A relation among the columns of $(I_2, M)$, with coefficients $a$, $b$ on those of $I_2$ and $c_1, c_2, c_3$ on those of $M$, has top coordinate $a + c_1\Lambda_1 + c_2\Lambda_2 + c_3\Lambda_3 = 0$, so $a = c_1 = c_2 = c_3 = 0$, and the bottom coordinate gives $b = 0$.
+\end{proof}
+
+\section{DALAG §12.3: rank and structural rank}
+
+% Prove2Me: DiazModulus.dalag_cor_12_21 -- https://prove2.me/theorems/05604f1b-d2fe-47c6-bf3c-b25f01f4afda
+\begin{corollary}[DALAG Corollary 12.21]
+\label{cor:dalag_cor_12_21}
+\lean{Diaz.dalag_cor_12_21}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$.
+
+Let $M = (\Lambda_{ij})$ be a $d \times \ell$ matrix with entries in $\widetilde{\mathcal L}$ such that
+\[ \sum_{i=1}^{d}\sum_{j=1}^{\ell} \tau_i\sigma_j\Lambda_{ij} \neq 0 \]
+for all non-zero $\tau \in \Qbar^{d}$ and $\sigma \in \Qbar^{\ell}$. Then
+\[ d\,\ell \leq \operatorname{rank}(M)\,(d + \ell), \]
+that is, $\operatorname{rank}(M) \geq d\ell/(d + \ell)$ when $d + \ell > 0$.
+
+{\small\emph{Source:} \cite[\S12.3, Cor.~12.21]{Wal00} (p.~435), from Th.~12.20, that is \cite[Cor.~1]{Roy92} (p.~38; Theorem~\ref{thm:roy_rank_bound}).}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_rank_bound}
+If $d = 0$ there is nothing to prove. Otherwise Theorem~\ref{thm:roy_rank_bound} gives invertible algebraic $P$, $Q$ and $1 \leq d' \leq d$, $\ell' \leq \ell$ with $(PMQ)_{ij} = 0$ for $i \leq d'$ and $j > \ell'$, and $d\ell' \leq \operatorname{rank}(M)(d' + \ell')$. If $\ell' < \ell$, the entry $(PMQ)_{1\ell}$ vanishes; it equals $\sum_i\sum_j \tau_i\sigma_j\Lambda_{ij}$ for $\tau$ the top row of $P$ and $\sigma$ the last column of $Q$, both algebraic and non-zero because $P$ and $Q$ are invertible. This contradicts the hypothesis, so $\ell' = \ell$ and $d\ell \leq \operatorname{rank}(M)(d' + \ell) \leq \operatorname{rank}(M)(d + \ell)$.
+\end{proof}
+
+% Prove2Me: DiazModulus.matrix_rank_le_of_zero_block -- https://prove2.me/theorems/ad13a283-f591-4a27-9411-be1ea715308c
+\begin{lemma}[The rank of a matrix with a zero block]
+\label{lem:matrix_rank_le_of_zero_block}
+\lean{Diaz.matrix_rank_le_of_zero_block}
+\leanok
+Let $K$ be a field, $N = (N_{ij})$ a $d \times \ell$ matrix with entries in $K$, and $d' \leq d$ and $\ell'$ natural numbers such that $N_{ij} = 0$ whenever $i \leq d'$ and $j > \ell'$ (rows and columns are numbered from $1$). Then
+\[ \operatorname{rank} N + d' \leq d + \ell'. \]
+
+{\small\emph{Source:} Classical linear algebra; a step of the proofs of \cite[Cor.~12.18]{Wal00} (p.~433) and \cite[Cor.~12.22]{Wal00} (p.~436). Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+The rank of $N$ is the dimension of its row space. Each of the rows $1, \dots, d'$ has zero coordinates beyond $\ell'$, so it lies in the span of the unit vectors $e_j$ with $j \leq \ell'$, of dimension at most $\ell'$; the other $d - d'$ rows span a space of dimension at most $d - d'$. The row space lies in the sum of the two, so $\operatorname{rank} N \leq \ell' + (d - d')$.
+\end{proof}
+
+% Prove2Me: DiazModulus.dalag_cor_12_22 -- https://prove2.me/theorems/fdabc010-80b2-4365-b646-5e2b7e6a1784
+\begin{corollary}[DALAG Corollary 12.22: the rank is at least half the structural rank]
+\label{cor:dalag_cor_12_22}
+\lean{Diaz.dalag_cor_12_22}
+\leanok
+Let $M$ be a $d \times \ell$ matrix with entries in $\widetilde{\mathcal L}$, and suppose that $M = \sum_{k=1}^{m} e_k N_k$ with $e_1, \dots, e_m \in \C$ linearly independent over $\Qbar$ and $N_1, \dots, N_m$ matrices of size $d \times \ell$ with algebraic entries. Let $N(X) = \sum_{k=1}^{m} X_k N_k$, a matrix over the field $\Qbar(X_1, \dots, X_m)$ of rational functions in $m$ variables. Then
+\[ \operatorname{rank}_{\Qbar(X_1, \dots, X_m)} N(X) \leq 2 \operatorname{rank} M. \]
+The rank of $N(X)$ is the structural rank of $M$ over $\Qbar$ in the sense of DALAG \S12.1.4; the statement holds for every such presentation of $M$.
+
+{\small\emph{Source:} \cite[Cor.~12.22]{Wal00} (p.~436), deduced from Th.~12.20 (\cite[Cor.~1]{Roy92}; Theorem~\ref{thm:roy_rank_bound}) as Cor.~12.18 is deduced from Th.~12.17 (p.~433); the structural rank (\S12.1.4, pp.~426--427) is written through a presentation $M = \sum_k e_k N_k$.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_rank_bound,lem:matrix_rank_le_of_zero_block}
+Let $r = \operatorname{rank} N(X)$; if $r = 0$ there is nothing to prove. Otherwise choose $r$ linearly independent rows $I$ of $N(X)$; the row submatrix $M_I$ has entries in $\widetilde{\mathcal L}$. Theorem~\ref{thm:roy_rank_bound} for $M_I$ gives invertible algebraic $P$, $Q$ and $1 \leq d' \leq r$, $\ell'$ with $(PM_{I}Q)_{ij} = 0$ for $i \leq d'$ and $j > \ell'$, and $r\ell' \leq \operatorname{rank}(M_I)(d' + \ell')$. Since $(PM_{I}Q)_{ij} = \sum_k e_k\,(P(N_k)_{I}Q)_{ij}$ with algebraic coefficients and $e$ is free over $\Qbar$, every $(P(N_k)_{I}Q)_{ij}$ vanishes in that block, so $PN(X)_{I}Q$ has the same zero block. It has rank $r$, since $P$ and $Q$ are invertible over $\Qbar$, so Lemma~\ref{lem:matrix_rank_le_of_zero_block} gives $r + d' \leq r + \ell'$, that is $d' \leq \ell'$. Then $\ell' \geq 1$ and $r\ell' \leq 2\ell' \operatorname{rank}(M_I)$, so $r \leq 2\operatorname{rank}(M_I) \leq 2\operatorname{rank}(M)$. The argument uses only that $\Qbar \to \Qbar(X_1, \dots, X_m)$ is a field embedding.
+\end{proof}
+
+% Prove2Me: DiazModulus.dalag_cor_12_24 -- https://prove2.me/theorems/aa198185-734e-4f40-8e6c-20395287ab22
+\begin{corollary}[DALAG Corollary 12.24, from Theorem 12.20]
+\label{cor:dalag_cor_12_24}
+\lean{Diaz.dalag_cor_12_24}
+\leanok
+Let $M$ be a $d \times \ell$ matrix with entries in $\widetilde{\mathcal L}$ whose $d$ rows are linearly independent over $\Qbar$ and whose $\ell$ columns are linearly independent over $\Qbar$, and assume $d\ell > d + \ell$. Then $\operatorname{rank} M \geq 2$.
+
+{\small\emph{Source:} \cite[Cor.~12.24]{Wal00} (p.~436), proved here from Th.~12.20 (\cite[Cor.~1]{Roy92}; Theorem~\ref{thm:roy_rank_bound}). DALAG introduces it as a consequence of Cor.~12.22 and prints no argument. Cor.~12.22 gives only $\operatorname{rank} M \geq \operatorname{rstr}(M)/2$, and the structural rank can be $2$ with free rows and free columns: for every $d, \ell \geq 2$, the structural matrix with top row $(a_1 + b_1, a_2, \dots, a_{\ell})$, left column $(a_1 + b_1, b_2, \dots, b_d)$ and zeros elsewhere ($a_j$, $b_i$ independent variables) is one. For $d = 2$, $\ell = 3$, the strong six exponentials case, the structural rank is at most $2$, so Cor.~12.22 yields only $\operatorname{rank} M \geq 1$. The statement itself is \cite[Cor.~11.16]{Wal00} restated, and it also follows from Cor.~12.21 (Corollary~\ref{cor:dalag_cor_12_21}) in two lines; the proof here is a direct case analysis of the block shape of Th.~12.20. No correction of this point was found in the sources consulted.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_rank_bound}
+The hypothesis $d\ell > d + \ell$ forces $d, \ell \geq 2$. Suppose $\operatorname{rank} M \leq 1$, and let $P$, $Q$, $d'$, $\ell'$ be as in Theorem~\ref{thm:roy_rank_bound}, so that $d\ell' \leq \operatorname{rank}(M)(d' + \ell') \leq d' + \ell'$, and put $N = PMQ$. No row of $N$ is zero: otherwise, $Q$ being invertible, a row of $P$ gives an algebraic relation among the rows of $M$, so that row of $P$ vanishes and $\det P = 0$. Transposing, no column of $N$ is zero. If $\ell' = \ell$, then $d\ell \leq d' + \ell \leq d + \ell$, a contradiction. If $\ell' = 0$, the top row of $N$ is zero. Otherwise the last column of $N$ vanishes in the rows $i \leq d'$ but not everywhere, so some row $i_1 > d'$ has a non-zero entry there, while the top row of $N$ is non-zero and vanishes there; these two rows are linearly independent, so $\operatorname{rank} M = \operatorname{rank} N \geq 2$, a contradiction. The route does not pass through Corollary~\ref{cor:dalag_cor_12_22}.
+\end{proof}
+
+\section{Fischler's centraliser bound}
+
+% Prove2Me: DiazModulus.remond_commuting_end -- https://prove2.me/theorems/25ba66b1-7933-499e-871a-7f83fa225a61
+\begin{lemma}[Rémond's lemma for endomorphisms]
+\label{lem:remond_commuting_end}
+\lean{Diaz.remond_commuting_end}
+\leanok
+Let $E$ be a finite-dimensional complex vector space, $n = \dim E$, and let $U, V$ be $\C$-subspaces of $\operatorname{End}_{\C}(E)$ such that $ab = ba$ for all $a \in U$ and $b \in V$. Then
+\[ \dim U + \dim V \leq n^{2} + 1. \]
+
+{\small\emph{Source:} \cite[Lemma~5.6]{Fis01} (pp.~181--182), due to Rémond, for the field $\C$ and in the language of endomorphisms; the proof is the printed induction on $n$. Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Strong induction on $n$. Replacing $(U, V)$ by $(U \cap V, U + V)$ keeps the sum of dimensions and the commuting property, so one may assume $U \subseteq V$. If $U \subseteq \C \cdot 1$, then $\dim U \leq 1$ and $\dim V \leq n^{2}$. Otherwise pick $a_0 \in U$ outside $\C \cdot 1$, an eigenvalue $\lambda$ of $a_0$ and $F = \ker(a_0 - \lambda)$, so $0 \neq F \neq E$; everything commuting with $a_0$ preserves $F$, and this covers $V$, hence $U$. Restriction to $F$ and the induced map on $E/F$ are multiplicative, so the images of $U$, $V$ in $\operatorname{End}(F)$ and in $\operatorname{End}(E/F)$ commute, and the induction bounds their dimensions by $f^{2} + 1$ and $(n - f)^{2} + 1$, where $f = \dim F$. A map preserving $F$ and killed by both restrictions lies in $K_0 = \{a : a(F) = 0,\ a(E) \subseteq F\} \cong \operatorname{Hom}(E/F, F)$, of dimension $f(n - f)$. Rank--nullity twice then gives $\dim U + \dim V \leq n^{2} + 2$, since $(f^{2} + 1) + ((n - f)^{2} + 1) + 2f(n - f) = n^{2} + 2$. A case analysis removes the extra $1$: if $V$ misses part of $K_0$, the count for $V$ drops by one; in the remaining case $K_0 \subseteq V$, some $a \in U$ maps $E$ into $F$ and is non-zero on $F$, and an explicit $b \in K_0$ has $ab \neq 0 = ba$, against the commuting property.
+\end{proof}
+
+% Prove2Me: DiazModulus.remond_commuting_subspaces -- https://prove2.me/theorems/817d7442-9bb6-4e8f-a17c-598764ea3aa6
+\begin{lemma}[Rémond's lemma (Fischler, Lemma 5.6)]
+\label{lem:remond_commuting_subspaces}
+\lean{Diaz.remond_commuting_subspaces}
+\leanok
+Let $U, V$ be $\C$-subspaces of $\mathrm{Mat}_n(\C)$ such that $AB = BA$ for all $A \in U$ and $B \in V$. Then
+\[ \dim U + \dim V \leq n^{2} + 1. \]
+
+{\small\emph{Source:} \cite[Lemma~5.6]{Fis01} (pp.~181--182), due to Rémond, for the field $\C$.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:remond_commuting_end}
+Transport Lemma~\ref{lem:remond_commuting_end} along the algebra isomorphism between $\mathrm{Mat}_n(\C)$ and $\operatorname{End}_{\C}(\C^{n})$: the images of $U$ and $V$ have the same dimensions, they still commute elementwise since the isomorphism is multiplicative, and $\dim \C^{n} = n$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_commute_of_trace -- https://prove2.me/theorems/86cce4fb-d339-4852-bc56-4b7eccf8003a
+\begin{lemma}[Free entries and a vanishing trace force commuting]
+\label{lem:fischler_commute_of_trace}
+\lean{Diaz.fischler_commute_of_trace}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, and a $\C$-subspace of $\mathrm{Mat}_n(\C)$ is \emph{rational} if it is spanned by matrices with algebraic entries.
+
+Let $M$ be a complex $n \times n$ matrix whose $n^{2}$ entries are linearly independent over $\Qbar$, and let $U, V \subseteq \mathrm{Mat}_n(\C)$ be rational subspaces such that $\operatorname{Tr}\bigl(M(AB - BA)\bigr) = 0$ for all $A \in U$ and $B \in V$. Then $AB = BA$ for all $A \in U$ and $B \in V$.
+
+{\small\emph{Source:} A step of the proof of \cite[Th.~1.2]{Fis01} (p.~181). Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+For algebraic $A$ and $B$ the commutator $K = AB - BA$ has algebraic entries, and $\operatorname{Tr}(MK) = \sum_{i,j} K_{ji}M_{ij}$ is a $\Qbar$-linear combination of the $n^{2}$ entries of $M$; if it vanishes, the freeness of these entries kills every coefficient, so $K = 0$. Since $U$ and $V$ are spanned by their algebraic elements and $(A, B) \mapsto AB - BA$ is bilinear, the identity $AB = BA$ extends from algebraic $A \in U$, $B \in V$ to all of $U \times V$: in $B$ for fixed algebraic $A$, then in $A$ for any $B \in V$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_prop_5_5 -- https://prove2.me/theorems/2a46317f-a2a6-49f1-9b79-b94bb464beea
+\begin{proposition}[Fischler's Proposition 5.5, in rational form]
+\label{prop:fischler_prop_5_5}
+\lean{Diaz.fischler_prop_5_5}
+\leanok
+For $M \in \mathrm{Mat}_n(\C)$, $C(M) = \{A \in \mathrm{Mat}_n(\C) : AM = MA\}$ is the centraliser of $M$; $\widetilde{\mathcal L}$ is as in Lemma~\ref{lem:roy_theorem_four_exists}.
+
+Let $M$ be an $n \times n$ matrix with entries in $\widetilde{\mathcal L}$ such that $2\dim C(M) \geq n^{2} + 2$. Then there are rational subspaces $U, V \subseteq \mathrm{Mat}_n(\C)$ such that $\dim U + \dim V \geq n^{2} + 2$ and
+\[ \operatorname{Tr}\bigl(M(AB - BA)\bigr) = 0 \quad\text{for all } A \in U,\ B \in V. \]
+
+{\small\emph{Source:} \cite[Prop.~5.5]{Fis01} (pp.~181--183), in rational form; a step of the proof of \cite[Th.~1.2]{Fis01} (p.~169). \cite[Cor.~1]{Roy92} (Theorem~\ref{thm:roy_rank_bound}; \cite[Th.~12.20]{Wal00}, p.~435) is applied to $\operatorname{ad} M$ on the trace-zero matrices written in coordinates, in place of \cite[Cor.~2.2]{Fis01} (pp.~170--171), so that $U$ and $V$ are spanned by explicit algebraic matrices. Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_rank_bound}
+Let $c = \dim C(M)$; the hypothesis $2c \geq n^{2} + 2$ forces $n \geq 2$. Fix a diagonal position $(i_0, i_0)$ and let $\kappa$ be the other $n^{2} - 1$ positions. The matrix $R$ of $X \mapsto ([M, X]_p)_{p \in \kappa}$, in the standard basis of $\mathrm{Mat}_n(\C)$, has entries in $\widetilde{\mathcal L}$, being $\Qbar$-combinations of entries of $M$, and its rank is at most $n^{2} - c$, the rank of $\operatorname{ad} M$. Theorem~\ref{thm:roy_rank_bound} for $R$ gives invertible algebraic $P$, $Q$ and $d' \geq 1$, $\ell'$ with $(PRQ)_{ij} = 0$ for $i \leq d'$ and $j > \ell'$, and $(n^{2} - 1)\ell' \leq (n^{2} - c)(d' + \ell')$; since $2(n^{2} - c) \leq n^{2} - 2$, this forces $d' > \ell'$. Let $U$ be spanned by the matrices $f_j$ whose coordinates are the columns $j > \ell'$ of $Q$, and $V$ by the identity and the matrices $G_i$ ($i \leq d'$) with $\operatorname{Tr}(G_i C) = \sum_p P_{ip} C_p$, built from the rows of $P$ with a zero at $(i_0, i_0)$; so the identity is not in the span of the $G_i$, both spaces are rational, and $\dim U + \dim V = n^{2} - \ell' + d' + 1 \geq n^{2} + 2$. Finally $\operatorname{Tr}(M[A, B]) = \operatorname{Tr}([M, A]B)$, with $\operatorname{Tr}(G_i[M, f_j]) = (PRQ)_{ij} = 0$ and $\operatorname{Tr}([M, f_j]) = 0$, so the trace vanishes on $U \times V$ by bilinearity.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_centralizer -- https://prove2.me/theorems/b2d55de6-bd48-4a32-8e71-1ceadd420026
+\begin{theorem}[Fischler's Theorem 1.2: the centraliser of a matrix of logarithms]
+\label{thm:fischler_centralizer}
+\lean{Diaz.fischler_centralizer}
+\leanok
+Here $\Qbar$ is the field of algebraic numbers, $\mathcal{L}$ the set of logarithms of algebraic numbers (the $z \in \C$ with $e^{z}$ algebraic), and $\widetilde{\mathcal L}$ the $\Qbar$-vector space spanned by $1$ and $\mathcal{L}$. For $M \in \mathrm{Mat}_n(\C)$, $C(M) = \{A \in \mathrm{Mat}_n(\C) : AM = MA\}$ is the centraliser of $M$.
+
+Let $M$ be an $n \times n$ matrix with entries in $\widetilde{\mathcal L}$ whose $n^{2}$ entries are linearly independent over $\Qbar$. Then
+\[ 2\dim C(M) \leq n^{2} + 1, \]
+that is, $\dim C(M) \leq (n^{2} + 1)/2$.
+
+{\small\emph{Source:} \cite[Th.~1.2]{Fis01} (p.~169), complex case. Fischler's $\mathcal{L}$, the $\Qbar$-vector space spanned by $1$ and the logarithms of algebraic numbers, is $\widetilde{\mathcal L}$ here, so this is the printed statement.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{prop:fischler_prop_5_5,lem:fischler_commute_of_trace,lem:remond_commuting_subspaces}
+Suppose $2\dim C(M) \geq n^{2} + 2$. Proposition~\ref{prop:fischler_prop_5_5} gives rational subspaces $U$, $V$ of $\mathrm{Mat}_n(\C)$ with $\dim U + \dim V \geq n^{2} + 2$ and $\operatorname{Tr}(M(AB - BA)) = 0$ for all $A \in U$, $B \in V$. As the $n^{2}$ entries of $M$ are free over $\Qbar$, Lemma~\ref{lem:fischler_commute_of_trace} gives $AB = BA$ on $U \times V$, and Lemma~\ref{lem:remond_commuting_subspaces} bounds $\dim U + \dim V \leq n^{2} + 1$, a contradiction.
 \end{proof}
