@@ -9400,5 +9400,77 @@
   "bytes": 8568,
   "imports_children": true,
   "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.dalag_prop_12_10",
+  "theorem_id": "baf27df3-789e-4812-b4e0-2e878716cd89",
+  "submission_id": "d0767086-293f-4faa-8baa-9234dc2a2cbe",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-15T05:51:32.385552+00:00",
+  "file": "DiazModulus.dalag_prop_12_10__d0767086.lean",
+  "bytes": 8219,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.dalag_prop_12_7",
+  "theorem_id": "232c6298-bc4f-4efd-8e7b-670c9819d124",
+  "submission_id": "b2b16bf4-a08c-464b-a39e-ede9af54bd4b",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-15T05:49:44.732608+00:00",
+  "file": "DiazModulus.dalag_prop_12_7__b2b16bf4.lean",
+  "bytes": 4840,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.roy_rat_theorem_four",
+  "theorem_id": "21bfecda-b526-498c-aed6-d3cc4ab760fe",
+  "submission_id": "b6d83518-5ae3-40bd-8451-a6935300c35b",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-15T05:47:41.422992+00:00",
+  "file": "DiazModulus.roy_rat_theorem_four__b6d83518.lean",
+  "bytes": 14713,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.dalag_prop_12_7_step",
+  "theorem_id": "a5536416-6ecb-4310-b172-c3dc1f1316a1",
+  "submission_id": "25762872-754f-4648-863f-3368cc5cc080",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-15T05:51:35.154559+00:00",
+  "file": "DiazModulus.dalag_prop_12_7_step__25762872.lean",
+  "bytes": 9290,
+  "imports_children": false,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.dalag_prop_12_13_iv_iii",
+  "theorem_id": "ccacc02a-79bf-4488-8f80-78279cb7920b",
+  "submission_id": "fd7f8920-1f8a-497f-be8d-824a7611e54f",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-15T05:49:41.949652+00:00",
+  "file": "DiazModulus.dalag_prop_12_13_iv_iii__fd7f8920.lean",
+  "bytes": 8292,
+  "imports_children": true,
+  "redacted_comments": false
+ },
+ {
+  "theorem_name": "DiazModulus.dalag_prop_11_19_rat",
+  "theorem_id": "0b0a281f-2360-472a-bdba-515dc955a3a5",
+  "submission_id": "f48473cc-c985-4576-a2a6-0091b985c3d1",
+  "status": "ACCEPTED",
+  "submitted_by": "carlok",
+  "created_at": "2026-11-15T05:45:39.693538+00:00",
+  "file": "DiazModulus.dalag_prop_11_19_rat__f48473cc.lean",
+  "bytes": 6497,
+  "imports_children": true,
+  "redacted_comments": false
  }
 ]

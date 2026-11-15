@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.45, 14 November 2026}
+\date{September 2026\\[2pt]\small Version 1.46, 15 November 2026}
 
 \begin{document}
 \maketitle
@@ -239,6 +239,25 @@ $\operatorname{rank}_{\Q(X_{1},\dots,X_{m})}(M_{0}+\sum_{i}X_{i}N_{i})\leq2\oper
 formalisations of classical results; the printed proof of Lemma~12.9 leaves two steps implicit
 (Remark~\ref{rem:printed-corrections}, (B7)).
 
+Since version 1.46 Roy's Theorem~4 over~$\Q$ and~\cite[Proposition~11.19]{waldschmidt-book} for $\Q$ and $\Q+\Logs$
+are machine-checked as well, with no hypothesis, together with three results of~\cite[\S12.1]{waldschmidt-book}. Let
+$U\subseteq\C^{d}$ have dimension $n<d$, and let $T\neq\C^{d}$ be a subspace spanned by rational vectors that
+minimises $(n-\dim(U\cap T))/(d-\dim T)$ among such subspaces; put $n'=n-\dim(U\cap T)$ and $d'=d-\dim T$. Then
+$(U\cap(\Q+\Logs)^{d})/(U\cap T\cap(\Q+\Logs)^{d})$ is finite-dimensional over~$\Q$, and its dimension $\ell'$
+satisfies $\ell'/(d'+\ell')\leq n'/d'\leq n/d$. The formal proof goes through Roy's Theorem~4 for
+$F=\Q$~\cite[Remark~(i), p.~37]{roy-1992}, along the route above, and not through the printed proof of the
+proposition (Remark~\ref{rem:printed-corrections}, (B9) and~(B10)). From~\cite[\S12.1]{waldschmidt-book}, for fields
+$k\subseteq K$ and a $k$-vector subspace $E$ of $K$: Proposition~12.7, that if every non-zero matrix with entries in
+$E$ is equivalent over $k$ to some $\left(\begin{smallmatrix}A&B\\C&0\end{smallmatrix}\right)$ with $A$ regular,
+then $\dim_{k}(V\cap E^{d})\leq n(n+1)/2$ for every subspace $V\subseteq K^{d}$ of dimension $n$ with
+$V\cap k^{d}=\{0\}$; Proposition~12.10, which~\cite[p.~428]{waldschmidt-book} credits to D.~Roy, that every
+$P\in k[X_{1},\dots,X_{n}]$ is $\det(A_{0}+X_{1}A_{1}+\dots+X_{n}A_{n})$ for some square matrices $A_{i}$ with
+entries in~$k$; and the implication (iv)$\Rightarrow$(iii) of Proposition~12.13: if every matrix with entries in
+$E$ has rank equal to its structural rank over $k$, then no non-zero homogeneous polynomial over $k$ vanishes at
+elements of $E$ that are linearly independent over~$k$. These are routine formalisations of classical results; the
+printed proofs of Propositions~12.7 and~12.13 need the corrections (C10) and~(B8) of
+Remark~\ref{rem:printed-corrections}.
+
 \begin{remark}[Printed statements corrected while formalising]\label{rem:printed-corrections}
 Formalising the results above met the points below. The file \texttt{ERRATA.md} of the mirrored project gives each
 one with the printed text, the evidence and the repair, together with smaller slips. Here
@@ -318,7 +337,8 @@ condition~(iv), which is about matrices with entries in a $k$-vector space $E$, 
 $y_{i}=x_{i}/x_{0}$ for some $x_{0},\dots,x_{n}\in E$; these entries need not lie in $E$. For $k=\Q$ and
 $E=\Q+\Q\e+\Q\e\sqrt{2}$, the elements $x_{0}=\e$ and $x_{1}=\e\sqrt{2}$ give $y_{1}=\sqrt{2}\notin E$. The matrix
 $x_{0}M=M_{0}x_{0}+\sum_{i}M_{i}x_{i}$ has entries in $E$ and the rank of $M$, and its structural rank is full by
-Lemma~12.9, which repairs the step. The proposition is correct; it is not machine-checked.
+Lemma~12.9, which repairs the step. The proposition is correct, and the implication (iv)$\Rightarrow$(iii) is
+machine-checked through $x_{0}M$, with Proposition~12.10 and the first step of~(B7); the other implications are not.
 \item[(B9)] In the case $(\Q,\Q+\Logs)$ the proof of~\cite[Proposition~11.19]{waldschmidt-book} (pp.~402--403) reads
 Theorem~11.5\,(3$'$) at the trivial subgroup. Theorem~11.5 ranges over subgroups $G^{*}$ defined over $\Alg$, so
 $\Upsilon(T_{e}G^{*})$ is rational over $\Alg$ only; the first case of the proof, about subspaces rational over $\Q$,
@@ -328,21 +348,50 @@ $\mathbb{G}_{a}^{3}\times\mathbb{G}_{m}^{3}$ with tangent space $\C(1,\sqrt{2},0
 ties with $\{e\}$, and is the one (3$'$) selects; the tie comes from the algebraic point that~(A4) would exclude. The
 example refutes the inference, not the inequality, and the proposition is true:
 \cite[Theorem~11.21]{waldschmidt-book} applied directly, with its additive part replaced by the span of its rational
-vectors as in~(B3), lets Roy's argument for $F=\Q$~\cite[Remark~(i), p.~37]{roy-1992} go through with no selection.
-Corollary~11.15 for $\Q$ is machine-checked along that route, without Proposition~11.19. For $\Alg$ and $\aLogs$
-the printed step is right, by Lemma~11.18\,(3).
+vectors as in~(B3), proves the first case with no selection, and the reduction to the first case uses subspaces
+rational over $\Q$ only. Corollary~11.15 and Proposition~11.19 for $\Q$ are machine-checked along that route, the
+latter through Roy's Theorem~4 for $F=\Q$~\cite[Remark~(i), p.~37]{roy-1992}; Roy's own proof of that case goes
+through his Theorem~2, which for $F=\Q$ needs his Theorem~1 over~$\Q$~(B10). For $\Alg$ and $\aLogs$ the printed
+step is right, by Lemma~11.18\,(3).
+\item[(B10)] \cite[Remark~(i), p.~37]{roy-1992} states Theorem~4 over every subfield $F$ of $\Alg$, with
+$F+F\cdot\Logs$ in place of $\aLogs$, and says that the proof is the same after these substitutions. The proof of
+Theorem~4 and the deduction of Theorem~2 from Theorem~1 (\S\S2--3 there) do go through with $F$ for $\Alg$, but
+Theorem~1 is quoted over $\Alg$ from Waldschmidt, with no proof in the paper, and its form over $F$ is not
+addressed. With Theorem~2 used as printed, the identity is admissible in the first case only if
+$U\cap\Alg^{d}=\{0\}$, which fails for the subspace $U$ of~(B9), although $U$ satisfies the hypotheses over~$\Q$.
+Theorem~1 over $F$ follows from Theorem~1 itself, by replacing the additive kernel of the map it provides by the
+span of its vectors with coordinates in $F$. The formal proof of Theorem~4 for $F=\Q$ follows~(B9) and does not use
+Theorem~2.
+\item[(B11)] The remark of~\cite[\S12.1.3]{waldschmidt-book} (p.~424) shows that $E=k+E_{0}$ has the block property,
+that every non-zero matrix with entries in $E$ is equivalent over $k$ to some
+$\left(\begin{smallmatrix}A&B\\C&0\end{smallmatrix}\right)$ with $A$ regular, when $E_{0}$ is spanned by elements
+algebraically independent over $k$, because $E$ is isomorphic as a $k$-vector space to $kX+E_{0}\subseteq K(X)$, which
+has it. An isomorphism of $k$-vector spaces need not carry the property: $\Q+\Q\sqrt{2}$ is isomorphic to
+$\Q X+\Q Y$, which has it, but the matrix $\left(\begin{smallmatrix}\sqrt{2}&2\\1&\sqrt{2}\end{smallmatrix}\right)$,
+of rank~$1$, is equivalent over $\Q$ to no matrix with a zero lower right entry, since that would need non-zero
+$p,q\in\Q^{2}$ with $2p_{1}^{2}=p_{2}^{2}$. The remark is right: the isomorphism $X\mapsto1$ and a dehomogenisation,
+as in~(B7), carry the property in the case it treats. It is not machine-checked.
 \item[(C9)] The table $\Psi$ of~\cite[p.~394]{waldschmidt-book} gives $\Psi(0,d)$ for $d>0$ only, while
 Corollaries~11.10 and~11.15 there allow $V=\{0\}$, where $d_{\min}=0$; the value $\Psi(0,0)=0$ is meant, and it is
 the one machine-checked.
 \item[(C10)] In the proof of~\cite[Proposition~12.7]{waldschmidt-book} (p.~426) the inductive assertion concerns ``a
 $k$-vector subspace of $K^{r}$'', and $V_{1}$ is then ``the $k$-vector space spanned by the columns of $B$''; $K$ is
-meant in both places, and with $k$ the assertion fails already for $r=1$. The proposition is correct; it is not
-machine-checked.
+meant in both places, and with $k$ the assertion fails already for $r=1$. The proposition is correct, and it is
+machine-checked with $K$-vector subspaces, the inductive step taking $V_{1}$ from $P\cdot V$, where $P$ is the left
+factor of the equivalence over~$k$.
 \item[(C11)] The remark before~\cite[Lemma~12.9]{waldschmidt-book} (p.~427) says that ``a $r\times r$ matrix'' with
 entries in a space with the block property described there has rank at least $r$. What is meant is a matrix that is
 $k$-equivalent to one whose upper left $r\times r$ block is regular; its rank is then at least $r$, and its
 structural rank at most $2r$. As printed, every square matrix over such a space would be regular, which fails for
 $E=k$ and $\operatorname{diag}(1,0)$.
+\item[(C12)] Before~\cite[Proposition~12.5]{waldschmidt-book} (p.~423) the claim to be proved is reduced to
+``$M_{i}\cdot x\in k^{r}\times\{0\}^{n-r}$ for $x\in\{0\}^{r}\times k^{n-r}$''. Here $n$ is the number of variables;
+for the $d\times\ell$ matrices $M_{i}$, the spaces $k^{r}\times\{0\}^{d-r}$ and $\{0\}^{r}\times k^{\ell-r}$ are
+meant. The conclusion is correct.
+\item[(C13)] In the proof of~\cite[Lemma~12.11]{waldschmidt-book} (p.~428) the matrices
+$(X_{0}I_{d},\dots,X_{S}I_{d})$ and $(M_{0};\dots;M_{S})$ are called ``the $d\times dS$ matrix'' and ``the
+$dS\times\ell$ matrix''; they have $S+1$ blocks, so their sizes are $d\times d(S+1)$ and $d(S+1)\times\ell$. The
+machine-checked Proposition~12.10 builds its matrices with the $n+1$ blocks $I,X_{1}I,\dots,X_{n}I$.
 \end{itemize}
 \end{remark}
 
@@ -2652,7 +2701,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.45 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.46 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2785,6 +2834,12 @@ Roy's route over~$\Q$, Lemma~12.9 of~\cite{waldschmidt-book}, and Corollary~12.2
 of~\cite[p.~435]{waldschmidt-book}, all machine-checked with no hypothesis (Section~\ref{sec:setting}); item~(B7) of
 Remark~\ref{rem:printed-corrections} now says that its two steps are machine-checked, and items (A4), (B8), (B9),
 (C10) and~(C11) are added. The mirrored project then held all 684 proved results of the development.
+Version 1.46 adds, on 15 November 2026, Roy's Theorem~4 for $\Q$ and~\cite[Proposition~11.19]{waldschmidt-book}
+for $\Q$ and $\Q+\Logs$, and Propositions~12.7 and~12.10 of~\cite{waldschmidt-book} with the implication
+(iv)$\Rightarrow$(iii) of its Proposition~12.13, all machine-checked with no hypothesis
+(Section~\ref{sec:setting}); items (B8), (B9) and~(C10) of Remark~\ref{rem:printed-corrections} now say what is
+machine-checked, and items (B10), (B11), (C12) and~(C13) are added. The mirrored project then held all 690 proved
+results of the development.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -2944,6 +2999,10 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 \S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~11.15 for $\Q$ and $\Q+\Logs$ & Proved & \nolinkurl{DiazModulus.dalag_cor_11_15_rat}, \nolinkurl{DiazModulus.roy_rat_theorem_five} \\
 \S\ref{sec:setting}, \cite{waldschmidt-book}, Lemma~12.9 & Proved & \nolinkurl{DiazModulus.dalag_lemma_12_9}, \nolinkurl{DiazModulus.dalag_lemma_12_8_linear} \\
 \S\ref{sec:setting}, \cite{waldschmidt-book}, Cor.~12.23, affine form & Proved & \nolinkurl{DiazModulus.dalag_cor_12_23_affine} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Prop.~11.19 for $\Q$ and $\Q+\Logs$ & Proved & \nolinkurl{DiazModulus.dalag_prop_11_19_rat}, \nolinkurl{DiazModulus.roy_rat_theorem_four} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Prop.~12.7 & Proved & \nolinkurl{DiazModulus.dalag_prop_12_7}, \nolinkurl{DiazModulus.dalag_prop_12_7_step} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Prop.~12.10 & Proved & \nolinkurl{DiazModulus.dalag_prop_12_10} \\
+\S\ref{sec:setting}, \cite{waldschmidt-book}, Prop.~12.13, (iv)$\Rightarrow$(iii) & Proved & \nolinkurl{DiazModulus.dalag_prop_12_13_iv_iii} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

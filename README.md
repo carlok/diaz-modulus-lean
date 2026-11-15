@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 684 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 690 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -940,8 +940,8 @@ Cor. 12.24 is proved here from Th. 12.20; and the printed proof of *Further vari
 finite-dimensional `Y`, which is how it is stated here; the next section proves the statement as printed.
 [`ERRATA.md`](ERRATA.md) gives each point with the printed text, a counterexample or the missing step, and the
 repair, with gaps in DALAG's proofs of Cor. 11.10/11.15, Prop. 11.19 (for `(ℚ, ℚ + ℒ)`), Th. 11.21, Lemma 12.9
-and Prop. 12.13 and in Roy's proof of his Lemma on `φ`, a fourth false statement (DALAG Lemma 11.18 (2)), and a
-list of smaller slips.
+and Prop. 12.13 and in its Remark of §12.1.3, in Roy's proof of his Lemma on `φ` and in his Remark (i), a fourth
+false statement (DALAG Lemma 11.18 (2)), and a list of smaller slips.
 
 ### *Further variations* Th. 2.1 for every `Y`, Roy's Lemma, DALAG Cor. 11.15 and 12.23
 
@@ -1031,7 +1031,36 @@ over Q̄, and for `U = ℂ(1, √2, 0) + ℂ(log 2, log 3, log 5)` in `ℂ³` a 
 the inequality, and Prop. 11.19 is true; the route above proves the corollary without it. The tie comes from the
 algebraic vector `(1, √2, 0)` of `U`, which the second clause of DALAG Lemma 11.18 (2) would exclude; that clause is
 false, since `U ∩ kᵈ = 0` does not give `U ∩ Q̄ᵈ = 0`. For `(Q̄, ℒ̃)` the printed step is right.
-[`ERRATA.md`](ERRATA.md) gives both points (A4, B9) with the printed text and the evidence.
+[`ERRATA.md`](ERRATA.md) gives both points (A4, B9) with the printed text and the evidence. Prop. 11.19 itself, for
+`(ℚ, ℚ + ℒ)`, is formalised in the next section.
+
+### Roy's Theorem 4 and DALAG Prop. 11.19 over ℚ
+
+Two nodes of 14 November 2026, formal proofs of classical results with no hypothesis: Roy's Theorem 4 over ℚ, in the
+minimal-ratio form of `roy_theorem_four` (above), and DALAG Prop. 11.19 (p. 402) for `(ℚ, ℚ + ℒ)` as printed, with
+the finiteness it claims. Subspaces rational over ℚ are as in the previous section.
+
+- `DiazModulus.dalag_prop_11_19_rat` (milestone) — DALAG Prop. 11.19 for `(ℚ, ℚ + ℒ)`: let `U ⊆ ℂᵈ` have dimension
+  `n < d`, and let `T ≠ ℂᵈ`, rational over ℚ, minimise `n′/d′` among such subspaces, where `n′ = n − dim(U ∩ T)` and
+  `d′ = d − dim T`. Then the quotient of `U ∩ (ℚ + ℒ)ᵈ` by `U ∩ T ∩ (ℚ + ℒ)ᵈ` is finite-dimensional over ℚ, and its
+  dimension `ℓ′` satisfies `ℓ′/(d′ + ℓ′) ≤ n′/d′ ≤ n/d`. From `roy_rat_theorem_four`, applied to lifts of a ℚ-free
+  family of the quotient: `n < d` gives `n′ < d′`, so such a family has at most `n′d′` elements.
+- `DiazModulus.roy_rat_theorem_four` — Roy 1992, Th. 4 (p. 34) over ℚ, by his Remark (i) (p. 37): for ℚ-free
+  `z₁, …, z_ℓ ∈ U ∩ (ℚ + ℒ)ᵈ` and `S` minimising `n′/d′` as above, `ℓ′/(d′ + ℓ′) ≤ n′/d′ ≤ n/d`, where
+  `ℓ′ = ℓ − dim_ℚ(span_ℚ(z) ∩ S)`; here `n < d` is not needed. The analogue over ℚ of `roy_theorem_four`, by the same
+  passage to `ℂᵈ/S`: from `roy_rat_slope_bound` and `roy_rat_adapted_basis` (above), with the multiplicity estimate
+  discharged by `multiplicityEstimateElem`.
+
+Milestone 210 of the Prove2Me mission is the proposition; the theorem joined by import. The 2 modules have 448
+lines in `Diaz/Mirror/`.
+
+**Printed proofs completed while formalising.** Roy's Remark (i) says that his Theorem 4 holds over every subfield
+`F` of Q̄, with `F + F·ℒ` in place of `ℒ̃`, and that "the proof is the same". That holds for the proof of Theorem 4 and
+for the deduction of his Theorem 2 from his Theorem 1, but Theorem 1 is quoted from Waldschmidt over Q̄, and its form
+over `F` is not addressed; it follows from Theorem 1 by replacing an additive kernel by the span of its vectors with
+coordinates in `F`. The formal proof needs neither Theorem 1 nor Theorem 2: it rests on the slope bound of the
+previous section. DALAG's own proof of Prop. 11.19 for `(ℚ, ℚ + ℒ)` has the gap described there and is not used.
+[`ERRATA.md`](ERRATA.md) gives both points (B9, B10) with the printed text, the evidence and the repair.
 
 ### DALAG Lemma 12.9, and Cor. 12.23 in the affine form of p. 435
 
@@ -1054,7 +1083,8 @@ over `k`: it is the rank of `Σⱼ ZⱼNⱼ` over `k(Z₁, …, Z_m)`.
   `dalag_cor_12_23` (above) and `dalag_lemma_12_9_dehomog`.
 
 Milestones 208 and 209 of the Prove2Me mission are the lemma and the corollary; the other two joined by import. The
-4 modules have 356 lines in `Diaz/Mirror/`. Not formalised: DALAG Prop. 12.13, whose proof uses Lemma 12.9.
+4 modules have 356 lines in `Diaz/Mirror/`. DALAG Prop. 12.13, (iv) ⇒ (iii), whose proof uses Lemma 12.9, is
+formalised in the next section, with Props. 12.7 and 12.10.
 
 **Printed proofs completed while formalising.** DALAG's proof of Lemma 12.9 (p. 428) obtains the structural rank as
 the rank of a homogenised matrix and leaves the dehomogenisation implicit; it also applies Lemma 12.8 to a map not
@@ -1064,6 +1094,42 @@ gives one over `E` with the same rank and, by Lemma 12.9, full structural rank, 
 Two slips nearby: "k-vector subspace" for "K-vector subspace" in the proof of Prop. 12.7 (p. 426), and "a r × r
 matrix" in the remark before Lemma 12.9 (p. 427), meant for a matrix `k`-equivalent to one with a regular `r × r`
 block. [`ERRATA.md`](ERRATA.md) gives each point (B7, B8, C10, C11) with the printed text, the evidence and the
+repair.
+
+### DALAG Prop. 12.7, Prop. 12.10, and Prop. 12.13 (iv) ⇒ (iii)
+
+Four nodes of 14 November 2026, formal proofs of classical results with no hypothesis, from DALAG §12.1
+(pp. 423–431), which is linear algebra over two fields `k ⊆ K` (in Lean, `K` is a `k`-algebra). A `k`-subspace `E` of
+`K` has Property (A B; C 0) (p. 424) if every non-zero matrix `M` with entries in `E` is `k`-equivalent to a block
+matrix `(A B; C 0)` with `A` regular: `PMQ` has that shape for some invertible `P`, `Q` with entries in `k`.
+
+- `DiazModulus.dalag_prop_12_7` (milestone) — DALAG Prop. 12.7 (p. 426): if `E` has Property (A B; C 0) and
+  `V ⊆ Kᵈ` is a `K`-subspace of dimension `n` with `V ∩ kᵈ = 0`, then `V ∩ Eᵈ` is finite-dimensional over `k`, of
+  dimension at most `n(n + 1)/2`. By strong induction on `d`, from `dalag_prop_12_7_step`, the printed inductive
+  step: `ℓ` `k`-free vectors of `V ∩ Eᵈ` give `r ≤ dim V`, `r < d`, a `K`-subspace `V₁ ⊆ Kʳ` with `V₁ ∩ kʳ = 0`, and
+  `ℓ − r` `k`-free vectors of `V₁ ∩ Eʳ`.
+- `DiazModulus.dalag_prop_12_10` (milestone) — DALAG Prop. 12.10 (p. 428), which DALAG credits, with the rest of its
+  §12.1.5, to D. Roy: every `P ∈ k[X₁, …, Xₙ]` is `det(A₀ + X₁A₁ + ⋯ + XₙAₙ)` for square matrices `Aᵢ` over `k`;
+  here over any commutative ring `k`. By the printed reduction of the degree, through the constructions of DALAG
+  Lemmas 12.11 and 12.12; the latter is Mathlib's `Matrix.det_fromBlocks_one₁₁`.
+- `DiazModulus.dalag_prop_12_13_iv_iii` (milestone) — DALAG Prop. 12.13, (iv) ⇒ (iii) (p. 430): if every matrix
+  over `E` has rank equal to its structural rank over `k` (condition (iv), for presentations `M = Σⱼ eⱼNⱼ` with
+  `k`-free `eⱼ ∈ E`, as above), then no non-zero homogeneous polynomial over `k` vanishes at `k`-free
+  `x₀, …, xₙ ∈ E`. From `dalag_prop_12_10` and `dalag_lemma_12_9_dehomog` (above), through the matrix `x₀M` of the
+  repair below; `k ⊆ E` is not assumed.
+
+Milestones 211–213 of the Prove2Me mission are the three propositions; the step joined by import. The 4 modules have
+628 lines in `Diaz/Mirror/`. Not formalised: the other implications of Prop. 12.13, Cor. 12.14, Prop. 12.6,
+and Props. 12.2 and 12.5 with the Remark of p. 424.
+
+**Printed proofs completed while formalising.** The two corrections of the previous section now have formal
+versions: the inductive step of Prop. 12.7 takes `V₁` as a `K`-subspace, built from `P·V`, and the implication
+(iv) ⇒ (iii) of Prop. 12.13 applies (iv) to `x₀M`, whose entries lie in `E`. Three more points nearby. The Remark of
+p. 424 carries Property (A B; C 0) along an isomorphism of `k`-vector spaces, which need not preserve it: `ℚ + ℚ√2`
+lacks it, although it is ℚ-isomorphic to `ℚX + ℚY`, which has it. The Remark's statement is right, through the
+isomorphism `X ↦ 1` and a dehomogenisation. On p. 423, before Prop. 12.5, `k^{n−r}` and `{0}^{n−r}` stand for
+`k^{ℓ−r}` and `{0}^{d−r}`. In the proof of Lemma 12.11 (p. 428) the matrices `A` and `B` have `S + 1` blocks, not
+`S`. [`ERRATA.md`](ERRATA.md) gives each point (B8, B11, C10, C12, C13) with the printed text, the evidence and the
 repair.
 
 ### Consequences of Roy's strong six exponentials theorem

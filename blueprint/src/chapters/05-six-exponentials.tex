@@ -23,7 +23,7 @@ The four sections that follow the one on Roy's Corollary~1 formalise Roy's Theor
 
 The three sections that follow the one on Fischler's centraliser bound complete three of these results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The third of them has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
 
-The last two sections formalise, routinely, two more classical results of \cite{Wal00}. \cite[Cor.~11.15]{Wal00} holds for $\Q$ and $\Q + \mathcal{L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_rat}) by Roy's route over $\Q$: his Theorem~4 holds over every subfield of $\Qbar$ \cite[Remark~(i), p.~37]{Roy92}, his Theorem~5 follows (Theorem~\ref{thm:roy_rat_theorem_five}), and his Lemma gives the table $\Psi$ as above, while DALAG's own proof of this case, through its Prop.~11.19, has a gap there and is not used (ERRATA.md, B9). \cite[Lemma~12.9]{Wal00}, that the structural rank can be computed through any injective map into affine forms, is Lemma~\ref{lem:dalag_lemma_12_9}, with the two steps that its printed proof leaves implicit (ERRATA.md, B7); the first of them, a dehomogenisation (Lemma~\ref{lem:dalag_lemma_12_9_dehomog}), gives \cite[Cor.~12.23]{Wal00} in the affine form of \cite[p.~435]{Wal00} in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23_affine}).
+The five sections that follow the one with two lemmas for \cite[Cor.~12.23]{Wal00} formalise, routinely, more classical results of \cite{Wal00} and \cite{Roy92}. \cite[Cor.~11.15]{Wal00} holds for $\Q$ and $\Q + \mathcal{L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_rat}) by Roy's route over $\Q$: his Theorem~4 holds over every subfield of $\Qbar$ \cite[Remark~(i), p.~37]{Roy92}, his Theorem~5 follows (Theorem~\ref{thm:roy_rat_theorem_five}), and his Lemma gives the table $\Psi$ as above, while DALAG's own proof of this case, through its Prop.~11.19, has a gap there and is not used (ERRATA.md, B9). Roy's Theorem~4 over $\Q$, in its minimal-ratio form (Theorem~\ref{thm:roy_rat_theorem_four}), gives \cite[Prop.~11.19]{Wal00} for $\Q$ and $\Q + \mathcal{L}$ as printed, finiteness included (Proposition~\ref{prop:dalag_prop_11_19_rat}); Roy's Remark~(i) leaves aside the form of his Theorem~1 over a subfield of $\Qbar$, which he quotes over $\Qbar$ only; a short argument supplies it, and the formal proofs do not need it (ERRATA.md, B10). \cite[Lemma~12.9]{Wal00}, that the structural rank can be computed through any injective map into affine forms, is Lemma~\ref{lem:dalag_lemma_12_9}, with the two steps that its printed proof leaves implicit (ERRATA.md, B7); the first of them, a dehomogenisation (Lemma~\ref{lem:dalag_lemma_12_9_dehomog}), gives \cite[Cor.~12.23]{Wal00} in the affine form of \cite[p.~435]{Wal00} in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23_affine}). The last two of them are on \cite[\S12.1]{Wal00}, linear algebra over two fields $k \subseteq K$: Prop.~12.7, that a subspace $V \subseteq K^{d}$ of dimension $n$ with $V \cap k^{d} = \{0\}$ meets $E^{d}$ in dimension at most $n(n + 1)/2$ over $k$ when $E$ has Property (A B; C 0) (Proposition~\ref{prop:dalag_prop_12_7}); Prop.~12.10, which DALAG credits to D.~Roy, that every polynomial in $X_1, \dots, X_n$ is the determinant of a square matrix with entries in $k + kX_1 + \dots + kX_n$ (Proposition~\ref{prop:dalag_prop_12_10}); and the implication (iv)$\Rightarrow$(iii) of Prop.~12.13 (Proposition~\ref{prop:dalag_prop_12_13_iv_iii}), through the dehomogenisation above. The printed proofs of Prop.~12.7 and of that implication need small corrections (ERRATA.md, C10 and B8).
 
 % Prove2Me: SX.exists_aux_expSum -- https://prove2.me/theorems/f0a028dd-7409-4134-b87b-24b2921be5ae
 \begin{lemma}[The auxiliary function]
@@ -2605,6 +2605,48 @@ Let $V \subseteq \C^{d}$ be a subspace that contains no non-zero rational vector
 If $n > 0$, then $n \leq d_{\min}$, and $n = d_{\min}$ would make $V = S_0$ a non-zero subspace rational over $\Q$, which contains a non-zero rational vector; so $n < d_{\min}$. Let $W = V \cap (\Q + \mathcal{L})^{d}$. For a $\Q$-free family of $\ell$ vectors of $W$, Theorem~\ref{thm:roy_rat_theorem_five} gives $S \supseteq V$ rational over $\Q$ and a decomposition $D$ of $(n, \dim S)$ with $\ell \leq \sum_i n_i d_i/(d_i - n_i)$; each term is at most $n_i d$, since $d_i \leq d$ and $d_i - n_i \geq 1$, so $\ell \leq nd$, and $W$ is finite-dimensional. Apply this to a $\Q$-basis of $W$. If $n = 0$, $D$ is empty and $\dim_{\Q} W = 0$. If $n > 0$, $D$ is non-empty, so $n < \dim S$, and $d_{\min} \leq \dim S$ by minimality. Lemma~\ref{lem:dalag_psi_floor_roy_phi} at $(n, \dim S)$ bounds the sum of $D$ below $\Psi(n, \dim S) + 1$, so $\dim_{\Q} W \leq \Psi(n, \dim S)$, both being integers. Finally $\Psi(n, \cdot)$ does not increase on the integers $> n$: its values are $2$, then $1$, for $n = 1$, and $n(n + 1)$, $n(n - 1) + 2$, then $n(n - 1) + 1$, for $n \geq 2$. As $n < d_{\min} \leq \dim S$, $\Psi(n, \dim S) \leq \Psi(n, d_{\min})$.
 \end{proof}
 
+\section{Roy's Theorem 4 and DALAG Proposition 11.19 over the rationals}
+
+% Prove2Me: DiazModulus.roy_rat_theorem_four -- https://prove2.me/theorems/21bfecda-b526-498c-aed6-d3cc4ab760fe
+\begin{theorem}[Roy's Theorem 4 over $\Q$]
+\label{thm:roy_rat_theorem_four}
+\lean{Diaz.roy_rat_theorem_four}
+\leanok
+Here $\mathcal{L}$ is the set of logarithms of algebraic numbers, and $\Q + \mathcal{L}$ the $\Q$-vector space spanned by $1$ and $\mathcal{L}$ (Lemma~\ref{lem:ratLogAlg_mem_iff}). Rational vectors and subspaces rational over $\Q$ are as in Lemma~\ref{lem:roy_rat_adapted_basis}.
+
+Let $U \subseteq \C^{d}$ be a subspace, $n = \dim U$, and let $z_1, \dots, z_{\ell} \in U \cap (\Q + \mathcal{L})^{d}$ be linearly independent over $\Q$, spanning $Z$ over $\Q$. Let $S \neq \C^{d}$ be a subspace rational over $\Q$ that minimises $(n - \dim(U \cap S))/(d - \dim S)$ among the subspaces $\neq \C^{d}$ rational over $\Q$. With $d' = d - \dim S$, $n' = n - \dim(U \cap S)$ and $\ell' = \ell - \dim_{\Q}(Z \cap S)$,
+\[ \ell' d' \leq n' (d' + \ell') \quad\text{and}\quad n' d \leq n d', \]
+that is, $\ell'/(d' + \ell') \leq n'/d' \leq n/d$. It holds with no hypothesis.
+
+{\small\emph{Source:} \cite[Th.~4]{Roy92} (p.~34) over $F = \Q$ (Remark~(i), p.~37, with $\Q + \mathcal{L}$ in place of $\widetilde{\mathcal L}$), in its minimal-ratio form; the analogue over $\Q$ of Theorem~\ref{thm:roy_theorem_four}. Roy's Remark~(i) says that the proof is the same over $F$. That holds for the proof of Th.~4 and for the deduction of his Th.~2 from his Th.~1, but Th.~1 is quoted over $\Qbar$, and its form over $F$ needs a short argument (ERRATA.md, B10). The proof here does not go through Roy's Th.~2: it rests on Proposition~\ref{prop:roy_rat_slope_bound}, and \texttt{hME} is discharged by Theorem~\ref{thm:multiplicityEstimateElem}. Routine.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:multiplicityEstimateElem,prop:roy_rat_slope_bound,lem:roy_rat_adapted_basis}
+The second inequality is the minimality at $S' = 0$, which is rational over $\Q$ and $\neq \C^{d}$, since $d \geq 1$. For the first, coordinates adapted to $S$ (Lemma~\ref{lem:roy_rat_adapted_basis}) give a projection $\pi : \C^{d} \to \C^{d'}$ with kernel $S$ and a section $\sigma$, both with rational matrices; so $\pi$ and $\sigma$ map rational vectors to rational vectors, and $\pi$ maps $(\Q + \mathcal{L})^{d}$ into $(\Q + \mathcal{L})^{d'}$. By rank--nullity $\pi(U)$ has dimension $n'$ and $\pi(Z)$ has $\Q$-dimension $\ell'$, and a $\Q$-basis of $\pi(Z)$ is a $\Q$-free family in $\pi(U) \cap (\Q + \mathcal{L})^{d'}$. A subspace $R \subseteq \C^{d'}$ rational over $\Q$ pulls back to $\pi^{-1}(R) = S + \sigma(R)$, rational over $\Q$, of dimension $\dim S + \dim R$, with $\dim(U \cap \pi^{-1}(R)) = \dim(\pi(U) \cap R) + \dim(U \cap S)$; for $R \neq \C^{d'}$ the minimality of $S$ at $\pi^{-1}(R)$ gives $d' \dim(\pi(U) \cap R) \leq n' \dim R$, and for $R = \C^{d'}$ this is an equality. If $n' < d'$, Proposition~\ref{prop:roy_rat_slope_bound} in $\C^{d'}$ with $(a, b) = (n', d')$, with \texttt{hME} from Theorem~\ref{thm:multiplicityEstimateElem}, gives $(d' - n')\ell' \leq d'n'$, which is the claim; if $n' \geq d'$ the claim is clear.
+\end{proof}
+
+% Prove2Me: DiazModulus.dalag_prop_11_19_rat -- https://prove2.me/theorems/0b0a281f-2360-472a-bdba-515dc955a3a5
+\begin{proposition}[DALAG Proposition 11.19 for $\Q$ and $\Q + \mathcal{L}$]
+\label{prop:dalag_prop_11_19_rat}
+\lean{Diaz.dalag_prop_11_19_rat}
+\leanok
+Here $\mathcal{L}$, $\Q + \mathcal{L}$, rational vectors and subspaces rational over $\Q$ are as in Theorem~\ref{thm:roy_rat_theorem_four}.
+
+Let $U \subseteq \C^{d}$ be a subspace with $n = \dim U < d$, and let $T \neq \C^{d}$ be a subspace rational over $\Q$ that minimises $(n - \dim(U \cap T))/(d - \dim T)$ among the subspaces $\neq \C^{d}$ rational over $\Q$; put $n' = n - \dim(U \cap T)$ and $d' = d - \dim T$. Let $W = U \cap (\Q + \mathcal{L})^{d}$, a $\Q$-vector space. Then the quotient $W/(W \cap T)$ is finite-dimensional over $\Q$, and its dimension $\ell'$ satisfies
+\[ \ell' d' \leq n' (d' + \ell') \quad\text{and}\quad n' d \leq n d', \]
+that is, $\ell'/(d' + \ell') \leq n'/d' \leq n/d$.
+
+{\small\emph{Source:} \cite[Prop.~11.19]{Wal00} (p.~402) for $\Q$ and $\Q + \mathcal{L}$, as printed, with the selection over all subspaces $T \neq \C^{d}$ of $\C^{d}$ rational over $\Q$ (ERRATA.md, C2); \cite[Th.~4]{Roy92} over $F = \Q$ (Remark~(i), p.~37). DALAG's printed proof of this case reads Th.~11.5\,(3$'$) at the trivial subgroup, which (3$'$) need not select (ERRATA.md, B9); the proof here follows the repair (a) there, through Theorem~\ref{thm:roy_rat_theorem_four}, with the finiteness argument of Corollary~\ref{cor:dalag_cor_11_15_rat}. DALAG's hypothesis $n < d$ is needed for the finiteness: for $U = \C^{d}$, $T = 0$ is a minimiser and the quotient is $(\Q + \mathcal{L})^{d}$. Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_rat_theorem_four}
+The second inequality is the minimality at $T' = 0$; with $n < d$ it gives $n'd \leq nd' < dd'$, so $n' < d'$. Let $q_1, \dots, q_k$ be linearly independent over $\Q$ in $W/(W \cap T)$, and lift them to $w_1, \dots, w_k \in W$. The $w_i$ lie in $U \cap (\Q + \mathcal{L})^{d}$ and are linearly independent over $\Q$, and their $\Q$-span meets $T$ only in $0$: a combination lying in $T$ maps to the same combination of the $q_i$, which then vanishes. Theorem~\ref{thm:roy_rat_theorem_four} at $T$, for the $w_i$, gives $kd' \leq n'(d' + k)$, hence $k \leq n'd'$, since $d' - n' \geq 1$. So every $\Q$-free family in the quotient has at most $n'd'$ elements: the quotient is finite-dimensional, and the same inequality for a $\Q$-basis of it, of $\ell'$ elements, is the first claim.
+\end{proof}
+
 \section{DALAG Lemma 12.9: the structural rank through affine forms}
 
 % Prove2Me: DiazModulus.dalag_lemma_12_9_dehomog -- https://prove2.me/theorems/6af6372c-8f53-469f-974a-ca4bbb134f29
@@ -2652,11 +2694,88 @@ Let $k$, $K$ and $M = \sum_{j=1}^{m} e_j N_j$ be as in Lemma~\ref{lem:dalag_lemm
 \[ \operatorname{rank}_{k(X_1, \dots, X_n)} \varphi(M) = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j, \]
 the structural rank of $M$ over $k$ (DALAG \S12.1.4), computed from the presentation $M = \sum_j e_j N_j$.
 
-{\small\emph{Source:} \cite[Lemma~12.9]{Wal00} (p.~427; proof p.~428), in presentation form, for any field $k$ and any $k$-linear map into $k + kX_1 + \dots + kX_n$ that is injective on the span of the $e_j$. DALAG asks the map to be injective on the span $E$ of the entries of $M$; a presentation by a basis of $E$, with the map extended from $E$ to $K$, gives that form. The printed proof composes the map with $a_0 + \sum_i a_i X_i \mapsto a_0 Y_0 + \sum_i a_i Y_i$ and applies Lemma~12.8; the two steps it leaves implicit are Lemma~\ref{lem:dalag_lemma_12_9_dehomog} and Lemma~\ref{lem:dalag_lemma_12_8_linear} (ERRATA.md, B7). The repair of a step in the proof of \cite[Prop.~12.13]{Wal00}, (iv)$\Rightarrow$(iii) (p.~430), is a case of this lemma (ERRATA.md, B8); Prop.~12.13 is not formalised.}
+{\small\emph{Source:} \cite[Lemma~12.9]{Wal00} (p.~427; proof p.~428), in presentation form, for any field $k$ and any $k$-linear map into $k + kX_1 + \dots + kX_n$ that is injective on the span of the $e_j$. DALAG asks the map to be injective on the span $E$ of the entries of $M$; a presentation by a basis of $E$, with the map extended from $E$ to $K$, gives that form. The printed proof composes the map with $a_0 + \sum_i a_i X_i \mapsto a_0 Y_0 + \sum_i a_i Y_i$ and applies Lemma~12.8; the two steps it leaves implicit are Lemma~\ref{lem:dalag_lemma_12_9_dehomog} and Lemma~\ref{lem:dalag_lemma_12_8_linear} (ERRATA.md, B7). The repair of a step in the proof of \cite[Prop.~12.13]{Wal00}, (iv)$\Rightarrow$(iii) (p.~430), is a case of this lemma (ERRATA.md, B8); that implication is formalised at the end of this chapter, through Lemma~\ref{lem:dalag_lemma_12_9_dehomog} directly.}
 \end{lemma}
 
 \begin{proof}
 \leanok
 \uses{lem:dalag_lemma_12_9_dehomog,lem:dalag_lemma_12_8_linear}
 Put $N'_i = \bigl(\varphi(M_{ab})_i\bigr)_{a,b}$ for $i = 0, \dots, n$, matrices with entries in $k$. Entry by entry, $\varphi(M) = N'_0 + \sum_{i=1}^{n} X_i N'_i$, and its homogenisation $\sum_{i=0}^{n} Y_i N'_i$ is the matrix of linear forms $\sum_{i=0}^{n} \varphi(M_{ab})_i Y_i$: the image of $M$ under the same $\varphi$, read as a map into $kY_0 + \dots + kY_n$. Lemma~\ref{lem:dalag_lemma_12_9_dehomog} gives $\operatorname{rank} \varphi(M) = \operatorname{rank} \sum_{i=0}^{n} Y_i N'_i$, and Lemma~\ref{lem:dalag_lemma_12_8_linear}, with $n + 1$ variables, gives $\operatorname{rank} \sum_{i=0}^{n} Y_i N'_i = \operatorname{rank} \sum_j Z_j N_j$.
+\end{proof}
+
+\section{DALAG Proposition 12.7: the block property (A B; C 0)}
+
+% Prove2Me: DiazModulus.dalag_prop_12_7_step -- https://prove2.me/theorems/a5536416-6ecb-4310-b172-c3dc1f1316a1
+\begin{lemma}[The inductive step of DALAG Proposition 12.7]
+\label{lem:dalag_prop_12_7_step}
+\lean{Diaz.dalag_prop_12_7_step}
+\leanok
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$). A $k$-vector subspace $E$ of $K$ has \emph{Property (A B; C 0)} \cite[\S12.1.3]{Wal00} if every non-zero matrix $M$ with entries in $E$ is $k$-equivalent to a block matrix
+\[ \begin{pmatrix} A & B \\ C & 0 \end{pmatrix} \]
+with $A$ a regular square matrix: there are invertible matrices $P$, $Q$ with entries in $k$ and an integer $r \geq 1$ such that the entries of $PMQ$ that lie neither in its first $r$ rows nor in its first $r$ columns vanish, and the upper left $r \times r$ block of $PMQ$ is invertible. A vector of $K^{d}$ is \emph{$k$-rational} if its coordinates lie in $k$.
+
+Let $E \subseteq K$ be a $k$-vector subspace with Property (A B; C 0), let $V \subseteq K^{d}$ be a $K$-vector subspace that contains no non-zero $k$-rational vector, and let $v_1, \dots, v_{\ell} \in V \cap E^{d}$, with $\ell \geq 1$, be linearly independent over $k$. Then there are natural numbers $r$ and $\ell_1$ with $r + \ell_1 = \ell$, $r \leq \dim_K V$ and $r < d$, a $K$-vector subspace $V_1 \subseteq K^{r}$ that contains no non-zero $k$-rational vector, and $w_1, \dots, w_{\ell_1} \in V_1 \cap E^{r}$ linearly independent over $k$.
+
+{\small\emph{Source:} A step of the proof of \cite[Prop.~12.7]{Wal00} (p.~426): the inductive step, with $V_1$ a $K$-vector subspace built from $P \cdot V$, where $P$ is the left factor of the $k$-equivalence. The printed text says ``$k$-vector subspace'' in the two places where a $K$-vector subspace is needed, and its claim that $V$ contains $V_1 \times \{0\}^{d - r}$ holds for $P \cdot V$ (ERRATA.md, C10). Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+Let $M$ be the $d \times \ell$ matrix whose columns are $v_1, \dots, v_{\ell}$: its entries lie in $E$, and $M \neq 0$, since $v_1 \neq 0$. The Property gives $P$, $Q$ and $r$ such that $N = PMQ$ has the block form. Then $r \leq \operatorname{rank} N = \operatorname{rank} M \leq \dim V$, and $\dim V < d$, since otherwise $V = K^{d}$ would contain the first unit vector. Let $V_1 \subseteq K^{r}$ be the space of the $u$ whose extension by $d - r$ zeros lies in $P \cdot V$; it contains no non-zero $k$-rational vector, because $P^{-1}$ has entries in $k$. With $\ell_1 = \ell - r$, let $w_j$ be the first $r$ entries of column $r + j$ of $N$. The zero block makes the extension of $w_j$ by zeros equal to that column, which is $P$ times $\sum_t Q_{t, r + j} v_t \in V$; so $w_j \in V_1$. The entries of $N$ are $k$-linear combinations of entries of $M$, so they lie in $E$. Finally the columns of $N$ are linearly independent over $k$, since a relation among them gives one among the $v_t$ through the invertible $P$ and $Q$; hence so are the $w_j$.
+\end{proof}
+
+% Prove2Me: DiazModulus.dalag_prop_12_7 -- https://prove2.me/theorems/232c6298-bc4f-4efd-8e7b-670c9819d124
+\begin{proposition}[DALAG Proposition 12.7]
+\label{prop:dalag_prop_12_7}
+\lean{Diaz.dalag_prop_12_7}
+\leanok
+Let $k$, $K$, Property (A B; C 0) and $k$-rational vectors be as in Lemma~\ref{lem:dalag_prop_12_7_step}. Let $E \subseteq K$ be a $k$-vector subspace with Property (A B; C 0), and let $V \subseteq K^{d}$ be a $K$-vector subspace of dimension $n$ that contains no non-zero $k$-rational vector. Then $V \cap E^{d}$ is a finite-dimensional $k$-vector space, and
+\[ \dim_k (V \cap E^{d}) \leq \frac{n(n + 1)}{2}. \]
+
+{\small\emph{Source:} \cite[Prop.~12.7]{Wal00} (p.~426), with the Property of \cite[\S12.1.3]{Wal00} (p.~424). The printed induction carries the bound $r(r - 1)/2$ for $k$-vector subspaces $V_1 \subseteq K^{r}$; $K$-vector subspaces are meant (ERRATA.md, C10), and the induction here carries the Proposition itself, from which that bound follows. Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{lem:dalag_prop_12_7_step}
+By strong induction on $d$: for every $K$-subspace $V \subseteq K^{d}$ with no non-zero $k$-rational vector and every $k$-free family $v_1, \dots, v_{\ell}$ in $V \cap E^{d}$, $2\ell \leq n(n + 1)$, where $n = \dim_K V$. If $\ell = 0$ there is nothing to prove. Otherwise Lemma~\ref{lem:dalag_prop_12_7_step} gives $r \leq n$, $r < d$, $\ell_1 = \ell - r$, a $K$-subspace $V_1 \subseteq K^{r}$ and a $k$-free family of $\ell_1$ vectors in $V_1 \cap E^{r}$, and the induction hypothesis at $r$ gives $2\ell_1 \leq n_1(n_1 + 1)$, where $n_1 = \dim_K V_1$. If $r \geq 1$, then $V_1 \neq K^{r}$, since the first unit vector is $k$-rational, so $n_1 \leq r - 1$; if $r = 0$, then $n_1 = 0$. Either way $2\ell = 2r + 2\ell_1 \leq r(r + 1) \leq n(n + 1)$. So every $k$-free family in $V \cap E^{d}$ has at most $n(n + 1)/2$ elements, and $V \cap E^{d}$ is finite-dimensional, of dimension at most $n(n + 1)/2$.
+\end{proof}
+
+\section{DALAG Propositions 12.10 and 12.13: polynomials as determinants}
+
+% Prove2Me: DiazModulus.dalag_prop_12_10 -- https://prove2.me/theorems/baf27df3-789e-4812-b4e0-2e878716cd89
+\begin{proposition}[DALAG Proposition 12.10: every polynomial is a determinant]
+\label{prop:dalag_prop_12_10}
+\lean{Diaz.dalag_prop_12_10}
+\leanok
+Let $k$ be a commutative ring and $P \in k[X_1, \dots, X_n]$. Then there are a natural number $s$ and $s \times s$ matrices $A_0, A_1, \dots, A_n$ with entries in $k$ such that
+\[ \det(A_0 + X_1 A_1 + \dots + X_n A_n) = P. \]
+A square matrix with entries in $k + kX_1 + \dots + kX_n$ is such an $A_0 + \sum_i X_i A_i$.
+
+{\small\emph{Source:} \cite[Prop.~12.10]{Wal00} (p.~428; proof pp.~428--429), in coefficient form and over any commutative ring, where DALAG takes a field. DALAG says of its \S12.1.5 that ``the results of this section are due to D.~Roy'' (p.~428), citing D.~Roy, \emph{Matrices dont les coefficients sont des formes lin\'eaires} (1990). The proof is the printed one, with the factors in the order of the construction in the proof of \cite[Lemma~12.11]{Wal00}, where the block count is misprinted (ERRATA.md, C13). Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+Write $x_0 = 1$ and $x_i = X_i$ for $1 \leq i \leq n$. First, every polynomial of total degree at most $m + 1$ is $\sum_t x_t g_t$ with every $g_t$ of degree at most $m$: a constant goes to $g_0$, and any other monomial is some $X_i$ times a monomial of one degree less. Next, let $M$ be a square matrix of size $s$ with entries of degree at most $m + 1$, where $m \geq 1$. Decomposing every entry gives $M = \sum_t x_t G_t$ with matrices $G_t$ of degree at most $m$, so $M = AB$ with $A = (x_0 I_s, x_1 I_s, \dots, x_n I_s)$ and $B$ the $(n + 1)s \times s$ matrix with the blocks $G_0, \dots, G_n$ one below the other (the construction in the proof of \cite[Lemma~12.11]{Wal00}). By \cite[Lemma~12.12]{Wal00}, a Schur complement,
+\[ \det \begin{pmatrix} I & B \\ -A & 0 \end{pmatrix} = \det(AB) = \det M, \]
+and this matrix has entries of degree at most $m$. Starting from the $1 \times 1$ matrix $(P)$ and repeating this step gives a square matrix with entries of degree at most $1$ and determinant $P$. Decomposing each of its entries with $m = 0$ gives constant $g_t$, so this matrix is $A_0 + \sum_i X_i A_i$ with all $A_i$ over $k$.
+\end{proof}
+
+% Prove2Me: DiazModulus.dalag_prop_12_13_iv_iii -- https://prove2.me/theorems/ccacc02a-79bf-4488-8f80-78279cb7920b
+\begin{proposition}[DALAG Proposition 12.13, (iv)$\Rightarrow$(iii)]
+\label{prop:dalag_prop_12_13_iv_iii}
+\lean{Diaz.dalag_prop_12_13_iv_iii}
+\leanok
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), and let $E \subseteq K$ be a $k$-vector subspace with the following property, condition (iv) of \cite[Prop.~12.13]{Wal00} in presentation form: whenever $e_1, \dots, e_m \in E$ are linearly independent over $k$, $N_1, \dots, N_m$ are matrices of the same size with entries in $k$, and $M = \sum_j e_j N_j$, the rank of $M$ equals the rank of $\sum_j Z_j N_j$ over $k(Z_1, \dots, Z_m)$, the structural rank of $M$ over $k$ (as in Lemma~\ref{lem:dalag_lemma_12_8_linear}).
+
+Let $x_0, \dots, x_n \in E$ be linearly independent over $k$, and let $P \in k[X_0, \dots, X_n]$ be a non-zero homogeneous polynomial. Then $P(x_0, \dots, x_n) \neq 0$. That is condition (iii) of \cite[Prop.~12.13]{Wal00}: $x_1/x_0, \dots, x_n/x_0$ are algebraically independent over $k$.
+
+{\small\emph{Source:} \cite[Prop.~12.13]{Wal00}, the implication (iv)$\Rightarrow$(iii) (p.~430), with (iv) in presentation form, which is equivalent to (iv) by Lemma~12.8 there, and without the hypothesis $k \subseteq E$, which this implication does not use. The printed proof applies (iv) to a matrix whose entries need not lie in $E$; here it is applied to that matrix times $x_0$, whose entries do (ERRATA.md, B8). The other implications of Prop.~12.13 are not formalised. Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{prop:dalag_prop_12_10,lem:dalag_lemma_12_9_dehomog}
+Suppose that $P(x) = 0$, and let $p = P(1, X_1, \dots, X_n)$. Since $P$ is homogeneous, of degree $D$ say, $P(z) = z_0^{D}\, p(z_1/z_0, \dots, z_n/z_0)$ whenever $z_0 \neq 0$. At $z = x$, where $x_0 \neq 0$, this gives $p(y) = 0$ for $y_i = x_i/x_0$; at the generic point $(X_0, \dots, X_n)$ of the field of rational functions it gives $p \neq 0$, since $P \neq 0$. By Proposition~\ref{prop:dalag_prop_12_10}, $p = \det(N_0 + \sum_i X_i N_i)$ for square matrices $N_0, \dots, N_n$ over $k$, of size $s$. Let $M = \sum_{j=0}^{n} x_j N_j$, a matrix with entries in $E$ presented by $x_0, \dots, x_n$. By (iv) its rank is that of $\sum_j Y_j N_j$ over $k(Y_0, \dots, Y_n)$, which by Lemma~\ref{lem:dalag_lemma_12_9_dehomog} is the rank of $N_0 + \sum_i X_i N_i$ over $k(X_1, \dots, X_n)$, namely $s$, since its determinant is $p \neq 0$. But $M = x_0 (N_0 + \sum_i y_i N_i)$ has determinant $x_0^{s}\, p(y) = 0$, so its rank is less than $s$: a contradiction.
 \end{proof}

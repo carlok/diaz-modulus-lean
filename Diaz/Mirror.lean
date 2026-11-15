@@ -643,3 +643,9 @@ import Diaz.Mirror.dalag_lemma_12_9_dehomog
 import Diaz.Mirror.dalag_lemma_12_8_linear
 import Diaz.Mirror.dalag_lemma_12_9
 import Diaz.Mirror.dalag_cor_12_23_affine
+import Diaz.Mirror.roy_rat_theorem_four
+import Diaz.Mirror.dalag_prop_11_19_rat
+import Diaz.Mirror.dalag_prop_12_7_step
+import Diaz.Mirror.dalag_prop_12_7
+import Diaz.Mirror.dalag_prop_12_10
+import Diaz.Mirror.dalag_prop_12_13_iv_iii

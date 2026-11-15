@@ -1,12 +1,12 @@
-*Transcendence theory in Lean 4 (`diaz-modulus-lean`): notes of 14 November 2026.*
+*Transcendence theory in Lean 4 (`diaz-modulus-lean`): notes of 15 November 2026.*
 
 # Notes on printed statements and proofs met while formalising rank bounds for matrices of logarithms
 
 These notes record places where a printed statement or argument needed a correction while the results below were
 being formalised. Most items are small. Four printed statements are false as stated (two corollaries in [Var]
-and two lemmas in [DALAG]); one of the two corollaries was already corrected by its author. Section B lists nine
-gaps in printed proofs, each with a repair (six in [DALAG], one each in [Var], [FV] and [Roy]), and section C eleven
-smaller slips. Each item gives the place, the printed text (short quotation), what goes wrong, the evidence,
+and two lemmas in [DALAG]); one of the two corollaries was already corrected by its author. Section B lists eleven
+gaps in printed proofs, each with a repair (seven in [DALAG], two in [Roy], one each in [Var] and [FV]), and section C
+thirteen smaller slips. Each item gives the place, the printed text (short quotation), what goes wrong, the evidence,
 whether the point is already corrected in print,
 and how the formal version handles it. The formal versions are theorems of the Lean 4 library in this repository;
 they are named here without their namespace.
@@ -393,8 +393,11 @@ x₀M = ((e√2, 2e), (e, e√2)) has rank 1 and structural rank 2. The Proposit
 
 **Already corrected in print.** Not in the sources consulted.
 
-**Formal version.** Proposition 12.13 is not formalised. The repaired step is the case of `dalag_lemma_12_9` (see
-B7) with this map.
+**Formal version.** `dalag_prop_12_13_iv_iii`: the implication (iv) ⇒ (iii), drawn from the repaired matrix x₀M with
+its presentation by x₀, …, xₙ, through `dalag_prop_12_10` (Proposition 12.10) and `dalag_lemma_12_9_dehomog`
+(Lemma 12.9 for x₀ ↦ 1, xᵢ ↦ Xᵢ; see B7). There (iv) is taken for presentations M = Σ eⱼNⱼ with e k-free in E,
+which is equivalent to (iv) by Lemma 12.8 (see B7), and k ⊆ E is not assumed. The other implications of
+Proposition 12.13 are not formalised.
 
 ### B9. [DALAG] proof of Proposition 11.19, pp. 402–403, case (𝕂, L) = (ℚ, ℚ + ℒ) — proof gap: Theorem 11.5 (3′) need not select {e}
 
@@ -426,7 +429,9 @@ The tie comes from the algebraic point ((1, √2, 0), 0) of 𝒱 ∩ (Q̄^{d̲�
 **Repair.** The statement is true. (a) Apply Theorem 11.21 directly to G = 𝔾ₐ^d × 𝔾ₘ^d with Υ(x, y) = x + y, and
 replace the additive part of its output by the span of its rational vectors (B3, repair (b), with ℚ in place of Q̄;
 legitimate because the additive coordinates of the points are rational). The resulting T is rational over ℚ, and
-[Roy]'s argument (Theorem 4 with his Remark (i), p. 37, for F = ℚ) goes through with no selection step.
+the first case needs no selection step. The reduction to the first case (as in the proof of Corollary 11.14, or
+[Roy] p. 34) uses ℚ-rational subspaces only and goes through. ([Roy]'s own proof of the first case goes through his
+Theorem 2, which for F = ℚ needs his Theorem 1 with ℚ in place of Q̄: B10.)
 (b) Inside DALAG's framework: a variant of Theorem 11.5 (3′) in which only G₀* is required to be rational over ℚ (subtori
 G₁* always are), under "additive coordinates of Y in ℚ^{d̲₀}, 𝒲 rational over ℚ". Exercise 11.1 (p. 411) does not
 supply it: its hypothesis exp_G(Y) ⊂ G(ℚ) fails here (multiplicative coordinates in Q̄, e.g. e^λ = 1 + i). Granting
@@ -434,8 +439,66 @@ the variant, T is rational over ℚ, T_e(G₀*) ⊂ 𝒰 is impossible since �
 
 **Already corrected in print.** Not in the sources consulted.
 
-**Formal version.** Repair (a): `dalag_cor_11_15_rat` (Corollary 11.15 for (ℚ, ℚ + ℒ)) rests on
+**Formal version.** Repair (a). The proposition itself for (ℚ, ℚ + ℒ), as printed (finiteness of ℓ′ included):
+`dalag_prop_11_19_rat`, from `roy_rat_theorem_four`; Corollary 11.15: `dalag_cor_11_15_rat`. They rest on
 `roy_rat_semistable_node`, which applies `linear_subgroup_transcendence` once and never selects a subgroup.
+
+### B10. [Roy] Remark (i), p. 37 — proof gap (small): for F ≠ Q̄ the proof needs Theorem 1 with F in place of Q̄, which [Roy] quotes from Waldschmidt over Q̄
+
+**Printed.** For a subfield F of Q̄, Theorem 4 "remains valid" with F in place of Q̄ and F + F·L in place of 𝓛, and
+"The proof is the same provided that we make the same substitutions."
+
+**What goes wrong.** With F in place of Q̄ throughout, the proof of Theorem 4 (pp. 34–37) and the deduction of
+Theorem 2 from Theorem 1 (Sections 2–3, pp. 26–33) go through verbatim: Sections 2–3 use Q̄ only through the rational
+structures of the category (its morphisms, and Propositions 1–3), and Theorem 3 is abstract. The one step the
+substitution cannot reach is Theorem 1 itself, which is Theorem 4.1 of Waldschmidt's [W3] quoted over Q̄ (p. 24),
+with no proof in the paper. The remark does not address it.
+
+**Why Theorem 2 as printed does not suffice.** If only the proof of Theorem 4 is rewritten with F and Theorem 2 is
+used as printed, the identity can be chosen for s only if (4) V ∩ (Q̄^d × 0) = {0}, that is U ∩ Q̄^d = {0}, and (5)
+holds for every s with s(Q̄^{d₀} × 0) ⊂ Q̄^{d₀′} × 0 (pp. 35–36). Hypothesis (2) over F gives only U ∩ F^d = {0}, and
+(5) only for the s whose additive kernel S₀ is rational over F (otherwise T = φ(S₀ × S₁) need not be rational over
+F). B9's configuration shows that this reading fails: F = ℚ, d = 3, U = ℂ(1, √2, 0) + ℂ(log 2, log 3, log 5),
+Z = ℚ·(log 2, log 3, log 5) ⊂ (ℚ + L)³. Over ℚ the identity is the only minimiser and (2) holds, but
+U ∩ Q̄³ ∋ (1, √2, 0), so (4) fails. This is not a counterexample to Theorem 1, 2 or 4 over F: here (3) holds
+(dim Z = 1, and (3) allows up to 6).
+
+**Repair.** Theorem 1 with F in place of Q̄ in the conditions on s, for Y ⊂ F^{d₀} × L^{d₁}, follows from Theorem 1
+itself. By the two inclusions and K-linearity, s = s₀ ⊕ s₁. Replace the additive kernel S₀ = ker s₀ by the span of
+its vectors in F^{d₀}. Since the additive coordinates of Y are in F, Y ∩ ker s and Y ∩ s⁻¹(Ω′) do not change, so
+neither does the numerator d₁′ − dim(Y′ ∩ Ω′) + dim Y′; d₀′ + d₁′ − dim W′ = codim(W + ker s) can only increase, and
+W′ ≠ K^{d₀′} × K^{d₁′} is kept. Sections 2–3 then give Theorem 2 with F in place of Q̄, and the proof of Theorem 4
+goes through as printed (there Y ⊂ k^d × (L^d)^m with k ⊂ F). Alternatively, prove the first case as in B9,
+repair (a).
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** `roy_rat_theorem_four` (Theorem 4 for F = ℚ, at any minimiser) follows B9's repair (a): it rests
+on `roy_rat_slope_bound`, which does not use Theorem 2.
+
+### B11. [DALAG] Remark in § 12.1.3, p. 424 — proof gap (small): a k-linear isomorphism does not carry Property (A B; C 0)
+
+**Printed.** The Remark states that E = k + E₀ satisfies Property (A B; C 0) when E₀ is spanned by k-algebraically
+independent elements and E₀ ∩ k = {0}. The reason given: "as a k-vector space, E is isomorphic to" E′ = kX + E₀ in
+K(X), and the Property holds for (k, K(X), E′) by Proposition 12.2.
+
+**What goes wrong.** The Property is "a property for the triple (k, K, E)" (same page), not of the k-vector space E:
+the block A must be regular, which is not a linear condition, so an isomorphism of k-vector spaces need not carry it.
+Example: E = ℚ + ℚ√2 ⊂ ℝ is ℚ-isomorphic to ℚX + ℚY ⊂ ℚ(X, Y), which has the Property by Proposition 12.2, but E
+does not. M = ((√2, 2), (1, √2)) (Example 3, p. 427) has rank 1, so a k-equivalent (A B; C 0) would need r = 1 and a
+zero (2, 2) entry pᵀMq with p, q ∈ ℚ² ∖ {0}. That means pᵀq = 0 and pᵀ((0, 2), (1, 0))q = 0, which forces
+2p₁² = p₂².
+
+**Repair.** Use the isomorphism X ↦ 1. A non-zero matrix over E is M = M₀ + Σ Mᵢxᵢ with finitely many of the
+spanning elements x₁, …, x_m; put M′ = M₀X + Σ Mᵢxᵢ, a non-zero matrix over E′, and PM′Q = (A′ B′; C′ 0) by
+Proposition 12.2. X, x₁, …, x_m are k-free, so the zero block of PMQ vanishes too. det A′ = H(X, x₁, …, x_m) with H
+homogeneous of degree r and non-zero, and det A = H(1, x₁, …, x_m) ≠ 0, because H(1, Y₁, …, Y_m) ≠ 0 and
+x₁, …, x_m are algebraically independent. This is the dehomogenisation of B7. The statement of the Remark is
+correct (C10's example uses it), and its hypothesis E₀ ∩ k = {0} is automatic.
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** Not formalised (it needs Proposition 12.2).
 
 ---
 
@@ -474,7 +537,7 @@ the introduction (p. 23) says the bound is proved "where ℚ is replaced by Q̄"
 that corresponds to [Roy] Theorem 5 in the (Q̄, ℒ̃) case, as DALAG itself says on p. 398 ("Following [Roy 1992b]")
 and as [Var] p. 347 says ("Theorem 5 of [7] (see also Corollary 11.15 in [12])"). Neither statement implies the
 other directly (the hypotheses V ∩ ℚ^d = {0} and V ∩ Q̄^d = {0} differ, and so do the two hulls); the (ℚ, ℒ)
-version is within reach of [Roy]'s method by his Remark (i), p. 37 (Theorem 4 over a subfield F of Q̄).
+version is within reach of [Roy]'s method by his Remark (i), p. 37 (Theorem 4 over a subfield F of Q̄; see B10).
 
 **Already corrected in print.** Not in the sources consulted. **Formal version.** Both cases are
 formalised: (Q̄, ℒ̃) credited to [Roy] Theorem 5 and DALAG Corollary 11.15, and (ℚ, ℚ + ℒ)
@@ -558,8 +621,9 @@ r = 1 (k = ℚ, E = ℚ + ℚπ, V₁ = ℚπ, where V₁ ∩ E^1 has dimension 
 holds for P·V, where P ∈ GL_d(k) is the left factor of the k-equivalence; P·V satisfies the same hypotheses as V,
 and P·(V ∩ E^d) = P·V ∩ E^d. The Proposition is correct.
 
-**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected (Proposition 12.7 is
-not formalised).
+**Already corrected in print.** Not in the sources consulted. **Formal version.** `dalag_prop_12_7`, by strong
+induction on d through `dalag_prop_12_7_step`, whose V₁ is a K-vector subspace of K^r; the step's proof takes V₁ as
+the preimage of P·V under w ↦ (w, 0).
 
 ### C11. [DALAG] Remark before Lemma 12.9, p. 427 — slip: "If M is a r × r matrix"
 
@@ -572,6 +636,29 @@ which fails for E = k and M = diag(1, 0). The boxed consequence is correct. The 
 after "Property (A B; C 0)".
 
 **Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected.
+
+### C12. [DALAG] p. 423, before Proposition 12.5 — slip: "{0}^{n−r}" and "k^{n−r}"
+
+**Printed.** The claim to be proved is reduced to "Mᵢ · x ∈ k^r × {0}^{n−r} for x ∈ {0}^r × k^{n−r}", that is,
+Mᵢ(ker N) ⊂ Im N.
+
+**What is meant.** Mᵢ is the linear map k^ℓ → k^d and N = (I_r 0; 0 0) is d × ℓ, so ker N = {0}^r × k^{ℓ−r} and
+Im N = k^r × {0}^{d−r}; n is the number of variables X₁, …, Xₙ. The conclusion Mᵢ(ker N) ⊂ Im N, and
+Proposition 12.5, are correct.
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected (Propositions 12.2
+and 12.5 are not formalised).
+
+### C13. [DALAG] proof of Lemma 12.11, p. 428 — slip: "the d × dS matrix" and "the dS × ℓ matrix"
+
+**Printed.** A = (X₀I_d, …, X_SI_d) is called "the d × dS matrix" and B = (M₀; …; M_S) "the dS × ℓ matrix".
+
+**What is meant.** There are S + 1 blocks: A is d × d(S + 1) and B is d(S + 1) × ℓ. The Lemma is correct.
+Proposition 12.10 uses the Lemma's construction, not its statement (there the M_s have entries in E_{m−1}, and
+X₀ = 1).
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** `dalag_prop_12_10` builds the
+matrix with the n + 1 blocks (I, X₁I, …, XₙI).
 
 ## D. Checked and not counted as errors
 
@@ -635,7 +722,8 @@ or is plainly announced as unproved.
   enumerated: (𝔽₂, 𝔽₄), (𝔽₂, 𝔽₈) and (𝔽₃, 𝔽₉), n ≤ 3. Each check was written twice, independently, as a short
   Python script. For B8 and C11 the examples (determinants, ranks, structural ranks) were recomputed by two short
   Python scripts, one written with the item and one by an independent referee; so were, for B9, the dimensions in
-  the example and the monotonicity in d of the Ψ table for d < 60.
+  the example and the monotonicity in d of the Ψ table for d < 60. For B11, the condition 2p₁² = p₂² was derived by
+  hand twice, independently, and confirmed by a search over integer vectors with entries up to 12.
 - Corrections in print were looked for in [FV] (all nine pages, on images) and [Role] (text search, then §6 on
   images), and on the author's publications page (webusers.imj-prg.fr/~michel.waldschmidt/texts.html, read on
   14 November 2026). That page gives one erratum for [Var]: Corollary 2.12, p. 346, with the hypothesis that

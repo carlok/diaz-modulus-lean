@@ -288,3 +288,9 @@ import Solution
 #print axioms Diaz.dalag_lemma_12_8_linear
 #print axioms Diaz.dalag_lemma_12_9
 #print axioms Diaz.dalag_cor_12_23_affine
+#print axioms Diaz.roy_rat_theorem_four
+#print axioms Diaz.dalag_prop_11_19_rat
+#print axioms Diaz.dalag_prop_12_7_step
+#print axioms Diaz.dalag_prop_12_7
+#print axioms Diaz.dalag_prop_12_10
+#print axioms Diaz.dalag_prop_12_13_iv_iii
