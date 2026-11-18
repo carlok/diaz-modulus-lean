@@ -1,6 +1,6 @@
 [← README](../README.md)
 
-## Roy's rank bounds, *Variations*, *Further variations* and DALAG §11–12
+## Roy's rank bounds, *Variations*, *Further variations*, DALAG §11–12 and Fischler 2001
 
 ### Roy's Corollary 1: the rank of a matrix of logarithms
 
@@ -118,9 +118,9 @@ results, with no hypothesis.
 
 Milestones 194–202 of the Prove2Me mission are the nine headline results; the other nine joined by import. The 18
 modules have 1,851 lines in `Diaz/Mirror/`. *Further variations* Th. 2.1 for
-infinite-dimensional `Y` and DALAG Cor. 12.23 are formalised in the next section. Not formalised: *Further
-variations* Cor. 1.3; the ℚ + ℒ statement after DALAG Cor. 12.24; Fischler's Th. 1.1 and §4, on orbits under
-algebraic groups.
+infinite-dimensional `Y` and DALAG Cor. 12.23 are formalised in the next section, *Further variations* Cor. 1.3 and
+Fischler's Th. 1.1 in the last section. Not formalised: the ℚ + ℒ statement after DALAG Cor. 12.24; Fischler's §4,
+on orbits under algebraic groups.
 
 **Printed statements corrected while formalising.** Formalising these results met three printed statements that
 are false as stated, two of them used here: *Variations* Cor. 2.12, which the author corrected in *Further
@@ -311,8 +311,8 @@ matrix `(A B; C 0)` with `A` regular: `PMQ` has that shape for some invertible `
   repair below; `k ⊆ E` is not assumed.
 
 Milestones 211–213 of the Prove2Me mission are the three propositions; the step joined by import. The 4 modules have
-628 lines in `Diaz/Mirror/`. Not formalised: the other implications of Prop. 12.13, Cor. 12.14, Prop. 12.6,
-and Props. 12.2 and 12.5 with the Remark of p. 424.
+628 lines in `Diaz/Mirror/`. The other implications of Prop. 12.13, Cor. 12.14, Prop. 12.6, Prop. 12.2 and the
+Remark of p. 424 are formalised in the next section; Prop. 12.5 is not.
 
 **Printed proofs completed while formalising.** The two corrections of the previous section now have formal
 versions: the inductive step of Prop. 12.7 takes `V₁` as a `K`-subspace, built from `P·V`, and the implication
@@ -323,4 +323,142 @@ isomorphism `X ↦ 1` and a dehomogenisation. On p. 423, before Prop. 12.5, `k^{
 `k^{ℓ−r}` and `{0}^{d−r}`. In the proof of Lemma 12.11 (p. 428) the matrices `A` and `B` have `S + 1` blocks, not
 `S`. [`ERRATA.md`](../ERRATA.md) gives each point (B8, B11, C10, C12, C13) with the printed text, the evidence and the
 repair.
+
+### DALAG Prop. 12.13 and Cor. 12.14, Prop. 12.6, Prop. 12.2, the Remark of p. 424 and §12.1.6
+
+Sixteen nodes of 18 November 2026, formal proofs of classical results with no hypothesis, from DALAG §12.1
+(pp. 418–431), in the setting of the previous section: fields `k ⊆ K` (in Lean, `K` is a `k`-algebra), a `k`-subspace
+`E` of `K`, Property (A B; C 0), and the structural rank computed from a presentation `M = Σⱼ eⱼNⱼ` with `k`-free
+`eⱼ ∈ E`. Below, condition (ii) is that of Prop. 12.13: whenever `x₁, …, xₙ ∈ E` and `1, x₁, …, xₙ` are linearly
+independent over `k`, the `xᵢ` are algebraically independent over `k`.
+
+- `DiazModulus.dalag_prop_12_13` (milestone) — DALAG Prop. 12.13 (pp. 429–430), complete: for `E` containing 1 (that is,
+  `k ⊆ E`), four conditions are equivalent. (i) `E` has a basis over `k` made of 1 and elements algebraically
+  independent over `k`; (ii) as above; (iii) no non-zero homogeneous polynomial over `k` vanishes at `k`-free
+  `x₀, …, xₙ ∈ E`; (iv) every matrix over `E` has rank equal to its structural rank over `k`. `E` may be
+  infinite-dimensional. The proof goes round the cycle (i) ⇒ (ii) ⇒ (iv) ⇒ (iii) ⇒ (ii) ⇒ (i), with (ii) ⇒ (iv) in
+  place of the printed (i) ⇒ (iv), so that no basis of `E` has to be indexed. The implications are
+  `dalag_prop_12_13_i_ii`, an affine change of variables, from `dalag_prop_12_13_i_ii_span` (the same step for the
+  span of 1 and any algebraically independent family); `dalag_prop_12_13_ii_iv`, from `dalag_lemma_12_9` (above)
+  and evaluation at algebraically independent elements, a homomorphism of fields; `dalag_prop_12_13_iv_iii`
+  (above); `dalag_prop_12_13_iii_ii`, with the homogenisation that the printed proof leaves implicit; and
+  `dalag_prop_12_13_ii_i`, which extends 1 to a basis and checks algebraic independence on finite subfamilies.
+  `dalag_prop_12_13_ii_iv` keeps the hypothesis `1 ∈ E`, which it does not need.
+- `DiazModulus.dalag_cor_12_14` (milestone) — DALAG Cor. 12.14 (p. 430): if `E₀ ∩ k = 0`, then `k`-free elements of `E₀`
+  are algebraically independent over `k` if and only if every matrix over `k + E₀` has rank equal to its structural
+  rank. No proof is printed. Both directions go through Prop. 12.13 for `k + E₀`, with the translation
+  `xᵢ = cᵢ + yᵢ` (`cᵢ ∈ k`, `yᵢ ∈ E₀`); the hypothesis `E₀ ∩ k = 0` is used only for the converse.
+- `DiazModulus.dalag_prop_12_6` (milestone) — DALAG Prop. 12.6 (p. 425): if `E` has Property (A B; C 0), `V ⊆ Kᵈ` is a
+  `K`-subspace of dimension `n` and `Y ⊆ V ∩ Eᵈ` is a finite-dimensional `k`-subspace, then some `K`-subspace `S`
+  of `Kᵈ`, rational over `k`, has `ℓ′ ≤ d − d′ ≤ n`, where `d′ = dim_K(Kᵈ/S)` and `ℓ′ = dim_k(Y/(Y ∩ S))`. The
+  printed hypothesis `n < d` is not used by the proof and is dropped; for `n = d`, `S = Kᵈ` works. The printed `S`,
+  an intersection of hyperplanes, is taken as the span of the first `r` columns of `P⁻¹`, `P` being the left factor
+  that the Property gives for the matrix of a basis of `Y`; it is the same space.
+- `DiazModulus.dalag_prop_12_2` (milestone) — DALAG Prop. 12.2 (p. 419), Proposition 1 of D. Roy (1990): if `E` is spanned
+  over `k` by a family, finite or not, of elements algebraically independent over `k`, every matrix over `E` is
+  `k`-equivalent to `(A B; C 0)` with `A` regular or of size 0 × 0. For any field `k`, by the first of the two
+  printed proofs (pp. 420–422); the second (p. 424) assumes `k` infinite and is not used. From
+  `dalag_prop_12_2_ii` (next item), with (ii) for `E` from `dalag_prop_12_13_i_ii_span`.
+- `DiazModulus.dalag_prop_12_2_ii` (milestone) — the first proof of Prop. 12.2, run for every `E` with (ii) in place of a
+  span of algebraically independent elements: every matrix over `E`, the zero matrix included, is `k`-equivalent to
+  `(A B; C 0)` with `A` regular or empty; `1 ∈ E` is not assumed. DALAG notes (p. 422) that this proof gives a more
+  general result, citing Roy 1989; this is such a generalisation. By strong induction on the dimension of the span
+  of the entries, as printed, through four steps: `matrix_exists_rank_normal_form` (`PNQ = (I_r 0; 0 0)` over any
+  field, by elimination), `dalag_prop_12_2_split` (the choice of `x` and of `E₁` with `E₀ = E₁ ⊕ kx`, where `E₁`
+  contains 1 whenever it can), `dalag_prop_12_2_step` (the induction step of pp. 421–422) and `dalag_prop_12_2_det`
+  (the closing determinant argument of p. 422, through a Schur complement and a characteristic polynomial, which is
+  monic, in place of the leading term `xʳ det A′`).
+- `DiazModulus.dalag_remark_12_1_3` (milestone) — the Remark of §12.1.3 (p. 424): if `E₀` is spanned by elements
+  algebraically independent over `k`, then `k + E₀` has Property (A B; C 0). For any field `k`, and without the
+  printed hypothesis `E₀ ∩ k = 0`, which follows from the algebraic independence. The printed reason passes through
+  `K(X)`; the formal proof does not: `k + E₀` satisfies (ii) by `dalag_prop_12_13_i_ii_span`, and
+  `dalag_prop_12_2_ii` concludes.
+- `DiazModulus.dalag_conclusion_12_1_6` (milestone) — §12.1.6 (p. 431), Property (A B; C 0) as a consequence of
+  `r = r_str`: if `E` contains 1 and every matrix over `E` has rank equal to its structural rank, `E` has Property
+  (A B; C 0). DALAG says it for `E = k + E₀` with `E₀ ∩ k = 0`; every `E` containing 1 has that form, so `E₀` does
+  not appear. From (iv) ⇒ (iii) ⇒ (ii) of Prop. 12.13 and `dalag_prop_12_2_ii`.
+
+Milestones 214–220 of the Prove2Me mission are the seven results marked milestone; the other nine joined by import.
+The 16 modules have 1,342 lines in `Diaz/Mirror/`. Not formalised from §12.1: Lemma 12.3 as stated, Prop. 12.4,
+Prop. 12.5 with the second proof of Prop. 12.2, and the boxed consequence of Property (A B; C 0) on p. 427,
+`r ≥ r_str/2`.
+
+**Printed proofs completed while formalising.** The Remark of p. 424 carries Property (A B; C 0) along an
+isomorphism of `k`-vector spaces, which need not preserve it (previous section). The formal proof takes neither that
+route nor the repair given there: it runs the first proof of Prop. 12.2 on `k + E₀`. Its step from `x ∉ E₁` to `x`
+transcendental over `k(E₁)` (Lemma 12.3) then fails whenever 1 lies in the span of the entries but not in `E₁`: for
+`E₁ = k·(1 + b)` and `x = b`, `x` lies in `k(E₁)`. So `E₁` is chosen to contain 1. This is not an error of the book,
+since `k + E₀` does not satisfy the conditions of Lemma 12.3. The printed proof of Prop. 12.13 gives three of its
+implications in one line each; they are right, and the formal proofs supply the homogenisation and the finite
+subfamilies they leave implicit. Cor. 12.14 has no printed proof. Three slips nearby: in the Remark after Prop. 12.2
+(p. 419) the block sizes printed for the second and third trivial examples do not fit the shape (12.1); in the proof
+of Prop. 12.4 (p. 422) a matrix said to have rank `r₁ − 1` has rank `r₁`; and §12.1.6 (p. 431) refers to § 12.1.5
+for `r ≥ r_str/2`, which is in §12.1.4. [`ERRATA.md`](../ERRATA.md) gives the three slips (C14, C15, C16) with the
+printed text and the evidence, and names the formal versions of B8 and B11.
+
+### *Further variations* Cor. 1.3, and Fischler 2001: Th. 1.1, §6 and the N.B. of p. 183
+
+Twelve nodes of 18 November 2026, formal proofs of classical results with no hypothesis: Cor. 1.3 of Waldschmidt's
+*Further variations*, and, from Fischler 2001, Lemma 6.1, Th. 1.1 (which is Th. 6.2 (1)), Th. 6.2 (2), Th. 6.4 (1)
+and (2), Cor. 6.3 (1) and the N.B. of p. 183. They rest on Roy's strong six exponentials theorem
+(`strong_six_exponentials_unconditional`, in the library with no hypothesis) and linear algebra, except the N.B.,
+which rests on Roy's Corollary 1 through `fischler_prop_5_5`. As above,
+Fischler's `ℒ` is `ℒ̃` here, and only his complex case is formalised. A subspace of `ℂᵐ` is defined over Q̄ when it
+is spanned by vectors with algebraic coordinates (Fischler, p. 170).
+
+- `DiazModulus.fv_cor_1_3` (milestone) — *Further variations* Cor. 1.3 (p. 3), as printed: if `Λ₁, Λ₂, Λ₃ ∈ ℒ̃`, `Λ₁` is
+  transcendental and `1, Λ₂, Λ₃` are Q̄-free, then `Λ₁Λ₂ ∉ ℒ̃` or `Λ₁Λ₃ ∉ ℒ̃`. No proof is printed; the paper
+  presents it as a consequence of its Th. 1.1, Roy's strong six exponentials theorem, and the proof is that theorem
+  for `x = (1, Λ₁)` and `y = (1, Λ₂, Λ₃)`.
+- `DiazModulus.fischler_lemma_6_1` (milestone) — Fischler's Lemma 6.1 (p. 184): non-zero `λ₁, …, λ_q ∈ ℒ̃` in geometric
+  progression with transcendental ratio have `q ≤ 3`. Fischler applies his Th. 2.3 (Roy 1992, Cor. 2) to the
+  `2 × (q − 1)` matrix of consecutive terms; here the strong six exponentials theorem is applied to its `2 × 3`
+  corner.
+- `DiazModulus.fischler_theorem_1_1` (milestone) — Th. 1.1 (pp. 168–169), which is Th. 6.2 (1) (p. 184): if `k ≥ 3` and
+  `P = (λ₁X₁ + ⋯ + λ_mX_m)ᵏ` has all its coefficients in `ℒ̃`, then `P = aφᵏ` with `a ∈ ℒ̃` and `φ` a linear form
+  with algebraic coefficients. For any `m`; the printed hypothesis that `P` is homogeneous of degree `k` follows
+  from `P = Λᵏ` and is omitted. `DiazModulus.fischler_theorem_6_2_two` (milestone) — Th. 6.2 (2) (p. 184): for `k = 2`,
+  `P = (aφ₁ + bφ₂)²` with `a, b ∈ ℂ` and `φ₁, φ₂` linear forms with algebraic coefficients. The printed hypothesis
+  `m ≥ 2` is dropped; for `m ≤ 2` the conclusion is immediate.
+- `DiazModulus.fischler_theorem_6_4_one` and `DiazModulus.fischler_theorem_6_4_two` (milestones) — Th. 6.4 (p. 185), in the
+  coordinates of the basis `e_{I(1)} ⊗ ⋯ ⊗ e_{I(k)}`, which is defined over Q̄. (1) If `k ≥ 3` and every product
+  `v_{I(1)}⋯v_{I(k)}` of coordinates of `v ∈ ℂᵐ` lies in `ℒ̃`, these products are `a·v′_{I(1)}⋯v′_{I(k)}` with
+  `a ∈ ℒ̃` and `v′ ∈ Q̄ᵐ`, for any `m` (printed: `m ≥ 2`). (2) If `m ≥ 2` and every `vᵢvⱼ` lies in `ℒ̃`, then `v`
+  lies in a 2-dimensional subspace of `ℂᵐ` defined over Q̄; here `m ≥ 2` is printed and needed.
+- `DiazModulus.fischler_cor_6_3` (milestone) — Cor. 6.3 (1) (p. 184): Fischler's Conjecture 1 for the `k`-th powers of
+  linear forms, `k ≥ 3`, in the form of its non-trivial inclusion: every such power with coefficients in `ℒ̃` lies on
+  a line `ℂQ`, `Q` with algebraic coefficients, made of `k`-th powers of linear forms. From Th. 1.1. Part (2), a
+  conditional reduction to the squares of linear forms in two variables, is not formalised.
+- `DiazModulus.fischler_centralizer_nb` (milestone) — the N.B. after Prop. 5.5 (p. 183): Th. 1.2 (`fischler_centralizer`,
+  above) holds with its hypothesis that the `n²` entries of `M ∈ ℒ̃^{n×n}` are Q̄-free replaced by: no hyperplane of
+  `Matₙ(ℂ)` defined over Q̄ contains both `M` and the identity. Hyperplanes are vector hyperplanes, by Fischler's
+  convention (p. 169). The freeness implies this hypothesis, so this implies `fischler_centralizer`. The N.B. has
+  no separate proof: the printed proof of Th. 1.2 uses the freeness only to show that algebraic `A, B` with
+  `Tr(M(AB − BA)) = 0` commute, and otherwise `{N : Tr(N(AB − BA)) = 0}` would be a hyperplane defined over Q̄
+  containing `M` and the identity. From `fischler_prop_5_5` and `remond_commuting_subspaces` (above).
+- Four helpers: `fischler_linear_pow_prod_mem` (if the coefficients of `Λᵏ` lie in `ℒ̃`, so does every product of `k`
+  coefficients of `Λ`; by differentiation and induction on `k`), `fischler_power_span_finrank` (the common core of
+  Th. 6.2 and 6.4: if every product of `k ≥ 2` coordinates of `v` lies in `ℒ̃`, then `v₁, …, v_m` span a Q̄-space of
+  dimension at most 2, and at most 1 if `k ≥ 3`), `fischler_rational_hull` (the least subspace defined over Q̄ that
+  contains `v`, p. 185, as an explicit decomposition `v = Σₐ cₐwₐ`) and `qbar_linearIndependent_complex` (Q̄-free
+  vectors with algebraic coordinates are ℂ-free; the proof of the helper of the same name in `roy_period_space`).
+  Fischler's proofs of Th. 6.2 and 6.4 apply his Th. 2.3 to a symmetric `n × n` matrix and, for `k ≥ 3`, Lemma 6.1;
+  `fischler_power_span_finrank` applies the strong six exponentials theorem to a `2 × 3` corner in both steps and
+  does not use Lemma 6.1.
+
+Milestones 221–228 of the Prove2Me mission are the eight printed results; the four helpers joined by import. The 12
+modules have 869 lines in `Diaz/Mirror/`. Not formalised from Fischler 2001: Th. 2.1 and 2.3; §§2.3–5.1, on
+orbits under algebraic groups; Prop. 5.7, which assumes the Algebraic Independence Conjecture; Cor. 6.3 (2) and
+Cor. 6.5.
+
+**Printed statements and proofs met while formalising.** The printed proofs of Th. 6.2 (1) and Th. 6.4 (1) stop at
+`n ≤ 1` and leave implicit why `a` lies in `ℒ̃`; the formal proofs give the reason: `a` is a Q̄-multiple of the
+coefficient `λⱼᵏ` (of the coordinate `vⱼᵏ`). Two points concern results not formalised here. In *Further
+variations* (p. 3), the remark after Th. 1.2, that the `d + ℓ` columns of `(I_d M)` are Q̄-free when `M` is a
+`d × ℓ` matrix of rank 1 with Q̄-free columns and `d, ℓ ≥ 2`, is false as printed: `M = (1 λ; 1 λ)` with `λ = log 2`
+has Q̄-free columns, and `e₁ + e₂ − (1, 1)ᵀ = 0`. It holds when the rows of `M` are Q̄-free too, and the use made of
+it is unaffected, since Th. 1.1 assumes both. In Fischler's proof of Prop. 5.7 (p. 183), the step from "dimension at
+least 2" to a point of the hyperplane `E` does not follow: an affine subspace of any dimension can miss an affine
+hyperplane. The conclusion stands, by a scaling argument on the discriminant. [`ERRATA.md`](../ERRATA.md) gives both
+points (A5, B12) with the printed text, the evidence and the repair.
 

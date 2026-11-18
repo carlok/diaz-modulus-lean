@@ -6,7 +6,7 @@ has algebraic modulus.
 
 It began as a study of that conjecture. Most of it is now the theory itself: the auxiliary-function
 method of Gel'fond and Schneider, Siegel's lemma and Liouville's inequality, a Schwarz lemma for Cartesian products, zero counts for
-exponential polynomials, and the theorems they prove. All 690 results build in CI and depend only on Lean's three
+exponential polynomials, and the theorems they prove. All 718 results build in CI and depend only on Lean's three
 standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
 The proofs are engineered as well as checked: cut into small results that later proofs import, with
@@ -29,7 +29,7 @@ The documentation is in [`docs/`](docs/); it was split from this README on 18 No
 - [What is proved](docs/what-is-proved.md), [what is assumed](docs/what-is-assumed.md) and [what is *not* proved](docs/what-is-not-proved.md).
 - Results, round by round:
   - [classical developments](docs/results-classical.md): four exponentials in transcendence degree one, Waldschmidt 1973, Baker, Roy's theorem, five exponentials;
-  - [Roy's rank bounds and DALAG §11–12](docs/results-roy-rank.md);
+  - [Roy's rank bounds and DALAG §11–12](docs/results-roy-rank.md): *Variations*, *Further variations*, the linear algebra of DALAG §12.1, Fischler 2001;
   - [results on Diaz's conjecture](docs/results-diaz.md): configurations, hulls, barriers and dichotomies.
 - [The companion note](docs/companion-note.md) and [the backup of the Prove2Me nodes](docs/prove2me-backup.md).
 - [Design notes](docs/design-notes.md): why this model, and how it is realised in `ℂ`.

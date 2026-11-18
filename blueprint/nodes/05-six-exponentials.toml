@@ -19,11 +19,11 @@ The five sections on the multiplicity estimate prove \texttt{hME}: the multiplic
 
 Chapter~\ref{chap:09-baker} derives Waldschmidt's five exponentials theorem from Roy's theorem and Baker's theorem (Theorem~\ref{thm:five_exponentials}).
 
-The four sections that follow the one on Roy's Corollary~1 formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}): results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, and Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. These are routine formalisations of classical results.
+The five sections that follow the one on Roy's Corollary~1 formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}) and of his strong six exponentials theorem: results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}, and Fischler's results on powers of linear forms and tensor powers whose coefficients lie in $\widetilde{\mathcal L}$ \cite[\S6]{Fis01}. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. Fischler's bound also holds under the weaker hypothesis of the N.B. after his Prop.~5.5, that no hyperplane of $\mathrm{Mat}_n(\C)$ defined over $\Qbar$ contains both the matrix and the identity (Theorem~\ref{thm:fischler_centralizer_nb}). The fifth section applies Roy's strong six exponentials theorem with no hypothesis (Theorem~\ref{thm:strong_six_exponentials_unconditional}), each time to six products $x_iy_j$: it gives \cite[Cor.~1.3]{Wal05b} (Corollary~\ref{cor:fv_cor_1_3}), and Fischler's Lemma~6.1, Th.~1.1 (his Th.~6.2\,(1)), Th.~6.2\,(2), Th.~6.4 and Cor.~6.3\,(1), the non-trivial inclusion of his Conjecture~1 for the $k$-th powers of linear forms, $k \geq 3$ (Corollary~\ref{cor:fischler_cor_6_3}). Where Fischler applies \cite[Th.~2.3]{Fis01} to a larger matrix, or leaves implicit why a coefficient lies in $\widetilde{\mathcal L}$, the source lines say what is done here. These are routine formalisations of classical results.
 
-The three sections that follow the one on Fischler's centraliser bound complete three of these results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The third of them has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
+The three sections that follow these five complete three of their results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The third of them has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
 
-The five sections that follow the one with two lemmas for \cite[Cor.~12.23]{Wal00} formalise, routinely, more classical results of \cite{Wal00} and \cite{Roy92}. \cite[Cor.~11.15]{Wal00} holds for $\Q$ and $\Q + \mathcal{L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_rat}) by Roy's route over $\Q$: his Theorem~4 holds over every subfield of $\Qbar$ \cite[Remark~(i), p.~37]{Roy92}, his Theorem~5 follows (Theorem~\ref{thm:roy_rat_theorem_five}), and his Lemma gives the table $\Psi$ as above, while DALAG's own proof of this case, through its Prop.~11.19, has a gap there and is not used (ERRATA.md, B9). Roy's Theorem~4 over $\Q$, in its minimal-ratio form (Theorem~\ref{thm:roy_rat_theorem_four}), gives \cite[Prop.~11.19]{Wal00} for $\Q$ and $\Q + \mathcal{L}$ as printed, finiteness included (Proposition~\ref{prop:dalag_prop_11_19_rat}); Roy's Remark~(i) leaves aside the form of his Theorem~1 over a subfield of $\Qbar$, which he quotes over $\Qbar$ only; a short argument supplies it, and the formal proofs do not need it (ERRATA.md, B10). \cite[Lemma~12.9]{Wal00}, that the structural rank can be computed through any injective map into affine forms, is Lemma~\ref{lem:dalag_lemma_12_9}, with the two steps that its printed proof leaves implicit (ERRATA.md, B7); the first of them, a dehomogenisation (Lemma~\ref{lem:dalag_lemma_12_9_dehomog}), gives \cite[Cor.~12.23]{Wal00} in the affine form of \cite[p.~435]{Wal00} in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23_affine}). The last two of them are on \cite[\S12.1]{Wal00}, linear algebra over two fields $k \subseteq K$: Prop.~12.7, that a subspace $V \subseteq K^{d}$ of dimension $n$ with $V \cap k^{d} = \{0\}$ meets $E^{d}$ in dimension at most $n(n + 1)/2$ over $k$ when $E$ has Property (A B; C 0) (Proposition~\ref{prop:dalag_prop_12_7}); Prop.~12.10, which DALAG credits to D.~Roy, that every polynomial in $X_1, \dots, X_n$ is the determinant of a square matrix with entries in $k + kX_1 + \dots + kX_n$ (Proposition~\ref{prop:dalag_prop_12_10}); and the implication (iv)$\Rightarrow$(iii) of Prop.~12.13 (Proposition~\ref{prop:dalag_prop_12_13_iv_iii}), through the dehomogenisation above. The printed proofs of Prop.~12.7 and of that implication need small corrections (ERRATA.md, C10 and B8).
+The seven sections that follow the one with two lemmas for \cite[Cor.~12.23]{Wal00} formalise, routinely, more classical results of \cite{Wal00} and \cite{Roy92}. \cite[Cor.~11.15]{Wal00} holds for $\Q$ and $\Q + \mathcal{L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_rat}) by Roy's route over $\Q$: his Theorem~4 holds over every subfield of $\Qbar$ \cite[Remark~(i), p.~37]{Roy92}, his Theorem~5 follows (Theorem~\ref{thm:roy_rat_theorem_five}), and his Lemma gives the table $\Psi$ as above, while DALAG's own proof of this case, through its Prop.~11.19, has a gap there and is not used (ERRATA.md, B9). Roy's Theorem~4 over $\Q$, in its minimal-ratio form (Theorem~\ref{thm:roy_rat_theorem_four}), gives \cite[Prop.~11.19]{Wal00} for $\Q$ and $\Q + \mathcal{L}$ as printed, finiteness included (Proposition~\ref{prop:dalag_prop_11_19_rat}); Roy's Remark~(i) leaves aside the form of his Theorem~1 over a subfield of $\Qbar$, which he quotes over $\Qbar$ only; a short argument supplies it, and the formal proofs do not need it (ERRATA.md, B10). \cite[Lemma~12.9]{Wal00}, that the structural rank can be computed through any injective map into affine forms, is Lemma~\ref{lem:dalag_lemma_12_9}, with the two steps that its printed proof leaves implicit (ERRATA.md, B7); the first of them, a dehomogenisation (Lemma~\ref{lem:dalag_lemma_12_9_dehomog}), gives \cite[Cor.~12.23]{Wal00} in the affine form of \cite[p.~435]{Wal00} in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23_affine}). The last four of them are on \cite[\S12.1]{Wal00}, linear algebra over two fields $k \subseteq K$. The first two of these give Prop.~12.7, that a subspace $V \subseteq K^{d}$ of dimension $n$ with $V \cap k^{d} = \{0\}$ meets $E^{d}$ in dimension at most $n(n + 1)/2$ over $k$ when $E$ has Property (A B; C 0) (Proposition~\ref{prop:dalag_prop_12_7}); Prop.~12.10, which DALAG credits to D.~Roy, that every polynomial in $X_1, \dots, X_n$ is the determinant of a square matrix with entries in $k + kX_1 + \dots + kX_n$ (Proposition~\ref{prop:dalag_prop_12_10}); and the implication (iv)$\Rightarrow$(iii) of Prop.~12.13 (Proposition~\ref{prop:dalag_prop_12_13_iv_iii}), through the dehomogenisation above. The printed proofs of Prop.~12.7 and of that implication need small corrections (ERRATA.md, C10 and B8). The last two complete \S12.1. Prop.~12.13 holds for every $k$-subspace $E \subseteq K$ containing $1$, finite-dimensional or not, with (iv) in presentation form (Proposition~\ref{prop:dalag_prop_12_13}): its four conditions are proved equivalent along a cycle in which (ii)$\Rightarrow$(iv), through Lemma~12.9, replaces the printed (i)$\Rightarrow$(iv), and Cor.~12.14 follows (Corollary~\ref{cor:dalag_cor_12_14}). Prop.~12.2, which DALAG credits to D.~Roy, that every matrix with entries in the $k$-span of algebraically independent elements is $k$-equivalent to a block matrix $\begin{pmatrix} A & B \\ C & 0 \end{pmatrix}$ with $A$ regular, holds for every field $k$ (Proposition~\ref{prop:dalag_prop_12_2}); its first printed proof works for every subspace with condition (ii) of Prop.~12.13 (Proposition~\ref{prop:dalag_prop_12_2_ii}). The same proof gives the Remark of p.~424, that $k + E_0$ has Property (A B; C 0) when $E_0$ is spanned by algebraically independent elements, without the hypothesis $E_0 \cap k = \{0\}$ (Proposition~\ref{prop:dalag_remark_12_1_3}): the printed reason, through $K(X)$, has a gap (ERRATA.md, B11), and the proof here runs the first proof of Prop.~12.2 on $k + E_0$ directly. Prop.~12.6 holds without its hypothesis $n < d$, which its proof does not use (Proposition~\ref{prop:dalag_prop_12_6}), and the conclusion of \S12.1.6, that rank equal to structural rank gives Property (A B; C 0), is Proposition~\ref{prop:dalag_conclusion_12_1_6}. ERRATA.md also records three slips in these pages (C14--C16).
 '''
 
 [[node]]
@@ -1775,6 +1775,196 @@ sketch = '''
 Suppose $2\dim C(M) \geq n^{2} + 2$. Proposition~\ref{prop:fischler_prop_5_5} gives rational subspaces $U$, $V$ of $\mathrm{Mat}_n(\C)$ with $\dim U + \dim V \geq n^{2} + 2$ and $\operatorname{Tr}(M(AB - BA)) = 0$ for all $A \in U$, $B \in V$. As the $n^{2}$ entries of $M$ are free over $\Qbar$, Lemma~\ref{lem:fischler_commute_of_trace} gives $AB = BA$ on $U \times V$, and Lemma~\ref{lem:remond_commuting_subspaces} bounds $\dim U + \dim V \leq n^{2} + 1$, a contradiction.
 '''
 
+[[node]]
+platform = "DiazModulus.fischler_centralizer_nb"
+root = true
+env = "theorem"
+title = "Fischler's Theorem 1.2 under the hypothesis of his N.B."
+statement = '''
+Here $\Qbar$, $\widetilde{\mathcal L}$ and the centraliser $C(M)$ are as in Theorem~\ref{thm:fischler_centralizer}.
+
+Let $M$ be an $n \times n$ matrix with entries in $\widetilde{\mathcal L}$, and assume that no hyperplane of $\mathrm{Mat}_n(\C)$ defined over $\Qbar$ contains both $M$ and the identity matrix: if $c = (c_{ij})$ is an $n \times n$ matrix with algebraic entries such that $\sum_{i,j} c_{ij} M_{ij} = 0$ and $\sum_i c_{ii} = 0$, then $c = 0$. Then
+\[ 2\dim C(M) \leq n^{2} + 1. \]
+The hypothesis holds when the $n^{2}$ entries of $M$ are linearly independent over $\Qbar$, so this implies Theorem~\ref{thm:fischler_centralizer}.
+'''
+source = '''The N.B. after \cite[Prop.~5.5]{Fis01} (p.~183): \cite[Th.~1.2]{Fis01} (p.~169), complex case, still holds when the hypothesis that the $n^{2}$ entries of $M$ are linearly independent over $\Qbar$ is replaced by: no hyperplane of $\mathrm{Mat}_n(\C)$ defined over $\Qbar$ contains both $M$ and the identity. Hyperplanes are vector hyperplanes (the convention of p.~169), and one defined over $\Qbar$ is the kernel of a non-zero linear form with algebraic coefficients (p.~170). Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The N.B. has no separate proof: the printed proof of Th.~1.2 (pp.~181--183) uses the freeness only to show that algebraic $A$, $B$ with $\operatorname{Tr}(M(AB - BA)) = 0$ commute, and the hypothesis gives that. Routine.'''
+sketch = '''
+Suppose $2\dim C(M) \geq n^{2} + 2$. Proposition~\ref{prop:fischler_prop_5_5}, which needs only the entries of $M$ in $\widetilde{\mathcal L}$, gives rational subspaces $U$, $V$ of $\mathrm{Mat}_n(\C)$ with $\dim U + \dim V \geq n^{2} + 2$ and $\operatorname{Tr}(M(AB - BA)) = 0$ for all $A \in U$, $B \in V$. For algebraic $A \in U$ and $B \in V$, the commutator $K = AB - BA$ is algebraic, with $\operatorname{Tr} K = 0$ and $\operatorname{Tr}(MK) = 0$: the hyperplane $\{N : \operatorname{Tr}(NK) = 0\}$ is defined over $\Qbar$ and contains $M$ and the identity, so the hypothesis, applied to the transpose of $K$, gives $K = 0$. The maps $B \mapsto AB - BA$ and $A \mapsto AB - BA$ are linear, so $AB = BA$ extends from algebraic spanning sets to all of $V$, then to all of $U$, and Lemma~\ref{lem:remond_commuting_subspaces} gives $\dim U + \dim V \leq n^{2} + 1$, a contradiction.
+'''
+
+# --- Further variations Corollary 1.3 and Fischler's Section 6 ----------
+[[node]]
+platform = "DiazModulus.fv_cor_1_3"
+section = '''\emph{Further variations}, Corollary 1.3, and Fischler's Section 6: powers of linear forms'''
+root = true
+env = "corollary"
+title = '''\emph{Further variations}, Corollary 1.3'''
+statement = '''
+Here $\Qbar$, $\mathcal{L}$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $\Lambda_1, \Lambda_2, \Lambda_3 \in \widetilde{\mathcal L}$. Assume that $\Lambda_1$ is transcendental and that $1, \Lambda_2, \Lambda_3$ are linearly independent over $\Qbar$. Then at least one of the two numbers $\Lambda_1\Lambda_2$, $\Lambda_1\Lambda_3$ is not in $\widetilde{\mathcal L}$.
+'''
+source = '''\cite[Cor.~1.3]{Wal05b} (p.~3), as printed. No proof is printed: the paper presents it as a consequence of its Th.~1.1, Roy's strong six exponentials theorem, and the proof here is that one, for $x = (1, \Lambda_1)$ and $y = (1, \Lambda_2, \Lambda_3)$. Routine.'''
+sketch = '''
+Suppose that $\Lambda_1\Lambda_2$ and $\Lambda_1\Lambda_3$ lie in $\widetilde{\mathcal L}$, and put $x = (1, \Lambda_1)$ and $y = (1, \Lambda_2, \Lambda_3)$. The six products $x_i y_j$ are $1, \Lambda_2, \Lambda_3, \Lambda_1, \Lambda_1\Lambda_2, \Lambda_1\Lambda_3$, all in $\widetilde{\mathcal L}$. The triple $y$ is linearly independent over $\Qbar$ by hypothesis, and so is the pair $x$: a relation $s + t\Lambda_1 = 0$ with $t \neq 0$ would make $\Lambda_1 = -s/t$ algebraic, and $t = 0$ forces $s = 0$. This contradicts Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_lemma_6_1"
+root = true
+env = "lemma"
+title = '''Fischler's Lemma 6.1: geometric progressions in $\widetilde{\mathcal L}$'''
+statement = '''
+Here $\widetilde{\mathcal L}$ is as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $\lambda_1, \dots, \lambda_q$ be non-zero elements of $\widetilde{\mathcal L}$ in geometric progression with ratio $t$, that is, $\lambda_{j+1} = t\lambda_j$ for $1 \leq j < q$, and assume that $t$ is transcendental. Then $q \leq 3$.
+'''
+source = '''\cite[Lemma~6.1]{Fis01} (p.~184). Fischler's $\mathcal{L}$, the $\Qbar$-vector space spanned by $1$ and the logarithms of algebraic numbers, is $\widetilde{\mathcal L}$ here. The printed proof applies \cite[Th.~2.3]{Fis01}, that is \cite[Cor.~2]{Roy92}, to the $2 \times (q - 1)$ matrix of consecutive terms; here Roy's strong six exponentials theorem (Theorem~\ref{thm:strong_six_exponentials_unconditional}) is applied to its $2 \times 3$ corner. Routine.'''
+sketch = '''
+Suppose $q \geq 4$. By induction, $\lambda_{j+1} = t^{j}\lambda_1$. As $t$ is transcendental, $1, t, t^{2}$ are linearly independent over $\Qbar$. Take $x = (1, t)$ and $y = \lambda_1 (1, t, t^{2})$: $x$ is linearly independent over $\Qbar$, and so is $y$, multiplication by $\lambda_1 \neq 0$ being injective. Each product $x_i y_j$ is $t^{e}\lambda_1 = \lambda_{e+1}$ with $e \leq 3 < q$, a term of the progression, so it lies in $\widetilde{\mathcal L}$. This contradicts Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_linear_pow_prod_mem"
+env = "lemma"
+title = "The coefficients of a power of a linear form"
+statement = '''
+Here $\widetilde{\mathcal L}$ is as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $\lambda \in \C^{m}$ and $k \geq 0$, and suppose that every coefficient of the polynomial $(\lambda_1 X_1 + \dots + \lambda_m X_m)^{k} \in \C[X_1, \dots, X_m]$ lies in $\widetilde{\mathcal L}$. Then
+\[ \lambda_{I(1)} \lambda_{I(2)} \cdots \lambda_{I(k)} \in \widetilde{\mathcal L} \]
+for every map $I : \{1, \dots, k\} \to \{1, \dots, m\}$.
+'''
+source = '''A step of the proofs of \cite[Th.~1.1 and Th.~6.2]{Fis01} (pp.~168--169, 184--185): the coefficients of $\Lambda^{k}$ are positive integer multiples of the products of $k$ coefficients of $\Lambda$. Proved by differentiation and induction on $k$; Fischler also differentiates $P$ (p.~185). Routine.'''
+sketch = '''
+Write $L = \sum_i \lambda_i X_i$. More generally, if every coefficient of $aL^{k}$ lies in $\widetilde{\mathcal L}$, then $a\lambda_{I(1)} \cdots \lambda_{I(k)} \in \widetilde{\mathcal L}$ for every $I$; the statement is the case $a = 1$. By induction on $k$: for $k = 0$ the constant coefficient is $a$. For the step, the derivative of $aL^{k+1}$ in $X_{I(1)}$ is $a(k + 1)\lambda_{I(1)} L^{k}$, and each coefficient of a partial derivative is a natural multiple of a coefficient of the polynomial, so it lies in the $\Qbar$-vector space $\widetilde{\mathcal L}$. The induction hypothesis for $a(k + 1)\lambda_{I(1)}$ and the rest of $I$ gives $(k + 1)\,a\lambda_{I(1)} \cdots \lambda_{I(k+1)} \in \widetilde{\mathcal L}$, and dividing by $k + 1$ gives the claim.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_power_span_finrank"
+env = "lemma"
+title = '''Products of coordinates in $\widetilde{\mathcal L}$ bound the rank over $\Qbar$'''
+statement = '''
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $k \geq 2$ and $v \in \C^{m}$, and suppose that $v_{I(1)} v_{I(2)} \cdots v_{I(k)} \in \widetilde{\mathcal L}$ for every map $I : \{1, \dots, k\} \to \{1, \dots, m\}$. Then the $\Qbar$-span of $v_1, \dots, v_m$ has dimension at most $2$ over $\Qbar$, and at most $1$ if $k \geq 3$.
+'''
+source = '''A step of the proofs of \cite[Th.~6.2 and Th.~6.4]{Fis01} (pp.~184--186), their common core: $n \leq 2$, and $n \leq 1$ for $k \geq 3$, with $n$ the dimension of the $\Qbar$-span of the coefficients. The printed proofs apply \cite[Th.~2.3]{Fis01} to a symmetric $n \times n$ matrix and, for $k \geq 3$, Lemma~6.1 (Lemma~\ref{lem:fischler_lemma_6_1}); here both steps apply Roy's strong six exponentials theorem (Theorem~\ref{thm:strong_six_exponentials_unconditional}) to a $2 \times 3$ corner, and Lemma~6.1 is not used. Routine.'''
+sketch = '''
+Let $V$ be the $\Qbar$-span of $v_1, \dots, v_m$. Expanding each factor in the $v_i$, every product of $k$ elements of $V$ is a $\Qbar$-combination of products $v_{I(1)} \cdots v_{I(k)}$, so it lies in $\widetilde{\mathcal L}$. If $\dim V \geq 3$, pick $c_0, c_1, c_2 \in V$ linearly independent over $\Qbar$, write $k = p + 2$, and take $x = (c_0, c_1)$ and $y = c_0^{p}(c_0, c_1, c_2)$: both are linearly independent over $\Qbar$, and each $x_i y_j = c_0^{p} c_i c_j$ is a product of $k$ elements of $V$, against Theorem~\ref{thm:strong_six_exponentials_unconditional}. If $k \geq 3$ and $\dim V \geq 2$, pick $c_0, c_1 \in V$ linearly independent over $\Qbar$ and write $k = p + 3$. The ratio $\tau = c_1/c_0$ is not algebraic, so $1, \tau, \tau^{2}$ are linearly independent over $\Qbar$; take $x = (c_0, c_1)$ and $y = c_0^{p}(c_0^{2}, c_0c_1, c_1^{2}) = c_0^{p+2}(1, \tau, \tau^{2})$. Each $x_i y_j$ is $c_0^{p}$ times a product of three elements of $V$, and the same theorem gives a contradiction.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_rational_hull"
+env = "lemma"
+title = "The rational hull of a complex vector"
+statement = '''
+Here $\Qbar$ is as in Theorem~\ref{thm:strong_six_exponentials_unconditional}. For $u, v \in \C^{m}$ write $u \cdot v = \sum_i u_i v_i$.
+
+Let $v \in \C^{m}$, and let $n$ be the dimension over $\Qbar$ of the $\Qbar$-span of $v_1, \dots, v_m$. Then there are $c_1, \dots, c_n \in \C$, linearly independent over $\Qbar$, and vectors $w_1, \dots, w_n \in \C^{m}$ with algebraic coordinates, linearly independent over $\Qbar$, such that
+\[ v = c_1 w_1 + \dots + c_n w_n, \]
+and every $\psi \in \C^{m}$ with algebraic coordinates and $\psi \cdot v = 0$ satisfies $\psi \cdot w_a = 0$ for $a = 1, \dots, n$.
+'''
+source = '''A step of the proofs of \cite[Th.~6.2 and Th.~6.4]{Fis01} (pp.~184--186): the $\C$-span of the $w_a$ is the smallest subspace of $\C^{m}$ defined over $\Qbar$ that contains $v$ (p.~185), given here by an explicit decomposition. Routine.'''
+sketch = '''
+Let $c_1, \dots, c_n$ be a $\Qbar$-basis of the $\Qbar$-span $V$ of $v_1, \dots, v_m$, and let $w_{a,i}$ be the $a$-th coordinate of $v_i$ in this basis. Then every $w_{a,i}$ is algebraic and $v = \sum_a c_a w_a$. The $w_a$ are linearly independent over $\Qbar$: a relation $\sum_a \gamma_a w_a = 0$ says that the linear form $\sum_a \gamma_a c_a^{*}$ on $V$ vanishes at every $v_i$, hence on $V$, hence at each $c_a$, so every $\gamma_a = 0$. Finally, if $\psi$ is algebraic and $\psi \cdot v = 0$, then $\sum_a (\psi \cdot w_a) c_a = 0$ is a relation over $\Qbar$ among the $c_a$, since each $\psi \cdot w_a$ is algebraic, so every $\psi \cdot w_a$ vanishes.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_theorem_1_1"
+root = true
+env = "theorem"
+title = '''Fischler's Theorem 1.1: powers of linear forms with coefficients in $\widetilde{\mathcal L}$'''
+statement = '''
+Here $\Qbar$, $\mathcal{L}$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $k \geq 3$ and $m \geq 0$. Let $P \in \C[X_1, \dots, X_m]$ have all its coefficients in $\widetilde{\mathcal L}$, and assume that $P = (\lambda_1 X_1 + \dots + \lambda_m X_m)^{k}$ for some $\lambda \in \C^{m}$. Then there are $\varphi_1, \dots, \varphi_m \in \Qbar$ and $a \in \widetilde{\mathcal L}$ such that
+\[ P = a\,(\varphi_1 X_1 + \dots + \varphi_m X_m)^{k}. \]
+The printed hypothesis that $P$ is homogeneous of degree $k$ is not stated: it follows from $P$ being the power of a linear form.
+'''
+source = '''\cite[Th.~1.1]{Fis01} (pp.~168--169), complex case; it is \cite[Th.~6.2\,(1)]{Fis01} (p.~184), here for any $m$. Fischler's $\mathcal{L}$, the $\Qbar$-vector space spanned by $1$ and the logarithms of algebraic numbers, is $\widetilde{\mathcal L}$ here. The printed proof (of Th.~6.2, pp.~184--185) stops at $n \leq 1$ and leaves implicit why $a$ lies in $\widetilde{\mathcal L}$; here $a = c_1^{k}$ is a $\Qbar$-multiple of the coefficient $\lambda_j^{k}$ of $X_j^{k}$ in $P$. Routine.'''
+sketch = '''
+By Lemma~\ref{lem:fischler_linear_pow_prod_mem} every product $\lambda_{I(1)} \cdots \lambda_{I(k)}$ lies in $\widetilde{\mathcal L}$, so by Lemma~\ref{lem:fischler_power_span_finrank}, as $k \geq 3$, the $\Qbar$-span of $\lambda_1, \dots, \lambda_m$ has dimension at most $1$. Lemma~\ref{lem:fischler_rational_hull} writes $\lambda = \sum_a c_a w_a$ with that many terms. If there are none, $\lambda = 0$ and $P = 0 = 0 \cdot 0^{k}$. If there is one, $\lambda = c_1 w_1$ with $w_1$ algebraic and non-zero; for $j$ with $w_{1j} \neq 0$, $\lambda_j^{k} = c_1^{k} w_{1j}^{k}$ is a coefficient of $P$, so it lies in $\widetilde{\mathcal L}$, and dividing by the non-zero algebraic number $w_{1j}^{k}$ gives $a = c_1^{k} \in \widetilde{\mathcal L}$. Then $\lambda_1 X_1 + \dots + \lambda_m X_m = c_1 \varphi$ with $\varphi = \sum_i w_{1i} X_i$, and $P = a\varphi^{k}$.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_theorem_6_2_two"
+root = true
+env = "theorem"
+title = '''Fischler's Theorem 6.2\,(2): squares of linear forms'''
+statement = '''
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $m \geq 0$. Let $P \in \C[X_1, \dots, X_m]$ have all its coefficients in $\widetilde{\mathcal L}$, and assume that $P = (\lambda_1 X_1 + \dots + \lambda_m X_m)^{2}$ for some $\lambda \in \C^{m}$. Then there are two linear forms $\varphi_1 = \sum_i \varphi_{1i} X_i$ and $\varphi_2 = \sum_i \varphi_{2i} X_i$ with algebraic coefficients, and $a, b \in \C$, such that
+\[ P = (a\varphi_1 + b\varphi_2)^{2}. \]
+The printed hypothesis that $P$ is homogeneous of degree $2$ is not stated: it follows from $P$ being the square of a linear form. The printed hypothesis $m \geq 2$ is not made either.
+'''
+source = '''\cite[Th.~6.2, part~2]{Fis01} (p.~184), complex case, without the printed hypothesis $m \geq 2$ (for $m \leq 2$ the conclusion is immediate). Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. Routine.'''
+sketch = '''
+By Lemma~\ref{lem:fischler_linear_pow_prod_mem} every product $\lambda_i\lambda_j$ lies in $\widetilde{\mathcal L}$, so by Lemma~\ref{lem:fischler_power_span_finrank} the $\Qbar$-span of $\lambda_1, \dots, \lambda_m$ has dimension at most $2$, and Lemma~\ref{lem:fischler_rational_hull} writes $\lambda = \sum_a c_a w_a$ with that many terms and algebraic $w_a$. It suffices to write $\lambda = a\varphi_1 + b\varphi_2$ with algebraic $\varphi_1$, $\varphi_2$: with no term, take $a = b = 0$; with one, $a = c_1$, $\varphi_1 = w_1$ and $b = 0$; with two, $a = c_1$, $b = c_2$, $\varphi_1 = w_1$ and $\varphi_2 = w_2$.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_cor_6_3"
+root = true
+env = "corollary"
+title = '''Fischler's Corollary 6.3\,(1): Conjecture 1 for the $k$-th powers of linear forms'''
+statement = '''
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $k \geq 3$ and $m \geq 0$. Let $P \in \C[X_1, \dots, X_m]$ have all its coefficients in $\widetilde{\mathcal L}$, and assume that $P = (\lambda_1 X_1 + \dots + \lambda_m X_m)^{k}$ for some $\lambda \in \C^{m}$. Then there is a polynomial $Q \in \C[X_1, \dots, X_m]$ with algebraic coefficients such that $P \in \C Q$ and every element of the line $\C Q$ is the $k$-th power $(\lambda'_1 X_1 + \dots + \lambda'_m X_m)^{k}$ of a linear form, for some $\lambda' \in \C^{m}$.
+
+So every $k$-th power of a linear form whose coefficients, as a polynomial, lie in $\widetilde{\mathcal L}$ lies on a line defined over $\Qbar$ and contained in the set $\mathcal{V}(k, m)$ of $k$-th powers of linear forms: the non-trivial inclusion of Fischler's Conjecture~1 for $\mathcal{V}(k, m)$.
+'''
+source = '''\cite[Cor.~6.3, part~1]{Fis01} (p.~184; proof p.~185): \cite[Conjecture~1]{Fis01} (p.~168) for $\mathcal{V}(k, m)$, $k \geq 3$, in the form of its non-trivial inclusion, with a vector line $\C Q$ as the affine subspace defined over $\Qbar$; the other inclusion is immediate. Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. Part~2, a conditional reduction to $\mathcal{V}(2, 2)$, is not formalised. Routine.'''
+sketch = '''
+Theorem~\ref{thm:fischler_theorem_1_1} gives $P = a\varphi^{k}$ with $a \in \widetilde{\mathcal L}$ and $\varphi = \sum_i \varphi_i X_i$ with algebraic coefficients. Take $Q = \varphi^{k}$: its coefficients are algebraic, as $Q$ is the image of a polynomial over $\Qbar$, and $P = aQ \in \C Q$. For $\gamma \in \C$ choose $z$ with $z^{k} = \gamma$; then $\gamma Q = (z\varphi)^{k} = \bigl(\sum_i z\varphi_i X_i\bigr)^{k}$.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_theorem_6_4_one"
+root = true
+env = "theorem"
+title = '''Fischler's Theorem 6.4\,(1): tensor powers'''
+statement = '''
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}. For $v \in \C^{m}$ and a map $I : \{1, \dots, k\} \to \{1, \dots, m\}$ write $v_I = v_{I(1)} v_{I(2)} \cdots v_{I(k)}$; these are the coordinates of $v \otimes \cdots \otimes v$ ($k$ factors) in the basis $e_{I(1)} \otimes \cdots \otimes e_{I(k)}$ of $(\C^{m})^{\otimes k}$, which is defined over $\Qbar$.
+
+Let $k \geq 3$ and $v \in \C^{m}$, and suppose that $v_I \in \widetilde{\mathcal L}$ for every map $I : \{1, \dots, k\} \to \{1, \dots, m\}$. Then there are $a \in \widetilde{\mathcal L}$ and $v' \in \C^{m}$ with algebraic coordinates such that $v_I = a\,v'_I$ for every $I$, that is, $v \otimes \cdots \otimes v = a\, v' \otimes \cdots \otimes v'$.
+'''
+source = '''\cite[Th.~6.4, part~1]{Fis01} (p.~185), complex case, for any $m$ (printed: $m \geq 2$), in the coordinates of the basis $e_{I(1)} \otimes \cdots \otimes e_{I(k)}$, which is defined over $\Qbar$ (p.~170). Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The printed proof (pp.~185--186) stops at $n \leq 1$ and leaves implicit why $a$ lies in $\widetilde{\mathcal L}$; here $a = c_1^{k}$ is a $\Qbar$-multiple of the coordinate $v_j^{k}$. Routine.'''
+sketch = '''
+By Lemma~\ref{lem:fischler_power_span_finrank}, as $k \geq 3$, the $\Qbar$-span of $v_1, \dots, v_m$ has dimension at most $1$, and Lemma~\ref{lem:fischler_rational_hull} writes $v = \sum_a c_a w_a$ with that many terms. If there are none, $v = 0$, and $a = 0$, $v' = 0$ work, since $k \geq 1$. If there is one, $v = c_1 w_1$ with $w_1$ algebraic and non-zero; for $j$ with $w_{1j} \neq 0$, $v_j^{k} = c_1^{k} w_{1j}^{k} \in \widetilde{\mathcal L}$, and dividing by the non-zero algebraic number $w_{1j}^{k}$ gives $a = c_1^{k} \in \widetilde{\mathcal L}$. With $v' = w_1$, every $v_I$ equals $c_1^{k} v'_I = a\,v'_I$.
+'''
+
+[[node]]
+platform = "DiazModulus.qbar_linearIndependent_complex"
+env = "lemma"
+title = '''Algebraic vectors linearly independent over $\Qbar$ are linearly independent over $\C$'''
+statement = '''
+Here $\Qbar$ is as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $w_1, \dots, w_n \in \C^{m}$ be vectors with algebraic coordinates, linearly independent over $\Qbar$. Then $w_1, \dots, w_n$ are linearly independent over $\C$.
+'''
+source = '''Classical linear algebra; a step of the proof of \cite[Th.~6.4\,(2)]{Fis01} (p.~185). Routine.'''
+sketch = '''
+Suppose $\sum_j a_j w_j = 0$ with complex $a_j$ and some $a_i \neq 0$. As $\C$ is a free $\Qbar$-vector space, there is a $\Qbar$-linear form $\varphi : \C \to \Qbar$ with $\varphi(a_i) \neq 0$. The coordinates $w_{j,l}$ are algebraic, so $\varphi$ commutes with multiplication by them: $\sum_j \varphi(a_j) w_{j,l} = \varphi\bigl(\sum_j a_j w_{j,l}\bigr) = 0$ for every $l$. Hence $\sum_j \varphi(a_j) w_j = 0$ is a relation over $\Qbar$ among the $w_j$, so every $\varphi(a_j)$ vanishes, against $\varphi(a_i) \neq 0$.
+'''
+
+[[node]]
+platform = "DiazModulus.fischler_theorem_6_4_two"
+root = true
+env = "theorem"
+title = '''Fischler's Theorem 6.4\,(2): tensor squares'''
+statement = '''
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $m \geq 2$ and $v \in \C^{m}$, and suppose that $v_i v_j \in \widetilde{\mathcal L}$ for all $i, j \in \{1, \dots, m\}$ (the coordinates of $v \otimes v$ in the basis $e_i \otimes e_j$). Then there are $w_1, w_2 \in \C^{m}$ with algebraic coordinates, linearly independent over $\C$, such that $v$ lies in the $\C$-span of $w_1$ and $w_2$. So $F = \C w_1 + \C w_2$ is a subspace of $\C^{m}$ defined over $\Qbar$, of dimension $2$, which contains $v$.
+'''
+source = '''\cite[Th.~6.4, part~2]{Fis01} (p.~185), complex case, in the coordinates of the basis $e_i \otimes e_j$, which is defined over $\Qbar$; a subspace defined over $\Qbar$ is one spanned by vectors with algebraic coordinates (p.~170). Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The hypothesis $m \geq 2$ is printed and needed. Routine.'''
+sketch = '''
+By Lemma~\ref{lem:fischler_power_span_finrank} the $\Qbar$-span of $v_1, \dots, v_m$ has dimension at most $2$, and Lemma~\ref{lem:fischler_rational_hull} writes $v = \sum_a c_a w_a$ with that many terms, the $w_a$ algebraic and linearly independent over $\Qbar$. With no term, $v = 0$ and the first two unit vectors work. With one, $v = c_1 w_1$ with $w_1 \neq 0$; pick $i_0$ with $w_{1,i_0} \neq 0$ and $j \neq i_0$, possible as $m \geq 2$: then $w_1$ and the unit vector $e_j$ are linearly independent over $\C$ (a relation $s w_1 + t e_j = 0$ read at $i_0$ gives $s = 0$, then at $j$ gives $t = 0$), and their span contains $v$. With two, $w_1$ and $w_2$ are linearly independent over $\C$ by Lemma~\ref{lem:qbar_linearIndependent_complex}, and $v = c_1 w_1 + c_2 w_2$ lies in their span.
+'''
+
 # --- Further variations: Theorem 2.1 for every subspace ----------
 [[node]]
 platform = "DiazModulus.fv_rho_excess"
@@ -2175,7 +2365,7 @@ Let $k$, $K$ and $M = \sum_{j=1}^{m} e_j N_j$ be as in Lemma~\ref{lem:dalag_lemm
 \[ \operatorname{rank}_{k(X_1, \dots, X_n)} \varphi(M) = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j, \]
 the structural rank of $M$ over $k$ (DALAG \S12.1.4), computed from the presentation $M = \sum_j e_j N_j$.
 '''
-source = '''\cite[Lemma~12.9]{Wal00} (p.~427; proof p.~428), in presentation form, for any field $k$ and any $k$-linear map into $k + kX_1 + \dots + kX_n$ that is injective on the span of the $e_j$. DALAG asks the map to be injective on the span $E$ of the entries of $M$; a presentation by a basis of $E$, with the map extended from $E$ to $K$, gives that form. The printed proof composes the map with $a_0 + \sum_i a_i X_i \mapsto a_0 Y_0 + \sum_i a_i Y_i$ and applies Lemma~12.8; the two steps it leaves implicit are Lemma~\ref{lem:dalag_lemma_12_9_dehomog} and Lemma~\ref{lem:dalag_lemma_12_8_linear} (ERRATA.md, B7). The repair of a step in the proof of \cite[Prop.~12.13]{Wal00}, (iv)$\Rightarrow$(iii) (p.~430), is a case of this lemma (ERRATA.md, B8); that implication is formalised at the end of this chapter, through Lemma~\ref{lem:dalag_lemma_12_9_dehomog} directly.'''
+source = '''\cite[Lemma~12.9]{Wal00} (p.~427; proof p.~428), in presentation form, for any field $k$ and any $k$-linear map into $k + kX_1 + \dots + kX_n$ that is injective on the span of the $e_j$. DALAG asks the map to be injective on the span $E$ of the entries of $M$; a presentation by a basis of $E$, with the map extended from $E$ to $K$, gives that form. The printed proof composes the map with $a_0 + \sum_i a_i X_i \mapsto a_0 Y_0 + \sum_i a_i Y_i$ and applies Lemma~12.8; the two steps it leaves implicit are Lemma~\ref{lem:dalag_lemma_12_9_dehomog} and Lemma~\ref{lem:dalag_lemma_12_8_linear} (ERRATA.md, B7). The repair of a step in the proof of \cite[Prop.~12.13]{Wal00}, (iv)$\Rightarrow$(iii) (p.~430), is a case of this lemma (ERRATA.md, B8); that implication is formalised later in this chapter through Lemma~\ref{lem:dalag_lemma_12_9_dehomog} directly (Proposition~\ref{prop:dalag_prop_12_13_iv_iii}), and this lemma gives the implication (ii)$\Rightarrow$(iv) of Prop.~12.13 (Proposition~\ref{prop:dalag_prop_12_13_ii_iv}).'''
 sketch = '''
 Put $N'_i = \bigl(\varphi(M_{ab})_i\bigr)_{a,b}$ for $i = 0, \dots, n$, matrices with entries in $k$. Entry by entry, $\varphi(M) = N'_0 + \sum_{i=1}^{n} X_i N'_i$, and its homogenisation $\sum_{i=0}^{n} Y_i N'_i$ is the matrix of linear forms $\sum_{i=0}^{n} \varphi(M_{ab})_i Y_i$: the image of $M$ under the same $\varphi$, read as a map into $kY_0 + \dots + kY_n$. Lemma~\ref{lem:dalag_lemma_12_9_dehomog} gives $\operatorname{rank} \varphi(M) = \operatorname{rank} \sum_{i=0}^{n} Y_i N'_i$, and Lemma~\ref{lem:dalag_lemma_12_8_linear}, with $n + 1$ variables, gives $\operatorname{rank} \sum_{i=0}^{n} Y_i N'_i = \operatorname{rank} \sum_j Z_j N_j$.
 '''
@@ -2241,7 +2431,255 @@ Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), 
 
 Let $x_0, \dots, x_n \in E$ be linearly independent over $k$, and let $P \in k[X_0, \dots, X_n]$ be a non-zero homogeneous polynomial. Then $P(x_0, \dots, x_n) \neq 0$. That is condition (iii) of \cite[Prop.~12.13]{Wal00}: $x_1/x_0, \dots, x_n/x_0$ are algebraically independent over $k$.
 '''
-source = '''\cite[Prop.~12.13]{Wal00}, the implication (iv)$\Rightarrow$(iii) (p.~430), with (iv) in presentation form, which is equivalent to (iv) by Lemma~12.8 there, and without the hypothesis $k \subseteq E$, which this implication does not use. The printed proof applies (iv) to a matrix whose entries need not lie in $E$; here it is applied to that matrix times $x_0$, whose entries do (ERRATA.md, B8). The other implications of Prop.~12.13 are not formalised. Routine.'''
+source = '''\cite[Prop.~12.13]{Wal00}, the implication (iv)$\Rightarrow$(iii) (p.~430), with (iv) in presentation form, which is equivalent to (iv) by Lemma~12.8 there, and without the hypothesis $k \subseteq E$, which this implication does not use. The printed proof applies (iv) to a matrix whose entries need not lie in $E$; here it is applied to that matrix times $x_0$, whose entries do (ERRATA.md, B8). The other implications of Prop.~12.13, and the equivalence, are in the next section (Proposition~\ref{prop:dalag_prop_12_13}). Routine.'''
 sketch = '''
 Suppose that $P(x) = 0$, and let $p = P(1, X_1, \dots, X_n)$. Since $P$ is homogeneous, of degree $D$ say, $P(z) = z_0^{D}\, p(z_1/z_0, \dots, z_n/z_0)$ whenever $z_0 \neq 0$. At $z = x$, where $x_0 \neq 0$, this gives $p(y) = 0$ for $y_i = x_i/x_0$; at the generic point $(X_0, \dots, X_n)$ of the field of rational functions it gives $p \neq 0$, since $P \neq 0$. By Proposition~\ref{prop:dalag_prop_12_10}, $p = \det(N_0 + \sum_i X_i N_i)$ for square matrices $N_0, \dots, N_n$ over $k$, of size $s$. Let $M = \sum_{j=0}^{n} x_j N_j$, a matrix with entries in $E$ presented by $x_0, \dots, x_n$. By (iv) its rank is that of $\sum_j Y_j N_j$ over $k(Y_0, \dots, Y_n)$, which by Lemma~\ref{lem:dalag_lemma_12_9_dehomog} is the rank of $N_0 + \sum_i X_i N_i$ over $k(X_1, \dots, X_n)$, namely $s$, since its determinant is $p \neq 0$. But $M = x_0 (N_0 + \sum_i y_i N_i)$ has determinant $x_0^{s}\, p(y) = 0$, so its rank is less than $s$: a contradiction.
+'''
+
+# --- DALAG Proposition 12.13 and Corollary 12.14 ----------
+[[node]]
+platform = "DiazModulus.dalag_prop_12_13_i_ii_span"
+section = "DALAG Proposition 12.13 and Corollary 12.14: algebraic independence and the structural rank"
+env = "lemma"
+title = '''DALAG Proposition 12.13, (i)$\Rightarrow$(ii), in span form'''
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$). Let $(b_j)_{j \in J}$ be a family of elements of $K$, indexed by any set $J$ (finite or not), algebraically independent over $k$. Let $x_1, \dots, x_n$ ($n \geq 0$) be elements of the $k$-vector space spanned by $1$ and the $b_j$, such that $1, x_1, \dots, x_n$ are linearly independent over $k$. Then $x_1, \dots, x_n$ are algebraically independent over $k$.
+'''
+source = '''A step of the proof of \cite[Prop.~12.13]{Wal00} (pp.~429--430): the implication (i)$\Rightarrow$(ii) for the span of $1$ and any algebraically independent family, which also gives the translation $x_i = c_i + e_i$ used for \cite[Cor.~12.14]{Wal00}; the printed proof reaches (ii) from (i) through (iv) and (iii). The nearest printed argument is \cite[Lemma~12.3]{Wal00}, (i)$\Rightarrow$(ii) (p.~420), by transcendence degrees; here an affine change of variables with an explicit left inverse. Routine.'''
+sketch = '''
+Write $x_i = c_i + z_i$ with $c_i \in k$ and $z_i = \sum_j f_{ij} b_j$ in the $k$-span of the $b_j$, each row $f_i$ finitely supported. As $1, x_1, \dots, x_n$ are linearly independent over $k$, so are the $z_i$, hence so are the rows $f_i$; extending the coordinate forms of the basis $(f_i)$ of their span gives linear forms $\varphi_l$ with $\varphi_l(f_i) = \delta_{il}$. The affine substitution $\sigma : k[X_1, \dots, X_n] \to k[Y_j : j \in J]$, $X_i \mapsto c_i + \sum_j f_{ij} Y_j$, has the left inverse $Y_j \mapsto \sum_l \varphi_l(\varepsilon_j)(X_l - c_l)$, where $\varepsilon_j$ is the $j$-th unit vector, so $\sigma$ is injective. Evaluation at $x$ is evaluation at $b$ composed with $\sigma$, and evaluation at $b$ is injective, since $b$ is algebraically independent; so evaluation at $x$ is injective, that is, $x$ is algebraically independent over $k$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_13_i_ii"
+env = "proposition"
+title = '''DALAG Proposition 12.13, (i)$\Rightarrow$(ii)'''
+statement = '''
+Let $k$ and $K$ be as in Lemma~\ref{lem:dalag_prop_12_13_i_ii_span}, and let $E \subseteq K$ be a $k$-vector subspace satisfying condition (i) of \cite[Prop.~12.13]{Wal00}: $E$ has a basis $(b_i)_{i \in I}$ over $k$, the index set $I$ being any set, with an index $i_0 \in I$ such that $b_{i_0} = 1$ and the family $(b_i)_{i \in I,\, i \neq i_0}$ is algebraically independent over $k$.
+
+Let $x_1, \dots, x_n \in E$ be such that $1, x_1, \dots, x_n$ are linearly independent over $k$. Then $x_1, \dots, x_n$ are algebraically independent over $k$. That is condition (ii) of \cite[Prop.~12.13]{Wal00}.
+'''
+source = '''\cite[Prop.~12.13]{Wal00}, the implication (i)$\Rightarrow$(ii) (pp.~429--430), which the printed proof obtains through (iv) and (iii); here directly, from Lemma~\ref{lem:dalag_prop_12_13_i_ii_span}. Routine.'''
+sketch = '''
+Every element of $E$ is a $k$-linear combination of the $b_i$, and $b_{i_0} = 1$, so $E$ lies in the $k$-span of $1$ and the $b_i$ with $i \neq i_0$. Lemma~\ref{lem:dalag_prop_12_13_i_ii_span}, for that algebraically independent family, gives the claim.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_13_ii_iv"
+env = "proposition"
+title = '''DALAG Proposition 12.13, (ii)$\Rightarrow$(iv)'''
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), and let $E \subseteq K$ be a $k$-vector subspace with $1 \in E$ satisfying condition (ii) of \cite[Prop.~12.13]{Wal00}: whenever $x_1, \dots, x_n \in E$ ($n \geq 0$) and $1, x_1, \dots, x_n$ are linearly independent over $k$, the elements $x_1, \dots, x_n$ are algebraically independent over $k$.
+
+Let $e_1, \dots, e_m \in E$ be linearly independent over $k$, let $N_1, \dots, N_m$ be $s \times t$ matrices with entries in $k$, and let $M = \sum_{j=1}^{m} e_j N_j$. Then
+\[ \operatorname{rank}_K M = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j, \]
+the structural rank of $M$ over $k$ (DALAG \S12.1.4), computed from the presentation $M = \sum_j e_j N_j$ as in Lemma~\ref{lem:dalag_lemma_12_8_linear}. That is condition (iv) of \cite[Prop.~12.13]{Wal00}, in presentation form (as in Proposition~\ref{prop:dalag_prop_12_13_iv_iii}).
+'''
+source = '''\cite[Prop.~12.13]{Wal00} (pp.~429--430): the implication (ii)$\Rightarrow$(iv), with (iv) in presentation form, in place of the printed (i)$\Rightarrow$(iv), which follows from Lemma~12.9 (p.~430); so no basis of $E$ is indexed. The hypothesis $1 \in E$ is kept, although the proof does not need it. Routine.'''
+sketch = '''
+Extend $\{1\}$ to a $k$-basis of $k \cdot 1 + \operatorname{span}_k(e_1, \dots, e_m)$ chosen inside $\{1, e_1, \dots, e_m\}$, and list its members other than $1$ as $y_1, \dots, y_q$. They lie in $E$ and are linearly independent over $k$ together with $1$, so by (ii) they are algebraically independent over $k$. The coordinates in the basis $1, y_1, \dots, y_q$, extended to a $k$-linear map $\varphi : K \to k^{q+1}$, are injective on the span of the $e_j$, and every $w$ in that span is $\varphi(w)_0 + \sum_i \varphi(w)_i y_i$. By Lemma~\ref{lem:dalag_lemma_12_9}, the matrix $\varphi(M)$ of affine forms in $X_1, \dots, X_q$ has, over $k(X_1, \dots, X_q)$, the rank of $\sum_j Z_j N_j$. As the $y_i$ are algebraically independent, evaluation at $y$ extends to a homomorphism of fields $k(X_1, \dots, X_q) \to K$, which maps $\varphi(M)$ to $M$ entry by entry; by Lemma~\ref{lem:matrix_rank_map_field} it keeps the rank.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_13_iii_ii"
+env = "proposition"
+title = '''DALAG Proposition 12.13, (iii)$\Rightarrow$(ii)'''
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), and let $E \subseteq K$ be a $k$-vector subspace with $1 \in E$ satisfying condition (iii) of \cite[Prop.~12.13]{Wal00}: whenever $x_0, \dots, x_n \in E$ are linearly independent over $k$ and $P \in k[X_0, \dots, X_n]$ is a non-zero homogeneous polynomial, $P(x_0, \dots, x_n) \neq 0$.
+
+Let $x_1, \dots, x_n \in E$ be such that $1, x_1, \dots, x_n$ are linearly independent over $k$. Then $x_1, \dots, x_n$ are algebraically independent over $k$. That is condition (ii) of \cite[Prop.~12.13]{Wal00} (as in Proposition~\ref{prop:dalag_prop_12_13_ii_iv}).
+'''
+source = '''\cite[Prop.~12.13]{Wal00}, the implication (iii)$\Rightarrow$(ii) (p.~430), ``easy (take $x_0 = 1$)'' in print; the homogenisation that this leaves implicit is supplied. Routine.'''
+sketch = '''
+Let $p \in k[X_1, \dots, X_n]$ vanish at $x$, and suppose $p \neq 0$. With $D$ the total degree of $p$ and $p_d$ its homogeneous component of degree $d$, the homogenisation $H = \sum_{d \leq D} Y_0^{D - d} p_d(Y_1, \dots, Y_n)$ is homogeneous of degree $D$, and $H(1, z) = p(z)$ for every tuple $z$ in every $k$-algebra. At the generic point $z = (X_1, \dots, X_n)$ this gives $H \neq 0$. The tuple $(1, x_1, \dots, x_n)$ lies in $E$, as $1 \in E$, and is linearly independent over $k$, so (iii) gives $H(1, x) \neq 0$; but $H(1, x) = p(x) = 0$, a contradiction.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_13_ii_i"
+env = "proposition"
+title = '''DALAG Proposition 12.13, (ii)$\Rightarrow$(i)'''
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), and let $E \subseteq K$ be a $k$-vector subspace with $1 \in E$ satisfying condition (ii) of \cite[Prop.~12.13]{Wal00} (as in Proposition~\ref{prop:dalag_prop_12_13_ii_iv}).
+
+Then $E$ has a basis $(b_i)_{i \in I}$ over $k$ with an index $i_0 \in I$ such that $b_{i_0} = 1$ and the family $(b_i)_{i \in I,\, i \neq i_0}$ is algebraically independent over $k$. That is condition (i) of \cite[Prop.~12.13]{Wal00} (as in Proposition~\ref{prop:dalag_prop_12_13_i_ii}). The index set $I$ is a type in the universe of $K$; this is no restriction, since a basis of $E$ can be indexed by a subset of $E$. $E$ may be infinite-dimensional.
+'''
+source = '''\cite[Prop.~12.13]{Wal00}, the implication (ii)$\Rightarrow$(i) (p.~430), ``plain'' in print. The basis extends $\{1\}$; algebraic independence is checked on finite subfamilies, so $E$ may be infinite-dimensional. Routine.'''
+sketch = '''
+As $1 \in E$ is non-zero, $\{1\}$ is a linearly independent subset of the $k$-vector space $E$, and it extends to a basis of $E$, indexed by a subset $I$ of $E$, with $1 \in I$ the distinguished index $i_0$. A family is algebraically independent as soon as each of its finite subfamilies is. A finite set of indices other than $i_0$, listed as $y_1, \dots, y_m$, gives elements of $E$ such that $1, y_1, \dots, y_m$ are distinct members of the basis, hence linearly independent over $k$; by (ii), $y_1, \dots, y_m$ are algebraically independent over $k$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_13"
+root = true
+env = "proposition"
+title = "DALAG Proposition 12.13"
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), and let $E \subseteq K$ be a $k$-vector subspace with $1 \in E$, that is, containing $k$. The following four conditions are equivalent.
+
+(i) $E$ has a basis $(b_i)_{i \in I}$ over $k$ with an index $i_0 \in I$ such that $b_{i_0} = 1$ and the family $(b_i)_{i \in I,\, i \neq i_0}$ is algebraically independent over $k$.
+
+(ii) Whenever $x_1, \dots, x_n \in E$ ($n \geq 0$) and $1, x_1, \dots, x_n$ are linearly independent over $k$, the elements $x_1, \dots, x_n$ are algebraically independent over $k$.
+
+(iii) Whenever $x_0, \dots, x_n \in E$ are linearly independent over $k$ and $P \in k[X_0, \dots, X_n]$ is a non-zero homogeneous polynomial, $P(x_0, \dots, x_n) \neq 0$.
+
+(iv) Whenever $e_1, \dots, e_m \in E$ are linearly independent over $k$ and $N_1, \dots, N_m$ are $s \times t$ matrices with entries in $k$, the matrix $M = \sum_{j=1}^{m} e_j N_j$ satisfies
+\[ \operatorname{rank}_K M = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j. \]
+
+In (i), the index set $I$ is a type in the universe of $K$, which is no restriction (Proposition~\ref{prop:dalag_prop_12_13_ii_i}), and $E$ may be infinite-dimensional. In (iv), the right-hand side is the structural rank of $M$ over $k$ (DALAG \S12.1.4).
+'''
+source = '''\cite[Prop.~12.13]{Wal00} (pp.~429--430), for a subspace $E$ containing $k$, written $1 \in E$, with (iv) in presentation form. The equivalence is proved along the cycle (i)$\Rightarrow$(ii)$\Rightarrow$(iv)$\Rightarrow$(iii)$\Rightarrow$(ii)$\Rightarrow$(i), with (ii)$\Rightarrow$(iv) in place of the printed (i)$\Rightarrow$(iv) through Lemma~12.9. The printed proof of (iv)$\Rightarrow$(iii) needs a small correction (ERRATA.md, B8). Routine.'''
+sketch = '''
+(i)$\Rightarrow$(ii) is Proposition~\ref{prop:dalag_prop_12_13_i_ii}, (ii)$\Rightarrow$(iv) is Proposition~\ref{prop:dalag_prop_12_13_ii_iv}, (iv)$\Rightarrow$(iii) is Proposition~\ref{prop:dalag_prop_12_13_iv_iii}, (iii)$\Rightarrow$(ii) is Proposition~\ref{prop:dalag_prop_12_13_iii_ii}, and (ii)$\Rightarrow$(i) is Proposition~\ref{prop:dalag_prop_12_13_ii_i}.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_cor_12_14"
+root = true
+env = "corollary"
+title = "DALAG Corollary 12.14"
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$). Let $E_0 \subseteq K$ be a $k$-vector subspace with $E_0 \cap k = \{0\}$: if $c \in k$ and $c \cdot 1 \in E_0$, then $c = 0$. Write $k + E_0$ for the $k$-vector space spanned by $1$ and $E_0$. The following are equivalent.
+
+(i) Whenever $x_1, \dots, x_n \in E_0$ are linearly independent over $k$, they are algebraically independent over $k$.
+
+(ii) Whenever $e_1, \dots, e_m \in k + E_0$ are linearly independent over $k$ and $N_1, \dots, N_m$ are $s \times t$ matrices with entries in $k$, the matrix $M = \sum_{j=1}^{m} e_j N_j$ satisfies
+\[ \operatorname{rank}_K M = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j. \]
+
+So (ii) says that every matrix with entries in $k + E_0$ has rank equal to its structural rank over $k$, in presentation form.
+'''
+source = '''\cite[Cor.~12.14]{Wal00} (p.~430), with (ii) in presentation form. No proof is printed; the text applies Prop.~12.13 to $k + E_0$. The implication (i)$\Rightarrow$(ii) holds without the hypothesis $E_0 \cap k = \{0\}$, which is used only for (ii)$\Rightarrow$(i). Routine.'''
+sketch = '''
+Both directions go through the conditions of Proposition~\ref{prop:dalag_prop_12_13} for $E = k + E_0$, which contains $1$. ($\Rightarrow$) Let $x_1, \dots, x_n \in E$ be such that $1, x_1, \dots, x_n$ are linearly independent over $k$, and write $x_i = c_i + y_i$ with $c_i \in k$ and $y_i \in E_0$. The $y_i$ are linearly independent over $k$: a relation $\sum_i \lambda_i y_i = 0$ gives $\sum_i \lambda_i x_i - (\sum_i \lambda_i c_i) \cdot 1 = 0$, so every $\lambda_i = 0$. By (i) they are algebraically independent, and the $x_i$ lie in the span of $1$ and the $y_i$, so Lemma~\ref{lem:dalag_prop_12_13_i_ii_span} makes $x$ algebraically independent. So $E$ satisfies condition (ii) of Prop.~12.13, and Proposition~\ref{prop:dalag_prop_12_13_ii_iv} gives (ii) here. ($\Leftarrow$) Condition (ii) here is (iv) for $E$, and Propositions~\ref{prop:dalag_prop_12_13_iv_iii} and~\ref{prop:dalag_prop_12_13_iii_ii} give (ii) for $E$. If $x_1, \dots, x_n \in E_0$ are linearly independent over $k$, a relation $c \cdot 1 + \sum_i \lambda_i x_i = 0$ puts $c \cdot 1$ in $E_0$, so $c = 0$ and then every $\lambda_i = 0$; so $1, x_1, \dots, x_n$ are linearly independent over $k$, and (ii) for $E$ makes $x$ algebraically independent.
+'''
+
+# --- DALAG Propositions 12.2 and 12.6 ----------
+[[node]]
+platform = "DiazModulus.matrix_exists_rank_normal_form"
+section = "DALAG Propositions 12.2 and 12.6: the block form (A B; C 0)"
+env = "lemma"
+title = "The rank normal form of a matrix"
+statement = '''
+Let $k$ be a field and $N$ an $s \times t$ matrix with entries in $k$. Then there are a natural number $r \leq \min(s, t)$ and invertible matrices $P \in \mathrm{GL}_s(k)$ and $Q \in \mathrm{GL}_t(k)$ such that
+\[ PNQ = \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}, \]
+that is, $(PNQ)_{ij} = 1$ if $i = j \leq r$ and $(PNQ)_{ij} = 0$ otherwise. The statement does not record that $r$ is the rank of $N$.
+'''
+source = '''Classical linear algebra, used without proof in the proof of \cite[Prop.~12.2]{Wal00} (pp.~420--421), for rectangular matrices. Proved by elimination, by induction on the number of rows. Routine.'''
+sketch = '''
+By strong induction on $s$. If $N = 0$, take $r = 0$ and $P = Q = 1$. Otherwise swap two rows and two columns to bring a non-zero entry $a$ to the upper left corner, and write the result in blocks $\begin{pmatrix} a & B \\ C & D \end{pmatrix}$. Elimination of the first column and of the first row, by block triangular matrices with unit determinants, and division of the first row by $a$ leave $\begin{pmatrix} 1 & 0 \\ 0 & S \end{pmatrix}$, where $S = D - Ca^{-1}B$, the Schur complement, has one row fewer. The induction hypothesis puts $S$ in normal form, with $r'$ say, and $r = r' + 1$; the products of the transforming matrices, swaps included, are invertible.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_2_det"
+env = "lemma"
+title = "A transcendental shift keeps a block matrix regular"
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), let $L$ be an intermediate field, $k \subseteq L \subseteq K$, and let $x \in K$ be transcendental over $L$. Let $A$, $B$, $C$, $D$ be matrices with entries in $L$, of sizes $r \times r$, $r \times r'$, $r' \times r$ and $r' \times r'$, with $\det D \neq 0$. Then
+\[ \det \begin{pmatrix} x I_r + A & B \\ C & D \end{pmatrix} \neq 0. \]
+'''
+source = '''A step of the proof of \cite[Prop.~12.2]{Wal00} (p.~419; proof pp.~420--422): the closing argument of p.~422, that the determinant is a polynomial in $x$ with leading term $x^{r} \det A'$, hence non-zero as $x$ is transcendental; here through the Schur complement and a characteristic polynomial, which is monic. Routine.'''
+sketch = '''
+As $\det D \neq 0$, $D$ is invertible, with inverse over $L$, and the Schur complement gives
+\[ \det \begin{pmatrix} x I_r + A & B \\ C & D \end{pmatrix} = \det D \cdot \det\bigl(x I_r + A - BD^{-1}C\bigr). \]
+The second factor is $\det(x I_r - Z)$ for the matrix $Z = -(A - BD^{-1}C)$ over $L$: the characteristic polynomial of $Z$, a monic polynomial over $L$, evaluated at $x$. As $x$ is transcendental over $L$, it does not vanish, and neither does $\det D$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_2_split"
+env = "lemma"
+title = "Splitting off a transcendental direction"
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$), and let $E \subseteq K$ be a $k$-vector subspace satisfying condition (ii) of \cite[Prop.~12.13]{Wal00} (as in Proposition~\ref{prop:dalag_prop_12_13_ii_iv}; here $1 \in E$ is not assumed).
+
+Let $F \subseteq E$ be a non-zero finite-dimensional $k$-vector subspace. Then there are $x \in F$ with $x \neq 0$ and a $k$-vector subspace $F_1 \subsetneq F$ such that every $f \in F$ satisfies $f - cx \in F_1$ for some $c \in k$ (so $F = F_1 \oplus kx$), and either $F_1 = \{0\}$ or $x$ is transcendental over the field $k(F_1)$ generated over $k$ by $F_1$.
+'''
+source = '''A step of the proof of \cite[Prop.~12.2]{Wal00} (p.~419; proof pp.~420--422): the choice of $x$ and of $E_1$ with $E_0 = E_1 \oplus kx$ (p.~421), and the analogue of \cite[Lemma~12.3]{Wal00}, (ii)$\Rightarrow$(iii) (p.~420), which makes $x$ transcendental over $k(E_1)$ (p.~422). Here $E$ is any subspace with condition (ii) of Prop.~12.13, and $x$ is a member other than $1$ of a $k$-basis of $k \cdot 1 + F$ that contains $1$, so that $F_1$ contains $1$ when $1 \in F$ and $F \neq k \cdot 1$. For $k + E_0$ the printed step ``$x \notin E_1$, hence $x$ is transcendental over $k(E_1)$'' fails whenever $1$ lies in the span of the entries but not in $E_1$ (ERRATA.md, B11). Routine.'''
+sketch = '''
+Extend $\{1\}$ to a $k$-basis $\beta$ of $k \cdot 1 + F$ inside $\{1\} \cup F$, and let $T = \beta \setminus \{1\}$. Then $T \subseteq F$, and $1$ together with any finite subset of $T$ is linearly independent over $k$, so by (ii) the family $T$ is algebraically independent over $k$. If $T$ is empty, then $F \subseteq k \cdot 1$, and $F \neq 0$ gives $1 \in F$: take $x = 1$ and $F_1 = 0$. Otherwise pick $x \in T$ and put $F_1 = F \cap \operatorname{span}_k(\beta \setminus \{x\})$. Then $x \in F$, $x \neq 0$ and $x \notin F_1$, so $F_1 \subsetneq F$. Every $f \in F$ is $cx + z$ with $c \in k$ and $z \in \operatorname{span}_k(\beta \setminus \{x\})$, and $z = f - cx \in F$, so $z \in F_1$. Finally $x$ is transcendental over the field $k(T \setminus \{x\})$, since $T$ is algebraically independent, and that field contains $\operatorname{span}_k(\beta \setminus \{x\}) \supseteq F_1$, hence $k(F_1)$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_2_step"
+env = "lemma"
+title = "The inductive step of DALAG Proposition 12.2"
+statement = '''
+Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \subseteq K$). A matrix $M$ with $s$ rows, $t$ columns and entries in $K$ \emph{has the block form (A B; C 0) over $k$} if there are a natural number $r \leq \min(s, t)$ and invertible matrices $P \in \mathrm{GL}_s(k)$, $Q \in \mathrm{GL}_t(k)$ such that, with $P$ and $Q$ read in $K$, the entries $(PMQ)_{ij}$ with $i > r$ and $j > r$ vanish and the upper left $r \times r$ block of $PMQ$ is invertible:
+\[ PMQ = \begin{pmatrix} A & B \\ C & 0 \end{pmatrix} \]
+with $A$ regular, or empty when $r = 0$.
+
+Let $F_1 \subseteq K$ be a $k$-vector subspace such that every matrix with entries in $F_1$ (of any size, the zero matrix included) has the block form (A B; C 0) over $k$. Let $x \in K$ with $x \neq 0$, and assume that $F_1 = \{0\}$ or $x$ is transcendental over the field $k(F_1)$ generated over $k$ by $F_1$. Let $M$ be an $s \times t$ matrix with entries in $K$ and $N$ an $s \times t$ matrix with entries in $k$ such that every entry of $M - xN$ lies in $F_1$. Then $M$ has the block form (A B; C 0) over $k$.
+'''
+source = '''A step of the proof of \cite[Prop.~12.2]{Wal00} (p.~419; proof pp.~420--422): the induction step (pp.~421--422), with $E_1$ written $F_1$; the case $F_1 = 0$ is the case $n = 1$ of p.~420. Routine.'''
+sketch = '''
+Lemma~\ref{lem:matrix_exists_rank_normal_form} gives $P_0$, $Q_0$ invertible over $k$ with $P_0 N Q_0 = \begin{pmatrix} I_{r_0} & 0 \\ 0 & 0 \end{pmatrix}$. As $P_0$ and $Q_0$ have entries in $k$ and $F_1$ is a $k$-vector space, $\tilde M = P_0 M Q_0$ is $x$ times this matrix plus a matrix over $F_1$. If $F_1 = 0$, the leading block of $\tilde M$ is $x I_{r_0}$, of determinant $x^{r_0} \neq 0$. Otherwise write $\tilde M = \begin{pmatrix} x I + A & B \\ C & D \end{pmatrix}$ with $A$, $B$, $C$, $D$ over $F_1$. The hypothesis on $F_1$, applied to $D$, gives $P'$, $Q'$ invertible over $k$ and $r'$ such that $P'DQ'$ vanishes where both indices exceed $r'$ and has a regular leading block $D'$. Multiplying $\tilde M$ by $\operatorname{diag}(I, P')$ on the left and by $\operatorname{diag}(I, Q')$ on the right gives a matrix whose entries with both indices beyond $r_0 + r'$ vanish, and whose leading block of size $r_0 + r'$ is $\begin{pmatrix} x I + A & B' \\ C' & D' \end{pmatrix}$ with $A$, $B'$, $C'$, $D'$ over $F_1 \subseteq k(F_1)$. By Lemma~\ref{lem:dalag_prop_12_2_det}, with $L = k(F_1)$, that block is regular. So $r = r_0 + r'$, $P = \operatorname{diag}(I, P') P_0$ and $Q = Q_0 \operatorname{diag}(I, Q')$ work.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_2_ii"
+root = true
+env = "proposition"
+title = "DALAG Proposition 12.2 for every subspace with condition (ii) of Proposition 12.13"
+statement = '''
+Let $k$, $K$ and the block form (A B; C 0) over $k$ be as in Lemma~\ref{lem:dalag_prop_12_2_step}. Let $E \subseteq K$ be a $k$-vector subspace satisfying condition (ii) of \cite[Prop.~12.13]{Wal00}: whenever $x_1, \dots, x_n \in E$ ($n \geq 0$) and $1, x_1, \dots, x_n$ are linearly independent over $k$, the elements $x_1, \dots, x_n$ are algebraically independent over $k$.
+
+Then every matrix with entries in $E$, the zero matrix included, has the block form (A B; C 0) over $k$. No hypothesis on $k$ is made, and $1 \in E$ is not assumed.
+'''
+source = '''\cite[Prop.~12.2]{Wal00} (p.~419), by its first proof (pp.~420--422), which needs no hypothesis on $k$, run for any subspace $E$ with condition (ii) of Prop.~12.13 in place of a span of algebraically independent elements. DALAG remarks (p.~422) that this proof yields a more general result, where the $x_i$ are not assumed algebraically independent, and cites D.~Roy (1989) for it; this is such a generalisation. The hyperplane $E_1$ of the induction on the dimension of the span of the entries is chosen to contain $1$ when possible (Lemma~\ref{lem:dalag_prop_12_2_split}). Routine.'''
+sketch = '''
+By strong induction on the dimension of the $k$-span $F$ of the entries of $M$. If $F = 0$, then $M = 0$, and $r = 0$, $P = Q = 1$ work. Otherwise $F$ is a non-zero finite-dimensional subspace of $E$, and Lemma~\ref{lem:dalag_prop_12_2_split} gives $x \in F$ with $x \neq 0$ and $F_1 \subsetneq F$ such that every $f \in F$ is congruent to some $cx$, $c \in k$, modulo $F_1$, and either $F_1 = 0$ or $x$ is transcendental over $k(F_1)$. Choosing these $c$ entry by entry gives a matrix $N$ over $k$ with $M - xN$ over $F_1$. Every matrix over $F_1$ has the block form by the induction hypothesis, since its entries span a subspace of $F_1 \subseteq E$, of dimension less than $\dim F$, and Lemma~\ref{lem:dalag_prop_12_2_step} gives the block form for $M$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_2"
+root = true
+env = "proposition"
+title = "DALAG Proposition 12.2"
+statement = '''
+Let $k$, $K$ and the block form (A B; C 0) over $k$ be as in Lemma~\ref{lem:dalag_prop_12_2_step}. Let $(b_j)_{j \in J}$ be a family of elements of $K$, indexed by any set $J$ (finite or not), algebraically independent over $k$, and let $E$ be the $k$-vector space it spans. Then every matrix with entries in $E$, the zero matrix included, has the block form (A B; C 0) over $k$. No hypothesis on $k$ is made.
+'''
+source = '''\cite[Prop.~12.2]{Wal00} (p.~419), which DALAG credits to D.~Roy (1990, Proposition~1), for any field $k$, by the proof of pp.~420--422; the other proof (p.~424) assumes $k$ infinite and is not used. The empty $A$ of the statement is $r = 0$. In the Remark after Prop.~12.2 (p.~419) the sizes printed for the second and third examples are slips (ERRATA.md, C16); every $r \leq \min(s, t)$ is allowed here, so the three shapes are covered. Routine.'''
+sketch = '''
+By Proposition~\ref{prop:dalag_prop_12_2_ii} it suffices that $E$ satisfies condition (ii) of Prop.~12.13. If $x_1, \dots, x_n \in E$ and $1, x_1, \dots, x_n$ are linearly independent over $k$, the $x_i$ lie in the larger span of $1$ and the $b_j$, and Lemma~\ref{lem:dalag_prop_12_13_i_ii_span} makes them algebraically independent over $k$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_remark_12_1_3"
+root = true
+env = "proposition"
+title = '''The Remark of DALAG \S12.1.3 (p.~424)'''
+statement = '''
+Let $k$, $K$ and the block form (A B; C 0) over $k$ be as in Lemma~\ref{lem:dalag_prop_12_2_step}. A $k$-vector subspace $E$ of $K$ has \emph{Property (A B; C 0)} \cite[\S12.1.3]{Wal00} if every non-zero matrix with entries in $E$ has the block form (A B; C 0) over $k$, necessarily with $r \geq 1$, as in Lemma~\ref{lem:dalag_prop_12_7_step}.
+
+Let $(b_j)_{j \in J}$ be a family of elements of $K$, indexed by any set $J$ (finite or not), algebraically independent over $k$. Let $E_0$ be the $k$-vector space it spans, and $k + E_0$ the $k$-vector space spanned by $1$ and $E_0$. Then $k + E_0$ has Property (A B; C 0). No hypothesis on $k$ is made, and the printed hypothesis $E_0 \cap k = \{0\}$ is not assumed: it follows from the algebraic independence of the $b_j$.
+'''
+source = '''The Remark in \cite[\S12.1.3]{Wal00} (p.~424), for any field $k$ and without the hypothesis $E_0 \cap k = \{0\}$, which follows from the algebraic independence: a non-zero $c \in E_0 \cap k$ would be a non-zero polynomial relation of degree at most $1$. The statement of the Remark is correct, but its printed reason has a gap: Property (A B; C 0) is a property of the triple $(k, K, E)$, not of the $k$-vector space $E$, so the $k$-linear isomorphism of $k + E_0$ with $kX + E_0$ in $K(X)$ does not carry it (ERRATA.md, B11). The proof here does not pass through $K(X)$: the first proof of Prop.~12.2 is run on $k + E_0$ directly (Proposition~\ref{prop:dalag_prop_12_2_ii}), with the hyperplane $E_1$ of its induction chosen to contain $1$. Routine.'''
+sketch = '''
+The elements of $k + E_0$ lie in the $k$-span of $1$ and the $b_j$, so by Lemma~\ref{lem:dalag_prop_12_13_i_ii_span} the space $k + E_0$ satisfies condition (ii) of Prop.~12.13, and Proposition~\ref{prop:dalag_prop_12_2_ii} gives the block form for every matrix over $k + E_0$; the hypothesis $M \neq 0$ is not needed.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_prop_12_6"
+root = true
+env = "proposition"
+title = "DALAG Proposition 12.6"
+statement = '''
+Let $k$, $K$ and Property (A B; C 0) be as in Proposition~\ref{prop:dalag_remark_12_1_3}. Let $E \subseteq K$ be a $k$-vector subspace with Property (A B; C 0). Let $V \subseteq K^{d}$ be a $K$-vector subspace, $n = \dim_K V$, and let $Y \subseteq V \cap E^{d}$ be a finite-dimensional $k$-vector subspace. Then there is a $K$-vector subspace $S \subseteq K^{d}$, rational over $k$ (spanned over $K$ by the vectors of $S$ whose coordinates all lie in $k$), such that, with $d' = \dim_K(K^{d}/S)$ and $\ell' = \dim_k\bigl(Y/(Y \cap S)\bigr)$,
+\[ \ell' \leq d - d' \leq n. \]
+No hypothesis $n < d$ is made.
+'''
+source = '''\cite[Prop.~12.6]{Wal00} (p.~425), in the integer form $\ell' \leq d - d' \leq n$; the equivalent printed form with ratios is not stated. The printed hypothesis $n < d$ is not used by the proof (``$1 \leq r \leq n < d$'' only records it) and is dropped; for $n = d$ the conclusion holds anyway with $S = K^{d}$. The space $S$, printed as an intersection of hyperplanes, is taken as the span of the first $r$ columns of $P^{-1}$, which is the same space. Routine.'''
+sketch = '''
+Let $\eta_1, \dots, \eta_\ell$ be a $k$-basis of $Y$ and $M$ the $d \times \ell$ matrix with columns $\eta_j$; its entries lie in $E$. If $M \neq 0$, Property (A B; C 0) gives $r$ and $P \in \mathrm{GL}_d(k)$, $Q \in \mathrm{GL}_\ell(k)$ such that $N = PMQ$ vanishes where both indices exceed $r$ and has a regular upper left $r \times r$ block; if $M = 0$, that is, $Y = 0$, the same holds with $r = 0$ and $P = Q = 1$. Then $r \leq \operatorname{rank} N = \operatorname{rank} M \leq n$, since the columns of $M$ lie in $V$. Let $S$ be the $K$-span of the first $r$ columns of $P^{-1}$: it is rational over $k$ and has dimension $r$, so $d - d' = r \leq n$. A vector $z$ lies in $S$ if and only if $(Pz)_s = 0$ for every $s > r$, which are the printed hyperplanes. For $t > r$, the vector $\theta_t = \sum_j Q_{jt}\eta_j$ of $Y$ has $(P\theta_t)_s = N_{st} = 0$ for $s > r$, so $\theta_t \in S$. The $\theta_t$ are linearly independent over $k$, as $Q$ is invertible, so $\dim_k(Y \cap S) \geq \ell - r$, and $\ell' \leq r = d - d'$.
+'''
+
+[[node]]
+platform = "DiazModulus.dalag_conclusion_12_1_6"
+root = true
+env = "proposition"
+title = '''DALAG \S12.1.6: rank equal to structural rank gives Property (A B; C 0)'''
+statement = '''
+Let $k$, $K$ and Property (A B; C 0) be as in Proposition~\ref{prop:dalag_remark_12_1_3}. Let $E \subseteq K$ be a $k$-vector subspace with $1 \in E$ satisfying condition (iv) of \cite[Prop.~12.13]{Wal00}, in presentation form (Proposition~\ref{prop:dalag_prop_12_13}): whenever $e_1, \dots, e_m \in E$ are linearly independent over $k$ and $N_1, \dots, N_m$ are $s \times t$ matrices with entries in $k$, the matrix $M = \sum_{j=1}^{m} e_j N_j$ satisfies $\operatorname{rank}_K M = \operatorname{rank}_{k(Z_1, \dots, Z_m)} \sum_{j=1}^{m} Z_j N_j$, its structural rank over $k$. Then $E$ has Property (A B; C 0).
+'''
+source = '''\cite[\S12.1.6]{Wal00} (p.~431), that Property (A B; C 0) is a consequence of $r = r_{\mathrm{str}}$, said there for $E = k + E_0$ with $E_0 \cap k = \{0\}$; any $E$ containing $1$ is of this form ($E_0$ a complement of $k \cdot 1$ in $E$), so $E_0$ does not appear. In the same sentence, ``as pointed out in \S12.1.5'' refers to the boxed statement of p.~427, which is in \S12.1.4 (ERRATA.md, C15). Routine.'''
+sketch = '''
+By Proposition~\ref{prop:dalag_prop_12_13_iv_iii}, no non-zero homogeneous polynomial over $k$ vanishes at elements of $E$ that are linearly independent over $k$; by Proposition~\ref{prop:dalag_prop_12_13_iii_ii}, which uses $1 \in E$, every family $x$ in $E$ such that $1, x$ are linearly independent over $k$ is algebraically independent over $k$. Proposition~\ref{prop:dalag_prop_12_2_ii} then puts every matrix over $E$ in the block form (A B; C 0); the hypothesis $M \neq 0$ is not needed.
 '''

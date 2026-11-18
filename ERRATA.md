@@ -1,12 +1,12 @@
-*Transcendence theory in Lean 4 (`diaz-modulus-lean`): notes of 15 November 2026.*
+*Transcendence theory in Lean 4 (`diaz-modulus-lean`): notes of 18 November 2026.*
 
 # Notes on printed statements and proofs met while formalising rank bounds for matrices of logarithms
 
 These notes record places where a printed statement or argument needed a correction while the results below were
-being formalised. Most items are small. Four printed statements are false as stated (two corollaries in [Var]
-and two lemmas in [DALAG]); one of the two corollaries was already corrected by its author. Section B lists eleven
-gaps in printed proofs, each with a repair (seven in [DALAG], two in [Roy], one each in [Var] and [FV]), and section C
-thirteen smaller slips. Each item gives the place, the printed text (short quotation), what goes wrong, the evidence,
+being formalised. Most items are small. Five printed statements are false as stated (two corollaries in [Var],
+two lemmas in [DALAG] and a remark in [FV]); one of the two corollaries was already corrected by its author. Section
+B lists twelve gaps in printed proofs, each with a repair (seven in [DALAG], two in [Roy], one each in [Var], [FV]
+and [Fis]), and section C sixteen smaller slips. Each item gives the place, the printed text (short quotation), what goes wrong, the evidence,
 whether the point is already corrected in print,
 and how the formal version handles it. The formal versions are theorems of the Lean 4 library in this repository;
 they are named here without their namespace.
@@ -151,6 +151,32 @@ the first clause). Only the first repair serves Proposition 11.19: in the (Q̄, 
 **Already corrected in print.** Not in the sources consulted.
 
 **Formal version.** Not used: no formal proof uses a statement about 𝒱 ∩ (Q̄^{d̲₀} × {0}).
+
+### A5. [FV] p. 3, remark after Theorem 1.2 — false statement (a missing hypothesis in a remark)
+
+**Printed.** The remark after Theorem 1.2: if M is a d × ℓ matrix of rank 1, with d ≥ 2 and ℓ ≥ 2, whose columns
+are Q̄-linearly independent, then "the d + ℓ columns of the matrix (I_d M) are also Q̄-linearly independent". The
+next sentence uses it to say that Theorem 1.2 generalises Theorem 1.1.
+
+**What goes wrong.** A column of M with algebraic coordinates is a Q̄-combination of the columns of I_d, and a
+rank-one M with Q̄-free columns can have one.
+
+**Counterexample.** d = ℓ = 2, M = (1 λ; 1 λ) with λ = log 2.
+- M has rank 1 (its two rows are equal).
+- The columns (1, 1)ᵀ and (λ, λ)ᵀ are Q̄-free: a(1, 1) + b(λ, λ) = 0 gives a + bλ = 0, and λ is transcendental
+  (Lindemann), so a = b = 0.
+- The conclusion fails: e₁ + e₂ − (1, 1)ᵀ = 0 among the columns of (I₂ M).
+Free rows alone do not suffice either: M = (1 1; λ λ) has Q̄-free rows and two equal columns.
+
+**Repair.** Assume that the rows of M, as well as its columns, are Q̄-free. Write M = uvᵀ. If a + Mb = 0 with
+a ∈ Q̄^d, b ∈ Q̄^ℓ and vᵀb ≠ 0, then u is a multiple of the algebraic vector a ≠ 0, so two rows of M are Q̄-dependent
+(d ≥ 2). Hence vᵀb = 0, so a = 0 and Mb = 0, and b = 0 because the columns are Q̄-free. The use made of the remark
+is unaffected: Theorem 1.1 (p. 2) assumes both the rows and the columns Q̄-free.
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** Not used: `fv_theorem_1_2` states Theorem 1.2 with the five rows of (M; I₃) and the five
+columns of (I₂, M) Q̄-free, as printed, and no formal proof passes through the remark.
 
 ---
 
@@ -396,8 +422,9 @@ x₀M = ((e√2, 2e), (e, e√2)) has rank 1 and structural rank 2. The Proposit
 **Formal version.** `dalag_prop_12_13_iv_iii`: the implication (iv) ⇒ (iii), drawn from the repaired matrix x₀M with
 its presentation by x₀, …, xₙ, through `dalag_prop_12_10` (Proposition 12.10) and `dalag_lemma_12_9_dehomog`
 (Lemma 12.9 for x₀ ↦ 1, xᵢ ↦ Xᵢ; see B7). There (iv) is taken for presentations M = Σ eⱼNⱼ with e k-free in E,
-which is equivalent to (iv) by Lemma 12.8 (see B7), and k ⊆ E is not assumed. The other implications of
-Proposition 12.13 are not formalised.
+which is equivalent to (iv) by Lemma 12.8 (see B7), and k ⊆ E is not assumed. The equivalence is
+`dalag_prop_12_13`, with (ii) ⇒ (iv) in place of the printed (i) ⇒ (iv) (`dalag_prop_12_13_ii_iv`, through
+`dalag_lemma_12_9`), and Corollary 12.14 is `dalag_cor_12_14`.
 
 ### B9. [DALAG] proof of Proposition 11.19, pp. 402–403, case (𝕂, L) = (ℚ, ℚ + ℒ) — proof gap: Theorem 11.5 (3′) need not select {e}
 
@@ -498,7 +525,34 @@ correct (C10's example uses it), and its hypothesis E₀ ∩ k = {0} is automati
 
 **Already corrected in print.** Not in the sources consulted.
 
-**Formal version.** Not formalised (it needs Proposition 12.2).
+**Formal version.** `dalag_remark_12_1_3`, for any field k and without the hypothesis E₀ ∩ k = {0}. It is not
+proved through K(X): the first proof of Proposition 12.2 is run directly on k + E₀ (`dalag_prop_12_2_ii`, for any E
+in which 1, x₁, …, xₙ k-free implies x₁, …, xₙ algebraically independent), with the hyperplane E₁ of its induction
+chosen to contain 1. The step of the printed first proof from x ∉ E₁ to x transcendental over k(E₁) (Lemma 12.3)
+fails for k + E₀ whenever 1 lies in the span of the entries but not in E₁. Proposition 12.2 itself is
+`dalag_prop_12_2`.
+
+### B12. [Fis] proof of Proposition 5.7, p. 183 — proof gap (small): an affine subspace of dimension at least 2 need not meet E
+
+**Printed.** Proposition 5.7 assumes the Algebraic Independence Conjecture. Its proof reaches an affine hyperplane
+E of Mat_n(K), contained in the locus D of matrices whose characteristic polynomial χ has zero discriminant, and
+not a vector hyperplane. It then takes the affine subspace T of upper triangular matrices with diagonal entries
+(1, 2, …, n), and says that T has dimension at least 2, "therefore it intersects E". Every matrix of T has the
+distinct eigenvalues 1, 2, …, n, so a point of T ∩ E would contradict E ⊂ D.
+
+**What goes wrong.** An affine subspace of any dimension misses an affine hyperplane {ψ = c} whenever the linear
+form ψ is constant on it with a value other than c. For instance E′ = {N : N₂₁ = 1} is an affine hyperplane defined
+over Q̄ that misses T, whose matrices all have N₂₁ = 0. Nothing in the text shows that the E of the proof is not of
+this kind.
+
+**Repair.** The conclusion stands. Write E = {ψ = c}; c ≠ 0, since E is not a vector hyperplane. As
+disc χ_{sN} = s^{n(n−1)} disc χ_N, every sE with s ≠ 0 lies in D, and their union {ψ ≠ 0} is Zariski dense in
+Mat_n(K). So disc χ_N vanishes for every N, which is false at diag(1, 2, …, n).
+
+**Already corrected in print.** Not in the sources consulted.
+
+**Formal version.** Not formalised: Proposition 5.7 is conditional on the Algebraic Independence Conjecture, and no
+formal proof uses it.
 
 ---
 
@@ -646,8 +700,8 @@ Mᵢ(ker N) ⊂ Im N.
 Im N = k^r × {0}^{d−r}; n is the number of variables X₁, …, Xₙ. The conclusion Mᵢ(ker N) ⊂ Im N, and
 Proposition 12.5, are correct.
 
-**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected (Propositions 12.2
-and 12.5 are not formalised).
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected: `dalag_prop_12_2`
+follows the first proof, which does not use Proposition 12.5; Proposition 12.5 is not formalised.
 
 ### C13. [DALAG] proof of Lemma 12.11, p. 428 — slip: "the d × dS matrix" and "the dS × ℓ matrix"
 
@@ -659,6 +713,46 @@ X₀ = 1).
 
 **Already corrected in print.** Not in the sources consulted. **Formal version.** `dalag_prop_12_10` builds the
 matrix with the n + 1 blocks (I, X₁I, …, XₙI).
+
+### C14. [DALAG] proof of Proposition 12.4, p. 422 — slip: "a matrix of rank r₁ − 1"
+
+**Printed.** The proof writes M = xₙA + N, with A "a matrix of rank r₁ − 1" with entries in k, and then takes
+P ∈ GL_d(k), Q ∈ GL_ℓ(k) with PAQ = (I_{r₁} 0; 0 0).
+
+**What is meant.** Rank r₁: the normal form (I_{r₁} 0; 0 0), and the r₁ × r₁ block M₁₁ that the proof then
+uses, both say so. Proposition 12.4 is correct.
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected (Proposition 12.4 is
+not formalised).
+
+### C15. [DALAG] § 12.1.6, p. 431 — slip (cross-reference): "as pointed out in § 12.1.5"
+
+**Printed.** Property (A B; C 0) is said to follow from r = r_str and to imply r ≥ r_str/2 "as pointed out in
+§ 12.1.5".
+
+**What is meant.** § 12.1.4. The implication from Property (A B; C 0) to r ≥ r_str/2 is the boxed statement of the
+Remark before Lemma 12.9 (p. 427, see C11), which belongs to § 12.1.4 ("Structural Rank", from p. 426);
+§ 12.1.5 begins on p. 428 and does not mention r_str/2.
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** Not affected. The first half of
+the sentence, Property (A B; C 0) as a consequence of r = r_str, is `dalag_conclusion_12_1_6`; the boxed statement
+of p. 427 is not formalised.
+
+### C16. [DALAG] Remark after Proposition 12.2, p. 419 — slip: the block sizes in the second and third examples
+
+**Printed.** In (12.1) (p. 418) A is d* × ℓ′, B is d* × ℓ*, C is d′ × ℓ′ and the zero block is d′ × ℓ*, with
+ℓ′ = ℓ − ℓ* (p. 419). The Remark lists three trivial cases. The first, M = 0, has d′ = d and ℓ′ = 0, so that A is
+0 × 0: right. The second, rows of M linearly independent over K, is given d′ = ℓ′ = 0, C of size 0 × ℓ, and M
+k-equivalent to (A, B) with A invertible. The third, columns linearly independent over K, is given d′ = d and
+ℓ′ = ℓ, B of size d × 0, and M k-equivalent to (A; C) with A square of maximal rank.
+
+**What is meant.** With ℓ′ = 0, A is d × 0 and cannot be invertible: the second case has d′ = 0 and ℓ′ = d, A of
+size d × d, and 0 × ℓ is the size of the bottom block row (C 0). With d′ = d, A has no rows: the third case has
+d′ = d − ℓ and ℓ′ = ℓ, A of size ℓ × ℓ, and d × 0 is the size of the right block column (B; 0). The point of the
+Remark, that these degenerate shapes are allowed, is clear and correct.
+
+**Already corrected in print.** Not in the sources consulted. **Formal version.** `dalag_prop_12_2` allows every
+r ≤ min(s, t), r = 0 included, so all three shapes are covered.
 
 ## D. Checked and not counted as errors
 
@@ -702,11 +796,11 @@ or is plainly announced as unproved.
 - These notes were written and checked by Claude agents (Anthropic's Claude, run through Claude Code), working
   for the maintainer of this repository, as part of the formalisation; two independent checks were made before
   publication.
-- Every printed passage above was read on page images rendered from the source PDFs (pdftoppm, 100–250 dpi), not
+- Every printed passage above was read on page images rendered from the source PDFs (pdftoppm, 100–300 dpi), not
   on text layers, which drop overlines and brackets. The exceptions are two phrases with no overline or bracket in
   them, read on the text layer: "Following [Roy 1992b]" ([DALAG] p. 398) and the use of Z* in [Roy] p. 40. Page numbers are the printed ones. In the copies used, for [DALAG], printed page =
   PDF page − 20 (checked on pp. 382–436 against the running heads). For [Var], printed = PDF + 336. For [FV],
-  printed = PDF − 1. For [Roy], printed = PDF + 21. For [GDL], p. 106 = PDF p. 10. For [Fis], p. 182 = PDF p. 16.
+  printed = PDF − 1. For [Roy], printed = PDF + 21. For [GDL], p. 106 = PDF p. 10. For [Fis], printed = PDF + 166.
   For [Role], printed = PDF.
 - Line numbers count text lines from the top of the page, without displays. Elsewhere passages are located by
   statement or paragraph.
@@ -724,6 +818,10 @@ or is plainly announced as unproved.
   Python scripts, one written with the item and one by an independent referee; so were, for B9, the dimensions in
   the example and the monotonicity in d of the Ψ table for d < 60. For B11, the condition 2p₁² = p₂² was derived by
   hand twice, independently, and confirmed by a search over integer vectors with entries up to 12.
+- A5, B12 and C14–C16 were each found by one agent and confirmed on page images rendered separately by an
+  independent referee; C14 was read at 300 dpi. The counterexample of A5 and the hyperplane E′ of B12 were checked
+  by hand and by a short Python script, which the referee re-ran with the same output; the arguments given above,
+  not the script, are the evidence.
 - Corrections in print were looked for in [FV] (all nine pages, on images) and [Role] (text search, then §6 on
   images), and on the author's publications page (webusers.imj-prg.fr/~michel.waldschmidt/texts.html, read on
   14 November 2026). That page gives one erratum for [Var]: Corollary 2.12, p. 346, with the hypothesis that

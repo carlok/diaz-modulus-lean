@@ -1,0 +1,21 @@
+{
+ "theorem_id": "af5c721e-e373-40d2-a657-850d2069764e",
+ "theorem_name": "DiazModulus.fischler_rational_hull",
+ "theorem_title": "For v ∈ ℂᵐ: v = c₁w₁ + ⋯ + cₙwₙ with c Q̄-free, w₁, …, wₙ ∈ Q̄ᵐ Q̄-free, n = dim span_Q̄(v₁, …, vₘ), and each algebraic ψ with ψ · v = 0 vanishes on every wₐ",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem fischler_rational_hull {m : ℕ} (v : Fin m → ℂ) :\n    ∃ (n : ℕ) (c : Fin n → ℂ) (w : Fin n → Fin m → ℂ),\n      n = Module.finrank (↥Qbar) ↥(Submodule.span (↥Qbar) (Set.range v)) ∧\n      LinearIndependent (↥Qbar) c ∧ LinearIndependent (↥Qbar) w ∧ (∀ a i, w a i ∈ Qbar) ∧\n      v = ∑ a, c a • w a ∧\n      ∀ ψ : Fin m → ℂ, (∀ i, ψ i ∈ Qbar) → ψ ⬝ᵥ v = 0 → ∀ a, ψ ⬝ᵥ w a = 0 := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Here $\\overline{\\mathbb Q}$ is the field of algebraic numbers, $\\mathcal L$ the set of logarithms of algebraic numbers ($z \\in \\mathbb C$ with $e^z$ algebraic), and $\\widetilde{\\mathcal L}$ the $\\overline{\\mathbb Q}$-vector space spanned by $1$ and $\\mathcal L$. A subspace $S \\subseteq \\mathbb C^d$ is *rational* if it is spanned by vectors with algebraic coordinates.\n\nFor $u, v \\in \\mathbb C^m$ write $u \\cdot v = \\sum_i u_i v_i$. Let $v \\in \\mathbb C^m$, and let $n$ be the dimension over $\\overline{\\mathbb Q}$ of the $\\overline{\\mathbb Q}$-span of $v_1, \\dots, v_m$. Then there are $c_1, \\dots, c_n \\in \\mathbb C$, linearly independent over $\\overline{\\mathbb Q}$, and vectors $w_1, \\dots, w_n \\in \\mathbb C^m$ with algebraic coordinates, linearly independent over $\\overline{\\mathbb Q}$, such that\n$$v = c_1 w_1 + \\dots + c_n w_n,$$\nand every $\\psi \\in \\mathbb C^m$ with algebraic coordinates and $\\psi \\cdot v = 0$ satisfies $\\psi \\cdot w_a = 0$ for $a = 1, \\dots, n$.",
+ "created_at": "2026-11-18T16:16:16.936212+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Step of the proofs of S. Fischler, Orbits under algebraic groups and logarithms of algebraic numbers, Acta Arith. 100 (2001), 167–187, Th. 6.2 and Th. 6.4 (pp. 184–186): the ℂ-span of the wₐ is the smallest subspace of ℂᵐ defined over Q̄ that contains v (p. 185), given here by an explicit decomposition. Novelty: none claimed; routine. Formal proof: Diaz modulus mission, 18 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

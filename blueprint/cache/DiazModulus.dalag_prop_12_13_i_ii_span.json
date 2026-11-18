@@ -1,0 +1,21 @@
+{
+ "theorem_id": "88842cb1-206f-49c1-90d2-7de751bc18be",
+ "theorem_name": "DiazModulus.dalag_prop_12_13_i_ii_span",
+ "theorem_title": "DALAG Prop. 12.13 (i) ⇒ (ii), span form: if b is algebraically independent over k, x₁, …, xₙ lie in span_k(1, b) and 1, x₁, …, xₙ are k-free, then x is algebraically independent",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem dalag_prop_12_13_i_ii_span {k K : Type*} [Field k] [Field K] [Algebra k K] {ι : Type*}\n    (b : ι → K) (hb : AlgebraicIndependent k b) {n : ℕ} (x : Fin n → K)\n    (hxE : ∀ i, x i ∈ Submodule.span k (insert (1 : K) (Set.range b)))\n    (hx : LinearIndependent k (Fin.cons (1 : K) x : Fin (n + 1) → K)) :\n    AlgebraicIndependent k x := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \\subseteq K$).\n\nLet $(b_j)_{j \\in J}$ be a family of elements of $K$, indexed by any set $J$ (finite or not), algebraically independent over $k$. Let $x_1, \\dots, x_n$ ($n \\ge 0$) be elements of the $k$-vector space spanned by $1$ and the $b_j$, such that $1, x_1, \\dots, x_n$ are linearly independent over $k$. Then $x_1, \\dots, x_n$ are algebraically independent over $k$.",
+ "created_at": "2026-11-18T16:15:36.407992+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Step of the proof of M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, Prop. 12.13 (pp. 429–430): the implication (i) ⇒ (ii) for the span of 1 and any algebraically independent family, which also gives the translation xᵢ = cᵢ + eᵢ used for Cor. 12.14; the printed proof reaches (ii) from (i) through (iv) and (iii). The nearest printed argument is Lemma 12.3, (i) ⇒ (ii) (p. 420), by transcendence degrees; here an affine change of variables with an explicit left inverse. Novelty: none claimed; routine. Formal proof: Diaz modulus mission, 18 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

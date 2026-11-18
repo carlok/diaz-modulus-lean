@@ -1,0 +1,21 @@
+{
+ "theorem_id": "76a6e58d-dbc3-43fa-8ca9-0e5e765dad9b",
+ "theorem_name": "DiazModulus.dalag_cor_12_14",
+ "theorem_title": "Waldschmidt 2000 (DALAG), Cor. 12.14: if E₀ ∩ k = {0}, then k-free elements of E₀ are algebraically independent iff every matrix over k + E₀ has rank equal to its structural rank",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem dalag_cor_12_14 {k K : Type*} [Field k] [Field K] [Algebra k K] (E₀ : Submodule k K)\n    (hE₀ : ∀ c : k, algebraMap k K c ∈ E₀ → c = 0) :\n    (∀ (n : ℕ) (x : Fin n → K), (∀ i, x i ∈ E₀) → LinearIndependent k x →\n        AlgebraicIndependent k x) ↔\n      ∀ (s t m : ℕ) (M : Matrix (Fin s) (Fin t) K) (e : Fin m → K)\n        (N : Fin m → Matrix (Fin s) (Fin t) k), LinearIndependent k e →\n        (∀ j, e j ∈ Submodule.span k {(1 : K)} ⊔ E₀) →\n        M = ∑ j, e j • (N j).map (algebraMap k K) →\n        M.rank = (∑ j, (algebraMap (MvPolynomial (Fin m) k)\n          (FractionRing (MvPolynomial (Fin m) k)) (MvPolynomial.X j)) •\n            (N j).map (algebraMap k (FractionRing (MvPolynomial (Fin m) k)))).rank := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $k$ and $K$ be fields with $K$ a $k$-algebra (for example $k \\subseteq K$). Let $E_0 \\subseteq K$ be a $k$-vector subspace with $E_0 \\cap k = \\{0\\}$: if $c \\in k$ and $c \\cdot 1 \\in E_0$, then $c = 0$. Write $k + E_0$ for the $k$-vector space spanned by $1$ and $E_0$. The following are equivalent.\n\n(i) Whenever $x_1, \\dots, x_n \\in E_0$ are linearly independent over $k$, they are algebraically independent over $k$.\n\n(ii) Whenever $e_1, \\dots, e_m \\in k + E_0$ are linearly independent over $k$ and $N_1, \\dots, N_m$ are $s \\times t$ matrices with entries in $k$, the matrix $M = \\sum_{j=1}^m e_j N_j$ satisfies\n$$\\operatorname{rank}_K M = \\operatorname{rank}_{k(Z_1, \\dots, Z_m)} \\sum_{j=1}^m Z_j N_j.$$\nThe right-hand side is the rank of the generic matrix over the field of rational functions in $Z_1, \\dots, Z_m$: the structural rank of $M$ over $k$ (DALAG §12.1.4), computed from the presentation $M = \\sum_j e_j N_j$. So (ii) says that every matrix with entries in $k + E_0$ has rank equal to its structural rank, in presentation form.",
+ "created_at": "2026-11-18T16:15:54.569658+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, Cor. 12.14 (p. 430), with (ii) in presentation form. No proof is printed; the text applies Prop. 12.13 to k + E₀. The implication (i) ⇒ (ii) holds without the hypothesis E₀ ∩ k = {0}, which is used only for (ii) ⇒ (i). Proved from DiazModulus.dalag_prop_12_13_i_ii_span, DiazModulus.dalag_prop_12_13_ii_iv, DiazModulus.dalag_prop_12_13_iv_iii and DiazModulus.dalag_prop_12_13_iii_ii. Formal proof: Diaz modulus mission, 18 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}

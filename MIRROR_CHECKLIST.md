@@ -12,9 +12,9 @@ Two tiers.
 - **Library** — `Diaz/`: results ported to compile against this repository's pinned
   Mathlib, checked by CI. This checklist tracks it.
 
-As of the latest archived submission (2026-11-15): **690** of 690
+As of the latest archived submission (2026-11-18): **690** of 718
 Proved nodes are in the library. Of the rest, **0** marked high
-priority, **0** normal, **0** low (folklore,
+priority, **28** normal, **0** low (folklore,
 scaffolding, or an elementary case), **0** skipped as defective.
 
 **Every Proved node is to be ported, trivial or not.** The companion note selects
@@ -227,8 +227,10 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.cyclic_pair_space_excludes_squares_and_reciprocals` | yes | `Diaz/Mirror/cyclic_pair_space_excludes_squares_and_reciprocals.lean` | done |  |
 | `DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration` | yes | `Diaz/Mirror/cyclic_pair_space_no_mobius_ratio_configuration.lean` | done |  |
 | `DiazModulus.cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero` | yes | `Diaz/Mirror/cyclic_space_visible_to_four_dimensional_extensions_iff_common_zero.lean` | done |  |
+| `DiazModulus.dalag_conclusion_12_1_6` | yes | — | normal |  |
 | `DiazModulus.dalag_cor_11_15_psi` | yes | `Diaz/Mirror/dalag_cor_11_15_psi.lean` | done |  |
 | `DiazModulus.dalag_cor_11_15_rat` | yes | `Diaz/Mirror/dalag_cor_11_15_rat.lean` | done |  |
+| `DiazModulus.dalag_cor_12_14` | yes | — | normal |  |
 | `DiazModulus.dalag_cor_12_21` | yes | `Diaz/Mirror/dalag_cor_12_21.lean` | done |  |
 | `DiazModulus.dalag_cor_12_22` | yes | `Diaz/Mirror/dalag_cor_12_22.lean` | done |  |
 | `DiazModulus.dalag_cor_12_23` | yes | `Diaz/Mirror/dalag_cor_12_23.lean` | done |  |
@@ -239,10 +241,23 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.dalag_lemma_12_9_dehomog` | yes | `Diaz/Mirror/dalag_lemma_12_9_dehomog.lean` | done |  |
 | `DiazModulus.dalag_prop_11_19_rat` | yes | `Diaz/Mirror/dalag_prop_11_19_rat.lean` | done |  |
 | `DiazModulus.dalag_prop_12_10` | yes | `Diaz/Mirror/dalag_prop_12_10.lean` | done |  |
+| `DiazModulus.dalag_prop_12_13` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_13_i_ii` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_13_i_ii_span` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_13_ii_i` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_13_ii_iv` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_13_iii_ii` | yes | — | normal |  |
 | `DiazModulus.dalag_prop_12_13_iv_iii` | yes | `Diaz/Mirror/dalag_prop_12_13_iv_iii.lean` | done |  |
+| `DiazModulus.dalag_prop_12_2` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_2_det` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_2_ii` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_2_split` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_2_step` | yes | — | normal |  |
+| `DiazModulus.dalag_prop_12_6` | yes | — | normal |  |
 | `DiazModulus.dalag_prop_12_7` | yes | `Diaz/Mirror/dalag_prop_12_7.lean` | done |  |
 | `DiazModulus.dalag_prop_12_7_step` | yes | `Diaz/Mirror/dalag_prop_12_7_step.lean` | done |  |
 | `DiazModulus.dalag_psi_floor_roy_phi` | yes | `Diaz/Mirror/dalag_psi_floor_roy_phi.lean` | done |  |
+| `DiazModulus.dalag_remark_12_1_3` | yes | — | normal |  |
 | `DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space` | yes | `Diaz/Mirror/degree_one_multiplier_space_visible_or_degree_one_space.lean` | done |  |
 | `DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal` | yes | `Diaz/Mirror/degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal.lean` | done |  |
 | `DiazModulus.degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic` | yes | `Diaz/Mirror/degree_one_space_mem_square_or_reciprocal_of_cubic_over_quadratic.lean` | done |  |
@@ -320,13 +335,24 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.exp_pi_sq_or_exp_i_pi_cube_transcendental` | yes | `Diaz/Mirror/exp_pi_sq_or_exp_i_pi_cube_transcendental.lean` | done |  |
 | `DiazModulus.exp_two_pi_I_mul_transcendental_of_normSq_rat` | yes | `Diaz/Mirror/exp_two_pi_I_mul_transcendental_of_normSq_rat.lean` | done |  |
 | `DiazModulus.fischler_centralizer` | yes | `Diaz/Mirror/fischler_centralizer.lean` | done |  |
+| `DiazModulus.fischler_centralizer_nb` | yes | — | normal |  |
 | `DiazModulus.fischler_commute_of_trace` | yes | `Diaz/Mirror/fischler_commute_of_trace.lean` | done |  |
+| `DiazModulus.fischler_cor_6_3` | yes | — | normal |  |
+| `DiazModulus.fischler_lemma_6_1` | yes | — | normal |  |
+| `DiazModulus.fischler_linear_pow_prod_mem` | yes | — | normal |  |
+| `DiazModulus.fischler_power_span_finrank` | yes | — | normal |  |
 | `DiazModulus.fischler_prop_5_5` | yes | `Diaz/Mirror/fischler_prop_5_5.lean` | done |  |
+| `DiazModulus.fischler_rational_hull` | yes | — | normal |  |
+| `DiazModulus.fischler_theorem_1_1` | yes | — | normal |  |
+| `DiazModulus.fischler_theorem_6_2_two` | yes | — | normal |  |
+| `DiazModulus.fischler_theorem_6_4_one` | yes | — | normal |  |
+| `DiazModulus.fischler_theorem_6_4_two` | yes | — | normal |  |
 | `DiazModulus.five_exponentials` | yes | `Diaz/Mirror/five_exponentials.lean` | done |  |
 | `DiazModulus.five_point_sumset_rigid` | yes | `Diaz/Mirror/five_point_sumset_rigid.lean` | done |  |
 | `DiazModulus.four_exp_barrier_of_no_quadratic_relation` | yes | `Diaz/Mirror/four_exp_barrier_of_no_quadratic_relation.lean` | done |  |
 | `DiazModulus.four_exponentials_trdeg_one` | yes | `Diaz/Mirror/four_exponentials_trdeg_one.lean` | done |  |
 | `DiazModulus.four_pow_hull_no_two_by_three` | yes | `Diaz/Mirror/four_pow_hull_no_two_by_three.lean` | done |  |
+| `DiazModulus.fv_cor_1_3` | yes | — | normal |  |
 | `DiazModulus.fv_cor_1_4` | yes | `Diaz/Mirror/fv_cor_1_4.lean` | done |  |
 | `DiazModulus.fv_dot_orthogonal` | yes | `Diaz/Mirror/fv_dot_orthogonal.lean` | done |  |
 | `DiazModulus.fv_finite_approx` | yes | `Diaz/Mirror/fv_finite_approx.lean` | done |  |
@@ -444,6 +470,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.log_two_diaz_or_transcendental` | yes | `Diaz/Mirror/log_two_diaz_or_transcendental.lean` | done |  |
 | `DiazModulus.log_two_log_three_not_both_rational` | yes | `Diaz/Mirror/log_two_log_three_not_both_rational.lean` | done |  |
 | `DiazModulus.log_two_pi_dependent_forces_transcendence` | yes | `Diaz/Mirror/log_two_pi_dependent_forces_transcendence.lean` | done |  |
+| `DiazModulus.matrix_exists_rank_normal_form` | yes | — | normal |  |
 | `DiazModulus.matrix_rank_le_of_zero_block` | yes | `Diaz/Mirror/matrix_rank_le_of_zero_block.lean` | done |  |
 | `DiazModulus.matrix_rank_map_field` | yes | `Diaz/Mirror/matrix_rank_map_field.lean` | done |  |
 | `DiazModulus.mem_logAlg_adjoin_circle_point_iff` | yes | `Diaz/Mirror/mem_logAlg_adjoin_circle_point_iff.lean` | done |  |
@@ -484,6 +511,7 @@ write-ups of the Open `FourExp.*` nodes, which accepted reductions import, are k
 | `DiazModulus.progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space` | yes | `Diaz/Mirror/progression_space_contains_square_or_reciprocal_or_eq_involution_pencil_space.lean` | done |  |
 | `DiazModulus.progression_space_ratio_degree_le_two` | yes | `Diaz/Mirror/progression_space_ratio_degree_le_two.lean` | done |  |
 | `DiazModulus.qbar_dependent_of_det_linear_forms` | yes | `Diaz/Mirror/qbar_dependent_of_det_linear_forms.lean` | done |  |
+| `DiazModulus.qbar_linearIndependent_complex` | yes | — | normal |  |
 | `DiazModulus.qbar_matrix_fin_two_eigen_or_jordan` | yes | `Diaz/Mirror/qbar_matrix_fin_two_eigen_or_jordan.lean` | done |  |
 | `DiazModulus.quadratic_complement_eigen_forms` | yes | `Diaz/Mirror/quadratic_complement_eigen_forms.lean` | done |  |
 | `DiazModulus.quadratic_complement_multiplication_matrix` | yes | `Diaz/Mirror/quadratic_complement_multiplication_matrix.lean` | done |  |

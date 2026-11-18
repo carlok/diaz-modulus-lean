@@ -1,0 +1,21 @@
+{
+ "theorem_id": "cc95bcf9-6fd1-4212-88de-6829836abe02",
+ "theorem_name": "DiazModulus.matrix_exists_rank_normal_form",
+ "theorem_title": "Rank normal form: for an s × t matrix N over a field k there are invertible P, Q over k and r ≤ min(s, t) with PNQ = (I_r 0; 0 0)",
+ "status": "Proved",
+ "formal_statement": "open Complex ComplexConjugate\n\nnamespace DiazModulus\n\ntheorem matrix_exists_rank_normal_form {k : Type*} [Field k] {s t : ℕ}\n    (N : Matrix (Fin s) (Fin t) k) :\n    ∃ (r : ℕ) (P : Matrix (Fin s) (Fin s) k) (Q : Matrix (Fin t) (Fin t) k),\n      r ≤ s ∧ r ≤ t ∧ IsUnit P.det ∧ IsUnit Q.det ∧\n      ∀ (i : Fin s) (j : Fin t), (P * N * Q) i j = if i.val = j.val ∧ i.val < r then 1 else 0 := by\n  sorry\n\nend DiazModulus\n",
+ "natural_language_statement": "Let $k$ be a field and $N$ an $s \\times t$ matrix with entries in $k$. Then there are a natural number $r \\le \\min(s, t)$ and invertible matrices $P \\in \\mathrm{GL}_s(k)$, $Q \\in \\mathrm{GL}_t(k)$ such that\n$$PNQ = \\begin{pmatrix} I_r & 0 \\\\ 0 & 0 \\end{pmatrix},$$\nthat is, $(PNQ)_{ij} = 1$ if $i = j \\le r$ and $(PNQ)_{ij} = 0$ otherwise (indices numbered from $1$). The statement does not record that $r$ is the rank of $N$.",
+ "created_at": "2026-11-18T16:16:11.799197+00:00",
+ "tags": [
+  "diaz-modulus-lean",
+  "number-theory",
+  "transcendence"
+ ],
+ "preamble": "import Definitions.Def_DiazModulus",
+ "source": "Classical linear algebra, used without proof in M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der mathematischen Wissenschaften 326, Springer, 2000, proof of Prop. 12.2 (pp. 420–421), for rectangular N. Proved by elimination, by induction on the number of rows. Novelty: none claimed; routine. Formal proof: Diaz modulus mission, 18 November 2026 (C. Perassi).",
+ "deprecated_at": null,
+ "deprecated_by": null,
+ "visibility": "public",
+ "mathlib_rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+ "readback": null
+}
