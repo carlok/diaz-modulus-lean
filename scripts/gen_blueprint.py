@@ -2,7 +2,7 @@
 """Generate the blueprint chapters from the Prove2Me archive and the curated node files.
 
 The blueprint covers the classical part of the library: the theorems marked `root = true` in
-blueprint/nodes/*.toml (the table "The classical theorems" of the README) and every
+blueprint/nodes/*.toml (the table "The classical theorems", docs/classical-theorems.md) and every
 Prove2Me node their accepted proofs import, transitively.
 
 Inputs

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Regenerate dependency-graph.dot and the README mermaid block from the
-formalization.
+"""Regenerate dependency-graph.dot and the mermaid block of docs/dependency-graph.md (in the README until
+18 November 2026) from the formalization.
 
 Dependencies come from Lean's own printed proof terms, not from matching
 text in the sources -- an earlier text-matching version produced six
@@ -174,7 +174,7 @@ def main(printfile):
         if ns: mer.append(f"  class {','.join(ns)} {cls}")
     mermaid = "\n".join(mer)
 
-    readme = pathlib.Path("README.md"); r = readme.read_text()
+    readme = pathlib.Path("docs/dependency-graph.md"); r = readme.read_text()
     r = re.sub(r"```mermaid\n.*?\n```", "```mermaid\n" + mermaid + "\n```", r, flags=re.S)
     readme.write_text(r)
 
