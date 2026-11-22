@@ -101,5 +101,5 @@ by a responsible author or maintainer. Local verification:
 ```bash
 lake build                                          # Diaz, Challenge, Solution
 ruby scripts/validate-formalization.rb formalization.yaml
-./scripts/verify-comparator.sh                      # Linux only: Landrun uses Landlock
+./scripts/verify-comparator.sh                      # Linux only: the toolchain's lake comparator sandboxes with bubblewrap
 ```
