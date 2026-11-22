@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.circle_hull_progression_contains_square_or_
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.circle_hull_progression_contains_square_or_reciprocal__86ae8d03.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -105,8 +108,8 @@ theorem circle_hull_progression_contains_square_or_reciprocal (u b h : ℂ) (V :
     have hP := circle_hull_progression_contains_square_or_reciprocal_aeval_eq_zero hu (P := C s + C t * X) (by
       rw [map_add, map_mul, aeval_C, aeval_C, aeval_X]
       linear_combination b * hev + algebraMap (↥Qbar) ℂ s * e₀ + algebraMap (↥Qbar) ℂ t * e₁)
-    have c0 := congrArg (coeff · 0) hP
-    have c1 := congrArg (coeff · 1) hP
+    have c0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
+    have c1 := congrArg (AddMonoidAlgebra.coeff · 1) hP
     exact ⟨by simpa using c0, by simpa using c1⟩
   -- the normal form, and `u Q₀(h) = Q₁(h)`
   obtain ⟨Q₀, Q₁, dQ₀, dQ₁, -, a, c, hP₀, hP₁, -⟩ :=

@@ -129,7 +129,7 @@ theorem red_sq {u cu : ℂ} (hu : u ∉ Qbar) {σ a₁ a₂ a₃ : ↥Qbar} (hcu
     (by
       simp only [map_sub, map_mul, map_pow, aeval_C, aeval_X, laurent_real_pencil_space_excludes_squares_and_reciprocals_am]
       linear_combination u * h + a₃ * hcuu)
-  have := congrArg (coeff · 3) hP
+  have := congrArg (AddMonoidAlgebra.coeff · 3) hP
   simp [coeff_X_pow] at this
 
 theorem red_csq {u cu : ℂ} (hu : u ∉ Qbar) {σ a₁ a₂ a₃ : ↥Qbar} (hσ : σ ≠ 0)
@@ -139,7 +139,7 @@ theorem red_csq {u cu : ℂ} (hu : u ∉ Qbar) {σ a₁ a₂ a₃ : ↥Qbar} (h�
     (by
       simp only [map_sub, map_add, map_mul, map_pow, aeval_C, aeval_X, laurent_real_pencil_space_excludes_squares_and_reciprocals_am]
       linear_combination (-u ^ 2) * h + (cu * u + σ * σ - a₃ * u) * hcuu)
-  have := congrArg (coeff · 0) hP
+  have := congrArg (AddMonoidAlgebra.coeff · 0) hP
   simp [coeff_X, coeff_C, coeff_X_pow, hσ] at this
 
 theorem red_inv {u cu : ℂ} (hu : u ∉ Qbar) {σ a₁ a₂ a₃ β : ↥Qbar} (hβ : β ≠ 0)

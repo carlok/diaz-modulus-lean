@@ -41,7 +41,7 @@ The documentation is in [`docs/`](docs/); it was split from this README on 18 No
 lake exe cache get && lake build Diaz
 ```
 
-Lean 4.35.0, Mathlib v4.35.0.
+Lean 4.36.0, Mathlib v4.36.0.
 
 ## Where everything is
 

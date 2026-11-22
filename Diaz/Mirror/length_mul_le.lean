@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Transcendence.length_mul_le`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Transcendence.length_mul_le__e8591582.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -59,7 +62,7 @@ noncomputable def hat (ν : R → ℕ) (p : R[X]) : ℕ[X] :=
 theorem coeff_hat (ν : R → ℕ) (hν : ν 0 = 0) (p : R[X]) (n : ℕ) :
     (hat ν p).coeff n = ν (p.coeff n) := by
   classical
-  simp only [hat, finsetSum_coeff, coeff_monomial, Finset.sum_ite_eq']
+  simp only [hat, finsetSum_coeff, coeff_monomial_apply, Finset.sum_ite_eq']
   split_ifs with h
   · rfl
   · rw [notMem_support_iff.1 h, hν]

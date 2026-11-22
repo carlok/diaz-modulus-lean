@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.two_three_five_pow_pi_transcendental`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.two_three_five_pow_pi_transcendental__d2a7b3ab.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -25,7 +28,7 @@ theorem val_eq (p : ℕ) [Fact p.Prime] (A B C : ℤ)
     padicValRat.mul (zpow_ne_zero _ h2) (zpow_ne_zero _ h3),
     padicValRat.zpow _, padicValRat.zpow _, padicValRat.zpow _,
     padicValRat.of_nat, padicValRat.of_nat, padicValRat.of_nat, padicValRat.one] at this
-  exact this
+  simpa only [Nat.padicValNat_def] using this
 
 /-- `2^A 3^B 5^C = 1` forces `A = B = C = 0`. -/
 theorem exps_zero (A B C : ℤ)
@@ -37,15 +40,15 @@ theorem exps_zero (A B C : ℤ)
   have e2 := val_eq 2 A B C h
   have e3 := val_eq 3 A B C h
   have e5 := val_eq 5 A B C h
-  have v22 : padicValNat 2 2 = 1 := padicValNat.self (by norm_num)
-  have v33 : padicValNat 3 3 = 1 := padicValNat.self (by norm_num)
-  have v55 : padicValNat 5 5 = 1 := padicValNat.self (by norm_num)
-  have v23 : padicValNat 2 3 = 0 := padicValNat.eq_zero_of_not_dvd (by norm_num)
-  have v25 : padicValNat 2 5 = 0 := padicValNat.eq_zero_of_not_dvd (by norm_num)
-  have v32 : padicValNat 3 2 = 0 := padicValNat.eq_zero_of_not_dvd (by norm_num)
-  have v35 : padicValNat 3 5 = 0 := padicValNat.eq_zero_of_not_dvd (by norm_num)
-  have v52 : padicValNat 5 2 = 0 := padicValNat.eq_zero_of_not_dvd (by norm_num)
-  have v53 : padicValNat 5 3 = 0 := padicValNat.eq_zero_of_not_dvd (by norm_num)
+  have v22 : padicValNat 2 2 = 1 := Nat.padicValNat_def.trans (Nat.multiplicity_self (by norm_num))
+  have v33 : padicValNat 3 3 = 1 := Nat.padicValNat_def.trans (Nat.multiplicity_self (by norm_num))
+  have v55 : padicValNat 5 5 = 1 := Nat.padicValNat_def.trans (Nat.multiplicity_self (by norm_num))
+  have v23 : padicValNat 2 3 = 0 := Nat.padicValNat_def.trans (multiplicity_eq_zero_of_not_dvd (by norm_num))
+  have v25 : padicValNat 2 5 = 0 := Nat.padicValNat_def.trans (multiplicity_eq_zero_of_not_dvd (by norm_num))
+  have v32 : padicValNat 3 2 = 0 := Nat.padicValNat_def.trans (multiplicity_eq_zero_of_not_dvd (by norm_num))
+  have v35 : padicValNat 3 5 = 0 := Nat.padicValNat_def.trans (multiplicity_eq_zero_of_not_dvd (by norm_num))
+  have v52 : padicValNat 5 2 = 0 := Nat.padicValNat_def.trans (multiplicity_eq_zero_of_not_dvd (by norm_num))
+  have v53 : padicValNat 5 3 = 0 := Nat.padicValNat_def.trans (multiplicity_eq_zero_of_not_dvd (by norm_num))
   rw [v22, v23, v25] at e2
   rw [v32, v33, v35] at e3
   rw [v52, v53, v55] at e5

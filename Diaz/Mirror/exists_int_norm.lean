@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `FourExp.exists_int_norm`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.exists_int_norm__8d3c8cdd.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 
@@ -96,7 +99,7 @@ lemma sz1_self (p : ℤ[X]) : Sz1 p (∑ i ∈ p.support, (p.coeff i).natAbs) p.
     natDegree_sum_le_of_forall_le _ _ fun i hi =>
       (natDegree_monomial_le _).trans (le_natDegree_of_mem_supp i hi)⟩
   · rw [finsetSum_coeff]
-    simp only [coeff_monomial]
+    simp only [coeff_monomial_apply]
     rw [Finset.sum_ite_eq']
     split_ifs with h
     · exact le_rfl
@@ -219,7 +222,7 @@ theorem exists_int_norm (ω ω₁ : ℂ) (Q : Polynomial (Polynomial ℤ)) (hQm 
     conv_lhs => rw [Pol.as_sum_support_C_mul_X_pow, Finset.sum_mul, ← modByMonicHom_apply, map_sum]
     rw [finsetSum_coeff]
     refine Finset.sum_congr rfl fun n _ => ?_
-    rw [mul_assoc, ← pow_add, ← smul_eq_C_mul, map_smul, coeff_smul, smul_eq_mul,
+    rw [mul_assoc, ← pow_add, ← smul_eq_C_mul, map_smul, AddMonoidAlgebra.coeff_smul_apply, smul_eq_mul,
       modByMonicHom_apply]
   have hMsz : ∀ j k : Fin d, Sz1 (M j k) (b * C) (e + C) := by
     intro j k

@@ -35,9 +35,9 @@ private theorem noquad_aux {K : Subfield ℂ} {p : ℂ} (hp : Transcendental K p
     apply hp
     simp only [map_add, map_mul, map_pow, Polynomial.aeval_C, Polynomial.aeval_X, map_zero]
     exact_mod_cast h
-  have h2 := congrArg (fun q => Polynomial.coeff q 2) hP
-  have h1 := congrArg (fun q => Polynomial.coeff q 1) hP
-  have h0 := congrArg (fun q => Polynomial.coeff q 0) hP
+  have h2 := congrArg (fun q => AddMonoidAlgebra.coeff q 2) hP
+  have h1 := congrArg (fun q => AddMonoidAlgebra.coeff q 1) hP
+  have h0 := congrArg (fun q => AddMonoidAlgebra.coeff q 0) hP
   simp [Polynomial.coeff_add, Polynomial.coeff_C, Polynomial.coeff_C_mul,
     Polynomial.coeff_X] at h2 h1 h0
   exact ⟨congrArg Subtype.val h2, congrArg Subtype.val h1, congrArg Subtype.val h0⟩

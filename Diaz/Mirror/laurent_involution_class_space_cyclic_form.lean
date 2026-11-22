@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.laurent_involution_class_space_cyclic_form`
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.laurent_involution_class_space_cyclic_form__ea8d2797.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -76,6 +79,7 @@ theorem conj_s {u s : ℂ} (hu0 : u ≠ 0) (hss : s * s = u * conj u) : conj s =
 
 end R21a_B2
 
+set_option maxHeartbeats 2600000 in
 open R21a_B2 in
 open Polynomial in
 theorem laurent_involution_class_space_cyclic_form (u s : ℂ) (hu : u ∉ Qbar) (hs : s ∈ Qbar) (hss : s * s = u * conj u)

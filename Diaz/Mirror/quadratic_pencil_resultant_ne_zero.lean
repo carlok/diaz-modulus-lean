@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.quadratic_pencil_resultant_ne_zero`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.quadratic_pencil_resultant_ne_zero__7ba59854.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -60,7 +63,7 @@ theorem not_dvd_deriv {K : Type*} [Field K] [CharZero K] {p : K[X]} (hp : p.natD
     have h3 := natDegree_add_le (C c * derivative p) (C d)
     rw [natDegree_C] at h3
     omega
-  have h0 := congrArg (coeff · 1) (eq_zero_of_dvd_of_natDegree_lt h hlt)
+  have h0 := congrArg (AddMonoidAlgebra.coeff · 1) (eq_zero_of_dvd_of_natDegree_lt h hlt)
   have hp0 : p ≠ 0 := by rintro rfl; simp at hp
   have hlc : p.coeff 2 ≠ 0 := by
     have := leadingCoeff_ne_zero.2 hp0

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.rank_one_config_separation_two`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.rank_one_config_separation_two__eca41422.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -34,9 +37,9 @@ theorem quad_eq_zero (F : Subfield ℂ) (w : ℂ) (hw : Transcendental F w) (a b
     by_contra hne
     exact hw ⟨_, hne, hP⟩
   refine ⟨?_, ?_, ?_⟩
-  · simpa using congrArg (Polynomial.coeff · 0) h0
-  · simpa using congrArg (Polynomial.coeff · 1) h0
-  · simpa using congrArg (Polynomial.coeff · 2) h0
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) h0
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) h0
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) h0
 
 /-- A `K`-relation `a v₀ + b v₁ = 0` between independent `v₀, v₁` is trivial. -/
 theorem pair_zero (K : Subfield ℂ) (v : Fin 2 → ℂ) (hv : LinearIndependent K v) (a b : K)

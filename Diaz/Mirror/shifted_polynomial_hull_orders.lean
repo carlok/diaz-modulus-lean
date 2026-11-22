@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.shifted_polynomial_hull_orders`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.shifted_polynomial_hull_orders__a7c8e6f1.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -64,14 +67,14 @@ theorem shifted_polynomial_hull_orders (K : Type*) [Field K] (k m : ℕ) (hm : 2
   have hi₂ : ∀ i, k - m < i → Q₂.coeff i = 0 := fun i hi =>
     coeff_eq_zero_of_natDegree_lt (by omega)
   have t₁ : Q₁.coeff (k + m) ≠ 0 := by
-    rw [← hQ₁t]; exact trailingCoeff_nonzero_iff_nonzero.mpr hQ₁
+    rw [← hQ₁t]; exact trailingCoeff_ne_zero.mpr hQ₁
   have d₁ : Q₁.coeff (2 * k) ≠ 0 := by rw [← hQ₁d]; exact leadingCoeff_ne_zero.mpr hQ₁
   have d₂ : Q₂.coeff (k - m) ≠ 0 := by rw [← hQ₂d]; exact leadingCoeff_ne_zero.mpr hQ₂0
   have hc : ∀ i, f.coeff i = (if i = k - 1 then c₁ else 0) + ((if i = k then c₂ else 0) +
       ((if i = k + 1 then c₃ else 0) + (α * Q₁.coeff i + β * Q₂.coeff i))) := by
     intro i
     rw [e₁, e₂, e₃, e₄, ← e₅]
-    simp only [coeff_add, coeff_smul, coeff_X_pow, smul_eq_mul, mul_ite, mul_one, mul_zero]
+    simp only [coeff_add, AddMonoidAlgebra.coeff_smul_apply, coeff_X_pow, smul_eq_mul, mul_ite, mul_one, mul_zero]
   have hlow : ∀ i ≤ k + 1, f.coeff i = (if i = k - 1 then c₁ else 0) +
       ((if i = k then c₂ else 0) + ((if i = k + 1 then c₃ else 0) + β * Q₂.coeff i)) := by
     intro i hi; rw [hc, lo₁ i (by omega), mul_zero, zero_add]

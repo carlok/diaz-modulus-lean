@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.diaz_2007_th5`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.diaz_2007_th5__5a63f62a.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -59,6 +62,7 @@ theorem diaz_2007_th5_one_pair_free_of_irrational {u : ℂ} (hu : ∀ q : ℚ, u
 
 end D6_diaz_2007_th5
 
+set_option maxHeartbeats 2500000 in
 open D6_diaz_2007_th5 in
 theorem diaz_2007_th5
     (hSSE : ∀ (x : Fin 2 → ℂ) (y : Fin 3 → ℂ),

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.progression_pair_span_ratio_degree_le_two`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.progression_pair_span_ratio_degree_le_two__75b1a78f.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -118,9 +121,9 @@ theorem finrank_le_two {u : ℂ} (hu : u ∉ Qbar) (f : RatFunc (↥Qbar))
     Polynomial.C (aeval g C) with hP
   have hP0 : P ≠ 0 := by
     intro hP0
-    have e2 : aeval g A = 0 := by simpa [hP] using congrArg (coeff · 2) hP0
-    have e1 : aeval g B = 0 := by simpa [hP] using congrArg (coeff · 1) hP0
-    have e0 : aeval g C = 0 := by simpa [hP] using congrArg (coeff · 0) hP0
+    have e2 : aeval g A = 0 := by simpa [hP] using congrArg (AddMonoidAlgebra.coeff · 2) hP0
+    have e1 : aeval g B = 0 := by simpa [hP] using congrArg (AddMonoidAlgebra.coeff · 1) hP0
+    have e0 : aeval g C = 0 := by simpa [hP] using congrArg (AddMonoidAlgebra.coeff · 0) hP0
     have hA : A = 0 := htrf A (by rw [← hcoe, e2]; rfl)
     have hB : B = 0 := htrf B (by rw [← hcoe, e1]; rfl)
     have hC : C = 0 := htrf C (by rw [← hcoe, e0]; rfl)

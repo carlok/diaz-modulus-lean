@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.cubic_window_hull_polynomial_class_iff`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.cubic_window_hull_polynomial_class_iff__a03c67eb.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -70,13 +73,13 @@ theorem coeff7 {v : ℂ} (hv : v ∉ Qbar) (hv1 : v * conj v = 1) {c₀ c₁ c�
       linear_combination v ^ 3 * h - ((c₀ : ℂ) * ((v * conj v) ^ 2 + v * conj v + 1) +
         c₁ * v * (v * conj v + 1) + c₂ * v ^ 2) * hv1)
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 5) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 6) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 5) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 6) hP
 
 theorem cubic_window_hull_polynomial_class_iff_span_mul_mem {S : Set ℂ} {c w : ℂ} (hc : c ∈ Qbar) (hw : w ∈ Submodule.span Qbar S) :
     c * w ∈ Submodule.span Qbar S := by

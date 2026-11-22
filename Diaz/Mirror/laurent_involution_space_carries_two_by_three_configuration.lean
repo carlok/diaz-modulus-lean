@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.laurent_involution_space_carries_two_by_thr
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.laurent_involution_space_carries_two_by_three_configuration__4b8cf33d.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -47,11 +50,11 @@ theorem laurent_involution_space_carries_two_by_three_configuration_five_terms {
   have hP := laurent_involution_space_carries_two_by_three_configuration_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3 + C a₄ * X ^ 4)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, laurent_involution_space_carries_two_by_three_configuration_am]; exact h)
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
 
 /-- Membership in `W` from an explicit combination of its five generators. -/
 theorem laurent_involution_space_carries_two_by_three_configuration_mem_W {u t z zc w : ℂ} (c₁ c₂ c₃ c₄ c₅ : ↥Qbar)

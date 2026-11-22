@@ -67,16 +67,16 @@ theorem roy_rat_theorem_five_isRat_map {d e : ℕ} (f : (Fin d → ℂ) →ₗ[�
     (hf : ∀ v, (∀ i, ∃ q : ℚ, v i = (q : ℂ)) → ∀ i, ∃ q : ℚ, f v i = (q : ℂ))
     {S : Submodule ℂ (Fin d → ℂ)} (hS : roy_rat_theorem_five_IsRat S) : roy_rat_theorem_five_IsRat (S.map f) := by
   obtain ⟨X, hX, rfl⟩ : ∃ X : Set (Fin d → ℂ), (∀ v ∈ X, ∀ i, ∃ q : ℚ, v i = (q : ℂ)) ∧
-      Submodule.span ℂ X = S := ⟨_, fun _ hv => hv.2, hS⟩
+      Submodule.span ℂ X = S := ⟨_, fun _ hv => And.right hv, hS⟩
   rw [Submodule.map_span]
   exact roy_rat_theorem_five_isRat_span _ (by rintro _ ⟨v, hv, rfl⟩; exact hf v (hX v hv))
 
 theorem roy_rat_theorem_five_isRat_sup {d : ℕ} {S T : Submodule ℂ (Fin d → ℂ)} (hS : roy_rat_theorem_five_IsRat S) (hT : roy_rat_theorem_five_IsRat T) :
     roy_rat_theorem_five_IsRat (S ⊔ T) := by
   obtain ⟨X, hX, rfl⟩ : ∃ X : Set (Fin d → ℂ), (∀ v ∈ X, ∀ i, ∃ q : ℚ, v i = (q : ℂ)) ∧
-      Submodule.span ℂ X = S := ⟨_, fun _ hv => hv.2, hS⟩
+      Submodule.span ℂ X = S := ⟨_, fun _ hv => And.right hv, hS⟩
   obtain ⟨Y, hY, rfl⟩ : ∃ Y : Set (Fin d → ℂ), (∀ v ∈ Y, ∀ i, ∃ q : ℚ, v i = (q : ℂ)) ∧
-      Submodule.span ℂ Y = T := ⟨_, fun _ hv => hv.2, hT⟩
+      Submodule.span ℂ Y = T := ⟨_, fun _ hv => And.right hv, hT⟩
   rw [← Submodule.span_union]
   exact roy_rat_theorem_five_isRat_span _ (by rintro v (hv | hv); exacts [hX v hv, hY v hv])
 

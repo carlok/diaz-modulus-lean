@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.conj_stable_circle_point_extension_no_two_b
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.conj_stable_circle_point_extension_no_two_by_three_configuration__2da779b0.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -51,7 +54,7 @@ theorem conj_stable_circle_point_extension_no_two_by_three_configuration_sq_sub_
   have hP := conj_stable_circle_point_extension_no_two_by_three_configuration_aeval_eq_zero hu (P := X ^ 2 - C α) (by
     simp only [map_sub, map_pow, aeval_X, aeval_C, hα]
     exact h)
-  have h2 := congrArg (coeff · 2) hP
+  have h2 := congrArg (AddMonoidAlgebra.coeff · 2) hP
   simp at h2
 
 /-- Complex conjugation as a `ℚ`-algebra map. -/
@@ -120,9 +123,9 @@ theorem div_not_mem {u a : ℂ} (hu : u ∉ Qbar) (hρ : IsAlgebraic ℚ (u * co
   have hα0 : α ≠ 0 := by
     rintro rfl
     exact ha0 (by rw [← hα, map_zero])
-  have h4 := congrArg (coeff · 4) hP
-  have h0 := congrArg (coeff · 0) hP
-  have h2 := congrArg (coeff · 2) hP
+  have h4 := congrArg (AddMonoidAlgebra.coeff · 4) hP
+  have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
+  have h2 := congrArg (AddMonoidAlgebra.coeff · 2) hP
   simp only [coeff_add, coeff_sub, coeff_C_mul_X_pow, coeff_C_mul_X, coeff_C, coeff_zero] at h4 h0 h2
   norm_num at h4 h0 h2
   rw [h4, (h0.resolve_right hα0).resolve_right hρ0] at h2

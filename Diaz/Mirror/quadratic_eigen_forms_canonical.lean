@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.quadratic_eigen_forms_canonical`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.quadratic_eigen_forms_canonical__2c3e9e52.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -118,8 +121,8 @@ theorem poly_rel {K : Type*} [Field K] {p q : K[X]} (hcop : IsCoprime p q)
   subst he
   have hp : p ≠ 0 := ne_zero_of_cop hcop hdeg
   have hl : C a + C b * X = 0 := by simpa [hp] using h
-  have ha := congrArg (coeff · 0) hl
-  have hb := congrArg (coeff · 1) hl
+  have ha := congrArg (AddMonoidAlgebra.coeff · 0) hl
+  have hb := congrArg (AddMonoidAlgebra.coeff · 1) hl
   simp at ha hb
   exact ⟨ha, hb, rfl⟩
 

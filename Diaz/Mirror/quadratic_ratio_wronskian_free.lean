@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.quadratic_ratio_wronskian_free`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.quadratic_ratio_wronskian_free__e82c8160.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -111,9 +114,9 @@ theorem quadratic_ratio_wronskian_free (u : ℂ) (hu : u ∉ Qbar) (p q : (↥Qb
   have hsq : (C r₁ * X + C r₀) ^ 2 = C (r₁ ^ 2) * X ^ 2 + C (2 * r₁ * r₀) * X + C (r₀ ^ 2) := by
     simp only [map_pow, map_mul, C_ofNat]; ring
   rw [hRe, hsq, hΔdef] at hRΔ
-  have c0 := congrArg (coeff · 0) hRΔ
-  have c1 := congrArg (coeff · 1) hRΔ
-  have c2 := congrArg (coeff · 2) hRΔ
+  have c0 := congrArg (AddMonoidAlgebra.coeff · 0) hRΔ
+  have c1 := congrArg (AddMonoidAlgebra.coeff · 1) hRΔ
+  have c2 := congrArg (AddMonoidAlgebra.coeff · 2) hRΔ
   simp only [coeff_add, coeff_C_mul, coeff_X_pow, coeff_X, coeff_C] at c0 c1 c2
   norm_num at c0 c1 c2
   apply hRes

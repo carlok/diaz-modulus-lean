@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Diaz.conj_planes_inter`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.conj_planes_inter__32f573ae.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Closure
@@ -35,12 +38,12 @@ theorem conj_planes_inter {K : Subfield ℂ} {u : ℂ} (hT : Transcendental (↥
     by_contra hne
     exact hT ⟨P, hne, haev⟩
   have hB0 : B = 0 := by
-    have hc := congrArg (fun p => Polynomial.coeff p 2) hP0
+    have hc := congrArg (fun p => AddMonoidAlgebra.coeff p 2) hP0
     simp only [hPdef] at hc
     simp [Polynomial.coeff_C, Polynomial.coeff_X, Subtype.ext_iff] at hc
     exact hc
   have hAC : A - C = 0 := by
-    have hc := congrArg (fun p => Polynomial.coeff p 1) hP0
+    have hc := congrArg (fun p => AddMonoidAlgebra.coeff p 1) hP0
     simp only [hPdef] at hc
     simp [Polynomial.coeff_C, Polynomial.coeff_X, Subtype.ext_iff] at hc
     exact hc

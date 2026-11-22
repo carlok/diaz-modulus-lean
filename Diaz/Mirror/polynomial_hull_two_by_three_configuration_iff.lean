@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.polynomial_hull_two_by_three_configuration_
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.polynomial_hull_two_by_three_configuration_iff__d029b5b7.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -52,11 +55,11 @@ theorem five_terms {u : ℂ} (hu : u ∉ Qbar) {a₀ a₁ a₂ a₃ a₄ : ↥Qb
   have hP := polynomial_hull_two_by_three_configuration_iff_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3 + C a₄ * X ^ 4)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, polynomial_hull_two_by_three_configuration_iff_am]; exact h)
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
 
 /-- Conjugation maps `Q̄` to itself. -/
 theorem polynomial_hull_two_by_three_configuration_iff_conj_mem_Qbar {a : ℂ} (ha : a ∈ Qbar) : conj a ∈ Qbar := by

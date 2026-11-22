@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.circle_point_extension_carries_two_by_three
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.circle_point_extension_carries_two_by_three_configuration__301b2c23.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -51,9 +54,9 @@ theorem circle_point_extension_carries_two_by_three_configuration_three_terms {u
     {a b c : ↥Qbar} (h : (a : ℂ) + b * u ^ m + c * u ^ n = 0) : a = 0 ∧ b = 0 ∧ c = 0 := by
   have hP := circle_point_extension_carries_two_by_three_configuration_aeval_eq_zero hu (P := C a + C b * X ^ m + C c * X ^ n)
     (by simp only [map_add, map_mul, aeval_C, aeval_X_pow]; exact h)
-  have h0 := congrArg (coeff · 0) hP
-  have h1 := congrArg (coeff · m) hP
-  have h2 := congrArg (coeff · n) hP
+  have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
+  have h1 := congrArg (AddMonoidAlgebra.coeff · m) hP
+  have h2 := congrArg (AddMonoidAlgebra.coeff · n) hP
   simp [coeff_C, coeff_X_pow, hm, hn, hmn, hm.symm, hn.symm, hmn.symm] at h0 h1 h2
   exact ⟨h0, h1, h2⟩
 

@@ -42,7 +42,7 @@ lemma c_ne_zero {ω ω₁ : ℂ} {Q : Polynomial (Polynomial ℤ)} (hQd : 0 < Q.
   funext μ ν
   have hc := congrArg (fun p : Polynomial (Polynomial ℤ) => (p.coeff ν).coeff μ) hP0
   simp only [P, f, finsetSum_coeff, coeff_C_mul_X_pow, coeff_zero, Fin.val_inj, Finset.sum_ite_eq,
-    Finset.sum_ite_eq', Finset.mem_univ, ite_true, coeff_monomial] at hc
+    Finset.sum_ite_eq', Finset.mem_univ, ite_true, coeff_monomial_apply] at hc
   simpa using hc
 
 end FourExpSiegel

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.degree_two_configuration_multiplier_space_e
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.degree_two_configuration_multiplier_space_eq__57502ae4.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -70,8 +73,8 @@ theorem degree_two_configuration_multiplier_space_eq_lin3 {u : ℂ} (hu : u ∉ 
     simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, degree_two_configuration_multiplier_space_eq_am]
     field_simp at h
     linear_combination h)
-  exact ⟨by simpa using congrArg (coeff · 1) hP, by simpa using congrArg (coeff · 2) hP,
-    by simpa using congrArg (coeff · 0) hP⟩
+  exact ⟨by simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP, by simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP,
+    by simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP⟩
 
 theorem degree_two_configuration_multiplier_space_eq_H_coeffs {u w : ℂ} (hw : w ∈ Submodule.span Qbar ({1, u, u⁻¹} : Set ℂ)) :
     ∃ a b c : ↥Qbar, w = (a : ℂ) + b * u + c * u⁻¹ := by

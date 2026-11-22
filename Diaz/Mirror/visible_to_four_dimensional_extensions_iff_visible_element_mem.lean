@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.visible_to_four_dimensional_extensions_iff_
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.visible_to_four_dimensional_extensions_iff_visible_element_mem__425710e0.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -44,8 +47,8 @@ theorem cubic {u : ℂ} (hu : u ∉ Qbar) (a₀ a₁ a₂ a₃ : ↥Qbar)
     a₀ = 0 ∧ a₁ = 0 ∧ a₂ = 0 ∧ a₃ = 0 := by
   have hP := transcendental_iff.1 (visible_to_four_dimensional_extensions_iff_visible_element_mem_tr_of_not_mem hu) (C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3)
     (by simpa only [map_add, map_mul, map_pow, aeval_C, aeval_X, visible_to_four_dimensional_extensions_iff_visible_element_mem_am] using h)
-  exact ⟨by simpa using congrArg (coeff · 0) hP, by simpa using congrArg (coeff · 1) hP,
-    by simpa using congrArg (coeff · 2) hP, by simpa using congrArg (coeff · 3) hP⟩
+  exact ⟨by simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP, by simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP,
+    by simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP, by simpa using congrArg (AddMonoidAlgebra.coeff · 3) hP⟩
 
 theorem visible_to_four_dimensional_extensions_iff_visible_element_mem_H_coeffs {u w : ℂ} (hw : w ∈ Submodule.span Qbar ({1, u, u⁻¹} : Set ℂ)) :
     ∃ a b c : ↥Qbar, w = (a : ℂ) + b * u + c * u⁻¹ := by

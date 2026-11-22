@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.real_polynomial_hull_no_two_by_three_config
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.real_polynomial_hull_no_two_by_three_configuration__c1e59cb9.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -140,7 +143,7 @@ theorem sq_coeff {u : ℂ} (hu : u ∉ Qbar) {ρ : ↥Qbar} (hρ : u * conj u = 
     C (c₃ * ρ) * X) (by
       simp only [map_add, map_sub, map_mul, map_pow, aeval_C, aeval_X, real_polynomial_hull_no_two_by_three_configuration_am]
       linear_combination u ^ 2 * e - ((d : ℂ) * (ρ + u * conj u) - c₃ * u) * hρ)
-  simpa [coeff_X, coeff_C, coeff_X_pow, -map_mul, -map_pow] using congrArg (coeff · 4) hP
+  simpa [coeff_X, coeff_C, coeff_X_pow, -map_mul, -map_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
 
 /-- In `Q̄[u, u⁻¹]`, `H₀ + Q̄(u − α)⁻¹` adds nothing to `H₀` (`α ≠ 0`). -/
 theorem inv_case {u w : ℂ} (hu : u ∉ Qbar) {ρ : ↥Qbar} (hρ : u * conj u = ρ) (hw : w ∈ lau u)

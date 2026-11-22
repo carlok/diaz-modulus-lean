@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `FourExp.expPoly_zero_count_scaled`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/FourExp.expPoly_zero_count_scaled__f34d8db7.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Mirror.cauchy_estimate_with_zeros
@@ -48,7 +51,7 @@ theorem expPoly_zero_count_scaled
   let G : ℂ → ℂ := fun y => ∑ j, (P j).eval y * Complex.exp (w j * y)
   have hG : ∀ y, G y = f (z₀ + y / Ω) := by
     intro y
-    simp only [G, P, w, hfdef, eval_finset_sum, eval_mul, eval_C, eval_pow, eval_add, eval_X,
+    simp only [G, P, w, hfdef, eval_finsetSum, eval_mul, eval_C, eval_pow, eval_add, eval_X,
       Finset.sum_mul]
     refine Finset.sum_congr rfl (fun j _ => Finset.sum_congr rfl (fun i _ => ?_))
     rw [show ω j * (z₀ + y / Ω) = ω j * z₀ + ω j / Ω * y by ring, Complex.exp_add]
@@ -58,7 +61,7 @@ theorem expPoly_zero_count_scaled
     rw [this]
     exact hfdiff.comp ((differentiable_id.div_const _).const_add z₀)
   -- hypotheses of the lower bound
-  have hw : Function.Injective w := fun a c h => hω ((div_left_inj' hΩc).mp h)
+  have hw : Function.Injective w := fun a c h => hω ((div_left_inj₀ hΩc).mp h)
   have hwle : ∀ j, ‖w j‖ ≤ 1 := by
     intro j
     have hj : ‖ω j‖ ≤ Ω := le_ciSup (f := fun j => ‖ω j‖) (Finite.bddAbove_range _) j

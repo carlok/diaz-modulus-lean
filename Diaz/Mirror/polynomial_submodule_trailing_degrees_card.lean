@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.polynomial_submodule_trailing_degrees_card`
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.polynomial_submodule_trailing_degrees_card__ac9d3c51.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -72,13 +75,13 @@ theorem polynomial_submodule_trailing_degrees_card_key (n : ℕ) : ∀ (X : Subm
         Submodule.smul_mem _ _ (Submodule.mem_span_singleton_self _), sub_add_cancel _ _⟩
       rw [memX']
       refine ⟨X.sub_mem hg (X.smul_mem _ hf₀X), ?_⟩
-      rw [coeff_sub, coeff_smul, smul_eq_mul, div_mul_cancel₀ _ hc₀, sub_self]
+      rw [coeff_sub, AddMonoidAlgebra.coeff_smul_apply, smul_eq_mul, div_mul_cancel₀ _ hc₀, sub_self]
     have hinf : X' ⊓ K ∙ f₀ = ⊥ := by
       rw [eq_bot_iff]
       intro g hg
       rw [Submodule.mem_inf, memX', Submodule.mem_span_singleton] at hg
       obtain ⟨⟨_, hg0⟩, c, rfl⟩ := hg
-      rw [coeff_smul, smul_eq_mul, mul_eq_zero] at hg0
+      rw [AddMonoidAlgebra.coeff_smul_apply, smul_eq_mul, mul_eq_zero] at hg0
       rcases hg0 with h | h
       · simp [h]
       · exact absurd h hc₀

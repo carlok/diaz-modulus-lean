@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.laurent_conj_hull_finrank_le_four_no_two_by
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.laurent_conj_hull_finrank_le_four_no_two_by_three_configuration__9e6f86fa.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -50,11 +53,11 @@ theorem laurent_conj_hull_finrank_le_four_no_two_by_three_configuration_five_ter
   have hP := laurent_conj_hull_finrank_le_four_no_two_by_three_configuration_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3 + C a₄ * X ^ 4)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, laurent_conj_hull_finrank_le_four_no_two_by_three_configuration_am]; exact h)
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
 
 /-- Conjugation maps `Q̄` to itself. -/
 theorem laurent_conj_hull_finrank_le_four_no_two_by_three_configuration_conj_mem_Qbar {a : ℂ} (ha : a ∈ Qbar) : conj a ∈ Qbar :=

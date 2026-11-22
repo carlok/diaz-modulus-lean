@@ -212,7 +212,7 @@ theorem polynomial_hull_no_two_by_three_configuration {u : ℂ} (hu : u ∉ Qbar
         · rw [hQ₂, finsetSum_coeff]
           exact Finset.sum_eq_zero fun j _ => by rw [coeff_C_mul_X_pow, ite_eq_right (by omega)]
       · rw [hQc _ (by omega), Nat.sub_sub_self hmk]
-        exact mul_ne_zero ((hcj0 _).not.2 (trailingCoeff_nonzero_iff_nonzero.2 hL0))
+        exact mul_ne_zero ((hcj0 _).not.2 (trailingCoeff_ne_zero.2 hL0))
           (pow_ne_zero _ hρ0)
     have hQ₂e : aeval u Q₂ = u ^ k * conj (aeval u L) := by
       rw [hQ₂, aeval_eq_sum_range (p := L), hLd, map_sum, map_sum, Finset.mul_sum]

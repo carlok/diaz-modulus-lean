@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.conj_hull_finrank_four_two_by_three_configu
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.conj_hull_finrank_four_two_by_three_configuration_iff__ee9686bf.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -107,9 +110,9 @@ theorem conj_hull_finrank_four_two_by_three_configuration_iff_li3 {u : ℂ} (hu 
   have hP := conj_hull_finrank_four_two_by_three_configuration_iff_aeval_eq_zero hu (P := C (g 1) * X ^ 2 + C (g 0) * X + C (g 2) * C ρ) (by
     simp only [map_add, map_mul, map_pow, aeval_X, aeval_C, conj_hull_finrank_four_two_by_three_configuration_iff_am, hρ']
     linear_combination u * hg)
-  have h2 := congrArg (coeff · 2) hP
-  have h1 := congrArg (coeff · 1) hP
-  have h0 := congrArg (coeff · 0) hP
+  have h2 := congrArg (AddMonoidAlgebra.coeff · 2) hP
+  have h1 := congrArg (AddMonoidAlgebra.coeff · 1) hP
+  have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
   simp at h2 h1
   simp [hρ0] at h0
   intro i; fin_cases i <;> assumption
@@ -197,7 +200,7 @@ theorem conj_hull_finrank_four_two_by_three_configuration_iff_sq_not_mem {u : �
     (P := X ^ 4 - C c₁ * X ^ 3 - C c₀ * X ^ 2 - C c₂ * C ρ * X - C c₃ * C σ) (by
     simp only [map_sub, map_mul, map_pow, aeval_X, aeval_C, conj_hull_finrank_four_two_by_three_configuration_iff_am, hρ', hσ]
     linear_combination u ^ 2 * e)
-  have h4 := congrArg (coeff · 4) hP
+  have h4 := congrArg (AddMonoidAlgebra.coeff · 4) hP
   simp at h4
 
 /-- Partial fractions: `(u − b)⁻¹ ∈ H + Q̄(u − a)⁻¹` with `b ≠ 0` forces `b = a`. -/

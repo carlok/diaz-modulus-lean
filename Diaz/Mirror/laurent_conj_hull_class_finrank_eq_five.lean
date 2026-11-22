@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.laurent_conj_hull_class_finrank_eq_five`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.laurent_conj_hull_class_finrank_eq_five__13b183b1.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -58,7 +61,7 @@ theorem laurent_conj_hull_class_finrank_eq_five_seven_terms {u : ℂ} (hu : u �
   have hP := laurent_conj_hull_class_finrank_eq_five_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3 +
     C a₄ * X ^ 4 + C a₅ * X ^ 5 + C a₆ * X ^ 6)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, laurent_conj_hull_class_finrank_eq_five_am]; exact h)
-  have c := fun n => congrArg (coeff · n) hP
+  have c := fun n => congrArg (AddMonoidAlgebra.coeff · n) hP
   simp only [coeff_add, coeff_C_mul_X_pow, coeff_C_mul_X, coeff_C, coeff_zero] at c
   exact ⟨by simpa using c 0, by simpa using c 1, by simpa using c 2, by simpa using c 3,
     by simpa using c 4, by simpa using c 5, by simpa using c 6⟩

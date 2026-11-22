@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Diaz.quot_isAlgebraic_of_algebraic_dist`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.quot_isAlgebraic_of_algebraic_dist__0ac19860.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Closure
@@ -34,7 +37,7 @@ theorem quot_isAlgebraic_of_algebraic_dist {K : Subfield ℂ} {u v : ℂ} (hv0 :
       + Polynomial.C (⟨((u * conj v) * (conj u * v)) / ((v * conj v) * (v * conj v)),
           K.div_mem hp (K.mul_mem hv hv)⟩ : ↥K), ?_, ?_⟩
   · intro h
-    have h2 := congrArg (fun p => Polynomial.coeff p 2) h
+    have h2 := congrArg (fun p => AddMonoidAlgebra.coeff p 2) h
     simp at h2
   · simp only [map_add, map_sub, map_mul, map_pow, Polynomial.aeval_X, Polynomial.aeval_C]
     show (u / v) ^ 2 - ((u * conj v + conj u * v) / (v * conj v)) * (u / v)

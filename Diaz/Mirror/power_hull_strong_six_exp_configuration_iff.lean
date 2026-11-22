@@ -47,7 +47,7 @@ def supp (S : Set ℕ) : Submodule K K[X] where
   carrier := {P | ∀ n ∉ S, P.coeff n = 0}
   add_mem' ha hb n hn := by rw [coeff_add, ha n hn, hb n hn, add_zero]
   zero_mem' n _ := coeff_zero n
-  smul_mem' c P hP n hn := by rw [coeff_smul, hP n hn, smul_zero]
+  smul_mem' c P hP n hn := by rw [AddMonoidAlgebra.coeff_smul_apply, hP n hn, smul_zero]
 
 theorem X_pow_mem_supp {S : Set ℕ} {m : ℕ} (hm : m ∈ S) : (X ^ m : K[X]) ∈ supp S := by
   intro n hn
@@ -59,7 +59,7 @@ theorem X_pow_mem_supp {S : Set ℕ} {m : ℕ} (hm : m ∈ S) : (X ^ m : K[X]) �
 theorem natTrailingDegree_mem {S : Set ℕ} {P : K[X]} (hP : P ∈ supp S) (h0 : P ≠ 0) :
     P.natTrailingDegree ∈ S := by
   by_contra h
-  exact trailingCoeff_nonzero_iff_nonzero.2 h0 (hP _ h)
+  exact trailingCoeff_ne_zero.2 h0 (hP _ h)
 
 /-- Three against two: a non-zero combination of three polynomials kills two given
 coefficients. -/
@@ -122,7 +122,7 @@ theorem power_hull_strong_six_exp_configuration_iff_core {k : ℕ} (hk : k = 1 �
   have hFd := hA0 d hd
   obtain ⟨t0, ht0⟩ : ∃ t0, (∑ j, d j • A j).natTrailingDegree = t0 := ⟨_, rfl⟩
   have htc : (∑ j, d j • A j).coeff t0 ≠ 0 := by
-    rw [← ht0]; exact trailingCoeff_nonzero_iff_nonzero.2 hFd
+    rw [← ht0]; exact trailingCoeff_ne_zero.2 hFd
   -- shift `B` by `l A` so that the partner of `F d` has no term in degree `t₀`
   obtain ⟨l, hl⟩ : ∃ l, l = (∑ j, d j • B j).coeff t0 / (∑ j, d j • A j).coeff t0 := ⟨_, rfl⟩
   let H : (Fin 3 → K) → K[X] := fun c => ∑ j, c j • B j - C l * ∑ j, c j • A j
@@ -133,7 +133,7 @@ theorem power_hull_strong_six_exp_configuration_iff_core {k : ℕ} (hk : k = 1 �
     simp only [H, coeff_sub, coeff_C_mul, hl]
     rw [div_mul_cancel₀ _ htc, sub_self]
   have hs : (H d).natTrailingDegree ≠ t0 := fun h =>
-    trailingCoeff_nonzero_iff_nonzero.2 (hH0 d hd) (by rw [trailingCoeff, h, hHd])
+    trailingCoeff_ne_zero.2 (hH0 d hd) (by rw [trailingCoeff, h, hHd])
   -- `ord (F c) + ord (H d) = ord (H c) + ord (F d)`
   have hord : ∀ c, c ≠ 0 →
       (∑ j, c j • A j).natTrailingDegree + (H d).natTrailingDegree =
@@ -148,7 +148,7 @@ theorem power_hull_strong_six_exp_configuration_iff_core {k : ℕ} (hk : k = 1 �
       ht0] at this
   obtain ⟨a, b, hab⟩ := comb hk hs
   obtain ⟨c, hc, hca, hcb⟩ := exists_kill A a b
-  have hne := trailingCoeff_nonzero_iff_nonzero.2 (hA0 c hc)
+  have hne := trailingCoeff_ne_zero.2 (hA0 c hc)
   rcases hab _ _ (natTrailingDegree_mem (hFmem c) (hA0 c hc))
       (natTrailingDegree_mem (hHmem c) (hH0 c hc)) (hord c hc) with h | h
   · exact hne (by rw [trailingCoeff, h]; exact hca)
@@ -242,9 +242,9 @@ theorem three_terms {u : ℂ} (hu : u ∉ Qbar) {m n : ℕ} (hm : m ≠ 0) (hn :
     {a b c : ↥Qbar} (h : (a : ℂ) + b * u ^ m + c * u ^ n = 0) : a = 0 ∧ b = 0 ∧ c = 0 := by
   have hP := aeval_eq_zero hu (P := C a + C b * X ^ m + C c * X ^ n)
     (by simp only [map_add, map_mul, aeval_C, aeval_X_pow]; exact h)
-  have h0 := congrArg (coeff · 0) hP
-  have h1 := congrArg (coeff · m) hP
-  have h2 := congrArg (coeff · n) hP
+  have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
+  have h1 := congrArg (AddMonoidAlgebra.coeff · m) hP
+  have h2 := congrArg (AddMonoidAlgebra.coeff · n) hP
   simp [coeff_C, coeff_X_pow, hm, hn, hmn, hm.symm, hn.symm, hmn.symm] at h0 h1 h2
   exact ⟨h0, h1, h2⟩
 

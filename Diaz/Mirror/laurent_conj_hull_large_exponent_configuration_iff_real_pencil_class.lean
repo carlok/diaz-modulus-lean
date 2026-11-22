@@ -121,7 +121,7 @@ theorem window {v : ℂ} (hv : v ∉ Qbar) (hv0 : v ≠ 0) (k : ℕ) (c : ℤ �
     simp only [hQ, map_add, map_mul, map_pow, aeval_C, aeval_X, laurent_conj_hull_large_exponent_configuration_iff_real_pencil_class_am]
     rw [show v ^ k = v ^ (k - 3) * v ^ 3 by rw [← pow_add, Nat.sub_add_cancel hk]]
     linear_combination v ^ (k - 3) * hz
-  have h1 := congrArg (coeff · (j₀ + k).toNat) hP
+  have h1 := congrArg (AddMonoidAlgebra.coeff · (j₀ + k).toNat) hP
   simp only [laurent_conj_hull_large_exponent_configuration_iff_real_pencil_class_lpoly, finsetSum_coeff, coeff_C_mul_X_pow, coeff_X_pow_mul'] at h1
   rw [Finset.sum_eq_single j₀ (fun j hj hne => ite_eq_right (by simp only [Finset.mem_Icc] at hj; omega))
     (fun h => absurd hj h), ite_eq_left rfl] at h1

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Diaz.salem_quartic_relations`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.salem_quartic_relations__11a10a41.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Closure
@@ -34,7 +37,7 @@ theorem salem_quartic_relations {t s : ℂ} (ht : t ≠ 0) (hs : s ≠ 0)
     have halg : IsAlgebraic ℚ (s / t) := by
       refine ⟨Polynomial.C C * Polynomial.X ^ 2 + Polynomial.C A, ?_, ?_⟩
       · intro hz
-        have := congrArg (fun p => Polynomial.coeff p 2) hz
+        have := congrArg (fun p => AddMonoidAlgebra.coeff p 2) hz
         simp at this
         exact hC this
       · have hsq : ((s / t) ^ 2) * (C : ℂ) + (A : ℂ) = 0 := by
