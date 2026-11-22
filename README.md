@@ -66,7 +66,9 @@ entries are made from small extracts that point back here:
 - **The six exponentials theorem** (Lang 1966, Ramachandra 1968):
   [carlok/six-exponentials-lean](https://github.com/carlok/six-exponentials-lean),
   the import closure of `Diaz.six_exponentials` (eleven modules), ported to the
-  module system with no proof changes.
+  module system with no proof changes. Registered on 22 November 2026 as
+  [PALOMAR-2026-11-22-000020](https://palomar-registry.org/entry?id=PALOMAR-2026-11-22-000020&version=1)
+  (version 1, at commit `b42d65b`).
 
 The files below are an earlier submission surface, kept for reference; they
 predate the module-system rule and are not submittable as they stand.
