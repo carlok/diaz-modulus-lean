@@ -40,7 +40,7 @@
 \title{The Diaz modulus conjecture: a machine-checked spine\\
 \large and the shape of its obstruction}
 \author{Carlo Perassi}
-\date{September 2026\\[2pt]\small Version 1.47, 18 November 2026}
+\date{September 2026\\[2pt]\small Version 1.48, 22 November 2026}
 
 \begin{document}
 \maketitle
@@ -306,6 +306,59 @@ $\aLogs$ when $k\geq3$; it is an algebraic multiple of a coefficient of $P$, or 
 $v\otimes\dots\otimes v$. These are routine formalisations of classical results; a remark after the statement
 of~\cite[Theorem~1.2]{waldschmidt-2005b} needs one more hypothesis, and one step of the proof
 of~\cite[Proposition~5.7]{fischler-2001} needs a repair (Remark~\ref{rem:printed-corrections}, (A5) and~(B12)).
+
+Since version 1.48 four more results of~\cite{fischler-2001} are machine-checked as well, with no hypothesis, again
+with $\aLogs$ for Fischler's $\mathcal{L}$; a subspace defined over $\Alg$ is one spanned by vectors with algebraic
+coordinates. Theorem~2.1, Roy's Theorem~4 in Fischler's form: if a $d\times l$ matrix $M$ with entries in $\aLogs$
+has its rows and its columns linearly independent over $\Alg$, and its rank $r$ satisfies $(d+l)r<dl$, then
+$M(S)\subseteq T$ for some subspaces $S\subseteq\C^{l}$ and $T\subseteq\C^{d}$ defined over $\Alg$, of codimensions
+$l_{1},d_{1}\geq1$, and some integer $r_{1}\geq1$ with $l_{1}d_{1}/(l_{1}+d_{1})\leq r_{1}<rd_{1}/d$. For the strict
+inequality Fischler refers to Roy's proof of Corollary~1~\cite[p.~38]{roy-1992}, which does not contain the step. The
+formal proof takes $T\neq\C^{d}$ defined over $\Alg$ minimising $r_{1}/d_{1}$, where $r_{1}=r-\dim(U\cap T)$ and $U$
+is the column space of $M$, as in Roy's Theorem~4; if $r_{1}/d_{1}=r/d$, the zero subspace minimises it too, and Roy's
+Theorem~4 there, which holds at every minimiser~\cite[p.~34]{roy-1992}, gives $dl\leq r(d+l)$, against the hypothesis.
+Theorem~2.3: a $d\times l$ matrix of rank~$1$ with entries in $\aLogs$, $d\geq2$ and $l\geq3$, has its rows or its
+columns linearly dependent over $\Alg$. \cite[Corollary~2]{roy-1992} prints only the $2\times3$ case, and the formal
+proof applies the strong six exponentials theorem to a $2\times3$ corner of the factorisation $M_{ij}=u_{i}c_{j}$. Theorem~5.3, with a
+vector hyperplane where Fischler's Conjecture~2 asks for an affine one (his method gives vector hyperplanes~\cite[p.~169]{fischler-2001}): if
+$m,k\geq2$, $(k,m)\neq(2,2)$ and the products $v_{i_{1}}\cdots v_{i_{k}}$ of coordinates of $v\in\C^{m}$ all lie in
+$\aLogs$, then $v\otimes\dots\otimes v$ lies in a vector hyperplane defined over $\Alg$. The printed proof, a sketch,
+goes through the orbit results of~\S4; the formal one uses only the bound behind Theorems~6.2 and~6.4 on the dimension
+of the $\Alg$-span of $v_{1},\dots,v_{m}$. Corollary~6.5\,(1), Fischler's Conjecture~1 for these tensors, $k\geq3$, in
+the form of its non-trivial inclusion: then $v\otimes\dots\otimes v$ lies on a line $\C y$, with $y$ algebraic, made
+of tensors $v''\otimes\dots\otimes v''$. Three facts of linear algebra over $\Alg$ are machine-checked with them, for
+Theorem~2.1 and the pencil forms below: a subspace defined over $\Alg$ is the common kernel of linear forms with
+algebraic coefficients, and a proper one is killed by a non-zero such form (one half of the remark
+of~\cite[p.~170]{fischler-2001}); and if the columns of a complex $d\times l$ matrix $M$ are linearly independent over
+$\Alg$ (the proof does not use it), then for every subspace $T\subseteq\C^{d}$ some subspace $S$ defined over $\Alg$
+has $M(S)\subseteq T$ and $\dim S=\dim_{\Alg}(W\cap T)$, where $W$ is the $\Alg$-span of the columns. These are
+routine formalisations of classical results.
+
+Since version 1.48 Propositions~3.1 and~3.2 and Theorems~4.1 and~4.2 of~\cite{fischler-2001} are machine-checked as
+well, with no hypothesis, in a pencil form that is not printed. Fischler states them for a representation $\rho$ of an
+affine algebraic group on $\C^{d}$ and an orbit, both defined over $\Alg$. The pencil form replaces the Lie algebra of
+$\rho$ by $d\times d$ matrices $F_{1},\dots,F_{l}$ with algebraic entries, the images of a basis defined over $\Alg$,
+and the dimension of the orbit of $\alpha\in\C^{d}$ by the rank of the $d\times l$ matrix $M_{\alpha}$ with columns
+$F_{1}\alpha,\dots,F_{l}\alpha$~\cite[Lemma~2.4]{fischler-2001}. Let $x\in\aLogs^{d}$ and $r=\operatorname{rank}M_{x}$,
+and write $l_{1}$, $d_{1}$ for the codimensions of subspaces $S\subseteq\C^{l}$ and $T\subseteq\C^{d}$, which, as in
+print, need not be defined over $\Alg$. Proposition~3.2: if $d\geq1$, then for some $S$ and $T$ with $d_{1}\geq1$ and
+$(d-r)l_{1}\leq rd_{1}$, every $\sum_{a}s_{a}F_{a}$ with $s\in S$ maps into $T$ the intersection of the subspaces
+defined over $\Alg$ that contain $x$. Theorem~4.2: if $2r<d$, then $x$ lies in a subspace $E$ defined over $\Alg$ with
+$\operatorname{rank}M_{\alpha}<d$ for every $\alpha\in E$. In print $\rho$ has a Zariski-dense orbit $Y$ and $E$ is
+disjoint from it; $Y$ is the set where $\operatorname{rank}M_{\alpha}=d$, and the pencil form does not need $Y$, so it
+is a little more general. Proposition~3.1 and Theorem~4.1 replace the hypothesis that the representation and the orbit
+are suitable~\cite[p.~172]{fischler-2001} by three linear consequences of it: $F_{1},\dots,F_{l}$ are linearly
+independent over $\Alg$, no non-zero algebraic $\varphi$ has $\varphi^{\mathsf{T}}F_{a}=0$ for every $a$, and
+$(d+l)r<dl$. Proposition~3.1: if moreover $x$ lies in no hyperplane defined over $\Alg$, then for some $S$ and $T$
+with $l_{1},d_{1}\geq1$ and some integer $r_{1}\geq1$ with the two inequalities of Theorem~2.1, every
+$\sum_{a}s_{a}F_{a}$ with $s\in S$ maps $\C^{d}$ into $T$. Theorem~4.1: if moreover $k\geq2$, $kr\leq d$ and
+$d<\operatorname{rank}M_{\alpha}+k$ for some $\alpha$, then $x$ lies in a hyperplane defined over $\Alg$. The proofs
+are the printed ones, through Theorem~2.1 and Roy's Corollary~1. That these forms are the right reading of the printed
+statements rests on the dictionary above (suitability gives the three linear hypotheses, and a dense orbit is where
+$\operatorname{rank}M_{\alpha}=d$), which is argued and not machine-checked. These are routine formalisations of
+classical results in a linear form. Not formalised from~\cite{fischler-2001}: the printed statements of
+Propositions~3.1 and~3.2 and Theorems~4.1 and~4.2, about algebraic groups; Theorems~5.1 and~5.4; Proposition~5.7; and
+the conditional reductions Corollary~6.3\,(2) and Corollary~6.5\,(2).
 
 \begin{remark}[Printed statements corrected while formalising]\label{rem:printed-corrections}
 Formalising the results above met the points below. The file \texttt{ERRATA.md} of the mirrored project gives each
@@ -2783,7 +2836,7 @@ self-contained Lean project at
 which builds from source in one command, depends on no platform, and assumes nothing beyond Lean's
 own three axioms. Where the two differ in naming, the project keeps the platform's spelling.
 
-This is version 1.47 of the note; version 1.0 of 21 September 2026 is the first stable release.
+This is version 1.48 of the note; version 1.0 of 21 September 2026 is the first stable release.
 Version 1.6 follows a reading of the published work of Diaz, Roy, Waldschmidt and Dasgupta--Kakde,
 and corrects attributions throughout: several results below are classical or special cases of
 theirs, and each is attributed in the text. Version 1.7 adds rows for the results of that reading that are
@@ -2929,6 +2982,10 @@ of~\cite{fischler-2001}, all machine-checked with no hypothesis (Section~\ref{se
 Remark~\ref{rem:printed-corrections} now say what is machine-checked, items (A5), (B12), (C14), (C15) and~(C16) are
 added, and two passages of Section~\ref{sec:map} now say that Fischler's Lemma~6.1, like Diaz's
 Th\'eor\`eme~7(2), concerns $\aLogs$. The mirrored project then held all 718 proved results of the development.
+Version 1.48 adds, on 22 November 2026, Theorems~2.1, 2.3 and~5.3 and Corollary~6.5\,(1) of~\cite{fischler-2001},
+and its Propositions~3.1 and~3.2 and Theorems~4.1 and~4.2 in a pencil form that is not printed, all machine-checked
+with no hypothesis (Section~\ref{sec:setting}). The mirrored project then held all 729 proved results of the
+development.
 
 The 1973--74 theorem's row stands for a development rather than a single proof: the criterion of
 Waldschmidt 1971, the zero count for exponential polynomials, the construction of 1973 with its
@@ -3105,6 +3162,14 @@ Cor.~\ref{cor:recip} & Proved & \nolinkurl{DiazModulus.candidate_multiplier_modu
 \S\ref{sec:setting}, \cite{fischler-2001}, Th.~6.4 & Proved & \nolinkurl{DiazModulus.fischler_theorem_6_4_one}, \nolinkurl{DiazModulus.fischler_theorem_6_4_two} \\
 \S\ref{sec:setting}, \cite{fischler-2001}, Cor.~6.3\,(1) & Proved & \nolinkurl{DiazModulus.fischler_cor_6_3} \\
 \S\ref{sec:setting}, \cite{fischler-2001}, N.B., p.~183 & Proved & \nolinkurl{DiazModulus.fischler_centralizer_nb} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Th.~2.1 & Proved & \nolinkurl{DiazModulus.fischler_theorem_2_1}, \nolinkurl{DiazModulus.rational_preimage_finrank}, \nolinkurl{DiazModulus.rational_proper_annihilator}, \nolinkurl{DiazModulus.rational_common_kernel} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Th.~2.3 & Proved & \nolinkurl{DiazModulus.fischler_theorem_2_3} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Prop.~3.1, in pencil form & Proved & \nolinkurl{DiazModulus.fischler_prop_3_1_pencil} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Prop.~3.2, in pencil form & Proved & \nolinkurl{DiazModulus.fischler_prop_3_2_pencil} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Th.~4.1, in pencil form & Proved & \nolinkurl{DiazModulus.fischler_theorem_4_1_pencil} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Th.~4.2, in pencil form & Proved & \nolinkurl{DiazModulus.fischler_theorem_4_2_pencil} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Th.~5.3, with a vector hyperplane & Proved & \nolinkurl{DiazModulus.fischler_theorem_5_3} \\
+\S\ref{sec:setting}, \cite{fischler-2001}, Cor.~6.5\,(1) & Proved & \nolinkurl{DiazModulus.fischler_cor_6_5} \\
 \S\ref{sec:outside}, $u^{3}$ and $\lambda u$ & Proved & \nolinkurl{DiazModulus.candidate_cube_and_axis_multiple_not_mem_logAlgTilde} \\
 \S\ref{sec:outside}, no higher power & Proved & \nolinkurl{DiazModulus.power_hull_strong_six_exp_configuration_iff} \\
 \S\ref{sec:outside}, \cite{diaz-2007}, Th.~3, Cor.~1, 2, 4, 5 & Proved & \nolinkurl{DiazModulus.strong_six_exponentials_iff_quotient_form}, \nolinkurl{DiazModulus.diaz_2007_cor1_PQ}, \nolinkurl{DiazModulus.diaz_2007_cor2_P_consequences}, \nolinkurl{DiazModulus.diaz_2007_cor4}, \nolinkurl{DiazModulus.diaz_2007_cor5} \\

@@ -119,8 +119,8 @@ results, with no hypothesis.
 Milestones 194–202 of the Prove2Me mission are the nine headline results; the other nine joined by import. The 18
 modules have 1,851 lines in `Diaz/Mirror/`. *Further variations* Th. 2.1 for
 infinite-dimensional `Y` and DALAG Cor. 12.23 are formalised in the next section, *Further variations* Cor. 1.3 and
-Fischler's Th. 1.1 in the last section. Not formalised: the ℚ + ℒ statement after DALAG Cor. 12.24; Fischler's §4,
-on orbits under algebraic groups.
+Fischler's Th. 1.1 in the second-to-last section, and Fischler's Th. 4.1 and 4.2 in pencil form in the last. Not
+formalised: the ℚ + ℒ statement after DALAG Cor. 12.24; Fischler's §4 as printed, on orbits under algebraic groups.
 
 **Printed statements corrected while formalising.** Formalising these results met three printed statements that
 are false as stated, two of them used here: *Variations* Cor. 2.12, which the author corrected in *Further
@@ -411,7 +411,7 @@ is spanned by vectors with algebraic coordinates (Fischler, p. 170).
   presents it as a consequence of its Th. 1.1, Roy's strong six exponentials theorem, and the proof is that theorem
   for `x = (1, Λ₁)` and `y = (1, Λ₂, Λ₃)`.
 - `DiazModulus.fischler_lemma_6_1` (milestone) — Fischler's Lemma 6.1 (p. 184): non-zero `λ₁, …, λ_q ∈ ℒ̃` in geometric
-  progression with transcendental ratio have `q ≤ 3`. Fischler applies his Th. 2.3 (Roy 1992, Cor. 2) to the
+  progression with transcendental ratio have `q ≤ 3`. Fischler applies his Th. 2.3 (next section) to the
   `2 × (q − 1)` matrix of consecutive terms; here the strong six exponentials theorem is applied to its `2 × 3`
   corner.
 - `DiazModulus.fischler_theorem_1_1` (milestone) — Th. 1.1 (pp. 168–169), which is Th. 6.2 (1) (p. 184): if `k ≥ 3` and
@@ -447,9 +447,8 @@ is spanned by vectors with algebraic coordinates (Fischler, p. 170).
   does not use Lemma 6.1.
 
 Milestones 221–228 of the Prove2Me mission are the eight printed results; the four helpers joined by import. The 12
-modules have 869 lines in `Diaz/Mirror/`. Not formalised from Fischler 2001: Th. 2.1 and 2.3; §§2.3–5.1, on
-orbits under algebraic groups; Prop. 5.7, which assumes the Algebraic Independence Conjecture; Cor. 6.3 (2) and
-Cor. 6.5.
+modules have 869 lines in `Diaz/Mirror/`. Th. 2.1, 2.3 and 5.3, Cor. 6.5 (1), and Props. 3.1 and 3.2 and Ths. 4.1
+and 4.2 in pencil form are formalised in the next section, which lists what is not.
 
 **Printed statements and proofs met while formalising.** The printed proofs of Th. 6.2 (1) and Th. 6.4 (1) stop at
 `n ≤ 1` and leave implicit why `a` lies in `ℒ̃`; the formal proofs give the reason: `a` is a Q̄-multiple of the
@@ -461,4 +460,104 @@ it is unaffected, since Th. 1.1 assumes both. In Fischler's proof of Prop. 5.7 (
 least 2" to a point of the hyperplane `E` does not follow: an affine subspace of any dimension can miss an affine
 hyperplane. The conclusion stands, by a scaling argument on the discriminant. [`ERRATA.md`](../ERRATA.md) gives both
 points (A5, B12) with the printed text, the evidence and the repair.
+
+### Fischler 2001: Th. 2.1, 2.3 and 5.3, Cor. 6.5 (1), and Props. 3.1–3.2 and Ths. 4.1–4.2 in pencil form
+
+Eleven nodes of 20 November 2026 from Fischler 2001, with no hypothesis: formal proofs of Cor. 6.5 (1), Th. 2.3,
+Th. 5.3 and Th. 2.1; pencil forms of Prop. 3.1, Prop. 3.2, Th. 4.1 and Th. 4.2, which are not printed in this form;
+and three routine helpers of linear algebra over Q̄. As in the previous section, Fischler's `ℒ` is `ℒ̃` here, only
+his complex case is formalised, a subspace is rational (defined over Q̄) when it is spanned by vectors with algebraic
+coordinates, and hyperplanes are vector hyperplanes (p. 169). For `v ∈ ℂᵐ` and `I : {1, …, k} → {1, …, m}`,
+`v_I = v_{I(1)}⋯v_{I(k)}` is the coordinate of `v ⊗ ⋯ ⊗ v` (`k` factors) on `e_{I(1)} ⊗ ⋯ ⊗ e_{I(k)}`, a basis
+defined over Q̄.
+
+**The pencil forms.** Fischler's §§2.3–5.1 concern a representation `ρ : G → GL(W)` of an affine algebraic group,
+both defined over Q̄, an orbit `X`, `d = dim W`, `l = dim G` and `r = dim X`. The pencil forms replace the group by
+`d × d` matrices `F₁, …, F_l` with algebraic entries, the images under `Lie(ρ)` of a basis of the Lie algebra defined
+over Q̄. For `α ∈ ℂᵈ`, `M_α` is the `d × l` matrix with columns `F_aα`, so that `M_α s = (Σₐ sₐFₐ)α`; orbit
+dimensions are read as ranks of `M_α` (Fischler's Lemma 2.4 gives `r = rk M_x`), and `x ∈ X(ℒ)` becomes `x ∈ ℒ̃ᵈ`.
+Where the print assumes `(ρ, X)` suitable (p. 172), the pencil forms assume three linear consequences: (S1′)
+`F₁, …, F_l` are Q̄-free; (S2′) no non-zero algebraic `φ` has `φᵀFₐ = 0` for every `a`; (S3′) `(d + l)·rk M_x < dl`.
+These four statements are not printed in this form, and their titles say so. That they are the right reading of
+Fischler's statements rests on an argument, not on a formal proof of the dictionary: suitability gives (S1′)–(S3′),
+and a Zariski-dense orbit, when there is one, is the set of `α` with `rk M_α = d`. The printed statements, on
+algebraic groups, are not formalised.
+
+- `DiazModulus.fischler_cor_6_5` (milestone) — Cor. 6.5 (1) (p. 185): Fischler's Conjecture 1 for the tensors
+  `v ⊗ ⋯ ⊗ v`, `k ≥ 3`, in the form of its non-trivial inclusion. If every `v_I` lies in `ℒ̃`, there is `y` with
+  algebraic coordinates such that `(v_I)_I` lies in `ℂy` and every element of `ℂy` is a tensor `v″ ⊗ ⋯ ⊗ v″`. For any
+  `m`; Th. 6.4, on which it rests, is printed for `m ≥ 2`. From `fischler_theorem_6_4_one` (previous section):
+  `v^{⊗k} = a·v′^{⊗k}` with `v′` algebraic, `y = v′^{⊗k}`, and `γy = (zv′)^{⊗k}` when `zᵏ = γ`. Part (2), a
+  conditional reduction to `k = m = 2`, is not formalised.
+- `DiazModulus.fischler_theorem_2_3` (milestone) — Th. 2.3 (p. 171), as printed: if a `d × l` matrix of rank 1 with
+  entries in `ℒ̃` has `d ≥ 2` and `l ≥ 3`, its rows or its columns are linearly dependent over Q̄. It is the `d × l`
+  form of Roy 1992, Cor. 2, which Roy prints for `2 × 3` matrices only (p. 38); Fischler presents it as a corollary
+  of his Th. 2.1. Here it comes from the strong six exponentials theorem: write `Mᵢⱼ = uᵢcⱼ`; Q̄-free rows and
+  Q̄-free columns make `u` and `c` Q̄-free, and the theorem applies to `(u₁, u₂)` and `(c₁, c₂, c₃)`.
+- `DiazModulus.fischler_theorem_5_3` (milestone) — Th. 5.3 (p. 180), in the setting of §5.1: if `m, k ≥ 2`,
+  `(k, m) ≠ (2, 2)` and every `v_I` lies in `ℒ̃`, then `Σ_I ψ_I v_I = 0` for some algebraic `ψ_I`, not all zero. That
+  is Conjecture 2 for the tensors `v ⊗ ⋯ ⊗ v` with a vector hyperplane, where Conjecture 2 asks for an affine one, so
+  it is slightly stronger than printed; Fischler notes that his method gives vector hyperplanes (p. 169). The printed
+  proof goes through the orbit results of §4 and is sketched (p. 178). This one uses a single bound and no orbit
+  theory: by `fischler_power_span_finrank` (previous section), `v₁, …, v_m` span a Q̄-space of dimension at most 2,
+  at most 1 if `k ≥ 3`, hence less than `m`; a relation `Σ βᵢvᵢ = 0` over Q̄ gives `ψ`, supported on the
+  multi-indices `(i, 1, …, 1)`, since `Σᵢ βᵢvᵢv₁^{k−1} = 0`.
+- Three helpers, routine linear algebra over Q̄: `rational_common_kernel` (a rational `T ⊆ ℂᵈ` is the common kernel
+  of `d` linear forms with algebraic coefficients, one half of Fischler's remark of p. 170; zero forms and rows of
+  the matrix of the automorphism given by `roy_rational_adapted_basis`, above), `rational_proper_annihilator` (a
+  rational `T ≠ ℂᵈ` is killed by a non-zero linear form with algebraic coefficients, one of those `d` forms) and
+  `rational_preimage_finrank` (for a complex `d × l` matrix `M` and any subspace `T ⊆ ℂᵈ`, some rational `S ⊆ ℂˡ` has
+  `MS ⊆ T` and `dim S = dim_Q̄(W ∩ T)`, `W` the Q̄-span of the columns of `M`; `S` is spanned by algebraic preimages
+  of a Q̄-basis of `W ∩ T`, which are ℂ-free by `qbar_linearIndependent_complex`). `rational_preimage_finrank` keeps
+  the hypothesis that the columns of `M` are Q̄-free, which its proof does not use.
+- `DiazModulus.fischler_theorem_2_1` (milestone) — Th. 2.1 (pp. 170–171), Roy's Th. 4 in Fischler's form, in
+  coordinates for bases defined over Q̄: if `M ∈ ℒ̃^{d×l}` has rank `r`, Q̄-free columns, Q̄-free rows and
+  `(d + l)r < dl`, there are rational `S ⊆ ℂˡ` and `T ⊆ ℂᵈ` with `MS ⊆ T`, of codimensions `l₁, d₁ ≥ 1`, and an
+  integer `r₁ ≥ 1` with `r₁d < rd₁` and `l₁d₁ ≤ r₁(l₁ + d₁)`. The printed hypothesis that the spaces are non-zero
+  follows from `(d + l)r < dl` and is omitted. The proof takes a rational `T ≠ ℂᵈ` minimising
+  `(r − dim(U ∩ T))/(d − dim T)`, `U` the column space of `M` (`roy_theorem_four_exists`), and for `S` the space
+  given by `rational_preimage_finrank`. Roy's Th. 4 (`roy_theorem_four`) at `T` gives `l₁d₁ ≤ r₁(l₁ + d₁)` and
+  `r₁d ≤ rd₁`. The second is strict because Th. 4 holds at every minimiser: in case of equality the zero subspace is
+  a minimiser too, and Th. 4 there gives `dl ≤ r(d + l)`, against the hypothesis. `rational_proper_annihilator` and
+  the Q̄-free rows give `U ⊄ T`, hence `r₁ ≥ 1` and `l₁ ≥ 1`.
+- `DiazModulus.fischler_prop_3_2_pencil` — Prop. 3.2 (p. 174) in pencil form, not printed in this form: for `d ≥ 1`,
+  algebraic `F₁, …, F_l` and `x ∈ ℒ̃ᵈ`, with `r = rk M_x` and `𝓔` the least rational subspace containing `x` (the
+  intersection of all of them), there are subspaces `S ⊆ ℂˡ` and `T ⊆ ℂᵈ`, of codimensions `l₁` and `d₁ ≥ 1`, with
+  `(d − r)l₁ ≤ rd₁` and `(Σₐ sₐFₐ)α ∈ T` for every `s ∈ S` and `α ∈ 𝓔`. No property of the `Fₐ` beyond being
+  algebraic is assumed, and, as printed, `S` and `T` are not said to be rational. The proof is the printed one: Roy's
+  Corollary 1 (`roy_rank_bound`, Fischler's Cor. 2.2) applied to `M_x`, with `fischler_rational_hull` (previous
+  section) to pass from `x` to `𝓔`.
+- `DiazModulus.fischler_theorem_4_2_pencil` (milestone) — Th. 4.2 (p. 175) in pencil form, not printed in this form.
+  Printed: if `ρ` has a Zariski-dense orbit `Y` and `X` has dimension `r < d/2`, every `x ∈ X(ℒ)` lies in a subspace
+  defined over Q̄ that is disjoint from `Y`. Pencil form: for algebraic `F₁, …, F_l` and `x ∈ ℒ̃ᵈ` with
+  `2·rk M_x < d`, some rational `E` containing `x` has `rk M_α < d` for every `α ∈ E`. Disjointness from `Y` is read
+  as `rk M_α < d`, and the dense-orbit hypothesis is dropped, so the pencil form is a little more general. The proof
+  is the printed one: `E` is the least rational subspace containing `x`, and on it the pencil form of Prop. 3.2, with
+  rank–nullity for `M_α` on `S`, turns `rk M_α = d` into `d₁ ≤ l₁` and then `d ≤ 2r`. From
+  `fischler_prop_3_2_pencil`, `fischler_rational_hull` and `rational_common_kernel`.
+- `DiazModulus.fischler_prop_3_1_pencil` — Prop. 3.1 (p. 173) in pencil form, not printed in this form: under
+  (S1′)–(S3′), if `x ∈ ℒ̃ᵈ` lies in no hyperplane defined over Q̄, there are subspaces `S ⊆ ℂˡ` and `T ⊆ ℂᵈ`, of
+  codimensions `l₁, d₁ ≥ 1`, such that the image of `Σₐ sₐFₐ` lies in `T` for every `s ∈ S`, and an integer `r₁ ≥ 1`
+  with `r₁d < rd₁` and `l₁d₁ ≤ r₁(l₁ + d₁)`, `r = rk M_x`. As printed, `S` and `T` are not said to be rational. The
+  proof is the printed one (pp. 173–174): (S1′), (S2′) and the hypothesis on `x` make the columns and the rows of
+  `M_x` Q̄-free, Th. 2.1 applies to `M_x`, and `rational_common_kernel` extends `(Σₐ sₐFₐ)x ∈ T` to the whole image
+  of `Σₐ sₐFₐ`.
+- `DiazModulus.fischler_theorem_4_1_pencil` (milestone) — Th. 4.1 (pp. 174–175) in pencil form, not printed in this
+  form: if `k ≥ 2`, (S1′)–(S3′) hold, `d < rk M_α + k` for some `α ∈ ℂᵈ` (printed: an orbit of codimension less than
+  `k`) and `k·rk M_x ≤ d` (printed: `r ≤ d/k`), then `x` lies in a hyperplane defined over Q̄: `φ · x = 0` for some
+  non-zero algebraic `φ`. The proof is the printed one (p. 175), its arithmetic cleared of denominators: otherwise
+  the pencil form of Prop. 3.1 and rank–nullity for `M_α` give `d₁ ≤ l₁ + k − 1`, and the inequalities on `r₁` then
+  fail both for `l₁ = 1` and for `l₁ ≥ 2`.
+
+Milestones 229–234 of the Prove2Me mission are Cor. 6.5 (1), Th. 2.3, Th. 5.3, Th. 2.1 and the pencil forms of
+Th. 4.2 and Th. 4.1; the other five nodes joined by import. The 11 modules have 983 lines in `Diaz/Mirror/`.
+Not formalised from Fischler 2001: Th. 5.1; Th. 5.4; Prop. 5.7, which assumes the Algebraic Independence Conjecture;
+the conditional reductions Cor. 6.3 (2) and Cor. 6.5 (2); and the printed statements of Props. 3.1 and 3.2 and
+Ths. 4.1 and 4.2, on algebraic groups.
+
+**Printed proofs met while formalising.** No error was found in the printed statements formalised here or in the
+printed proofs followed, and [`ERRATA.md`](../ERRATA.md) has no entry for them. A step is left implicit in Th. 2.1.
+Fischler derives Th. 2.1 from Roy's Th. 4 and points to Roy's proof of Cor. 1 (p. 38), which applies Th. 4 at one
+minimiser and gives only `r₁/d₁ ≤ r/d`. The strict inequality needs Th. 4 at the zero subspace as well; Roy states
+Th. 4 for every minimiser (p. 34), so the step is available, and the formal proof takes it.
 

@@ -322,3 +322,14 @@ import Solution
 #print axioms Diaz.fischler_theorem_6_4_two
 #print axioms Diaz.fv_cor_1_3
 #print axioms Diaz.qbar_linearIndependent_complex
+#print axioms Diaz.rational_common_kernel
+#print axioms Diaz.rational_preimage_finrank
+#print axioms Diaz.fischler_theorem_2_3
+#print axioms Diaz.fischler_theorem_5_3
+#print axioms Diaz.fischler_cor_6_5
+#print axioms Diaz.fischler_prop_3_2_pencil
+#print axioms Diaz.rational_proper_annihilator
+#print axioms Diaz.fischler_theorem_4_2_pencil
+#print axioms Diaz.fischler_theorem_2_1
+#print axioms Diaz.fischler_prop_3_1_pencil
+#print axioms Diaz.fischler_theorem_4_1_pencil

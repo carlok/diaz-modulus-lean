@@ -677,3 +677,14 @@ import Diaz.Mirror.fischler_theorem_6_4_one
 import Diaz.Mirror.fischler_theorem_6_4_two
 import Diaz.Mirror.fv_cor_1_3
 import Diaz.Mirror.qbar_linearIndependent_complex
+import Diaz.Mirror.rational_common_kernel
+import Diaz.Mirror.rational_preimage_finrank
+import Diaz.Mirror.fischler_theorem_2_3
+import Diaz.Mirror.fischler_theorem_5_3
+import Diaz.Mirror.fischler_cor_6_5
+import Diaz.Mirror.fischler_prop_3_2_pencil
+import Diaz.Mirror.rational_proper_annihilator
+import Diaz.Mirror.fischler_theorem_4_2_pencil
+import Diaz.Mirror.fischler_theorem_2_1
+import Diaz.Mirror.fischler_prop_3_1_pencil
+import Diaz.Mirror.fischler_theorem_4_1_pencil

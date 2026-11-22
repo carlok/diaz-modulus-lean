@@ -19,9 +19,11 @@ The five sections on the multiplicity estimate prove \texttt{hME}: the multiplic
 
 Chapter~\ref{chap:09-baker} derives Waldschmidt's five exponentials theorem from Roy's theorem and Baker's theorem (Theorem~\ref{thm:five_exponentials}).
 
-The five sections that follow the one on Roy's Corollary~1 formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}) and of his strong six exponentials theorem: results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}, and Fischler's results on powers of linear forms and tensor powers whose coefficients lie in $\widetilde{\mathcal L}$ \cite[\S6]{Fis01}. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. Fischler's bound also holds under the weaker hypothesis of the N.B. after his Prop.~5.5, that no hyperplane of $\mathrm{Mat}_n(\C)$ defined over $\Qbar$ contains both the matrix and the identity (Theorem~\ref{thm:fischler_centralizer_nb}). The fifth section applies Roy's strong six exponentials theorem with no hypothesis (Theorem~\ref{thm:strong_six_exponentials_unconditional}), each time to six products $x_iy_j$: it gives \cite[Cor.~1.3]{Wal05b} (Corollary~\ref{cor:fv_cor_1_3}), and Fischler's Lemma~6.1, Th.~1.1 (his Th.~6.2\,(1)), Th.~6.2\,(2), Th.~6.4 and Cor.~6.3\,(1), the non-trivial inclusion of his Conjecture~1 for the $k$-th powers of linear forms, $k \geq 3$ (Corollary~\ref{cor:fischler_cor_6_3}). Where Fischler applies \cite[Th.~2.3]{Fis01} to a larger matrix, or leaves implicit why a coefficient lies in $\widetilde{\mathcal L}$, the source lines say what is done here. These are routine formalisations of classical results.
+The six sections that follow the one on Roy's Corollary~1 formalise Roy's Theorem 5 and printed applications of Roy's Corollary 1 (Theorem~\ref{thm:roy_rank_bound}), of his Theorem~4 and of his strong six exponentials theorem: results of Waldschmidt's \emph{Variations} \cite{Wal05a} and \emph{Further variations} \cite{Wal05b}, \cite[\S12.3]{Wal00}, Fischler's bound for the centraliser of a matrix of logarithms \cite[Th.~1.2]{Fis01}, Fischler's results on powers of linear forms and tensor powers whose coefficients lie in $\widetilde{\mathcal L}$ \cite[\S6]{Fis01}, and his Theorems~2.1, 2.3 and~5.3. Where a printed statement needed a correction, the node states the corrected form and its source says what was corrected; the file ERRATA.md at the root of the repository gives the details. Three consequences that also use Baker's theorem are in Chapter~\ref{chap:09-baker}, and a corrected corollary of \emph{Variations} that uses complex conjugation is in Chapter~\ref{chap:10-rank-one-configurations}. Fischler's bound also holds under the weaker hypothesis of the N.B. after his Prop.~5.5, that no hyperplane of $\mathrm{Mat}_n(\C)$ defined over $\Qbar$ contains both the matrix and the identity (Theorem~\ref{thm:fischler_centralizer_nb}). The fifth section applies Roy's strong six exponentials theorem with no hypothesis (Theorem~\ref{thm:strong_six_exponentials_unconditional}), each time to six products $x_iy_j$: it gives \cite[Cor.~1.3]{Wal05b} (Corollary~\ref{cor:fv_cor_1_3}), and Fischler's Lemma~6.1, Th.~1.1 (his Th.~6.2\,(1)), Th.~6.2\,(2), Th.~6.4, Cor.~6.3\,(1), the non-trivial inclusion of his Conjecture~1 for the $k$-th powers of linear forms, $k \geq 3$ (Corollary~\ref{cor:fischler_cor_6_3}), and Cor.~6.5\,(1), the same inclusion for the tensors $v \otimes \cdots \otimes v$ (Corollary~\ref{cor:fischler_cor_6_5}). Where Fischler applies \cite[Th.~2.3]{Fis01} to a larger matrix, or leaves implicit why a coefficient lies in $\widetilde{\mathcal L}$, the source lines say what is done here. The sixth section gives Fischler's Th.~2.3, the $d \times l$ form of \cite[Cor.~2]{Roy92}, which Roy prints for $2 \times 3$ matrices only (Theorem~\ref{thm:fischler_theorem_2_3}); his Th.~5.3, with a vector hyperplane where his Conjecture~2 asks for an affine one, from the bound behind his Th.~6.2 and Th.~6.4 and with no orbit theory (Theorem~\ref{thm:fischler_theorem_5_3}); and his Th.~2.1, Roy's Theorem~4 in Fischler's form (Theorem~\ref{thm:fischler_theorem_2_1}), where the strict inequality comes from Roy's Theorem~4 at every minimiser. These are routine formalisations of classical results.
 
-The three sections that follow these five complete three of their results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The third of them has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
+The seventh section after the one on Roy's Corollary~1 states Fischler's Props.~3.1, 3.2 and Ths.~4.1, 4.2 \cite{Fis01} in pencil form, which is not printed: the representation of an algebraic group is replaced by $d \times d$ matrices $F_1, \dots, F_l$ with algebraic entries, the images of a basis of its Lie algebra, and the dimension of an orbit by the rank of the matrix $M_\alpha$ whose columns are the $F_a\alpha$ (Proposition~\ref{prop:fischler_prop_3_2_pencil}). The printed statements, on algebraic groups, are not formalised. That the pencil forms are the right reading of them rests on an argument, given in their source lines, and not on a formal proof: suitability gives the hypotheses (S1$'$)--(S3$'$), and a Zariski-dense orbit is the set where $\operatorname{rank} M_\alpha = d$. The pencil form of Th.~4.2 does not need a dense orbit, so it is a little more general (Theorem~\ref{thm:fischler_theorem_4_2_pencil}).
+
+The three sections that follow these seven complete three of their results. Theorem~2.1 of \emph{Further variations} holds as printed, for every $\Qbar$-subspace $Y$ (Theorem~\ref{thm:fv_theorem_2_1_rank}): the printed proof treats finite-dimensional $Y$ (Theorem~\ref{thm:fv_theorem_2_1}), and a finite approximation (Proposition~\ref{prop:fv_finite_approx}) gives one finite-dimensional subspace of $Y$ that serves for every $\C$-subspace of $\C^{n}$ at once. Roy's Lemma \cite[p.~40]{Roy92} gives the largest value $\varphi(n, d)$ of the bound of Theorem~\ref{thm:roy_theorem_five} in closed form (Lemma~\ref{lem:roy_lemma_phi}); its integer part is DALAG's table $\Psi$ (Lemma~\ref{lem:dalag_psi_floor_roy_phi}), so \cite[Cor.~11.15]{Wal00} holds for $\Qbar$ and $\widetilde{\mathcal L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_psi}). The third of them has two lemmas for \cite[Cor.~12.23]{Wal00}, which uses Baker's theorem and is in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23}). These are routine formalisations of classical results; the printed proofs of \cite[Th.~2.1]{Wal05b} and of Roy's Lemma each needed one more step, which the source lines and ERRATA.md describe.
 
 The seven sections that follow the one with two lemmas for \cite[Cor.~12.23]{Wal00} formalise, routinely, more classical results of \cite{Wal00} and \cite{Roy92}. \cite[Cor.~11.15]{Wal00} holds for $\Q$ and $\Q + \mathcal{L}$ in its printed form (Corollary~\ref{cor:dalag_cor_11_15_rat}) by Roy's route over $\Q$: his Theorem~4 holds over every subfield of $\Qbar$ \cite[Remark~(i), p.~37]{Roy92}, his Theorem~5 follows (Theorem~\ref{thm:roy_rat_theorem_five}), and his Lemma gives the table $\Psi$ as above, while DALAG's own proof of this case, through its Prop.~11.19, has a gap there and is not used (ERRATA.md, B9). Roy's Theorem~4 over $\Q$, in its minimal-ratio form (Theorem~\ref{thm:roy_rat_theorem_four}), gives \cite[Prop.~11.19]{Wal00} for $\Q$ and $\Q + \mathcal{L}$ as printed, finiteness included (Proposition~\ref{prop:dalag_prop_11_19_rat}); Roy's Remark~(i) leaves aside the form of his Theorem~1 over a subfield of $\Qbar$, which he quotes over $\Qbar$ only; a short argument supplies it, and the formal proofs do not need it (ERRATA.md, B10). \cite[Lemma~12.9]{Wal00}, that the structural rank can be computed through any injective map into affine forms, is Lemma~\ref{lem:dalag_lemma_12_9}, with the two steps that its printed proof leaves implicit (ERRATA.md, B7); the first of them, a dehomogenisation (Lemma~\ref{lem:dalag_lemma_12_9_dehomog}), gives \cite[Cor.~12.23]{Wal00} in the affine form of \cite[p.~435]{Wal00} in Chapter~\ref{chap:09-baker} (Corollary~\ref{cor:dalag_cor_12_23_affine}). The last four of them are on \cite[\S12.1]{Wal00}, linear algebra over two fields $k \subseteq K$. The first two of these give Prop.~12.7, that a subspace $V \subseteq K^{d}$ of dimension $n$ with $V \cap k^{d} = \{0\}$ meets $E^{d}$ in dimension at most $n(n + 1)/2$ over $k$ when $E$ has Property (A B; C 0) (Proposition~\ref{prop:dalag_prop_12_7}); Prop.~12.10, which DALAG credits to D.~Roy, that every polynomial in $X_1, \dots, X_n$ is the determinant of a square matrix with entries in $k + kX_1 + \dots + kX_n$ (Proposition~\ref{prop:dalag_prop_12_10}); and the implication (iv)$\Rightarrow$(iii) of Prop.~12.13 (Proposition~\ref{prop:dalag_prop_12_13_iv_iii}), through the dehomogenisation above. The printed proofs of Prop.~12.7 and of that implication need small corrections (ERRATA.md, C10 and B8). The last two complete \S12.1. Prop.~12.13 holds for every $k$-subspace $E \subseteq K$ containing $1$, finite-dimensional or not, with (iv) in presentation form (Proposition~\ref{prop:dalag_prop_12_13}): its four conditions are proved equivalent along a cycle in which (ii)$\Rightarrow$(iv), through Lemma~12.9, replaces the printed (i)$\Rightarrow$(iv), and Cor.~12.14 follows (Corollary~\ref{cor:dalag_cor_12_14}). Prop.~12.2, which DALAG credits to D.~Roy, that every matrix with entries in the $k$-span of algebraically independent elements is $k$-equivalent to a block matrix $\begin{pmatrix} A & B \\ C & 0 \end{pmatrix}$ with $A$ regular, holds for every field $k$ (Proposition~\ref{prop:dalag_prop_12_2}); its first printed proof works for every subspace with condition (ii) of Prop.~12.13 (Proposition~\ref{prop:dalag_prop_12_2_ii}). The same proof gives the Remark of p.~424, that $k + E_0$ has Property (A B; C 0) when $E_0$ is spanned by algebraically independent elements, without the hypothesis $E_0 \cap k = \{0\}$ (Proposition~\ref{prop:dalag_remark_12_1_3}): the printed reason, through $K(X)$, has a gap (ERRATA.md, B11), and the proof here runs the first proof of Prop.~12.2 on $k + E_0$ directly. Prop.~12.6 holds without its hypothesis $n < d$, which its proof does not use (Proposition~\ref{prop:dalag_prop_12_6}), and the conclusion of \S12.1.6, that rank equal to structural rank gives Property (A B; C 0), is Proposition~\ref{prop:dalag_conclusion_12_1_6}. ERRATA.md also records three slips in these pages (C14--C16).
 
@@ -2435,6 +2437,219 @@ Let $m \geq 2$ and $v \in \C^{m}$, and suppose that $v_i v_j \in \widetilde{\mat
 \leanok
 \uses{lem:fischler_power_span_finrank,lem:fischler_rational_hull,lem:qbar_linearIndependent_complex}
 By Lemma~\ref{lem:fischler_power_span_finrank} the $\Qbar$-span of $v_1, \dots, v_m$ has dimension at most $2$, and Lemma~\ref{lem:fischler_rational_hull} writes $v = \sum_a c_a w_a$ with that many terms, the $w_a$ algebraic and linearly independent over $\Qbar$. With no term, $v = 0$ and the first two unit vectors work. With one, $v = c_1 w_1$ with $w_1 \neq 0$; pick $i_0$ with $w_{1,i_0} \neq 0$ and $j \neq i_0$, possible as $m \geq 2$: then $w_1$ and the unit vector $e_j$ are linearly independent over $\C$ (a relation $s w_1 + t e_j = 0$ read at $i_0$ gives $s = 0$, then at $j$ gives $t = 0$), and their span contains $v$. With two, $w_1$ and $w_2$ are linearly independent over $\C$ by Lemma~\ref{lem:qbar_linearIndependent_complex}, and $v = c_1 w_1 + c_2 w_2$ lies in their span.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_cor_6_5 -- https://prove2.me/theorems/a96ad673-8e22-4e26-bd60-05da04cc1d48
+\begin{corollary}[Fischler's Corollary 6.5\,(1): Conjecture 1 for tensor powers]
+\label{cor:fischler_cor_6_5}
+\lean{Diaz.fischler_cor_6_5}
+\leanok
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}, and $v_I = v_{I(1)} v_{I(2)} \cdots v_{I(k)}$ as in Theorem~\ref{thm:fischler_theorem_6_4_one}: the coordinates of $v \otimes \cdots \otimes v$ ($k$ factors) in the basis $e_{I(1)} \otimes \cdots \otimes e_{I(k)}$ of $(\C^{m})^{\otimes k}$, which is defined over $\Qbar$.
+
+Let $k \geq 3$, $m \geq 0$ and $v \in \C^{m}$, and suppose that $v_I \in \widetilde{\mathcal L}$ for every map $I : \{1, \dots, k\} \to \{1, \dots, m\}$. Then there is a family $y = (y_I)_I$ of algebraic numbers, indexed by these maps, such that $(v_I)_I$ lies in $\C y$ and every element of $\C y$ is $(v''_I)_I$ for some $v'' \in \C^{m}$, that is, $\C y$ consists of tensors $v'' \otimes \cdots \otimes v''$.
+
+So every $v \otimes \cdots \otimes v$ ($k$ factors) whose coordinates lie in $\widetilde{\mathcal L}$ lies on a line (or the point $0$) defined over $\Qbar$ and contained in the set $\mathcal{T}(k, m)$ of such tensors: the non-trivial inclusion of Fischler's Conjecture~1 for $\mathcal{T}(k, m)$.
+
+{\small\emph{Source:} \cite[Cor.~6.5, part~1]{Fis01} (p.~185): \cite[Conjecture~1]{Fis01} (p.~168) for $\mathcal{T}(k, m) = \{v \otimes \cdots \otimes v\}$ (p.~179), $k \geq 3$, in the coordinates of the basis $e_{I(1)} \otimes \cdots \otimes e_{I(k)}$, which is defined over $\Qbar$ (p.~170), in the form of its non-trivial inclusion, with a vector line $\C y$ as the affine subspace defined over $\Qbar$; the other inclusion is immediate. Here for any $m$; Th.~6.4, on which it rests, is printed for $m \geq 2$. Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. Part~2, a conditional reduction to $\mathcal{T}(2, 2)$, is not formalised. Routine.}
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:fischler_theorem_6_4_one}
+Theorem~\ref{thm:fischler_theorem_6_4_one} gives $a \in \widetilde{\mathcal L}$ and $v' \in \C^{m}$ with algebraic coordinates such that $v_I = a\,v'_I$ for every $I$. Take $y = (v'_I)_I$: its entries are products of algebraic numbers, hence algebraic, and $(v_I)_I = a y \in \C y$. For $\gamma \in \C$ choose $z$ with $z^{k} = \gamma$; then $\gamma\,v'_I = \prod_t z\,v'_{I(t)}$, so $\gamma y = (v''_I)_I$ with $v'' = z v'$.
+\end{proof}
+
+\section{Fischler's Theorems 2.3, 5.3 and 2.1}
+
+% Prove2Me: DiazModulus.fischler_theorem_2_3 -- https://prove2.me/theorems/2b330aea-a1ff-4ed5-bc53-aaf0ebfdc91f
+\begin{theorem}[Fischler's Theorem 2.3: matrices of rank one with entries in $\widetilde{\mathcal L}$]
+\label{thm:fischler_theorem_2_3}
+\lean{Diaz.fischler_theorem_2_3}
+\leanok
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+
+Let $d \geq 2$ and $l \geq 3$, and let $M$ be a $d \times l$ matrix of rank $1$ with entries in $\widetilde{\mathcal L}$. Then the $d$ rows of $M$ are linearly dependent over $\Qbar$, or its $l$ columns are linearly dependent over $\Qbar$.
+
+{\small\emph{Source:} \cite[Th.~2.3]{Fis01} (p.~171), as printed. It is the $d \times l$ form of \cite[Cor.~2]{Roy92}, which is printed for $2 \times 3$ matrices only (p.~38); Fischler states the $d \times l$ form as Th.~2.3 and presents it as a corollary of his Th.~2.1 (Theorem~\ref{thm:fischler_theorem_2_1}). Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The proof applies Roy's strong six exponentials theorem (Theorem~\ref{thm:strong_six_exponentials_unconditional}) to a $2 \times 3$ corner of a factorisation $M_{ij} = u_i c_j$. Routine.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:strong_six_exponentials_unconditional}
+The column space of $M$ is a line $\C u$, so $M_{ij} = u_i c_j$ for some $u \in \C^{d}$ and $c \in \C^{l}$. If the rows of $M$ are linearly independent over $\Qbar$, so are $u_1, \dots, u_d$: a relation $\sum_i \beta_i u_i = 0$ with algebraic $\beta_i$ gives $\sum_i \beta_i M_{ij} = 0$ for every $j$. In the same way, if the columns are linearly independent over $\Qbar$, so are $c_1, \dots, c_l$. Suppose both are. Then $x = (u_1, u_2)$ and $y = (c_1, c_2, c_3)$ are linearly independent over $\Qbar$, and every product $x_i y_j = M_{ij}$ lies in $\widetilde{\mathcal L}$, against Theorem~\ref{thm:strong_six_exponentials_unconditional}.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_theorem_5_3 -- https://prove2.me/theorems/0da189c7-9ca1-4b6a-bf9b-d3068786d652
+\begin{theorem}[Fischler's Theorem 5.3, with a vector hyperplane: Conjecture 2 for tensor powers]
+\label{thm:fischler_theorem_5_3}
+\lean{Diaz.fischler_theorem_5_3}
+\leanok
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}, and $v_I = v_{I(1)} v_{I(2)} \cdots v_{I(k)}$, the coordinates of $v \otimes \cdots \otimes v$ ($k$ factors) in the basis $e_{I(1)} \otimes \cdots \otimes e_{I(k)}$ of $(\C^{m})^{\otimes k}$, as in Theorem~\ref{thm:fischler_theorem_6_4_one}.
+
+Let $m \geq 2$ and $k \geq 2$ with $(k, m) \neq (2, 2)$, let $v \in \C^{m}$, and suppose that $v_I \in \widetilde{\mathcal L}$ for every map $I : \{1, \dots, k\} \to \{1, \dots, m\}$. Then there is a family $(\psi_I)_I$ of algebraic numbers, indexed by these maps and not all zero, such that
+\[ \sum_I \psi_I v_I = 0. \]
+So $v \otimes \cdots \otimes v$ lies in the vector hyperplane $\sum_I \psi_I x_I = 0$ of $(\C^{m})^{\otimes k}$, which is defined over $\Qbar$: Fischler's Conjecture~2 for the set $\mathcal{T}(k, m)$ of tensors $v \otimes \cdots \otimes v$, with a hyperplane through $0$.
+
+{\small\emph{Source:} \cite[Th.~5.3]{Fis01} (p.~180), in the setting of \S5.1 ($m \geq 2$, $k \geq 2$, p.~178), with \cite[Conjecture~2]{Fis01} (p.~168) in the coordinates of the basis $e_{I(1)} \otimes \cdots \otimes e_{I(k)}$, which is defined over $\Qbar$ (p.~170). The conclusion is slightly stronger than printed: the hyperplane is a vector hyperplane, where Conjecture~2 asks for an affine one; Fischler notes that his method gives vector hyperplanes (p.~169). Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The printed proof goes through the orbit results of \S4 and is sketched (p.~178); Fischler points to Th.~6.4 for a more precise result (p.~180). The proof here uses only the bound of Lemma~\ref{lem:fischler_power_span_finrank}, the common core of the proofs of Th.~6.2 and Th.~6.4, and no orbit theory; neither Th.~6.4 nor the rational hull of $v$ is used. Routine.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:fischler_power_span_finrank}
+By Lemma~\ref{lem:fischler_power_span_finrank} the $\Qbar$-span of $v_1, \dots, v_m$ has dimension $n \leq 2$, and $n \leq 1$ if $k \geq 3$. As $m \geq 2$ and $(k, m) \neq (2, 2)$, in both cases $n < m$, so $\sum_i \beta_i v_i = 0$ for some algebraic $\beta_i$, not all zero. The map $\iota(i) = (i, 1, \dots, 1)$ from indices to maps $\{1, \dots, k\} \to \{1, \dots, m\}$ is injective; let $\psi$ be $\beta_i$ at $\iota(i)$ and $0$ elsewhere. Then $\psi$ is algebraic and non-zero, and $\sum_I \psi_I v_I = \sum_i \beta_i v_i v_1^{k-1} = 0$.
+\end{proof}
+
+% Prove2Me: DiazModulus.rational_common_kernel -- https://prove2.me/theorems/6f1a7ace-6a00-4e3a-895b-7b7758a93260
+\begin{lemma}[A rational subspace is the common kernel of algebraic linear forms]
+\label{lem:rational_common_kernel}
+\lean{Diaz.rational_common_kernel}
+\leanok
+Here $\Qbar$ is as in Theorem~\ref{thm:strong_six_exponentials_unconditional}, and a subspace of $\C^{d}$ is \emph{rational} if it is spanned by vectors with algebraic coordinates. For $u, v \in \C^{d}$ write $u \cdot v = \sum_i u_i v_i$.
+
+Let $T \subseteq \C^{d}$ be a rational subspace. Then there are $\psi_1, \dots, \psi_d \in \C^{d}$ with algebraic coordinates such that, for every $v \in \C^{d}$, $v \in T$ if and only if $\psi_i \cdot v = 0$ for $i = 1, \dots, d$.
+
+{\small\emph{Source:} Classical linear algebra over $\Qbar$: one half of the remark of \cite[p.~170]{Fis01} that a subspace defined over $\Qbar$ is one defined by linear equations with coefficients in $\Qbar$. Used for Th.~2.1 (through Lemma~\ref{lem:rational_proper_annihilator}) and for the pencil forms of Prop.~3.1 and Th.~4.2. Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:roy_rational_adapted_basis}
+Lemma~\ref{lem:roy_rational_adapted_basis} gives a linear automorphism $g$ of $\C^{d}$ that maps algebraic vectors to algebraic vectors, such that $v \in T$ if and only if the last $d - \dim T$ coordinates of $gv$ vanish. The columns $g(e_j)$ of the matrix $G$ of $g$ are algebraic, so $G$ has algebraic entries and the $i$-th coordinate of $gv$ is $G_i \cdot v$, with $G_i$ the $i$-th row of $G$. Take $\psi_i = G_i$ for the last $d - \dim T$ indices $i$ and $\psi_i = 0$ for the others.
+\end{proof}
+
+% Prove2Me: DiazModulus.rational_proper_annihilator -- https://prove2.me/theorems/faf8bdc6-266f-4d8f-bbc4-2b37276f8973
+\begin{lemma}[A proper rational subspace is killed by a non-zero algebraic linear form]
+\label{lem:rational_proper_annihilator}
+\lean{Diaz.rational_proper_annihilator}
+\leanok
+With the notation of Lemma~\ref{lem:rational_common_kernel}: let $T \subseteq \C^{d}$ be a rational subspace with $T \neq \C^{d}$. Then there is a non-zero $\varphi \in \C^{d}$ with algebraic coordinates such that $\varphi \cdot v = 0$ for every $v \in T$.
+
+{\small\emph{Source:} Classical linear algebra over $\Qbar$, for a proper subspace: the half of the remark of \cite[p.~170]{Fis01} quoted in Lemma~\ref{lem:rational_common_kernel}. A step of the proof of \cite[Th.~2.1]{Fis01} (pp.~170--171) in Theorem~\ref{thm:fischler_theorem_2_1}. Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:rational_common_kernel}
+Lemma~\ref{lem:rational_common_kernel} writes $T$ as the common kernel of algebraic $\psi_1, \dots, \psi_d$. If every $\psi_i$ were zero, $T$ would be $\C^{d}$; a non-zero $\psi_i$ is the required $\varphi$.
+\end{proof}
+
+% Prove2Me: DiazModulus.rational_preimage_finrank -- https://prove2.me/theorems/202938cb-98c2-4c98-a7e8-0cf385f7396f
+\begin{lemma}[A rational preimage of the algebraic part of a subspace]
+\label{lem:rational_preimage_finrank}
+\lean{Diaz.rational_preimage_finrank}
+\leanok
+With the notation of Lemma~\ref{lem:rational_common_kernel}: let $M$ be a $d \times l$ complex matrix whose $l$ columns are linearly independent over $\Qbar$ ($Mb \neq 0$ for every non-zero $b \in \C^{l}$ with algebraic coordinates), let $T \subseteq \C^{d}$ be any subspace, rational or not, and let $W \subseteq \C^{d}$ be the $\Qbar$-vector space spanned by the columns of $M$. Then there is a rational subspace $S \subseteq \C^{l}$ such that $Ms \in T$ for every $s \in S$ and
+\[ \dim S = \dim_{\Qbar}(W \cap T). \]
+
+{\small\emph{Source:} A step of the proof of \cite[Th.~2.1]{Fis01} (pp.~170--171) in Theorem~\ref{thm:fischler_theorem_2_1}: it gives the subspace $S$ of the conclusion, whose codimension $l - \dim S$ is then the number $\ell'$ of Roy's Th.~4 (Theorem~\ref{thm:roy_theorem_four}). The statement keeps the hypothesis that the columns of $M$ are linearly independent over $\Qbar$; the proof does not use it, and the conclusion holds for every complex matrix $M$. Routine.}
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:qbar_linearIndependent_complex}
+Let $y_1, \dots, y_n$ be a $\Qbar$-basis of $W \cap T$. Each $y_k$ lies in $W$, so $y_k = M b_k$ with $b_k \in \C^{l}$ algebraic. The $b_k$ are linearly independent over $\Qbar$, since $b \mapsto Mb$ is $\Qbar$-linear and sends them to the free family of the $y_k$, and so, being algebraic, they are linearly independent over $\C$ (Lemma~\ref{lem:qbar_linearIndependent_complex}). Their $\C$-span $S$ is rational, of dimension $n$, and $MS \subseteq T$ since every $M b_k = y_k$ lies in $T$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_theorem_2_1 -- https://prove2.me/theorems/9d9e396d-974b-4432-8bd6-7d79c6bc191e
+\begin{theorem}[Fischler's Theorem 2.1: Roy's Theorem 4 in Fischler's form]
+\label{thm:fischler_theorem_2_1}
+\lean{Diaz.fischler_theorem_2_1}
+\leanok
+Here $\Qbar$ and $\widetilde{\mathcal L}$ are as in Theorem~\ref{thm:strong_six_exponentials_unconditional}, and rational subspaces as in Lemma~\ref{lem:rational_common_kernel}.
+
+Let $M$ be a $d \times l$ matrix with entries in $\widetilde{\mathcal L}$, of rank $r$. Assume that the $l$ columns of $M$ are linearly independent over $\Qbar$ ($Mb \neq 0$ for every non-zero $b \in \C^{l}$ with algebraic coordinates), that its $d$ rows are linearly independent over $\Qbar$ ($\varphi^{\mathsf T} M \neq 0$ for every non-zero $\varphi \in \C^{d}$ with algebraic coordinates), and that $(d + l)\,r < dl$. Then there are rational subspaces $S \subseteq \C^{l}$ and $T \subseteq \C^{d}$ and an integer $r_1 \geq 1$ such that, with $l_1 = l - \dim S$ and $d_1 = d - \dim T$, we have $l_1 \geq 1$, $d_1 \geq 1$, $Ms \in T$ for every $s \in S$, and
+\[ r_1 d < r d_1 \quad\text{and}\quad l_1 d_1 \leq r_1 (l_1 + d_1), \]
+that is, $r_1/d_1 < r/d$ and $r_1 \geq l_1 d_1/(l_1 + d_1)$.
+
+In Fischler's terms: $M$ is the matrix of a linear map $u$ in bases defined over $\Qbar$, its kernel contains no non-zero vector defined over $\Qbar$, its image lies in no hyperplane defined over $\Qbar$, $r < dl/(d + l)$, and $S$, $T$ are defined over $\Qbar$ with $u(S) \subseteq T$.
+
+{\small\emph{Source:} \cite[Th.~2.1]{Fis01} (pp.~170--171): Roy's Th.~4 in Fischler's form, in coordinates for bases defined over $\Qbar$ (a subspace defined over $\Qbar$ is a rational one, p.~170). The printed hypotheses 2 and 3 say that the columns and the rows of $M$ are linearly independent over $\Qbar$; hyperplanes are vector hyperplanes (the convention of p.~169); the printed hypothesis that the spaces $E$ and $F$ are non-zero follows from $(d + l)r < dl$ and is omitted; the integer $r_1$ is existentially quantified, as printed. Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. Fischler derives the theorem from \cite[Th.~4]{Roy92} (p.~34), referring to Roy's proof of Cor.~1 (p.~38), which does not contain the step that gives the strict inequality $r_1/d_1 < r/d$; here that step comes from Roy's Th.~4, which holds at every minimiser (p.~34), applied at the zero subspace. Routine.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_theorem_four,lem:roy_theorem_four_exists,thm:multiplicityEstimateElem,lem:rational_preimage_finrank,lem:rational_proper_annihilator}
+Let $U$ be the column space of $M$ and $W$ the $\Qbar$-span of its columns; $(d + l)r < dl$ forces $d, l \geq 1$. Lemma~\ref{lem:roy_theorem_four_exists}, with Theorem~\ref{thm:multiplicityEstimateElem}, gives a rational $T \neq \C^{d}$ minimising $(r - \dim(U \cap T))/(d - \dim T)$, and Theorem~\ref{thm:roy_theorem_four} gives, with $d_1 = d - \dim T$, $r_1 = r - \dim(U \cap T)$ and $\ell' = l - \dim_{\Qbar}(W \cap T)$, the inequalities $\ell' d_1 \leq r_1(d_1 + \ell')$ and $r_1 d \leq r d_1$. The second is strict: in case of equality the zero subspace minimises the ratio too, and Theorem~\ref{thm:roy_theorem_four} there gives $ld \leq r(d + l)$, against the hypothesis. Lemma~\ref{lem:rational_preimage_finrank} gives a rational $S$ with $MS \subseteq T$ and $\dim S = \dim_{\Qbar}(W \cap T)$, so $l_1 = \ell'$. Finally $U \not\subseteq T$: by Lemma~\ref{lem:rational_proper_annihilator} a non-zero algebraic $\varphi$ vanishes on $T$, and it would kill every column of $M$, against the hypothesis on the rows. This gives $r_1 \geq 1$ and, as $S = \C^{l}$ would give $U \subseteq T$, also $l_1 \geq 1$; and $d_1 \geq 1$ as $T \neq \C^{d}$.
+\end{proof}
+
+\section{Fischler's Sections 3 and 4 in pencil form}
+
+% Prove2Me: DiazModulus.fischler_prop_3_2_pencil -- https://prove2.me/theorems/70501f73-cb02-4414-9781-43862eae1d78
+\begin{proposition}[Fischler's Proposition 3.2 in pencil form, not printed in this form]
+\label{prop:fischler_prop_3_2_pencil}
+\lean{Diaz.fischler_prop_3_2_pencil}
+\leanok
+Here $\Qbar$, $\widetilde{\mathcal L}$ and rational subspaces are as in Theorem~\ref{thm:fischler_theorem_2_1}. For $d \times d$ matrices $F_1, \dots, F_l$ and $\alpha \in \C^{d}$, $M_\alpha$ is the $d \times l$ matrix whose $a$-th column is $F_a\alpha$, so that $M_\alpha s = (s_1F_1 + \dots + s_lF_l)\,\alpha$ for $s \in \C^{l}$.
+
+Let $d \geq 1$. Let $F_1, \dots, F_l$ be $d \times d$ matrices with algebraic entries, let $x \in \C^{d}$ have all its coordinates in $\widetilde{\mathcal L}$, and put $r = \operatorname{rank} M_x$. Let $\mathcal{E}$ be the intersection of all rational subspaces of $\C^{d}$ that contain $x$. Then there are subspaces $S \subseteq \C^{l}$ and $T \subseteq \C^{d}$ such that, with $l_1 = l - \dim S$ and $d_1 = d - \dim T$, we have $d_1 \geq 1$,
+\[ (d - r)\,l_1 \leq r\,d_1, \]
+and $(s_1F_1 + \dots + s_lF_l)\,\alpha \in T$ for every $s \in S$ and every $\alpha \in \mathcal{E}$. No bound on $l_1$ is asserted, and $S$ and $T$ are not required to be rational, as in print.
+
+{\small\emph{Source:} \cite[Prop.~3.2]{Fis01} (p.~174), in pencil form; not printed in this form. Fischler's setting (\S2.3, pp.~171--172): $\rho : G \to \mathrm{GL}(W)$ a representation of an affine algebraic group, both defined over $\Qbar$, $X$ an orbit, $d = \dim W$, $l = \dim G$, $r = \dim X$, $f_A = \mathrm{Lie}(\rho)(A)$ and $M_\alpha(A) = f_A(\alpha)$. The pencil form replaces $\mathrm{Lie}(\rho)$ by the algebraic matrices $F_1, \dots, F_l$, the images of a basis of the Lie algebra defined over $\Qbar$ (so $f_A = \sum_a s_a F_a$ for $A = \sum_a s_a A_a$), and $\dim X$ by $\operatorname{rank} M_x$, which is Fischler's Lemma~2.4; the printed statement follows from the pencil form with Lemma~2.4. This dictionary is an argument, not a formal proof: the printed statement, on algebraic groups, is not formalised. No property of the $F_a$ beyond being algebraic is assumed, and $x \in X(\mathcal{L})$, with Fischler's $\mathcal{L}$, becomes $x \in \widetilde{\mathcal L}^{d}$: the printed proof uses nothing more. $\mathcal{E}$, the smallest subspace defined over $\Qbar$ that contains $x$, is written as the intersection of all rational subspaces containing $x$; $d \geq 1$ is implicit in print ($d_1 \geq 1$). As printed, $l_1 \geq 0$ and $S$, $T$ are not said to be defined over $\Qbar$. Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The proof is the printed one: Roy's Cor.~1 (Fischler's Cor.~2.2) applied to $M_x$. Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{thm:roy_rank_bound,lem:fischler_rational_hull}
+The matrix $M_x$ has entries in $\widetilde{\mathcal L}$, the $F_a$ being algebraic. Theorem~\ref{thm:roy_rank_bound} gives invertible algebraic $P$, $Q$ and $0 < d' \leq d$, $0 \leq l' \leq l$ such that $(PM_xQ)_{ij} = 0$ for $i \leq d'$ and $j > l'$, and $dl' \leq r(d' + l')$, that is, $(d - r)l' \leq rd'$. Let $S$ be the span of the last $l - l'$ columns of $Q$ and $T$ the common kernel of the first $d'$ rows of $P$, so that $l_1 = l'$ and $d_1 = d'$. For a column $s$ of $Q$ in $S$, each of the first $d'$ rows of $P(\sum_a s_aF_a)$ is an algebraic linear form vanishing at $x$. Lemma~\ref{lem:fischler_rational_hull} writes $x = \sum_b c_b w_b$ with algebraic $w_b$, and such a form vanishes at every $w_b$; the $\C$-span of the $w_b$ is rational and contains $x$, hence contains $\mathcal{E}$, so the form vanishes on $\mathcal{E}$. Hence $(\sum_a s_aF_a)\alpha \in T$ for $\alpha \in \mathcal{E}$, and linearity extends this to all of $S$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_theorem_4_2_pencil -- https://prove2.me/theorems/3f68e805-eb99-4331-9607-1af76accb627
+\begin{theorem}[Fischler's Theorem 4.2 in pencil form, not printed in this form]
+\label{thm:fischler_theorem_4_2_pencil}
+\lean{Diaz.fischler_theorem_4_2_pencil}
+\leanok
+With $F_1, \dots, F_l$ and $M_\alpha$ as in Proposition~\ref{prop:fischler_prop_3_2_pencil}: let $F_1, \dots, F_l$ be $d \times d$ matrices with algebraic entries, let $x \in \C^{d}$ have all its coordinates in $\widetilde{\mathcal L}$, and put $r = \operatorname{rank} M_x$. Assume that $2r < d$. Then there is a rational subspace $E \subseteq \C^{d}$ with $x \in E$ such that $\operatorname{rank} M_\alpha < d$ for every $\alpha \in E$.
+
+{\small\emph{Source:} \cite[Th.~4.2]{Fis01} (p.~175), in pencil form; not printed in this form. Printed: if $\rho$ has a Zariski-dense orbit $Y$ and $X$ has dimension $r < d/2$, every $x \in X(\mathcal{L})$ lies in a subspace defined over $\Qbar$ that is disjoint from $Y$. The pencil form uses the dictionary of Proposition~\ref{prop:fischler_prop_3_2_pencil}, with $r = \operatorname{rank} M_x$, and reads disjointness from $Y$ as $\operatorname{rank} M_\alpha < d$ on $E$: when a Zariski-dense orbit $Y$ exists, $Y$ is the set of $\alpha$ with $\operatorname{rank} M_\alpha = d$, by Lemma~2.4 and since an orbit is open in its closure. The dense-orbit hypothesis is not needed, so the pencil form is slightly more general. Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The proof is the printed one: $E$ is the least rational subspace containing $x$, and Proposition~\ref{prop:fischler_prop_3_2_pencil} with rank--nullity bounds $\operatorname{rank} M_\alpha$ on $E$. Routine.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{prop:fischler_prop_3_2_pencil,lem:fischler_rational_hull,lem:rational_common_kernel}
+Lemma~\ref{lem:fischler_rational_hull} writes $x = \sum_b c_b w_b$ with the $c_b$ linearly independent over $\Qbar$ and the $w_b$ algebraic; let $E$ be the $\C$-span of the $w_b$, which is rational and contains $x$. It lies in every rational subspace containing $x$: by Lemma~\ref{lem:rational_common_kernel} such a subspace is the common kernel of algebraic linear forms, which vanish at $x$, hence at every $w_b$. So $E$ lies in the subspace $\mathcal{E}$ of Proposition~\ref{prop:fischler_prop_3_2_pencil}, which gives $S$, $T$ with $d_1 \geq 1$, $(d - r)l_1 \leq rd_1$ and $M_\alpha s \in T$ for $s \in S$ and $\alpha \in E$. If $\operatorname{rank} M_\alpha = d$ for some $\alpha \in E$, rank--nullity for $M_\alpha$ on a splitting $\C^{l} = S \oplus S'$ gives $d \leq \dim T + l_1$, that is, $d_1 \leq l_1$, so $l_1 \geq 1$; then $(d - r)l_1 \leq rd_1 \leq rl_1$ gives $d \leq 2r$, against $2r < d$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_prop_3_1_pencil -- https://prove2.me/theorems/8b4ba92d-787c-4036-afa8-51b9fb81f9ce
+\begin{proposition}[Fischler's Proposition 3.1 in pencil form, not printed in this form]
+\label{prop:fischler_prop_3_1_pencil}
+\lean{Diaz.fischler_prop_3_1_pencil}
+\leanok
+With $F_1, \dots, F_l$ and $M_\alpha$ as in Proposition~\ref{prop:fischler_prop_3_2_pencil}, and $u \cdot v$ as in Lemma~\ref{lem:rational_common_kernel}: let $F_1, \dots, F_l$ be $d \times d$ matrices with algebraic entries, let $x \in \C^{d}$ have all its coordinates in $\widetilde{\mathcal L}$, and put $r = \operatorname{rank} M_x$. Assume
+
+(S1$'$) $F_1, \dots, F_l$ are linearly independent over $\Qbar$;
+
+(S2$'$) no non-zero $\varphi \in \C^{d}$ with algebraic coordinates satisfies $\varphi^{\mathsf T} F_a = 0$ for $a = 1, \dots, l$;
+
+(S3$'$) $(d + l)\,r < dl$.
+
+Assume also that $x$ lies in no hyperplane defined over $\Qbar$: $\varphi \cdot x \neq 0$ for every non-zero $\varphi \in \C^{d}$ with algebraic coordinates. Then there are subspaces $S \subseteq \C^{l}$ and $T \subseteq \C^{d}$ and an integer $r_1 \geq 1$ such that, with $l_1 = l - \dim S$ and $d_1 = d - \dim T$, we have $l_1 \geq 1$, $d_1 \geq 1$, $(s_1F_1 + \dots + s_lF_l)\,\alpha \in T$ for every $s \in S$ and every $\alpha \in \C^{d}$ (the image of $s_1F_1 + \dots + s_lF_l$ lies in $T$), and
+\[ r_1 d < r d_1 \quad\text{and}\quad l_1 d_1 \leq r_1 (l_1 + d_1), \]
+that is, $r_1/d_1 < r/d$ and $r_1 \geq l_1 d_1/(l_1 + d_1)$. $S$ and $T$ are not required to be rational, as in print.
+
+{\small\emph{Source:} \cite[Prop.~3.1]{Fis01} (p.~173), in pencil form; not printed in this form, with the dictionary of Proposition~\ref{prop:fischler_prop_3_2_pencil}. The printed hypothesis that $(\rho, X)$ is suitable (p.~172) is replaced by its linear consequences: $\mathrm{Lie}(\rho)$ injective gives (S1$'$); the condition that no open subgroup of $G^{\mathrm{op}}$ fixes a non-zero $\varphi$ in $W^{*}$ gives (S2$'$) in the complex case, through the exponential, and the printed proof uses it only for algebraic $\varphi$; $r < dl/(d + l)$ is (S3$'$) with $r = \operatorname{rank} M_x$ (Lemma~2.4). Hyperplanes are vector hyperplanes (the convention of p.~169). As printed, $S$ and $T$ are not said to be defined over $\Qbar$. Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The proof is the printed one (pp.~173--174): Fischler's Th.~2.1 (Theorem~\ref{thm:fischler_theorem_2_1}) applied to $M_x$, whose columns and rows are linearly independent over $\Qbar$ by (S1$'$), (S2$'$) and the hypothesis on $x$. Routine.}
+\end{proposition}
+
+\begin{proof}
+\leanok
+\uses{thm:fischler_theorem_2_1,lem:rational_common_kernel}
+$M_x$ has entries in $\widetilde{\mathcal L}$, and $M_x b = (\sum_a b_aF_a)x$. If $b$ is algebraic and $M_x b = 0$, each row of $\sum_a b_aF_a$ is an algebraic linear form vanishing at $x$, hence zero, so $\sum_a b_aF_a = 0$ and $b = 0$ by (S1$'$). If $\varphi$ is algebraic and $\varphi^{\mathsf T}M_x = 0$, the algebraic forms $\varphi^{\mathsf T}F_a$ vanish at $x$, hence are zero, so $\varphi = 0$ by (S2$'$). Theorem~\ref{thm:fischler_theorem_2_1} then gives rational $S$, $T$ with $l_1, d_1 \geq 1$ and $M_xS \subseteq T$, and $r_1$ with the two inequalities. By Lemma~\ref{lem:rational_common_kernel}, $T$ is the common kernel of algebraic forms $\psi_1, \dots, \psi_d$. For algebraic $s \in S$, $(\sum_a s_aF_a)x \in T$, so each algebraic form $\psi_k^{\mathsf T}(\sum_a s_aF_a)$ vanishes at $x$, hence is zero: the image of $\sum_a s_aF_a$ lies in $T$. As $S$ is spanned by its algebraic vectors and $s \mapsto \sum_a s_aF_a$ is linear, this holds for every $s \in S$.
+\end{proof}
+
+% Prove2Me: DiazModulus.fischler_theorem_4_1_pencil -- https://prove2.me/theorems/bb3c0f5d-2dc5-4668-9471-84525238f6cb
+\begin{theorem}[Fischler's Theorem 4.1 in pencil form, not printed in this form]
+\label{thm:fischler_theorem_4_1_pencil}
+\lean{Diaz.fischler_theorem_4_1_pencil}
+\leanok
+With $F_1, \dots, F_l$, $M_\alpha$ and $u \cdot v$ as in Proposition~\ref{prop:fischler_prop_3_1_pencil}: let $k \geq 2$, let $F_1, \dots, F_l$ be $d \times d$ matrices with algebraic entries, let $x \in \C^{d}$ have all its coordinates in $\widetilde{\mathcal L}$, and put $r = \operatorname{rank} M_x$. Assume (S1$'$)--(S3$'$) of Proposition~\ref{prop:fischler_prop_3_1_pencil}: $F_1, \dots, F_l$ are linearly independent over $\Qbar$, no non-zero $\varphi \in \C^{d}$ with algebraic coordinates satisfies $\varphi^{\mathsf T} F_a = 0$ for $a = 1, \dots, l$, and $(d + l)\,r < dl$. Assume also that $d < \operatorname{rank} M_\alpha + k$ for some $\alpha \in \C^{d}$, and that $kr \leq d$. Then $x$ lies in a hyperplane defined over $\Qbar$: there is a non-zero $\varphi \in \C^{d}$ with algebraic coordinates such that $\varphi \cdot x = 0$.
+
+{\small\emph{Source:} \cite[Th.~4.1]{Fis01} (pp.~174--175), in pencil form; not printed in this form, with the dictionary of Proposition~\ref{prop:fischler_prop_3_2_pencil}. The printed hypotheses ($k > 1$; $(\rho, X)$ suitable; a $\rho$-orbit of codimension less than $k$ in $W$; $X$ of dimension $r \leq d/k$) become $k \geq 2$, (S1$'$)--(S3$'$) as in Proposition~\ref{prop:fischler_prop_3_1_pencil}, $d - \operatorname{rank} M_\alpha < k$ for some $\alpha$, and $k \operatorname{rank} M_x \leq d$, orbit dimensions being read as ranks (Lemma~2.4). Hyperplanes are vector hyperplanes (the convention of p.~169). Fischler's $\mathcal{L}$ is $\widetilde{\mathcal L}$ here. The proof is the printed one (p.~175), its arithmetic cleared of denominators. Routine.}
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{prop:fischler_prop_3_1_pencil}
+Suppose that $x$ lies in no hyperplane defined over $\Qbar$. Proposition~\ref{prop:fischler_prop_3_1_pencil} gives $S$, $T$ with $l_1, d_1 \geq 1$ and $(\sum_a s_aF_a)(\C^{d}) \subseteq T$ for $s \in S$, and $r_1 \geq 1$ with $r_1 d < rd_1$ and $l_1 d_1 \leq r_1(l_1 + d_1)$. As $M_\alpha s = (\sum_a s_aF_a)\alpha$, $M_\alpha$ maps $S$ into $T$, and rank--nullity on a splitting $\C^{l} = S \oplus S'$ gives $d_1 \leq l_1 + (d - \operatorname{rank} M_\alpha) \leq l_1 + k - 1$. From $kr \leq d$, $kr_1 r \leq r_1 d < rd_1$, so $kr_1 < d_1$. Multiplying $r_1 d < rd_1$ by $l_1 + d_1$ and using $l_1 d_1 \leq r_1(l_1 + d_1)$ gives $dl_1 < r(l_1 + d_1)$, so $kl_1 < l_1 + d_1$. If $l_1 = 1$, then $k \leq kr_1 < d_1 \leq k$. If $l_1 \geq 2$, then $kl_1 < l_1 + d_1 \leq 2l_1 + k - 1$ forces $k = 2$; then $d_1 = l_1 + 1$ and $2r_1 \leq l_1$, and $l_1(l_1 + 1) \leq r_1(2l_1 + 1) \leq l_1(2l_1 + 1)/2$ fails. So $x$ lies in a hyperplane defined over $\Qbar$.
 \end{proof}
 
 \section{\emph{Further variations}: Theorem 2.1 for every subspace}
