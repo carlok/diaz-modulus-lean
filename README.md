@@ -56,11 +56,20 @@ Lean 4.35.0, Mathlib v4.35.0.
 - `scripts/refresh_prove2me_archive.py` — refreshes the archive and regenerates the checklist.
 - `tex/` — the companion notes. The note selects from the library; the library does not select.
 
-## Palomar submission surface
+## Palomar
 
-This repository also carries the files the [Palomar
-registry](https://palomar-registry.org/) requires. The Lean project is at the
-repository root, so the project path is `.`.
+The [Palomar registry](https://palomar-registry.org/) requires every `.lean`
+file of a submitted repository to use the Lean module system. This repository
+does not (its archive keeps the platform submissions verbatim), so Palomar
+entries are made from small extracts that point back here:
+
+- **The six exponentials theorem** (Lang 1966, Ramachandra 1968):
+  [carlok/six-exponentials-lean](https://github.com/carlok/six-exponentials-lean),
+  the import closure of `Diaz.six_exponentials` (eleven modules), ported to the
+  module system with no proof changes.
+
+The files below are an earlier submission surface, kept for reference; they
+predate the module-system rule and are not submittable as they stand.
 
 | File | Purpose |
 | --- | --- |
