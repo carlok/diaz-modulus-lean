@@ -14,7 +14,7 @@ shared tools stated for general use, and with the size of every proof kept down.
 
 No new transcendence theorem is claimed. The library does have results of its own:
 [chapter 14 of the blueprint](https://carlok.github.io/diaz-modulus-lean/chap-14-not-found-in-the-sources.html)
-lists those not found in the sources read and ranks the ones that are not routine. Not found is not a claim
+lists those not found in the sources read; all of them are routine. Not found is not a claim
 that they are new. The classical results are attributed below, and so are the Lean proofs written by others. The results about Diaz's conjecture are mostly negative: they show which methods
 cannot settle it.
 

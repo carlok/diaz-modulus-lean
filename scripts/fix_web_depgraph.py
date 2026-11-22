@@ -8,7 +8,8 @@ no option to change it. This rewrites the DOT source that blueprint/web/dep_grap
   `style="rounded,filled"`). Definitions keep plain boxes.
 - Nodes whose entry in blueprint/nodes/*.toml has `novelty = "not-routine"` (not found in the sources read, and not
   a routine consequence of them; see the chapter "Results not found in the sources read") get a double border.
-The legend is updated to match. Run it after `leanblueprint web`; it exits 1 if the page no longer has the expected
+The legend is updated to match; it has a double-border entry only when some node is marked (none is, since
+22 November 2026). Run it after `leanblueprint web`; it exits 1 if the page no longer has the expected
 form, or a marked node is missing from the graph, so a change cannot pass silently.
 """
 import pathlib
@@ -23,7 +24,8 @@ ENV_PREFIX = {"theorem": "thm", "lemma": "lem", "proposition": "prop", "corollar
 DOT = re.compile(r"(\.renderDot\(`)(.*?)(`\))", re.S)
 NODE = re.compile(r"\[[^\[\]]*\]")  # one attribute list of the DOT source
 LEGEND_OLD = "<dt>Ellipses</dt><dd>theorems and lemmas</dd>"
-LEGEND_NEW = ("<dt>Rounded boxes</dt><dd>theorems and lemmas</dd>\n"
+LEGEND_ROUNDED = "<dt>Rounded boxes</dt><dd>theorems and lemmas</dd>"
+LEGEND_NEW = (LEGEND_ROUNDED + "\n"
               "      <dt>Double border</dt><dd>not found in the sources read, and not routine "
               "(chapter &ldquo;Results not found in the sources read&rdquo;)</dd>")
 
@@ -74,7 +76,7 @@ def main():
     s = s[:m.start(2)] + new_dot + s[m.end(2):]
     if s.count(LEGEND_OLD) != 1:
         sys.exit("the legend entry for ellipses was not found exactly once")
-    s = s.replace(LEGEND_OLD, LEGEND_NEW)
+    s = s.replace(LEGEND_OLD, LEGEND_NEW if marked else LEGEND_ROUNDED)
     page.write_text(s, encoding="utf-8")
     print(f"rounded {n_ellipse} graph nodes; double border on {len(marked)}: {', '.join(marked)}")
 

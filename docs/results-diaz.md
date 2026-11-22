@@ -269,7 +269,9 @@ in u and ū with algebraic coefficients, that is, a Laurent polynomial in v, and
   width count rules out two of the four pencils, and the other two give (R) and (Q).
 - The configurations are printed or substitutions: (P) is Diaz 2007, Théorème 7(1); (Q) is the configuration of the
   proof of Diaz 2004, Théorème 2. The "only if" half, the family (Q) and the criterion were not found in the sources
-  read; Theorem E is the second entry of the blueprint's list of results not found and not routine.
+  read, and Theorem E is in the blueprint's list of results not found. Two referees re-examined it on 22 November
+  2026 and judged every step routine: printed methods (Theorem B, the valuation count of Bachoc–Serra–Zémor at 0 and
+  ∞) and elementary algebra.
 
 ### Theorem D: what these theorems cannot refute
 
@@ -333,8 +335,10 @@ max(deg P, deg Q) = 2, and deg S₁, deg S₂ ≤ 2.
   configuration is a progression by Bachoc–Serra–Zémor (2017, Lemma 4). The "only if" half of Theorem F and the
   proof of Theorem NF without vector bundles were not found in the sources read. Of the literature on scrolls and
   rank-two bundles on P¹ only a textbook chapter was read (Reid, Chapters on algebraic surfaces, Ch. 2): it prints the
-  ingredients of the bundle proof but not the three shapes. Theorem F with its key step Theorem NF is the third entry
-  of the blueprint's list of results not found and not routine.
+  ingredients of the bundle proof but not the three shapes. Theorem F with its key step Theorem NF is in the
+  blueprint's list of results not found. Two referees re-examined it on 22 November 2026 and judged it routine: the
+  three types of Theorem NF come from the normal forms of a regular 2×2 pencil (two eigenvalues, one Jordan block,
+  a scalar).
 
 ### Invisible degree-two spaces: Q1.4–Q1.7
 

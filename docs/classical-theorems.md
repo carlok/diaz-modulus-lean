@@ -10,7 +10,7 @@ progression spaces classified and configurations up to degree two), the dichotom
 near a point of a circle, and consequences in transcendence degree one, with results from the author's unpublished
 manuscript and reductions under Kirby's weak Schanuel conjecture.
 Its chapter ["Results not found in the sources read"](https://carlok.github.io/diaz-modulus-lean/chap-14-not-found-in-the-sources.html) lists the blueprint's results not found in the literature
-checked and ranks those that are not routine; in the dependency graph they have a double border.
+checked, and what is printed nearby; all of them are routine.
 
 | Result | Due to | Lean name | Lean proof |
 |---|---|---|---|
