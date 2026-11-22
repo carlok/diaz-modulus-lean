@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.degree_one_space_visible_to_four_dimensiona
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic__4bd63c92.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -83,7 +86,7 @@ theorem degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_q
     (by
       simp only [map_sub, map_mul, map_pow, aeval_C, aeval_X, degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic_am]
       linear_combination u * h + a₃ * hcuu)
-  have := congrArg (coeff · 3) hP
+  have := congrArg (AddMonoidAlgebra.coeff · 3) hP
   simp [coeff_X_pow] at this
 
 theorem degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic_red_csq {u cu : ℂ} (hu : u ∉ Qbar) {ρ a₁ a₂ a₃ : ↥Qbar} (hρ : ρ ≠ 0)
@@ -93,7 +96,7 @@ theorem degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_q
     (by
       simp only [map_sub, map_add, map_mul, map_pow, aeval_C, aeval_X, degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic_am]
       linear_combination (-u ^ 2) * h + (cu * u + ρ - a₃ * u) * hcuu)
-  have := congrArg (coeff · 0) hP
+  have := congrArg (AddMonoidAlgebra.coeff · 0) hP
   simp [coeff_X, coeff_C, coeff_X_pow, hρ] at this
 
 theorem degree_one_space_visible_to_four_dimensional_extensions_iff_cubic_over_quadratic_red_inv {u cu : ℂ} (hu : u ∉ Qbar) {ρ a₁ a₂ a₃ β : ↥Qbar} (hβ : β ≠ 0)

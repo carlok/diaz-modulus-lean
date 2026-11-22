@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.degree_one_space_cubic_over_quadratic_of_me
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal__8945f4c9.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -77,7 +80,7 @@ theorem degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal
     refine pack hu (C α + C β * X) (X ^ 3 - C c₁ * X ^ 2 - C c₀ * X - C (c₂ * ρ)) ?_
       (by compute_degree!) (by compute_degree!) ?_
     · intro hN
-      have := congrArg (coeff · 3) hN
+      have := congrArg (AddMonoidAlgebra.coeff · 3) hN
       simp [coeff_X_pow] at this
     · simp only [map_add, map_sub, map_mul, map_pow, aeval_C, aeval_X, degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal_am]
       rw [hρc]
@@ -87,7 +90,7 @@ theorem degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal
       (C (ρ ^ 2) - X * (C c₀ * X + C c₁ * X ^ 2 + C (c₂ * ρ))) ?_
       (by compute_degree!) (by compute_degree!) ?_
     · intro hN
-      have := congrArg (coeff · 0) hN
+      have := congrArg (AddMonoidAlgebra.coeff · 0) hN
       simp only [coeff_sub, coeff_C_zero, mul_coeff_zero, coeff_X_zero, zero_mul, sub_zero] at this
       exact pow_ne_zero 2 hρ0 this
     · simp only [map_add, map_sub, map_mul, map_pow, aeval_C, aeval_X, degree_one_space_cubic_over_quadratic_of_mem_square_or_reciprocal_am]

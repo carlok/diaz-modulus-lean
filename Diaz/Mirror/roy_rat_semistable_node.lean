@@ -238,7 +238,7 @@ theorem roy_rat_semistable_node_transport {d n : ℕ}
   · rwa [← hfin (U.comap E), hU'map] at key
   · intro S' hS'
     have hSrat : roy_rat_semistable_node_IsRat (S'.map E) := by
-      apply le_antisymm (Submodule.span_le.mpr fun _ hv => hv.1)
+      apply le_antisymm (Submodule.span_le.mpr fun _ hv => And.left hv)
       calc S'.map E = (Submodule.span ℂ {v | v ∈ S' ∧ ∀ i, ∃ q : ℚ, v i = (q : ℂ)}).map E := by
             rw [hS']
         _ = Submodule.span ℂ (E '' {v | v ∈ S' ∧ ∀ i, ∃ q : ℚ, v i = (q : ℂ)}) := Submodule.map_span _ _
@@ -324,7 +324,7 @@ theorem roy_rat_semistable_node (hME : MultiplicityEstimateElem) {d : ℕ}
   set V₀ := Submodule.span ℂ {v : Fin d → ℂ | v ∈ V' ∧ ∀ i, ∃ r : ℚ, v i = (r : ℂ)} with hV₀
   set T := V₀ ⊔ L₁ with hTdef
   have htX : Module.finrank ℂ ↥T ≤ Module.finrank ℂ ↥(V' ⊔ L₁) :=
-    Submodule.finrank_mono (sup_le_sup_right (Submodule.span_le.mpr fun _ hv => hv.1) _)
+    Submodule.finrank_mono (sup_le_sup_right (Submodule.span_le.mpr fun _ hv => And.left hv) _)
   have htd : Module.finrank ℂ ↥T < d := by omega
   have hTrat : roy_rat_semistable_node_IsRat T := roy_rat_semistable_node_isRat_sup (roy_rat_semistable_node_isRat_span V') (L1_rat φ L₁ hL₁)
   have hl₁t : Module.finrank ℂ ↥L₁ ≤ Module.finrank ℂ ↥T := Submodule.finrank_mono le_sup_right

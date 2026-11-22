@@ -203,6 +203,7 @@ lemma det_lower {F : Type*} [Field F] [NumberField F] (σ : F →+* ℂ) {b : F}
 
 end C14_A10
 
+set_option maxHeartbeats 400000 in
 open C14_A10 in
 theorem interp_det_liouville {ι₀ ι₁ κ₀ κ₁ : Type} [Fintype ι₀] [Fintype ι₁] [Fintype κ₀] [Fintype κ₁]
     [DecidableEq ι₀] [DecidableEq ι₁]

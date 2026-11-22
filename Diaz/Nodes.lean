@@ -84,13 +84,13 @@ theorem indep_three (hT : Transcendental K u) (hρ : u * conj u ∈ K)
     intro hzero
     apply hne
     have hb0 : b = 0 := by
-      have := congrArg (fun q => Polynomial.coeff q 2) hzero
+      have := congrArg (fun q => AddMonoidAlgebra.coeff q 2) hzero
       simpa using congrArg (Subtype.val) this
     have ha0 : a = 0 := by
-      have := congrArg (fun q => Polynomial.coeff q 1) hzero
+      have := congrArg (fun q => AddMonoidAlgebra.coeff q 1) hzero
       simpa using congrArg (Subtype.val) this
     have hc0 : c = 0 := by
-      have := congrArg (fun q => Polynomial.coeff q 0) hzero
+      have := congrArg (fun q => AddMonoidAlgebra.coeff q 0) hzero
       have h0 : c * (u * conj u) = 0 := by simpa using congrArg (Subtype.val) this
       rcases mul_eq_zero.mp h0 with h' | h'
       · exact h'

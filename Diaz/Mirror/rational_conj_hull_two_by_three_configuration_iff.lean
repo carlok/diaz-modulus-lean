@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.rational_conj_hull_two_by_three_configurati
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.rational_conj_hull_two_by_three_configuration_iff__030f340a.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -46,9 +49,9 @@ theorem rational_conj_hull_two_by_three_configuration_iff_quad_zero {z : ℂ} (h
     (h : (a₀ : ℂ) + a₁ * z + a₂ * z ^ 2 = 0) : a₀ = 0 ∧ a₁ = 0 ∧ a₂ = 0 := by
   have hP := transcendental_iff.1 hz (C a₀ + C a₁ * X + C a₂ * X ^ 2) (by simpa [rational_conj_hull_two_by_three_configuration_iff_am] using h)
   refine ⟨?_, ?_, ?_⟩
-  · simpa using congrArg (coeff · 0) hP
-  · simpa using congrArg (coeff · 1) hP
-  · simpa using congrArg (coeff · 2) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP
 
 /-- `1, u, ū` are free over `Q̄` when `u ∉ Q̄` and `u ū ∈ Q̄`. -/
 theorem free3 {u : ℂ} (hu : u ∉ Qbar) (hρ : IsAlgebraic ℚ (u * conj u)) :

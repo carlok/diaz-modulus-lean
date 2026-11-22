@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.mobius_progression_space_contains_square_or
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.mobius_progression_space_contains_square_or_reciprocal__471b5837.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -55,10 +58,10 @@ theorem cubic_zero {u : ℂ} (hu : u ∉ Qbar) (a₀ a₁ a₂ a₃ : ↥Qbar)
   have hP := mobius_progression_space_contains_square_or_reciprocal_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3)
     (by simpa [mobius_progression_space_contains_square_or_reciprocal_am] using h)
   refine ⟨?_, ?_, ?_, ?_⟩
-  · simpa using congrArg (coeff · 0) hP
-  · simpa using congrArg (coeff · 1) hP
-  · simpa using congrArg (coeff · 2) hP
-  · simpa using congrArg (coeff · 3) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 3) hP
 
 theorem exists_root {p : (↥Qbar)[X]} (hp : 0 < p.natDegree) : ∃ b : ↥Qbar, p.IsRoot b := by
   have hp0 : p ≠ 0 := ne_zero_of_natDegree_gt hp

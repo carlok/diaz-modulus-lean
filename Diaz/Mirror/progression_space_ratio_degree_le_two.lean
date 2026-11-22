@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.progression_space_ratio_degree_le_two`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.progression_space_ratio_degree_le_two__b4e97be1.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -44,10 +47,10 @@ theorem progression_space_ratio_degree_le_two_cubic_zero {z : ℂ} (hz : Transce
   have hP := transcendental_iff.1 hz (C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3)
     (by simpa [progression_space_ratio_degree_le_two_am] using h)
   refine ⟨?_, ?_, ?_, ?_⟩
-  · simpa using congrArg (coeff · 0) hP
-  · simpa using congrArg (coeff · 1) hP
-  · simpa using congrArg (coeff · 2) hP
-  · simpa using congrArg (coeff · 3) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 3) hP
 
 theorem progression_space_ratio_degree_le_two_aeval_injective {u : ℂ} (hu : u ∉ Qbar) :
     Function.Injective (aeval (R := ↥Qbar) u) :=

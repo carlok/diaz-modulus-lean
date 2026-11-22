@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.laurent_case_two_configuration_invisible`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.laurent_case_two_configuration_invisible__a914b5a7.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -67,8 +70,8 @@ theorem laurent_case_two_configuration_invisible (u : ℂ) (hu : u ∉ Qbar) :
     intro s t h
     have hP := laurent_case_two_configuration_invisible_aeval_eq_zero hu (P := C s + C t * X)
       (by simpa [Subfield.smul_def, laurent_case_two_configuration_invisible_algebraMap_coe] using h)
-    have h0 := congrArg (coeff · 0) hP
-    have h1 := congrArg (coeff · 1) hP
+    have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
+    have h1 := congrArg (AddMonoidAlgebra.coeff · 1) hP
     simp [coeff_C, coeff_X] at h0 h1
     exact ⟨h0, h1⟩
   · -- `a u⁻¹ + b + c u³ = 0`, times `u`
@@ -81,9 +84,9 @@ theorem laurent_case_two_configuration_invisible (u : ℂ) (hu : u ∉ Qbar) :
         simp only [map_add, map_mul, aeval_C, aeval_X, aeval_X_pow, laurent_case_two_configuration_invisible_algebraMap_coe]
         have : u * ((g 0 : ℂ) * u⁻¹ + g 1 * 1 + g 2 * u ^ 3) = 0 := by rw [hg, mul_zero]
         rw [← this]; field_simp)
-    have h0 := congrArg (coeff · 0) hP
-    have h1 := congrArg (coeff · 1) hP
-    have h4 := congrArg (coeff · 4) hP
+    have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
+    have h1 := congrArg (AddMonoidAlgebra.coeff · 1) hP
+    have h4 := congrArg (AddMonoidAlgebra.coeff · 4) hP
     simp [coeff_C, coeff_X, coeff_X_pow] at h0 h1 h4
     intro i
     fin_cases i
@@ -112,7 +115,7 @@ theorem laurent_case_two_configuration_invisible (u : ℂ) (hu : u ∉ Qbar) :
         have : u * (u ^ 2 - ((c₁ : ℂ) * u⁻¹ + c₂ * 1 + c₃ * u + c₄ * u ^ 3 + c₅ * u ^ 4)) = 0 := by
           rw [← hc, sub_self, mul_zero]
         rw [← neg_eq_zero, ← this]; field_simp; ring)
-    have h3 := congrArg (coeff · 3) hP
+    have h3 := congrArg (AddMonoidAlgebra.coeff · 3) hP
     simp [coeff_X_pow] at h3
   · intro h
     obtain ⟨c₁, c₂, c₃, c₄, c₅, hc⟩ := mem_span5 h
@@ -125,7 +128,7 @@ theorem laurent_case_two_configuration_invisible (u : ℂ) (hu : u ∉ Qbar) :
             = 0 := by
           rw [← hc, sub_self, mul_zero]
         rw [← this]; field_simp)
-    have h0 := congrArg (coeff · 0) hP
+    have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
     simp [coeff_C, coeff_X, coeff_X_pow, coeff_one] at h0
   · intro b hb hb0 h
     obtain ⟨c₁, c₂, c₃, c₄, c₅, hc⟩ := mem_span5 h

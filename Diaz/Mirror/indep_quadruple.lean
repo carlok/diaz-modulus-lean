@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Diaz.indep_quadruple`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Diaz.indep_quadruple__feeb0e4e.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Closure
@@ -53,9 +56,9 @@ theorem indep_quadruple {K : Subfield ℂ} {u v : ℂ}
     by_contra hne
     exact hvt ⟨p, hne, hroot⟩
   -- read off the coefficients
-  have e2 := congrArg (fun r => (Polynomial.coeff r 2 : ↥L)) hp0
-  have e1 := congrArg (fun r => (Polynomial.coeff r 1 : ↥L)) hp0
-  have e0 := congrArg (fun r => (Polynomial.coeff r 0 : ↥L)) hp0
+  have e2 := congrArg (fun r => (AddMonoidAlgebra.coeff r 2 : ↥L)) hp0
+  have e1 := congrArg (fun r => (AddMonoidAlgebra.coeff r 1 : ↥L)) hp0
+  have e0 := congrArg (fun r => (AddMonoidAlgebra.coeff r 0 : ↥L)) hp0
   simp only [hp, Polynomial.coeff_add, Polynomial.coeff_C_mul, Polynomial.coeff_X_pow,
     Polynomial.coeff_C, Polynomial.coeff_X, Polynomial.coeff_zero, Subtype.ext_iff,
     Subfield.coe_zero, Subfield.coe_add, Subfield.coe_mul] at e2 e1 e0
@@ -70,7 +73,7 @@ theorem indep_quadruple {K : Subfield ℂ} {u v : ℂ}
       K.mul_mem (SubfieldClass.ratCast_mem K _) hq
     refine hut ⟨Polynomial.X ^ 2 + Polynomial.C ⟨_, hmem⟩, ?_, ?_⟩
     · intro hz
-      have := congrArg (fun r => (Polynomial.coeff r 2 : ↥K)) hz
+      have := congrArg (fun r => (AddMonoidAlgebra.coeff r 2 : ↥K)) hz
       simp at this
     · simp only [map_add, map_pow, Polynomial.aeval_C, Polynomial.aeval_X]
       show u ^ 2 + ((b / a : ℚ) : ℂ) * (u * conj u) = 0

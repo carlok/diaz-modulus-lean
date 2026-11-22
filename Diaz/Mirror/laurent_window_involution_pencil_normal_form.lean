@@ -171,7 +171,7 @@ theorem laurent_window_involution_pencil_normal_form (K : Type*) [Field K] (N : 
   obtain ⟨h, hh, t, hyeq⟩ := hL2 y hy1 hy2
   have ht : t = 0 := by
     have := congrArg (fun p => p.coeff D) hyeq
-    simp only [coeff_add, coeff_smul, smul_eq_mul, cXm y (show 1 ≤ D by omega), hyD,
+    simp only [coeff_add, AddMonoidAlgebra.coeff_smul_apply, smul_eq_mul, cXm y (show 1 ≤ D by omega), hyD,
       laurent_window_involution_pencil_normal_form_win_coeff hh (show D ≠ k + 2 by omega) (by omega) (by omega), zero_add] at this
     exact (mul_eq_zero.mp this.symm).resolve_right hlc
   rw [ht, zero_smul, add_zero] at hyeq
@@ -248,12 +248,12 @@ theorem laurent_window_involution_pencil_normal_form (K : Type*) [Field K] (N : 
   clear_value s
   have ha' : h.coeff (k + 2) = 0 := by
     have := congrArg (fun p => p.coeff (k + 2)) hyeq
-    simp only [cXm y (show 1 ≤ k + 2 by omega), coeff_add, coeff_smul, hn0d, coeff_X_pow,
+    simp only [cXm y (show 1 ≤ k + 2 by omega), coeff_add, AddMonoidAlgebra.coeff_smul_apply, hn0d, coeff_X_pow,
       coeff_C_mul, smul_eq_mul] at this
     simpa [hy1c] using this.symm
   have hb' : h.coeff (k + 3) = 0 := by
     have := congrArg (fun p => p.coeff (k + 3)) hyeq
-    simp only [cXm y (show 1 ≤ k + 3 by omega), coeff_add, coeff_smul, hn0d, coeff_X_pow,
+    simp only [cXm y (show 1 ≤ k + 3 by omega), coeff_add, AddMonoidAlgebra.coeff_smul_apply, hn0d, coeff_X_pow,
       coeff_C_mul, smul_eq_mul] at this
     simpa [hy2c] using this.symm
   set c' := h.coeff (k + 4)

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.quadratic_ratio_pole_fractions_independent`
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.quadratic_ratio_pole_fractions_independent__c00ebfac.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -51,9 +54,9 @@ theorem lin3 {u : ℂ} (hu : u ∉ Qbar) {a b c : ↥Qbar} (h : (a : ℂ) + b * 
     field_simp at h
     linear_combination h)
   refine ⟨?_, ?_, ?_⟩
-  · simpa using congrArg (coeff · 1) hP
-  · simpa using congrArg (coeff · 2) hP
-  · simpa using congrArg (coeff · 0) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP
 
 theorem q_ne_zero {p q : (↥Qbar)[X]} (hcop : IsCoprime p q)
     (hdeg : max p.natDegree q.natDegree = 2) : q ≠ 0 := by

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.cyclic_pair_space_no_mobius_ratio_configura
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.cyclic_pair_space_no_mobius_ratio_configuration__6abf9f79.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -54,14 +57,14 @@ theorem cyclic_pair_space_no_mobius_ratio_configuration_eight_terms {u : ℂ} (h
     C a₄ * X ^ 4 + C a₅ * X ^ 5 + C a₆ * X ^ 6 + C a₇ * X ^ 7)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, cyclic_pair_space_no_mobius_ratio_configuration_am]; exact h)
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 5) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 6) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 7) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 5) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 6) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 7) hP
 
 theorem cyclic_pair_space_no_mobius_ratio_configuration_coeffs {u z zc t w : ℂ} (hw : w ∈ Submodule.span Qbar ({1, u, t, z, zc} : Set ℂ)) :
     ∃ c₁ c₂ c₃ c₄ c₅ : ↥Qbar, w = (c₁ : ℂ) + c₂ * u + c₃ * t + c₄ * z + c₅ * zc := by

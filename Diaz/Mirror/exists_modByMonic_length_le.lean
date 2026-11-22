@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `Transcendence.exists_modByMonic_length_le`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/Transcendence.exists_modByMonic_length_le__c575b504.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Mirror.length_sum_le
@@ -77,7 +80,7 @@ theorem len1_one : len1 1 = 1 := by
   have hs : (1 : Polynomial ℤ).support ⊆ {0} := by
     rw [← C_1]
     exact support_C_subset 1
-  rw [len1_eq_sum 1 hs, Finset.sum_singleton, coeff_one_zero, Int.natAbs_one]
+  rw [len1_eq_sum 1 hs, Finset.sum_singleton, AddMonoidAlgebra.coeff_one_zero, Int.natAbs_one]
 
 theorem len_C (p : Polynomial ℤ) : exists_modByMonic_length_le_len (C p) = len1 p := by
   rw [len_eq_sum (C p) (support_C_subset p), Finset.sum_singleton, coeff_C_zero]

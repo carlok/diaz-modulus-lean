@@ -45,7 +45,7 @@ def laurent_hull_config_iff_supp (E : Set ℕ) : Submodule F F[X] where
   carrier := {P | ∀ n ∉ E, P.coeff n = 0}
   add_mem' ha hb n hn := by rw [coeff_add, ha n hn, hb n hn, add_zero]
   zero_mem' n _ := coeff_zero n
-  smul_mem' c P hP n hn := by rw [coeff_smul, hP n hn, smul_zero]
+  smul_mem' c P hP n hn := by rw [AddMonoidAlgebra.coeff_smul_apply, hP n hn, smul_zero]
 
 theorem laurent_hull_config_iff_X_pow_mem_supp {E : Set ℕ} {m : ℕ} (hm : m ∈ E) : (X ^ m : F[X]) ∈ laurent_hull_config_iff_supp E := by
   intro n hn
@@ -54,7 +54,7 @@ theorem laurent_hull_config_iff_X_pow_mem_supp {E : Set ℕ} {m : ℕ} (hm : m �
 theorem laurent_hull_config_iff_natTrailingDegree_mem {E : Set ℕ} {P : F[X]} (hP : P ∈ laurent_hull_config_iff_supp E) (h0 : P ≠ 0) :
     P.natTrailingDegree ∈ E := by
   by_contra h
-  exact trailingCoeff_nonzero_iff_nonzero.2 h0 (hP _ h)
+  exact trailingCoeff_ne_zero.2 h0 (hP _ h)
 
 end laurent_hull_config_iff_supp
 

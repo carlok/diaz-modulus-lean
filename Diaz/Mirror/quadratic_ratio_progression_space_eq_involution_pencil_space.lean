@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.quadratic_ratio_progression_space_eq_involu
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.quadratic_ratio_progression_space_eq_involution_pencil_space__3a820b7e.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -56,10 +59,10 @@ theorem quadratic_ratio_progression_space_eq_involution_pencil_space_cubic_zero 
   have hP := quadratic_ratio_progression_space_eq_involution_pencil_space_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3)
     (by simpa [quadratic_ratio_progression_space_eq_involution_pencil_space_am] using h)
   refine ⟨?_, ?_, ?_, ?_⟩
-  · simpa using congrArg (coeff · 0) hP
-  · simpa using congrArg (coeff · 1) hP
-  · simpa using congrArg (coeff · 2) hP
-  · simpa using congrArg (coeff · 3) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 3) hP
 
 /-- The binary form `Σ φⱼ pʲ qᵐ⁻ʲ` attached to `φ` of virtual degree `m`. -/
 noncomputable def hom (p q : (↥Qbar)[X]) (m : ℕ) (φ : (↥Qbar)[X]) : (↥Qbar)[X] :=
@@ -146,8 +149,8 @@ theorem pencil_ne {u : ℂ} {p q : (↥Qbar)[X]} (hq : aeval u q ≠ 0)
   have hP := quadratic_ratio_progression_space_eq_involution_pencil_space_aeval_eq_zero hh (P := C a * X + C b) (by
     simp only [map_add, map_mul, aeval_C, quadratic_ratio_progression_space_eq_involution_pencil_space_am, aeval_X]
     field_simp; linear_combination e')
-  have ha := congrArg (coeff · 1) hP
-  have hb := congrArg (coeff · 0) hP
+  have ha := congrArg (AddMonoidAlgebra.coeff · 1) hP
+  have hb := congrArg (AddMonoidAlgebra.coeff · 0) hP
   simp at ha hb
   rcases hab with h | h <;> contradiction
 

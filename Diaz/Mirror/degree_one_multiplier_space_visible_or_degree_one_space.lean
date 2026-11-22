@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.degree_one_multiplier_space_visible_or_degr
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.degree_one_multiplier_space_visible_or_degree_one_space__3ea1b5b3.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -42,9 +45,9 @@ theorem degree_one_multiplier_space_visible_or_degree_one_space_quad_zero {u : �
   have hP := degree_one_multiplier_space_visible_or_degree_one_space_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2)
     (by simpa [show ∀ x : ↥Qbar, algebraMap (↥Qbar) ℂ x = x from fun _ => rfl] using h)
   refine ⟨?_, ?_, ?_⟩
-  · simpa using congrArg (coeff · 0) hP
-  · simpa using congrArg (coeff · 1) hP
-  · simpa using congrArg (coeff · 2) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP
 
 theorem ne0 {u : ℂ} (hu : u ∉ Qbar) : u ≠ 0 := fun h => hu (h ▸ Qbar.zero_mem)
 

@@ -52,11 +52,11 @@ theorem laurent_conj_hull_with_polynomial_part_configuration_class_five_terms {u
   have hP := laurent_conj_hull_with_polynomial_part_configuration_class_aeval_eq_zero hu (P := C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3 + C a₄ * X ^ 4)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, laurent_conj_hull_with_polynomial_part_configuration_class_am]; exact h)
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
 
 /-- Conjugation maps `Q̄` to itself. -/
 theorem laurent_conj_hull_with_polynomial_part_configuration_class_conj_mem_Qbar {a : ℂ} (ha : a ∈ Qbar) : conj a ∈ Qbar :=
@@ -132,7 +132,7 @@ theorem top {v : ℂ} (hv : v ∉ Qbar) (hv1 : v * conj v = 1) {P : (↥Qbar)[X]
   have hz : (reflect d (P.map laurent_conj_hull_with_polynomial_part_configuration_class_cqh)).coeff (d + (d + 4)) = 0 := coeff_eq_zero_of_natDegree_lt
     ((natDegree_reflect_le (N := d) (p := P.map laurent_conj_hull_with_polynomial_part_configuration_class_cqh)).trans_lt
       (max_lt (by omega) (natDegree_map_le.trans_lt (by omega))))
-  have hc := congrArg (coeff · (d + (d + 4))) hR0
+  have hc := congrArg (AddMonoidAlgebra.coeff · (d + (d + 4))) hR0
   simp only [hR, coeff_add, coeff_C_mul, coeff_mul_X_pow, coeff_X_pow, coeff_zero,
     ite_eq_right (show d + (d + 4) ≠ d + 2 by omega), ite_eq_right (show d + (d + 4) ≠ d + 3 by omega),
     ite_eq_right (show d + (d + 4) ≠ d + 1 by omega), mul_zero, zero_add, hz, add_zero] at hc

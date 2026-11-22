@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.cubic_window_hull_real_pencil_class_iff`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.cubic_window_hull_real_pencil_class_iff__be3487ca.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -181,6 +184,7 @@ theorem cubic_window_hull_real_pencil_class_iff_sep {v : ℂ} (hv : v ∉ Qbar) 
 
 end R18_Eb3
 
+set_option maxHeartbeats 10000000 in
 open R18_Eb3 Polynomial in
 theorem cubic_window_hull_real_pencil_class_iff
     (v : ℂ) (hv : v ∉ Qbar) (hv1 : v * conj v = 1)
@@ -218,8 +222,8 @@ theorem cubic_window_hull_real_pencil_class_iff
         linear_combination e1)
     have hGe : G = C x₀ + C x₁ * X + C F₂ * X ^ 2 + C F₃ * X ^ 3 := sub_eq_zero.1 hP
     rw [hGe] at hQ
-    have q2 := congrArg (coeff · 2) hQ
-    have q3 := congrArg (coeff · 3) hQ
+    have q2 := congrArg (AddMonoidAlgebra.coeff · 2) hQ
+    have q3 := congrArg (AddMonoidAlgebra.coeff · 3) hQ
     simp [coeff_X_pow] at q2 q3
     have hκ0 : κ ≠ 0 := fun h0 => by rw [h0, zero_mul] at hκκ; exact zero_ne_one hκκ
     have hK0 : K ≠ 0 := fun h0 => hκ0 ((map_eq_zero _).1 (by rw [← hK, h0]; rfl))

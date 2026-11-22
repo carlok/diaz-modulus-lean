@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.involution_pencil_space_carries_two_by_thre
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.involution_pencil_space_carries_two_by_three_configuration__69d260a1.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -51,9 +54,9 @@ theorem involution_pencil_space_carries_two_by_three_configuration_three_terms {
     (h : (a : ℂ) + b * r + e * r ^ 2 = 0) : a = 0 ∧ b = 0 ∧ e = 0 := by
   have hP := involution_pencil_space_carries_two_by_three_configuration_aeval_eq_zero hr (P := C a + C b * X + C e * X ^ 2)
     (by simp only [map_add, map_mul, aeval_C, aeval_X, aeval_X_pow, involution_pencil_space_carries_two_by_three_configuration_algebraMap_coe]; exact h)
-  have h0 := congrArg (coeff · 0) hP
-  have h1 := congrArg (coeff · 1) hP
-  have h2 := congrArg (coeff · 2) hP
+  have h0 := congrArg (AddMonoidAlgebra.coeff · 0) hP
+  have h1 := congrArg (AddMonoidAlgebra.coeff · 1) hP
+  have h2 := congrArg (AddMonoidAlgebra.coeff · 2) hP
   simp [coeff_C, coeff_X, coeff_X_pow] at h0 h1 h2
   exact ⟨h0, h1, h2⟩
 

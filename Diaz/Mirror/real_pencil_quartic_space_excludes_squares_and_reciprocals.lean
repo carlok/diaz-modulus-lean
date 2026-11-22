@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.real_pencil_quartic_space_excludes_squares_
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.real_pencil_quartic_space_excludes_squares_and_reciprocals__6ea49a7e.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -52,12 +55,12 @@ theorem six_terms {u : ℂ} (hu : u ∉ Qbar) {a₀ a₁ a₂ a₃ a₄ a₅ : �
     C a₄ * X ^ 4 + C a₅ * X ^ 5)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, real_pencil_quartic_space_excludes_squares_and_reciprocals_am]; exact h)
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 5) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 5) hP
 
 /-- `(u − β) Σ aᵢ uⁱ = σ²u²(σ + u)` forces `σ²β²(σ + β) = 0`: evaluate at `β`. -/
 theorem root_eval {u L : ℂ} (hu : u ∉ Qbar) {σ β a₀ a₁ a₂ a₃ a₄ a₅ : ↥Qbar}

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.candidate_exp_angularTriple_transcendental`
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.candidate_exp_angularTriple_transcendental__212c5c15.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -145,13 +148,13 @@ private theorem candidate_exp_angularTriple_transcendental_core (hHL : HermiteLi
       by_contra hne
       exact httr ⟨p, hne, hpt⟩
     have h2 : g 1 = 0 := by
-      have := congrArg (fun q => Polynomial.coeff q 2) hp0
+      have := congrArg (fun q => AddMonoidAlgebra.coeff q 2) hp0
       simpa [hp_def] using this
     have h1 : g 0 = 0 := by
-      have := congrArg (fun q => Polynomial.coeff q 1) hp0
+      have := congrArg (fun q => AddMonoidAlgebra.coeff q 1) hp0
       simpa [hp_def] using this
     have h0 : g 2 = 0 := by
-      have := congrArg (fun q => Polynomial.coeff q 0) hp0
+      have := congrArg (fun q => AddMonoidAlgebra.coeff q 0) hp0
       simpa [hp_def] using this
     intro i
     fin_cases i <;> assumption

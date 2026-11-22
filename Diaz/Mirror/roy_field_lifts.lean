@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.roy_field_lifts`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.roy_field_lifts__5d99fcfe.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -93,6 +96,7 @@ theorem roy_field_lifts_shape_term (K : IntermediateField ℚ ℂ) [FiniteDimens
 
 end RC1_FL
 
+set_option maxHeartbeats 2400000 in
 open RC1_FL in
 theorem roy_field_lifts {d ℓ : ℕ} (z : Fin ℓ → Fin d → ℂ) (hz : ∀ i j, z i j ∈ LogAlgTilde) :
     ∃ (m : ℕ) (ω : Fin m → ℂ) (η : Fin m × Fin ℓ → (Fin d → ℂ) × (Fin m × Fin d → ℂ)),

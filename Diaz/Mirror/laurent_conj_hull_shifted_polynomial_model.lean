@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.laurent_conj_hull_shifted_polynomial_model`
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.laurent_conj_hull_shifted_polynomial_model__f3dbc789.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -189,7 +192,7 @@ theorem laurent_conj_hull_shifted_polynomial_model
       ⟨_, hsplit FL (Submodule.subset_span (by simp)), hFL⟩,
       ⟨_, hsplit FR (Submodule.subset_span (by simp)), hFR⟩⟩
   have hinj : ∀ F G, phi v N F = phi v N G → F = G := fun F G h => by
-    rw [phi_apply, phi_apply, div_left_inj' (pow_ne_zero N hv0)] at h
+    rw [phi_apply, phi_apply, div_left_inj₀ (pow_ne_zero N hv0)] at h
     exact sub_eq_zero.1 (laurent_conj_hull_shifted_polynomial_model_aeval_eq_zero hv (by rw [map_sub, h, sub_self]))
   have hiff : ∀ F : (↥Qbar)[X], aeval v F / v ^ N ∈ W ↔ F ∈ H ⊔ M := fun F =>
     ⟨fun h => by
@@ -204,7 +207,7 @@ theorem laurent_conj_hull_shifted_polynomial_model
       rcases hx with rfl | rfl <;> exact coeff_sub_hpart (by omega) _
     | zero => simp
     | add x y _ _ hx hy => simp [coeff_add, hx.1, hx.2.1, hx.2.2, hy.1, hy.2.1, hy.2.2]
-    | smul a x _ hx => simp [coeff_smul, hx.1, hx.2.1, hx.2.2]
+    | smul a x _ hx => simp [AddMonoidAlgebra.coeff_smul_apply, hx.1, hx.2.1, hx.2.2]
   refine ⟨N, M, by omega, ?_, hMc, ?_, ?_, hiff, fun w hw => ?_⟩
   · classical
     have hH3 : Module.finrank (↥Qbar) H ≤ 3 := by

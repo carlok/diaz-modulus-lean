@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.laurent_polynomial_class_conj_hull_two_orbi
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.laurent_polynomial_class_conj_hull_two_orbit_form__95457c97.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -67,13 +70,13 @@ theorem laurent_polynomial_class_conj_hull_two_orbit_form_coeff7 {u : ℂ} (hu :
     C c₄ * X ^ 4 + C c₅ * X ^ 5 + C c₆ * X ^ 6)
     (by simp only [map_add, map_mul, map_pow, aeval_C, aeval_X, laurent_polynomial_class_conj_hull_two_orbit_form_am]; linear_combination h)
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 0) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 1) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 2) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 3) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 4) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 5) hP
-  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (coeff · 6) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 3) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 4) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 5) hP
+  · simpa [coeff_X, coeff_C, coeff_X_pow] using congrArg (AddMonoidAlgebra.coeff · 6) hP
 
 theorem laurent_polynomial_class_conj_hull_two_orbit_form_span_mul_mem {S : Set ℂ} {c w : ℂ} (hc : c ∈ Qbar) (hw : w ∈ Submodule.span Qbar S) :
     c * w ∈ Submodule.span Qbar S := by

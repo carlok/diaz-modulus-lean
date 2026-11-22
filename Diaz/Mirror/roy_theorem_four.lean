@@ -47,16 +47,16 @@ theorem roy_theorem_four_isRat_map {d e : ℕ} (f : (Fin d → ℂ) →ₗ[ℂ] 
     (hf : ∀ v, (∀ i, v i ∈ Qbar) → ∀ i, f v i ∈ Qbar) {S : Submodule ℂ (Fin d → ℂ)} (hS : roy_theorem_four_IsRat S) :
     roy_theorem_four_IsRat (S.map f) := by
   obtain ⟨X, hX, rfl⟩ : ∃ X : Set (Fin d → ℂ), (∀ v ∈ X, ∀ i, v i ∈ Qbar) ∧ Submodule.span ℂ X = S :=
-    ⟨_, fun _ hv => hv.2, hS⟩
+    ⟨_, fun _ hv => And.right hv, hS⟩
   rw [Submodule.map_span]
   exact roy_theorem_four_isRat_span _ (by rintro _ ⟨v, hv, rfl⟩; exact hf v (hX v hv))
 
 theorem roy_theorem_four_isRat_sup {d : ℕ} {S T : Submodule ℂ (Fin d → ℂ)} (hS : roy_theorem_four_IsRat S) (hT : roy_theorem_four_IsRat T) :
     roy_theorem_four_IsRat (S ⊔ T) := by
   obtain ⟨X, hX, rfl⟩ : ∃ X : Set (Fin d → ℂ), (∀ v ∈ X, ∀ i, v i ∈ Qbar) ∧ Submodule.span ℂ X = S :=
-    ⟨_, fun _ hv => hv.2, hS⟩
+    ⟨_, fun _ hv => And.right hv, hS⟩
   obtain ⟨Y, hY, rfl⟩ : ∃ Y : Set (Fin d → ℂ), (∀ v ∈ Y, ∀ i, v i ∈ Qbar) ∧ Submodule.span ℂ Y = T :=
-    ⟨_, fun _ hv => hv.2, hT⟩
+    ⟨_, fun _ hv => And.right hv, hT⟩
   rw [← Submodule.span_union]
   exact roy_theorem_four_isRat_span _ (by rintro v (hv | hv); exacts [hX v hv, hY v hv])
 

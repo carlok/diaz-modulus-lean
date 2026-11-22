@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.roy_period_space`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.roy_period_space__57c296eb.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -127,6 +130,7 @@ theorem pairs_finiteDimensional {d : ℕ} (c : ℂ) (T : Submodule ℂ (Fin d �
   rintro ⟨x, κ⟩ ⟨h1, h2, _⟩
   exact ⟨(⟨x, h1⟩, fun i => ⟨κ i, h2 i⟩), rfl⟩
 
+set_option synthInstance.maxHeartbeats 200000 in
 /-- The count: `dim F + dim T ≤ dim P ≤ dim (F ⊓ T) + dim R`. -/
 theorem pairs_count {d : ℕ} (c : ℂ) (T R : Submodule ℂ (Fin d → ℂ))
     (hT : Submodule.span ℂ {v : Fin d → ℂ | v ∈ T ∧ ∀ i, v i ∈ Qbar} = T)

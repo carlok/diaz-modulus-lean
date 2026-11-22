@@ -52,10 +52,10 @@ theorem two_by_three_configuration_ratio_degree_le_two_cubic_zero {z : ℂ} (hz 
   have hP := transcendental_iff.1 hz (C a₀ + C a₁ * X + C a₂ * X ^ 2 + C a₃ * X ^ 3)
     (by simpa [two_by_three_configuration_ratio_degree_le_two_am] using h)
   refine ⟨?_, ?_, ?_, ?_⟩
-  · simpa using congrArg (coeff · 0) hP
-  · simpa using congrArg (coeff · 1) hP
-  · simpa using congrArg (coeff · 2) hP
-  · simpa using congrArg (coeff · 3) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP
+  · simpa using congrArg (AddMonoidAlgebra.coeff · 3) hP
 
 theorem two_by_three_configuration_ratio_degree_le_two_aeval_injective {u : ℂ} (hu : u ∉ Qbar) :
     Function.Injective (aeval (R := ↥Qbar) u) :=

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.exists_sse_lifts`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.exists_sse_lifts__6a388a20.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -70,6 +73,7 @@ theorem shape_term (K : IntermediateField ℚ ℂ) [FiniteDimensional ℚ K]
 
 end C14_S1
 
+set_option maxHeartbeats 2400000 in
 open C14_S1 in
 theorem exists_sse_lifts (x : Fin 2 → ℂ) (y : Fin 3 → ℂ) (hxy : ∀ i j, x i * y j ∈ LogAlgTilde) :
     ∃ (m : ℕ) (ω : Fin m → ℂ) (η : Fin m × Fin 3 → (Fin 2 → ℂ) × (Fin m × Fin 2 → ℂ)),

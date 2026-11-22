@@ -151,10 +151,10 @@ theorem expPoly_ne_zero
     intro z
     rw [← hcon z]
     refine Finset.sum_congr rfl (fun j _ => ?_)
-    simp only [P, eval_finset_sum, eval_mul, eval_C, eval_pow, eval_X, Finset.sum_mul]
+    simp only [P, eval_finsetSum, eval_mul, eval_C, eval_pow, eval_X, Finset.sum_mul]
   have hP := FourExpE0.poly_form (Fin l) _ ω hω P rfl hvan j
   have hc := congrArg (fun p => p.coeff (i : ℕ)) hP
-  simp only [P, finset_sum_coeff, coeff_C_mul_X_pow, coeff_zero] at hc
+  simp only [P, finsetSum_coeff, coeff_C_mul_X_pow, coeff_zero] at hc
   rw [Finset.sum_eq_single i (fun k _ hk => ite_eq_right (fun h => hk (Fin.ext h).symm)) (by simp)] at hc
   simp only [ite_true] at hc
   exact hji hc

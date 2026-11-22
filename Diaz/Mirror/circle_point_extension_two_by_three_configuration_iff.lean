@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.circle_point_extension_two_by_three_configu
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.circle_point_extension_two_by_three_configuration_iff__89de4b46.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -71,7 +74,7 @@ theorem sq_not_mem {u : ℂ} (hu : u ∉ Qbar) (hρ : IsAlgebraic ℚ (u * conj 
   have hP := circle_point_extension_two_by_three_configuration_iff_aeval_eq_zero hu (P := X ^ 3 - C c₁ * X ^ 2 - C c₀ * X - C c₂ * C ρ) (by
     simp only [map_sub, map_mul, map_pow, aeval_X, aeval_C, hρ']
     linear_combination u * e)
-  have h3 := congrArg (coeff · 3) hP
+  have h3 := congrArg (AddMonoidAlgebra.coeff · 3) hP
   simp at h3
 
 theorem conj_sq_not_mem {u : ℂ} (hu : u ∉ Qbar) (hρ : IsAlgebraic ℚ (u * conj u)) :

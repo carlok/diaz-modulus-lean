@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.u_multiplier_space_le_span_no_degree_one_no
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.u_multiplier_space_le_span_no_degree_one_no_visible_element__94f74c62.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -42,8 +45,8 @@ theorem quad {u : ℂ} (hu : u ∉ Qbar) (a₀ a₁ a₂ : ↥Qbar)
     (h : (a₀ : ℂ) + a₁ * u + a₂ * u ^ 2 = 0) : a₀ = 0 ∧ a₁ = 0 ∧ a₂ = 0 := by
   have hP := transcendental_iff.1 (u_multiplier_space_le_span_no_degree_one_no_visible_element_tr_of_not_mem hu) (C a₀ + C a₁ * X + C a₂ * X ^ 2) (by
     simpa only [map_add, map_mul, map_pow, aeval_C, aeval_X, u_multiplier_space_le_span_no_degree_one_no_visible_element_am] using h)
-  exact ⟨by simpa using congrArg (coeff · 0) hP, by simpa using congrArg (coeff · 1) hP,
-    by simpa using congrArg (coeff · 2) hP⟩
+  exact ⟨by simpa using congrArg (AddMonoidAlgebra.coeff · 0) hP, by simpa using congrArg (AddMonoidAlgebra.coeff · 1) hP,
+    by simpa using congrArg (AddMonoidAlgebra.coeff · 2) hP⟩
 
 theorem span2 {u f : ℂ} (hf : f ∈ Submodule.span Qbar ({1, u⁻¹} : Set ℂ)) :
     ∃ c d : ↥Qbar, f = (c : ℂ) + d * u⁻¹ := by

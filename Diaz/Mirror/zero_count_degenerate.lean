@@ -89,11 +89,11 @@ theorem zero_count_degenerate
         have hi : (i : ℕ) < q j := i.isLt
         have hq := hsingle j hj
         omega)) (by simp)]
-    simp only [P, eval_finset_sum, eval_mul, eval_C, eval_pow, eval_X, Finset.sum_mul]
+    simp only [P, eval_finsetSum, eval_mul, eval_C, eval_pow, eval_X, Finset.sum_mul]
   have hP : P ≠ 0 := by
     intro h0
     have hc := congrArg (fun p => p.coeff (i₀ : ℕ)) h0
-    simp only [P, finset_sum_coeff, coeff_C_mul_X_pow, coeff_zero] at hc
+    simp only [P, finsetSum_coeff, coeff_C_mul_X_pow, coeff_zero] at hc
     rw [Finset.sum_eq_single i₀ (fun k _ hk => ite_eq_right (fun h => hk (Fin.ext h).symm)) (by simp)] at hc
     simp only [ite_true] at hc
     exact hb₀ hc

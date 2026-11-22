@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.invisible_two_orbit_space_u_multiplier_spac
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.invisible_two_orbit_space_u_multiplier_space_eq__973912f0.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -151,13 +154,13 @@ theorem invisible_two_orbit_space_u_multiplier_space_eq (u : ℂ) (hu : u ∉ Qb
         ((natDegree_sub_le _ _).trans (max_le
           ((natDegree_mul_le_of_le natDegree_X_le hA).trans (by omega)) (by omega)))
         (by compute_degree) (by compute_degree) hpoly
-      have ha₁ : a₁ = 0 := by simpa using congrArg (coeff · 1) h1
-      have ha₂ : a₂ = 0 := by simpa using congrArg (coeff · 1) h2
+      have ha₁ : a₁ = 0 := by simpa using congrArg (AddMonoidAlgebra.coeff · 1) h1
+      have ha₂ : a₂ = 0 := by simpa using congrArg (AddMonoidAlgebra.coeff · 1) h2
       rw [h1, h2, mul_zero, mul_zero, add_zero, add_zero] at hpoly
       have hXA : X * A = A' :=
         sub_eq_zero.1 ((mul_eq_zero.1 hpoly).resolve_left (mul_ne_zero hP0 hQ0))
       have hA2 : A.coeff 2 = 0 := by
-        have := congrArg (coeff · 3) hXA
+        have := congrArg (AddMonoidAlgebra.coeff · 3) hXA
         simp only [coeff_X_mul] at this
         rw [this]
         exact coeff_eq_zero_of_natDegree_lt (by omega)
@@ -196,9 +199,9 @@ theorem invisible_two_orbit_space_u_multiplier_space_eq (u : ℂ) (hu : u ∉ Qb
       (by simp) (by simp) hpoly
     rw [h1, h2, mul_zero, mul_zero, add_zero, add_zero] at hpoly
     have hA := (mul_eq_zero.1 hpoly).resolve_left (mul_ne_zero hP0 hQ0)
-    have c0 : s 2 = 0 := by simpa using congrArg (coeff · 0) hA
-    have c1 : s 0 = 0 := by simpa using congrArg (coeff · 1) hA
-    have c2 : s 1 = 0 := by simpa using congrArg (coeff · 2) hA
+    have c0 : s 2 = 0 := by simpa using congrArg (AddMonoidAlgebra.coeff · 0) hA
+    have c1 : s 0 = 0 := by simpa using congrArg (AddMonoidAlgebra.coeff · 1) hA
+    have c2 : s 1 = 0 := by simpa using congrArg (AddMonoidAlgebra.coeff · 2) hA
     rw [C_eq_zero] at h1 h2
     intro i
     fin_cases i

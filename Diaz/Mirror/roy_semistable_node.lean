@@ -177,7 +177,7 @@ theorem transport {d n : ℕ}
   · rwa [← hfin (U.comap E), hU'map] at key
   · intro S' hS'
     have hSrat : IsRat (S'.map E) := by
-      apply le_antisymm (Submodule.span_le.mpr fun _ hv => hv.1)
+      apply le_antisymm (Submodule.span_le.mpr fun _ hv => And.left hv)
       calc S'.map E = (Submodule.span ℂ {v | v ∈ S' ∧ ∀ i, v i ∈ Qbar}).map E := by rw [hS']
         _ = Submodule.span ℂ (E '' {v | v ∈ S' ∧ ∀ i, v i ∈ Qbar}) := Submodule.map_span _ _
         _ ≤ _ := Submodule.span_mono (by

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.anisotropic_relation_four_exp_barrier`.
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.anisotropic_relation_four_exp_barrier__ca47b9c8.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Mirror.conj_pair_quadratic_relation_iff
@@ -39,11 +42,12 @@ theorem isAlgebraic_of_quad (θ : ℝ) (α β γ : ℚ) (hα : α ≠ 0)
   refine ⟨Polynomial.C α * Polynomial.X ^ 2 + Polynomial.C β * Polynomial.X + Polynomial.C γ,
     ?_, ?_⟩
   · intro h0
-    have h2 := congr_arg (fun p => Polynomial.coeff p 2) h0
+    have h2 := congr_arg (fun p => AddMonoidAlgebra.coeff p 2) h0
     simp at h2
     exact hα h2
   · simpa using h
 
+set_option maxHeartbeats 11000000 in
 /-- The transcendence step. If `α y² + β π y + γ π² = 0` with `α, β, γ` rational, `y ∉ ℚ π`, and
 `s ρ = 4a y² + 2e π y + c π²` with `s ρ ≠ 0` and `ρ` algebraic, then `α = β = γ = 0`. -/
 theorem anisotropic_relation_four_exp_barrier_quad_zero (y ρ : ℝ) (him : ∀ q : ℚ, y ≠ (q : ℝ) * Real.pi) (hρ : IsAlgebraic ℚ ρ)

@@ -4,6 +4,9 @@ Mirrored from Prove2Me: `DiazModulus.logAlg_adjoin_circle_point_four_exponential
 Ported mechanically from the accepted submission archived as
 `archive/prove2me/DiazModulus.logAlg_adjoin_circle_point_four_exponentials_trdeg_one__184be9e0.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
+Names and spellings that changed between the platform's Mathlib revision and the one
+pinned here were updated to match, and proof steps that became no-ops there were
+dropped; the mathematics is unchanged.
 -/
 import Mathlib
 import Diaz.Platform
@@ -32,6 +35,7 @@ Apply the trichotomy `logAlg_adjoin_circle_point_trdeg_le_one_trichotomy` to the
 -/
 
 namespace R19_D4
+set_option maxHeartbeats 7500000 in
 /-- `u` and `ū` satisfy no rational quadratic relation when `u` is transcendental and `uū` is
 algebraic: only alternating coefficient matrices vanish at `(u, ū)`. -/
 theorem no_quadratic_relation (u : ℂ) (hρ : IsAlgebraic ℚ (u * conj u))
