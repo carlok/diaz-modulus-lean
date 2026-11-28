@@ -69,6 +69,13 @@ entries are made from small extracts that point back here:
   module system with no proof changes. Registered on 22 November 2026 as
   [PALOMAR-2026-11-22-000020](https://palomar-registry.org/entry?id=PALOMAR-2026-11-22-000020&version=1)
   (version 1, at commit `b42d65b`).
+- **The four exponentials theorem in transcendence degree one** (Waldschmidt
+  1973, Brownawell 1974):
+  [carlok/four-exponentials-trdeg-one-lean](https://github.com/carlok/four-exponentials-trdeg-one-lean),
+  the import closure of `Diaz.four_exponentials_trdeg_one` (55 modules), ported
+  to the module system with no proof changes. Registered on 28 November 2026 as
+  [PALOMAR-2026-11-28-000054](https://palomar-registry.org/entry?id=PALOMAR-2026-11-28-000054&version=1)
+  (version 1, at commit `0c87279`).
 
 The files below are an earlier submission surface, kept for reference; they
 predate the module-system rule and are not submittable as they stand.
